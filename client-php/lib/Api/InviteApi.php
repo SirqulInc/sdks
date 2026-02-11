@@ -158,7 +158,6 @@ class InviteApi
      *
      * Accept Invite
      *
-     * @param  float $version version (required)
      * @param  string $token the invite token (required)
      * @param  int $account_id the accountId of the user who is accepting the invite (required)
      * @param  int|null $album_id the album id associated with this invite (if applicable) (optional)
@@ -179,9 +178,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ConsumerInviteResponse
      */
-    public function acceptInvite($version, $token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
+    public function acceptInvite($token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
     {
-        list($response) = $this->acceptInviteWithHttpInfo($version, $token, $account_id, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $auto_friend, $auto_attend_event, $auto_favorite_offer, $auto_favorite_offer_location, $auto_favorite_retailer_location, $contentType);
+        list($response) = $this->acceptInviteWithHttpInfo($token, $account_id, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $auto_friend, $auto_attend_event, $auto_favorite_offer, $auto_favorite_offer_location, $auto_favorite_retailer_location, $contentType);
         return $response;
     }
 
@@ -190,7 +189,6 @@ class InviteApi
      *
      * Accept Invite
      *
-     * @param  float $version (required)
      * @param  string $token the invite token (required)
      * @param  int $account_id the accountId of the user who is accepting the invite (required)
      * @param  int|null $album_id the album id associated with this invite (if applicable) (optional)
@@ -211,9 +209,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ConsumerInviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function acceptInviteWithHttpInfo($version, $token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
+    public function acceptInviteWithHttpInfo($token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
     {
-        $request = $this->acceptInviteRequest($version, $token, $account_id, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $auto_friend, $auto_attend_event, $auto_favorite_offer, $auto_favorite_offer_location, $auto_favorite_retailer_location, $contentType);
+        $request = $this->acceptInviteRequest($token, $account_id, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $auto_friend, $auto_attend_event, $auto_favorite_offer, $auto_favorite_offer_location, $auto_favorite_retailer_location, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -289,7 +287,6 @@ class InviteApi
      *
      * Accept Invite
      *
-     * @param  float $version (required)
      * @param  string $token the invite token (required)
      * @param  int $account_id the accountId of the user who is accepting the invite (required)
      * @param  int|null $album_id the album id associated with this invite (if applicable) (optional)
@@ -309,9 +306,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function acceptInviteAsync($version, $token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
+    public function acceptInviteAsync($token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
     {
-        return $this->acceptInviteAsyncWithHttpInfo($version, $token, $account_id, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $auto_friend, $auto_attend_event, $auto_favorite_offer, $auto_favorite_offer_location, $auto_favorite_retailer_location, $contentType)
+        return $this->acceptInviteAsyncWithHttpInfo($token, $account_id, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $auto_friend, $auto_attend_event, $auto_favorite_offer, $auto_favorite_offer_location, $auto_favorite_retailer_location, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -324,7 +321,6 @@ class InviteApi
      *
      * Accept Invite
      *
-     * @param  float $version (required)
      * @param  string $token the invite token (required)
      * @param  int $account_id the accountId of the user who is accepting the invite (required)
      * @param  int|null $album_id the album id associated with this invite (if applicable) (optional)
@@ -344,10 +340,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function acceptInviteAsyncWithHttpInfo($version, $token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
+    public function acceptInviteAsyncWithHttpInfo($token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConsumerInviteResponse';
-        $request = $this->acceptInviteRequest($version, $token, $account_id, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $auto_friend, $auto_attend_event, $auto_favorite_offer, $auto_favorite_offer_location, $auto_favorite_retailer_location, $contentType);
+        $request = $this->acceptInviteRequest($token, $account_id, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $auto_friend, $auto_attend_event, $auto_favorite_offer, $auto_favorite_offer_location, $auto_favorite_retailer_location, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -388,7 +384,6 @@ class InviteApi
     /**
      * Create request for operation 'acceptInvite'
      *
-     * @param  float $version (required)
      * @param  string $token the invite token (required)
      * @param  int $account_id the accountId of the user who is accepting the invite (required)
      * @param  int|null $album_id the album id associated with this invite (if applicable) (optional)
@@ -408,15 +403,8 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function acceptInviteRequest($version, $token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
+    public function acceptInviteRequest($token, $account_id, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, $auto_friend = true, $auto_attend_event = false, $auto_favorite_offer = false, $auto_favorite_offer_location = false, $auto_favorite_retailer_location = false, string $contentType = self::contentTypes['acceptInvite'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling acceptInvite'
-            );
-        }
 
         // verify the required parameter 'token' is set
         if ($token === null || (is_array($token) && count($token) === 0)) {
@@ -445,7 +433,7 @@ class InviteApi
 
 
 
-        $resourcePath = '/api/{version}/invite/accept';
+        $resourcePath = '/invite/accept';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -580,14 +568,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -648,7 +628,6 @@ class InviteApi
      *
      * Invite to Contest
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -662,9 +641,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InviteResponse
      */
-    public function albumContestInvite($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
+    public function albumContestInvite($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
     {
-        list($response) = $this->albumContestInviteWithHttpInfo($version, $device_id, $account_id, $app_id, $app_key, $album_contest_id, $latitude, $longitude, $contentType);
+        list($response) = $this->albumContestInviteWithHttpInfo($device_id, $account_id, $app_id, $app_key, $album_contest_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -673,7 +652,6 @@ class InviteApi
      *
      * Invite to Contest
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -687,9 +665,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function albumContestInviteWithHttpInfo($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
+    public function albumContestInviteWithHttpInfo($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
     {
-        $request = $this->albumContestInviteRequest($version, $device_id, $account_id, $app_id, $app_key, $album_contest_id, $latitude, $longitude, $contentType);
+        $request = $this->albumContestInviteRequest($device_id, $account_id, $app_id, $app_key, $album_contest_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -765,7 +743,6 @@ class InviteApi
      *
      * Invite to Contest
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -778,9 +755,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function albumContestInviteAsync($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
+    public function albumContestInviteAsync($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
     {
-        return $this->albumContestInviteAsyncWithHttpInfo($version, $device_id, $account_id, $app_id, $app_key, $album_contest_id, $latitude, $longitude, $contentType)
+        return $this->albumContestInviteAsyncWithHttpInfo($device_id, $account_id, $app_id, $app_key, $album_contest_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -793,7 +770,6 @@ class InviteApi
      *
      * Invite to Contest
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -806,10 +782,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function albumContestInviteAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
+    public function albumContestInviteAsyncWithHttpInfo($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InviteResponse';
-        $request = $this->albumContestInviteRequest($version, $device_id, $account_id, $app_id, $app_key, $album_contest_id, $latitude, $longitude, $contentType);
+        $request = $this->albumContestInviteRequest($device_id, $account_id, $app_id, $app_key, $album_contest_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -850,7 +826,6 @@ class InviteApi
     /**
      * Create request for operation 'albumContestInvite'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -863,15 +838,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function albumContestInviteRequest($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
+    public function albumContestInviteRequest($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_contest_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumContestInvite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling albumContestInvite'
-            );
-        }
 
 
 
@@ -880,8 +849,7 @@ class InviteApi
 
 
 
-
-        $resourcePath = '/api/{version}/invite/albumContest';
+        $resourcePath = '/invite/albumContest';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -953,14 +921,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1021,7 +981,6 @@ class InviteApi
      *
      * Invite to Collection
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1035,9 +994,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InviteResponse
      */
-    public function albumInvite($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
+    public function albumInvite($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
     {
-        list($response) = $this->albumInviteWithHttpInfo($version, $device_id, $account_id, $app_id, $app_key, $album_id, $latitude, $longitude, $contentType);
+        list($response) = $this->albumInviteWithHttpInfo($device_id, $account_id, $app_id, $app_key, $album_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1046,7 +1005,6 @@ class InviteApi
      *
      * Invite to Collection
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1060,9 +1018,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function albumInviteWithHttpInfo($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
+    public function albumInviteWithHttpInfo($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
     {
-        $request = $this->albumInviteRequest($version, $device_id, $account_id, $app_id, $app_key, $album_id, $latitude, $longitude, $contentType);
+        $request = $this->albumInviteRequest($device_id, $account_id, $app_id, $app_key, $album_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1138,7 +1096,6 @@ class InviteApi
      *
      * Invite to Collection
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1151,9 +1108,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function albumInviteAsync($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
+    public function albumInviteAsync($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
     {
-        return $this->albumInviteAsyncWithHttpInfo($version, $device_id, $account_id, $app_id, $app_key, $album_id, $latitude, $longitude, $contentType)
+        return $this->albumInviteAsyncWithHttpInfo($device_id, $account_id, $app_id, $app_key, $album_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1166,7 +1123,6 @@ class InviteApi
      *
      * Invite to Collection
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1179,10 +1135,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function albumInviteAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
+    public function albumInviteAsyncWithHttpInfo($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InviteResponse';
-        $request = $this->albumInviteRequest($version, $device_id, $account_id, $app_id, $app_key, $album_id, $latitude, $longitude, $contentType);
+        $request = $this->albumInviteRequest($device_id, $account_id, $app_id, $app_key, $album_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1223,7 +1179,6 @@ class InviteApi
     /**
      * Create request for operation 'albumInvite'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1236,15 +1191,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function albumInviteRequest($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
+    public function albumInviteRequest($device_id = null, $account_id = null, $app_id = null, $app_key = null, $album_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['albumInvite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling albumInvite'
-            );
-        }
 
 
 
@@ -1253,8 +1202,7 @@ class InviteApi
 
 
 
-
-        $resourcePath = '/api/{version}/invite/album';
+        $resourcePath = '/invite/album';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1326,14 +1274,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1394,7 +1334,6 @@ class InviteApi
      *
      * Invite to Event
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $listing_id The ID of the event listing (required)
@@ -1406,9 +1345,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InviteResponse
      */
-    public function eventInvite($version, $account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
+    public function eventInvite($account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
     {
-        list($response) = $this->eventInviteWithHttpInfo($version, $account_id, $app_key, $listing_id, $receiver_account_ids, $retailer_location_id, $contentType);
+        list($response) = $this->eventInviteWithHttpInfo($account_id, $app_key, $listing_id, $receiver_account_ids, $retailer_location_id, $contentType);
         return $response;
     }
 
@@ -1417,7 +1356,6 @@ class InviteApi
      *
      * Invite to Event
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $listing_id The ID of the event listing (required)
@@ -1429,9 +1367,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function eventInviteWithHttpInfo($version, $account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
+    public function eventInviteWithHttpInfo($account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
     {
-        $request = $this->eventInviteRequest($version, $account_id, $app_key, $listing_id, $receiver_account_ids, $retailer_location_id, $contentType);
+        $request = $this->eventInviteRequest($account_id, $app_key, $listing_id, $receiver_account_ids, $retailer_location_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1507,7 +1445,6 @@ class InviteApi
      *
      * Invite to Event
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $listing_id The ID of the event listing (required)
@@ -1518,9 +1455,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function eventInviteAsync($version, $account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
+    public function eventInviteAsync($account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
     {
-        return $this->eventInviteAsyncWithHttpInfo($version, $account_id, $app_key, $listing_id, $receiver_account_ids, $retailer_location_id, $contentType)
+        return $this->eventInviteAsyncWithHttpInfo($account_id, $app_key, $listing_id, $receiver_account_ids, $retailer_location_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1533,7 +1470,6 @@ class InviteApi
      *
      * Invite to Event
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $listing_id The ID of the event listing (required)
@@ -1544,10 +1480,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function eventInviteAsyncWithHttpInfo($version, $account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
+    public function eventInviteAsyncWithHttpInfo($account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InviteResponse';
-        $request = $this->eventInviteRequest($version, $account_id, $app_key, $listing_id, $receiver_account_ids, $retailer_location_id, $contentType);
+        $request = $this->eventInviteRequest($account_id, $app_key, $listing_id, $receiver_account_ids, $retailer_location_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1588,7 +1524,6 @@ class InviteApi
     /**
      * Create request for operation 'eventInvite'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $listing_id The ID of the event listing (required)
@@ -1599,15 +1534,8 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function eventInviteRequest($version, $account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
+    public function eventInviteRequest($account_id, $app_key, $listing_id, $receiver_account_ids = null, $retailer_location_id = null, string $contentType = self::contentTypes['eventInvite'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling eventInvite'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1633,7 +1561,7 @@ class InviteApi
 
 
 
-        $resourcePath = '/api/{version}/invite/event';
+        $resourcePath = '/invite/event';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1687,14 +1615,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1755,7 +1675,6 @@ class InviteApi
      *
      * Invite to Game Level
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1769,9 +1688,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InviteResponse
      */
-    public function gameInvite($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
+    public function gameInvite($device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
     {
-        list($response) = $this->gameInviteWithHttpInfo($version, $device_id, $account_id, $app_id, $app_key, $game_level_id, $latitude, $longitude, $contentType);
+        list($response) = $this->gameInviteWithHttpInfo($device_id, $account_id, $app_id, $app_key, $game_level_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1780,7 +1699,6 @@ class InviteApi
      *
      * Invite to Game Level
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1794,9 +1712,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gameInviteWithHttpInfo($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
+    public function gameInviteWithHttpInfo($device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
     {
-        $request = $this->gameInviteRequest($version, $device_id, $account_id, $app_id, $app_key, $game_level_id, $latitude, $longitude, $contentType);
+        $request = $this->gameInviteRequest($device_id, $account_id, $app_id, $app_key, $game_level_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1872,7 +1790,6 @@ class InviteApi
      *
      * Invite to Game Level
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1885,9 +1802,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gameInviteAsync($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
+    public function gameInviteAsync($device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
     {
-        return $this->gameInviteAsyncWithHttpInfo($version, $device_id, $account_id, $app_id, $app_key, $game_level_id, $latitude, $longitude, $contentType)
+        return $this->gameInviteAsyncWithHttpInfo($device_id, $account_id, $app_id, $app_key, $game_level_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1900,7 +1817,6 @@ class InviteApi
      *
      * Invite to Game Level
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1913,10 +1829,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gameInviteAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
+    public function gameInviteAsyncWithHttpInfo($device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InviteResponse';
-        $request = $this->gameInviteRequest($version, $device_id, $account_id, $app_id, $app_key, $game_level_id, $latitude, $longitude, $contentType);
+        $request = $this->gameInviteRequest($device_id, $account_id, $app_id, $app_key, $game_level_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1957,7 +1873,6 @@ class InviteApi
     /**
      * Create request for operation 'gameInvite'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -1970,15 +1885,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gameInviteRequest($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
+    public function gameInviteRequest($device_id = null, $account_id = null, $app_id = null, $app_key = null, $game_level_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['gameInvite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling gameInvite'
-            );
-        }
 
 
 
@@ -1987,8 +1896,7 @@ class InviteApi
 
 
 
-
-        $resourcePath = '/api/{version}/invite/gameLevel';
+        $resourcePath = '/invite/gameLevel';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2060,14 +1968,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2128,7 +2028,6 @@ class InviteApi
      *
      * Get Invite
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id Account ID of the user if they are logged in (optional)
      * @param  string|null $token the invite token (optional)
      * @param  int|null $album_id album id to match the invite against (if applicable) (optional)
@@ -2144,9 +2043,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function getInvite($version, $account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
+    public function getInvite($account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
     {
-        list($response) = $this->getInviteWithHttpInfo($version, $account_id, $token, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $contentType);
+        list($response) = $this->getInviteWithHttpInfo($account_id, $token, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $contentType);
         return $response;
     }
 
@@ -2155,7 +2054,6 @@ class InviteApi
      *
      * Get Invite
      *
-     * @param  float $version (required)
      * @param  int|null $account_id Account ID of the user if they are logged in (optional)
      * @param  string|null $token the invite token (optional)
      * @param  int|null $album_id album id to match the invite against (if applicable) (optional)
@@ -2171,9 +2069,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInviteWithHttpInfo($version, $account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
+    public function getInviteWithHttpInfo($account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
     {
-        $request = $this->getInviteRequest($version, $account_id, $token, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $contentType);
+        $request = $this->getInviteRequest($account_id, $token, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2249,7 +2147,6 @@ class InviteApi
      *
      * Get Invite
      *
-     * @param  float $version (required)
      * @param  int|null $account_id Account ID of the user if they are logged in (optional)
      * @param  string|null $token the invite token (optional)
      * @param  int|null $album_id album id to match the invite against (if applicable) (optional)
@@ -2264,9 +2161,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInviteAsync($version, $account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
+    public function getInviteAsync($account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
     {
-        return $this->getInviteAsyncWithHttpInfo($version, $account_id, $token, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $contentType)
+        return $this->getInviteAsyncWithHttpInfo($account_id, $token, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2279,7 +2176,6 @@ class InviteApi
      *
      * Get Invite
      *
-     * @param  float $version (required)
      * @param  int|null $account_id Account ID of the user if they are logged in (optional)
      * @param  string|null $token the invite token (optional)
      * @param  int|null $album_id album id to match the invite against (if applicable) (optional)
@@ -2294,10 +2190,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInviteAsyncWithHttpInfo($version, $account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
+    public function getInviteAsyncWithHttpInfo($account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->getInviteRequest($version, $account_id, $token, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $contentType);
+        $request = $this->getInviteRequest($account_id, $token, $album_id, $mission_id, $album_contest_id, $offer_id, $offer_location_id, $retailer_location_id, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2338,7 +2234,6 @@ class InviteApi
     /**
      * Create request for operation 'getInvite'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id Account ID of the user if they are logged in (optional)
      * @param  string|null $token the invite token (optional)
      * @param  int|null $album_id album id to match the invite against (if applicable) (optional)
@@ -2353,15 +2248,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInviteRequest($version, $account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
+    public function getInviteRequest($account_id = null, $token = null, $album_id = null, $mission_id = null, $album_contest_id = null, $offer_id = null, $offer_location_id = null, $retailer_location_id = null, $app_key = null, string $contentType = self::contentTypes['getInvite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getInvite'
-            );
-        }
 
 
 
@@ -2372,8 +2261,7 @@ class InviteApi
 
 
 
-
-        $resourcePath = '/api/{version}/invite/get';
+        $resourcePath = '/invite/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2463,14 +2351,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2531,7 +2411,6 @@ class InviteApi
      *
      * Invite to Mission
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -2545,9 +2424,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InviteResponse
      */
-    public function missionInvite($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
+    public function missionInvite($device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
     {
-        list($response) = $this->missionInviteWithHttpInfo($version, $device_id, $account_id, $app_id, $app_key, $mission_id, $latitude, $longitude, $contentType);
+        list($response) = $this->missionInviteWithHttpInfo($device_id, $account_id, $app_id, $app_key, $mission_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -2556,7 +2435,6 @@ class InviteApi
      *
      * Invite to Mission
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -2570,9 +2448,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function missionInviteWithHttpInfo($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
+    public function missionInviteWithHttpInfo($device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
     {
-        $request = $this->missionInviteRequest($version, $device_id, $account_id, $app_id, $app_key, $mission_id, $latitude, $longitude, $contentType);
+        $request = $this->missionInviteRequest($device_id, $account_id, $app_id, $app_key, $mission_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2648,7 +2526,6 @@ class InviteApi
      *
      * Invite to Mission
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -2661,9 +2538,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function missionInviteAsync($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
+    public function missionInviteAsync($device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
     {
-        return $this->missionInviteAsyncWithHttpInfo($version, $device_id, $account_id, $app_id, $app_key, $mission_id, $latitude, $longitude, $contentType)
+        return $this->missionInviteAsyncWithHttpInfo($device_id, $account_id, $app_id, $app_key, $mission_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2676,7 +2553,6 @@ class InviteApi
      *
      * Invite to Mission
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -2689,10 +2565,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function missionInviteAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
+    public function missionInviteAsyncWithHttpInfo($device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InviteResponse';
-        $request = $this->missionInviteRequest($version, $device_id, $account_id, $app_id, $app_key, $mission_id, $latitude, $longitude, $contentType);
+        $request = $this->missionInviteRequest($device_id, $account_id, $app_id, $app_key, $mission_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2733,7 +2609,6 @@ class InviteApi
     /**
      * Create request for operation 'missionInvite'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $app_id This parameter is deprecated. (optional)
@@ -2746,15 +2621,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function missionInviteRequest($version, $device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
+    public function missionInviteRequest($device_id = null, $account_id = null, $app_id = null, $app_key = null, $mission_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['missionInvite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling missionInvite'
-            );
-        }
 
 
 
@@ -2763,8 +2632,7 @@ class InviteApi
 
 
 
-
-        $resourcePath = '/api/{version}/invite/mission';
+        $resourcePath = '/invite/mission';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2836,14 +2704,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2904,7 +2764,6 @@ class InviteApi
      *
      * Invite to Offer
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_id the ID of the offer used to invite to favorite (required)
@@ -2914,9 +2773,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InviteResponse
      */
-    public function offerInvite($version, $account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
+    public function offerInvite($account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
     {
-        list($response) = $this->offerInviteWithHttpInfo($version, $account_id, $app_key, $offer_id, $contentType);
+        list($response) = $this->offerInviteWithHttpInfo($account_id, $app_key, $offer_id, $contentType);
         return $response;
     }
 
@@ -2925,7 +2784,6 @@ class InviteApi
      *
      * Invite to Offer
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_id the ID of the offer used to invite to favorite (required)
@@ -2935,9 +2793,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function offerInviteWithHttpInfo($version, $account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
+    public function offerInviteWithHttpInfo($account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
     {
-        $request = $this->offerInviteRequest($version, $account_id, $app_key, $offer_id, $contentType);
+        $request = $this->offerInviteRequest($account_id, $app_key, $offer_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3013,7 +2871,6 @@ class InviteApi
      *
      * Invite to Offer
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_id the ID of the offer used to invite to favorite (required)
@@ -3022,9 +2879,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offerInviteAsync($version, $account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
+    public function offerInviteAsync($account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
     {
-        return $this->offerInviteAsyncWithHttpInfo($version, $account_id, $app_key, $offer_id, $contentType)
+        return $this->offerInviteAsyncWithHttpInfo($account_id, $app_key, $offer_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3037,7 +2894,6 @@ class InviteApi
      *
      * Invite to Offer
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_id the ID of the offer used to invite to favorite (required)
@@ -3046,10 +2902,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offerInviteAsyncWithHttpInfo($version, $account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
+    public function offerInviteAsyncWithHttpInfo($account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InviteResponse';
-        $request = $this->offerInviteRequest($version, $account_id, $app_key, $offer_id, $contentType);
+        $request = $this->offerInviteRequest($account_id, $app_key, $offer_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3090,7 +2946,6 @@ class InviteApi
     /**
      * Create request for operation 'offerInvite'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_id the ID of the offer used to invite to favorite (required)
@@ -3099,15 +2954,8 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function offerInviteRequest($version, $account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
+    public function offerInviteRequest($account_id, $app_key, $offer_id, string $contentType = self::contentTypes['offerInvite'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling offerInvite'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3131,7 +2979,7 @@ class InviteApi
         }
 
 
-        $resourcePath = '/api/{version}/invite/offer';
+        $resourcePath = '/invite/offer';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3167,14 +3015,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3235,7 +3075,6 @@ class InviteApi
      *
      * Invite to Offer Location
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_location_id the id of the offer location to share (required)
@@ -3245,9 +3084,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InviteResponse
      */
-    public function offerLocationInvite($version, $account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
+    public function offerLocationInvite($account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
     {
-        list($response) = $this->offerLocationInviteWithHttpInfo($version, $account_id, $app_key, $offer_location_id, $contentType);
+        list($response) = $this->offerLocationInviteWithHttpInfo($account_id, $app_key, $offer_location_id, $contentType);
         return $response;
     }
 
@@ -3256,7 +3095,6 @@ class InviteApi
      *
      * Invite to Offer Location
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_location_id the id of the offer location to share (required)
@@ -3266,9 +3104,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function offerLocationInviteWithHttpInfo($version, $account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
+    public function offerLocationInviteWithHttpInfo($account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
     {
-        $request = $this->offerLocationInviteRequest($version, $account_id, $app_key, $offer_location_id, $contentType);
+        $request = $this->offerLocationInviteRequest($account_id, $app_key, $offer_location_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3344,7 +3182,6 @@ class InviteApi
      *
      * Invite to Offer Location
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_location_id the id of the offer location to share (required)
@@ -3353,9 +3190,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offerLocationInviteAsync($version, $account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
+    public function offerLocationInviteAsync($account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
     {
-        return $this->offerLocationInviteAsyncWithHttpInfo($version, $account_id, $app_key, $offer_location_id, $contentType)
+        return $this->offerLocationInviteAsyncWithHttpInfo($account_id, $app_key, $offer_location_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3368,7 +3205,6 @@ class InviteApi
      *
      * Invite to Offer Location
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_location_id the id of the offer location to share (required)
@@ -3377,10 +3213,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offerLocationInviteAsyncWithHttpInfo($version, $account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
+    public function offerLocationInviteAsyncWithHttpInfo($account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InviteResponse';
-        $request = $this->offerLocationInviteRequest($version, $account_id, $app_key, $offer_location_id, $contentType);
+        $request = $this->offerLocationInviteRequest($account_id, $app_key, $offer_location_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3421,7 +3257,6 @@ class InviteApi
     /**
      * Create request for operation 'offerLocationInvite'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $offer_location_id the id of the offer location to share (required)
@@ -3430,15 +3265,8 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function offerLocationInviteRequest($version, $account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
+    public function offerLocationInviteRequest($account_id, $app_key, $offer_location_id, string $contentType = self::contentTypes['offerLocationInvite'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling offerLocationInvite'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3462,7 +3290,7 @@ class InviteApi
         }
 
 
-        $resourcePath = '/api/{version}/invite/offerLocation';
+        $resourcePath = '/invite/offerLocation';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3498,14 +3326,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3566,7 +3386,6 @@ class InviteApi
      *
      * Invite to Retailer Location
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $retailer_location_id The retailer location id of where the event will take place (required)
@@ -3577,9 +3396,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InviteResponse
      */
-    public function retailerLocationInvite($version, $account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
+    public function retailerLocationInvite($account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
     {
-        list($response) = $this->retailerLocationInviteWithHttpInfo($version, $account_id, $app_key, $retailer_location_id, $album_id, $contentType);
+        list($response) = $this->retailerLocationInviteWithHttpInfo($account_id, $app_key, $retailer_location_id, $album_id, $contentType);
         return $response;
     }
 
@@ -3588,7 +3407,6 @@ class InviteApi
      *
      * Invite to Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $retailer_location_id The retailer location id of where the event will take place (required)
@@ -3599,9 +3417,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InviteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retailerLocationInviteWithHttpInfo($version, $account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
+    public function retailerLocationInviteWithHttpInfo($account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
     {
-        $request = $this->retailerLocationInviteRequest($version, $account_id, $app_key, $retailer_location_id, $album_id, $contentType);
+        $request = $this->retailerLocationInviteRequest($account_id, $app_key, $retailer_location_id, $album_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3677,7 +3495,6 @@ class InviteApi
      *
      * Invite to Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $retailer_location_id The retailer location id of where the event will take place (required)
@@ -3687,9 +3504,9 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retailerLocationInviteAsync($version, $account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
+    public function retailerLocationInviteAsync($account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
     {
-        return $this->retailerLocationInviteAsyncWithHttpInfo($version, $account_id, $app_key, $retailer_location_id, $album_id, $contentType)
+        return $this->retailerLocationInviteAsyncWithHttpInfo($account_id, $app_key, $retailer_location_id, $album_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3702,7 +3519,6 @@ class InviteApi
      *
      * Invite to Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $retailer_location_id The retailer location id of where the event will take place (required)
@@ -3712,10 +3528,10 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retailerLocationInviteAsyncWithHttpInfo($version, $account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
+    public function retailerLocationInviteAsyncWithHttpInfo($account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InviteResponse';
-        $request = $this->retailerLocationInviteRequest($version, $account_id, $app_key, $retailer_location_id, $album_id, $contentType);
+        $request = $this->retailerLocationInviteRequest($account_id, $app_key, $retailer_location_id, $album_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3756,7 +3572,6 @@ class InviteApi
     /**
      * Create request for operation 'retailerLocationInvite'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user making the share (required)
      * @param  string $app_key the application key (required)
      * @param  int $retailer_location_id The retailer location id of where the event will take place (required)
@@ -3766,15 +3581,8 @@ class InviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retailerLocationInviteRequest($version, $account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
+    public function retailerLocationInviteRequest($account_id, $app_key, $retailer_location_id, $album_id = null, string $contentType = self::contentTypes['retailerLocationInvite'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling retailerLocationInvite'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3799,7 +3607,7 @@ class InviteApi
 
 
 
-        $resourcePath = '/api/{version}/invite/retailerLocation';
+        $resourcePath = '/invite/retailerLocation';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3844,14 +3652,6 @@ class InviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

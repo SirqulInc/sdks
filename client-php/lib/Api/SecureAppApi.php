@@ -146,7 +146,6 @@ class SecureAppApi
      *
      * Create Secure Application
      *
-     * @param  float $version version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  \SplFileObject $key_cert  (required)
@@ -163,9 +162,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function createSecureApplication($version, $account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
+    public function createSecureApplication($account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
     {
-        list($response) = $this->createSecureApplicationWithHttpInfo($version, $account_id, $app_key, $key_cert, $trust_store, $username, $password, $active, $biometric_type, $biometric_position, $biometric_position2, $contentType);
+        list($response) = $this->createSecureApplicationWithHttpInfo($account_id, $app_key, $key_cert, $trust_store, $username, $password, $active, $biometric_type, $biometric_position, $biometric_position2, $contentType);
         return $response;
     }
 
@@ -174,7 +173,6 @@ class SecureAppApi
      *
      * Create Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  \SplFileObject $key_cert  (required)
@@ -191,9 +189,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSecureApplicationWithHttpInfo($version, $account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
+    public function createSecureApplicationWithHttpInfo($account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
     {
-        $request = $this->createSecureApplicationRequest($version, $account_id, $app_key, $key_cert, $trust_store, $username, $password, $active, $biometric_type, $biometric_position, $biometric_position2, $contentType);
+        $request = $this->createSecureApplicationRequest($account_id, $app_key, $key_cert, $trust_store, $username, $password, $active, $biometric_type, $biometric_position, $biometric_position2, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -269,7 +267,6 @@ class SecureAppApi
      *
      * Create Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  \SplFileObject $key_cert  (required)
@@ -285,9 +282,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSecureApplicationAsync($version, $account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
+    public function createSecureApplicationAsync($account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
     {
-        return $this->createSecureApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $key_cert, $trust_store, $username, $password, $active, $biometric_type, $biometric_position, $biometric_position2, $contentType)
+        return $this->createSecureApplicationAsyncWithHttpInfo($account_id, $app_key, $key_cert, $trust_store, $username, $password, $active, $biometric_type, $biometric_position, $biometric_position2, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -300,7 +297,6 @@ class SecureAppApi
      *
      * Create Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  \SplFileObject $key_cert  (required)
@@ -316,10 +312,10 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSecureApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
+    public function createSecureApplicationAsyncWithHttpInfo($account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->createSecureApplicationRequest($version, $account_id, $app_key, $key_cert, $trust_store, $username, $password, $active, $biometric_type, $biometric_position, $biometric_position2, $contentType);
+        $request = $this->createSecureApplicationRequest($account_id, $app_key, $key_cert, $trust_store, $username, $password, $active, $biometric_type, $biometric_position, $biometric_position2, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -360,7 +356,6 @@ class SecureAppApi
     /**
      * Create request for operation 'createSecureApplication'
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  \SplFileObject $key_cert  (required)
@@ -376,15 +371,8 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createSecureApplicationRequest($version, $account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
+    public function createSecureApplicationRequest($account_id, $app_key, $key_cert, $trust_store, $username, $password, $active = true, $biometric_type = 'FACIAL', $biometric_position = 'UNKNOWN', $biometric_position2 = 'UNKNOWN', string $contentType = self::contentTypes['createSecureApplication'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createSecureApplication'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -433,7 +421,7 @@ class SecureAppApi
 
 
 
-        $resourcePath = '/api/{version}/secure/application/create';
+        $resourcePath = '/secure/application/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -532,14 +520,6 @@ class SecureAppApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -600,7 +580,6 @@ class SecureAppApi
      *
      * Delete Secure Application
      *
-     * @param  float $version version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSecureApplication'] to see the possible values for this operation
@@ -609,9 +588,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteSecureApplication($version, $account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
+    public function deleteSecureApplication($account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
     {
-        list($response) = $this->deleteSecureApplicationWithHttpInfo($version, $account_id, $app_key, $contentType);
+        list($response) = $this->deleteSecureApplicationWithHttpInfo($account_id, $app_key, $contentType);
         return $response;
     }
 
@@ -620,7 +599,6 @@ class SecureAppApi
      *
      * Delete Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSecureApplication'] to see the possible values for this operation
@@ -629,9 +607,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSecureApplicationWithHttpInfo($version, $account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
+    public function deleteSecureApplicationWithHttpInfo($account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
     {
-        $request = $this->deleteSecureApplicationRequest($version, $account_id, $app_key, $contentType);
+        $request = $this->deleteSecureApplicationRequest($account_id, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -707,7 +685,6 @@ class SecureAppApi
      *
      * Delete Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSecureApplication'] to see the possible values for this operation
@@ -715,9 +692,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSecureApplicationAsync($version, $account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
+    public function deleteSecureApplicationAsync($account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
     {
-        return $this->deleteSecureApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $contentType)
+        return $this->deleteSecureApplicationAsyncWithHttpInfo($account_id, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -730,7 +707,6 @@ class SecureAppApi
      *
      * Delete Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSecureApplication'] to see the possible values for this operation
@@ -738,10 +714,10 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSecureApplicationAsyncWithHttpInfo($version, $account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
+    public function deleteSecureApplicationAsyncWithHttpInfo($account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteSecureApplicationRequest($version, $account_id, $app_key, $contentType);
+        $request = $this->deleteSecureApplicationRequest($account_id, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -782,7 +758,6 @@ class SecureAppApi
     /**
      * Create request for operation 'deleteSecureApplication'
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSecureApplication'] to see the possible values for this operation
@@ -790,15 +765,8 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteSecureApplicationRequest($version, $account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
+    public function deleteSecureApplicationRequest($account_id, $app_key, string $contentType = self::contentTypes['deleteSecureApplication'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteSecureApplication'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -815,7 +783,7 @@ class SecureAppApi
         }
 
 
-        $resourcePath = '/api/{version}/secure/application/delete';
+        $resourcePath = '/secure/application/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -842,14 +810,6 @@ class SecureAppApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -910,7 +870,6 @@ class SecureAppApi
      *
      * Login Clear
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param  \SplFileObject $biometric_file The data file used to perform authentication (required)
      * @param  string|null $device_id The unique id of the device making the request (optional)
@@ -926,9 +885,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function loginSecure($version, $app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
+    public function loginSecure($app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
     {
-        list($response) = $this->loginSecureWithHttpInfo($version, $app_key, $biometric_file, $device_id, $biometric_file2, $age_restriction, $return_profile, $response_filters, $latitude, $longitude, $contentType);
+        list($response) = $this->loginSecureWithHttpInfo($app_key, $biometric_file, $device_id, $biometric_file2, $age_restriction, $return_profile, $response_filters, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -937,7 +896,6 @@ class SecureAppApi
      *
      * Login Clear
      *
-     * @param  float $version (required)
      * @param  string $app_key The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param  \SplFileObject $biometric_file The data file used to perform authentication (required)
      * @param  string|null $device_id The unique id of the device making the request (optional)
@@ -953,9 +911,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loginSecureWithHttpInfo($version, $app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
+    public function loginSecureWithHttpInfo($app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
     {
-        $request = $this->loginSecureRequest($version, $app_key, $biometric_file, $device_id, $biometric_file2, $age_restriction, $return_profile, $response_filters, $latitude, $longitude, $contentType);
+        $request = $this->loginSecureRequest($app_key, $biometric_file, $device_id, $biometric_file2, $age_restriction, $return_profile, $response_filters, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1031,7 +989,6 @@ class SecureAppApi
      *
      * Login Clear
      *
-     * @param  float $version (required)
      * @param  string $app_key The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param  \SplFileObject $biometric_file The data file used to perform authentication (required)
      * @param  string|null $device_id The unique id of the device making the request (optional)
@@ -1046,9 +1003,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginSecureAsync($version, $app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
+    public function loginSecureAsync($app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
     {
-        return $this->loginSecureAsyncWithHttpInfo($version, $app_key, $biometric_file, $device_id, $biometric_file2, $age_restriction, $return_profile, $response_filters, $latitude, $longitude, $contentType)
+        return $this->loginSecureAsyncWithHttpInfo($app_key, $biometric_file, $device_id, $biometric_file2, $age_restriction, $return_profile, $response_filters, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1061,7 +1018,6 @@ class SecureAppApi
      *
      * Login Clear
      *
-     * @param  float $version (required)
      * @param  string $app_key The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param  \SplFileObject $biometric_file The data file used to perform authentication (required)
      * @param  string|null $device_id The unique id of the device making the request (optional)
@@ -1076,10 +1032,10 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginSecureAsyncWithHttpInfo($version, $app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
+    public function loginSecureAsyncWithHttpInfo($app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->loginSecureRequest($version, $app_key, $biometric_file, $device_id, $biometric_file2, $age_restriction, $return_profile, $response_filters, $latitude, $longitude, $contentType);
+        $request = $this->loginSecureRequest($app_key, $biometric_file, $device_id, $biometric_file2, $age_restriction, $return_profile, $response_filters, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1120,7 +1076,6 @@ class SecureAppApi
     /**
      * Create request for operation 'loginSecure'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param  \SplFileObject $biometric_file The data file used to perform authentication (required)
      * @param  string|null $device_id The unique id of the device making the request (optional)
@@ -1135,15 +1090,8 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function loginSecureRequest($version, $app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
+    public function loginSecureRequest($app_key, $biometric_file, $device_id = null, $biometric_file2 = null, $age_restriction = 0, $return_profile = false, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginSecure'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling loginSecure'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -1167,7 +1115,7 @@ class SecureAppApi
 
 
 
-        $resourcePath = '/api/{version}/secure/login';
+        $resourcePath = '/secure/login';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1257,14 +1205,6 @@ class SecureAppApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1325,7 +1265,6 @@ class SecureAppApi
      *
      * Purchase Clear
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\PaymentRequest $body The payment request object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['purchaseSecure'] to see the possible values for this operation
      *
@@ -1333,9 +1272,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function purchaseSecure($version, $body, string $contentType = self::contentTypes['purchaseSecure'][0])
+    public function purchaseSecure($body, string $contentType = self::contentTypes['purchaseSecure'][0])
     {
-        list($response) = $this->purchaseSecureWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->purchaseSecureWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -1344,7 +1283,6 @@ class SecureAppApi
      *
      * Purchase Clear
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\PaymentRequest $body The payment request object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['purchaseSecure'] to see the possible values for this operation
      *
@@ -1352,9 +1290,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function purchaseSecureWithHttpInfo($version, $body, string $contentType = self::contentTypes['purchaseSecure'][0])
+    public function purchaseSecureWithHttpInfo($body, string $contentType = self::contentTypes['purchaseSecure'][0])
     {
-        $request = $this->purchaseSecureRequest($version, $body, $contentType);
+        $request = $this->purchaseSecureRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1430,16 +1368,15 @@ class SecureAppApi
      *
      * Purchase Clear
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\PaymentRequest $body The payment request object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['purchaseSecure'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function purchaseSecureAsync($version, $body, string $contentType = self::contentTypes['purchaseSecure'][0])
+    public function purchaseSecureAsync($body, string $contentType = self::contentTypes['purchaseSecure'][0])
     {
-        return $this->purchaseSecureAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->purchaseSecureAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1452,17 +1389,16 @@ class SecureAppApi
      *
      * Purchase Clear
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\PaymentRequest $body The payment request object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['purchaseSecure'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function purchaseSecureAsyncWithHttpInfo($version, $body, string $contentType = self::contentTypes['purchaseSecure'][0])
+    public function purchaseSecureAsyncWithHttpInfo($body, string $contentType = self::contentTypes['purchaseSecure'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->purchaseSecureRequest($version, $body, $contentType);
+        $request = $this->purchaseSecureRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1503,22 +1439,14 @@ class SecureAppApi
     /**
      * Create request for operation 'purchaseSecure'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\PaymentRequest $body The payment request object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['purchaseSecure'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function purchaseSecureRequest($version, $body, string $contentType = self::contentTypes['purchaseSecure'][0])
+    public function purchaseSecureRequest($body, string $contentType = self::contentTypes['purchaseSecure'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling purchaseSecure'
-            );
-        }
 
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
@@ -1528,7 +1456,7 @@ class SecureAppApi
         }
 
 
-        $resourcePath = '/api/{version}/secure/purchase';
+        $resourcePath = '/secure/purchase';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1537,14 +1465,6 @@ class SecureAppApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1612,7 +1532,6 @@ class SecureAppApi
      *
      * Rest Secure Application
      *
-     * @param  float $version version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetSecure'] to see the possible values for this operation
@@ -1621,9 +1540,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function resetSecure($version, $account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
+    public function resetSecure($account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
     {
-        list($response) = $this->resetSecureWithHttpInfo($version, $account_id, $app_key, $contentType);
+        list($response) = $this->resetSecureWithHttpInfo($account_id, $app_key, $contentType);
         return $response;
     }
 
@@ -1632,7 +1551,6 @@ class SecureAppApi
      *
      * Rest Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetSecure'] to see the possible values for this operation
@@ -1641,9 +1559,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function resetSecureWithHttpInfo($version, $account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
+    public function resetSecureWithHttpInfo($account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
     {
-        $request = $this->resetSecureRequest($version, $account_id, $app_key, $contentType);
+        $request = $this->resetSecureRequest($account_id, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1719,7 +1637,6 @@ class SecureAppApi
      *
      * Rest Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetSecure'] to see the possible values for this operation
@@ -1727,9 +1644,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resetSecureAsync($version, $account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
+    public function resetSecureAsync($account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
     {
-        return $this->resetSecureAsyncWithHttpInfo($version, $account_id, $app_key, $contentType)
+        return $this->resetSecureAsyncWithHttpInfo($account_id, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1742,7 +1659,6 @@ class SecureAppApi
      *
      * Rest Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetSecure'] to see the possible values for this operation
@@ -1750,10 +1666,10 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resetSecureAsyncWithHttpInfo($version, $account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
+    public function resetSecureAsyncWithHttpInfo($account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->resetSecureRequest($version, $account_id, $app_key, $contentType);
+        $request = $this->resetSecureRequest($account_id, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1794,7 +1710,6 @@ class SecureAppApi
     /**
      * Create request for operation 'resetSecure'
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetSecure'] to see the possible values for this operation
@@ -1802,15 +1717,8 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function resetSecureRequest($version, $account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
+    public function resetSecureRequest($account_id, $app_key, string $contentType = self::contentTypes['resetSecure'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling resetSecure'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1827,7 +1735,7 @@ class SecureAppApi
         }
 
 
-        $resourcePath = '/api/{version}/secure/application/reset';
+        $resourcePath = '/secure/application/reset';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1854,14 +1762,6 @@ class SecureAppApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1922,7 +1822,6 @@ class SecureAppApi
      *
      * Update Secure Application
      *
-     * @param  float $version version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  bool|null $active  (optional)
@@ -1939,9 +1838,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateSecureApplication($version, $account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
+    public function updateSecureApplication($account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
     {
-        list($response) = $this->updateSecureApplicationWithHttpInfo($version, $account_id, $app_key, $active, $key_cert, $trust_store, $username, $password, $biometric_type, $biometric_position, $biometric_position2, $contentType);
+        list($response) = $this->updateSecureApplicationWithHttpInfo($account_id, $app_key, $active, $key_cert, $trust_store, $username, $password, $biometric_type, $biometric_position, $biometric_position2, $contentType);
         return $response;
     }
 
@@ -1950,7 +1849,6 @@ class SecureAppApi
      *
      * Update Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  bool|null $active  (optional)
@@ -1967,9 +1865,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSecureApplicationWithHttpInfo($version, $account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
+    public function updateSecureApplicationWithHttpInfo($account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
     {
-        $request = $this->updateSecureApplicationRequest($version, $account_id, $app_key, $active, $key_cert, $trust_store, $username, $password, $biometric_type, $biometric_position, $biometric_position2, $contentType);
+        $request = $this->updateSecureApplicationRequest($account_id, $app_key, $active, $key_cert, $trust_store, $username, $password, $biometric_type, $biometric_position, $biometric_position2, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2045,7 +1943,6 @@ class SecureAppApi
      *
      * Update Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  bool|null $active  (optional)
@@ -2061,9 +1958,9 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSecureApplicationAsync($version, $account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
+    public function updateSecureApplicationAsync($account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
     {
-        return $this->updateSecureApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $active, $key_cert, $trust_store, $username, $password, $biometric_type, $biometric_position, $biometric_position2, $contentType)
+        return $this->updateSecureApplicationAsyncWithHttpInfo($account_id, $app_key, $active, $key_cert, $trust_store, $username, $password, $biometric_type, $biometric_position, $biometric_position2, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2076,7 +1973,6 @@ class SecureAppApi
      *
      * Update Secure Application
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  bool|null $active  (optional)
@@ -2092,10 +1988,10 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSecureApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
+    public function updateSecureApplicationAsyncWithHttpInfo($account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateSecureApplicationRequest($version, $account_id, $app_key, $active, $key_cert, $trust_store, $username, $password, $biometric_type, $biometric_position, $biometric_position2, $contentType);
+        $request = $this->updateSecureApplicationRequest($account_id, $app_key, $active, $key_cert, $trust_store, $username, $password, $biometric_type, $biometric_position, $biometric_position2, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2136,7 +2032,6 @@ class SecureAppApi
     /**
      * Create request for operation 'updateSecureApplication'
      *
-     * @param  float $version (required)
      * @param  int $account_id The unique id of the user making the request (required)
      * @param  string $app_key The application to secure (required)
      * @param  bool|null $active  (optional)
@@ -2152,15 +2047,8 @@ class SecureAppApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSecureApplicationRequest($version, $account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
+    public function updateSecureApplicationRequest($account_id, $app_key, $active = null, $key_cert = null, $trust_store = null, $username = null, $password = null, $biometric_type = null, $biometric_position = null, $biometric_position2 = null, string $contentType = self::contentTypes['updateSecureApplication'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateSecureApplication'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2185,7 +2073,7 @@ class SecureAppApi
 
 
 
-        $resourcePath = '/api/{version}/secure/application/update';
+        $resourcePath = '/secure/application/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2284,14 +2172,6 @@ class SecureAppApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

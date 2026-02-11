@@ -131,7 +131,6 @@ class CarrierApi
      *
      * Search Carriers
      *
-     * @param  float $version version (required)
      * @param  string|null $keyword The keyword to search on (optional)
      * @param  bool|null $descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param  int|null $start The start index for pagination (optional, default to 0)
@@ -143,9 +142,9 @@ class CarrierApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CellCarrierResponse[]
      */
-    public function searchCarriers($version, $keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
+    public function searchCarriers($keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
     {
-        list($response) = $this->searchCarriersWithHttpInfo($version, $keyword, $descending, $start, $limit, $active_only, $contentType);
+        list($response) = $this->searchCarriersWithHttpInfo($keyword, $descending, $start, $limit, $active_only, $contentType);
         return $response;
     }
 
@@ -154,7 +153,6 @@ class CarrierApi
      *
      * Search Carriers
      *
-     * @param  float $version (required)
      * @param  string|null $keyword The keyword to search on (optional)
      * @param  bool|null $descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param  int|null $start The start index for pagination (optional, default to 0)
@@ -166,9 +164,9 @@ class CarrierApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CellCarrierResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCarriersWithHttpInfo($version, $keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
+    public function searchCarriersWithHttpInfo($keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
     {
-        $request = $this->searchCarriersRequest($version, $keyword, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchCarriersRequest($keyword, $descending, $start, $limit, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -244,7 +242,6 @@ class CarrierApi
      *
      * Search Carriers
      *
-     * @param  float $version (required)
      * @param  string|null $keyword The keyword to search on (optional)
      * @param  bool|null $descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param  int|null $start The start index for pagination (optional, default to 0)
@@ -255,9 +252,9 @@ class CarrierApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCarriersAsync($version, $keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
+    public function searchCarriersAsync($keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
     {
-        return $this->searchCarriersAsyncWithHttpInfo($version, $keyword, $descending, $start, $limit, $active_only, $contentType)
+        return $this->searchCarriersAsyncWithHttpInfo($keyword, $descending, $start, $limit, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,7 +267,6 @@ class CarrierApi
      *
      * Search Carriers
      *
-     * @param  float $version (required)
      * @param  string|null $keyword The keyword to search on (optional)
      * @param  bool|null $descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param  int|null $start The start index for pagination (optional, default to 0)
@@ -281,10 +277,10 @@ class CarrierApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCarriersAsyncWithHttpInfo($version, $keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
+    public function searchCarriersAsyncWithHttpInfo($keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CellCarrierResponse[]';
-        $request = $this->searchCarriersRequest($version, $keyword, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchCarriersRequest($keyword, $descending, $start, $limit, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -325,7 +321,6 @@ class CarrierApi
     /**
      * Create request for operation 'searchCarriers'
      *
-     * @param  float $version (required)
      * @param  string|null $keyword The keyword to search on (optional)
      * @param  bool|null $descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param  int|null $start The start index for pagination (optional, default to 0)
@@ -336,23 +331,16 @@ class CarrierApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchCarriersRequest($version, $keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
+    public function searchCarriersRequest($keyword = null, $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchCarriers'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchCarriers'
-            );
-        }
 
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/carrier/search';
+        $resourcePath = '/carrier/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -406,14 +394,6 @@ class CarrierApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

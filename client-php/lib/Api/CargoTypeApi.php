@@ -143,7 +143,6 @@ class CargoTypeApi
      *
      * Create Cargo Type
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCargoType'] to see the possible values for this operation
      *
@@ -151,9 +150,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CargoType
      */
-    public function createCargoType($version, $body = null, string $contentType = self::contentTypes['createCargoType'][0])
+    public function createCargoType($body = null, string $contentType = self::contentTypes['createCargoType'][0])
     {
-        list($response) = $this->createCargoTypeWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createCargoTypeWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -162,7 +161,6 @@ class CargoTypeApi
      *
      * Create Cargo Type
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCargoType'] to see the possible values for this operation
      *
@@ -170,9 +168,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CargoType, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCargoTypeWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createCargoType'][0])
+    public function createCargoTypeWithHttpInfo($body = null, string $contentType = self::contentTypes['createCargoType'][0])
     {
-        $request = $this->createCargoTypeRequest($version, $body, $contentType);
+        $request = $this->createCargoTypeRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -248,16 +246,15 @@ class CargoTypeApi
      *
      * Create Cargo Type
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCargoType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCargoTypeAsync($version, $body = null, string $contentType = self::contentTypes['createCargoType'][0])
+    public function createCargoTypeAsync($body = null, string $contentType = self::contentTypes['createCargoType'][0])
     {
-        return $this->createCargoTypeAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createCargoTypeAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,17 +267,16 @@ class CargoTypeApi
      *
      * Create Cargo Type
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCargoType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCargoTypeAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createCargoType'][0])
+    public function createCargoTypeAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createCargoType'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CargoType';
-        $request = $this->createCargoTypeRequest($version, $body, $contentType);
+        $request = $this->createCargoTypeRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -321,26 +317,18 @@ class CargoTypeApi
     /**
      * Create request for operation 'createCargoType'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCargoType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCargoTypeRequest($version, $body = null, string $contentType = self::contentTypes['createCargoType'][0])
+    public function createCargoTypeRequest($body = null, string $contentType = self::contentTypes['createCargoType'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createCargoType'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/cargo/type';
+        $resourcePath = '/cargo/type';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -349,14 +337,6 @@ class CargoTypeApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -424,7 +404,6 @@ class CargoTypeApi
      *
      * Delete Cargo Type
      *
-     * @param  float $version version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCargoType'] to see the possible values for this operation
      *
@@ -432,9 +411,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCargoType($version, $cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
+    public function deleteCargoType($cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
     {
-        $this->deleteCargoTypeWithHttpInfo($version, $cargo_type_id, $contentType);
+        $this->deleteCargoTypeWithHttpInfo($cargo_type_id, $contentType);
     }
 
     /**
@@ -442,7 +421,6 @@ class CargoTypeApi
      *
      * Delete Cargo Type
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCargoType'] to see the possible values for this operation
      *
@@ -450,9 +428,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCargoTypeWithHttpInfo($version, $cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
+    public function deleteCargoTypeWithHttpInfo($cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
     {
-        $request = $this->deleteCargoTypeRequest($version, $cargo_type_id, $contentType);
+        $request = $this->deleteCargoTypeRequest($cargo_type_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -492,16 +470,15 @@ class CargoTypeApi
      *
      * Delete Cargo Type
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCargoType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCargoTypeAsync($version, $cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
+    public function deleteCargoTypeAsync($cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
     {
-        return $this->deleteCargoTypeAsyncWithHttpInfo($version, $cargo_type_id, $contentType)
+        return $this->deleteCargoTypeAsyncWithHttpInfo($cargo_type_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -514,17 +491,16 @@ class CargoTypeApi
      *
      * Delete Cargo Type
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCargoType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCargoTypeAsyncWithHttpInfo($version, $cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
+    public function deleteCargoTypeAsyncWithHttpInfo($cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
     {
         $returnType = '';
-        $request = $this->deleteCargoTypeRequest($version, $cargo_type_id, $contentType);
+        $request = $this->deleteCargoTypeRequest($cargo_type_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -552,22 +528,14 @@ class CargoTypeApi
     /**
      * Create request for operation 'deleteCargoType'
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCargoType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCargoTypeRequest($version, $cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
+    public function deleteCargoTypeRequest($cargo_type_id, string $contentType = self::contentTypes['deleteCargoType'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteCargoType'
-            );
-        }
 
         // verify the required parameter 'cargo_type_id' is set
         if ($cargo_type_id === null || (is_array($cargo_type_id) && count($cargo_type_id) === 0)) {
@@ -577,7 +545,7 @@ class CargoTypeApi
         }
 
 
-        $resourcePath = '/api/{version}/cargo/type/{cargoTypeId}';
+        $resourcePath = '/cargo/type/{cargoTypeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -586,14 +554,6 @@ class CargoTypeApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($cargo_type_id !== null) {
             $resourcePath = str_replace(
@@ -662,7 +622,6 @@ class CargoTypeApi
      *
      * Get Cargo Type
      *
-     * @param  float $version version (required)
      * @param  int $cargo_type_id the cargo type ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCargoType'] to see the possible values for this operation
      *
@@ -670,9 +629,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CargoType
      */
-    public function getCargoType($version, $cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
+    public function getCargoType($cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
     {
-        list($response) = $this->getCargoTypeWithHttpInfo($version, $cargo_type_id, $contentType);
+        list($response) = $this->getCargoTypeWithHttpInfo($cargo_type_id, $contentType);
         return $response;
     }
 
@@ -681,7 +640,6 @@ class CargoTypeApi
      *
      * Get Cargo Type
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the cargo type ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCargoType'] to see the possible values for this operation
      *
@@ -689,9 +647,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CargoType, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCargoTypeWithHttpInfo($version, $cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
+    public function getCargoTypeWithHttpInfo($cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
     {
-        $request = $this->getCargoTypeRequest($version, $cargo_type_id, $contentType);
+        $request = $this->getCargoTypeRequest($cargo_type_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -767,16 +725,15 @@ class CargoTypeApi
      *
      * Get Cargo Type
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the cargo type ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCargoType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCargoTypeAsync($version, $cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
+    public function getCargoTypeAsync($cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
     {
-        return $this->getCargoTypeAsyncWithHttpInfo($version, $cargo_type_id, $contentType)
+        return $this->getCargoTypeAsyncWithHttpInfo($cargo_type_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -789,17 +746,16 @@ class CargoTypeApi
      *
      * Get Cargo Type
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the cargo type ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCargoType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCargoTypeAsyncWithHttpInfo($version, $cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
+    public function getCargoTypeAsyncWithHttpInfo($cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CargoType';
-        $request = $this->getCargoTypeRequest($version, $cargo_type_id, $contentType);
+        $request = $this->getCargoTypeRequest($cargo_type_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -840,22 +796,14 @@ class CargoTypeApi
     /**
      * Create request for operation 'getCargoType'
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the cargo type ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCargoType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCargoTypeRequest($version, $cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
+    public function getCargoTypeRequest($cargo_type_id, string $contentType = self::contentTypes['getCargoType'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCargoType'
-            );
-        }
 
         // verify the required parameter 'cargo_type_id' is set
         if ($cargo_type_id === null || (is_array($cargo_type_id) && count($cargo_type_id) === 0)) {
@@ -865,7 +813,7 @@ class CargoTypeApi
         }
 
 
-        $resourcePath = '/api/{version}/cargo/type/{cargoTypeId}';
+        $resourcePath = '/cargo/type/{cargoTypeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -874,14 +822,6 @@ class CargoTypeApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($cargo_type_id !== null) {
             $resourcePath = str_replace(
@@ -950,7 +890,6 @@ class CargoTypeApi
      *
      * Search Cargo Type
      *
-     * @param  float $version version (required)
      * @param  string $sort_field the sort field to use for the cargo type (required)
      * @param  bool $descending if the cargo type should be should be in descending order (required)
      * @param  int $start the start of the search (required)
@@ -964,9 +903,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CargoType[]
      */
-    public function searchCargoTypes($version, $sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
+    public function searchCargoTypes($sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
     {
-        list($response) = $this->searchCargoTypesWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $retailer_id, $hub_id, $contentType);
+        list($response) = $this->searchCargoTypesWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $retailer_id, $hub_id, $contentType);
         return $response;
     }
 
@@ -975,7 +914,6 @@ class CargoTypeApi
      *
      * Search Cargo Type
      *
-     * @param  float $version (required)
      * @param  string $sort_field the sort field to use for the cargo type (required)
      * @param  bool $descending if the cargo type should be should be in descending order (required)
      * @param  int $start the start of the search (required)
@@ -989,9 +927,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CargoType[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCargoTypesWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
+    public function searchCargoTypesWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
     {
-        $request = $this->searchCargoTypesRequest($version, $sort_field, $descending, $start, $limit, $active_only, $retailer_id, $hub_id, $contentType);
+        $request = $this->searchCargoTypesRequest($sort_field, $descending, $start, $limit, $active_only, $retailer_id, $hub_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1067,7 +1005,6 @@ class CargoTypeApi
      *
      * Search Cargo Type
      *
-     * @param  float $version (required)
      * @param  string $sort_field the sort field to use for the cargo type (required)
      * @param  bool $descending if the cargo type should be should be in descending order (required)
      * @param  int $start the start of the search (required)
@@ -1080,9 +1017,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCargoTypesAsync($version, $sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
+    public function searchCargoTypesAsync($sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
     {
-        return $this->searchCargoTypesAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $retailer_id, $hub_id, $contentType)
+        return $this->searchCargoTypesAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $retailer_id, $hub_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1095,7 +1032,6 @@ class CargoTypeApi
      *
      * Search Cargo Type
      *
-     * @param  float $version (required)
      * @param  string $sort_field the sort field to use for the cargo type (required)
      * @param  bool $descending if the cargo type should be should be in descending order (required)
      * @param  int $start the start of the search (required)
@@ -1108,10 +1044,10 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCargoTypesAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
+    public function searchCargoTypesAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CargoType[]';
-        $request = $this->searchCargoTypesRequest($version, $sort_field, $descending, $start, $limit, $active_only, $retailer_id, $hub_id, $contentType);
+        $request = $this->searchCargoTypesRequest($sort_field, $descending, $start, $limit, $active_only, $retailer_id, $hub_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1152,7 +1088,6 @@ class CargoTypeApi
     /**
      * Create request for operation 'searchCargoTypes'
      *
-     * @param  float $version (required)
      * @param  string $sort_field the sort field to use for the cargo type (required)
      * @param  bool $descending if the cargo type should be should be in descending order (required)
      * @param  int $start the start of the search (required)
@@ -1165,15 +1100,8 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchCargoTypesRequest($version, $sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
+    public function searchCargoTypesRequest($sort_field, $descending, $start, $limit, $active_only, $retailer_id = null, $hub_id = null, string $contentType = self::contentTypes['searchCargoTypes'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchCargoTypes'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -1213,7 +1141,7 @@ class CargoTypeApi
 
 
 
-        $resourcePath = '/api/{version}/cargo/type';
+        $resourcePath = '/cargo/type';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1285,14 +1213,6 @@ class CargoTypeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1353,7 +1273,6 @@ class CargoTypeApi
      *
      * Update Cargo Type
      *
-     * @param  float $version version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCargoType'] to see the possible values for this operation
@@ -1362,9 +1281,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CargoType
      */
-    public function updateCargoType($version, $cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
+    public function updateCargoType($cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
     {
-        list($response) = $this->updateCargoTypeWithHttpInfo($version, $cargo_type_id, $body, $contentType);
+        list($response) = $this->updateCargoTypeWithHttpInfo($cargo_type_id, $body, $contentType);
         return $response;
     }
 
@@ -1373,7 +1292,6 @@ class CargoTypeApi
      *
      * Update Cargo Type
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCargoType'] to see the possible values for this operation
@@ -1382,9 +1300,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CargoType, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCargoTypeWithHttpInfo($version, $cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
+    public function updateCargoTypeWithHttpInfo($cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
     {
-        $request = $this->updateCargoTypeRequest($version, $cargo_type_id, $body, $contentType);
+        $request = $this->updateCargoTypeRequest($cargo_type_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1460,7 +1378,6 @@ class CargoTypeApi
      *
      * Update Cargo Type
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCargoType'] to see the possible values for this operation
@@ -1468,9 +1385,9 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCargoTypeAsync($version, $cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
+    public function updateCargoTypeAsync($cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
     {
-        return $this->updateCargoTypeAsyncWithHttpInfo($version, $cargo_type_id, $body, $contentType)
+        return $this->updateCargoTypeAsyncWithHttpInfo($cargo_type_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1483,7 +1400,6 @@ class CargoTypeApi
      *
      * Update Cargo Type
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCargoType'] to see the possible values for this operation
@@ -1491,10 +1407,10 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCargoTypeAsyncWithHttpInfo($version, $cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
+    public function updateCargoTypeAsyncWithHttpInfo($cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CargoType';
-        $request = $this->updateCargoTypeRequest($version, $cargo_type_id, $body, $contentType);
+        $request = $this->updateCargoTypeRequest($cargo_type_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1535,7 +1451,6 @@ class CargoTypeApi
     /**
      * Create request for operation 'updateCargoType'
      *
-     * @param  float $version (required)
      * @param  int $cargo_type_id the ID of the cargo type (required)
      * @param  \OpenAPI\Client\Model\CargoType|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCargoType'] to see the possible values for this operation
@@ -1543,15 +1458,8 @@ class CargoTypeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCargoTypeRequest($version, $cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
+    public function updateCargoTypeRequest($cargo_type_id, $body = null, string $contentType = self::contentTypes['updateCargoType'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateCargoType'
-            );
-        }
 
         // verify the required parameter 'cargo_type_id' is set
         if ($cargo_type_id === null || (is_array($cargo_type_id) && count($cargo_type_id) === 0)) {
@@ -1562,7 +1470,7 @@ class CargoTypeApi
 
 
 
-        $resourcePath = '/api/{version}/cargo/type/{cargoTypeId}';
+        $resourcePath = '/cargo/type/{cargoTypeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1571,14 +1479,6 @@ class CargoTypeApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($cargo_type_id !== null) {
             $resourcePath = str_replace(

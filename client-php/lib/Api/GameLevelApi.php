@@ -158,7 +158,6 @@ class GameLevelApi
      *
      * Create Game Level
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  string $game_data The game level data: xml, json, or other text based format. (required)
@@ -191,9 +190,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GameLevelResponse
      */
-    public function createGameLevel($version, $account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
+    public function createGameLevel($account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
     {
-        list($response) = $this->createGameLevelWithHttpInfo($version, $account_id, $name, $game_data, $game_data_suffix, $app_key, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
+        list($response) = $this->createGameLevelWithHttpInfo($account_id, $name, $game_data, $game_data_suffix, $app_key, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
         return $response;
     }
 
@@ -202,7 +201,6 @@ class GameLevelApi
      *
      * Create Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  string $game_data The game level data: xml, json, or other text based format. (required)
@@ -235,9 +233,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GameLevelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createGameLevelWithHttpInfo($version, $account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
+    public function createGameLevelWithHttpInfo($account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
     {
-        $request = $this->createGameLevelRequest($version, $account_id, $name, $game_data, $game_data_suffix, $app_key, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
+        $request = $this->createGameLevelRequest($account_id, $name, $game_data, $game_data_suffix, $app_key, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -313,7 +311,6 @@ class GameLevelApi
      *
      * Create Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  string $game_data The game level data: xml, json, or other text based format. (required)
@@ -345,9 +342,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createGameLevelAsync($version, $account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
+    public function createGameLevelAsync($account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
     {
-        return $this->createGameLevelAsyncWithHttpInfo($version, $account_id, $name, $game_data, $game_data_suffix, $app_key, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType)
+        return $this->createGameLevelAsyncWithHttpInfo($account_id, $name, $game_data, $game_data_suffix, $app_key, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -360,7 +357,6 @@ class GameLevelApi
      *
      * Create Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  string $game_data The game level data: xml, json, or other text based format. (required)
@@ -392,10 +388,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createGameLevelAsyncWithHttpInfo($version, $account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
+    public function createGameLevelAsyncWithHttpInfo($account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GameLevelResponse';
-        $request = $this->createGameLevelRequest($version, $account_id, $name, $game_data, $game_data_suffix, $app_key, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
+        $request = $this->createGameLevelRequest($account_id, $name, $game_data, $game_data_suffix, $app_key, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -436,7 +432,6 @@ class GameLevelApi
     /**
      * Create request for operation 'createGameLevel'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  string $game_data The game level data: xml, json, or other text based format. (required)
@@ -468,15 +463,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createGameLevelRequest($version, $account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
+    public function createGameLevelRequest($account_id, $name, $game_data, $game_data_suffix, $app_key = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['createGameLevel'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createGameLevel'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -529,7 +517,7 @@ class GameLevelApi
 
 
 
-        $resourcePath = '/api/{version}/level/create';
+        $resourcePath = '/level/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -772,14 +760,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -840,7 +820,6 @@ class GameLevelApi
      *
      * Delete Game Level
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGameLevel'] to see the possible values for this operation
@@ -849,9 +828,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteGameLevel($version, $account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
+    public function deleteGameLevel($account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
     {
-        list($response) = $this->deleteGameLevelWithHttpInfo($version, $account_id, $level_id, $contentType);
+        list($response) = $this->deleteGameLevelWithHttpInfo($account_id, $level_id, $contentType);
         return $response;
     }
 
@@ -860,7 +839,6 @@ class GameLevelApi
      *
      * Delete Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGameLevel'] to see the possible values for this operation
@@ -869,9 +847,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteGameLevelWithHttpInfo($version, $account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
+    public function deleteGameLevelWithHttpInfo($account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
     {
-        $request = $this->deleteGameLevelRequest($version, $account_id, $level_id, $contentType);
+        $request = $this->deleteGameLevelRequest($account_id, $level_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -947,7 +925,6 @@ class GameLevelApi
      *
      * Delete Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGameLevel'] to see the possible values for this operation
@@ -955,9 +932,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteGameLevelAsync($version, $account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
+    public function deleteGameLevelAsync($account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
     {
-        return $this->deleteGameLevelAsyncWithHttpInfo($version, $account_id, $level_id, $contentType)
+        return $this->deleteGameLevelAsyncWithHttpInfo($account_id, $level_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -970,7 +947,6 @@ class GameLevelApi
      *
      * Delete Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGameLevel'] to see the possible values for this operation
@@ -978,10 +954,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteGameLevelAsyncWithHttpInfo($version, $account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
+    public function deleteGameLevelAsyncWithHttpInfo($account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteGameLevelRequest($version, $account_id, $level_id, $contentType);
+        $request = $this->deleteGameLevelRequest($account_id, $level_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1022,7 +998,6 @@ class GameLevelApi
     /**
      * Create request for operation 'deleteGameLevel'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGameLevel'] to see the possible values for this operation
@@ -1030,15 +1005,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteGameLevelRequest($version, $account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
+    public function deleteGameLevelRequest($account_id, $level_id, string $contentType = self::contentTypes['deleteGameLevel'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteGameLevel'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1055,7 +1023,7 @@ class GameLevelApi
         }
 
 
-        $resourcePath = '/api/{version}/level/delete';
+        $resourcePath = '/level/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1082,14 +1050,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1150,7 +1110,6 @@ class GameLevelApi
      *
      * Get Game Level
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  bool|null $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -1160,9 +1119,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GameLevelResponse
      */
-    public function getGameLevel($version, $account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
+    public function getGameLevel($account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
     {
-        list($response) = $this->getGameLevelWithHttpInfo($version, $account_id, $level_id, $include_game_data, $contentType);
+        list($response) = $this->getGameLevelWithHttpInfo($account_id, $level_id, $include_game_data, $contentType);
         return $response;
     }
 
@@ -1171,7 +1130,6 @@ class GameLevelApi
      *
      * Get Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  bool|null $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -1181,9 +1139,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GameLevelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGameLevelWithHttpInfo($version, $account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
+    public function getGameLevelWithHttpInfo($account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
     {
-        $request = $this->getGameLevelRequest($version, $account_id, $level_id, $include_game_data, $contentType);
+        $request = $this->getGameLevelRequest($account_id, $level_id, $include_game_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1259,7 +1217,6 @@ class GameLevelApi
      *
      * Get Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  bool|null $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -1268,9 +1225,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGameLevelAsync($version, $account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
+    public function getGameLevelAsync($account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
     {
-        return $this->getGameLevelAsyncWithHttpInfo($version, $account_id, $level_id, $include_game_data, $contentType)
+        return $this->getGameLevelAsyncWithHttpInfo($account_id, $level_id, $include_game_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1283,7 +1240,6 @@ class GameLevelApi
      *
      * Get Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  bool|null $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -1292,10 +1248,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGameLevelAsyncWithHttpInfo($version, $account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
+    public function getGameLevelAsyncWithHttpInfo($account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GameLevelResponse';
-        $request = $this->getGameLevelRequest($version, $account_id, $level_id, $include_game_data, $contentType);
+        $request = $this->getGameLevelRequest($account_id, $level_id, $include_game_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1336,7 +1292,6 @@ class GameLevelApi
     /**
      * Create request for operation 'getGameLevel'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id The id of the level to return. (required)
      * @param  bool|null $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -1345,15 +1300,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGameLevelRequest($version, $account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
+    public function getGameLevelRequest($account_id, $level_id, $include_game_data = null, string $contentType = self::contentTypes['getGameLevel'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getGameLevel'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1371,7 +1319,7 @@ class GameLevelApi
 
 
 
-        $resourcePath = '/api/{version}/level/get';
+        $resourcePath = '/level/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1407,14 +1355,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1475,7 +1415,6 @@ class GameLevelApi
      *
      * Search Game Levels
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $keyword Match the keyword to the owner name or level name. (optional)
@@ -1492,9 +1431,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GameLevelListResponse
      */
-    public function getGameLevelsByApplication($version, $account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
+    public function getGameLevelsByApplication($account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
     {
-        list($response) = $this->getGameLevelsByApplicationWithHttpInfo($version, $account_id, $app_key, $keyword, $sort_field, $descending, $start, $limit, $app_version, $include_game_data, $filters, $contentType);
+        list($response) = $this->getGameLevelsByApplicationWithHttpInfo($account_id, $app_key, $keyword, $sort_field, $descending, $start, $limit, $app_version, $include_game_data, $filters, $contentType);
         return $response;
     }
 
@@ -1503,7 +1442,6 @@ class GameLevelApi
      *
      * Search Game Levels
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $keyword Match the keyword to the owner name or level name. (optional)
@@ -1520,9 +1458,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GameLevelListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGameLevelsByApplicationWithHttpInfo($version, $account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
+    public function getGameLevelsByApplicationWithHttpInfo($account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
     {
-        $request = $this->getGameLevelsByApplicationRequest($version, $account_id, $app_key, $keyword, $sort_field, $descending, $start, $limit, $app_version, $include_game_data, $filters, $contentType);
+        $request = $this->getGameLevelsByApplicationRequest($account_id, $app_key, $keyword, $sort_field, $descending, $start, $limit, $app_version, $include_game_data, $filters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1598,7 +1536,6 @@ class GameLevelApi
      *
      * Search Game Levels
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $keyword Match the keyword to the owner name or level name. (optional)
@@ -1614,9 +1551,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGameLevelsByApplicationAsync($version, $account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
+    public function getGameLevelsByApplicationAsync($account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
     {
-        return $this->getGameLevelsByApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $keyword, $sort_field, $descending, $start, $limit, $app_version, $include_game_data, $filters, $contentType)
+        return $this->getGameLevelsByApplicationAsyncWithHttpInfo($account_id, $app_key, $keyword, $sort_field, $descending, $start, $limit, $app_version, $include_game_data, $filters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1629,7 +1566,6 @@ class GameLevelApi
      *
      * Search Game Levels
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $keyword Match the keyword to the owner name or level name. (optional)
@@ -1645,10 +1581,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGameLevelsByApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
+    public function getGameLevelsByApplicationAsyncWithHttpInfo($account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GameLevelListResponse';
-        $request = $this->getGameLevelsByApplicationRequest($version, $account_id, $app_key, $keyword, $sort_field, $descending, $start, $limit, $app_version, $include_game_data, $filters, $contentType);
+        $request = $this->getGameLevelsByApplicationRequest($account_id, $app_key, $keyword, $sort_field, $descending, $start, $limit, $app_version, $include_game_data, $filters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1689,7 +1625,6 @@ class GameLevelApi
     /**
      * Create request for operation 'getGameLevelsByApplication'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $keyword Match the keyword to the owner name or level name. (optional)
@@ -1705,15 +1640,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGameLevelsByApplicationRequest($version, $account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
+    public function getGameLevelsByApplicationRequest($account_id, $app_key, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $app_version = null, $include_game_data = null, $filters = null, string $contentType = self::contentTypes['getGameLevelsByApplication'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getGameLevelsByApplication'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1738,7 +1666,7 @@ class GameLevelApi
 
 
 
-        $resourcePath = '/api/{version}/level/search';
+        $resourcePath = '/level/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1837,14 +1765,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1905,7 +1825,6 @@ class GameLevelApi
      *
      * Search Game Level by Billable Entity
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key the application key (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -1920,9 +1839,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GameLevelResponse
      */
-    public function getGameLevelsByBillableEntity($version, $account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
+    public function getGameLevelsByBillableEntity($account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
     {
-        list($response) = $this->getGameLevelsByBillableEntityWithHttpInfo($version, $account_id, $app_key, $keyword, $sort_field, $descending, $active_only, $start, $limit, $contentType);
+        list($response) = $this->getGameLevelsByBillableEntityWithHttpInfo($account_id, $app_key, $keyword, $sort_field, $descending, $active_only, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1931,7 +1850,6 @@ class GameLevelApi
      *
      * Search Game Level by Billable Entity
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key the application key (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -1946,9 +1864,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GameLevelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGameLevelsByBillableEntityWithHttpInfo($version, $account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
+    public function getGameLevelsByBillableEntityWithHttpInfo($account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
     {
-        $request = $this->getGameLevelsByBillableEntityRequest($version, $account_id, $app_key, $keyword, $sort_field, $descending, $active_only, $start, $limit, $contentType);
+        $request = $this->getGameLevelsByBillableEntityRequest($account_id, $app_key, $keyword, $sort_field, $descending, $active_only, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2024,7 +1942,6 @@ class GameLevelApi
      *
      * Search Game Level by Billable Entity
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key the application key (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -2038,9 +1955,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGameLevelsByBillableEntityAsync($version, $account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
+    public function getGameLevelsByBillableEntityAsync($account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
     {
-        return $this->getGameLevelsByBillableEntityAsyncWithHttpInfo($version, $account_id, $app_key, $keyword, $sort_field, $descending, $active_only, $start, $limit, $contentType)
+        return $this->getGameLevelsByBillableEntityAsyncWithHttpInfo($account_id, $app_key, $keyword, $sort_field, $descending, $active_only, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2053,7 +1970,6 @@ class GameLevelApi
      *
      * Search Game Level by Billable Entity
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key the application key (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -2067,10 +1983,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGameLevelsByBillableEntityAsyncWithHttpInfo($version, $account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
+    public function getGameLevelsByBillableEntityAsyncWithHttpInfo($account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GameLevelResponse';
-        $request = $this->getGameLevelsByBillableEntityRequest($version, $account_id, $app_key, $keyword, $sort_field, $descending, $active_only, $start, $limit, $contentType);
+        $request = $this->getGameLevelsByBillableEntityRequest($account_id, $app_key, $keyword, $sort_field, $descending, $active_only, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2111,7 +2027,6 @@ class GameLevelApi
     /**
      * Create request for operation 'getGameLevelsByBillableEntity'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key the application key (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -2125,15 +2040,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGameLevelsByBillableEntityRequest($version, $account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
+    public function getGameLevelsByBillableEntityRequest($account_id, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $active_only = null, $start = null, $limit = null, string $contentType = self::contentTypes['getGameLevelsByBillableEntity'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getGameLevelsByBillableEntity'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2150,7 +2058,7 @@ class GameLevelApi
 
 
 
-        $resourcePath = '/api/{version}/level/searchByBillableEntity';
+        $resourcePath = '/level/searchByBillableEntity';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2231,14 +2139,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2299,7 +2199,6 @@ class GameLevelApi
      *
      * Get Level Questions
      *
-     * @param  float $version version (required)
      * @param  int $level_id the id of the level to get questions from (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestionsInLevel'] to see the possible values for this operation
@@ -2308,9 +2207,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QuestionResponse
      */
-    public function getQuestionsInLevel($version, $level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
+    public function getQuestionsInLevel($level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
     {
-        list($response) = $this->getQuestionsInLevelWithHttpInfo($version, $level_id, $account_id, $contentType);
+        list($response) = $this->getQuestionsInLevelWithHttpInfo($level_id, $account_id, $contentType);
         return $response;
     }
 
@@ -2319,7 +2218,6 @@ class GameLevelApi
      *
      * Get Level Questions
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to get questions from (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestionsInLevel'] to see the possible values for this operation
@@ -2328,9 +2226,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QuestionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getQuestionsInLevelWithHttpInfo($version, $level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
+    public function getQuestionsInLevelWithHttpInfo($level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
     {
-        $request = $this->getQuestionsInLevelRequest($version, $level_id, $account_id, $contentType);
+        $request = $this->getQuestionsInLevelRequest($level_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2406,7 +2304,6 @@ class GameLevelApi
      *
      * Get Level Questions
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to get questions from (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestionsInLevel'] to see the possible values for this operation
@@ -2414,9 +2311,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuestionsInLevelAsync($version, $level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
+    public function getQuestionsInLevelAsync($level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
     {
-        return $this->getQuestionsInLevelAsyncWithHttpInfo($version, $level_id, $account_id, $contentType)
+        return $this->getQuestionsInLevelAsyncWithHttpInfo($level_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2429,7 +2326,6 @@ class GameLevelApi
      *
      * Get Level Questions
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to get questions from (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestionsInLevel'] to see the possible values for this operation
@@ -2437,10 +2333,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuestionsInLevelAsyncWithHttpInfo($version, $level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
+    public function getQuestionsInLevelAsyncWithHttpInfo($level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QuestionResponse';
-        $request = $this->getQuestionsInLevelRequest($version, $level_id, $account_id, $contentType);
+        $request = $this->getQuestionsInLevelRequest($level_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2481,7 +2377,6 @@ class GameLevelApi
     /**
      * Create request for operation 'getQuestionsInLevel'
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to get questions from (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestionsInLevel'] to see the possible values for this operation
@@ -2489,15 +2384,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getQuestionsInLevelRequest($version, $level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
+    public function getQuestionsInLevelRequest($level_id, $account_id, string $contentType = self::contentTypes['getQuestionsInLevel'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getQuestionsInLevel'
-            );
-        }
 
         // verify the required parameter 'level_id' is set
         if ($level_id === null || (is_array($level_id) && count($level_id) === 0)) {
@@ -2514,7 +2402,7 @@ class GameLevelApi
         }
 
 
-        $resourcePath = '/api/{version}/level/questions/get';
+        $resourcePath = '/level/questions/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2541,14 +2429,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2609,7 +2489,6 @@ class GameLevelApi
      *
      * Get Level Words
      *
-     * @param  float $version version (required)
      * @param  int $level_id the id of the level to get words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWordsInLevel'] to see the possible values for this operation
@@ -2618,9 +2497,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WordzWordResponse
      */
-    public function getWordsInLevel($version, $level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
+    public function getWordsInLevel($level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
     {
-        list($response) = $this->getWordsInLevelWithHttpInfo($version, $level_id, $account_id, $contentType);
+        list($response) = $this->getWordsInLevelWithHttpInfo($level_id, $account_id, $contentType);
         return $response;
     }
 
@@ -2629,7 +2508,6 @@ class GameLevelApi
      *
      * Get Level Words
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to get words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWordsInLevel'] to see the possible values for this operation
@@ -2638,9 +2516,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WordzWordResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWordsInLevelWithHttpInfo($version, $level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
+    public function getWordsInLevelWithHttpInfo($level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
     {
-        $request = $this->getWordsInLevelRequest($version, $level_id, $account_id, $contentType);
+        $request = $this->getWordsInLevelRequest($level_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2716,7 +2594,6 @@ class GameLevelApi
      *
      * Get Level Words
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to get words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWordsInLevel'] to see the possible values for this operation
@@ -2724,9 +2601,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWordsInLevelAsync($version, $level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
+    public function getWordsInLevelAsync($level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
     {
-        return $this->getWordsInLevelAsyncWithHttpInfo($version, $level_id, $account_id, $contentType)
+        return $this->getWordsInLevelAsyncWithHttpInfo($level_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2739,7 +2616,6 @@ class GameLevelApi
      *
      * Get Level Words
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to get words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWordsInLevel'] to see the possible values for this operation
@@ -2747,10 +2623,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWordsInLevelAsyncWithHttpInfo($version, $level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
+    public function getWordsInLevelAsyncWithHttpInfo($level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WordzWordResponse';
-        $request = $this->getWordsInLevelRequest($version, $level_id, $account_id, $contentType);
+        $request = $this->getWordsInLevelRequest($level_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2791,7 +2667,6 @@ class GameLevelApi
     /**
      * Create request for operation 'getWordsInLevel'
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to get words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWordsInLevel'] to see the possible values for this operation
@@ -2799,15 +2674,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWordsInLevelRequest($version, $level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
+    public function getWordsInLevelRequest($level_id, $account_id, string $contentType = self::contentTypes['getWordsInLevel'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getWordsInLevel'
-            );
-        }
 
         // verify the required parameter 'level_id' is set
         if ($level_id === null || (is_array($level_id) && count($level_id) === 0)) {
@@ -2824,7 +2692,7 @@ class GameLevelApi
         }
 
 
-        $resourcePath = '/api/{version}/level/words/get';
+        $resourcePath = '/level/words/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2851,14 +2719,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2919,7 +2779,6 @@ class GameLevelApi
      *
      * Update Game Level
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id If update then include the level Id. (required)
      * @param  string|null $app_key The game application key to save the level for. (optional)
@@ -2953,9 +2812,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GameLevelResponse
      */
-    public function updateGameLevel($version, $account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
+    public function updateGameLevel($account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
     {
-        list($response) = $this->updateGameLevelWithHttpInfo($version, $account_id, $level_id, $app_key, $name, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $game_data, $game_data_suffix, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
+        list($response) = $this->updateGameLevelWithHttpInfo($account_id, $level_id, $app_key, $name, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $game_data, $game_data_suffix, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
         return $response;
     }
 
@@ -2964,7 +2823,6 @@ class GameLevelApi
      *
      * Update Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id If update then include the level Id. (required)
      * @param  string|null $app_key The game application key to save the level for. (optional)
@@ -2998,9 +2856,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GameLevelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateGameLevelWithHttpInfo($version, $account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
+    public function updateGameLevelWithHttpInfo($account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
     {
-        $request = $this->updateGameLevelRequest($version, $account_id, $level_id, $app_key, $name, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $game_data, $game_data_suffix, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
+        $request = $this->updateGameLevelRequest($account_id, $level_id, $app_key, $name, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $game_data, $game_data_suffix, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3076,7 +2934,6 @@ class GameLevelApi
      *
      * Update Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id If update then include the level Id. (required)
      * @param  string|null $app_key The game application key to save the level for. (optional)
@@ -3109,9 +2966,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateGameLevelAsync($version, $account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
+    public function updateGameLevelAsync($account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
     {
-        return $this->updateGameLevelAsyncWithHttpInfo($version, $account_id, $level_id, $app_key, $name, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $game_data, $game_data_suffix, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType)
+        return $this->updateGameLevelAsyncWithHttpInfo($account_id, $level_id, $app_key, $name, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $game_data, $game_data_suffix, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3124,7 +2981,6 @@ class GameLevelApi
      *
      * Update Game Level
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id If update then include the level Id. (required)
      * @param  string|null $app_key The game application key to save the level for. (optional)
@@ -3157,10 +3013,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateGameLevelAsyncWithHttpInfo($version, $account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
+    public function updateGameLevelAsyncWithHttpInfo($account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GameLevelResponse';
-        $request = $this->updateGameLevelRequest($version, $account_id, $level_id, $app_key, $name, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $game_data, $game_data_suffix, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
+        $request = $this->updateGameLevelRequest($account_id, $level_id, $app_key, $name, $description, $difficulty, $app_version, $asset_image_id, $asset_icon_id, $game_data, $game_data_suffix, $visibility, $friend_group, $connection_ids, $connection_group_ids, $balance, $active, $allocate_tickets, $ticket_count, $ticket_type, $points, $tutorial_title, $tutorial_message, $tutorial_alignment, $tutorial_image_asset_id, $offer_id, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3201,7 +3057,6 @@ class GameLevelApi
     /**
      * Create request for operation 'updateGameLevel'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $level_id If update then include the level Id. (required)
      * @param  string|null $app_key The game application key to save the level for. (optional)
@@ -3234,15 +3089,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateGameLevelRequest($version, $account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
+    public function updateGameLevelRequest($account_id, $level_id, $app_key = null, $name = null, $description = null, $difficulty = null, $app_version = null, $asset_image_id = null, $asset_icon_id = null, $game_data = null, $game_data_suffix = null, $visibility = null, $friend_group = null, $connection_ids = null, $connection_group_ids = null, $balance = null, $active = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $tutorial_title = null, $tutorial_message = null, $tutorial_alignment = null, $tutorial_image_asset_id = null, $offer_id = null, $meta_data = null, string $contentType = self::contentTypes['updateGameLevel'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateGameLevel'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3284,7 +3132,7 @@ class GameLevelApi
 
 
 
-        $resourcePath = '/api/{version}/level/update';
+        $resourcePath = '/level/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3536,14 +3384,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3604,7 +3444,6 @@ class GameLevelApi
      *
      * Update Level Questions
      *
-     * @param  float $version version (required)
      * @param  int $level_id the id of the level to update questions on (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question_ids the IDs of the questions to update (required)
@@ -3614,9 +3453,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateQuestionsInLevel($version, $level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
+    public function updateQuestionsInLevel($level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
     {
-        list($response) = $this->updateQuestionsInLevelWithHttpInfo($version, $level_id, $account_id, $question_ids, $contentType);
+        list($response) = $this->updateQuestionsInLevelWithHttpInfo($level_id, $account_id, $question_ids, $contentType);
         return $response;
     }
 
@@ -3625,7 +3464,6 @@ class GameLevelApi
      *
      * Update Level Questions
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to update questions on (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question_ids the IDs of the questions to update (required)
@@ -3635,9 +3473,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateQuestionsInLevelWithHttpInfo($version, $level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
+    public function updateQuestionsInLevelWithHttpInfo($level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
     {
-        $request = $this->updateQuestionsInLevelRequest($version, $level_id, $account_id, $question_ids, $contentType);
+        $request = $this->updateQuestionsInLevelRequest($level_id, $account_id, $question_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3713,7 +3551,6 @@ class GameLevelApi
      *
      * Update Level Questions
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to update questions on (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question_ids the IDs of the questions to update (required)
@@ -3722,9 +3559,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateQuestionsInLevelAsync($version, $level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
+    public function updateQuestionsInLevelAsync($level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
     {
-        return $this->updateQuestionsInLevelAsyncWithHttpInfo($version, $level_id, $account_id, $question_ids, $contentType)
+        return $this->updateQuestionsInLevelAsyncWithHttpInfo($level_id, $account_id, $question_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3737,7 +3574,6 @@ class GameLevelApi
      *
      * Update Level Questions
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to update questions on (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question_ids the IDs of the questions to update (required)
@@ -3746,10 +3582,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateQuestionsInLevelAsyncWithHttpInfo($version, $level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
+    public function updateQuestionsInLevelAsyncWithHttpInfo($level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateQuestionsInLevelRequest($version, $level_id, $account_id, $question_ids, $contentType);
+        $request = $this->updateQuestionsInLevelRequest($level_id, $account_id, $question_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3790,7 +3626,6 @@ class GameLevelApi
     /**
      * Create request for operation 'updateQuestionsInLevel'
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to update questions on (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question_ids the IDs of the questions to update (required)
@@ -3799,15 +3634,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateQuestionsInLevelRequest($version, $level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
+    public function updateQuestionsInLevelRequest($level_id, $account_id, $question_ids, string $contentType = self::contentTypes['updateQuestionsInLevel'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateQuestionsInLevel'
-            );
-        }
 
         // verify the required parameter 'level_id' is set
         if ($level_id === null || (is_array($level_id) && count($level_id) === 0)) {
@@ -3831,7 +3659,7 @@ class GameLevelApi
         }
 
 
-        $resourcePath = '/api/{version}/level/questions/update';
+        $resourcePath = '/level/questions/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3867,14 +3695,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3935,7 +3755,6 @@ class GameLevelApi
      *
      * Update Level Words
      *
-     * @param  float $version version (required)
      * @param  int $level_id the id of the level to update words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $word_ids the ids of the words to update for the level (required)
@@ -3945,9 +3764,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateWordsInLevel($version, $level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
+    public function updateWordsInLevel($level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
     {
-        list($response) = $this->updateWordsInLevelWithHttpInfo($version, $level_id, $account_id, $word_ids, $contentType);
+        list($response) = $this->updateWordsInLevelWithHttpInfo($level_id, $account_id, $word_ids, $contentType);
         return $response;
     }
 
@@ -3956,7 +3775,6 @@ class GameLevelApi
      *
      * Update Level Words
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to update words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $word_ids the ids of the words to update for the level (required)
@@ -3966,9 +3784,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateWordsInLevelWithHttpInfo($version, $level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
+    public function updateWordsInLevelWithHttpInfo($level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
     {
-        $request = $this->updateWordsInLevelRequest($version, $level_id, $account_id, $word_ids, $contentType);
+        $request = $this->updateWordsInLevelRequest($level_id, $account_id, $word_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4044,7 +3862,6 @@ class GameLevelApi
      *
      * Update Level Words
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to update words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $word_ids the ids of the words to update for the level (required)
@@ -4053,9 +3870,9 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWordsInLevelAsync($version, $level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
+    public function updateWordsInLevelAsync($level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
     {
-        return $this->updateWordsInLevelAsyncWithHttpInfo($version, $level_id, $account_id, $word_ids, $contentType)
+        return $this->updateWordsInLevelAsyncWithHttpInfo($level_id, $account_id, $word_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4068,7 +3885,6 @@ class GameLevelApi
      *
      * Update Level Words
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to update words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $word_ids the ids of the words to update for the level (required)
@@ -4077,10 +3893,10 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWordsInLevelAsyncWithHttpInfo($version, $level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
+    public function updateWordsInLevelAsyncWithHttpInfo($level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateWordsInLevelRequest($version, $level_id, $account_id, $word_ids, $contentType);
+        $request = $this->updateWordsInLevelRequest($level_id, $account_id, $word_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4121,7 +3937,6 @@ class GameLevelApi
     /**
      * Create request for operation 'updateWordsInLevel'
      *
-     * @param  float $version (required)
      * @param  int $level_id the id of the level to update words for (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $word_ids the ids of the words to update for the level (required)
@@ -4130,15 +3945,8 @@ class GameLevelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateWordsInLevelRequest($version, $level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
+    public function updateWordsInLevelRequest($level_id, $account_id, $word_ids, string $contentType = self::contentTypes['updateWordsInLevel'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateWordsInLevel'
-            );
-        }
 
         // verify the required parameter 'level_id' is set
         if ($level_id === null || (is_array($level_id) && count($level_id) === 0)) {
@@ -4162,7 +3970,7 @@ class GameLevelApi
         }
 
 
-        $resourcePath = '/api/{version}/level/words/update';
+        $resourcePath = '/level/words/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4198,14 +4006,6 @@ class GameLevelApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

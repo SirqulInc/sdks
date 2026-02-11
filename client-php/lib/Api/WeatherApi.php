@@ -131,7 +131,6 @@ class WeatherApi
      *
      * Search Weather
      *
-     * @param  float $version version (required)
      * @param  int|null $region_id Region Id (optional)
      * @param  float|null $latitude Latitude (optional)
      * @param  float|null $longitude Longitude (optional)
@@ -142,9 +141,9 @@ class WeatherApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WeatherResponse
      */
-    public function searchWeather($version, $region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
+    public function searchWeather($region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
     {
-        list($response) = $this->searchWeatherWithHttpInfo($version, $region_id, $latitude, $longitude, $timezone_offset, $contentType);
+        list($response) = $this->searchWeatherWithHttpInfo($region_id, $latitude, $longitude, $timezone_offset, $contentType);
         return $response;
     }
 
@@ -153,7 +152,6 @@ class WeatherApi
      *
      * Search Weather
      *
-     * @param  float $version (required)
      * @param  int|null $region_id Region Id (optional)
      * @param  float|null $latitude Latitude (optional)
      * @param  float|null $longitude Longitude (optional)
@@ -164,9 +162,9 @@ class WeatherApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WeatherResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchWeatherWithHttpInfo($version, $region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
+    public function searchWeatherWithHttpInfo($region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
     {
-        $request = $this->searchWeatherRequest($version, $region_id, $latitude, $longitude, $timezone_offset, $contentType);
+        $request = $this->searchWeatherRequest($region_id, $latitude, $longitude, $timezone_offset, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -242,7 +240,6 @@ class WeatherApi
      *
      * Search Weather
      *
-     * @param  float $version (required)
      * @param  int|null $region_id Region Id (optional)
      * @param  float|null $latitude Latitude (optional)
      * @param  float|null $longitude Longitude (optional)
@@ -252,9 +249,9 @@ class WeatherApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchWeatherAsync($version, $region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
+    public function searchWeatherAsync($region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
     {
-        return $this->searchWeatherAsyncWithHttpInfo($version, $region_id, $latitude, $longitude, $timezone_offset, $contentType)
+        return $this->searchWeatherAsyncWithHttpInfo($region_id, $latitude, $longitude, $timezone_offset, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -267,7 +264,6 @@ class WeatherApi
      *
      * Search Weather
      *
-     * @param  float $version (required)
      * @param  int|null $region_id Region Id (optional)
      * @param  float|null $latitude Latitude (optional)
      * @param  float|null $longitude Longitude (optional)
@@ -277,10 +273,10 @@ class WeatherApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchWeatherAsyncWithHttpInfo($version, $region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
+    public function searchWeatherAsyncWithHttpInfo($region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WeatherResponse';
-        $request = $this->searchWeatherRequest($version, $region_id, $latitude, $longitude, $timezone_offset, $contentType);
+        $request = $this->searchWeatherRequest($region_id, $latitude, $longitude, $timezone_offset, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -321,7 +317,6 @@ class WeatherApi
     /**
      * Create request for operation 'searchWeather'
      *
-     * @param  float $version (required)
      * @param  int|null $region_id Region Id (optional)
      * @param  float|null $latitude Latitude (optional)
      * @param  float|null $longitude Longitude (optional)
@@ -331,22 +326,15 @@ class WeatherApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchWeatherRequest($version, $region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
+    public function searchWeatherRequest($region_id = null, $latitude = null, $longitude = null, $timezone_offset = -6, string $contentType = self::contentTypes['searchWeather'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchWeather'
-            );
-        }
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/weather/search';
+        $resourcePath = '/weather/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -391,14 +379,6 @@ class WeatherApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

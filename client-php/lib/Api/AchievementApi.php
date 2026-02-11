@@ -75,7 +75,7 @@ class AchievementApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'apiVersionAchievementTierSearchPost' => [
+        'achievementTierSearchPost' => [
             'application/json',
         ],
         'createAchievement' => [
@@ -166,11 +166,10 @@ class AchievementApi
     }
 
     /**
-     * Operation apiVersionAchievementTierSearchPost
+     * Operation achievementTierSearchPost
      *
      * Searches an Achievement Tier
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key the application key (optional)
@@ -182,24 +181,23 @@ class AchievementApi
      * @param  bool|null $descending_goal determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement) (optional)
      * @param  int|null $start The start of the index for pagination (optional)
      * @param  int|null $limit the limit for pagination (has a hard limit of 1000) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiVersionAchievementTierSearchPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['achievementTierSearchPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementTierResponse
      */
-    public function apiVersionAchievementTierSearchPost($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['apiVersionAchievementTierSearchPost'][0])
+    public function achievementTierSearchPost($device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['achievementTierSearchPost'][0])
     {
-        list($response) = $this->apiVersionAchievementTierSearchPostWithHttpInfo($version, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $sort_field, $descending, $descending_goal, $start, $limit, $contentType);
+        list($response) = $this->achievementTierSearchPostWithHttpInfo($device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $sort_field, $descending, $descending_goal, $start, $limit, $contentType);
         return $response;
     }
 
     /**
-     * Operation apiVersionAchievementTierSearchPostWithHttpInfo
+     * Operation achievementTierSearchPostWithHttpInfo
      *
      * Searches an Achievement Tier
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key the application key (optional)
@@ -211,15 +209,15 @@ class AchievementApi
      * @param  bool|null $descending_goal determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement) (optional)
      * @param  int|null $start The start of the index for pagination (optional)
      * @param  int|null $limit the limit for pagination (has a hard limit of 1000) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiVersionAchievementTierSearchPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['achievementTierSearchPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementTierResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiVersionAchievementTierSearchPostWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['apiVersionAchievementTierSearchPost'][0])
+    public function achievementTierSearchPostWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['achievementTierSearchPost'][0])
     {
-        $request = $this->apiVersionAchievementTierSearchPostRequest($version, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $sort_field, $descending, $descending_goal, $start, $limit, $contentType);
+        $request = $this->achievementTierSearchPostRequest($device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $sort_field, $descending, $descending_goal, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -291,11 +289,10 @@ class AchievementApi
     }
 
     /**
-     * Operation apiVersionAchievementTierSearchPostAsync
+     * Operation achievementTierSearchPostAsync
      *
      * Searches an Achievement Tier
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key the application key (optional)
@@ -307,14 +304,14 @@ class AchievementApi
      * @param  bool|null $descending_goal determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement) (optional)
      * @param  int|null $start The start of the index for pagination (optional)
      * @param  int|null $limit the limit for pagination (has a hard limit of 1000) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiVersionAchievementTierSearchPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['achievementTierSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiVersionAchievementTierSearchPostAsync($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['apiVersionAchievementTierSearchPost'][0])
+    public function achievementTierSearchPostAsync($device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['achievementTierSearchPost'][0])
     {
-        return $this->apiVersionAchievementTierSearchPostAsyncWithHttpInfo($version, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $sort_field, $descending, $descending_goal, $start, $limit, $contentType)
+        return $this->achievementTierSearchPostAsyncWithHttpInfo($device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $sort_field, $descending, $descending_goal, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -323,11 +320,10 @@ class AchievementApi
     }
 
     /**
-     * Operation apiVersionAchievementTierSearchPostAsyncWithHttpInfo
+     * Operation achievementTierSearchPostAsyncWithHttpInfo
      *
      * Searches an Achievement Tier
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key the application key (optional)
@@ -339,15 +335,15 @@ class AchievementApi
      * @param  bool|null $descending_goal determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement) (optional)
      * @param  int|null $start The start of the index for pagination (optional)
      * @param  int|null $limit the limit for pagination (has a hard limit of 1000) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiVersionAchievementTierSearchPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['achievementTierSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiVersionAchievementTierSearchPostAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['apiVersionAchievementTierSearchPost'][0])
+    public function achievementTierSearchPostAsyncWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['achievementTierSearchPost'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementTierResponse';
-        $request = $this->apiVersionAchievementTierSearchPostRequest($version, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $sort_field, $descending, $descending_goal, $start, $limit, $contentType);
+        $request = $this->achievementTierSearchPostRequest($device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $sort_field, $descending, $descending_goal, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -386,9 +382,8 @@ class AchievementApi
     }
 
     /**
-     * Create request for operation 'apiVersionAchievementTierSearchPost'
+     * Create request for operation 'achievementTierSearchPost'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key the application key (optional)
@@ -400,20 +395,14 @@ class AchievementApi
      * @param  bool|null $descending_goal determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement) (optional)
      * @param  int|null $start The start of the index for pagination (optional)
      * @param  int|null $limit the limit for pagination (has a hard limit of 1000) (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiVersionAchievementTierSearchPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['achievementTierSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiVersionAchievementTierSearchPostRequest($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['apiVersionAchievementTierSearchPost'][0])
+    public function achievementTierSearchPostRequest($device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, $sort_field = null, $descending = null, $descending_goal = null, $start = null, $limit = null, string $contentType = self::contentTypes['achievementTierSearchPost'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling apiVersionAchievementTierSearchPost'
-            );
-        }
 
 
 
@@ -426,8 +415,7 @@ class AchievementApi
 
 
 
-
-        $resourcePath = '/api/{version}/achievement/tier/search';
+        $resourcePath = '/achievement/tier/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -535,14 +523,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -603,7 +583,6 @@ class AchievementApi
      *
      * Create Achievement
      *
-     * @param  float $version version (required)
      * @param  string $app_key the application key the achievement is for (required)
      * @param  string $title the title of the achievement (255 character limit) (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -623,9 +602,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementResponse
      */
-    public function createAchievement($version, $app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
+    public function createAchievement($app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
     {
-        list($response) = $this->createAchievementWithHttpInfo($version, $app_key, $title, $device_id, $account_id, $analytics_tag, $description, $rank_type, $rank_increment, $min_increment, $max_increment, $validate, $active, $trigger_definition, $contentType);
+        list($response) = $this->createAchievementWithHttpInfo($app_key, $title, $device_id, $account_id, $analytics_tag, $description, $rank_type, $rank_increment, $min_increment, $max_increment, $validate, $active, $trigger_definition, $contentType);
         return $response;
     }
 
@@ -634,7 +613,6 @@ class AchievementApi
      *
      * Create Achievement
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key the achievement is for (required)
      * @param  string $title the title of the achievement (255 character limit) (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -654,9 +632,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAchievementWithHttpInfo($version, $app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
+    public function createAchievementWithHttpInfo($app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
     {
-        $request = $this->createAchievementRequest($version, $app_key, $title, $device_id, $account_id, $analytics_tag, $description, $rank_type, $rank_increment, $min_increment, $max_increment, $validate, $active, $trigger_definition, $contentType);
+        $request = $this->createAchievementRequest($app_key, $title, $device_id, $account_id, $analytics_tag, $description, $rank_type, $rank_increment, $min_increment, $max_increment, $validate, $active, $trigger_definition, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -732,7 +710,6 @@ class AchievementApi
      *
      * Create Achievement
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key the achievement is for (required)
      * @param  string $title the title of the achievement (255 character limit) (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -751,9 +728,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAchievementAsync($version, $app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
+    public function createAchievementAsync($app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
     {
-        return $this->createAchievementAsyncWithHttpInfo($version, $app_key, $title, $device_id, $account_id, $analytics_tag, $description, $rank_type, $rank_increment, $min_increment, $max_increment, $validate, $active, $trigger_definition, $contentType)
+        return $this->createAchievementAsyncWithHttpInfo($app_key, $title, $device_id, $account_id, $analytics_tag, $description, $rank_type, $rank_increment, $min_increment, $max_increment, $validate, $active, $trigger_definition, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -766,7 +743,6 @@ class AchievementApi
      *
      * Create Achievement
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key the achievement is for (required)
      * @param  string $title the title of the achievement (255 character limit) (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -785,10 +761,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAchievementAsyncWithHttpInfo($version, $app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
+    public function createAchievementAsyncWithHttpInfo($app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementResponse';
-        $request = $this->createAchievementRequest($version, $app_key, $title, $device_id, $account_id, $analytics_tag, $description, $rank_type, $rank_increment, $min_increment, $max_increment, $validate, $active, $trigger_definition, $contentType);
+        $request = $this->createAchievementRequest($app_key, $title, $device_id, $account_id, $analytics_tag, $description, $rank_type, $rank_increment, $min_increment, $max_increment, $validate, $active, $trigger_definition, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -829,7 +805,6 @@ class AchievementApi
     /**
      * Create request for operation 'createAchievement'
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key the achievement is for (required)
      * @param  string $title the title of the achievement (255 character limit) (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -848,15 +823,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createAchievementRequest($version, $app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
+    public function createAchievementRequest($app_key, $title, $device_id = null, $account_id = null, $analytics_tag = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['createAchievement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createAchievement'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -884,7 +852,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/create';
+        $resourcePath = '/achievement/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1010,14 +978,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1078,7 +1038,6 @@ class AchievementApi
      *
      * Create Achievement Tier
      *
-     * @param  float $version version (required)
      * @param  int $achievement_id the achievement id for adding a new tier (required)
      * @param  bool $score_all_instances score all instances (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -1099,9 +1058,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementTierResponse
      */
-    public function createAchievementTier($version, $achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
+    public function createAchievementTier($achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
     {
-        list($response) = $this->createAchievementTierWithHttpInfo($version, $achievement_id, $score_all_instances, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
+        list($response) = $this->createAchievementTierWithHttpInfo($achievement_id, $score_all_instances, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
         return $response;
     }
 
@@ -1110,7 +1069,6 @@ class AchievementApi
      *
      * Create Achievement Tier
      *
-     * @param  float $version (required)
      * @param  int $achievement_id the achievement id for adding a new tier (required)
      * @param  bool $score_all_instances score all instances (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -1131,9 +1089,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementTierResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAchievementTierWithHttpInfo($version, $achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
+    public function createAchievementTierWithHttpInfo($achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
     {
-        $request = $this->createAchievementTierRequest($version, $achievement_id, $score_all_instances, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
+        $request = $this->createAchievementTierRequest($achievement_id, $score_all_instances, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1209,7 +1167,6 @@ class AchievementApi
      *
      * Create Achievement Tier
      *
-     * @param  float $version (required)
      * @param  int $achievement_id the achievement id for adding a new tier (required)
      * @param  bool $score_all_instances score all instances (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -1229,9 +1186,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAchievementTierAsync($version, $achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
+    public function createAchievementTierAsync($achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
     {
-        return $this->createAchievementTierAsyncWithHttpInfo($version, $achievement_id, $score_all_instances, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType)
+        return $this->createAchievementTierAsyncWithHttpInfo($achievement_id, $score_all_instances, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1244,7 +1201,6 @@ class AchievementApi
      *
      * Create Achievement Tier
      *
-     * @param  float $version (required)
      * @param  int $achievement_id the achievement id for adding a new tier (required)
      * @param  bool $score_all_instances score all instances (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -1264,10 +1220,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAchievementTierAsyncWithHttpInfo($version, $achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
+    public function createAchievementTierAsyncWithHttpInfo($achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementTierResponse';
-        $request = $this->createAchievementTierRequest($version, $achievement_id, $score_all_instances, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
+        $request = $this->createAchievementTierRequest($achievement_id, $score_all_instances, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1308,7 +1264,6 @@ class AchievementApi
     /**
      * Create request for operation 'createAchievementTier'
      *
-     * @param  float $version (required)
      * @param  int $achievement_id the achievement id for adding a new tier (required)
      * @param  bool $score_all_instances score all instances (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -1328,15 +1283,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createAchievementTierRequest($version, $achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
+    public function createAchievementTierRequest($achievement_id, $score_all_instances, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['createAchievementTier'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createAchievementTier'
-            );
-        }
 
         // verify the required parameter 'achievement_id' is set
         if ($achievement_id === null || (is_array($achievement_id) && count($achievement_id) === 0)) {
@@ -1365,7 +1313,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/tier/create';
+        $resourcePath = '/achievement/tier/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1500,14 +1448,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1568,7 +1508,6 @@ class AchievementApi
      *
      * Delete Achievement
      *
-     * @param  float $version version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievement'] to see the possible values for this operation
@@ -1577,9 +1516,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteAchievement($version, $achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
+    public function deleteAchievement($achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
     {
-        list($response) = $this->deleteAchievementWithHttpInfo($version, $achievement_id, $account_id, $contentType);
+        list($response) = $this->deleteAchievementWithHttpInfo($achievement_id, $account_id, $contentType);
         return $response;
     }
 
@@ -1588,7 +1527,6 @@ class AchievementApi
      *
      * Delete Achievement
      *
-     * @param  float $version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievement'] to see the possible values for this operation
@@ -1597,9 +1535,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAchievementWithHttpInfo($version, $achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
+    public function deleteAchievementWithHttpInfo($achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
     {
-        $request = $this->deleteAchievementRequest($version, $achievement_id, $account_id, $contentType);
+        $request = $this->deleteAchievementRequest($achievement_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1675,7 +1613,6 @@ class AchievementApi
      *
      * Delete Achievement
      *
-     * @param  float $version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievement'] to see the possible values for this operation
@@ -1683,9 +1620,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAchievementAsync($version, $achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
+    public function deleteAchievementAsync($achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
     {
-        return $this->deleteAchievementAsyncWithHttpInfo($version, $achievement_id, $account_id, $contentType)
+        return $this->deleteAchievementAsyncWithHttpInfo($achievement_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1698,7 +1635,6 @@ class AchievementApi
      *
      * Delete Achievement
      *
-     * @param  float $version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievement'] to see the possible values for this operation
@@ -1706,10 +1642,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAchievementAsyncWithHttpInfo($version, $achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
+    public function deleteAchievementAsyncWithHttpInfo($achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteAchievementRequest($version, $achievement_id, $account_id, $contentType);
+        $request = $this->deleteAchievementRequest($achievement_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1750,7 +1686,6 @@ class AchievementApi
     /**
      * Create request for operation 'deleteAchievement'
      *
-     * @param  float $version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievement'] to see the possible values for this operation
@@ -1758,15 +1693,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteAchievementRequest($version, $achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
+    public function deleteAchievementRequest($achievement_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteAchievement'
-            );
-        }
 
         // verify the required parameter 'achievement_id' is set
         if ($achievement_id === null || (is_array($achievement_id) && count($achievement_id) === 0)) {
@@ -1777,7 +1705,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/delete';
+        $resourcePath = '/achievement/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1804,14 +1732,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1872,7 +1792,6 @@ class AchievementApi
      *
      * Delete Achievement Tier
      *
-     * @param  float $version version (required)
      * @param  int $achievement_tier_id the achievement id for deletion (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievementTier'] to see the possible values for this operation
@@ -1881,9 +1800,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteAchievementTier($version, $achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
+    public function deleteAchievementTier($achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
     {
-        list($response) = $this->deleteAchievementTierWithHttpInfo($version, $achievement_tier_id, $account_id, $contentType);
+        list($response) = $this->deleteAchievementTierWithHttpInfo($achievement_tier_id, $account_id, $contentType);
         return $response;
     }
 
@@ -1892,7 +1811,6 @@ class AchievementApi
      *
      * Delete Achievement Tier
      *
-     * @param  float $version (required)
      * @param  int $achievement_tier_id the achievement id for deletion (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievementTier'] to see the possible values for this operation
@@ -1901,9 +1819,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAchievementTierWithHttpInfo($version, $achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
+    public function deleteAchievementTierWithHttpInfo($achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
     {
-        $request = $this->deleteAchievementTierRequest($version, $achievement_tier_id, $account_id, $contentType);
+        $request = $this->deleteAchievementTierRequest($achievement_tier_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1979,7 +1897,6 @@ class AchievementApi
      *
      * Delete Achievement Tier
      *
-     * @param  float $version (required)
      * @param  int $achievement_tier_id the achievement id for deletion (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievementTier'] to see the possible values for this operation
@@ -1987,9 +1904,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAchievementTierAsync($version, $achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
+    public function deleteAchievementTierAsync($achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
     {
-        return $this->deleteAchievementTierAsyncWithHttpInfo($version, $achievement_tier_id, $account_id, $contentType)
+        return $this->deleteAchievementTierAsyncWithHttpInfo($achievement_tier_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2002,7 +1919,6 @@ class AchievementApi
      *
      * Delete Achievement Tier
      *
-     * @param  float $version (required)
      * @param  int $achievement_tier_id the achievement id for deletion (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievementTier'] to see the possible values for this operation
@@ -2010,10 +1926,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAchievementTierAsyncWithHttpInfo($version, $achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
+    public function deleteAchievementTierAsyncWithHttpInfo($achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteAchievementTierRequest($version, $achievement_tier_id, $account_id, $contentType);
+        $request = $this->deleteAchievementTierRequest($achievement_tier_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2054,7 +1970,6 @@ class AchievementApi
     /**
      * Create request for operation 'deleteAchievementTier'
      *
-     * @param  float $version (required)
      * @param  int $achievement_tier_id the achievement id for deletion (required)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAchievementTier'] to see the possible values for this operation
@@ -2062,15 +1977,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteAchievementTierRequest($version, $achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
+    public function deleteAchievementTierRequest($achievement_tier_id, $account_id = null, string $contentType = self::contentTypes['deleteAchievementTier'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteAchievementTier'
-            );
-        }
 
         // verify the required parameter 'achievement_tier_id' is set
         if ($achievement_tier_id === null || (is_array($achievement_tier_id) && count($achievement_tier_id) === 0)) {
@@ -2081,7 +1989,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/tier/delete';
+        $resourcePath = '/achievement/tier/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2108,14 +2016,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2176,7 +2076,6 @@ class AchievementApi
      *
      * Get Achievement
      *
-     * @param  float $version version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2187,9 +2086,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementTierResponse
      */
-    public function getAchievement($version, $achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
+    public function getAchievement($achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
     {
-        list($response) = $this->getAchievementWithHttpInfo($version, $achievement_id, $device_id, $account_id, $achievement_type, $contentType);
+        list($response) = $this->getAchievementWithHttpInfo($achievement_id, $device_id, $account_id, $achievement_type, $contentType);
         return $response;
     }
 
@@ -2198,7 +2097,6 @@ class AchievementApi
      *
      * Get Achievement
      *
-     * @param  float $version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2209,9 +2107,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementTierResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAchievementWithHttpInfo($version, $achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
+    public function getAchievementWithHttpInfo($achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
     {
-        $request = $this->getAchievementRequest($version, $achievement_id, $device_id, $account_id, $achievement_type, $contentType);
+        $request = $this->getAchievementRequest($achievement_id, $device_id, $account_id, $achievement_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2287,7 +2185,6 @@ class AchievementApi
      *
      * Get Achievement
      *
-     * @param  float $version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2297,9 +2194,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAchievementAsync($version, $achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
+    public function getAchievementAsync($achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
     {
-        return $this->getAchievementAsyncWithHttpInfo($version, $achievement_id, $device_id, $account_id, $achievement_type, $contentType)
+        return $this->getAchievementAsyncWithHttpInfo($achievement_id, $device_id, $account_id, $achievement_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2312,7 +2209,6 @@ class AchievementApi
      *
      * Get Achievement
      *
-     * @param  float $version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2322,10 +2218,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAchievementAsyncWithHttpInfo($version, $achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
+    public function getAchievementAsyncWithHttpInfo($achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementTierResponse';
-        $request = $this->getAchievementRequest($version, $achievement_id, $device_id, $account_id, $achievement_type, $contentType);
+        $request = $this->getAchievementRequest($achievement_id, $device_id, $account_id, $achievement_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2366,7 +2262,6 @@ class AchievementApi
     /**
      * Create request for operation 'getAchievement'
      *
-     * @param  float $version (required)
      * @param  int $achievement_id The ID of the achievement (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2376,15 +2271,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAchievementRequest($version, $achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
+    public function getAchievementRequest($achievement_id, $device_id = null, $account_id = null, $achievement_type = null, string $contentType = self::contentTypes['getAchievement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAchievement'
-            );
-        }
 
         // verify the required parameter 'achievement_id' is set
         if ($achievement_id === null || (is_array($achievement_id) && count($achievement_id) === 0)) {
@@ -2397,7 +2285,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/get';
+        $resourcePath = '/achievement/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2442,14 +2330,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2510,7 +2390,6 @@ class AchievementApi
      *
      * Gets an achievement tier
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $achievement_tier_id the achievement tier id that is being retrieved (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAchievementTier'] to see the possible values for this operation
@@ -2519,9 +2398,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementTierResponse
      */
-    public function getAchievementTier($version, $account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
+    public function getAchievementTier($account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
     {
-        list($response) = $this->getAchievementTierWithHttpInfo($version, $account_id, $achievement_tier_id, $contentType);
+        list($response) = $this->getAchievementTierWithHttpInfo($account_id, $achievement_tier_id, $contentType);
         return $response;
     }
 
@@ -2530,7 +2409,6 @@ class AchievementApi
      *
      * Gets an achievement tier
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $achievement_tier_id the achievement tier id that is being retrieved (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAchievementTier'] to see the possible values for this operation
@@ -2539,9 +2417,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementTierResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAchievementTierWithHttpInfo($version, $account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
+    public function getAchievementTierWithHttpInfo($account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
     {
-        $request = $this->getAchievementTierRequest($version, $account_id, $achievement_tier_id, $contentType);
+        $request = $this->getAchievementTierRequest($account_id, $achievement_tier_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2617,7 +2495,6 @@ class AchievementApi
      *
      * Gets an achievement tier
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $achievement_tier_id the achievement tier id that is being retrieved (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAchievementTier'] to see the possible values for this operation
@@ -2625,9 +2502,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAchievementTierAsync($version, $account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
+    public function getAchievementTierAsync($account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
     {
-        return $this->getAchievementTierAsyncWithHttpInfo($version, $account_id, $achievement_tier_id, $contentType)
+        return $this->getAchievementTierAsyncWithHttpInfo($account_id, $achievement_tier_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2640,7 +2517,6 @@ class AchievementApi
      *
      * Gets an achievement tier
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $achievement_tier_id the achievement tier id that is being retrieved (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAchievementTier'] to see the possible values for this operation
@@ -2648,10 +2524,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAchievementTierAsyncWithHttpInfo($version, $account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
+    public function getAchievementTierAsyncWithHttpInfo($account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementTierResponse';
-        $request = $this->getAchievementTierRequest($version, $account_id, $achievement_tier_id, $contentType);
+        $request = $this->getAchievementTierRequest($account_id, $achievement_tier_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2692,7 +2568,6 @@ class AchievementApi
     /**
      * Create request for operation 'getAchievementTier'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $achievement_tier_id the achievement tier id that is being retrieved (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAchievementTier'] to see the possible values for this operation
@@ -2700,15 +2575,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAchievementTierRequest($version, $account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
+    public function getAchievementTierRequest($account_id, $achievement_tier_id, string $contentType = self::contentTypes['getAchievementTier'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAchievementTier'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2725,7 +2593,7 @@ class AchievementApi
         }
 
 
-        $resourcePath = '/api/{version}/achievement/tier/get';
+        $resourcePath = '/achievement/tier/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2752,14 +2620,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2820,7 +2680,6 @@ class AchievementApi
      *
      * Get Achievement Progress
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls determines whether to return null fields in the response (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  bool $include_undiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -2838,9 +2697,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementProgressResponse[]
      */
-    public function getUserAchievements($version, $return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
+    public function getUserAchievements($return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
     {
-        list($response) = $this->getUserAchievementsWithHttpInfo($version, $return_nulls, $app_key, $include_undiscovered, $device_id, $account_id, $connection_account_email, $connection_account_id, $rank_type, $achievement_type, $latitude, $longitude, $contentType);
+        list($response) = $this->getUserAchievementsWithHttpInfo($return_nulls, $app_key, $include_undiscovered, $device_id, $account_id, $connection_account_email, $connection_account_id, $rank_type, $achievement_type, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -2849,7 +2708,6 @@ class AchievementApi
      *
      * Get Achievement Progress
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls determines whether to return null fields in the response (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  bool $include_undiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -2867,9 +2725,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementProgressResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserAchievementsWithHttpInfo($version, $return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
+    public function getUserAchievementsWithHttpInfo($return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
     {
-        $request = $this->getUserAchievementsRequest($version, $return_nulls, $app_key, $include_undiscovered, $device_id, $account_id, $connection_account_email, $connection_account_id, $rank_type, $achievement_type, $latitude, $longitude, $contentType);
+        $request = $this->getUserAchievementsRequest($return_nulls, $app_key, $include_undiscovered, $device_id, $account_id, $connection_account_email, $connection_account_id, $rank_type, $achievement_type, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2945,7 +2803,6 @@ class AchievementApi
      *
      * Get Achievement Progress
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls determines whether to return null fields in the response (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  bool $include_undiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -2962,9 +2819,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserAchievementsAsync($version, $return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
+    public function getUserAchievementsAsync($return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
     {
-        return $this->getUserAchievementsAsyncWithHttpInfo($version, $return_nulls, $app_key, $include_undiscovered, $device_id, $account_id, $connection_account_email, $connection_account_id, $rank_type, $achievement_type, $latitude, $longitude, $contentType)
+        return $this->getUserAchievementsAsyncWithHttpInfo($return_nulls, $app_key, $include_undiscovered, $device_id, $account_id, $connection_account_email, $connection_account_id, $rank_type, $achievement_type, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2977,7 +2834,6 @@ class AchievementApi
      *
      * Get Achievement Progress
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls determines whether to return null fields in the response (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  bool $include_undiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -2994,10 +2850,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserAchievementsAsyncWithHttpInfo($version, $return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
+    public function getUserAchievementsAsyncWithHttpInfo($return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementProgressResponse[]';
-        $request = $this->getUserAchievementsRequest($version, $return_nulls, $app_key, $include_undiscovered, $device_id, $account_id, $connection_account_email, $connection_account_id, $rank_type, $achievement_type, $latitude, $longitude, $contentType);
+        $request = $this->getUserAchievementsRequest($return_nulls, $app_key, $include_undiscovered, $device_id, $account_id, $connection_account_email, $connection_account_id, $rank_type, $achievement_type, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3038,7 +2894,6 @@ class AchievementApi
     /**
      * Create request for operation 'getUserAchievements'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls determines whether to return null fields in the response (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  bool $include_undiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -3055,15 +2910,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserAchievementsRequest($version, $return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
+    public function getUserAchievementsRequest($return_nulls, $app_key, $include_undiscovered, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = null, $rank_type = null, $achievement_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getUserAchievements'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getUserAchievements'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -3095,7 +2943,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/progress/get';
+        $resourcePath = '/achievement/progress/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3203,14 +3051,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3271,7 +3111,6 @@ class AchievementApi
      *
      * List Achievement Tags
      *
-     * @param  float $version version (required)
      * @param  string|null $app_key filter results by application key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAchievementTags'] to see the possible values for this operation
      *
@@ -3279,9 +3118,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function listAchievementTags($version, $app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
+    public function listAchievementTags($app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
     {
-        list($response) = $this->listAchievementTagsWithHttpInfo($version, $app_key, $contentType);
+        list($response) = $this->listAchievementTagsWithHttpInfo($app_key, $contentType);
         return $response;
     }
 
@@ -3290,7 +3129,6 @@ class AchievementApi
      *
      * List Achievement Tags
      *
-     * @param  float $version (required)
      * @param  string|null $app_key filter results by application key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAchievementTags'] to see the possible values for this operation
      *
@@ -3298,9 +3136,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAchievementTagsWithHttpInfo($version, $app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
+    public function listAchievementTagsWithHttpInfo($app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
     {
-        $request = $this->listAchievementTagsRequest($version, $app_key, $contentType);
+        $request = $this->listAchievementTagsRequest($app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3376,16 +3214,15 @@ class AchievementApi
      *
      * List Achievement Tags
      *
-     * @param  float $version (required)
      * @param  string|null $app_key filter results by application key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAchievementTags'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAchievementTagsAsync($version, $app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
+    public function listAchievementTagsAsync($app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
     {
-        return $this->listAchievementTagsAsyncWithHttpInfo($version, $app_key, $contentType)
+        return $this->listAchievementTagsAsyncWithHttpInfo($app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3398,17 +3235,16 @@ class AchievementApi
      *
      * List Achievement Tags
      *
-     * @param  float $version (required)
      * @param  string|null $app_key filter results by application key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAchievementTags'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAchievementTagsAsyncWithHttpInfo($version, $app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
+    public function listAchievementTagsAsyncWithHttpInfo($app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->listAchievementTagsRequest($version, $app_key, $contentType);
+        $request = $this->listAchievementTagsRequest($app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3449,26 +3285,18 @@ class AchievementApi
     /**
      * Create request for operation 'listAchievementTags'
      *
-     * @param  float $version (required)
      * @param  string|null $app_key filter results by application key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAchievementTags'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listAchievementTagsRequest($version, $app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
+    public function listAchievementTagsRequest($app_key = null, string $contentType = self::contentTypes['listAchievementTags'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listAchievementTags'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/achievement/tag/list';
+        $resourcePath = '/achievement/tag/list';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3486,14 +3314,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3554,7 +3374,6 @@ class AchievementApi
      *
      * List Achievements
      *
-     * @param  float $version version (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start the start index for pagination (required)
@@ -3572,9 +3391,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementShortResponse[]
      */
-    public function listAchievements($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
+    public function listAchievements($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
     {
-        list($response) = $this->listAchievementsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $contentType);
+        list($response) = $this->listAchievementsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $contentType);
         return $response;
     }
 
@@ -3583,7 +3402,6 @@ class AchievementApi
      *
      * List Achievements
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start the start index for pagination (required)
@@ -3601,9 +3419,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementShortResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAchievementsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
+    public function listAchievementsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
     {
-        $request = $this->listAchievementsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $contentType);
+        $request = $this->listAchievementsRequest($sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3679,7 +3497,6 @@ class AchievementApi
      *
      * List Achievements
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start the start index for pagination (required)
@@ -3696,9 +3513,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAchievementsAsync($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
+    public function listAchievementsAsync($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
     {
-        return $this->listAchievementsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $contentType)
+        return $this->listAchievementsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3711,7 +3528,6 @@ class AchievementApi
      *
      * List Achievements
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start the start index for pagination (required)
@@ -3728,10 +3544,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAchievementsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
+    public function listAchievementsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementShortResponse[]';
-        $request = $this->listAchievementsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $contentType);
+        $request = $this->listAchievementsRequest($sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $app_key, $keyword, $achievement_type, $rank_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3772,7 +3588,6 @@ class AchievementApi
     /**
      * Create request for operation 'listAchievements'
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start the start index for pagination (required)
@@ -3789,15 +3604,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listAchievementsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
+    public function listAchievementsRequest($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['listAchievements'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listAchievements'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -3841,7 +3649,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/list';
+        $resourcePath = '/achievement/list';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3949,14 +3757,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4017,7 +3817,6 @@ class AchievementApi
      *
      * Search Achievements
      *
-     * @param  float $version version (required)
      * @param  string $app_key the application key (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -4036,9 +3835,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementShortResponse[]
      */
-    public function searchAchievements($version, $app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
+    public function searchAchievements($app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
     {
-        list($response) = $this->searchAchievementsWithHttpInfo($version, $app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id, $account_id, $keyword, $achievement_type, $rank_type, $contentType);
+        list($response) = $this->searchAchievementsWithHttpInfo($app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id, $account_id, $keyword, $achievement_type, $rank_type, $contentType);
         return $response;
     }
 
@@ -4047,7 +3846,6 @@ class AchievementApi
      *
      * Search Achievements
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -4066,9 +3864,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementShortResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAchievementsWithHttpInfo($version, $app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
+    public function searchAchievementsWithHttpInfo($app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
     {
-        $request = $this->searchAchievementsRequest($version, $app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id, $account_id, $keyword, $achievement_type, $rank_type, $contentType);
+        $request = $this->searchAchievementsRequest($app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id, $account_id, $keyword, $achievement_type, $rank_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4144,7 +3942,6 @@ class AchievementApi
      *
      * Search Achievements
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -4162,9 +3959,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAchievementsAsync($version, $app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
+    public function searchAchievementsAsync($app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
     {
-        return $this->searchAchievementsAsyncWithHttpInfo($version, $app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id, $account_id, $keyword, $achievement_type, $rank_type, $contentType)
+        return $this->searchAchievementsAsyncWithHttpInfo($app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id, $account_id, $keyword, $achievement_type, $rank_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4177,7 +3974,6 @@ class AchievementApi
      *
      * Search Achievements
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -4195,10 +3991,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAchievementsAsyncWithHttpInfo($version, $app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
+    public function searchAchievementsAsyncWithHttpInfo($app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementShortResponse[]';
-        $request = $this->searchAchievementsRequest($version, $app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id, $account_id, $keyword, $achievement_type, $rank_type, $contentType);
+        $request = $this->searchAchievementsRequest($app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id, $account_id, $keyword, $achievement_type, $rank_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4239,7 +4035,6 @@ class AchievementApi
     /**
      * Create request for operation 'searchAchievements'
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $sort_field the field to sort by. See AchievementApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -4257,15 +4052,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchAchievementsRequest($version, $app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
+    public function searchAchievementsRequest($app_key, $sort_field, $descending, $include_tiers, $include_inactive_tiers, $start, $limit, $device_id = null, $account_id = null, $keyword = null, $achievement_type = null, $rank_type = null, string $contentType = self::contentTypes['searchAchievements'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchAchievements'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -4322,7 +4110,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/search';
+        $resourcePath = '/achievement/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4439,14 +4227,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4507,7 +4287,6 @@ class AchievementApi
      *
      * Update Achievement
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $achievement_id the achievement ID for updating an existing achievement (optional)
@@ -4529,9 +4308,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementResponse
      */
-    public function updateAchievement($version, $device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
+    public function updateAchievement($device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
     {
-        list($response) = $this->updateAchievementWithHttpInfo($version, $device_id, $account_id, $achievement_id, $analytics_tag, $title, $description, $rank_type, $rank_increment, $min_increment, $null_min_increment, $max_increment, $null_max_increment, $validate, $active, $trigger_definition, $contentType);
+        list($response) = $this->updateAchievementWithHttpInfo($device_id, $account_id, $achievement_id, $analytics_tag, $title, $description, $rank_type, $rank_increment, $min_increment, $null_min_increment, $max_increment, $null_max_increment, $validate, $active, $trigger_definition, $contentType);
         return $response;
     }
 
@@ -4540,7 +4319,6 @@ class AchievementApi
      *
      * Update Achievement
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $achievement_id the achievement ID for updating an existing achievement (optional)
@@ -4562,9 +4340,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAchievementWithHttpInfo($version, $device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
+    public function updateAchievementWithHttpInfo($device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
     {
-        $request = $this->updateAchievementRequest($version, $device_id, $account_id, $achievement_id, $analytics_tag, $title, $description, $rank_type, $rank_increment, $min_increment, $null_min_increment, $max_increment, $null_max_increment, $validate, $active, $trigger_definition, $contentType);
+        $request = $this->updateAchievementRequest($device_id, $account_id, $achievement_id, $analytics_tag, $title, $description, $rank_type, $rank_increment, $min_increment, $null_min_increment, $max_increment, $null_max_increment, $validate, $active, $trigger_definition, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4640,7 +4418,6 @@ class AchievementApi
      *
      * Update Achievement
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $achievement_id the achievement ID for updating an existing achievement (optional)
@@ -4661,9 +4438,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAchievementAsync($version, $device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
+    public function updateAchievementAsync($device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
     {
-        return $this->updateAchievementAsyncWithHttpInfo($version, $device_id, $account_id, $achievement_id, $analytics_tag, $title, $description, $rank_type, $rank_increment, $min_increment, $null_min_increment, $max_increment, $null_max_increment, $validate, $active, $trigger_definition, $contentType)
+        return $this->updateAchievementAsyncWithHttpInfo($device_id, $account_id, $achievement_id, $analytics_tag, $title, $description, $rank_type, $rank_increment, $min_increment, $null_min_increment, $max_increment, $null_max_increment, $validate, $active, $trigger_definition, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4676,7 +4453,6 @@ class AchievementApi
      *
      * Update Achievement
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $achievement_id the achievement ID for updating an existing achievement (optional)
@@ -4697,10 +4473,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAchievementAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
+    public function updateAchievementAsyncWithHttpInfo($device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementResponse';
-        $request = $this->updateAchievementRequest($version, $device_id, $account_id, $achievement_id, $analytics_tag, $title, $description, $rank_type, $rank_increment, $min_increment, $null_min_increment, $max_increment, $null_max_increment, $validate, $active, $trigger_definition, $contentType);
+        $request = $this->updateAchievementRequest($device_id, $account_id, $achievement_id, $analytics_tag, $title, $description, $rank_type, $rank_increment, $min_increment, $null_min_increment, $max_increment, $null_max_increment, $validate, $active, $trigger_definition, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4741,7 +4517,6 @@ class AchievementApi
     /**
      * Create request for operation 'updateAchievement'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $achievement_id the achievement ID for updating an existing achievement (optional)
@@ -4762,15 +4537,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateAchievementRequest($version, $device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
+    public function updateAchievementRequest($device_id = null, $account_id = null, $achievement_id = null, $analytics_tag = null, $title = null, $description = null, $rank_type = null, $rank_increment = null, $min_increment = null, $null_min_increment = null, $max_increment = null, $null_max_increment = null, $validate = null, $active = null, $trigger_definition = null, string $contentType = self::contentTypes['updateAchievement'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateAchievement'
-            );
-        }
 
 
 
@@ -4787,8 +4556,7 @@ class AchievementApi
 
 
 
-
-        $resourcePath = '/api/{version}/achievement/update';
+        $resourcePath = '/achievement/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4932,14 +4700,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5000,7 +4760,6 @@ class AchievementApi
      *
      * Update Achievement Tier
      *
-     * @param  float $version version (required)
      * @param  int $achievement_tier_id the achievement tier id for updating (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -5021,9 +4780,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AchievementTierResponse
      */
-    public function updateAchievementTier($version, $achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
+    public function updateAchievementTier($achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
     {
-        list($response) = $this->updateAchievementTierWithHttpInfo($version, $achievement_tier_id, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_all_instances, $contentType);
+        list($response) = $this->updateAchievementTierWithHttpInfo($achievement_tier_id, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_all_instances, $contentType);
         return $response;
     }
 
@@ -5032,7 +4791,6 @@ class AchievementApi
      *
      * Update Achievement Tier
      *
-     * @param  float $version (required)
      * @param  int $achievement_tier_id the achievement tier id for updating (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -5053,9 +4811,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AchievementTierResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAchievementTierWithHttpInfo($version, $achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
+    public function updateAchievementTierWithHttpInfo($achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
     {
-        $request = $this->updateAchievementTierRequest($version, $achievement_tier_id, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_all_instances, $contentType);
+        $request = $this->updateAchievementTierRequest($achievement_tier_id, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_all_instances, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5131,7 +4889,6 @@ class AchievementApi
      *
      * Update Achievement Tier
      *
-     * @param  float $version (required)
      * @param  int $achievement_tier_id the achievement tier id for updating (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -5151,9 +4908,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAchievementTierAsync($version, $achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
+    public function updateAchievementTierAsync($achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
     {
-        return $this->updateAchievementTierAsyncWithHttpInfo($version, $achievement_tier_id, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_all_instances, $contentType)
+        return $this->updateAchievementTierAsyncWithHttpInfo($achievement_tier_id, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_all_instances, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5166,7 +4923,6 @@ class AchievementApi
      *
      * Update Achievement Tier
      *
-     * @param  float $version (required)
      * @param  int $achievement_tier_id the achievement tier id for updating (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -5186,10 +4942,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAchievementTierAsyncWithHttpInfo($version, $achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
+    public function updateAchievementTierAsyncWithHttpInfo($achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AchievementTierResponse';
-        $request = $this->updateAchievementTierRequest($version, $achievement_tier_id, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_all_instances, $contentType);
+        $request = $this->updateAchievementTierRequest($achievement_tier_id, $device_id, $account_id, $icon, $icon_asset_id, $title, $description, $goal_count, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_all_instances, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5230,7 +4986,6 @@ class AchievementApi
     /**
      * Create request for operation 'updateAchievementTier'
      *
-     * @param  float $version (required)
      * @param  int $achievement_tier_id the achievement tier id for updating (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -5250,15 +5005,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateAchievementTierRequest($version, $achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
+    public function updateAchievementTierRequest($achievement_tier_id, $device_id = null, $account_id = null, $icon = null, $icon_asset_id = null, $title = null, $description = null, $goal_count = null, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_all_instances = null, string $contentType = self::contentTypes['updateAchievementTier'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateAchievementTier'
-            );
-        }
 
         // verify the required parameter 'achievement_tier_id' is set
         if ($achievement_tier_id === null || (is_array($achievement_tier_id) && count($achievement_tier_id) === 0)) {
@@ -5281,7 +5029,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/tier/update';
+        $resourcePath = '/achievement/tier/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5416,14 +5164,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5484,7 +5224,6 @@ class AchievementApi
      *
      * Update Achievement Progress
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int|null $achievement_id the achievement id (achievementId or tag required) (optional)
      * @param  string|null $tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -5499,9 +5238,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateUserAchievement($version, $account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
+    public function updateUserAchievement($account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
     {
-        list($response) = $this->updateUserAchievementWithHttpInfo($version, $account_id, $achievement_id, $tag, $custom_id, $increment, $start_date, $end_date, $return_progress, $contentType);
+        list($response) = $this->updateUserAchievementWithHttpInfo($account_id, $achievement_id, $tag, $custom_id, $increment, $start_date, $end_date, $return_progress, $contentType);
         return $response;
     }
 
@@ -5510,7 +5249,6 @@ class AchievementApi
      *
      * Update Achievement Progress
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int|null $achievement_id the achievement id (achievementId or tag required) (optional)
      * @param  string|null $tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -5525,9 +5263,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserAchievementWithHttpInfo($version, $account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
+    public function updateUserAchievementWithHttpInfo($account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
     {
-        $request = $this->updateUserAchievementRequest($version, $account_id, $achievement_id, $tag, $custom_id, $increment, $start_date, $end_date, $return_progress, $contentType);
+        $request = $this->updateUserAchievementRequest($account_id, $achievement_id, $tag, $custom_id, $increment, $start_date, $end_date, $return_progress, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5603,7 +5341,6 @@ class AchievementApi
      *
      * Update Achievement Progress
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int|null $achievement_id the achievement id (achievementId or tag required) (optional)
      * @param  string|null $tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -5617,9 +5354,9 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserAchievementAsync($version, $account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
+    public function updateUserAchievementAsync($account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
     {
-        return $this->updateUserAchievementAsyncWithHttpInfo($version, $account_id, $achievement_id, $tag, $custom_id, $increment, $start_date, $end_date, $return_progress, $contentType)
+        return $this->updateUserAchievementAsyncWithHttpInfo($account_id, $achievement_id, $tag, $custom_id, $increment, $start_date, $end_date, $return_progress, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5632,7 +5369,6 @@ class AchievementApi
      *
      * Update Achievement Progress
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int|null $achievement_id the achievement id (achievementId or tag required) (optional)
      * @param  string|null $tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -5646,10 +5382,10 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserAchievementAsyncWithHttpInfo($version, $account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
+    public function updateUserAchievementAsyncWithHttpInfo($account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateUserAchievementRequest($version, $account_id, $achievement_id, $tag, $custom_id, $increment, $start_date, $end_date, $return_progress, $contentType);
+        $request = $this->updateUserAchievementRequest($account_id, $achievement_id, $tag, $custom_id, $increment, $start_date, $end_date, $return_progress, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5690,7 +5426,6 @@ class AchievementApi
     /**
      * Create request for operation 'updateUserAchievement'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int|null $achievement_id the achievement id (achievementId or tag required) (optional)
      * @param  string|null $tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -5704,15 +5439,8 @@ class AchievementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUserAchievementRequest($version, $account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
+    public function updateUserAchievementRequest($account_id, $achievement_id = null, $tag = null, $custom_id = null, $increment = null, $start_date = null, $end_date = null, $return_progress = null, string $contentType = self::contentTypes['updateUserAchievement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateUserAchievement'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -5729,7 +5457,7 @@ class AchievementApi
 
 
 
-        $resourcePath = '/api/{version}/achievement/progress/update';
+        $resourcePath = '/achievement/progress/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5810,14 +5538,6 @@ class AchievementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -191,7 +191,6 @@ class RouteApi
      *
      * Approve Route
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to approve (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['approveRoute'] to see the possible values for this operation
      *
@@ -199,9 +198,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Route
      */
-    public function approveRoute($version, $route_id, string $contentType = self::contentTypes['approveRoute'][0])
+    public function approveRoute($route_id, string $contentType = self::contentTypes['approveRoute'][0])
     {
-        list($response) = $this->approveRouteWithHttpInfo($version, $route_id, $contentType);
+        list($response) = $this->approveRouteWithHttpInfo($route_id, $contentType);
         return $response;
     }
 
@@ -210,7 +209,6 @@ class RouteApi
      *
      * Approve Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to approve (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['approveRoute'] to see the possible values for this operation
      *
@@ -218,9 +216,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Route, HTTP status code, HTTP response headers (array of strings)
      */
-    public function approveRouteWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['approveRoute'][0])
+    public function approveRouteWithHttpInfo($route_id, string $contentType = self::contentTypes['approveRoute'][0])
     {
-        $request = $this->approveRouteRequest($version, $route_id, $contentType);
+        $request = $this->approveRouteRequest($route_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -296,16 +294,15 @@ class RouteApi
      *
      * Approve Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to approve (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['approveRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approveRouteAsync($version, $route_id, string $contentType = self::contentTypes['approveRoute'][0])
+    public function approveRouteAsync($route_id, string $contentType = self::contentTypes['approveRoute'][0])
     {
-        return $this->approveRouteAsyncWithHttpInfo($version, $route_id, $contentType)
+        return $this->approveRouteAsyncWithHttpInfo($route_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -318,17 +315,16 @@ class RouteApi
      *
      * Approve Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to approve (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['approveRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approveRouteAsyncWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['approveRoute'][0])
+    public function approveRouteAsyncWithHttpInfo($route_id, string $contentType = self::contentTypes['approveRoute'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Route';
-        $request = $this->approveRouteRequest($version, $route_id, $contentType);
+        $request = $this->approveRouteRequest($route_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -369,22 +365,14 @@ class RouteApi
     /**
      * Create request for operation 'approveRoute'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to approve (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['approveRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function approveRouteRequest($version, $route_id, string $contentType = self::contentTypes['approveRoute'][0])
+    public function approveRouteRequest($route_id, string $contentType = self::contentTypes['approveRoute'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling approveRoute'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -394,7 +382,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/approve';
+        $resourcePath = '/route/{routeId}/approve';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -403,14 +391,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -479,7 +459,6 @@ class RouteApi
      *
      * Copy Route
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to duplicate (required)
      * @param  \OpenAPI\Client\Model\Route|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['copyRoute'] to see the possible values for this operation
@@ -488,9 +467,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Route
      */
-    public function copyRoute($version, $route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
+    public function copyRoute($route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
     {
-        list($response) = $this->copyRouteWithHttpInfo($version, $route_id, $body, $contentType);
+        list($response) = $this->copyRouteWithHttpInfo($route_id, $body, $contentType);
         return $response;
     }
 
@@ -499,7 +478,6 @@ class RouteApi
      *
      * Copy Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to duplicate (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['copyRoute'] to see the possible values for this operation
@@ -508,9 +486,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Route, HTTP status code, HTTP response headers (array of strings)
      */
-    public function copyRouteWithHttpInfo($version, $route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
+    public function copyRouteWithHttpInfo($route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
     {
-        $request = $this->copyRouteRequest($version, $route_id, $body, $contentType);
+        $request = $this->copyRouteRequest($route_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -586,7 +564,6 @@ class RouteApi
      *
      * Copy Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to duplicate (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['copyRoute'] to see the possible values for this operation
@@ -594,9 +571,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function copyRouteAsync($version, $route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
+    public function copyRouteAsync($route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
     {
-        return $this->copyRouteAsyncWithHttpInfo($version, $route_id, $body, $contentType)
+        return $this->copyRouteAsyncWithHttpInfo($route_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -609,7 +586,6 @@ class RouteApi
      *
      * Copy Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to duplicate (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['copyRoute'] to see the possible values for this operation
@@ -617,10 +593,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function copyRouteAsyncWithHttpInfo($version, $route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
+    public function copyRouteAsyncWithHttpInfo($route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Route';
-        $request = $this->copyRouteRequest($version, $route_id, $body, $contentType);
+        $request = $this->copyRouteRequest($route_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -661,7 +637,6 @@ class RouteApi
     /**
      * Create request for operation 'copyRoute'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to duplicate (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['copyRoute'] to see the possible values for this operation
@@ -669,15 +644,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function copyRouteRequest($version, $route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
+    public function copyRouteRequest($route_id, $body = null, string $contentType = self::contentTypes['copyRoute'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling copyRoute'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -688,7 +656,7 @@ class RouteApi
 
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/copy';
+        $resourcePath = '/route/{routeId}/copy';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -697,14 +665,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -780,7 +740,6 @@ class RouteApi
      *
      * Create Route
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\Route|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoute'] to see the possible values for this operation
      *
@@ -788,9 +747,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Route
      */
-    public function createRoute($version, $body = null, string $contentType = self::contentTypes['createRoute'][0])
+    public function createRoute($body = null, string $contentType = self::contentTypes['createRoute'][0])
     {
-        list($response) = $this->createRouteWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createRouteWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -799,7 +758,6 @@ class RouteApi
      *
      * Create Route
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoute'] to see the possible values for this operation
      *
@@ -807,9 +765,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Route, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRouteWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createRoute'][0])
+    public function createRouteWithHttpInfo($body = null, string $contentType = self::contentTypes['createRoute'][0])
     {
-        $request = $this->createRouteRequest($version, $body, $contentType);
+        $request = $this->createRouteRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -885,16 +843,15 @@ class RouteApi
      *
      * Create Route
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRouteAsync($version, $body = null, string $contentType = self::contentTypes['createRoute'][0])
+    public function createRouteAsync($body = null, string $contentType = self::contentTypes['createRoute'][0])
     {
-        return $this->createRouteAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createRouteAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -907,17 +864,16 @@ class RouteApi
      *
      * Create Route
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRouteAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createRoute'][0])
+    public function createRouteAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createRoute'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Route';
-        $request = $this->createRouteRequest($version, $body, $contentType);
+        $request = $this->createRouteRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -958,26 +914,18 @@ class RouteApi
     /**
      * Create request for operation 'createRoute'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRouteRequest($version, $body = null, string $contentType = self::contentTypes['createRoute'][0])
+    public function createRouteRequest($body = null, string $contentType = self::contentTypes['createRoute'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRoute'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/route';
+        $resourcePath = '/route';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -986,14 +934,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1061,7 +1001,6 @@ class RouteApi
      *
      * Update Route Directions
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to update directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteDirections'] to see the possible values for this operation
      *
@@ -1069,9 +1008,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Direction[]
      */
-    public function createRouteDirections($version, $route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
+    public function createRouteDirections($route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
     {
-        list($response) = $this->createRouteDirectionsWithHttpInfo($version, $route_id, $contentType);
+        list($response) = $this->createRouteDirectionsWithHttpInfo($route_id, $contentType);
         return $response;
     }
 
@@ -1080,7 +1019,6 @@ class RouteApi
      *
      * Update Route Directions
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to update directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteDirections'] to see the possible values for this operation
      *
@@ -1088,9 +1026,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Direction[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRouteDirectionsWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
+    public function createRouteDirectionsWithHttpInfo($route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
     {
-        $request = $this->createRouteDirectionsRequest($version, $route_id, $contentType);
+        $request = $this->createRouteDirectionsRequest($route_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1166,16 +1104,15 @@ class RouteApi
      *
      * Update Route Directions
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to update directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteDirections'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRouteDirectionsAsync($version, $route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
+    public function createRouteDirectionsAsync($route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
     {
-        return $this->createRouteDirectionsAsyncWithHttpInfo($version, $route_id, $contentType)
+        return $this->createRouteDirectionsAsyncWithHttpInfo($route_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1188,17 +1125,16 @@ class RouteApi
      *
      * Update Route Directions
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to update directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteDirections'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRouteDirectionsAsyncWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
+    public function createRouteDirectionsAsyncWithHttpInfo($route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Direction[]';
-        $request = $this->createRouteDirectionsRequest($version, $route_id, $contentType);
+        $request = $this->createRouteDirectionsRequest($route_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1239,22 +1175,14 @@ class RouteApi
     /**
      * Create request for operation 'createRouteDirections'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to update directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteDirections'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRouteDirectionsRequest($version, $route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
+    public function createRouteDirectionsRequest($route_id, string $contentType = self::contentTypes['createRouteDirections'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRouteDirections'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -1264,7 +1192,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/directions';
+        $resourcePath = '/route/{routeId}/directions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1273,14 +1201,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -1349,7 +1269,6 @@ class RouteApi
      *
      * Create Route Polyline
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to create a polyline for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutePolyline'] to see the possible values for this operation
      *
@@ -1357,9 +1276,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Route
      */
-    public function createRoutePolyline($version, $route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
+    public function createRoutePolyline($route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
     {
-        list($response) = $this->createRoutePolylineWithHttpInfo($version, $route_id, $contentType);
+        list($response) = $this->createRoutePolylineWithHttpInfo($route_id, $contentType);
         return $response;
     }
 
@@ -1368,7 +1287,6 @@ class RouteApi
      *
      * Create Route Polyline
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to create a polyline for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutePolyline'] to see the possible values for this operation
      *
@@ -1376,9 +1294,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Route, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRoutePolylineWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
+    public function createRoutePolylineWithHttpInfo($route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
     {
-        $request = $this->createRoutePolylineRequest($version, $route_id, $contentType);
+        $request = $this->createRoutePolylineRequest($route_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1454,16 +1372,15 @@ class RouteApi
      *
      * Create Route Polyline
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to create a polyline for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutePolyline'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRoutePolylineAsync($version, $route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
+    public function createRoutePolylineAsync($route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
     {
-        return $this->createRoutePolylineAsyncWithHttpInfo($version, $route_id, $contentType)
+        return $this->createRoutePolylineAsyncWithHttpInfo($route_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1476,17 +1393,16 @@ class RouteApi
      *
      * Create Route Polyline
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to create a polyline for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutePolyline'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRoutePolylineAsyncWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
+    public function createRoutePolylineAsyncWithHttpInfo($route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Route';
-        $request = $this->createRoutePolylineRequest($version, $route_id, $contentType);
+        $request = $this->createRoutePolylineRequest($route_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1527,22 +1443,14 @@ class RouteApi
     /**
      * Create request for operation 'createRoutePolyline'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to create a polyline for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRoutePolyline'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRoutePolylineRequest($version, $route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
+    public function createRoutePolylineRequest($route_id, string $contentType = self::contentTypes['createRoutePolyline'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRoutePolyline'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -1552,7 +1460,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/polyline';
+        $resourcePath = '/route/{routeId}/polyline';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1561,14 +1469,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -1637,7 +1537,6 @@ class RouteApi
      *
      * Delete Route
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRoute'] to see the possible values for this operation
      *
@@ -1645,9 +1544,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteRoute($version, $route_id, string $contentType = self::contentTypes['deleteRoute'][0])
+    public function deleteRoute($route_id, string $contentType = self::contentTypes['deleteRoute'][0])
     {
-        $this->deleteRouteWithHttpInfo($version, $route_id, $contentType);
+        $this->deleteRouteWithHttpInfo($route_id, $contentType);
     }
 
     /**
@@ -1655,7 +1554,6 @@ class RouteApi
      *
      * Delete Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRoute'] to see the possible values for this operation
      *
@@ -1663,9 +1561,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRouteWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['deleteRoute'][0])
+    public function deleteRouteWithHttpInfo($route_id, string $contentType = self::contentTypes['deleteRoute'][0])
     {
-        $request = $this->deleteRouteRequest($version, $route_id, $contentType);
+        $request = $this->deleteRouteRequest($route_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1705,16 +1603,15 @@ class RouteApi
      *
      * Delete Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRouteAsync($version, $route_id, string $contentType = self::contentTypes['deleteRoute'][0])
+    public function deleteRouteAsync($route_id, string $contentType = self::contentTypes['deleteRoute'][0])
     {
-        return $this->deleteRouteAsyncWithHttpInfo($version, $route_id, $contentType)
+        return $this->deleteRouteAsyncWithHttpInfo($route_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1727,17 +1624,16 @@ class RouteApi
      *
      * Delete Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRouteAsyncWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['deleteRoute'][0])
+    public function deleteRouteAsyncWithHttpInfo($route_id, string $contentType = self::contentTypes['deleteRoute'][0])
     {
         $returnType = '';
-        $request = $this->deleteRouteRequest($version, $route_id, $contentType);
+        $request = $this->deleteRouteRequest($route_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1765,22 +1661,14 @@ class RouteApi
     /**
      * Create request for operation 'deleteRoute'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteRouteRequest($version, $route_id, string $contentType = self::contentTypes['deleteRoute'][0])
+    public function deleteRouteRequest($route_id, string $contentType = self::contentTypes['deleteRoute'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteRoute'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -1790,7 +1678,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}';
+        $resourcePath = '/route/{routeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1799,14 +1687,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -1875,7 +1755,6 @@ class RouteApi
      *
      * Disapprove Route
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to reject (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disapproveRoute'] to see the possible values for this operation
      *
@@ -1883,9 +1762,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Route
      */
-    public function disapproveRoute($version, $route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
+    public function disapproveRoute($route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
     {
-        list($response) = $this->disapproveRouteWithHttpInfo($version, $route_id, $contentType);
+        list($response) = $this->disapproveRouteWithHttpInfo($route_id, $contentType);
         return $response;
     }
 
@@ -1894,7 +1773,6 @@ class RouteApi
      *
      * Disapprove Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to reject (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disapproveRoute'] to see the possible values for this operation
      *
@@ -1902,9 +1780,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Route, HTTP status code, HTTP response headers (array of strings)
      */
-    public function disapproveRouteWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
+    public function disapproveRouteWithHttpInfo($route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
     {
-        $request = $this->disapproveRouteRequest($version, $route_id, $contentType);
+        $request = $this->disapproveRouteRequest($route_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1980,16 +1858,15 @@ class RouteApi
      *
      * Disapprove Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to reject (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disapproveRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function disapproveRouteAsync($version, $route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
+    public function disapproveRouteAsync($route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
     {
-        return $this->disapproveRouteAsyncWithHttpInfo($version, $route_id, $contentType)
+        return $this->disapproveRouteAsyncWithHttpInfo($route_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2002,17 +1879,16 @@ class RouteApi
      *
      * Disapprove Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to reject (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disapproveRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function disapproveRouteAsyncWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
+    public function disapproveRouteAsyncWithHttpInfo($route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Route';
-        $request = $this->disapproveRouteRequest($version, $route_id, $contentType);
+        $request = $this->disapproveRouteRequest($route_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2053,22 +1929,14 @@ class RouteApi
     /**
      * Create request for operation 'disapproveRoute'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to reject (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disapproveRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function disapproveRouteRequest($version, $route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
+    public function disapproveRouteRequest($route_id, string $contentType = self::contentTypes['disapproveRoute'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling disapproveRoute'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -2078,7 +1946,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/disapprove';
+        $resourcePath = '/route/{routeId}/disapprove';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2087,14 +1955,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -2163,7 +2023,6 @@ class RouteApi
      *
      * Get Route
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to get (required)
      * @param  bool $show_inherited_properties return inherited properties from parent or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoute'] to see the possible values for this operation
@@ -2172,9 +2031,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Route
      */
-    public function getRoute($version, $route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
+    public function getRoute($route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
     {
-        list($response) = $this->getRouteWithHttpInfo($version, $route_id, $show_inherited_properties, $contentType);
+        list($response) = $this->getRouteWithHttpInfo($route_id, $show_inherited_properties, $contentType);
         return $response;
     }
 
@@ -2183,7 +2042,6 @@ class RouteApi
      *
      * Get Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get (required)
      * @param  bool $show_inherited_properties return inherited properties from parent or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoute'] to see the possible values for this operation
@@ -2192,9 +2050,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Route, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRouteWithHttpInfo($version, $route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
+    public function getRouteWithHttpInfo($route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
     {
-        $request = $this->getRouteRequest($version, $route_id, $show_inherited_properties, $contentType);
+        $request = $this->getRouteRequest($route_id, $show_inherited_properties, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2270,7 +2128,6 @@ class RouteApi
      *
      * Get Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get (required)
      * @param  bool $show_inherited_properties return inherited properties from parent or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoute'] to see the possible values for this operation
@@ -2278,9 +2135,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteAsync($version, $route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
+    public function getRouteAsync($route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
     {
-        return $this->getRouteAsyncWithHttpInfo($version, $route_id, $show_inherited_properties, $contentType)
+        return $this->getRouteAsyncWithHttpInfo($route_id, $show_inherited_properties, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2293,7 +2150,6 @@ class RouteApi
      *
      * Get Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get (required)
      * @param  bool $show_inherited_properties return inherited properties from parent or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoute'] to see the possible values for this operation
@@ -2301,10 +2157,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteAsyncWithHttpInfo($version, $route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
+    public function getRouteAsyncWithHttpInfo($route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Route';
-        $request = $this->getRouteRequest($version, $route_id, $show_inherited_properties, $contentType);
+        $request = $this->getRouteRequest($route_id, $show_inherited_properties, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2345,7 +2201,6 @@ class RouteApi
     /**
      * Create request for operation 'getRoute'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get (required)
      * @param  bool $show_inherited_properties return inherited properties from parent or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoute'] to see the possible values for this operation
@@ -2353,15 +2208,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRouteRequest($version, $route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
+    public function getRouteRequest($route_id, $show_inherited_properties, string $contentType = self::contentTypes['getRoute'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRoute'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -2378,7 +2226,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}';
+        $resourcePath = '/route/{routeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2396,14 +2244,6 @@ class RouteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -2472,7 +2312,6 @@ class RouteApi
      *
      * Get Route Directions
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to get directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteDirections'] to see the possible values for this operation
      *
@@ -2480,9 +2319,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Direction[]
      */
-    public function getRouteDirections($version, $route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
+    public function getRouteDirections($route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
     {
-        list($response) = $this->getRouteDirectionsWithHttpInfo($version, $route_id, $contentType);
+        list($response) = $this->getRouteDirectionsWithHttpInfo($route_id, $contentType);
         return $response;
     }
 
@@ -2491,7 +2330,6 @@ class RouteApi
      *
      * Get Route Directions
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteDirections'] to see the possible values for this operation
      *
@@ -2499,9 +2337,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Direction[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRouteDirectionsWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
+    public function getRouteDirectionsWithHttpInfo($route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
     {
-        $request = $this->getRouteDirectionsRequest($version, $route_id, $contentType);
+        $request = $this->getRouteDirectionsRequest($route_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2577,16 +2415,15 @@ class RouteApi
      *
      * Get Route Directions
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteDirections'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteDirectionsAsync($version, $route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
+    public function getRouteDirectionsAsync($route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
     {
-        return $this->getRouteDirectionsAsyncWithHttpInfo($version, $route_id, $contentType)
+        return $this->getRouteDirectionsAsyncWithHttpInfo($route_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2599,17 +2436,16 @@ class RouteApi
      *
      * Get Route Directions
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteDirections'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteDirectionsAsyncWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
+    public function getRouteDirectionsAsyncWithHttpInfo($route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Direction[]';
-        $request = $this->getRouteDirectionsRequest($version, $route_id, $contentType);
+        $request = $this->getRouteDirectionsRequest($route_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2650,22 +2486,14 @@ class RouteApi
     /**
      * Create request for operation 'getRouteDirections'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get directions for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteDirections'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRouteDirectionsRequest($version, $route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
+    public function getRouteDirectionsRequest($route_id, string $contentType = self::contentTypes['getRouteDirections'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRouteDirections'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -2675,7 +2503,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/directions';
+        $resourcePath = '/route/{routeId}/directions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2684,14 +2512,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -2760,7 +2580,6 @@ class RouteApi
      *
      * Get Route Shipments
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to get shipments for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteShipments'] to see the possible values for this operation
      *
@@ -2768,9 +2587,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Shipment[]
      */
-    public function getRouteShipments($version, $route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
+    public function getRouteShipments($route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
     {
-        list($response) = $this->getRouteShipmentsWithHttpInfo($version, $route_id, $contentType);
+        list($response) = $this->getRouteShipmentsWithHttpInfo($route_id, $contentType);
         return $response;
     }
 
@@ -2779,7 +2598,6 @@ class RouteApi
      *
      * Get Route Shipments
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get shipments for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteShipments'] to see the possible values for this operation
      *
@@ -2787,9 +2605,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Shipment[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRouteShipmentsWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
+    public function getRouteShipmentsWithHttpInfo($route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
     {
-        $request = $this->getRouteShipmentsRequest($version, $route_id, $contentType);
+        $request = $this->getRouteShipmentsRequest($route_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2865,16 +2683,15 @@ class RouteApi
      *
      * Get Route Shipments
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get shipments for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteShipments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteShipmentsAsync($version, $route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
+    public function getRouteShipmentsAsync($route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
     {
-        return $this->getRouteShipmentsAsyncWithHttpInfo($version, $route_id, $contentType)
+        return $this->getRouteShipmentsAsyncWithHttpInfo($route_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2887,17 +2704,16 @@ class RouteApi
      *
      * Get Route Shipments
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get shipments for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteShipments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteShipmentsAsyncWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
+    public function getRouteShipmentsAsyncWithHttpInfo($route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Shipment[]';
-        $request = $this->getRouteShipmentsRequest($version, $route_id, $contentType);
+        $request = $this->getRouteShipmentsRequest($route_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2938,22 +2754,14 @@ class RouteApi
     /**
      * Create request for operation 'getRouteShipments'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get shipments for (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteShipments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRouteShipmentsRequest($version, $route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
+    public function getRouteShipmentsRequest($route_id, string $contentType = self::contentTypes['getRouteShipments'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRouteShipments'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -2963,7 +2771,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/shipments';
+        $resourcePath = '/route/{routeId}/shipments';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2972,14 +2780,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -3048,7 +2848,6 @@ class RouteApi
      *
      * Get Route Stop
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to get stops for (required)
      * @param  int $stop_id the id of the specific stop on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStop'] to see the possible values for this operation
@@ -3057,9 +2856,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Stop
      */
-    public function getRouteStop($version, $route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
+    public function getRouteStop($route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
     {
-        list($response) = $this->getRouteStopWithHttpInfo($version, $route_id, $stop_id, $contentType);
+        list($response) = $this->getRouteStopWithHttpInfo($route_id, $stop_id, $contentType);
         return $response;
     }
 
@@ -3068,7 +2867,6 @@ class RouteApi
      *
      * Get Route Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get stops for (required)
      * @param  int $stop_id the id of the specific stop on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStop'] to see the possible values for this operation
@@ -3077,9 +2875,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Stop, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRouteStopWithHttpInfo($version, $route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
+    public function getRouteStopWithHttpInfo($route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
     {
-        $request = $this->getRouteStopRequest($version, $route_id, $stop_id, $contentType);
+        $request = $this->getRouteStopRequest($route_id, $stop_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3155,7 +2953,6 @@ class RouteApi
      *
      * Get Route Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get stops for (required)
      * @param  int $stop_id the id of the specific stop on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStop'] to see the possible values for this operation
@@ -3163,9 +2960,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteStopAsync($version, $route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
+    public function getRouteStopAsync($route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
     {
-        return $this->getRouteStopAsyncWithHttpInfo($version, $route_id, $stop_id, $contentType)
+        return $this->getRouteStopAsyncWithHttpInfo($route_id, $stop_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3178,7 +2975,6 @@ class RouteApi
      *
      * Get Route Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get stops for (required)
      * @param  int $stop_id the id of the specific stop on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStop'] to see the possible values for this operation
@@ -3186,10 +2982,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteStopAsyncWithHttpInfo($version, $route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
+    public function getRouteStopAsyncWithHttpInfo($route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Stop';
-        $request = $this->getRouteStopRequest($version, $route_id, $stop_id, $contentType);
+        $request = $this->getRouteStopRequest($route_id, $stop_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3230,7 +3026,6 @@ class RouteApi
     /**
      * Create request for operation 'getRouteStop'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to get stops for (required)
      * @param  int $stop_id the id of the specific stop on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStop'] to see the possible values for this operation
@@ -3238,15 +3033,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRouteStopRequest($version, $route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
+    public function getRouteStopRequest($route_id, $stop_id, string $contentType = self::contentTypes['getRouteStop'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRouteStop'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -3263,7 +3051,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/stop/{stopId}';
+        $resourcePath = '/route/{routeId}/stop/{stopId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3272,14 +3060,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -3356,7 +3136,6 @@ class RouteApi
      *
      * Get Route Stops
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route (required)
      * @param  bool $confirmed_only only get stops that have been confirmed or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStops'] to see the possible values for this operation
@@ -3365,9 +3144,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Stop[]
      */
-    public function getRouteStops($version, $route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
+    public function getRouteStops($route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
     {
-        list($response) = $this->getRouteStopsWithHttpInfo($version, $route_id, $confirmed_only, $contentType);
+        list($response) = $this->getRouteStopsWithHttpInfo($route_id, $confirmed_only, $contentType);
         return $response;
     }
 
@@ -3376,7 +3155,6 @@ class RouteApi
      *
      * Get Route Stops
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  bool $confirmed_only only get stops that have been confirmed or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStops'] to see the possible values for this operation
@@ -3385,9 +3163,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Stop[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRouteStopsWithHttpInfo($version, $route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
+    public function getRouteStopsWithHttpInfo($route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
     {
-        $request = $this->getRouteStopsRequest($version, $route_id, $confirmed_only, $contentType);
+        $request = $this->getRouteStopsRequest($route_id, $confirmed_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3463,7 +3241,6 @@ class RouteApi
      *
      * Get Route Stops
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  bool $confirmed_only only get stops that have been confirmed or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStops'] to see the possible values for this operation
@@ -3471,9 +3248,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteStopsAsync($version, $route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
+    public function getRouteStopsAsync($route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
     {
-        return $this->getRouteStopsAsyncWithHttpInfo($version, $route_id, $confirmed_only, $contentType)
+        return $this->getRouteStopsAsyncWithHttpInfo($route_id, $confirmed_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3486,7 +3263,6 @@ class RouteApi
      *
      * Get Route Stops
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  bool $confirmed_only only get stops that have been confirmed or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStops'] to see the possible values for this operation
@@ -3494,10 +3270,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteStopsAsyncWithHttpInfo($version, $route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
+    public function getRouteStopsAsyncWithHttpInfo($route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Stop[]';
-        $request = $this->getRouteStopsRequest($version, $route_id, $confirmed_only, $contentType);
+        $request = $this->getRouteStopsRequest($route_id, $confirmed_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3538,7 +3314,6 @@ class RouteApi
     /**
      * Create request for operation 'getRouteStops'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  bool $confirmed_only only get stops that have been confirmed or not (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteStops'] to see the possible values for this operation
@@ -3546,15 +3321,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRouteStopsRequest($version, $route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
+    public function getRouteStopsRequest($route_id, $confirmed_only, string $contentType = self::contentTypes['getRouteStops'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRouteStops'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -3571,7 +3339,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/stops';
+        $resourcePath = '/route/{routeId}/stops';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3589,14 +3357,6 @@ class RouteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -3665,7 +3425,6 @@ class RouteApi
      *
      * Get Shipments At Stop
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the stop to get shipments on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentsAtStop'] to see the possible values for this operation
@@ -3674,9 +3433,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Shipment[]
      */
-    public function getShipmentsAtStop($version, $route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
+    public function getShipmentsAtStop($route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
     {
-        list($response) = $this->getShipmentsAtStopWithHttpInfo($version, $route_id, $stop_id, $contentType);
+        list($response) = $this->getShipmentsAtStopWithHttpInfo($route_id, $stop_id, $contentType);
         return $response;
     }
 
@@ -3685,7 +3444,6 @@ class RouteApi
      *
      * Get Shipments At Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the stop to get shipments on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentsAtStop'] to see the possible values for this operation
@@ -3694,9 +3452,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Shipment[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShipmentsAtStopWithHttpInfo($version, $route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
+    public function getShipmentsAtStopWithHttpInfo($route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
     {
-        $request = $this->getShipmentsAtStopRequest($version, $route_id, $stop_id, $contentType);
+        $request = $this->getShipmentsAtStopRequest($route_id, $stop_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3772,7 +3530,6 @@ class RouteApi
      *
      * Get Shipments At Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the stop to get shipments on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentsAtStop'] to see the possible values for this operation
@@ -3780,9 +3537,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentsAtStopAsync($version, $route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
+    public function getShipmentsAtStopAsync($route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
     {
-        return $this->getShipmentsAtStopAsyncWithHttpInfo($version, $route_id, $stop_id, $contentType)
+        return $this->getShipmentsAtStopAsyncWithHttpInfo($route_id, $stop_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3795,7 +3552,6 @@ class RouteApi
      *
      * Get Shipments At Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the stop to get shipments on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentsAtStop'] to see the possible values for this operation
@@ -3803,10 +3559,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentsAtStopAsyncWithHttpInfo($version, $route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
+    public function getShipmentsAtStopAsyncWithHttpInfo($route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Shipment[]';
-        $request = $this->getShipmentsAtStopRequest($version, $route_id, $stop_id, $contentType);
+        $request = $this->getShipmentsAtStopRequest($route_id, $stop_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3847,7 +3603,6 @@ class RouteApi
     /**
      * Create request for operation 'getShipmentsAtStop'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the stop to get shipments on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentsAtStop'] to see the possible values for this operation
@@ -3855,15 +3610,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShipmentsAtStopRequest($version, $route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
+    public function getShipmentsAtStopRequest($route_id, $stop_id, string $contentType = self::contentTypes['getShipmentsAtStop'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getShipmentsAtStop'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -3880,7 +3628,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/stop/{stopId}/shipments';
+        $resourcePath = '/route/{routeId}/stop/{stopId}/shipments';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3889,14 +3637,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -3973,7 +3713,6 @@ class RouteApi
      *
      * Optimize Route
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to optimize (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['optimizeRoute'] to see the possible values for this operation
      *
@@ -3981,9 +3720,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function optimizeRoute($version, $route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
+    public function optimizeRoute($route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
     {
-        $this->optimizeRouteWithHttpInfo($version, $route_id, $contentType);
+        $this->optimizeRouteWithHttpInfo($route_id, $contentType);
     }
 
     /**
@@ -3991,7 +3730,6 @@ class RouteApi
      *
      * Optimize Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to optimize (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['optimizeRoute'] to see the possible values for this operation
      *
@@ -3999,9 +3737,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function optimizeRouteWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
+    public function optimizeRouteWithHttpInfo($route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
     {
-        $request = $this->optimizeRouteRequest($version, $route_id, $contentType);
+        $request = $this->optimizeRouteRequest($route_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4041,16 +3779,15 @@ class RouteApi
      *
      * Optimize Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to optimize (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['optimizeRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function optimizeRouteAsync($version, $route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
+    public function optimizeRouteAsync($route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
     {
-        return $this->optimizeRouteAsyncWithHttpInfo($version, $route_id, $contentType)
+        return $this->optimizeRouteAsyncWithHttpInfo($route_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4063,17 +3800,16 @@ class RouteApi
      *
      * Optimize Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to optimize (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['optimizeRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function optimizeRouteAsyncWithHttpInfo($version, $route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
+    public function optimizeRouteAsyncWithHttpInfo($route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
     {
         $returnType = '';
-        $request = $this->optimizeRouteRequest($version, $route_id, $contentType);
+        $request = $this->optimizeRouteRequest($route_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4101,22 +3837,14 @@ class RouteApi
     /**
      * Create request for operation 'optimizeRoute'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to optimize (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['optimizeRoute'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function optimizeRouteRequest($version, $route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
+    public function optimizeRouteRequest($route_id, string $contentType = self::contentTypes['optimizeRoute'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling optimizeRoute'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -4126,7 +3854,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/optimize';
+        $resourcePath = '/route/{routeId}/optimize';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4135,14 +3863,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -4211,7 +3931,6 @@ class RouteApi
      *
      * Delete Stop
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the specific stop to delete on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeStop'] to see the possible values for this operation
@@ -4220,9 +3939,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function removeStop($version, $route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
+    public function removeStop($route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
     {
-        $this->removeStopWithHttpInfo($version, $route_id, $stop_id, $contentType);
+        $this->removeStopWithHttpInfo($route_id, $stop_id, $contentType);
     }
 
     /**
@@ -4230,7 +3949,6 @@ class RouteApi
      *
      * Delete Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the specific stop to delete on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeStop'] to see the possible values for this operation
@@ -4239,9 +3957,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeStopWithHttpInfo($version, $route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
+    public function removeStopWithHttpInfo($route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
     {
-        $request = $this->removeStopRequest($version, $route_id, $stop_id, $contentType);
+        $request = $this->removeStopRequest($route_id, $stop_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4281,7 +3999,6 @@ class RouteApi
      *
      * Delete Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the specific stop to delete on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeStop'] to see the possible values for this operation
@@ -4289,9 +4006,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeStopAsync($version, $route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
+    public function removeStopAsync($route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
     {
-        return $this->removeStopAsyncWithHttpInfo($version, $route_id, $stop_id, $contentType)
+        return $this->removeStopAsyncWithHttpInfo($route_id, $stop_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4304,7 +4021,6 @@ class RouteApi
      *
      * Delete Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the specific stop to delete on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeStop'] to see the possible values for this operation
@@ -4312,10 +4028,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeStopAsyncWithHttpInfo($version, $route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
+    public function removeStopAsyncWithHttpInfo($route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
     {
         $returnType = '';
-        $request = $this->removeStopRequest($version, $route_id, $stop_id, $contentType);
+        $request = $this->removeStopRequest($route_id, $stop_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4343,7 +4059,6 @@ class RouteApi
     /**
      * Create request for operation 'removeStop'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  int $stop_id the id of the specific stop to delete on the route (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeStop'] to see the possible values for this operation
@@ -4351,15 +4066,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeStopRequest($version, $route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
+    public function removeStopRequest($route_id, $stop_id, string $contentType = self::contentTypes['removeStop'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeStop'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -4376,7 +4084,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/stop/{stopId}';
+        $resourcePath = '/route/{routeId}/stop/{stopId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4385,14 +4093,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -4469,7 +4169,6 @@ class RouteApi
      *
      * Reorder Route Stops
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPatch'] to see the possible values for this operation
@@ -4478,9 +4177,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Stop[]
      */
-    public function reorderRouteStopsPatch($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
+    public function reorderRouteStopsPatch($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
     {
-        list($response) = $this->reorderRouteStopsPatchWithHttpInfo($version, $route_id, $body, $contentType);
+        list($response) = $this->reorderRouteStopsPatchWithHttpInfo($route_id, $body, $contentType);
         return $response;
     }
 
@@ -4489,7 +4188,6 @@ class RouteApi
      *
      * Reorder Route Stops
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPatch'] to see the possible values for this operation
@@ -4498,9 +4196,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Stop[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function reorderRouteStopsPatchWithHttpInfo($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
+    public function reorderRouteStopsPatchWithHttpInfo($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
     {
-        $request = $this->reorderRouteStopsPatchRequest($version, $route_id, $body, $contentType);
+        $request = $this->reorderRouteStopsPatchRequest($route_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4576,7 +4274,6 @@ class RouteApi
      *
      * Reorder Route Stops
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPatch'] to see the possible values for this operation
@@ -4584,9 +4281,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reorderRouteStopsPatchAsync($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
+    public function reorderRouteStopsPatchAsync($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
     {
-        return $this->reorderRouteStopsPatchAsyncWithHttpInfo($version, $route_id, $body, $contentType)
+        return $this->reorderRouteStopsPatchAsyncWithHttpInfo($route_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4599,7 +4296,6 @@ class RouteApi
      *
      * Reorder Route Stops
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPatch'] to see the possible values for this operation
@@ -4607,10 +4303,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reorderRouteStopsPatchAsyncWithHttpInfo($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
+    public function reorderRouteStopsPatchAsyncWithHttpInfo($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Stop[]';
-        $request = $this->reorderRouteStopsPatchRequest($version, $route_id, $body, $contentType);
+        $request = $this->reorderRouteStopsPatchRequest($route_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4651,7 +4347,6 @@ class RouteApi
     /**
      * Create request for operation 'reorderRouteStopsPatch'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPatch'] to see the possible values for this operation
@@ -4659,15 +4354,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reorderRouteStopsPatchRequest($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
+    public function reorderRouteStopsPatchRequest($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling reorderRouteStopsPatch'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -4678,7 +4366,7 @@ class RouteApi
 
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/stops/reorder';
+        $resourcePath = '/route/{routeId}/stops/reorder';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4687,14 +4375,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -4770,7 +4450,6 @@ class RouteApi
      *
      * Reorder Route Stops
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPost'] to see the possible values for this operation
@@ -4779,9 +4458,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Stop[]
      */
-    public function reorderRouteStopsPost($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
+    public function reorderRouteStopsPost($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
     {
-        list($response) = $this->reorderRouteStopsPostWithHttpInfo($version, $route_id, $body, $contentType);
+        list($response) = $this->reorderRouteStopsPostWithHttpInfo($route_id, $body, $contentType);
         return $response;
     }
 
@@ -4790,7 +4469,6 @@ class RouteApi
      *
      * Reorder Route Stops
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPost'] to see the possible values for this operation
@@ -4799,9 +4477,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Stop[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function reorderRouteStopsPostWithHttpInfo($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
+    public function reorderRouteStopsPostWithHttpInfo($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
     {
-        $request = $this->reorderRouteStopsPostRequest($version, $route_id, $body, $contentType);
+        $request = $this->reorderRouteStopsPostRequest($route_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4877,7 +4555,6 @@ class RouteApi
      *
      * Reorder Route Stops
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPost'] to see the possible values for this operation
@@ -4885,9 +4562,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reorderRouteStopsPostAsync($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
+    public function reorderRouteStopsPostAsync($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
     {
-        return $this->reorderRouteStopsPostAsyncWithHttpInfo($version, $route_id, $body, $contentType)
+        return $this->reorderRouteStopsPostAsyncWithHttpInfo($route_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4900,7 +4577,6 @@ class RouteApi
      *
      * Reorder Route Stops
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPost'] to see the possible values for this operation
@@ -4908,10 +4584,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reorderRouteStopsPostAsyncWithHttpInfo($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
+    public function reorderRouteStopsPostAsyncWithHttpInfo($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Stop[]';
-        $request = $this->reorderRouteStopsPostRequest($version, $route_id, $body, $contentType);
+        $request = $this->reorderRouteStopsPostRequest($route_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4952,7 +4628,6 @@ class RouteApi
     /**
      * Create request for operation 'reorderRouteStopsPost'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Stop[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reorderRouteStopsPost'] to see the possible values for this operation
@@ -4960,15 +4635,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reorderRouteStopsPostRequest($version, $route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
+    public function reorderRouteStopsPostRequest($route_id, $body = null, string $contentType = self::contentTypes['reorderRouteStopsPost'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling reorderRouteStopsPost'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -4979,7 +4647,7 @@ class RouteApi
 
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/stops/reorder';
+        $resourcePath = '/route/{routeId}/stops/reorder';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4988,14 +4656,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -5071,7 +4731,6 @@ class RouteApi
      *
      * Search Routes
      *
-     * @param  float $version version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -5099,9 +4758,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Route[]
      */
-    public function searchRoutes($version, $sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
+    public function searchRoutes($sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
     {
-        list($response) = $this->searchRoutesWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id, $program_id, $scheduled_start, $scheduled_end, $updated_start, $updated_end, $featured, $seat_count, $approved, $started, $completed, $valid, $parent_id, $contentType);
+        list($response) = $this->searchRoutesWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id, $program_id, $scheduled_start, $scheduled_end, $updated_start, $updated_end, $featured, $seat_count, $approved, $started, $completed, $valid, $parent_id, $contentType);
         return $response;
     }
 
@@ -5110,7 +4769,6 @@ class RouteApi
      *
      * Search Routes
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -5138,9 +4796,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Route[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRoutesWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
+    public function searchRoutesWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
     {
-        $request = $this->searchRoutesRequest($version, $sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id, $program_id, $scheduled_start, $scheduled_end, $updated_start, $updated_end, $featured, $seat_count, $approved, $started, $completed, $valid, $parent_id, $contentType);
+        $request = $this->searchRoutesRequest($sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id, $program_id, $scheduled_start, $scheduled_end, $updated_start, $updated_end, $featured, $seat_count, $approved, $started, $completed, $valid, $parent_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5216,7 +4874,6 @@ class RouteApi
      *
      * Search Routes
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -5243,9 +4900,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRoutesAsync($version, $sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
+    public function searchRoutesAsync($sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
     {
-        return $this->searchRoutesAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id, $program_id, $scheduled_start, $scheduled_end, $updated_start, $updated_end, $featured, $seat_count, $approved, $started, $completed, $valid, $parent_id, $contentType)
+        return $this->searchRoutesAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id, $program_id, $scheduled_start, $scheduled_end, $updated_start, $updated_end, $featured, $seat_count, $approved, $started, $completed, $valid, $parent_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5258,7 +4915,6 @@ class RouteApi
      *
      * Search Routes
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -5285,10 +4941,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRoutesAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
+    public function searchRoutesAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Route[]';
-        $request = $this->searchRoutesRequest($version, $sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id, $program_id, $scheduled_start, $scheduled_end, $updated_start, $updated_end, $featured, $seat_count, $approved, $started, $completed, $valid, $parent_id, $contentType);
+        $request = $this->searchRoutesRequest($sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id, $program_id, $scheduled_start, $scheduled_end, $updated_start, $updated_end, $featured, $seat_count, $approved, $started, $completed, $valid, $parent_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5329,7 +4985,6 @@ class RouteApi
     /**
      * Create request for operation 'searchRoutes'
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -5356,15 +5011,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRoutesRequest($version, $sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
+    public function searchRoutesRequest($sort_field, $descending, $start, $limit, $active_only, $includes_empty, $root_only, $show_inherited_properties, $hub_id = null, $program_id = null, $scheduled_start = null, $scheduled_end = null, $updated_start = null, $updated_end = null, $featured = null, $seat_count = null, $approved = null, $started = null, $completed = null, $valid = null, $parent_id = null, string $contentType = self::contentTypes['searchRoutes'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchRoutes'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -5436,7 +5084,7 @@ class RouteApi
 
 
 
-        $resourcePath = '/api/{version}/route';
+        $resourcePath = '/route';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5634,14 +5282,6 @@ class RouteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5702,7 +5342,6 @@ class RouteApi
      *
      * Set Driver
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the route (required)
      * @param  int $driver_id the id of the driver (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDriver'] to see the possible values for this operation
@@ -5711,9 +5350,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function setDriver($version, $id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
+    public function setDriver($id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
     {
-        $this->setDriverWithHttpInfo($version, $id, $driver_id, $contentType);
+        $this->setDriverWithHttpInfo($id, $driver_id, $contentType);
     }
 
     /**
@@ -5721,7 +5360,6 @@ class RouteApi
      *
      * Set Driver
      *
-     * @param  float $version (required)
      * @param  int $id the id of the route (required)
      * @param  int $driver_id the id of the driver (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDriver'] to see the possible values for this operation
@@ -5730,9 +5368,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setDriverWithHttpInfo($version, $id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
+    public function setDriverWithHttpInfo($id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
     {
-        $request = $this->setDriverRequest($version, $id, $driver_id, $contentType);
+        $request = $this->setDriverRequest($id, $driver_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5772,7 +5410,6 @@ class RouteApi
      *
      * Set Driver
      *
-     * @param  float $version (required)
      * @param  int $id the id of the route (required)
      * @param  int $driver_id the id of the driver (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDriver'] to see the possible values for this operation
@@ -5780,9 +5417,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setDriverAsync($version, $id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
+    public function setDriverAsync($id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
     {
-        return $this->setDriverAsyncWithHttpInfo($version, $id, $driver_id, $contentType)
+        return $this->setDriverAsyncWithHttpInfo($id, $driver_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5795,7 +5432,6 @@ class RouteApi
      *
      * Set Driver
      *
-     * @param  float $version (required)
      * @param  int $id the id of the route (required)
      * @param  int $driver_id the id of the driver (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDriver'] to see the possible values for this operation
@@ -5803,10 +5439,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setDriverAsyncWithHttpInfo($version, $id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
+    public function setDriverAsyncWithHttpInfo($id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
     {
         $returnType = '';
-        $request = $this->setDriverRequest($version, $id, $driver_id, $contentType);
+        $request = $this->setDriverRequest($id, $driver_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5834,7 +5470,6 @@ class RouteApi
     /**
      * Create request for operation 'setDriver'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the route (required)
      * @param  int $driver_id the id of the driver (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDriver'] to see the possible values for this operation
@@ -5842,15 +5477,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function setDriverRequest($version, $id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
+    public function setDriverRequest($id, $driver_id, string $contentType = self::contentTypes['setDriver'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling setDriver'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -5867,7 +5495,7 @@ class RouteApi
         }
 
 
-        $resourcePath = '/api/{version}/route/{id}/driver/{driverId}';
+        $resourcePath = '/route/{id}/driver/{driverId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5876,14 +5504,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -5960,7 +5580,6 @@ class RouteApi
      *
      * Update Route
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Route|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRoute'] to see the possible values for this operation
@@ -5969,9 +5588,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Route
      */
-    public function updateRoute($version, $route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
+    public function updateRoute($route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
     {
-        list($response) = $this->updateRouteWithHttpInfo($version, $route_id, $body, $contentType);
+        list($response) = $this->updateRouteWithHttpInfo($route_id, $body, $contentType);
         return $response;
     }
 
@@ -5980,7 +5599,6 @@ class RouteApi
      *
      * Update Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRoute'] to see the possible values for this operation
@@ -5989,9 +5607,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Route, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRouteWithHttpInfo($version, $route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
+    public function updateRouteWithHttpInfo($route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
     {
-        $request = $this->updateRouteRequest($version, $route_id, $body, $contentType);
+        $request = $this->updateRouteRequest($route_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6067,7 +5685,6 @@ class RouteApi
      *
      * Update Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRoute'] to see the possible values for this operation
@@ -6075,9 +5692,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRouteAsync($version, $route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
+    public function updateRouteAsync($route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
     {
-        return $this->updateRouteAsyncWithHttpInfo($version, $route_id, $body, $contentType)
+        return $this->updateRouteAsyncWithHttpInfo($route_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6090,7 +5707,6 @@ class RouteApi
      *
      * Update Route
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRoute'] to see the possible values for this operation
@@ -6098,10 +5714,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRouteAsyncWithHttpInfo($version, $route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
+    public function updateRouteAsyncWithHttpInfo($route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Route';
-        $request = $this->updateRouteRequest($version, $route_id, $body, $contentType);
+        $request = $this->updateRouteRequest($route_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6142,7 +5758,6 @@ class RouteApi
     /**
      * Create request for operation 'updateRoute'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route (required)
      * @param  \OpenAPI\Client\Model\Route|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRoute'] to see the possible values for this operation
@@ -6150,15 +5765,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRouteRequest($version, $route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
+    public function updateRouteRequest($route_id, $body = null, string $contentType = self::contentTypes['updateRoute'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRoute'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -6169,7 +5777,7 @@ class RouteApi
 
 
 
-        $resourcePath = '/api/{version}/route/{routeId}';
+        $resourcePath = '/route/{routeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6178,14 +5786,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(
@@ -6261,7 +5861,6 @@ class RouteApi
      *
      * Update Route Stop
      *
-     * @param  float $version version (required)
      * @param  int $route_id the id of the route to update stops for (required)
      * @param  int $stop_id the id of the specific stop to update on the route (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body body (optional)
@@ -6271,9 +5870,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateRouteStop($version, $route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
+    public function updateRouteStop($route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
     {
-        $this->updateRouteStopWithHttpInfo($version, $route_id, $stop_id, $body, $contentType);
+        $this->updateRouteStopWithHttpInfo($route_id, $stop_id, $body, $contentType);
     }
 
     /**
@@ -6281,7 +5880,6 @@ class RouteApi
      *
      * Update Route Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to update stops for (required)
      * @param  int $stop_id the id of the specific stop to update on the route (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body (optional)
@@ -6291,9 +5889,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRouteStopWithHttpInfo($version, $route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
+    public function updateRouteStopWithHttpInfo($route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
     {
-        $request = $this->updateRouteStopRequest($version, $route_id, $stop_id, $body, $contentType);
+        $request = $this->updateRouteStopRequest($route_id, $stop_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6333,7 +5931,6 @@ class RouteApi
      *
      * Update Route Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to update stops for (required)
      * @param  int $stop_id the id of the specific stop to update on the route (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body (optional)
@@ -6342,9 +5939,9 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRouteStopAsync($version, $route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
+    public function updateRouteStopAsync($route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
     {
-        return $this->updateRouteStopAsyncWithHttpInfo($version, $route_id, $stop_id, $body, $contentType)
+        return $this->updateRouteStopAsyncWithHttpInfo($route_id, $stop_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6357,7 +5954,6 @@ class RouteApi
      *
      * Update Route Stop
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to update stops for (required)
      * @param  int $stop_id the id of the specific stop to update on the route (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body (optional)
@@ -6366,10 +5962,10 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRouteStopAsyncWithHttpInfo($version, $route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
+    public function updateRouteStopAsyncWithHttpInfo($route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
     {
         $returnType = '';
-        $request = $this->updateRouteStopRequest($version, $route_id, $stop_id, $body, $contentType);
+        $request = $this->updateRouteStopRequest($route_id, $stop_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6397,7 +5993,6 @@ class RouteApi
     /**
      * Create request for operation 'updateRouteStop'
      *
-     * @param  float $version (required)
      * @param  int $route_id the id of the route to update stops for (required)
      * @param  int $stop_id the id of the specific stop to update on the route (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body (optional)
@@ -6406,15 +6001,8 @@ class RouteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRouteStopRequest($version, $route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
+    public function updateRouteStopRequest($route_id, $stop_id, $body = null, string $contentType = self::contentTypes['updateRouteStop'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRouteStop'
-            );
-        }
 
         // verify the required parameter 'route_id' is set
         if ($route_id === null || (is_array($route_id) && count($route_id) === 0)) {
@@ -6432,7 +6020,7 @@ class RouteApi
 
 
 
-        $resourcePath = '/api/{version}/route/{routeId}/stop/{stopId}';
+        $resourcePath = '/route/{routeId}/stop/{stopId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6441,14 +6029,6 @@ class RouteApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_id !== null) {
             $resourcePath = str_replace(

@@ -143,7 +143,6 @@ class FilterApi
      *
      * Create Filter
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the filter (required)
      * @param  string|null $app_key The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -159,9 +158,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\FilterTreeResponse
      */
-    public function createFilter($version, $account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
+    public function createFilter($account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
     {
-        list($response) = $this->createFilterWithHttpInfo($version, $account_id, $name, $app_key, $parent_filter_id, $description, $external_id, $external_type, $active, $meta_data, $contentType);
+        list($response) = $this->createFilterWithHttpInfo($account_id, $name, $app_key, $parent_filter_id, $description, $external_id, $external_type, $active, $meta_data, $contentType);
         return $response;
     }
 
@@ -170,7 +169,6 @@ class FilterApi
      *
      * Create Filter
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the filter (required)
      * @param  string|null $app_key The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -186,9 +184,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\FilterTreeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createFilterWithHttpInfo($version, $account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
+    public function createFilterWithHttpInfo($account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
     {
-        $request = $this->createFilterRequest($version, $account_id, $name, $app_key, $parent_filter_id, $description, $external_id, $external_type, $active, $meta_data, $contentType);
+        $request = $this->createFilterRequest($account_id, $name, $app_key, $parent_filter_id, $description, $external_id, $external_type, $active, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -264,7 +262,6 @@ class FilterApi
      *
      * Create Filter
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the filter (required)
      * @param  string|null $app_key The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -279,9 +276,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFilterAsync($version, $account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
+    public function createFilterAsync($account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
     {
-        return $this->createFilterAsyncWithHttpInfo($version, $account_id, $name, $app_key, $parent_filter_id, $description, $external_id, $external_type, $active, $meta_data, $contentType)
+        return $this->createFilterAsyncWithHttpInfo($account_id, $name, $app_key, $parent_filter_id, $description, $external_id, $external_type, $active, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -294,7 +291,6 @@ class FilterApi
      *
      * Create Filter
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the filter (required)
      * @param  string|null $app_key The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -309,10 +305,10 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFilterAsyncWithHttpInfo($version, $account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
+    public function createFilterAsyncWithHttpInfo($account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FilterTreeResponse';
-        $request = $this->createFilterRequest($version, $account_id, $name, $app_key, $parent_filter_id, $description, $external_id, $external_type, $active, $meta_data, $contentType);
+        $request = $this->createFilterRequest($account_id, $name, $app_key, $parent_filter_id, $description, $external_id, $external_type, $active, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -353,7 +349,6 @@ class FilterApi
     /**
      * Create request for operation 'createFilter'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the filter (required)
      * @param  string|null $app_key The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -368,15 +363,8 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createFilterRequest($version, $account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
+    public function createFilterRequest($account_id, $name, $app_key = null, $parent_filter_id = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createFilter'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createFilter'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -400,7 +388,7 @@ class FilterApi
 
 
 
-        $resourcePath = '/api/{version}/filter/create';
+        $resourcePath = '/filter/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -490,14 +478,6 @@ class FilterApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -558,7 +538,6 @@ class FilterApi
      *
      * Delete Filter
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
      * @param  int $filter_id The ID of the filter to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFilter'] to see the possible values for this operation
@@ -567,9 +546,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteFilter($version, $account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
+    public function deleteFilter($account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
     {
-        list($response) = $this->deleteFilterWithHttpInfo($version, $account_id, $filter_id, $contentType);
+        list($response) = $this->deleteFilterWithHttpInfo($account_id, $filter_id, $contentType);
         return $response;
     }
 
@@ -578,7 +557,6 @@ class FilterApi
      *
      * Delete Filter
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
      * @param  int $filter_id The ID of the filter to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFilter'] to see the possible values for this operation
@@ -587,9 +565,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFilterWithHttpInfo($version, $account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
+    public function deleteFilterWithHttpInfo($account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
     {
-        $request = $this->deleteFilterRequest($version, $account_id, $filter_id, $contentType);
+        $request = $this->deleteFilterRequest($account_id, $filter_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -665,7 +643,6 @@ class FilterApi
      *
      * Delete Filter
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
      * @param  int $filter_id The ID of the filter to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFilter'] to see the possible values for this operation
@@ -673,9 +650,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFilterAsync($version, $account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
+    public function deleteFilterAsync($account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
     {
-        return $this->deleteFilterAsyncWithHttpInfo($version, $account_id, $filter_id, $contentType)
+        return $this->deleteFilterAsyncWithHttpInfo($account_id, $filter_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -688,7 +665,6 @@ class FilterApi
      *
      * Delete Filter
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
      * @param  int $filter_id The ID of the filter to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFilter'] to see the possible values for this operation
@@ -696,10 +672,10 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFilterAsyncWithHttpInfo($version, $account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
+    public function deleteFilterAsyncWithHttpInfo($account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteFilterRequest($version, $account_id, $filter_id, $contentType);
+        $request = $this->deleteFilterRequest($account_id, $filter_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -740,7 +716,6 @@ class FilterApi
     /**
      * Create request for operation 'deleteFilter'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
      * @param  int $filter_id The ID of the filter to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFilter'] to see the possible values for this operation
@@ -748,15 +723,8 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFilterRequest($version, $account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
+    public function deleteFilterRequest($account_id, $filter_id, string $contentType = self::contentTypes['deleteFilter'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteFilter'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -773,7 +741,7 @@ class FilterApi
         }
 
 
-        $resourcePath = '/api/{version}/filter/delete';
+        $resourcePath = '/filter/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -800,14 +768,6 @@ class FilterApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -868,7 +828,6 @@ class FilterApi
      *
      * Get Filter
      *
-     * @param  float $version version (required)
      * @param  int $filter_id the id of the filter to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilter'] to see the possible values for this operation
      *
@@ -876,9 +835,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\FilterTreeResponse
      */
-    public function getFilter($version, $filter_id, string $contentType = self::contentTypes['getFilter'][0])
+    public function getFilter($filter_id, string $contentType = self::contentTypes['getFilter'][0])
     {
-        list($response) = $this->getFilterWithHttpInfo($version, $filter_id, $contentType);
+        list($response) = $this->getFilterWithHttpInfo($filter_id, $contentType);
         return $response;
     }
 
@@ -887,7 +846,6 @@ class FilterApi
      *
      * Get Filter
      *
-     * @param  float $version (required)
      * @param  int $filter_id the id of the filter to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilter'] to see the possible values for this operation
      *
@@ -895,9 +853,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\FilterTreeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFilterWithHttpInfo($version, $filter_id, string $contentType = self::contentTypes['getFilter'][0])
+    public function getFilterWithHttpInfo($filter_id, string $contentType = self::contentTypes['getFilter'][0])
     {
-        $request = $this->getFilterRequest($version, $filter_id, $contentType);
+        $request = $this->getFilterRequest($filter_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -973,16 +931,15 @@ class FilterApi
      *
      * Get Filter
      *
-     * @param  float $version (required)
      * @param  int $filter_id the id of the filter to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilter'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFilterAsync($version, $filter_id, string $contentType = self::contentTypes['getFilter'][0])
+    public function getFilterAsync($filter_id, string $contentType = self::contentTypes['getFilter'][0])
     {
-        return $this->getFilterAsyncWithHttpInfo($version, $filter_id, $contentType)
+        return $this->getFilterAsyncWithHttpInfo($filter_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -995,17 +952,16 @@ class FilterApi
      *
      * Get Filter
      *
-     * @param  float $version (required)
      * @param  int $filter_id the id of the filter to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilter'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFilterAsyncWithHttpInfo($version, $filter_id, string $contentType = self::contentTypes['getFilter'][0])
+    public function getFilterAsyncWithHttpInfo($filter_id, string $contentType = self::contentTypes['getFilter'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FilterTreeResponse';
-        $request = $this->getFilterRequest($version, $filter_id, $contentType);
+        $request = $this->getFilterRequest($filter_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1046,22 +1002,14 @@ class FilterApi
     /**
      * Create request for operation 'getFilter'
      *
-     * @param  float $version (required)
      * @param  int $filter_id the id of the filter to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilter'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFilterRequest($version, $filter_id, string $contentType = self::contentTypes['getFilter'][0])
+    public function getFilterRequest($filter_id, string $contentType = self::contentTypes['getFilter'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getFilter'
-            );
-        }
 
         // verify the required parameter 'filter_id' is set
         if ($filter_id === null || (is_array($filter_id) && count($filter_id) === 0)) {
@@ -1071,7 +1019,7 @@ class FilterApi
         }
 
 
-        $resourcePath = '/api/{version}/filter/get';
+        $resourcePath = '/filter/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1089,14 +1037,6 @@ class FilterApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1157,7 +1097,6 @@ class FilterApi
      *
      * Search Filters
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve filters for (optional)
@@ -1174,9 +1113,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\FilterResponse[]
      */
-    public function searchFilters($version, $account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
+    public function searchFilters($account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
     {
-        list($response) = $this->searchFiltersWithHttpInfo($version, $account_id, $keyword, $app_key, $response_group, $root_only, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        list($response) = $this->searchFiltersWithHttpInfo($account_id, $keyword, $app_key, $response_group, $root_only, $sort_field, $descending, $start, $limit, $active_only, $contentType);
         return $response;
     }
 
@@ -1185,7 +1124,6 @@ class FilterApi
      *
      * Search Filters
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve filters for (optional)
@@ -1202,9 +1140,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\FilterResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchFiltersWithHttpInfo($version, $account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
+    public function searchFiltersWithHttpInfo($account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
     {
-        $request = $this->searchFiltersRequest($version, $account_id, $keyword, $app_key, $response_group, $root_only, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchFiltersRequest($account_id, $keyword, $app_key, $response_group, $root_only, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1280,7 +1218,6 @@ class FilterApi
      *
      * Search Filters
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve filters for (optional)
@@ -1296,9 +1233,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchFiltersAsync($version, $account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
+    public function searchFiltersAsync($account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
     {
-        return $this->searchFiltersAsyncWithHttpInfo($version, $account_id, $keyword, $app_key, $response_group, $root_only, $sort_field, $descending, $start, $limit, $active_only, $contentType)
+        return $this->searchFiltersAsyncWithHttpInfo($account_id, $keyword, $app_key, $response_group, $root_only, $sort_field, $descending, $start, $limit, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1311,7 +1248,6 @@ class FilterApi
      *
      * Search Filters
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve filters for (optional)
@@ -1327,10 +1263,10 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchFiltersAsyncWithHttpInfo($version, $account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
+    public function searchFiltersAsyncWithHttpInfo($account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FilterResponse[]';
-        $request = $this->searchFiltersRequest($version, $account_id, $keyword, $app_key, $response_group, $root_only, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchFiltersRequest($account_id, $keyword, $app_key, $response_group, $root_only, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1371,7 +1307,6 @@ class FilterApi
     /**
      * Create request for operation 'searchFilters'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve filters for (optional)
@@ -1387,15 +1322,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchFiltersRequest($version, $account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
+    public function searchFiltersRequest($account_id = null, $keyword = null, $app_key = null, $response_group = null, $root_only = null, $sort_field = 'DISPLAY', $descending = false, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchFilters'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchFilters'
-            );
-        }
 
 
 
@@ -1407,8 +1336,7 @@ class FilterApi
 
 
 
-
-        $resourcePath = '/api/{version}/filter/search';
+        $resourcePath = '/filter/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1507,14 +1435,6 @@ class FilterApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1575,7 +1495,6 @@ class FilterApi
      *
      * Update Filter
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $filter_id The ID of the filter to edit (required)
      * @param  int|null $parent_filter_id The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -1591,9 +1510,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\FilterTreeResponse
      */
-    public function updateFilter($version, $account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
+    public function updateFilter($account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
     {
-        list($response) = $this->updateFilterWithHttpInfo($version, $account_id, $filter_id, $parent_filter_id, $name, $description, $external_id, $external_type, $active, $meta_data, $contentType);
+        list($response) = $this->updateFilterWithHttpInfo($account_id, $filter_id, $parent_filter_id, $name, $description, $external_id, $external_type, $active, $meta_data, $contentType);
         return $response;
     }
 
@@ -1602,7 +1521,6 @@ class FilterApi
      *
      * Update Filter
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $filter_id The ID of the filter to edit (required)
      * @param  int|null $parent_filter_id The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -1618,9 +1536,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\FilterTreeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateFilterWithHttpInfo($version, $account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
+    public function updateFilterWithHttpInfo($account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
     {
-        $request = $this->updateFilterRequest($version, $account_id, $filter_id, $parent_filter_id, $name, $description, $external_id, $external_type, $active, $meta_data, $contentType);
+        $request = $this->updateFilterRequest($account_id, $filter_id, $parent_filter_id, $name, $description, $external_id, $external_type, $active, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1696,7 +1614,6 @@ class FilterApi
      *
      * Update Filter
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $filter_id The ID of the filter to edit (required)
      * @param  int|null $parent_filter_id The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -1711,9 +1628,9 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFilterAsync($version, $account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
+    public function updateFilterAsync($account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
     {
-        return $this->updateFilterAsyncWithHttpInfo($version, $account_id, $filter_id, $parent_filter_id, $name, $description, $external_id, $external_type, $active, $meta_data, $contentType)
+        return $this->updateFilterAsyncWithHttpInfo($account_id, $filter_id, $parent_filter_id, $name, $description, $external_id, $external_type, $active, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1726,7 +1643,6 @@ class FilterApi
      *
      * Update Filter
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $filter_id The ID of the filter to edit (required)
      * @param  int|null $parent_filter_id The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -1741,10 +1657,10 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFilterAsyncWithHttpInfo($version, $account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
+    public function updateFilterAsyncWithHttpInfo($account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FilterTreeResponse';
-        $request = $this->updateFilterRequest($version, $account_id, $filter_id, $parent_filter_id, $name, $description, $external_id, $external_type, $active, $meta_data, $contentType);
+        $request = $this->updateFilterRequest($account_id, $filter_id, $parent_filter_id, $name, $description, $external_id, $external_type, $active, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1785,7 +1701,6 @@ class FilterApi
     /**
      * Create request for operation 'updateFilter'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $filter_id The ID of the filter to edit (required)
      * @param  int|null $parent_filter_id The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -1800,15 +1715,8 @@ class FilterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateFilterRequest($version, $account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
+    public function updateFilterRequest($account_id, $filter_id, $parent_filter_id = null, $name = null, $description = null, $external_id = null, $external_type = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateFilter'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateFilter'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1832,7 +1740,7 @@ class FilterApi
 
 
 
-        $resourcePath = '/api/{version}/filter/update';
+        $resourcePath = '/filter/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1922,14 +1830,6 @@ class FilterApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

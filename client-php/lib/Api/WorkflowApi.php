@@ -131,7 +131,6 @@ class WorkflowApi
      *
      * Run Workflow
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $workflow_id the workflow to run (required)
      * @param  int|null $sku_id this runs a particular sku on the workflow (optional)
@@ -143,9 +142,9 @@ class WorkflowApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function runWorkflow($version, $account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
+    public function runWorkflow($account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
     {
-        list($response) = $this->runWorkflowWithHttpInfo($version, $account_id, $workflow_id, $sku_id, $version_code, $parameters, $contentType);
+        list($response) = $this->runWorkflowWithHttpInfo($account_id, $workflow_id, $sku_id, $version_code, $parameters, $contentType);
         return $response;
     }
 
@@ -154,7 +153,6 @@ class WorkflowApi
      *
      * Run Workflow
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $workflow_id the workflow to run (required)
      * @param  int|null $sku_id this runs a particular sku on the workflow (optional)
@@ -166,9 +164,9 @@ class WorkflowApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function runWorkflowWithHttpInfo($version, $account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
+    public function runWorkflowWithHttpInfo($account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
     {
-        $request = $this->runWorkflowRequest($version, $account_id, $workflow_id, $sku_id, $version_code, $parameters, $contentType);
+        $request = $this->runWorkflowRequest($account_id, $workflow_id, $sku_id, $version_code, $parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -244,7 +242,6 @@ class WorkflowApi
      *
      * Run Workflow
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $workflow_id the workflow to run (required)
      * @param  int|null $sku_id this runs a particular sku on the workflow (optional)
@@ -255,9 +252,9 @@ class WorkflowApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function runWorkflowAsync($version, $account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
+    public function runWorkflowAsync($account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
     {
-        return $this->runWorkflowAsyncWithHttpInfo($version, $account_id, $workflow_id, $sku_id, $version_code, $parameters, $contentType)
+        return $this->runWorkflowAsyncWithHttpInfo($account_id, $workflow_id, $sku_id, $version_code, $parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,7 +267,6 @@ class WorkflowApi
      *
      * Run Workflow
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $workflow_id the workflow to run (required)
      * @param  int|null $sku_id this runs a particular sku on the workflow (optional)
@@ -281,10 +277,10 @@ class WorkflowApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function runWorkflowAsyncWithHttpInfo($version, $account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
+    public function runWorkflowAsyncWithHttpInfo($account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->runWorkflowRequest($version, $account_id, $workflow_id, $sku_id, $version_code, $parameters, $contentType);
+        $request = $this->runWorkflowRequest($account_id, $workflow_id, $sku_id, $version_code, $parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -325,7 +321,6 @@ class WorkflowApi
     /**
      * Create request for operation 'runWorkflow'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $workflow_id the workflow to run (required)
      * @param  int|null $sku_id this runs a particular sku on the workflow (optional)
@@ -336,15 +331,8 @@ class WorkflowApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function runWorkflowRequest($version, $account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
+    public function runWorkflowRequest($account_id, $workflow_id, $sku_id = null, $version_code = null, $parameters = null, string $contentType = self::contentTypes['runWorkflow'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling runWorkflow'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -364,7 +352,7 @@ class WorkflowApi
 
 
 
-        $resourcePath = '/api/{version}/workflow/run';
+        $resourcePath = '/workflow/run';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -418,14 +406,6 @@ class WorkflowApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

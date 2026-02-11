@@ -161,7 +161,6 @@ class ThirdPartyCredentialsApi
      *
      * Create Credential
      *
-     * @param  float $version version (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $third_party_token the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param  string $network_uid the access provider to authenticate against (required)
@@ -185,9 +184,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function createCredential($version, $third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
+    public function createCredential($third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
     {
-        list($response) = $this->createCredentialWithHttpInfo($version, $third_party_id, $third_party_token, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_name, $email_address, $signin_only_mode, $response_filters, $latitude, $longitude, $meta_data, $third_party_refresh_token, $audience_ids_to_add, $audience_ids_to_remove, $contentType);
+        list($response) = $this->createCredentialWithHttpInfo($third_party_id, $third_party_token, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_name, $email_address, $signin_only_mode, $response_filters, $latitude, $longitude, $meta_data, $third_party_refresh_token, $audience_ids_to_add, $audience_ids_to_remove, $contentType);
         return $response;
     }
 
@@ -196,7 +195,6 @@ class ThirdPartyCredentialsApi
      *
      * Create Credential
      *
-     * @param  float $version (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $third_party_token the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param  string $network_uid the access provider to authenticate against (required)
@@ -220,9 +218,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCredentialWithHttpInfo($version, $third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
+    public function createCredentialWithHttpInfo($third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
     {
-        $request = $this->createCredentialRequest($version, $third_party_id, $third_party_token, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_name, $email_address, $signin_only_mode, $response_filters, $latitude, $longitude, $meta_data, $third_party_refresh_token, $audience_ids_to_add, $audience_ids_to_remove, $contentType);
+        $request = $this->createCredentialRequest($third_party_id, $third_party_token, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_name, $email_address, $signin_only_mode, $response_filters, $latitude, $longitude, $meta_data, $third_party_refresh_token, $audience_ids_to_add, $audience_ids_to_remove, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -298,7 +296,6 @@ class ThirdPartyCredentialsApi
      *
      * Create Credential
      *
-     * @param  float $version (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $third_party_token the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param  string $network_uid the access provider to authenticate against (required)
@@ -321,9 +318,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCredentialAsync($version, $third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
+    public function createCredentialAsync($third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
     {
-        return $this->createCredentialAsyncWithHttpInfo($version, $third_party_id, $third_party_token, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_name, $email_address, $signin_only_mode, $response_filters, $latitude, $longitude, $meta_data, $third_party_refresh_token, $audience_ids_to_add, $audience_ids_to_remove, $contentType)
+        return $this->createCredentialAsyncWithHttpInfo($third_party_id, $third_party_token, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_name, $email_address, $signin_only_mode, $response_filters, $latitude, $longitude, $meta_data, $third_party_refresh_token, $audience_ids_to_add, $audience_ids_to_remove, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -336,7 +333,6 @@ class ThirdPartyCredentialsApi
      *
      * Create Credential
      *
-     * @param  float $version (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $third_party_token the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param  string $network_uid the access provider to authenticate against (required)
@@ -359,10 +355,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCredentialAsyncWithHttpInfo($version, $third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
+    public function createCredentialAsyncWithHttpInfo($third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->createCredentialRequest($version, $third_party_id, $third_party_token, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_name, $email_address, $signin_only_mode, $response_filters, $latitude, $longitude, $meta_data, $third_party_refresh_token, $audience_ids_to_add, $audience_ids_to_remove, $contentType);
+        $request = $this->createCredentialRequest($third_party_id, $third_party_token, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_name, $email_address, $signin_only_mode, $response_filters, $latitude, $longitude, $meta_data, $third_party_refresh_token, $audience_ids_to_add, $audience_ids_to_remove, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -403,7 +399,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'createCredential'
      *
-     * @param  float $version (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $third_party_token the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param  string $network_uid the access provider to authenticate against (required)
@@ -426,15 +421,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCredentialRequest($version, $third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
+    public function createCredentialRequest($third_party_id, $third_party_token, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_name = null, $email_address = null, $signin_only_mode = false, $response_filters = null, $latitude = null, $longitude = null, $meta_data = null, $third_party_refresh_token = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, string $contentType = self::contentTypes['createCredential'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createCredential'
-            );
-        }
 
         // verify the required parameter 'third_party_id' is set
         if ($third_party_id === null || (is_array($third_party_id) && count($third_party_id) === 0)) {
@@ -478,7 +466,7 @@ class ThirdPartyCredentialsApi
 
 
 
-        $resourcePath = '/api/{version}/thirdparty/credential/create';
+        $resourcePath = '/thirdparty/credential/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -640,14 +628,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -708,7 +688,6 @@ class ThirdPartyCredentialsApi
      *
      * Create Network
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $name The name of the network (required)
      * @param  bool $enable_introspection Whether the network uses introspection calls (required)
@@ -732,9 +711,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ThirdPartyNetworkResponse
      */
-    public function createNetwork($version, $account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
+    public function createNetwork($account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
     {
-        list($response) = $this->createNetworkWithHttpInfo($version, $account_id, $name, $enable_introspection, $description, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
+        list($response) = $this->createNetworkWithHttpInfo($account_id, $name, $enable_introspection, $description, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
         return $response;
     }
 
@@ -743,7 +722,6 @@ class ThirdPartyCredentialsApi
      *
      * Create Network
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $name The name of the network (required)
      * @param  bool $enable_introspection Whether the network uses introspection calls (required)
@@ -767,9 +745,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ThirdPartyNetworkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createNetworkWithHttpInfo($version, $account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
+    public function createNetworkWithHttpInfo($account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
     {
-        $request = $this->createNetworkRequest($version, $account_id, $name, $enable_introspection, $description, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
+        $request = $this->createNetworkRequest($account_id, $name, $enable_introspection, $description, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -845,7 +823,6 @@ class ThirdPartyCredentialsApi
      *
      * Create Network
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $name The name of the network (required)
      * @param  bool $enable_introspection Whether the network uses introspection calls (required)
@@ -868,9 +845,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createNetworkAsync($version, $account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
+    public function createNetworkAsync($account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
     {
-        return $this->createNetworkAsyncWithHttpInfo($version, $account_id, $name, $enable_introspection, $description, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType)
+        return $this->createNetworkAsyncWithHttpInfo($account_id, $name, $enable_introspection, $description, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -883,7 +860,6 @@ class ThirdPartyCredentialsApi
      *
      * Create Network
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $name The name of the network (required)
      * @param  bool $enable_introspection Whether the network uses introspection calls (required)
@@ -906,10 +882,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createNetworkAsyncWithHttpInfo($version, $account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
+    public function createNetworkAsyncWithHttpInfo($account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ThirdPartyNetworkResponse';
-        $request = $this->createNetworkRequest($version, $account_id, $name, $enable_introspection, $description, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
+        $request = $this->createNetworkRequest($account_id, $name, $enable_introspection, $description, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -950,7 +926,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'createNetwork'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $name The name of the network (required)
      * @param  bool $enable_introspection Whether the network uses introspection calls (required)
@@ -973,15 +948,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createNetworkRequest($version, $account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
+    public function createNetworkRequest($account_id, $name, $enable_introspection, $description = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['createNetwork'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createNetwork'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1019,7 +987,7 @@ class ThirdPartyCredentialsApi
 
 
 
-        $resourcePath = '/api/{version}/thirdparty/network/create';
+        $resourcePath = '/thirdparty/network/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1172,14 +1140,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1247,7 +1207,6 @@ class ThirdPartyCredentialsApi
      *
      * Delete Credential
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $network_uid The third party network identifier (required)
      * @param  string $third_party_id The third party user id (required)
@@ -1258,9 +1217,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteCredential($version, $account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
+    public function deleteCredential($account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
     {
-        list($response) = $this->deleteCredentialWithHttpInfo($version, $account_id, $network_uid, $third_party_id, $app_key, $contentType);
+        list($response) = $this->deleteCredentialWithHttpInfo($account_id, $network_uid, $third_party_id, $app_key, $contentType);
         return $response;
     }
 
@@ -1269,7 +1228,6 @@ class ThirdPartyCredentialsApi
      *
      * Delete Credential
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $network_uid The third party network identifier (required)
      * @param  string $third_party_id The third party user id (required)
@@ -1280,9 +1238,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCredentialWithHttpInfo($version, $account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
+    public function deleteCredentialWithHttpInfo($account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
     {
-        $request = $this->deleteCredentialRequest($version, $account_id, $network_uid, $third_party_id, $app_key, $contentType);
+        $request = $this->deleteCredentialRequest($account_id, $network_uid, $third_party_id, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1358,7 +1316,6 @@ class ThirdPartyCredentialsApi
      *
      * Delete Credential
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $network_uid The third party network identifier (required)
      * @param  string $third_party_id The third party user id (required)
@@ -1368,9 +1325,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCredentialAsync($version, $account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
+    public function deleteCredentialAsync($account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
     {
-        return $this->deleteCredentialAsyncWithHttpInfo($version, $account_id, $network_uid, $third_party_id, $app_key, $contentType)
+        return $this->deleteCredentialAsyncWithHttpInfo($account_id, $network_uid, $third_party_id, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1383,7 +1340,6 @@ class ThirdPartyCredentialsApi
      *
      * Delete Credential
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $network_uid The third party network identifier (required)
      * @param  string $third_party_id The third party user id (required)
@@ -1393,10 +1349,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCredentialAsyncWithHttpInfo($version, $account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
+    public function deleteCredentialAsyncWithHttpInfo($account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteCredentialRequest($version, $account_id, $network_uid, $third_party_id, $app_key, $contentType);
+        $request = $this->deleteCredentialRequest($account_id, $network_uid, $third_party_id, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1437,7 +1393,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'deleteCredential'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $network_uid The third party network identifier (required)
      * @param  string $third_party_id The third party user id (required)
@@ -1447,15 +1402,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCredentialRequest($version, $account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
+    public function deleteCredentialRequest($account_id, $network_uid, $third_party_id, $app_key, string $contentType = self::contentTypes['deleteCredential'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteCredential'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1486,7 +1434,7 @@ class ThirdPartyCredentialsApi
         }
 
 
-        $resourcePath = '/api/{version}/thirdparty/credential/delete';
+        $resourcePath = '/thirdparty/credential/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1531,14 +1479,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1599,7 +1539,6 @@ class ThirdPartyCredentialsApi
      *
      * Delete Network
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetwork'] to see the possible values for this operation
@@ -1608,9 +1547,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteNetwork($version, $account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
+    public function deleteNetwork($account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
     {
-        list($response) = $this->deleteNetworkWithHttpInfo($version, $account_id, $network_uid, $contentType);
+        list($response) = $this->deleteNetworkWithHttpInfo($account_id, $network_uid, $contentType);
         return $response;
     }
 
@@ -1619,7 +1558,6 @@ class ThirdPartyCredentialsApi
      *
      * Delete Network
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetwork'] to see the possible values for this operation
@@ -1628,9 +1566,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteNetworkWithHttpInfo($version, $account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
+    public function deleteNetworkWithHttpInfo($account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
     {
-        $request = $this->deleteNetworkRequest($version, $account_id, $network_uid, $contentType);
+        $request = $this->deleteNetworkRequest($account_id, $network_uid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1706,7 +1644,6 @@ class ThirdPartyCredentialsApi
      *
      * Delete Network
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetwork'] to see the possible values for this operation
@@ -1714,9 +1651,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteNetworkAsync($version, $account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
+    public function deleteNetworkAsync($account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
     {
-        return $this->deleteNetworkAsyncWithHttpInfo($version, $account_id, $network_uid, $contentType)
+        return $this->deleteNetworkAsyncWithHttpInfo($account_id, $network_uid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1729,7 +1666,6 @@ class ThirdPartyCredentialsApi
      *
      * Delete Network
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetwork'] to see the possible values for this operation
@@ -1737,10 +1673,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteNetworkAsyncWithHttpInfo($version, $account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
+    public function deleteNetworkAsyncWithHttpInfo($account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteNetworkRequest($version, $account_id, $network_uid, $contentType);
+        $request = $this->deleteNetworkRequest($account_id, $network_uid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1781,7 +1717,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'deleteNetwork'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetwork'] to see the possible values for this operation
@@ -1789,15 +1724,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteNetworkRequest($version, $account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
+    public function deleteNetworkRequest($account_id, $network_uid, string $contentType = self::contentTypes['deleteNetwork'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteNetwork'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1814,7 +1742,7 @@ class ThirdPartyCredentialsApi
         }
 
 
-        $resourcePath = '/api/{version}/thirdparty/network/delete';
+        $resourcePath = '/thirdparty/network/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1841,14 +1769,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1909,7 +1829,6 @@ class ThirdPartyCredentialsApi
      *
      * Get Credential
      *
-     * @param  float $version version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $app_key the application key (required)
      * @param  int|null $account_id the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -1931,9 +1850,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function getCredential($version, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
+    public function getCredential($network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
     {
-        list($response) = $this->getCredentialWithHttpInfo($version, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_credential_id, $third_party_token, $third_party_secret, $create_new_account, $response_filters, $latitude, $longitude, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $contentType);
+        list($response) = $this->getCredentialWithHttpInfo($network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_credential_id, $third_party_token, $third_party_secret, $create_new_account, $response_filters, $latitude, $longitude, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $contentType);
         return $response;
     }
 
@@ -1942,7 +1861,6 @@ class ThirdPartyCredentialsApi
      *
      * Get Credential
      *
-     * @param  float $version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $app_key the application key (required)
      * @param  int|null $account_id the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -1964,9 +1882,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCredentialWithHttpInfo($version, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
+    public function getCredentialWithHttpInfo($network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
     {
-        $request = $this->getCredentialRequest($version, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_credential_id, $third_party_token, $third_party_secret, $create_new_account, $response_filters, $latitude, $longitude, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $contentType);
+        $request = $this->getCredentialRequest($network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_credential_id, $third_party_token, $third_party_secret, $create_new_account, $response_filters, $latitude, $longitude, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2042,7 +1960,6 @@ class ThirdPartyCredentialsApi
      *
      * Get Credential
      *
-     * @param  float $version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $app_key the application key (required)
      * @param  int|null $account_id the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -2063,9 +1980,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCredentialAsync($version, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
+    public function getCredentialAsync($network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
     {
-        return $this->getCredentialAsyncWithHttpInfo($version, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_credential_id, $third_party_token, $third_party_secret, $create_new_account, $response_filters, $latitude, $longitude, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $contentType)
+        return $this->getCredentialAsyncWithHttpInfo($network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_credential_id, $third_party_token, $third_party_secret, $create_new_account, $response_filters, $latitude, $longitude, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2078,7 +1995,6 @@ class ThirdPartyCredentialsApi
      *
      * Get Credential
      *
-     * @param  float $version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $app_key the application key (required)
      * @param  int|null $account_id the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -2099,10 +2015,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCredentialAsyncWithHttpInfo($version, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
+    public function getCredentialAsyncWithHttpInfo($network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->getCredentialRequest($version, $network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_credential_id, $third_party_token, $third_party_secret, $create_new_account, $response_filters, $latitude, $longitude, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $contentType);
+        $request = $this->getCredentialRequest($network_uid, $app_key, $account_id, $device_id, $session_id, $third_party_credential_id, $third_party_token, $third_party_secret, $create_new_account, $response_filters, $latitude, $longitude, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2143,7 +2059,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'getCredential'
      *
-     * @param  float $version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $app_key the application key (required)
      * @param  int|null $account_id the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -2164,15 +2079,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCredentialRequest($version, $network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
+    public function getCredentialRequest($network_uid, $app_key, $account_id = null, $device_id = null, $session_id = null, $third_party_credential_id = null, $third_party_token = null, $third_party_secret = null, $create_new_account = false, $response_filters = null, $latitude = null, $longitude = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, string $contentType = self::contentTypes['getCredential'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCredential'
-            );
-        }
 
         // verify the required parameter 'network_uid' is set
         if ($network_uid === null || (is_array($network_uid) && count($network_uid) === 0)) {
@@ -2202,7 +2110,7 @@ class ThirdPartyCredentialsApi
 
 
 
-        $resourcePath = '/api/{version}/thirdparty/credential/get';
+        $resourcePath = '/thirdparty/credential/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2346,14 +2254,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2414,7 +2314,6 @@ class ThirdPartyCredentialsApi
      *
      * Get Network
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetwork'] to see the possible values for this operation
@@ -2423,9 +2322,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ThirdPartyNetworkResponse
      */
-    public function getNetwork($version, $account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
+    public function getNetwork($account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
     {
-        list($response) = $this->getNetworkWithHttpInfo($version, $account_id, $network_uid, $contentType);
+        list($response) = $this->getNetworkWithHttpInfo($account_id, $network_uid, $contentType);
         return $response;
     }
 
@@ -2434,7 +2333,6 @@ class ThirdPartyCredentialsApi
      *
      * Get Network
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetwork'] to see the possible values for this operation
@@ -2443,9 +2341,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ThirdPartyNetworkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNetworkWithHttpInfo($version, $account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
+    public function getNetworkWithHttpInfo($account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
     {
-        $request = $this->getNetworkRequest($version, $account_id, $network_uid, $contentType);
+        $request = $this->getNetworkRequest($account_id, $network_uid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2521,7 +2419,6 @@ class ThirdPartyCredentialsApi
      *
      * Get Network
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetwork'] to see the possible values for this operation
@@ -2529,9 +2426,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNetworkAsync($version, $account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
+    public function getNetworkAsync($account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
     {
-        return $this->getNetworkAsyncWithHttpInfo($version, $account_id, $network_uid, $contentType)
+        return $this->getNetworkAsyncWithHttpInfo($account_id, $network_uid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2544,7 +2441,6 @@ class ThirdPartyCredentialsApi
      *
      * Get Network
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetwork'] to see the possible values for this operation
@@ -2552,10 +2448,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNetworkAsyncWithHttpInfo($version, $account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
+    public function getNetworkAsyncWithHttpInfo($account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ThirdPartyNetworkResponse';
-        $request = $this->getNetworkRequest($version, $account_id, $network_uid, $contentType);
+        $request = $this->getNetworkRequest($account_id, $network_uid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2596,7 +2492,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'getNetwork'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetwork'] to see the possible values for this operation
@@ -2604,15 +2499,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNetworkRequest($version, $account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
+    public function getNetworkRequest($account_id, $network_uid, string $contentType = self::contentTypes['getNetwork'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getNetwork'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2629,7 +2517,7 @@ class ThirdPartyCredentialsApi
         }
 
 
-        $resourcePath = '/api/{version}/thirdparty/network/get';
+        $resourcePath = '/thirdparty/network/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2656,14 +2544,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2724,7 +2604,6 @@ class ThirdPartyCredentialsApi
      *
      * Search Credentials
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword The keyword used to search on the third party name and network string (optional)
      * @param  string|null $network_uid The network UID to filter results with (optional)
@@ -2737,9 +2616,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ThirdPartyCredentialResponse[]
      */
-    public function searchCredentials($version, $account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
+    public function searchCredentials($account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
     {
-        list($response) = $this->searchCredentialsWithHttpInfo($version, $account_id, $keyword, $network_uid, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchCredentialsWithHttpInfo($account_id, $keyword, $network_uid, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2748,7 +2627,6 @@ class ThirdPartyCredentialsApi
      *
      * Search Credentials
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword The keyword used to search on the third party name and network string (optional)
      * @param  string|null $network_uid The network UID to filter results with (optional)
@@ -2761,9 +2639,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ThirdPartyCredentialResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCredentialsWithHttpInfo($version, $account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
+    public function searchCredentialsWithHttpInfo($account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
     {
-        $request = $this->searchCredentialsRequest($version, $account_id, $keyword, $network_uid, $descending, $start, $limit, $contentType);
+        $request = $this->searchCredentialsRequest($account_id, $keyword, $network_uid, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2839,7 +2717,6 @@ class ThirdPartyCredentialsApi
      *
      * Search Credentials
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword The keyword used to search on the third party name and network string (optional)
      * @param  string|null $network_uid The network UID to filter results with (optional)
@@ -2851,9 +2728,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCredentialsAsync($version, $account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
+    public function searchCredentialsAsync($account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
     {
-        return $this->searchCredentialsAsyncWithHttpInfo($version, $account_id, $keyword, $network_uid, $descending, $start, $limit, $contentType)
+        return $this->searchCredentialsAsyncWithHttpInfo($account_id, $keyword, $network_uid, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2866,7 +2743,6 @@ class ThirdPartyCredentialsApi
      *
      * Search Credentials
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword The keyword used to search on the third party name and network string (optional)
      * @param  string|null $network_uid The network UID to filter results with (optional)
@@ -2878,10 +2754,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCredentialsAsyncWithHttpInfo($version, $account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
+    public function searchCredentialsAsyncWithHttpInfo($account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ThirdPartyCredentialResponse[]';
-        $request = $this->searchCredentialsRequest($version, $account_id, $keyword, $network_uid, $descending, $start, $limit, $contentType);
+        $request = $this->searchCredentialsRequest($account_id, $keyword, $network_uid, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2922,7 +2798,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'searchCredentials'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword The keyword used to search on the third party name and network string (optional)
      * @param  string|null $network_uid The network UID to filter results with (optional)
@@ -2934,15 +2809,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchCredentialsRequest($version, $account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
+    public function searchCredentialsRequest($account_id, $keyword = null, $network_uid = null, $descending = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchCredentials'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchCredentials'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2957,7 +2825,7 @@ class ThirdPartyCredentialsApi
 
 
 
-        $resourcePath = '/api/{version}/thirdparty/credential/search';
+        $resourcePath = '/thirdparty/credential/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3020,14 +2888,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3088,7 +2948,6 @@ class ThirdPartyCredentialsApi
      *
      * Search Networks
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $sort_field The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param  bool $descending The order to return the search results (required)
@@ -3103,9 +2962,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ThirdPartyNetworkShortResponse[]
      */
-    public function searchNetworks($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
+    public function searchNetworks($account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
     {
-        list($response) = $this->searchNetworksWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $filter_billable, $contentType);
+        list($response) = $this->searchNetworksWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $filter_billable, $contentType);
         return $response;
     }
 
@@ -3114,7 +2973,6 @@ class ThirdPartyCredentialsApi
      *
      * Search Networks
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $sort_field The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param  bool $descending The order to return the search results (required)
@@ -3129,9 +2987,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ThirdPartyNetworkShortResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchNetworksWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
+    public function searchNetworksWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
     {
-        $request = $this->searchNetworksRequest($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $filter_billable, $contentType);
+        $request = $this->searchNetworksRequest($account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $filter_billable, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3207,7 +3065,6 @@ class ThirdPartyCredentialsApi
      *
      * Search Networks
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $sort_field The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param  bool $descending The order to return the search results (required)
@@ -3221,9 +3078,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchNetworksAsync($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
+    public function searchNetworksAsync($account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
     {
-        return $this->searchNetworksAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $filter_billable, $contentType)
+        return $this->searchNetworksAsyncWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $filter_billable, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3236,7 +3093,6 @@ class ThirdPartyCredentialsApi
      *
      * Search Networks
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $sort_field The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param  bool $descending The order to return the search results (required)
@@ -3250,10 +3106,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchNetworksAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
+    public function searchNetworksAsyncWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ThirdPartyNetworkShortResponse[]';
-        $request = $this->searchNetworksRequest($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $filter_billable, $contentType);
+        $request = $this->searchNetworksRequest($account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $filter_billable, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3294,7 +3150,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'searchNetworks'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $sort_field The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param  bool $descending The order to return the search results (required)
@@ -3308,15 +3163,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchNetworksRequest($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
+    public function searchNetworksRequest($account_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $filter_billable = null, string $contentType = self::contentTypes['searchNetworks'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchNetworks'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3363,7 +3211,7 @@ class ThirdPartyCredentialsApi
 
 
 
-        $resourcePath = '/api/{version}/thirdparty/network/search';
+        $resourcePath = '/thirdparty/network/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3444,14 +3292,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3512,7 +3352,6 @@ class ThirdPartyCredentialsApi
      *
      * Send MFA Challenge
      *
-     * @param  float $version version (required)
      * @param  string $network_uid the third party network provider that has MFA enabled (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $third_party_token the access token to authenticate with (optional)
@@ -3524,9 +3363,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function sendMFAChallenge($version, $network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
+    public function sendMFAChallenge($network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
     {
-        list($response) = $this->sendMFAChallengeWithHttpInfo($version, $network_uid, $app_key, $third_party_token, $third_party_credential_id, $device_id, $contentType);
+        list($response) = $this->sendMFAChallengeWithHttpInfo($network_uid, $app_key, $third_party_token, $third_party_credential_id, $device_id, $contentType);
         return $response;
     }
 
@@ -3535,7 +3374,6 @@ class ThirdPartyCredentialsApi
      *
      * Send MFA Challenge
      *
-     * @param  float $version (required)
      * @param  string $network_uid the third party network provider that has MFA enabled (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $third_party_token the access token to authenticate with (optional)
@@ -3547,9 +3385,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendMFAChallengeWithHttpInfo($version, $network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
+    public function sendMFAChallengeWithHttpInfo($network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
     {
-        $request = $this->sendMFAChallengeRequest($version, $network_uid, $app_key, $third_party_token, $third_party_credential_id, $device_id, $contentType);
+        $request = $this->sendMFAChallengeRequest($network_uid, $app_key, $third_party_token, $third_party_credential_id, $device_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3625,7 +3463,6 @@ class ThirdPartyCredentialsApi
      *
      * Send MFA Challenge
      *
-     * @param  float $version (required)
      * @param  string $network_uid the third party network provider that has MFA enabled (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $third_party_token the access token to authenticate with (optional)
@@ -3636,9 +3473,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendMFAChallengeAsync($version, $network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
+    public function sendMFAChallengeAsync($network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
     {
-        return $this->sendMFAChallengeAsyncWithHttpInfo($version, $network_uid, $app_key, $third_party_token, $third_party_credential_id, $device_id, $contentType)
+        return $this->sendMFAChallengeAsyncWithHttpInfo($network_uid, $app_key, $third_party_token, $third_party_credential_id, $device_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3651,7 +3488,6 @@ class ThirdPartyCredentialsApi
      *
      * Send MFA Challenge
      *
-     * @param  float $version (required)
      * @param  string $network_uid the third party network provider that has MFA enabled (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $third_party_token the access token to authenticate with (optional)
@@ -3662,10 +3498,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendMFAChallengeAsyncWithHttpInfo($version, $network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
+    public function sendMFAChallengeAsyncWithHttpInfo($network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->sendMFAChallengeRequest($version, $network_uid, $app_key, $third_party_token, $third_party_credential_id, $device_id, $contentType);
+        $request = $this->sendMFAChallengeRequest($network_uid, $app_key, $third_party_token, $third_party_credential_id, $device_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3706,7 +3542,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'sendMFAChallenge'
      *
-     * @param  float $version (required)
      * @param  string $network_uid the third party network provider that has MFA enabled (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $third_party_token the access token to authenticate with (optional)
@@ -3717,15 +3552,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendMFAChallengeRequest($version, $network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
+    public function sendMFAChallengeRequest($network_uid, $app_key, $third_party_token = null, $third_party_credential_id = null, $device_id = null, string $contentType = self::contentTypes['sendMFAChallenge'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling sendMFAChallenge'
-            );
-        }
 
         // verify the required parameter 'network_uid' is set
         if ($network_uid === null || (is_array($network_uid) && count($network_uid) === 0)) {
@@ -3745,7 +3573,7 @@ class ThirdPartyCredentialsApi
 
 
 
-        $resourcePath = '/api/{version}/thirdparty/credential/mfa/send';
+        $resourcePath = '/thirdparty/credential/mfa/send';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3799,14 +3627,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3867,7 +3687,6 @@ class ThirdPartyCredentialsApi
      *
      * Update Credential
      *
-     * @param  float $version version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $app_key the application key (required)
@@ -3883,9 +3702,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function updateCredential($version, $network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
+    public function updateCredential($network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
     {
-        list($response) = $this->updateCredentialWithHttpInfo($version, $network_uid, $third_party_id, $app_key, $device_id, $third_party_name, $third_party_token, $response_filters, $meta_data, $third_party_refresh_token, $contentType);
+        list($response) = $this->updateCredentialWithHttpInfo($network_uid, $third_party_id, $app_key, $device_id, $third_party_name, $third_party_token, $response_filters, $meta_data, $third_party_refresh_token, $contentType);
         return $response;
     }
 
@@ -3894,7 +3713,6 @@ class ThirdPartyCredentialsApi
      *
      * Update Credential
      *
-     * @param  float $version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $app_key the application key (required)
@@ -3910,9 +3728,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCredentialWithHttpInfo($version, $network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
+    public function updateCredentialWithHttpInfo($network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
     {
-        $request = $this->updateCredentialRequest($version, $network_uid, $third_party_id, $app_key, $device_id, $third_party_name, $third_party_token, $response_filters, $meta_data, $third_party_refresh_token, $contentType);
+        $request = $this->updateCredentialRequest($network_uid, $third_party_id, $app_key, $device_id, $third_party_name, $third_party_token, $response_filters, $meta_data, $third_party_refresh_token, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3988,7 +3806,6 @@ class ThirdPartyCredentialsApi
      *
      * Update Credential
      *
-     * @param  float $version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $app_key the application key (required)
@@ -4003,9 +3820,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCredentialAsync($version, $network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
+    public function updateCredentialAsync($network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
     {
-        return $this->updateCredentialAsyncWithHttpInfo($version, $network_uid, $third_party_id, $app_key, $device_id, $third_party_name, $third_party_token, $response_filters, $meta_data, $third_party_refresh_token, $contentType)
+        return $this->updateCredentialAsyncWithHttpInfo($network_uid, $third_party_id, $app_key, $device_id, $third_party_name, $third_party_token, $response_filters, $meta_data, $third_party_refresh_token, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4018,7 +3835,6 @@ class ThirdPartyCredentialsApi
      *
      * Update Credential
      *
-     * @param  float $version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $app_key the application key (required)
@@ -4033,10 +3849,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCredentialAsyncWithHttpInfo($version, $network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
+    public function updateCredentialAsyncWithHttpInfo($network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->updateCredentialRequest($version, $network_uid, $third_party_id, $app_key, $device_id, $third_party_name, $third_party_token, $response_filters, $meta_data, $third_party_refresh_token, $contentType);
+        $request = $this->updateCredentialRequest($network_uid, $third_party_id, $app_key, $device_id, $third_party_name, $third_party_token, $response_filters, $meta_data, $third_party_refresh_token, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4077,7 +3893,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'updateCredential'
      *
-     * @param  float $version (required)
      * @param  string $network_uid the access provider to authenticate against (required)
      * @param  string $third_party_id the third party user account id (required)
      * @param  string $app_key the application key (required)
@@ -4092,15 +3907,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCredentialRequest($version, $network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
+    public function updateCredentialRequest($network_uid, $third_party_id, $app_key, $device_id = null, $third_party_name = null, $third_party_token = null, $response_filters = null, $meta_data = null, $third_party_refresh_token = null, string $contentType = self::contentTypes['updateCredential'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateCredential'
-            );
-        }
 
         // verify the required parameter 'network_uid' is set
         if ($network_uid === null || (is_array($network_uid) && count($network_uid) === 0)) {
@@ -4130,7 +3938,7 @@ class ThirdPartyCredentialsApi
 
 
 
-        $resourcePath = '/api/{version}/thirdparty/credential/update';
+        $resourcePath = '/thirdparty/credential/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4220,14 +4028,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4288,7 +4088,6 @@ class ThirdPartyCredentialsApi
      *
      * Update Network
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string|null $name The name of the network (optional)
@@ -4313,9 +4112,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ThirdPartyNetworkResponse
      */
-    public function updateNetwork($version, $account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
+    public function updateNetwork($account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
     {
-        list($response) = $this->updateNetworkWithHttpInfo($version, $account_id, $network_uid, $name, $description, $enable_introspection, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
+        list($response) = $this->updateNetworkWithHttpInfo($account_id, $network_uid, $name, $description, $enable_introspection, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
         return $response;
     }
 
@@ -4324,7 +4123,6 @@ class ThirdPartyCredentialsApi
      *
      * Update Network
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string|null $name The name of the network (optional)
@@ -4349,9 +4147,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ThirdPartyNetworkResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateNetworkWithHttpInfo($version, $account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
+    public function updateNetworkWithHttpInfo($account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
     {
-        $request = $this->updateNetworkRequest($version, $account_id, $network_uid, $name, $description, $enable_introspection, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
+        $request = $this->updateNetworkRequest($account_id, $network_uid, $name, $description, $enable_introspection, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4427,7 +4225,6 @@ class ThirdPartyCredentialsApi
      *
      * Update Network
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string|null $name The name of the network (optional)
@@ -4451,9 +4248,9 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateNetworkAsync($version, $account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
+    public function updateNetworkAsync($account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
     {
-        return $this->updateNetworkAsyncWithHttpInfo($version, $account_id, $network_uid, $name, $description, $enable_introspection, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType)
+        return $this->updateNetworkAsyncWithHttpInfo($account_id, $network_uid, $name, $description, $enable_introspection, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4466,7 +4263,6 @@ class ThirdPartyCredentialsApi
      *
      * Update Network
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string|null $name The name of the network (optional)
@@ -4490,10 +4286,10 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateNetworkAsyncWithHttpInfo($version, $account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
+    public function updateNetworkAsyncWithHttpInfo($account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ThirdPartyNetworkResponse';
-        $request = $this->updateNetworkRequest($version, $account_id, $network_uid, $name, $description, $enable_introspection, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
+        $request = $this->updateNetworkRequest($account_id, $network_uid, $name, $description, $enable_introspection, $introspection_method, $introspection_url, $introspection_params, $required_root_field, $enable_mfa, $size_mfa, $shelf_life_mfa, $oauth_token_url, $oauth_private_key, $oauth_public_key, $oauth_client_id, $oauth_secret_key, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4534,7 +4330,6 @@ class ThirdPartyCredentialsApi
     /**
      * Create request for operation 'updateNetwork'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id making the request (required)
      * @param  string $network_uid The unique identifier for the third party network defined by Sirqul (required)
      * @param  string|null $name The name of the network (optional)
@@ -4558,15 +4353,8 @@ class ThirdPartyCredentialsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateNetworkRequest($version, $account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
+    public function updateNetworkRequest($account_id, $network_uid, $name = null, $description = null, $enable_introspection = null, $introspection_method = null, $introspection_url = null, $introspection_params = null, $required_root_field = null, $enable_mfa = null, $size_mfa = null, $shelf_life_mfa = null, $oauth_token_url = null, $oauth_private_key = null, $oauth_public_key = null, $oauth_client_id = null, $oauth_secret_key = null, $body = null, string $contentType = self::contentTypes['updateNetwork'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateNetwork'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4599,7 +4387,7 @@ class ThirdPartyCredentialsApi
 
 
 
-        $resourcePath = '/api/{version}/thirdparty/network/update';
+        $resourcePath = '/thirdparty/network/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4761,14 +4549,6 @@ class ThirdPartyCredentialsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

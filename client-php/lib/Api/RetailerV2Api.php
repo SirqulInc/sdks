@@ -131,7 +131,6 @@ class RetailerV2Api
      *
      * Get Retailer
      *
-     * @param  float $version version (required)
      * @param  int $retailer_id the id of the retailer (required)
      * @param  bool $active_only whether to return results that are active only or all (required)
      * @param  string|null $keyword the keyword to search on to get retailer (optional)
@@ -144,9 +143,9 @@ class RetailerV2Api
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function getRetaokiler($version, $retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
+    public function getRetaokiler($retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
     {
-        list($response) = $this->getRetaokilerWithHttpInfo($version, $retailer_id, $active_only, $keyword, $sort_field, $start, $limit, $contentType);
+        list($response) = $this->getRetaokilerWithHttpInfo($retailer_id, $active_only, $keyword, $sort_field, $start, $limit, $contentType);
         return $response;
     }
 
@@ -155,7 +154,6 @@ class RetailerV2Api
      *
      * Get Retailer
      *
-     * @param  float $version (required)
      * @param  int $retailer_id the id of the retailer (required)
      * @param  bool $active_only whether to return results that are active only or all (required)
      * @param  string|null $keyword the keyword to search on to get retailer (optional)
@@ -168,9 +166,9 @@ class RetailerV2Api
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRetaokilerWithHttpInfo($version, $retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
+    public function getRetaokilerWithHttpInfo($retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
     {
-        $request = $this->getRetaokilerRequest($version, $retailer_id, $active_only, $keyword, $sort_field, $start, $limit, $contentType);
+        $request = $this->getRetaokilerRequest($retailer_id, $active_only, $keyword, $sort_field, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -246,7 +244,6 @@ class RetailerV2Api
      *
      * Get Retailer
      *
-     * @param  float $version (required)
      * @param  int $retailer_id the id of the retailer (required)
      * @param  bool $active_only whether to return results that are active only or all (required)
      * @param  string|null $keyword the keyword to search on to get retailer (optional)
@@ -258,9 +255,9 @@ class RetailerV2Api
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetaokilerAsync($version, $retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
+    public function getRetaokilerAsync($retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
     {
-        return $this->getRetaokilerAsyncWithHttpInfo($version, $retailer_id, $active_only, $keyword, $sort_field, $start, $limit, $contentType)
+        return $this->getRetaokilerAsyncWithHttpInfo($retailer_id, $active_only, $keyword, $sort_field, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -273,7 +270,6 @@ class RetailerV2Api
      *
      * Get Retailer
      *
-     * @param  float $version (required)
      * @param  int $retailer_id the id of the retailer (required)
      * @param  bool $active_only whether to return results that are active only or all (required)
      * @param  string|null $keyword the keyword to search on to get retailer (optional)
@@ -285,10 +281,10 @@ class RetailerV2Api
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetaokilerAsyncWithHttpInfo($version, $retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
+    public function getRetaokilerAsyncWithHttpInfo($retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->getRetaokilerRequest($version, $retailer_id, $active_only, $keyword, $sort_field, $start, $limit, $contentType);
+        $request = $this->getRetaokilerRequest($retailer_id, $active_only, $keyword, $sort_field, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -329,7 +325,6 @@ class RetailerV2Api
     /**
      * Create request for operation 'getRetaokiler'
      *
-     * @param  float $version (required)
      * @param  int $retailer_id the id of the retailer (required)
      * @param  bool $active_only whether to return results that are active only or all (required)
      * @param  string|null $keyword the keyword to search on to get retailer (optional)
@@ -341,15 +336,8 @@ class RetailerV2Api
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRetaokilerRequest($version, $retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
+    public function getRetaokilerRequest($retailer_id, $active_only, $keyword = null, $sort_field = 'id', $start = 0, $limit = 20, string $contentType = self::contentTypes['getRetaokiler'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRetaokiler'
-            );
-        }
 
         // verify the required parameter 'retailer_id' is set
         if ($retailer_id === null || (is_array($retailer_id) && count($retailer_id) === 0)) {
@@ -370,7 +358,7 @@ class RetailerV2Api
 
 
 
-        $resourcePath = '/api/{version}/retailer';
+        $resourcePath = '/retailer';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -433,14 +421,6 @@ class RetailerV2Api
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

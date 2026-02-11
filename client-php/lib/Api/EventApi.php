@@ -149,7 +149,6 @@ class EventApi
      *
      * Attend Event
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application of where to send notifications about the attend action (optional)
@@ -166,9 +165,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferResponse
      */
-    public function attendEvent($version, $device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
+    public function attendEvent($device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
     {
-        list($response) = $this->attendEventWithHttpInfo($version, $device_id, $account_id, $app_key, $listing_id, $retailer_location_id, $offer_location_id, $transaction_id, $status, $latitude, $longitude, $contentType);
+        list($response) = $this->attendEventWithHttpInfo($device_id, $account_id, $app_key, $listing_id, $retailer_location_id, $offer_location_id, $transaction_id, $status, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -177,7 +176,6 @@ class EventApi
      *
      * Attend Event
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application of where to send notifications about the attend action (optional)
@@ -194,9 +192,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function attendEventWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
+    public function attendEventWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
     {
-        $request = $this->attendEventRequest($version, $device_id, $account_id, $app_key, $listing_id, $retailer_location_id, $offer_location_id, $transaction_id, $status, $latitude, $longitude, $contentType);
+        $request = $this->attendEventRequest($device_id, $account_id, $app_key, $listing_id, $retailer_location_id, $offer_location_id, $transaction_id, $status, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -272,7 +270,6 @@ class EventApi
      *
      * Attend Event
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application of where to send notifications about the attend action (optional)
@@ -288,9 +285,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attendEventAsync($version, $device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
+    public function attendEventAsync($device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
     {
-        return $this->attendEventAsyncWithHttpInfo($version, $device_id, $account_id, $app_key, $listing_id, $retailer_location_id, $offer_location_id, $transaction_id, $status, $latitude, $longitude, $contentType)
+        return $this->attendEventAsyncWithHttpInfo($device_id, $account_id, $app_key, $listing_id, $retailer_location_id, $offer_location_id, $transaction_id, $status, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -303,7 +300,6 @@ class EventApi
      *
      * Attend Event
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application of where to send notifications about the attend action (optional)
@@ -319,10 +315,10 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attendEventAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
+    public function attendEventAsyncWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferResponse';
-        $request = $this->attendEventRequest($version, $device_id, $account_id, $app_key, $listing_id, $retailer_location_id, $offer_location_id, $transaction_id, $status, $latitude, $longitude, $contentType);
+        $request = $this->attendEventRequest($device_id, $account_id, $app_key, $listing_id, $retailer_location_id, $offer_location_id, $transaction_id, $status, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -363,7 +359,6 @@ class EventApi
     /**
      * Create request for operation 'attendEvent'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application of where to send notifications about the attend action (optional)
@@ -379,15 +374,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function attendEventRequest($version, $device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
+    public function attendEventRequest($device_id = null, $account_id = null, $app_key = null, $listing_id = null, $retailer_location_id = null, $offer_location_id = null, $transaction_id = null, $status = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['attendEvent'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling attendEvent'
-            );
-        }
 
 
 
@@ -399,8 +388,7 @@ class EventApi
 
 
 
-
-        $resourcePath = '/api/{version}/event/attend';
+        $resourcePath = '/event/attend';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -499,14 +487,6 @@ class EventApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -567,7 +547,6 @@ class EventApi
      *
      * Create Event
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The event title (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -586,9 +565,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferResponse
      */
-    public function createEvent($version, $account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
+    public function createEvent($account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
     {
-        list($response) = $this->createEventWithHttpInfo($version, $account_id, $title, $retailer_location_ids, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $meta_data, $contentType);
+        list($response) = $this->createEventWithHttpInfo($account_id, $title, $retailer_location_ids, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $meta_data, $contentType);
         return $response;
     }
 
@@ -597,7 +576,6 @@ class EventApi
      *
      * Create Event
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The event title (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -616,9 +594,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createEventWithHttpInfo($version, $account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
+    public function createEventWithHttpInfo($account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
     {
-        $request = $this->createEventRequest($version, $account_id, $title, $retailer_location_ids, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $meta_data, $contentType);
+        $request = $this->createEventRequest($account_id, $title, $retailer_location_ids, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -694,7 +672,6 @@ class EventApi
      *
      * Create Event
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The event title (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -712,9 +689,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createEventAsync($version, $account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
+    public function createEventAsync($account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
     {
-        return $this->createEventAsyncWithHttpInfo($version, $account_id, $title, $retailer_location_ids, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $meta_data, $contentType)
+        return $this->createEventAsyncWithHttpInfo($account_id, $title, $retailer_location_ids, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -727,7 +704,6 @@ class EventApi
      *
      * Create Event
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The event title (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -745,10 +721,10 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createEventAsyncWithHttpInfo($version, $account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
+    public function createEventAsyncWithHttpInfo($account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferResponse';
-        $request = $this->createEventRequest($version, $account_id, $title, $retailer_location_ids, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $meta_data, $contentType);
+        $request = $this->createEventRequest($account_id, $title, $retailer_location_ids, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -789,7 +765,6 @@ class EventApi
     /**
      * Create request for operation 'createEvent'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The event title (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -807,15 +782,8 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createEventRequest($version, $account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
+    public function createEventRequest($account_id, $title, $retailer_location_ids = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, $meta_data = null, string $contentType = self::contentTypes['createEvent'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createEvent'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -842,7 +810,7 @@ class EventApi
 
 
 
-        $resourcePath = '/api/{version}/event/create';
+        $resourcePath = '/event/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -959,14 +927,6 @@ class EventApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1027,7 +987,6 @@ class EventApi
      *
      * Delete Event
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id the id of the event to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEvent'] to see the possible values for this operation
@@ -1036,9 +995,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteEvent($version, $account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
+    public function deleteEvent($account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
     {
-        list($response) = $this->deleteEventWithHttpInfo($version, $account_id, $event_id, $contentType);
+        list($response) = $this->deleteEventWithHttpInfo($account_id, $event_id, $contentType);
         return $response;
     }
 
@@ -1047,7 +1006,6 @@ class EventApi
      *
      * Delete Event
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id the id of the event to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEvent'] to see the possible values for this operation
@@ -1056,9 +1014,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteEventWithHttpInfo($version, $account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
+    public function deleteEventWithHttpInfo($account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
     {
-        $request = $this->deleteEventRequest($version, $account_id, $event_id, $contentType);
+        $request = $this->deleteEventRequest($account_id, $event_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1134,7 +1092,6 @@ class EventApi
      *
      * Delete Event
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id the id of the event to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEvent'] to see the possible values for this operation
@@ -1142,9 +1099,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEventAsync($version, $account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
+    public function deleteEventAsync($account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
     {
-        return $this->deleteEventAsyncWithHttpInfo($version, $account_id, $event_id, $contentType)
+        return $this->deleteEventAsyncWithHttpInfo($account_id, $event_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1157,7 +1114,6 @@ class EventApi
      *
      * Delete Event
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id the id of the event to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEvent'] to see the possible values for this operation
@@ -1165,10 +1121,10 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEventAsyncWithHttpInfo($version, $account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
+    public function deleteEventAsyncWithHttpInfo($account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteEventRequest($version, $account_id, $event_id, $contentType);
+        $request = $this->deleteEventRequest($account_id, $event_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1209,7 +1165,6 @@ class EventApi
     /**
      * Create request for operation 'deleteEvent'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id the id of the event to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEvent'] to see the possible values for this operation
@@ -1217,15 +1172,8 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteEventRequest($version, $account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
+    public function deleteEventRequest($account_id, $event_id, string $contentType = self::contentTypes['deleteEvent'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteEvent'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1242,7 +1190,7 @@ class EventApi
         }
 
 
-        $resourcePath = '/api/{version}/event/delete';
+        $resourcePath = '/event/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1269,14 +1217,6 @@ class EventApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1337,7 +1277,6 @@ class EventApi
      *
      * Get Event
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id The id of the event to return (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
@@ -1346,9 +1285,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferResponse
      */
-    public function getEvent($version, $account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
+    public function getEvent($account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
     {
-        list($response) = $this->getEventWithHttpInfo($version, $account_id, $event_id, $contentType);
+        list($response) = $this->getEventWithHttpInfo($account_id, $event_id, $contentType);
         return $response;
     }
 
@@ -1357,7 +1296,6 @@ class EventApi
      *
      * Get Event
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id The id of the event to return (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
@@ -1366,9 +1304,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEventWithHttpInfo($version, $account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
+    public function getEventWithHttpInfo($account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
     {
-        $request = $this->getEventRequest($version, $account_id, $event_id, $contentType);
+        $request = $this->getEventRequest($account_id, $event_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1444,7 +1382,6 @@ class EventApi
      *
      * Get Event
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id The id of the event to return (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
@@ -1452,9 +1389,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventAsync($version, $account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
+    public function getEventAsync($account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
     {
-        return $this->getEventAsyncWithHttpInfo($version, $account_id, $event_id, $contentType)
+        return $this->getEventAsyncWithHttpInfo($account_id, $event_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1467,7 +1404,6 @@ class EventApi
      *
      * Get Event
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id The id of the event to return (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
@@ -1475,10 +1411,10 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventAsyncWithHttpInfo($version, $account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
+    public function getEventAsyncWithHttpInfo($account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferResponse';
-        $request = $this->getEventRequest($version, $account_id, $event_id, $contentType);
+        $request = $this->getEventRequest($account_id, $event_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1519,7 +1455,6 @@ class EventApi
     /**
      * Create request for operation 'getEvent'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $event_id The id of the event to return (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
@@ -1527,15 +1462,8 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEventRequest($version, $account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
+    public function getEventRequest($account_id, $event_id, string $contentType = self::contentTypes['getEvent'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getEvent'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1552,7 +1480,7 @@ class EventApi
         }
 
 
-        $resourcePath = '/api/{version}/event/get';
+        $resourcePath = '/event/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1579,14 +1507,6 @@ class EventApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1647,7 +1567,6 @@ class EventApi
      *
      * Search Event Attendance
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1673,9 +1592,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EventAttendanceResponse[]
      */
-    public function searchEventTransactions($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
+    public function searchEventTransactions($device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
     {
-        list($response) = $this->searchEventTransactionsWithHttpInfo($version, $device_id, $account_id, $app_key, $keyword, $retailer_id, $retailer_location_id, $exclude_retailer_location_id, $listing_id, $offer_id, $offer_location_id, $customer_account_ids, $affiliated_category_ids, $start_date, $end_date, $statuses, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchEventTransactionsWithHttpInfo($device_id, $account_id, $app_key, $keyword, $retailer_id, $retailer_location_id, $exclude_retailer_location_id, $listing_id, $offer_id, $offer_location_id, $customer_account_ids, $affiliated_category_ids, $start_date, $end_date, $statuses, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1684,7 +1603,6 @@ class EventApi
      *
      * Search Event Attendance
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1710,9 +1628,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EventAttendanceResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchEventTransactionsWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
+    public function searchEventTransactionsWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
     {
-        $request = $this->searchEventTransactionsRequest($version, $device_id, $account_id, $app_key, $keyword, $retailer_id, $retailer_location_id, $exclude_retailer_location_id, $listing_id, $offer_id, $offer_location_id, $customer_account_ids, $affiliated_category_ids, $start_date, $end_date, $statuses, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchEventTransactionsRequest($device_id, $account_id, $app_key, $keyword, $retailer_id, $retailer_location_id, $exclude_retailer_location_id, $listing_id, $offer_id, $offer_location_id, $customer_account_ids, $affiliated_category_ids, $start_date, $end_date, $statuses, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1788,7 +1706,6 @@ class EventApi
      *
      * Search Event Attendance
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1813,9 +1730,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchEventTransactionsAsync($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
+    public function searchEventTransactionsAsync($device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
     {
-        return $this->searchEventTransactionsAsyncWithHttpInfo($version, $device_id, $account_id, $app_key, $keyword, $retailer_id, $retailer_location_id, $exclude_retailer_location_id, $listing_id, $offer_id, $offer_location_id, $customer_account_ids, $affiliated_category_ids, $start_date, $end_date, $statuses, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->searchEventTransactionsAsyncWithHttpInfo($device_id, $account_id, $app_key, $keyword, $retailer_id, $retailer_location_id, $exclude_retailer_location_id, $listing_id, $offer_id, $offer_location_id, $customer_account_ids, $affiliated_category_ids, $start_date, $end_date, $statuses, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1828,7 +1745,6 @@ class EventApi
      *
      * Search Event Attendance
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1853,10 +1769,10 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchEventTransactionsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
+    public function searchEventTransactionsAsyncWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EventAttendanceResponse[]';
-        $request = $this->searchEventTransactionsRequest($version, $device_id, $account_id, $app_key, $keyword, $retailer_id, $retailer_location_id, $exclude_retailer_location_id, $listing_id, $offer_id, $offer_location_id, $customer_account_ids, $affiliated_category_ids, $start_date, $end_date, $statuses, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchEventTransactionsRequest($device_id, $account_id, $app_key, $keyword, $retailer_id, $retailer_location_id, $exclude_retailer_location_id, $listing_id, $offer_id, $offer_location_id, $customer_account_ids, $affiliated_category_ids, $start_date, $end_date, $statuses, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1897,7 +1813,6 @@ class EventApi
     /**
      * Create request for operation 'searchEventTransactions'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1922,15 +1837,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchEventTransactionsRequest($version, $device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
+    public function searchEventTransactionsRequest($device_id = null, $account_id = null, $app_key = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $exclude_retailer_location_id = null, $listing_id = null, $offer_id = null, $offer_location_id = null, $customer_account_ids = null, $affiliated_category_ids = null, $start_date = null, $end_date = null, $statuses = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEventTransactions'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchEventTransactions'
-            );
-        }
 
 
 
@@ -1951,8 +1860,7 @@ class EventApi
 
 
 
-
-        $resourcePath = '/api/{version}/event/attendance/search';
+        $resourcePath = '/event/attendance/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2132,14 +2040,6 @@ class EventApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2200,7 +2100,6 @@ class EventApi
      *
      * Search Events
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  bool|null $active_only Return only active results (optional)
@@ -2220,9 +2119,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferShortResponse[]
      */
-    public function searchEvents($version, $account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
+    public function searchEvents($account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
     {
-        list($response) = $this->searchEventsWithHttpInfo($version, $account_id, $keyword, $active_only, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $sort_field, $descending, $start_date, $end_date, $start, $limit, $contentType);
+        list($response) = $this->searchEventsWithHttpInfo($account_id, $keyword, $active_only, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $sort_field, $descending, $start_date, $end_date, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2231,7 +2130,6 @@ class EventApi
      *
      * Search Events
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  bool|null $active_only Return only active results (optional)
@@ -2251,9 +2149,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferShortResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchEventsWithHttpInfo($version, $account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
+    public function searchEventsWithHttpInfo($account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
     {
-        $request = $this->searchEventsRequest($version, $account_id, $keyword, $active_only, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $sort_field, $descending, $start_date, $end_date, $start, $limit, $contentType);
+        $request = $this->searchEventsRequest($account_id, $keyword, $active_only, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $sort_field, $descending, $start_date, $end_date, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2329,7 +2227,6 @@ class EventApi
      *
      * Search Events
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  bool|null $active_only Return only active results (optional)
@@ -2348,9 +2245,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchEventsAsync($version, $account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
+    public function searchEventsAsync($account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
     {
-        return $this->searchEventsAsyncWithHttpInfo($version, $account_id, $keyword, $active_only, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $sort_field, $descending, $start_date, $end_date, $start, $limit, $contentType)
+        return $this->searchEventsAsyncWithHttpInfo($account_id, $keyword, $active_only, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $sort_field, $descending, $start_date, $end_date, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2363,7 +2260,6 @@ class EventApi
      *
      * Search Events
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  bool|null $active_only Return only active results (optional)
@@ -2382,10 +2278,10 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchEventsAsyncWithHttpInfo($version, $account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
+    public function searchEventsAsyncWithHttpInfo($account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferShortResponse[]';
-        $request = $this->searchEventsRequest($version, $account_id, $keyword, $active_only, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $sort_field, $descending, $start_date, $end_date, $start, $limit, $contentType);
+        $request = $this->searchEventsRequest($account_id, $keyword, $active_only, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $sort_field, $descending, $start_date, $end_date, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2426,7 +2322,6 @@ class EventApi
     /**
      * Create request for operation 'searchEvents'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  bool|null $active_only Return only active results (optional)
@@ -2445,15 +2340,8 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchEventsRequest($version, $account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
+    public function searchEventsRequest($account_id, $keyword = null, $active_only = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $sort_field = null, $descending = null, $start_date = null, $end_date = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchEvents'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchEvents'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2475,7 +2363,7 @@ class EventApi
 
 
 
-        $resourcePath = '/api/{version}/event/search';
+        $resourcePath = '/event/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2601,14 +2489,6 @@ class EventApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2669,7 +2549,6 @@ class EventApi
      *
      * Update Event
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $event_id The id of the event to update (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -2688,9 +2567,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferResponse
      */
-    public function updateEvent($version, $account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
+    public function updateEvent($account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
     {
-        list($response) = $this->updateEventWithHttpInfo($version, $account_id, $event_id, $retailer_location_ids, $title, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $contentType);
+        list($response) = $this->updateEventWithHttpInfo($account_id, $event_id, $retailer_location_ids, $title, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $contentType);
         return $response;
     }
 
@@ -2699,7 +2578,6 @@ class EventApi
      *
      * Update Event
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $event_id The id of the event to update (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -2718,9 +2596,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEventWithHttpInfo($version, $account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
+    public function updateEventWithHttpInfo($account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
     {
-        $request = $this->updateEventRequest($version, $account_id, $event_id, $retailer_location_ids, $title, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $contentType);
+        $request = $this->updateEventRequest($account_id, $event_id, $retailer_location_ids, $title, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2796,7 +2674,6 @@ class EventApi
      *
      * Update Event
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $event_id The id of the event to update (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -2814,9 +2691,9 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEventAsync($version, $account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
+    public function updateEventAsync($account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
     {
-        return $this->updateEventAsyncWithHttpInfo($version, $account_id, $event_id, $retailer_location_ids, $title, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $contentType)
+        return $this->updateEventAsyncWithHttpInfo($account_id, $event_id, $retailer_location_ids, $title, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2829,7 +2706,6 @@ class EventApi
      *
      * Update Event
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $event_id The id of the event to update (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -2847,10 +2723,10 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEventAsyncWithHttpInfo($version, $account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
+    public function updateEventAsyncWithHttpInfo($account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferResponse';
-        $request = $this->updateEventRequest($version, $account_id, $event_id, $retailer_location_ids, $title, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $contentType);
+        $request = $this->updateEventRequest($account_id, $event_id, $retailer_location_ids, $title, $sub_title, $details, $category_ids, $filter_ids, $active, $image_asset_id, $redeemable_start, $redeemable_end, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2891,7 +2767,6 @@ class EventApi
     /**
      * Create request for operation 'updateEvent'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $event_id The id of the event to update (required)
      * @param  string|null $retailer_location_ids The retailer location to have the event at (optional)
@@ -2909,15 +2784,8 @@ class EventApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateEventRequest($version, $account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
+    public function updateEventRequest($account_id, $event_id, $retailer_location_ids = null, $title = null, $sub_title = null, $details = null, $category_ids = null, $filter_ids = null, $active = null, $image_asset_id = null, $redeemable_start = null, $redeemable_end = null, string $contentType = self::contentTypes['updateEvent'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateEvent'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2944,7 +2812,7 @@ class EventApi
 
 
 
-        $resourcePath = '/api/{version}/event/update';
+        $resourcePath = '/event/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3061,14 +2929,6 @@ class EventApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

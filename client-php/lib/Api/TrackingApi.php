@@ -155,7 +155,6 @@ class TrackingApi
      *
      * Create Batch Tracking
      *
-     * @param  float $version version (required)
      * @param  string $data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -169,9 +168,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Leg[]
      */
-    public function batchSaveTracking($version, $data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
+    public function batchSaveTracking($data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
     {
-        list($response) = $this->batchSaveTrackingWithHttpInfo($version, $data, $device_id, $account_id, $generate_accounts, $update_account_locations, $default_tag, $slave_uid, $contentType);
+        list($response) = $this->batchSaveTrackingWithHttpInfo($data, $device_id, $account_id, $generate_accounts, $update_account_locations, $default_tag, $slave_uid, $contentType);
         return $response;
     }
 
@@ -180,7 +179,6 @@ class TrackingApi
      *
      * Create Batch Tracking
      *
-     * @param  float $version (required)
      * @param  string $data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -194,9 +192,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Leg[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function batchSaveTrackingWithHttpInfo($version, $data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
+    public function batchSaveTrackingWithHttpInfo($data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
     {
-        $request = $this->batchSaveTrackingRequest($version, $data, $device_id, $account_id, $generate_accounts, $update_account_locations, $default_tag, $slave_uid, $contentType);
+        $request = $this->batchSaveTrackingRequest($data, $device_id, $account_id, $generate_accounts, $update_account_locations, $default_tag, $slave_uid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -272,7 +270,6 @@ class TrackingApi
      *
      * Create Batch Tracking
      *
-     * @param  float $version (required)
      * @param  string $data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -285,9 +282,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchSaveTrackingAsync($version, $data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
+    public function batchSaveTrackingAsync($data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
     {
-        return $this->batchSaveTrackingAsyncWithHttpInfo($version, $data, $device_id, $account_id, $generate_accounts, $update_account_locations, $default_tag, $slave_uid, $contentType)
+        return $this->batchSaveTrackingAsyncWithHttpInfo($data, $device_id, $account_id, $generate_accounts, $update_account_locations, $default_tag, $slave_uid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -300,7 +297,6 @@ class TrackingApi
      *
      * Create Batch Tracking
      *
-     * @param  float $version (required)
      * @param  string $data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -313,10 +309,10 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchSaveTrackingAsyncWithHttpInfo($version, $data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
+    public function batchSaveTrackingAsyncWithHttpInfo($data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Leg[]';
-        $request = $this->batchSaveTrackingRequest($version, $data, $device_id, $account_id, $generate_accounts, $update_account_locations, $default_tag, $slave_uid, $contentType);
+        $request = $this->batchSaveTrackingRequest($data, $device_id, $account_id, $generate_accounts, $update_account_locations, $default_tag, $slave_uid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -357,7 +353,6 @@ class TrackingApi
     /**
      * Create request for operation 'batchSaveTracking'
      *
-     * @param  float $version (required)
      * @param  string $data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -370,15 +365,8 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function batchSaveTrackingRequest($version, $data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
+    public function batchSaveTrackingRequest($data, $device_id = null, $account_id = null, $generate_accounts = null, $update_account_locations = null, $default_tag = 'PASSIVE', $slave_uid = null, string $contentType = self::contentTypes['batchSaveTracking'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling batchSaveTracking'
-            );
-        }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
@@ -394,7 +382,7 @@ class TrackingApi
 
 
 
-        $resourcePath = '/api/{version}/tracking/batch/create';
+        $resourcePath = '/tracking/batch/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -466,14 +454,6 @@ class TrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -534,7 +514,6 @@ class TrackingApi
      *
      * Get Predicted Locations
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -550,9 +529,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PredictedLocationResponse
      */
-    public function getPredictedLocations($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
+    public function getPredictedLocations($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
     {
-        list($response) = $this->getPredictedLocationsWithHttpInfo($version, $account_id, $latitude, $longitude, $date_check, $hour_check, $threshold, $distance_unit, $search_range, $sort_order, $contentType);
+        list($response) = $this->getPredictedLocationsWithHttpInfo($account_id, $latitude, $longitude, $date_check, $hour_check, $threshold, $distance_unit, $search_range, $sort_order, $contentType);
         return $response;
     }
 
@@ -561,7 +540,6 @@ class TrackingApi
      *
      * Get Predicted Locations
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -577,9 +555,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PredictedLocationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPredictedLocationsWithHttpInfo($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
+    public function getPredictedLocationsWithHttpInfo($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
     {
-        $request = $this->getPredictedLocationsRequest($version, $account_id, $latitude, $longitude, $date_check, $hour_check, $threshold, $distance_unit, $search_range, $sort_order, $contentType);
+        $request = $this->getPredictedLocationsRequest($account_id, $latitude, $longitude, $date_check, $hour_check, $threshold, $distance_unit, $search_range, $sort_order, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -655,7 +633,6 @@ class TrackingApi
      *
      * Get Predicted Locations
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -670,9 +647,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPredictedLocationsAsync($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
+    public function getPredictedLocationsAsync($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
     {
-        return $this->getPredictedLocationsAsyncWithHttpInfo($version, $account_id, $latitude, $longitude, $date_check, $hour_check, $threshold, $distance_unit, $search_range, $sort_order, $contentType)
+        return $this->getPredictedLocationsAsyncWithHttpInfo($account_id, $latitude, $longitude, $date_check, $hour_check, $threshold, $distance_unit, $search_range, $sort_order, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -685,7 +662,6 @@ class TrackingApi
      *
      * Get Predicted Locations
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -700,10 +676,10 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPredictedLocationsAsyncWithHttpInfo($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
+    public function getPredictedLocationsAsyncWithHttpInfo($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PredictedLocationResponse';
-        $request = $this->getPredictedLocationsRequest($version, $account_id, $latitude, $longitude, $date_check, $hour_check, $threshold, $distance_unit, $search_range, $sort_order, $contentType);
+        $request = $this->getPredictedLocationsRequest($account_id, $latitude, $longitude, $date_check, $hour_check, $threshold, $distance_unit, $search_range, $sort_order, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -744,7 +720,6 @@ class TrackingApi
     /**
      * Create request for operation 'getPredictedLocations'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -759,15 +734,8 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPredictedLocationsRequest($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
+    public function getPredictedLocationsRequest($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $threshold = 1, $distance_unit = 'MILES', $search_range = 0, $sort_order = 'MATCHES', string $contentType = self::contentTypes['getPredictedLocations'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPredictedLocations'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -785,7 +753,7 @@ class TrackingApi
 
 
 
-        $resourcePath = '/api/{version}/tracking/predicted/get';
+        $resourcePath = '/tracking/predicted/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -875,14 +843,6 @@ class TrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -943,7 +903,6 @@ class TrackingApi
      *
      * Get Tracking Path
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  int $start_step_id The stepId to begin from (required)
      * @param  int $end_step_id The stepId to end with (required)
@@ -953,9 +912,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\StepResponse[]
      */
-    public function getPredictedPath($version, $account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
+    public function getPredictedPath($account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
     {
-        list($response) = $this->getPredictedPathWithHttpInfo($version, $account_id, $start_step_id, $end_step_id, $contentType);
+        list($response) = $this->getPredictedPathWithHttpInfo($account_id, $start_step_id, $end_step_id, $contentType);
         return $response;
     }
 
@@ -964,7 +923,6 @@ class TrackingApi
      *
      * Get Tracking Path
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  int $start_step_id The stepId to begin from (required)
      * @param  int $end_step_id The stepId to end with (required)
@@ -974,9 +932,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\StepResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPredictedPathWithHttpInfo($version, $account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
+    public function getPredictedPathWithHttpInfo($account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
     {
-        $request = $this->getPredictedPathRequest($version, $account_id, $start_step_id, $end_step_id, $contentType);
+        $request = $this->getPredictedPathRequest($account_id, $start_step_id, $end_step_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1052,7 +1010,6 @@ class TrackingApi
      *
      * Get Tracking Path
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  int $start_step_id The stepId to begin from (required)
      * @param  int $end_step_id The stepId to end with (required)
@@ -1061,9 +1018,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPredictedPathAsync($version, $account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
+    public function getPredictedPathAsync($account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
     {
-        return $this->getPredictedPathAsyncWithHttpInfo($version, $account_id, $start_step_id, $end_step_id, $contentType)
+        return $this->getPredictedPathAsyncWithHttpInfo($account_id, $start_step_id, $end_step_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1076,7 +1033,6 @@ class TrackingApi
      *
      * Get Tracking Path
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  int $start_step_id The stepId to begin from (required)
      * @param  int $end_step_id The stepId to end with (required)
@@ -1085,10 +1041,10 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPredictedPathAsyncWithHttpInfo($version, $account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
+    public function getPredictedPathAsyncWithHttpInfo($account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
     {
         $returnType = '\OpenAPI\Client\Model\StepResponse[]';
-        $request = $this->getPredictedPathRequest($version, $account_id, $start_step_id, $end_step_id, $contentType);
+        $request = $this->getPredictedPathRequest($account_id, $start_step_id, $end_step_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1129,7 +1085,6 @@ class TrackingApi
     /**
      * Create request for operation 'getPredictedPath'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  int $start_step_id The stepId to begin from (required)
      * @param  int $end_step_id The stepId to end with (required)
@@ -1138,15 +1093,8 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPredictedPathRequest($version, $account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
+    public function getPredictedPathRequest($account_id, $start_step_id, $end_step_id, string $contentType = self::contentTypes['getPredictedPath'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPredictedPath'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1170,7 +1118,7 @@ class TrackingApi
         }
 
 
-        $resourcePath = '/api/{version}/tracking/path/get';
+        $resourcePath = '/tracking/path/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1206,14 +1154,6 @@ class TrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1274,7 +1214,6 @@ class TrackingApi
      *
      * Search Preferred Locations
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -1292,9 +1231,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PreferredLocationResponse[]
      */
-    public function getPreferredLocations($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
+    public function getPreferredLocations($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
     {
-        list($response) = $this->getPreferredLocationsWithHttpInfo($version, $account_id, $latitude, $longitude, $date_check, $hour_check, $sort_field, $descending, $start, $limit, $search_range, $distance_unit, $contentType);
+        list($response) = $this->getPreferredLocationsWithHttpInfo($account_id, $latitude, $longitude, $date_check, $hour_check, $sort_field, $descending, $start, $limit, $search_range, $distance_unit, $contentType);
         return $response;
     }
 
@@ -1303,7 +1242,6 @@ class TrackingApi
      *
      * Search Preferred Locations
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -1321,9 +1259,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PreferredLocationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPreferredLocationsWithHttpInfo($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
+    public function getPreferredLocationsWithHttpInfo($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
     {
-        $request = $this->getPreferredLocationsRequest($version, $account_id, $latitude, $longitude, $date_check, $hour_check, $sort_field, $descending, $start, $limit, $search_range, $distance_unit, $contentType);
+        $request = $this->getPreferredLocationsRequest($account_id, $latitude, $longitude, $date_check, $hour_check, $sort_field, $descending, $start, $limit, $search_range, $distance_unit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1399,7 +1337,6 @@ class TrackingApi
      *
      * Search Preferred Locations
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -1416,9 +1353,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPreferredLocationsAsync($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
+    public function getPreferredLocationsAsync($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
     {
-        return $this->getPreferredLocationsAsyncWithHttpInfo($version, $account_id, $latitude, $longitude, $date_check, $hour_check, $sort_field, $descending, $start, $limit, $search_range, $distance_unit, $contentType)
+        return $this->getPreferredLocationsAsyncWithHttpInfo($account_id, $latitude, $longitude, $date_check, $hour_check, $sort_field, $descending, $start, $limit, $search_range, $distance_unit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1431,7 +1368,6 @@ class TrackingApi
      *
      * Search Preferred Locations
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -1448,10 +1384,10 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPreferredLocationsAsyncWithHttpInfo($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
+    public function getPreferredLocationsAsyncWithHttpInfo($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PreferredLocationResponse[]';
-        $request = $this->getPreferredLocationsRequest($version, $account_id, $latitude, $longitude, $date_check, $hour_check, $sort_field, $descending, $start, $limit, $search_range, $distance_unit, $contentType);
+        $request = $this->getPreferredLocationsRequest($account_id, $latitude, $longitude, $date_check, $hour_check, $sort_field, $descending, $start, $limit, $search_range, $distance_unit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1492,7 +1428,6 @@ class TrackingApi
     /**
      * Create request for operation 'getPreferredLocations'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the customer (required)
      * @param  float|null $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param  float|null $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -1509,15 +1444,8 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPreferredLocationsRequest($version, $account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
+    public function getPreferredLocationsRequest($account_id, $latitude = null, $longitude = null, $date_check = null, $hour_check = null, $sort_field = 'PREFERRED_DATE', $descending = true, $start = 0, $limit = 20, $search_range = 0, $distance_unit = 'MILES', string $contentType = self::contentTypes['getPreferredLocations'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPreferredLocations'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1537,7 +1465,7 @@ class TrackingApi
 
 
 
-        $resourcePath = '/api/{version}/tracking/preferred/search';
+        $resourcePath = '/tracking/preferred/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1645,14 +1573,6 @@ class TrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1713,7 +1633,6 @@ class TrackingApi
      *
      * Search Tracking
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $owner_id the account id of the person the user wants to tracking data for (optional)
@@ -1728,9 +1647,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LegResponse[]
      */
-    public function getTrackingLegs($version, $device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
+    public function getTrackingLegs($device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
     {
-        list($response) = $this->getTrackingLegsWithHttpInfo($version, $device_id, $account_id, $owner_id, $tracking_device_id, $start_date, $end_date, $tags, $get_last_point, $contentType);
+        list($response) = $this->getTrackingLegsWithHttpInfo($device_id, $account_id, $owner_id, $tracking_device_id, $start_date, $end_date, $tags, $get_last_point, $contentType);
         return $response;
     }
 
@@ -1739,7 +1658,6 @@ class TrackingApi
      *
      * Search Tracking
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $owner_id the account id of the person the user wants to tracking data for (optional)
@@ -1754,9 +1672,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LegResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTrackingLegsWithHttpInfo($version, $device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
+    public function getTrackingLegsWithHttpInfo($device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
     {
-        $request = $this->getTrackingLegsRequest($version, $device_id, $account_id, $owner_id, $tracking_device_id, $start_date, $end_date, $tags, $get_last_point, $contentType);
+        $request = $this->getTrackingLegsRequest($device_id, $account_id, $owner_id, $tracking_device_id, $start_date, $end_date, $tags, $get_last_point, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1832,7 +1750,6 @@ class TrackingApi
      *
      * Search Tracking
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $owner_id the account id of the person the user wants to tracking data for (optional)
@@ -1846,9 +1763,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrackingLegsAsync($version, $device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
+    public function getTrackingLegsAsync($device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
     {
-        return $this->getTrackingLegsAsyncWithHttpInfo($version, $device_id, $account_id, $owner_id, $tracking_device_id, $start_date, $end_date, $tags, $get_last_point, $contentType)
+        return $this->getTrackingLegsAsyncWithHttpInfo($device_id, $account_id, $owner_id, $tracking_device_id, $start_date, $end_date, $tags, $get_last_point, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1861,7 +1778,6 @@ class TrackingApi
      *
      * Search Tracking
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $owner_id the account id of the person the user wants to tracking data for (optional)
@@ -1875,10 +1791,10 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrackingLegsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
+    public function getTrackingLegsAsyncWithHttpInfo($device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LegResponse[]';
-        $request = $this->getTrackingLegsRequest($version, $device_id, $account_id, $owner_id, $tracking_device_id, $start_date, $end_date, $tags, $get_last_point, $contentType);
+        $request = $this->getTrackingLegsRequest($device_id, $account_id, $owner_id, $tracking_device_id, $start_date, $end_date, $tags, $get_last_point, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1919,7 +1835,6 @@ class TrackingApi
     /**
      * Create request for operation 'getTrackingLegs'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $owner_id the account id of the person the user wants to tracking data for (optional)
@@ -1933,15 +1848,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTrackingLegsRequest($version, $device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
+    public function getTrackingLegsRequest($device_id = null, $account_id = null, $owner_id = null, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $get_last_point = false, string $contentType = self::contentTypes['getTrackingLegs'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTrackingLegs'
-            );
-        }
 
 
 
@@ -1951,8 +1860,7 @@ class TrackingApi
 
 
 
-
-        $resourcePath = '/api/{version}/tracking/search';
+        $resourcePath = '/tracking/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2033,14 +1941,6 @@ class TrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2101,7 +2001,6 @@ class TrackingApi
      *
      * Create Tracking Leg
      *
-     * @param  float $version version (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
      * @param  int $start_date the start date (in UTC milliseconds) of the first point (required)
@@ -2120,9 +2019,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function saveTrackingLeg($version, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
+    public function saveTrackingLeg($start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
     {
-        list($response) = $this->saveTrackingLegWithHttpInfo($version, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $steps, $tags, $contentType);
+        list($response) = $this->saveTrackingLegWithHttpInfo($start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $steps, $tags, $contentType);
         return $response;
     }
 
@@ -2131,7 +2030,6 @@ class TrackingApi
      *
      * Create Tracking Leg
      *
-     * @param  float $version (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
      * @param  int $start_date the start date (in UTC milliseconds) of the first point (required)
@@ -2150,9 +2048,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saveTrackingLegWithHttpInfo($version, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
+    public function saveTrackingLegWithHttpInfo($start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
     {
-        $request = $this->saveTrackingLegRequest($version, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $steps, $tags, $contentType);
+        $request = $this->saveTrackingLegRequest($start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $steps, $tags, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2228,7 +2126,6 @@ class TrackingApi
      *
      * Create Tracking Leg
      *
-     * @param  float $version (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
      * @param  int $start_date the start date (in UTC milliseconds) of the first point (required)
@@ -2246,9 +2143,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saveTrackingLegAsync($version, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
+    public function saveTrackingLegAsync($start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
     {
-        return $this->saveTrackingLegAsyncWithHttpInfo($version, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $steps, $tags, $contentType)
+        return $this->saveTrackingLegAsyncWithHttpInfo($start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $steps, $tags, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2261,7 +2158,6 @@ class TrackingApi
      *
      * Create Tracking Leg
      *
-     * @param  float $version (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
      * @param  int $start_date the start date (in UTC milliseconds) of the first point (required)
@@ -2279,10 +2175,10 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saveTrackingLegAsyncWithHttpInfo($version, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
+    public function saveTrackingLegAsyncWithHttpInfo($start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->saveTrackingLegRequest($version, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $steps, $tags, $contentType);
+        $request = $this->saveTrackingLegRequest($start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $steps, $tags, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2323,7 +2219,6 @@ class TrackingApi
     /**
      * Create request for operation 'saveTrackingLeg'
      *
-     * @param  float $version (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
      * @param  int $start_date the start date (in UTC milliseconds) of the first point (required)
@@ -2341,15 +2236,8 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function saveTrackingLegRequest($version, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
+    public function saveTrackingLegRequest($start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, $steps = null, $tags = null, string $contentType = self::contentTypes['saveTrackingLeg'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling saveTrackingLeg'
-            );
-        }
 
         // verify the required parameter 'start_lat' is set
         if ($start_lat === null || (is_array($start_lat) && count($start_lat) === 0)) {
@@ -2400,7 +2288,7 @@ class TrackingApi
 
 
 
-        $resourcePath = '/api/{version}/tracking/leg/create';
+        $resourcePath = '/tracking/leg/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2517,14 +2405,6 @@ class TrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2585,7 +2465,6 @@ class TrackingApi
      *
      * Create Tracking Step
      *
-     * @param  float $version version (required)
      * @param  int $leg_id the leg to add the step to (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
@@ -2603,9 +2482,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function saveTrackingStep($version, $leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
+    public function saveTrackingStep($leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
     {
-        list($response) = $this->saveTrackingStepWithHttpInfo($version, $leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $contentType);
+        list($response) = $this->saveTrackingStepWithHttpInfo($leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $contentType);
         return $response;
     }
 
@@ -2614,7 +2493,6 @@ class TrackingApi
      *
      * Create Tracking Step
      *
-     * @param  float $version (required)
      * @param  int $leg_id the leg to add the step to (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
@@ -2632,9 +2510,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saveTrackingStepWithHttpInfo($version, $leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
+    public function saveTrackingStepWithHttpInfo($leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
     {
-        $request = $this->saveTrackingStepRequest($version, $leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $contentType);
+        $request = $this->saveTrackingStepRequest($leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2710,7 +2588,6 @@ class TrackingApi
      *
      * Create Tracking Step
      *
-     * @param  float $version (required)
      * @param  int $leg_id the leg to add the step to (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
@@ -2727,9 +2604,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saveTrackingStepAsync($version, $leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
+    public function saveTrackingStepAsync($leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
     {
-        return $this->saveTrackingStepAsyncWithHttpInfo($version, $leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $contentType)
+        return $this->saveTrackingStepAsyncWithHttpInfo($leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2742,7 +2619,6 @@ class TrackingApi
      *
      * Create Tracking Step
      *
-     * @param  float $version (required)
      * @param  int $leg_id the leg to add the step to (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
@@ -2759,10 +2635,10 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saveTrackingStepAsyncWithHttpInfo($version, $leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
+    public function saveTrackingStepAsyncWithHttpInfo($leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->saveTrackingStepRequest($version, $leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $contentType);
+        $request = $this->saveTrackingStepRequest($leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id, $account_id, $distance, $duration, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2803,7 +2679,6 @@ class TrackingApi
     /**
      * Create request for operation 'saveTrackingStep'
      *
-     * @param  float $version (required)
      * @param  int $leg_id the leg to add the step to (required)
      * @param  float $start_lat the latitude of the first point (required)
      * @param  float $start_lng the longitude of the first point (required)
@@ -2820,15 +2695,8 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function saveTrackingStepRequest($version, $leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
+    public function saveTrackingStepRequest($leg_id, $start_lat, $start_lng, $start_date, $end_lat, $end_lng, $end_date, $device_id = null, $account_id = null, $distance = null, $duration = null, string $contentType = self::contentTypes['saveTrackingStep'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling saveTrackingStep'
-            );
-        }
 
         // verify the required parameter 'leg_id' is set
         if ($leg_id === null || (is_array($leg_id) && count($leg_id) === 0)) {
@@ -2884,7 +2752,7 @@ class TrackingApi
 
 
 
-        $resourcePath = '/api/{version}/tracking/step/create';
+        $resourcePath = '/tracking/step/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2992,14 +2860,6 @@ class TrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3060,7 +2920,6 @@ class TrackingApi
      *
      * List Tracking
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param  int|null $start_date Range to begin in UTC milliseconds (optional)
@@ -3081,9 +2940,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AccountMiniResponse[]
      */
-    public function searchAccountsWithTrackingLegs($version, $account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
+    public function searchAccountsWithTrackingLegs($account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
     {
-        list($response) = $this->searchAccountsWithTrackingLegsWithHttpInfo($version, $account_id, $keyword, $start_date, $end_date, $tags, $audience_ids, $latitude, $longitude, $range, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        list($response) = $this->searchAccountsWithTrackingLegsWithHttpInfo($account_id, $keyword, $start_date, $end_date, $tags, $audience_ids, $latitude, $longitude, $range, $sort_field, $descending, $start, $limit, $active_only, $contentType);
         return $response;
     }
 
@@ -3092,7 +2951,6 @@ class TrackingApi
      *
      * List Tracking
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param  int|null $start_date Range to begin in UTC milliseconds (optional)
@@ -3113,9 +2971,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AccountMiniResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAccountsWithTrackingLegsWithHttpInfo($version, $account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
+    public function searchAccountsWithTrackingLegsWithHttpInfo($account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
     {
-        $request = $this->searchAccountsWithTrackingLegsRequest($version, $account_id, $keyword, $start_date, $end_date, $tags, $audience_ids, $latitude, $longitude, $range, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchAccountsWithTrackingLegsRequest($account_id, $keyword, $start_date, $end_date, $tags, $audience_ids, $latitude, $longitude, $range, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3191,7 +3049,6 @@ class TrackingApi
      *
      * List Tracking
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param  int|null $start_date Range to begin in UTC milliseconds (optional)
@@ -3211,9 +3068,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAccountsWithTrackingLegsAsync($version, $account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
+    public function searchAccountsWithTrackingLegsAsync($account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
     {
-        return $this->searchAccountsWithTrackingLegsAsyncWithHttpInfo($version, $account_id, $keyword, $start_date, $end_date, $tags, $audience_ids, $latitude, $longitude, $range, $sort_field, $descending, $start, $limit, $active_only, $contentType)
+        return $this->searchAccountsWithTrackingLegsAsyncWithHttpInfo($account_id, $keyword, $start_date, $end_date, $tags, $audience_ids, $latitude, $longitude, $range, $sort_field, $descending, $start, $limit, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3226,7 +3083,6 @@ class TrackingApi
      *
      * List Tracking
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param  int|null $start_date Range to begin in UTC milliseconds (optional)
@@ -3246,10 +3102,10 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAccountsWithTrackingLegsAsyncWithHttpInfo($version, $account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
+    public function searchAccountsWithTrackingLegsAsyncWithHttpInfo($account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountMiniResponse[]';
-        $request = $this->searchAccountsWithTrackingLegsRequest($version, $account_id, $keyword, $start_date, $end_date, $tags, $audience_ids, $latitude, $longitude, $range, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchAccountsWithTrackingLegsRequest($account_id, $keyword, $start_date, $end_date, $tags, $audience_ids, $latitude, $longitude, $range, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3290,7 +3146,6 @@ class TrackingApi
     /**
      * Create request for operation 'searchAccountsWithTrackingLegs'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param  int|null $start_date Range to begin in UTC milliseconds (optional)
@@ -3310,15 +3165,8 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchAccountsWithTrackingLegsRequest($version, $account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
+    public function searchAccountsWithTrackingLegsRequest($account_id, $keyword = null, $start_date = null, $end_date = null, $tags = null, $audience_ids = null, $latitude = null, $longitude = null, $range = 5, $sort_field = 'LEG_START_DATE', $descending = true, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccountsWithTrackingLegs'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchAccountsWithTrackingLegs'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3341,7 +3189,7 @@ class TrackingApi
 
 
 
-        $resourcePath = '/api/{version}/tracking/list';
+        $resourcePath = '/tracking/list';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3476,14 +3324,6 @@ class TrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3544,7 +3384,6 @@ class TrackingApi
      *
      * Search Tracking (Billable)
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id to search tracking for (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $tracking_device_id The id of the tracking device (optional)
@@ -3559,9 +3398,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LegResponse[]
      */
-    public function searchTrackingLegs($version, $account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
+    public function searchTrackingLegs($account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
     {
-        list($response) = $this->searchTrackingLegsWithHttpInfo($version, $account_id, $app_key, $tracking_device_id, $start_date, $end_date, $tags, $start, $limit, $contentType);
+        list($response) = $this->searchTrackingLegsWithHttpInfo($account_id, $app_key, $tracking_device_id, $start_date, $end_date, $tags, $start, $limit, $contentType);
         return $response;
     }
 
@@ -3570,7 +3409,6 @@ class TrackingApi
      *
      * Search Tracking (Billable)
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id to search tracking for (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $tracking_device_id The id of the tracking device (optional)
@@ -3585,9 +3423,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LegResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchTrackingLegsWithHttpInfo($version, $account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
+    public function searchTrackingLegsWithHttpInfo($account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
     {
-        $request = $this->searchTrackingLegsRequest($version, $account_id, $app_key, $tracking_device_id, $start_date, $end_date, $tags, $start, $limit, $contentType);
+        $request = $this->searchTrackingLegsRequest($account_id, $app_key, $tracking_device_id, $start_date, $end_date, $tags, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3663,7 +3501,6 @@ class TrackingApi
      *
      * Search Tracking (Billable)
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id to search tracking for (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $tracking_device_id The id of the tracking device (optional)
@@ -3677,9 +3514,9 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTrackingLegsAsync($version, $account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
+    public function searchTrackingLegsAsync($account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
     {
-        return $this->searchTrackingLegsAsyncWithHttpInfo($version, $account_id, $app_key, $tracking_device_id, $start_date, $end_date, $tags, $start, $limit, $contentType)
+        return $this->searchTrackingLegsAsyncWithHttpInfo($account_id, $app_key, $tracking_device_id, $start_date, $end_date, $tags, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3692,7 +3529,6 @@ class TrackingApi
      *
      * Search Tracking (Billable)
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id to search tracking for (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $tracking_device_id The id of the tracking device (optional)
@@ -3706,10 +3542,10 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTrackingLegsAsyncWithHttpInfo($version, $account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
+    public function searchTrackingLegsAsyncWithHttpInfo($account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LegResponse[]';
-        $request = $this->searchTrackingLegsRequest($version, $account_id, $app_key, $tracking_device_id, $start_date, $end_date, $tags, $start, $limit, $contentType);
+        $request = $this->searchTrackingLegsRequest($account_id, $app_key, $tracking_device_id, $start_date, $end_date, $tags, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3750,7 +3586,6 @@ class TrackingApi
     /**
      * Create request for operation 'searchTrackingLegs'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id to search tracking for (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $tracking_device_id The id of the tracking device (optional)
@@ -3764,15 +3599,8 @@ class TrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchTrackingLegsRequest($version, $account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
+    public function searchTrackingLegsRequest($account_id, $app_key, $tracking_device_id = null, $start_date = null, $end_date = null, $tags = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchTrackingLegs'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchTrackingLegs'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3795,7 +3623,7 @@ class TrackingApi
 
 
 
-        $resourcePath = '/api/{version}/tracking/searchByBillable';
+        $resourcePath = '/tracking/searchByBillable';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3876,14 +3704,6 @@ class TrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

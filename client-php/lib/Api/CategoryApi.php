@@ -149,7 +149,6 @@ class CategoryApi
      *
      * Search Categories by Distance
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The keyword string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -176,9 +175,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CategoryResponse[]
      */
-    public function categoryDistanceSearch($version, $account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
+    public function categoryDistanceSearch($account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
     {
-        list($response) = $this->categoryDistanceSearchWithHttpInfo($version, $account_id, $keyword, $app_key, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $min_offer_count, $latitude, $longitude, $range, $contentType);
+        list($response) = $this->categoryDistanceSearchWithHttpInfo($account_id, $keyword, $app_key, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $min_offer_count, $latitude, $longitude, $range, $contentType);
         return $response;
     }
 
@@ -187,7 +186,6 @@ class CategoryApi
      *
      * Search Categories by Distance
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The keyword string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -214,9 +212,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CategoryResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function categoryDistanceSearchWithHttpInfo($version, $account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
+    public function categoryDistanceSearchWithHttpInfo($account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
     {
-        $request = $this->categoryDistanceSearchRequest($version, $account_id, $keyword, $app_key, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $min_offer_count, $latitude, $longitude, $range, $contentType);
+        $request = $this->categoryDistanceSearchRequest($account_id, $keyword, $app_key, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $min_offer_count, $latitude, $longitude, $range, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -292,7 +290,6 @@ class CategoryApi
      *
      * Search Categories by Distance
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The keyword string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -318,9 +315,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function categoryDistanceSearchAsync($version, $account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
+    public function categoryDistanceSearchAsync($account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
     {
-        return $this->categoryDistanceSearchAsyncWithHttpInfo($version, $account_id, $keyword, $app_key, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $min_offer_count, $latitude, $longitude, $range, $contentType)
+        return $this->categoryDistanceSearchAsyncWithHttpInfo($account_id, $keyword, $app_key, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $min_offer_count, $latitude, $longitude, $range, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -333,7 +330,6 @@ class CategoryApi
      *
      * Search Categories by Distance
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The keyword string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -359,10 +355,10 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function categoryDistanceSearchAsyncWithHttpInfo($version, $account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
+    public function categoryDistanceSearchAsyncWithHttpInfo($account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CategoryResponse[]';
-        $request = $this->categoryDistanceSearchRequest($version, $account_id, $keyword, $app_key, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $min_offer_count, $latitude, $longitude, $range, $contentType);
+        $request = $this->categoryDistanceSearchRequest($account_id, $keyword, $app_key, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $min_offer_count, $latitude, $longitude, $range, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -403,7 +399,6 @@ class CategoryApi
     /**
      * Create request for operation 'categoryDistanceSearch'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The keyword string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -429,15 +424,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function categoryDistanceSearchRequest($version, $account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
+    public function categoryDistanceSearchRequest($account_id = null, $keyword = null, $app_key = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = null, $exact_match = null, $type = null, $external_type = null, $min_offer_count = null, $latitude = null, $longitude = null, $range = null, string $contentType = self::contentTypes['categoryDistanceSearch'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling categoryDistanceSearch'
-            );
-        }
 
 
 
@@ -459,8 +448,7 @@ class CategoryApi
 
 
 
-
-        $resourcePath = '/api/{version}/category/distancesearch';
+        $resourcePath = '/category/distancesearch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -649,14 +637,6 @@ class CategoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -717,7 +697,6 @@ class CategoryApi
      *
      * Create Category
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the category (required)
      * @param  string|null $app_key The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -738,9 +717,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CategoryTreeResponse
      */
-    public function createCategory($version, $account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
+    public function createCategory($account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
     {
-        list($response) = $this->createCategoryWithHttpInfo($version, $account_id, $name, $app_key, $parent_category_id, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
+        list($response) = $this->createCategoryWithHttpInfo($account_id, $name, $app_key, $parent_category_id, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
         return $response;
     }
 
@@ -749,7 +728,6 @@ class CategoryApi
      *
      * Create Category
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the category (required)
      * @param  string|null $app_key The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -770,9 +748,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CategoryTreeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCategoryWithHttpInfo($version, $account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
+    public function createCategoryWithHttpInfo($account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
     {
-        $request = $this->createCategoryRequest($version, $account_id, $name, $app_key, $parent_category_id, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
+        $request = $this->createCategoryRequest($account_id, $name, $app_key, $parent_category_id, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -848,7 +826,6 @@ class CategoryApi
      *
      * Create Category
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the category (required)
      * @param  string|null $app_key The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -868,9 +845,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCategoryAsync($version, $account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
+    public function createCategoryAsync($account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
     {
-        return $this->createCategoryAsyncWithHttpInfo($version, $account_id, $name, $app_key, $parent_category_id, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType)
+        return $this->createCategoryAsyncWithHttpInfo($account_id, $name, $app_key, $parent_category_id, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -883,7 +860,6 @@ class CategoryApi
      *
      * Create Category
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the category (required)
      * @param  string|null $app_key The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -903,10 +879,10 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCategoryAsyncWithHttpInfo($version, $account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
+    public function createCategoryAsyncWithHttpInfo($account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CategoryTreeResponse';
-        $request = $this->createCategoryRequest($version, $account_id, $name, $app_key, $parent_category_id, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
+        $request = $this->createCategoryRequest($account_id, $name, $app_key, $parent_category_id, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -947,7 +923,6 @@ class CategoryApi
     /**
      * Create request for operation 'createCategory'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  string $name The name of the category (required)
      * @param  string|null $app_key The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -967,15 +942,8 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCategoryRequest($version, $account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
+    public function createCategoryRequest($account_id, $name, $app_key = null, $parent_category_id = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['createCategory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createCategory'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1004,7 +972,7 @@ class CategoryApi
 
 
 
-        $resourcePath = '/api/{version}/category/create';
+        $resourcePath = '/category/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1139,14 +1107,6 @@ class CategoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1207,7 +1167,6 @@ class CategoryApi
      *
      * Delete Category
      *
-     * @param  float $version version (required)
      * @param  int $account_id the ID of the account (required)
      * @param  int $category_id the ID of the category (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCategory'] to see the possible values for this operation
@@ -1216,9 +1175,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteCategory($version, $account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
+    public function deleteCategory($account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
     {
-        list($response) = $this->deleteCategoryWithHttpInfo($version, $account_id, $category_id, $contentType);
+        list($response) = $this->deleteCategoryWithHttpInfo($account_id, $category_id, $contentType);
         return $response;
     }
 
@@ -1227,7 +1186,6 @@ class CategoryApi
      *
      * Delete Category
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the account (required)
      * @param  int $category_id the ID of the category (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCategory'] to see the possible values for this operation
@@ -1236,9 +1194,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCategoryWithHttpInfo($version, $account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
+    public function deleteCategoryWithHttpInfo($account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
     {
-        $request = $this->deleteCategoryRequest($version, $account_id, $category_id, $contentType);
+        $request = $this->deleteCategoryRequest($account_id, $category_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1314,7 +1272,6 @@ class CategoryApi
      *
      * Delete Category
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the account (required)
      * @param  int $category_id the ID of the category (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCategory'] to see the possible values for this operation
@@ -1322,9 +1279,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCategoryAsync($version, $account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
+    public function deleteCategoryAsync($account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
     {
-        return $this->deleteCategoryAsyncWithHttpInfo($version, $account_id, $category_id, $contentType)
+        return $this->deleteCategoryAsyncWithHttpInfo($account_id, $category_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1337,7 +1294,6 @@ class CategoryApi
      *
      * Delete Category
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the account (required)
      * @param  int $category_id the ID of the category (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCategory'] to see the possible values for this operation
@@ -1345,10 +1301,10 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCategoryAsyncWithHttpInfo($version, $account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
+    public function deleteCategoryAsyncWithHttpInfo($account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteCategoryRequest($version, $account_id, $category_id, $contentType);
+        $request = $this->deleteCategoryRequest($account_id, $category_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1389,7 +1345,6 @@ class CategoryApi
     /**
      * Create request for operation 'deleteCategory'
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the account (required)
      * @param  int $category_id the ID of the category (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCategory'] to see the possible values for this operation
@@ -1397,15 +1352,8 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCategoryRequest($version, $account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
+    public function deleteCategoryRequest($account_id, $category_id, string $contentType = self::contentTypes['deleteCategory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteCategory'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1422,7 +1370,7 @@ class CategoryApi
         }
 
 
-        $resourcePath = '/api/{version}/category/delete';
+        $resourcePath = '/category/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1449,14 +1397,6 @@ class CategoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1517,7 +1457,6 @@ class CategoryApi
      *
      * Duplicate Category
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  int $category_id The category ID to duplicate (includes all children) (required)
      * @param  string|null $app_key The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -1528,9 +1467,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CategoryTreeResponse
      */
-    public function duplicateCategory($version, $account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
+    public function duplicateCategory($account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
     {
-        list($response) = $this->duplicateCategoryWithHttpInfo($version, $account_id, $category_id, $app_key, $parent_category_id, $contentType);
+        list($response) = $this->duplicateCategoryWithHttpInfo($account_id, $category_id, $app_key, $parent_category_id, $contentType);
         return $response;
     }
 
@@ -1539,7 +1478,6 @@ class CategoryApi
      *
      * Duplicate Category
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  int $category_id The category ID to duplicate (includes all children) (required)
      * @param  string|null $app_key The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -1550,9 +1488,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CategoryTreeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function duplicateCategoryWithHttpInfo($version, $account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
+    public function duplicateCategoryWithHttpInfo($account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
     {
-        $request = $this->duplicateCategoryRequest($version, $account_id, $category_id, $app_key, $parent_category_id, $contentType);
+        $request = $this->duplicateCategoryRequest($account_id, $category_id, $app_key, $parent_category_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1628,7 +1566,6 @@ class CategoryApi
      *
      * Duplicate Category
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  int $category_id The category ID to duplicate (includes all children) (required)
      * @param  string|null $app_key The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -1638,9 +1575,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function duplicateCategoryAsync($version, $account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
+    public function duplicateCategoryAsync($account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
     {
-        return $this->duplicateCategoryAsyncWithHttpInfo($version, $account_id, $category_id, $app_key, $parent_category_id, $contentType)
+        return $this->duplicateCategoryAsyncWithHttpInfo($account_id, $category_id, $app_key, $parent_category_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1653,7 +1590,6 @@ class CategoryApi
      *
      * Duplicate Category
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  int $category_id The category ID to duplicate (includes all children) (required)
      * @param  string|null $app_key The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -1663,10 +1599,10 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function duplicateCategoryAsyncWithHttpInfo($version, $account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
+    public function duplicateCategoryAsyncWithHttpInfo($account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CategoryTreeResponse';
-        $request = $this->duplicateCategoryRequest($version, $account_id, $category_id, $app_key, $parent_category_id, $contentType);
+        $request = $this->duplicateCategoryRequest($account_id, $category_id, $app_key, $parent_category_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1707,7 +1643,6 @@ class CategoryApi
     /**
      * Create request for operation 'duplicateCategory'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (must have permissions to the target application) (required)
      * @param  int $category_id The category ID to duplicate (includes all children) (required)
      * @param  string|null $app_key The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -1717,15 +1652,8 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function duplicateCategoryRequest($version, $account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
+    public function duplicateCategoryRequest($account_id, $category_id, $app_key = null, $parent_category_id = null, string $contentType = self::contentTypes['duplicateCategory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling duplicateCategory'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1744,7 +1672,7 @@ class CategoryApi
 
 
 
-        $resourcePath = '/api/{version}/category/duplicate';
+        $resourcePath = '/category/duplicate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1789,14 +1717,6 @@ class CategoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1857,7 +1777,6 @@ class CategoryApi
      *
      * Get Category
      *
-     * @param  float $version version (required)
      * @param  int $category_id the ID of the category (required)
      * @param  bool|null $return_external Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategory'] to see the possible values for this operation
@@ -1866,9 +1785,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CategoryTreeResponse
      */
-    public function getCategory($version, $category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
+    public function getCategory($category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
     {
-        list($response) = $this->getCategoryWithHttpInfo($version, $category_id, $return_external, $contentType);
+        list($response) = $this->getCategoryWithHttpInfo($category_id, $return_external, $contentType);
         return $response;
     }
 
@@ -1877,7 +1796,6 @@ class CategoryApi
      *
      * Get Category
      *
-     * @param  float $version (required)
      * @param  int $category_id the ID of the category (required)
      * @param  bool|null $return_external Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategory'] to see the possible values for this operation
@@ -1886,9 +1804,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CategoryTreeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCategoryWithHttpInfo($version, $category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
+    public function getCategoryWithHttpInfo($category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
     {
-        $request = $this->getCategoryRequest($version, $category_id, $return_external, $contentType);
+        $request = $this->getCategoryRequest($category_id, $return_external, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1964,7 +1882,6 @@ class CategoryApi
      *
      * Get Category
      *
-     * @param  float $version (required)
      * @param  int $category_id the ID of the category (required)
      * @param  bool|null $return_external Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategory'] to see the possible values for this operation
@@ -1972,9 +1889,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCategoryAsync($version, $category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
+    public function getCategoryAsync($category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
     {
-        return $this->getCategoryAsyncWithHttpInfo($version, $category_id, $return_external, $contentType)
+        return $this->getCategoryAsyncWithHttpInfo($category_id, $return_external, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1987,7 +1904,6 @@ class CategoryApi
      *
      * Get Category
      *
-     * @param  float $version (required)
      * @param  int $category_id the ID of the category (required)
      * @param  bool|null $return_external Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategory'] to see the possible values for this operation
@@ -1995,10 +1911,10 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCategoryAsyncWithHttpInfo($version, $category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
+    public function getCategoryAsyncWithHttpInfo($category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CategoryTreeResponse';
-        $request = $this->getCategoryRequest($version, $category_id, $return_external, $contentType);
+        $request = $this->getCategoryRequest($category_id, $return_external, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2039,7 +1955,6 @@ class CategoryApi
     /**
      * Create request for operation 'getCategory'
      *
-     * @param  float $version (required)
      * @param  int $category_id the ID of the category (required)
      * @param  bool|null $return_external Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategory'] to see the possible values for this operation
@@ -2047,15 +1962,8 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCategoryRequest($version, $category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
+    public function getCategoryRequest($category_id, $return_external = true, string $contentType = self::contentTypes['getCategory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCategory'
-            );
-        }
 
         // verify the required parameter 'category_id' is set
         if ($category_id === null || (is_array($category_id) && count($category_id) === 0)) {
@@ -2066,7 +1974,7 @@ class CategoryApi
 
 
 
-        $resourcePath = '/api/{version}/category/get';
+        $resourcePath = '/category/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2093,14 +2001,6 @@ class CategoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2161,7 +2061,6 @@ class CategoryApi
      *
      * Search Categories
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -2189,9 +2088,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CategoryResponse[]
      */
-    public function searchCategories($version, $account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
+    public function searchCategories($account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
     {
-        list($response) = $this->searchCategoriesWithHttpInfo($version, $account_id, $keyword, $app_key, $category_id, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $exclude_external_type, $min_offer_count, $search_depth, $search_mode, $contentType);
+        list($response) = $this->searchCategoriesWithHttpInfo($account_id, $keyword, $app_key, $category_id, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $exclude_external_type, $min_offer_count, $search_depth, $search_mode, $contentType);
         return $response;
     }
 
@@ -2200,7 +2099,6 @@ class CategoryApi
      *
      * Search Categories
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -2228,9 +2126,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CategoryResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCategoriesWithHttpInfo($version, $account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
+    public function searchCategoriesWithHttpInfo($account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
     {
-        $request = $this->searchCategoriesRequest($version, $account_id, $keyword, $app_key, $category_id, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $exclude_external_type, $min_offer_count, $search_depth, $search_mode, $contentType);
+        $request = $this->searchCategoriesRequest($account_id, $keyword, $app_key, $category_id, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $exclude_external_type, $min_offer_count, $search_depth, $search_mode, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2306,7 +2204,6 @@ class CategoryApi
      *
      * Search Categories
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -2333,9 +2230,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCategoriesAsync($version, $account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
+    public function searchCategoriesAsync($account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
     {
-        return $this->searchCategoriesAsyncWithHttpInfo($version, $account_id, $keyword, $app_key, $category_id, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $exclude_external_type, $min_offer_count, $search_depth, $search_mode, $contentType)
+        return $this->searchCategoriesAsyncWithHttpInfo($account_id, $keyword, $app_key, $category_id, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $exclude_external_type, $min_offer_count, $search_depth, $search_mode, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2348,7 +2245,6 @@ class CategoryApi
      *
      * Search Categories
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -2375,10 +2271,10 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCategoriesAsyncWithHttpInfo($version, $account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
+    public function searchCategoriesAsyncWithHttpInfo($account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CategoryResponse[]';
-        $request = $this->searchCategoriesRequest($version, $account_id, $keyword, $app_key, $category_id, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $exclude_external_type, $min_offer_count, $search_depth, $search_mode, $contentType);
+        $request = $this->searchCategoriesRequest($account_id, $keyword, $app_key, $category_id, $category_ids, $parent_category_ids, $root_only, $sort_field, $response_group, $descending, $start, $limit, $active_only, $return_external, $exact_match, $type, $external_type, $exclude_external_type, $min_offer_count, $search_depth, $search_mode, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2419,7 +2315,6 @@ class CategoryApi
     /**
      * Create request for operation 'searchCategories'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  string|null $keyword The string to search on (optional)
      * @param  string|null $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -2446,15 +2341,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchCategoriesRequest($version, $account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
+    public function searchCategoriesRequest($account_id = null, $keyword = null, $app_key = null, $category_id = null, $category_ids = null, $parent_category_ids = null, $root_only = null, $sort_field = 'DISPLAY', $response_group = null, $descending = false, $start = 0, $limit = 20, $active_only = true, $return_external = true, $exact_match = false, $type = null, $external_type = null, $exclude_external_type = null, $min_offer_count = null, $search_depth = 4, $search_mode = null, string $contentType = self::contentTypes['searchCategories'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchCategories'
-            );
-        }
 
 
 
@@ -2477,8 +2366,7 @@ class CategoryApi
 
 
 
-
-        $resourcePath = '/api/{version}/category/search';
+        $resourcePath = '/category/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2676,14 +2564,6 @@ class CategoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2744,7 +2624,6 @@ class CategoryApi
      *
      * Update Category
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $category_id The ID of the category to edit (required)
      * @param  int|null $parent_category_id The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -2765,9 +2644,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CategoryTreeResponse
      */
-    public function updateCategory($version, $account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
+    public function updateCategory($account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
     {
-        list($response) = $this->updateCategoryWithHttpInfo($version, $account_id, $category_id, $parent_category_id, $name, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
+        list($response) = $this->updateCategoryWithHttpInfo($account_id, $category_id, $parent_category_id, $name, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
         return $response;
     }
 
@@ -2776,7 +2655,6 @@ class CategoryApi
      *
      * Update Category
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $category_id The ID of the category to edit (required)
      * @param  int|null $parent_category_id The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -2797,9 +2675,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CategoryTreeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCategoryWithHttpInfo($version, $account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
+    public function updateCategoryWithHttpInfo($account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
     {
-        $request = $this->updateCategoryRequest($version, $account_id, $category_id, $parent_category_id, $name, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
+        $request = $this->updateCategoryRequest($account_id, $category_id, $parent_category_id, $name, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2875,7 +2753,6 @@ class CategoryApi
      *
      * Update Category
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $category_id The ID of the category to edit (required)
      * @param  int|null $parent_category_id The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -2895,9 +2772,9 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCategoryAsync($version, $account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
+    public function updateCategoryAsync($account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
     {
-        return $this->updateCategoryAsyncWithHttpInfo($version, $account_id, $category_id, $parent_category_id, $name, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType)
+        return $this->updateCategoryAsyncWithHttpInfo($account_id, $category_id, $parent_category_id, $name, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2910,7 +2787,6 @@ class CategoryApi
      *
      * Update Category
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $category_id The ID of the category to edit (required)
      * @param  int|null $parent_category_id The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -2930,10 +2806,10 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCategoryAsyncWithHttpInfo($version, $account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
+    public function updateCategoryAsyncWithHttpInfo($account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CategoryTreeResponse';
-        $request = $this->updateCategoryRequest($version, $account_id, $category_id, $parent_category_id, $name, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
+        $request = $this->updateCategoryRequest($account_id, $category_id, $parent_category_id, $name, $description, $type, $asset_id, $external_id, $external_type, $external_category_slug, $sqoot_slug, $active, $meta_data, $search_tags, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2974,7 +2850,6 @@ class CategoryApi
     /**
      * Create request for operation 'updateCategory'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  int $category_id The ID of the category to edit (required)
      * @param  int|null $parent_category_id The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -2994,15 +2869,8 @@ class CategoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCategoryRequest($version, $account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
+    public function updateCategoryRequest($account_id, $category_id, $parent_category_id = null, $name = null, $description = null, $type = null, $asset_id = null, $external_id = null, $external_type = null, $external_category_slug = null, $sqoot_slug = null, $active = null, $meta_data = null, $search_tags = null, string $contentType = self::contentTypes['updateCategory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateCategory'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3031,7 +2899,7 @@ class CategoryApi
 
 
 
-        $resourcePath = '/api/{version}/category/update';
+        $resourcePath = '/category/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3166,14 +3034,6 @@ class CategoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

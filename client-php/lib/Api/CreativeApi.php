@@ -152,7 +152,6 @@ class CreativeApi
      *
      * Add Preview
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $creative_id The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addPreview'] to see the possible values for this operation
@@ -161,9 +160,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function addPreview($version, $account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
+    public function addPreview($account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
     {
-        list($response) = $this->addPreviewWithHttpInfo($version, $account_id, $creative_id, $contentType);
+        list($response) = $this->addPreviewWithHttpInfo($account_id, $creative_id, $contentType);
         return $response;
     }
 
@@ -172,7 +171,6 @@ class CreativeApi
      *
      * Add Preview
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $creative_id The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addPreview'] to see the possible values for this operation
@@ -181,9 +179,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addPreviewWithHttpInfo($version, $account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
+    public function addPreviewWithHttpInfo($account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
     {
-        $request = $this->addPreviewRequest($version, $account_id, $creative_id, $contentType);
+        $request = $this->addPreviewRequest($account_id, $creative_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -259,7 +257,6 @@ class CreativeApi
      *
      * Add Preview
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $creative_id The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addPreview'] to see the possible values for this operation
@@ -267,9 +264,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addPreviewAsync($version, $account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
+    public function addPreviewAsync($account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
     {
-        return $this->addPreviewAsyncWithHttpInfo($version, $account_id, $creative_id, $contentType)
+        return $this->addPreviewAsyncWithHttpInfo($account_id, $creative_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -282,7 +279,6 @@ class CreativeApi
      *
      * Add Preview
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $creative_id The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addPreview'] to see the possible values for this operation
@@ -290,10 +286,10 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addPreviewAsyncWithHttpInfo($version, $account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
+    public function addPreviewAsyncWithHttpInfo($account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->addPreviewRequest($version, $account_id, $creative_id, $contentType);
+        $request = $this->addPreviewRequest($account_id, $creative_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -334,7 +330,6 @@ class CreativeApi
     /**
      * Create request for operation 'addPreview'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $creative_id The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addPreview'] to see the possible values for this operation
@@ -342,15 +337,8 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addPreviewRequest($version, $account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
+    public function addPreviewRequest($account_id, $creative_id, string $contentType = self::contentTypes['addPreview'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addPreview'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -367,7 +355,7 @@ class CreativeApi
         }
 
 
-        $resourcePath = '/api/{version}/creative/addpreview';
+        $resourcePath = '/creative/addpreview';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -394,14 +382,6 @@ class CreativeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -462,7 +442,6 @@ class CreativeApi
      *
      * Find Missions
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  bool $randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param  bool $targeted_ads_only return only ads targets to the specific app, no global ads. (required)
@@ -485,9 +464,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse[]
      */
-    public function adsFind($version, $app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
+    public function adsFind($app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
     {
-        list($response) = $this->adsFindWithHttpInfo($version, $app_key, $randomize, $targeted_ads_only, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_audiences, $allocates_tickets, $mission_ids, $contentType);
+        list($response) = $this->adsFindWithHttpInfo($app_key, $randomize, $targeted_ads_only, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_audiences, $allocates_tickets, $mission_ids, $contentType);
         return $response;
     }
 
@@ -496,7 +475,6 @@ class CreativeApi
      *
      * Find Missions
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  bool $randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param  bool $targeted_ads_only return only ads targets to the specific app, no global ads. (required)
@@ -519,9 +497,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function adsFindWithHttpInfo($version, $app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
+    public function adsFindWithHttpInfo($app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
     {
-        $request = $this->adsFindRequest($version, $app_key, $randomize, $targeted_ads_only, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_audiences, $allocates_tickets, $mission_ids, $contentType);
+        $request = $this->adsFindRequest($app_key, $randomize, $targeted_ads_only, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_audiences, $allocates_tickets, $mission_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -597,7 +575,6 @@ class CreativeApi
      *
      * Find Missions
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  bool $randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param  bool $targeted_ads_only return only ads targets to the specific app, no global ads. (required)
@@ -619,9 +596,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function adsFindAsync($version, $app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
+    public function adsFindAsync($app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
     {
-        return $this->adsFindAsyncWithHttpInfo($version, $app_key, $randomize, $targeted_ads_only, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_audiences, $allocates_tickets, $mission_ids, $contentType)
+        return $this->adsFindAsyncWithHttpInfo($app_key, $randomize, $targeted_ads_only, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_audiences, $allocates_tickets, $mission_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -634,7 +611,6 @@ class CreativeApi
      *
      * Find Missions
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  bool $randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param  bool $targeted_ads_only return only ads targets to the specific app, no global ads. (required)
@@ -656,10 +632,10 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function adsFindAsyncWithHttpInfo($version, $app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
+    public function adsFindAsyncWithHttpInfo($app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse[]';
-        $request = $this->adsFindRequest($version, $app_key, $randomize, $targeted_ads_only, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_audiences, $allocates_tickets, $mission_ids, $contentType);
+        $request = $this->adsFindRequest($app_key, $randomize, $targeted_ads_only, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_audiences, $allocates_tickets, $mission_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -700,7 +676,6 @@ class CreativeApi
     /**
      * Create request for operation 'adsFind'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  bool $randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param  bool $targeted_ads_only return only ads targets to the specific app, no global ads. (required)
@@ -722,15 +697,8 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function adsFindRequest($version, $app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
+    public function adsFindRequest($app_key, $randomize, $targeted_ads_only, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_audiences = null, $allocates_tickets = null, $mission_ids = null, string $contentType = self::contentTypes['adsFind'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling adsFind'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -767,7 +735,7 @@ class CreativeApi
 
 
 
-        $resourcePath = '/api/{version}/ads/find';
+        $resourcePath = '/ads/find';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -920,14 +888,6 @@ class CreativeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -988,7 +948,6 @@ class CreativeApi
      *
      * Create Creative
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  bool $active If true set the game level as active. Default is false. (required)
@@ -1010,9 +969,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreativeResponse
      */
-    public function createCreative($version, $account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
+    public function createCreative($account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
     {
-        list($response) = $this->createCreativeWithHttpInfo($version, $account_id, $name, $active, $wait_for_asset, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $reference_id, $app_version, $mission_id, $offer_id, $contentType);
+        list($response) = $this->createCreativeWithHttpInfo($account_id, $name, $active, $wait_for_asset, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $reference_id, $app_version, $mission_id, $offer_id, $contentType);
         return $response;
     }
 
@@ -1021,7 +980,6 @@ class CreativeApi
      *
      * Create Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  bool $active If true set the game level as active. Default is false. (required)
@@ -1043,9 +1001,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreativeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCreativeWithHttpInfo($version, $account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
+    public function createCreativeWithHttpInfo($account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
     {
-        $request = $this->createCreativeRequest($version, $account_id, $name, $active, $wait_for_asset, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $reference_id, $app_version, $mission_id, $offer_id, $contentType);
+        $request = $this->createCreativeRequest($account_id, $name, $active, $wait_for_asset, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $reference_id, $app_version, $mission_id, $offer_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1121,7 +1079,6 @@ class CreativeApi
      *
      * Create Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  bool $active If true set the game level as active. Default is false. (required)
@@ -1142,9 +1099,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreativeAsync($version, $account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
+    public function createCreativeAsync($account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
     {
-        return $this->createCreativeAsyncWithHttpInfo($version, $account_id, $name, $active, $wait_for_asset, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $reference_id, $app_version, $mission_id, $offer_id, $contentType)
+        return $this->createCreativeAsyncWithHttpInfo($account_id, $name, $active, $wait_for_asset, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $reference_id, $app_version, $mission_id, $offer_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1157,7 +1114,6 @@ class CreativeApi
      *
      * Create Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  bool $active If true set the game level as active. Default is false. (required)
@@ -1178,10 +1134,10 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreativeAsyncWithHttpInfo($version, $account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
+    public function createCreativeAsyncWithHttpInfo($account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreativeResponse';
-        $request = $this->createCreativeRequest($version, $account_id, $name, $active, $wait_for_asset, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $reference_id, $app_version, $mission_id, $offer_id, $contentType);
+        $request = $this->createCreativeRequest($account_id, $name, $active, $wait_for_asset, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $reference_id, $app_version, $mission_id, $offer_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1222,7 +1178,6 @@ class CreativeApi
     /**
      * Create request for operation 'createCreative'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the level. (required)
      * @param  bool $active If true set the game level as active. Default is false. (required)
@@ -1243,15 +1198,8 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCreativeRequest($version, $account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
+    public function createCreativeRequest($account_id, $name, $active, $wait_for_asset, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $reference_id = null, $app_version = null, $mission_id = null, $offer_id = null, string $contentType = self::contentTypes['createCreative'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createCreative'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1293,7 +1241,7 @@ class CreativeApi
 
 
 
-        $resourcePath = '/api/{version}/creative/create';
+        $resourcePath = '/creative/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1437,14 +1385,6 @@ class CreativeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1505,7 +1445,6 @@ class CreativeApi
      *
      * Delete Creative
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the id of the creative to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCreative'] to see the possible values for this operation
@@ -1514,9 +1453,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteCreative($version, $account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
+    public function deleteCreative($account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
     {
-        list($response) = $this->deleteCreativeWithHttpInfo($version, $account_id, $creative_id, $contentType);
+        list($response) = $this->deleteCreativeWithHttpInfo($account_id, $creative_id, $contentType);
         return $response;
     }
 
@@ -1525,7 +1464,6 @@ class CreativeApi
      *
      * Delete Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the id of the creative to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCreative'] to see the possible values for this operation
@@ -1534,9 +1472,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCreativeWithHttpInfo($version, $account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
+    public function deleteCreativeWithHttpInfo($account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
     {
-        $request = $this->deleteCreativeRequest($version, $account_id, $creative_id, $contentType);
+        $request = $this->deleteCreativeRequest($account_id, $creative_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1612,7 +1550,6 @@ class CreativeApi
      *
      * Delete Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the id of the creative to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCreative'] to see the possible values for this operation
@@ -1620,9 +1557,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCreativeAsync($version, $account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
+    public function deleteCreativeAsync($account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
     {
-        return $this->deleteCreativeAsyncWithHttpInfo($version, $account_id, $creative_id, $contentType)
+        return $this->deleteCreativeAsyncWithHttpInfo($account_id, $creative_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1635,7 +1572,6 @@ class CreativeApi
      *
      * Delete Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the id of the creative to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCreative'] to see the possible values for this operation
@@ -1643,10 +1579,10 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCreativeAsyncWithHttpInfo($version, $account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
+    public function deleteCreativeAsyncWithHttpInfo($account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteCreativeRequest($version, $account_id, $creative_id, $contentType);
+        $request = $this->deleteCreativeRequest($account_id, $creative_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1687,7 +1623,6 @@ class CreativeApi
     /**
      * Create request for operation 'deleteCreative'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the id of the creative to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCreative'] to see the possible values for this operation
@@ -1695,15 +1630,8 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCreativeRequest($version, $account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
+    public function deleteCreativeRequest($account_id, $creative_id, string $contentType = self::contentTypes['deleteCreative'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteCreative'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1720,7 +1648,7 @@ class CreativeApi
         }
 
 
-        $resourcePath = '/api/{version}/creative/delete';
+        $resourcePath = '/creative/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1747,14 +1675,6 @@ class CreativeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1815,7 +1735,6 @@ class CreativeApi
      *
      * Get Creative
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the ID of the creative to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreative'] to see the possible values for this operation
@@ -1824,9 +1743,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreativeResponse
      */
-    public function getCreative($version, $account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
+    public function getCreative($account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
     {
-        list($response) = $this->getCreativeWithHttpInfo($version, $account_id, $creative_id, $contentType);
+        list($response) = $this->getCreativeWithHttpInfo($account_id, $creative_id, $contentType);
         return $response;
     }
 
@@ -1835,7 +1754,6 @@ class CreativeApi
      *
      * Get Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the ID of the creative to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreative'] to see the possible values for this operation
@@ -1844,9 +1762,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreativeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreativeWithHttpInfo($version, $account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
+    public function getCreativeWithHttpInfo($account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
     {
-        $request = $this->getCreativeRequest($version, $account_id, $creative_id, $contentType);
+        $request = $this->getCreativeRequest($account_id, $creative_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1922,7 +1840,6 @@ class CreativeApi
      *
      * Get Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the ID of the creative to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreative'] to see the possible values for this operation
@@ -1930,9 +1847,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreativeAsync($version, $account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
+    public function getCreativeAsync($account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
     {
-        return $this->getCreativeAsyncWithHttpInfo($version, $account_id, $creative_id, $contentType)
+        return $this->getCreativeAsyncWithHttpInfo($account_id, $creative_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1945,7 +1862,6 @@ class CreativeApi
      *
      * Get Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the ID of the creative to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreative'] to see the possible values for this operation
@@ -1953,10 +1869,10 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreativeAsyncWithHttpInfo($version, $account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
+    public function getCreativeAsyncWithHttpInfo($account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreativeResponse';
-        $request = $this->getCreativeRequest($version, $account_id, $creative_id, $contentType);
+        $request = $this->getCreativeRequest($account_id, $creative_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1997,7 +1913,6 @@ class CreativeApi
     /**
      * Create request for operation 'getCreative'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $creative_id the ID of the creative to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreative'] to see the possible values for this operation
@@ -2005,15 +1920,8 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCreativeRequest($version, $account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
+    public function getCreativeRequest($account_id, $creative_id, string $contentType = self::contentTypes['getCreative'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCreative'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2030,7 +1938,7 @@ class CreativeApi
         }
 
 
-        $resourcePath = '/api/{version}/creative/get';
+        $resourcePath = '/creative/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2057,14 +1965,6 @@ class CreativeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2125,7 +2025,6 @@ class CreativeApi
      *
      * Search Creatives
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  int $start Start the result set at some index. (required)
@@ -2138,9 +2037,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreativeResponse[]
      */
-    public function getCreativesByApplication($version, $account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
+    public function getCreativesByApplication($account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
     {
-        list($response) = $this->getCreativesByApplicationWithHttpInfo($version, $account_id, $app_key, $start, $limit, $mission_id, $keyword, $contentType);
+        list($response) = $this->getCreativesByApplicationWithHttpInfo($account_id, $app_key, $start, $limit, $mission_id, $keyword, $contentType);
         return $response;
     }
 
@@ -2149,7 +2048,6 @@ class CreativeApi
      *
      * Search Creatives
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  int $start Start the result set at some index. (required)
@@ -2162,9 +2060,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreativeResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreativesByApplicationWithHttpInfo($version, $account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
+    public function getCreativesByApplicationWithHttpInfo($account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
     {
-        $request = $this->getCreativesByApplicationRequest($version, $account_id, $app_key, $start, $limit, $mission_id, $keyword, $contentType);
+        $request = $this->getCreativesByApplicationRequest($account_id, $app_key, $start, $limit, $mission_id, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2240,7 +2138,6 @@ class CreativeApi
      *
      * Search Creatives
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  int $start Start the result set at some index. (required)
@@ -2252,9 +2149,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreativesByApplicationAsync($version, $account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
+    public function getCreativesByApplicationAsync($account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
     {
-        return $this->getCreativesByApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $start, $limit, $mission_id, $keyword, $contentType)
+        return $this->getCreativesByApplicationAsyncWithHttpInfo($account_id, $app_key, $start, $limit, $mission_id, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2267,7 +2164,6 @@ class CreativeApi
      *
      * Search Creatives
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  int $start Start the result set at some index. (required)
@@ -2279,10 +2175,10 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreativesByApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
+    public function getCreativesByApplicationAsyncWithHttpInfo($account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreativeResponse[]';
-        $request = $this->getCreativesByApplicationRequest($version, $account_id, $app_key, $start, $limit, $mission_id, $keyword, $contentType);
+        $request = $this->getCreativesByApplicationRequest($account_id, $app_key, $start, $limit, $mission_id, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2323,7 +2219,6 @@ class CreativeApi
     /**
      * Create request for operation 'getCreativesByApplication'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key the application key (required)
      * @param  int $start Start the result set at some index. (required)
@@ -2335,15 +2230,8 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCreativesByApplicationRequest($version, $account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
+    public function getCreativesByApplicationRequest($account_id, $app_key, $start, $limit, $mission_id = null, $keyword = null, string $contentType = self::contentTypes['getCreativesByApplication'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCreativesByApplication'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2376,7 +2264,7 @@ class CreativeApi
 
 
 
-        $resourcePath = '/api/{version}/creative/search';
+        $resourcePath = '/creative/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2439,14 +2327,6 @@ class CreativeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2507,7 +2387,6 @@ class CreativeApi
      *
      * Remove Preview
      *
-     * @param  float $version version (required)
      * @param  int $account_id the ID of the logged in user (required)
      * @param  int $creative_id the ID of the creative to remove preview (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removePreview'] to see the possible values for this operation
@@ -2516,9 +2395,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removePreview($version, $account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
+    public function removePreview($account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
     {
-        list($response) = $this->removePreviewWithHttpInfo($version, $account_id, $creative_id, $contentType);
+        list($response) = $this->removePreviewWithHttpInfo($account_id, $creative_id, $contentType);
         return $response;
     }
 
@@ -2527,7 +2406,6 @@ class CreativeApi
      *
      * Remove Preview
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the logged in user (required)
      * @param  int $creative_id the ID of the creative to remove preview (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removePreview'] to see the possible values for this operation
@@ -2536,9 +2414,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removePreviewWithHttpInfo($version, $account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
+    public function removePreviewWithHttpInfo($account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
     {
-        $request = $this->removePreviewRequest($version, $account_id, $creative_id, $contentType);
+        $request = $this->removePreviewRequest($account_id, $creative_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2614,7 +2492,6 @@ class CreativeApi
      *
      * Remove Preview
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the logged in user (required)
      * @param  int $creative_id the ID of the creative to remove preview (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removePreview'] to see the possible values for this operation
@@ -2622,9 +2499,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removePreviewAsync($version, $account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
+    public function removePreviewAsync($account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
     {
-        return $this->removePreviewAsyncWithHttpInfo($version, $account_id, $creative_id, $contentType)
+        return $this->removePreviewAsyncWithHttpInfo($account_id, $creative_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2637,7 +2514,6 @@ class CreativeApi
      *
      * Remove Preview
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the logged in user (required)
      * @param  int $creative_id the ID of the creative to remove preview (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removePreview'] to see the possible values for this operation
@@ -2645,10 +2521,10 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removePreviewAsyncWithHttpInfo($version, $account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
+    public function removePreviewAsyncWithHttpInfo($account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removePreviewRequest($version, $account_id, $creative_id, $contentType);
+        $request = $this->removePreviewRequest($account_id, $creative_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2689,7 +2565,6 @@ class CreativeApi
     /**
      * Create request for operation 'removePreview'
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the logged in user (required)
      * @param  int $creative_id the ID of the creative to remove preview (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removePreview'] to see the possible values for this operation
@@ -2697,15 +2572,8 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removePreviewRequest($version, $account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
+    public function removePreviewRequest($account_id, $creative_id, string $contentType = self::contentTypes['removePreview'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removePreview'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2722,7 +2590,7 @@ class CreativeApi
         }
 
 
-        $resourcePath = '/api/{version}/creative/removepreview';
+        $resourcePath = '/creative/removepreview';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2749,14 +2617,6 @@ class CreativeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2817,7 +2677,6 @@ class CreativeApi
      *
      * Update Creative
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $creative_id the creative Id to upate. (required)
      * @param  string|null $name The name of the level. (optional)
@@ -2838,9 +2697,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreativeResponse
      */
-    public function updateCreative($version, $account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
+    public function updateCreative($account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
     {
-        list($response) = $this->updateCreativeWithHttpInfo($version, $account_id, $creative_id, $name, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $active, $reference_id, $app_version, $mission_id, $contentType);
+        list($response) = $this->updateCreativeWithHttpInfo($account_id, $creative_id, $name, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $active, $reference_id, $app_version, $mission_id, $contentType);
         return $response;
     }
 
@@ -2849,7 +2708,6 @@ class CreativeApi
      *
      * Update Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $creative_id the creative Id to upate. (required)
      * @param  string|null $name The name of the level. (optional)
@@ -2870,9 +2728,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreativeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCreativeWithHttpInfo($version, $account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
+    public function updateCreativeWithHttpInfo($account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
     {
-        $request = $this->updateCreativeRequest($version, $account_id, $creative_id, $name, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $active, $reference_id, $app_version, $mission_id, $contentType);
+        $request = $this->updateCreativeRequest($account_id, $creative_id, $name, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $active, $reference_id, $app_version, $mission_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2948,7 +2806,6 @@ class CreativeApi
      *
      * Update Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $creative_id the creative Id to upate. (required)
      * @param  string|null $name The name of the level. (optional)
@@ -2968,9 +2825,9 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreativeAsync($version, $account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
+    public function updateCreativeAsync($account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
     {
-        return $this->updateCreativeAsyncWithHttpInfo($version, $account_id, $creative_id, $name, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $active, $reference_id, $app_version, $mission_id, $contentType)
+        return $this->updateCreativeAsyncWithHttpInfo($account_id, $creative_id, $name, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $active, $reference_id, $app_version, $mission_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2983,7 +2840,6 @@ class CreativeApi
      *
      * Update Creative
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $creative_id the creative Id to upate. (required)
      * @param  string|null $name The name of the level. (optional)
@@ -3003,10 +2859,10 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreativeAsyncWithHttpInfo($version, $account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
+    public function updateCreativeAsyncWithHttpInfo($account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreativeResponse';
-        $request = $this->updateCreativeRequest($version, $account_id, $creative_id, $name, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $active, $reference_id, $app_version, $mission_id, $contentType);
+        $request = $this->updateCreativeRequest($account_id, $creative_id, $name, $description, $asset_image_id, $action, $data, $suffix, $type, $balance, $active, $reference_id, $app_version, $mission_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3047,7 +2903,6 @@ class CreativeApi
     /**
      * Create request for operation 'updateCreative'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $creative_id the creative Id to upate. (required)
      * @param  string|null $name The name of the level. (optional)
@@ -3067,15 +2922,8 @@ class CreativeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCreativeRequest($version, $account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
+    public function updateCreativeRequest($account_id, $creative_id, $name = null, $description = null, $asset_image_id = null, $action = null, $data = null, $suffix = null, $type = null, $balance = null, $active = null, $reference_id = null, $app_version = null, $mission_id = null, string $contentType = self::contentTypes['updateCreative'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateCreative'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3104,7 +2952,7 @@ class CreativeApi
 
 
 
-        $resourcePath = '/api/{version}/creative/update';
+        $resourcePath = '/creative/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3239,14 +3087,6 @@ class CreativeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

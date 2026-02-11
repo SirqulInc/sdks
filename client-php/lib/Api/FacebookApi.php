@@ -134,7 +134,6 @@ class FacebookApi
      *
      * Get Facebook Token
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude used to update the user&#39;s current location (optional)
@@ -145,9 +144,9 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TokenResponse
      */
-    public function getToken($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
+    public function getToken($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
     {
-        list($response) = $this->getTokenWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->getTokenWithHttpInfo($device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -156,7 +155,6 @@ class FacebookApi
      *
      * Get Facebook Token
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude used to update the user&#39;s current location (optional)
@@ -167,9 +165,9 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTokenWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
+    public function getTokenWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
     {
-        $request = $this->getTokenRequest($version, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getTokenRequest($device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -245,7 +243,6 @@ class FacebookApi
      *
      * Get Facebook Token
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude used to update the user&#39;s current location (optional)
@@ -255,9 +252,9 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTokenAsync($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
+    public function getTokenAsync($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
     {
-        return $this->getTokenAsyncWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->getTokenAsyncWithHttpInfo($device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,7 +267,6 @@ class FacebookApi
      *
      * Get Facebook Token
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude used to update the user&#39;s current location (optional)
@@ -280,10 +276,10 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTokenAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
+    public function getTokenAsyncWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TokenResponse';
-        $request = $this->getTokenRequest($version, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getTokenRequest($device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -324,7 +320,6 @@ class FacebookApi
     /**
      * Create request for operation 'getToken'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude used to update the user&#39;s current location (optional)
@@ -334,22 +329,15 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTokenRequest($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
+    public function getTokenRequest($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getToken'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getToken'
-            );
-        }
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/facebook/getfbtoken';
+        $resourcePath = '/facebook/getfbtoken';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -394,14 +382,6 @@ class FacebookApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -462,7 +442,6 @@ class FacebookApi
      *
      * Post to Facebook
      *
-     * @param  float $version version (required)
      * @param  string $event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -479,9 +458,9 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function graphInterface($version, $event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
+    public function graphInterface($event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
     {
-        list($response) = $this->graphInterfaceWithHttpInfo($version, $event, $device_id, $account_id, $permissionable_type, $permissionable_id, $asset_id, $game_type, $app_key, $latitude, $longitude, $contentType);
+        list($response) = $this->graphInterfaceWithHttpInfo($event, $device_id, $account_id, $permissionable_type, $permissionable_id, $asset_id, $game_type, $app_key, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -490,7 +469,6 @@ class FacebookApi
      *
      * Post to Facebook
      *
-     * @param  float $version (required)
      * @param  string $event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -507,9 +485,9 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function graphInterfaceWithHttpInfo($version, $event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
+    public function graphInterfaceWithHttpInfo($event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
     {
-        $request = $this->graphInterfaceRequest($version, $event, $device_id, $account_id, $permissionable_type, $permissionable_id, $asset_id, $game_type, $app_key, $latitude, $longitude, $contentType);
+        $request = $this->graphInterfaceRequest($event, $device_id, $account_id, $permissionable_type, $permissionable_id, $asset_id, $game_type, $app_key, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -585,7 +563,6 @@ class FacebookApi
      *
      * Post to Facebook
      *
-     * @param  float $version (required)
      * @param  string $event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -601,9 +578,9 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function graphInterfaceAsync($version, $event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
+    public function graphInterfaceAsync($event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
     {
-        return $this->graphInterfaceAsyncWithHttpInfo($version, $event, $device_id, $account_id, $permissionable_type, $permissionable_id, $asset_id, $game_type, $app_key, $latitude, $longitude, $contentType)
+        return $this->graphInterfaceAsyncWithHttpInfo($event, $device_id, $account_id, $permissionable_type, $permissionable_id, $asset_id, $game_type, $app_key, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -616,7 +593,6 @@ class FacebookApi
      *
      * Post to Facebook
      *
-     * @param  float $version (required)
      * @param  string $event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -632,10 +608,10 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function graphInterfaceAsyncWithHttpInfo($version, $event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
+    public function graphInterfaceAsyncWithHttpInfo($event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->graphInterfaceRequest($version, $event, $device_id, $account_id, $permissionable_type, $permissionable_id, $asset_id, $game_type, $app_key, $latitude, $longitude, $contentType);
+        $request = $this->graphInterfaceRequest($event, $device_id, $account_id, $permissionable_type, $permissionable_id, $asset_id, $game_type, $app_key, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -676,7 +652,6 @@ class FacebookApi
     /**
      * Create request for operation 'graphInterface'
      *
-     * @param  float $version (required)
      * @param  string $event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -692,15 +667,8 @@ class FacebookApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function graphInterfaceRequest($version, $event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
+    public function graphInterfaceRequest($event, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $asset_id = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['graphInterface'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling graphInterface'
-            );
-        }
 
         // verify the required parameter 'event' is set
         if ($event === null || (is_array($event) && count($event) === 0)) {
@@ -719,7 +687,7 @@ class FacebookApi
 
 
 
-        $resourcePath = '/api/{version}/facebook/graph';
+        $resourcePath = '/facebook/graph';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -818,14 +786,6 @@ class FacebookApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

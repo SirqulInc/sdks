@@ -143,7 +143,6 @@ class RouteSettingApi
      *
      * Create Route Setting
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteSettings'] to see the possible values for this operation
      *
@@ -151,9 +150,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RouteSettings
      */
-    public function createRouteSettings($version, $body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
+    public function createRouteSettings($body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
     {
-        list($response) = $this->createRouteSettingsWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createRouteSettingsWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -162,7 +161,6 @@ class RouteSettingApi
      *
      * Create Route Setting
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteSettings'] to see the possible values for this operation
      *
@@ -170,9 +168,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RouteSettings, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRouteSettingsWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
+    public function createRouteSettingsWithHttpInfo($body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
     {
-        $request = $this->createRouteSettingsRequest($version, $body, $contentType);
+        $request = $this->createRouteSettingsRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -248,16 +246,15 @@ class RouteSettingApi
      *
      * Create Route Setting
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRouteSettingsAsync($version, $body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
+    public function createRouteSettingsAsync($body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
     {
-        return $this->createRouteSettingsAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createRouteSettingsAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,17 +267,16 @@ class RouteSettingApi
      *
      * Create Route Setting
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRouteSettingsAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
+    public function createRouteSettingsAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RouteSettings';
-        $request = $this->createRouteSettingsRequest($version, $body, $contentType);
+        $request = $this->createRouteSettingsRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -321,26 +317,18 @@ class RouteSettingApi
     /**
      * Create request for operation 'createRouteSettings'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRouteSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRouteSettingsRequest($version, $body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
+    public function createRouteSettingsRequest($body = null, string $contentType = self::contentTypes['createRouteSettings'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRouteSettings'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/route/setting';
+        $resourcePath = '/route/setting';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -349,14 +337,6 @@ class RouteSettingApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -424,7 +404,6 @@ class RouteSettingApi
      *
      * Delete Route Setting
      *
-     * @param  float $version version (required)
      * @param  int $route_settings_id the id of the route setting to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRouteSettings'] to see the possible values for this operation
      *
@@ -432,9 +411,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function deleteRouteSettings($version, $route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
+    public function deleteRouteSettings($route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
     {
-        list($response) = $this->deleteRouteSettingsWithHttpInfo($version, $route_settings_id, $contentType);
+        list($response) = $this->deleteRouteSettingsWithHttpInfo($route_settings_id, $contentType);
         return $response;
     }
 
@@ -443,7 +422,6 @@ class RouteSettingApi
      *
      * Delete Route Setting
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route setting to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRouteSettings'] to see the possible values for this operation
      *
@@ -451,9 +429,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRouteSettingsWithHttpInfo($version, $route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
+    public function deleteRouteSettingsWithHttpInfo($route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
     {
-        $request = $this->deleteRouteSettingsRequest($version, $route_settings_id, $contentType);
+        $request = $this->deleteRouteSettingsRequest($route_settings_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -529,16 +507,15 @@ class RouteSettingApi
      *
      * Delete Route Setting
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route setting to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRouteSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRouteSettingsAsync($version, $route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
+    public function deleteRouteSettingsAsync($route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
     {
-        return $this->deleteRouteSettingsAsyncWithHttpInfo($version, $route_settings_id, $contentType)
+        return $this->deleteRouteSettingsAsyncWithHttpInfo($route_settings_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -551,17 +528,16 @@ class RouteSettingApi
      *
      * Delete Route Setting
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route setting to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRouteSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRouteSettingsAsyncWithHttpInfo($version, $route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
+    public function deleteRouteSettingsAsyncWithHttpInfo($route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
     {
         $returnType = 'object';
-        $request = $this->deleteRouteSettingsRequest($version, $route_settings_id, $contentType);
+        $request = $this->deleteRouteSettingsRequest($route_settings_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -602,22 +578,14 @@ class RouteSettingApi
     /**
      * Create request for operation 'deleteRouteSettings'
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route setting to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRouteSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteRouteSettingsRequest($version, $route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
+    public function deleteRouteSettingsRequest($route_settings_id, string $contentType = self::contentTypes['deleteRouteSettings'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteRouteSettings'
-            );
-        }
 
         // verify the required parameter 'route_settings_id' is set
         if ($route_settings_id === null || (is_array($route_settings_id) && count($route_settings_id) === 0)) {
@@ -627,7 +595,7 @@ class RouteSettingApi
         }
 
 
-        $resourcePath = '/api/{version}/route/setting/{routeSettingsId}';
+        $resourcePath = '/route/setting/{routeSettingsId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -636,14 +604,6 @@ class RouteSettingApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_settings_id !== null) {
             $resourcePath = str_replace(
@@ -712,7 +672,6 @@ class RouteSettingApi
      *
      * Get Route Setting
      *
-     * @param  float $version version (required)
      * @param  int $route_settings_id the id of the route settings to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteSettings'] to see the possible values for this operation
      *
@@ -720,9 +679,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RouteSettings
      */
-    public function getRouteSettings($version, $route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
+    public function getRouteSettings($route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
     {
-        list($response) = $this->getRouteSettingsWithHttpInfo($version, $route_settings_id, $contentType);
+        list($response) = $this->getRouteSettingsWithHttpInfo($route_settings_id, $contentType);
         return $response;
     }
 
@@ -731,7 +690,6 @@ class RouteSettingApi
      *
      * Get Route Setting
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route settings to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteSettings'] to see the possible values for this operation
      *
@@ -739,9 +697,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RouteSettings, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRouteSettingsWithHttpInfo($version, $route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
+    public function getRouteSettingsWithHttpInfo($route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
     {
-        $request = $this->getRouteSettingsRequest($version, $route_settings_id, $contentType);
+        $request = $this->getRouteSettingsRequest($route_settings_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -817,16 +775,15 @@ class RouteSettingApi
      *
      * Get Route Setting
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route settings to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteSettingsAsync($version, $route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
+    public function getRouteSettingsAsync($route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
     {
-        return $this->getRouteSettingsAsyncWithHttpInfo($version, $route_settings_id, $contentType)
+        return $this->getRouteSettingsAsyncWithHttpInfo($route_settings_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -839,17 +796,16 @@ class RouteSettingApi
      *
      * Get Route Setting
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route settings to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRouteSettingsAsyncWithHttpInfo($version, $route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
+    public function getRouteSettingsAsyncWithHttpInfo($route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RouteSettings';
-        $request = $this->getRouteSettingsRequest($version, $route_settings_id, $contentType);
+        $request = $this->getRouteSettingsRequest($route_settings_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -890,22 +846,14 @@ class RouteSettingApi
     /**
      * Create request for operation 'getRouteSettings'
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route settings to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRouteSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRouteSettingsRequest($version, $route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
+    public function getRouteSettingsRequest($route_settings_id, string $contentType = self::contentTypes['getRouteSettings'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRouteSettings'
-            );
-        }
 
         // verify the required parameter 'route_settings_id' is set
         if ($route_settings_id === null || (is_array($route_settings_id) && count($route_settings_id) === 0)) {
@@ -915,7 +863,7 @@ class RouteSettingApi
         }
 
 
-        $resourcePath = '/api/{version}/route/setting/{routeSettingsId}';
+        $resourcePath = '/route/setting/{routeSettingsId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -924,14 +872,6 @@ class RouteSettingApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_settings_id !== null) {
             $resourcePath = str_replace(
@@ -1000,7 +940,6 @@ class RouteSettingApi
      *
      * Search Route Settings
      *
-     * @param  float $version version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1015,9 +954,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RouteSettings[]
      */
-    public function searchRouteSettings($version, $sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
+    public function searchRouteSettings($sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
     {
-        list($response) = $this->searchRouteSettingsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $hub_id, $program_id, $keyword, $contentType);
+        list($response) = $this->searchRouteSettingsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $hub_id, $program_id, $keyword, $contentType);
         return $response;
     }
 
@@ -1026,7 +965,6 @@ class RouteSettingApi
      *
      * Search Route Settings
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1041,9 +979,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RouteSettings[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRouteSettingsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
+    public function searchRouteSettingsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
     {
-        $request = $this->searchRouteSettingsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $hub_id, $program_id, $keyword, $contentType);
+        $request = $this->searchRouteSettingsRequest($sort_field, $descending, $start, $limit, $active_only, $hub_id, $program_id, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1119,7 +1057,6 @@ class RouteSettingApi
      *
      * Search Route Settings
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1133,9 +1070,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRouteSettingsAsync($version, $sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
+    public function searchRouteSettingsAsync($sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
     {
-        return $this->searchRouteSettingsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $hub_id, $program_id, $keyword, $contentType)
+        return $this->searchRouteSettingsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $hub_id, $program_id, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1148,7 +1085,6 @@ class RouteSettingApi
      *
      * Search Route Settings
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1162,10 +1098,10 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRouteSettingsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
+    public function searchRouteSettingsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RouteSettings[]';
-        $request = $this->searchRouteSettingsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $hub_id, $program_id, $keyword, $contentType);
+        $request = $this->searchRouteSettingsRequest($sort_field, $descending, $start, $limit, $active_only, $hub_id, $program_id, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1206,7 +1142,6 @@ class RouteSettingApi
     /**
      * Create request for operation 'searchRouteSettings'
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1220,15 +1155,8 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRouteSettingsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
+    public function searchRouteSettingsRequest($sort_field, $descending, $start, $limit, $active_only, $hub_id = null, $program_id = null, $keyword = null, string $contentType = self::contentTypes['searchRouteSettings'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchRouteSettings'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -1269,7 +1197,7 @@ class RouteSettingApi
 
 
 
-        $resourcePath = '/api/{version}/route/setting';
+        $resourcePath = '/route/setting';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1350,14 +1278,6 @@ class RouteSettingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1418,7 +1338,6 @@ class RouteSettingApi
      *
      * Update Route Setting
      *
-     * @param  float $version version (required)
      * @param  int $route_settings_id the id of the route settings to update (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRouteSettings'] to see the possible values for this operation
@@ -1427,9 +1346,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RouteSettings
      */
-    public function updateRouteSettings($version, $route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
+    public function updateRouteSettings($route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
     {
-        list($response) = $this->updateRouteSettingsWithHttpInfo($version, $route_settings_id, $body, $contentType);
+        list($response) = $this->updateRouteSettingsWithHttpInfo($route_settings_id, $body, $contentType);
         return $response;
     }
 
@@ -1438,7 +1357,6 @@ class RouteSettingApi
      *
      * Update Route Setting
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route settings to update (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRouteSettings'] to see the possible values for this operation
@@ -1447,9 +1365,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RouteSettings, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRouteSettingsWithHttpInfo($version, $route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
+    public function updateRouteSettingsWithHttpInfo($route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
     {
-        $request = $this->updateRouteSettingsRequest($version, $route_settings_id, $body, $contentType);
+        $request = $this->updateRouteSettingsRequest($route_settings_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1525,7 +1443,6 @@ class RouteSettingApi
      *
      * Update Route Setting
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route settings to update (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRouteSettings'] to see the possible values for this operation
@@ -1533,9 +1450,9 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRouteSettingsAsync($version, $route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
+    public function updateRouteSettingsAsync($route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
     {
-        return $this->updateRouteSettingsAsyncWithHttpInfo($version, $route_settings_id, $body, $contentType)
+        return $this->updateRouteSettingsAsyncWithHttpInfo($route_settings_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1548,7 +1465,6 @@ class RouteSettingApi
      *
      * Update Route Setting
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route settings to update (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRouteSettings'] to see the possible values for this operation
@@ -1556,10 +1472,10 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRouteSettingsAsyncWithHttpInfo($version, $route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
+    public function updateRouteSettingsAsyncWithHttpInfo($route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RouteSettings';
-        $request = $this->updateRouteSettingsRequest($version, $route_settings_id, $body, $contentType);
+        $request = $this->updateRouteSettingsRequest($route_settings_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1600,7 +1516,6 @@ class RouteSettingApi
     /**
      * Create request for operation 'updateRouteSettings'
      *
-     * @param  float $version (required)
      * @param  int $route_settings_id the id of the route settings to update (required)
      * @param  \OpenAPI\Client\Model\RouteSettings|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRouteSettings'] to see the possible values for this operation
@@ -1608,15 +1523,8 @@ class RouteSettingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRouteSettingsRequest($version, $route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
+    public function updateRouteSettingsRequest($route_settings_id, $body = null, string $contentType = self::contentTypes['updateRouteSettings'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRouteSettings'
-            );
-        }
 
         // verify the required parameter 'route_settings_id' is set
         if ($route_settings_id === null || (is_array($route_settings_id) && count($route_settings_id) === 0)) {
@@ -1627,7 +1535,7 @@ class RouteSettingApi
 
 
 
-        $resourcePath = '/api/{version}/route/setting/{routeSettingsId}';
+        $resourcePath = '/route/setting/{routeSettingsId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1636,14 +1544,6 @@ class RouteSettingApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($route_settings_id !== null) {
             $resourcePath = str_replace(

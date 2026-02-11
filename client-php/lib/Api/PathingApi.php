@@ -131,7 +131,6 @@ class PathingApi
      *
      * Calculate Path
      *
-     * @param  float $version version (required)
      * @param  string $data the data to with start, end point and exclusion points (required)
      * @param  string $units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param  bool $reduce_path determines whether to reduce the path to go in diagonal lines (required)
@@ -142,9 +141,9 @@ class PathingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PathingResponse
      */
-    public function computePath($version, $data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
+    public function computePath($data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
     {
-        list($response) = $this->computePathWithHttpInfo($version, $data, $units, $reduce_path, $directions, $contentType);
+        list($response) = $this->computePathWithHttpInfo($data, $units, $reduce_path, $directions, $contentType);
         return $response;
     }
 
@@ -153,7 +152,6 @@ class PathingApi
      *
      * Calculate Path
      *
-     * @param  float $version (required)
      * @param  string $data the data to with start, end point and exclusion points (required)
      * @param  string $units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param  bool $reduce_path determines whether to reduce the path to go in diagonal lines (required)
@@ -164,9 +162,9 @@ class PathingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PathingResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function computePathWithHttpInfo($version, $data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
+    public function computePathWithHttpInfo($data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
     {
-        $request = $this->computePathRequest($version, $data, $units, $reduce_path, $directions, $contentType);
+        $request = $this->computePathRequest($data, $units, $reduce_path, $directions, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -242,7 +240,6 @@ class PathingApi
      *
      * Calculate Path
      *
-     * @param  float $version (required)
      * @param  string $data the data to with start, end point and exclusion points (required)
      * @param  string $units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param  bool $reduce_path determines whether to reduce the path to go in diagonal lines (required)
@@ -252,9 +249,9 @@ class PathingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function computePathAsync($version, $data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
+    public function computePathAsync($data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
     {
-        return $this->computePathAsyncWithHttpInfo($version, $data, $units, $reduce_path, $directions, $contentType)
+        return $this->computePathAsyncWithHttpInfo($data, $units, $reduce_path, $directions, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -267,7 +264,6 @@ class PathingApi
      *
      * Calculate Path
      *
-     * @param  float $version (required)
      * @param  string $data the data to with start, end point and exclusion points (required)
      * @param  string $units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param  bool $reduce_path determines whether to reduce the path to go in diagonal lines (required)
@@ -277,10 +273,10 @@ class PathingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function computePathAsyncWithHttpInfo($version, $data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
+    public function computePathAsyncWithHttpInfo($data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PathingResponse';
-        $request = $this->computePathRequest($version, $data, $units, $reduce_path, $directions, $contentType);
+        $request = $this->computePathRequest($data, $units, $reduce_path, $directions, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -321,7 +317,6 @@ class PathingApi
     /**
      * Create request for operation 'computePath'
      *
-     * @param  float $version (required)
      * @param  string $data the data to with start, end point and exclusion points (required)
      * @param  string $units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param  bool $reduce_path determines whether to reduce the path to go in diagonal lines (required)
@@ -331,15 +326,8 @@ class PathingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function computePathRequest($version, $data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
+    public function computePathRequest($data, $units, $reduce_path, $directions, string $contentType = self::contentTypes['computePath'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling computePath'
-            );
-        }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
@@ -370,7 +358,7 @@ class PathingApi
         }
 
 
-        $resourcePath = '/api/{version}/pathing/compute';
+        $resourcePath = '/pathing/compute';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -415,14 +403,6 @@ class PathingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

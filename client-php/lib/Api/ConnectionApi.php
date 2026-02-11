@@ -194,7 +194,6 @@ class ConnectionApi
      *
      * Add Connection
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -210,9 +209,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function addConnectionToGroup($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
+    public function addConnectionToGroup($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
     {
-        list($response) = $this->addConnectionToGroupWithHttpInfo($version, $return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
+        list($response) = $this->addConnectionToGroupWithHttpInfo($return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -221,7 +220,6 @@ class ConnectionApi
      *
      * Add Connection
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -237,9 +235,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addConnectionToGroupWithHttpInfo($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
+    public function addConnectionToGroupWithHttpInfo($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
     {
-        $request = $this->addConnectionToGroupRequest($version, $return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
+        $request = $this->addConnectionToGroupRequest($return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -315,7 +313,6 @@ class ConnectionApi
      *
      * Add Connection
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -330,9 +327,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addConnectionToGroupAsync($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
+    public function addConnectionToGroupAsync($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
     {
-        return $this->addConnectionToGroupAsyncWithHttpInfo($version, $return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType)
+        return $this->addConnectionToGroupAsyncWithHttpInfo($return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -345,7 +342,6 @@ class ConnectionApi
      *
      * Add Connection
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -360,10 +356,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addConnectionToGroupAsyncWithHttpInfo($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
+    public function addConnectionToGroupAsyncWithHttpInfo($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->addConnectionToGroupRequest($version, $return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
+        $request = $this->addConnectionToGroupRequest($return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -404,7 +400,6 @@ class ConnectionApi
     /**
      * Create request for operation 'addConnectionToGroup'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -419,15 +414,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addConnectionToGroupRequest($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
+    public function addConnectionToGroupRequest($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionToGroup'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addConnectionToGroup'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -451,7 +439,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/connection/group/addConnection';
+        $resourcePath = '/consumer/connection/group/addConnection';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -541,14 +529,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -609,7 +589,6 @@ class ConnectionApi
      *
      * Add Connections
      *
-     * @param  float $version version (required)
      * @param  int $connection_group_id the connection group ID (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -623,9 +602,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function addConnectionsToGroup($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
+    public function addConnectionsToGroup($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
     {
-        list($response) = $this->addConnectionsToGroupWithHttpInfo($version, $connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
+        list($response) = $this->addConnectionsToGroupWithHttpInfo($connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -634,7 +613,6 @@ class ConnectionApi
      *
      * Add Connections
      *
-     * @param  float $version (required)
      * @param  int $connection_group_id the connection group ID (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -648,9 +626,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addConnectionsToGroupWithHttpInfo($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
+    public function addConnectionsToGroupWithHttpInfo($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
     {
-        $request = $this->addConnectionsToGroupRequest($version, $connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
+        $request = $this->addConnectionsToGroupRequest($connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -726,7 +704,6 @@ class ConnectionApi
      *
      * Add Connections
      *
-     * @param  float $version (required)
      * @param  int $connection_group_id the connection group ID (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -739,9 +716,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addConnectionsToGroupAsync($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
+    public function addConnectionsToGroupAsync($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
     {
-        return $this->addConnectionsToGroupAsyncWithHttpInfo($version, $connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType)
+        return $this->addConnectionsToGroupAsyncWithHttpInfo($connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -754,7 +731,6 @@ class ConnectionApi
      *
      * Add Connections
      *
-     * @param  float $version (required)
      * @param  int $connection_group_id the connection group ID (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -767,10 +743,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addConnectionsToGroupAsyncWithHttpInfo($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
+    public function addConnectionsToGroupAsyncWithHttpInfo($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->addConnectionsToGroupRequest($version, $connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
+        $request = $this->addConnectionsToGroupRequest($connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -811,7 +787,6 @@ class ConnectionApi
     /**
      * Create request for operation 'addConnectionsToGroup'
      *
-     * @param  float $version (required)
      * @param  int $connection_group_id the connection group ID (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -824,15 +799,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addConnectionsToGroupRequest($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
+    public function addConnectionsToGroupRequest($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addConnectionsToGroup'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addConnectionsToGroup'
-            );
-        }
 
         // verify the required parameter 'connection_group_id' is set
         if ($connection_group_id === null || (is_array($connection_group_id) && count($connection_group_id) === 0)) {
@@ -848,7 +816,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/connection/group/addConnections';
+        $resourcePath = '/connection/group/addConnections';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -920,14 +888,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -988,7 +948,6 @@ class ConnectionApi
      *
      * Add Connection Groups
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to add to the parent group (required)
@@ -1002,9 +961,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ConnectionGroupResponse
      */
-    public function addSubGroups($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
+    public function addSubGroups($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
     {
-        list($response) = $this->addSubGroupsWithHttpInfo($version, $return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->addSubGroupsWithHttpInfo($return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1013,7 +972,6 @@ class ConnectionApi
      *
      * Add Connection Groups
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to add to the parent group (required)
@@ -1027,9 +985,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ConnectionGroupResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addSubGroupsWithHttpInfo($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
+    public function addSubGroupsWithHttpInfo($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
     {
-        $request = $this->addSubGroupsRequest($version, $return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->addSubGroupsRequest($return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1105,7 +1063,6 @@ class ConnectionApi
      *
      * Add Connection Groups
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to add to the parent group (required)
@@ -1118,9 +1075,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addSubGroupsAsync($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
+    public function addSubGroupsAsync($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
     {
-        return $this->addSubGroupsAsyncWithHttpInfo($version, $return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->addSubGroupsAsyncWithHttpInfo($return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1133,7 +1090,6 @@ class ConnectionApi
      *
      * Add Connection Groups
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to add to the parent group (required)
@@ -1146,10 +1102,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addSubGroupsAsyncWithHttpInfo($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
+    public function addSubGroupsAsyncWithHttpInfo($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConnectionGroupResponse';
-        $request = $this->addSubGroupsRequest($version, $return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->addSubGroupsRequest($return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1190,7 +1146,6 @@ class ConnectionApi
     /**
      * Create request for operation 'addSubGroups'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to add to the parent group (required)
@@ -1203,15 +1158,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addSubGroupsRequest($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
+    public function addSubGroupsRequest($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addSubGroups'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addSubGroups'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -1239,7 +1187,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/connection/group/addSubGroup';
+        $resourcePath = '/consumer/connection/group/addSubGroup';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1311,14 +1259,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1379,7 +1319,6 @@ class ConnectionApi
      *
      * Create or Update Connection
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_id the connection id for editing (optional)
@@ -1400,9 +1339,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ConnectionResponse
      */
-    public function createOrUpdateConnection($version, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
+    public function createOrUpdateConnection($device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
     {
-        list($response) = $this->createOrUpdateConnectionWithHttpInfo($version, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $group_id, $game_type, $app_key, $is_trusted, $ignore_friend_request, $is_contact, $is_blocked, $is_following, $connection_response, $contentType);
+        list($response) = $this->createOrUpdateConnectionWithHttpInfo($device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $group_id, $game_type, $app_key, $is_trusted, $ignore_friend_request, $is_contact, $is_blocked, $is_following, $connection_response, $contentType);
         return $response;
     }
 
@@ -1411,7 +1350,6 @@ class ConnectionApi
      *
      * Create or Update Connection
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_id the connection id for editing (optional)
@@ -1432,9 +1370,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ConnectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOrUpdateConnectionWithHttpInfo($version, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
+    public function createOrUpdateConnectionWithHttpInfo($device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
     {
-        $request = $this->createOrUpdateConnectionRequest($version, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $group_id, $game_type, $app_key, $is_trusted, $ignore_friend_request, $is_contact, $is_blocked, $is_following, $connection_response, $contentType);
+        $request = $this->createOrUpdateConnectionRequest($device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $group_id, $game_type, $app_key, $is_trusted, $ignore_friend_request, $is_contact, $is_blocked, $is_following, $connection_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1510,7 +1448,6 @@ class ConnectionApi
      *
      * Create or Update Connection
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_id the connection id for editing (optional)
@@ -1530,9 +1467,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrUpdateConnectionAsync($version, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
+    public function createOrUpdateConnectionAsync($device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
     {
-        return $this->createOrUpdateConnectionAsyncWithHttpInfo($version, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $group_id, $game_type, $app_key, $is_trusted, $ignore_friend_request, $is_contact, $is_blocked, $is_following, $connection_response, $contentType)
+        return $this->createOrUpdateConnectionAsyncWithHttpInfo($device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $group_id, $game_type, $app_key, $is_trusted, $ignore_friend_request, $is_contact, $is_blocked, $is_following, $connection_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1545,7 +1482,6 @@ class ConnectionApi
      *
      * Create or Update Connection
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_id the connection id for editing (optional)
@@ -1565,10 +1501,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrUpdateConnectionAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
+    public function createOrUpdateConnectionAsyncWithHttpInfo($device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConnectionResponse';
-        $request = $this->createOrUpdateConnectionRequest($version, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $group_id, $game_type, $app_key, $is_trusted, $ignore_friend_request, $is_contact, $is_blocked, $is_following, $connection_response, $contentType);
+        $request = $this->createOrUpdateConnectionRequest($device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $group_id, $game_type, $app_key, $is_trusted, $ignore_friend_request, $is_contact, $is_blocked, $is_following, $connection_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1609,7 +1545,6 @@ class ConnectionApi
     /**
      * Create request for operation 'createOrUpdateConnection'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_id the connection id for editing (optional)
@@ -1629,15 +1564,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOrUpdateConnectionRequest($version, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
+    public function createOrUpdateConnectionRequest($device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $group_id = null, $game_type = null, $app_key = null, $is_trusted = null, $ignore_friend_request = null, $is_contact = null, $is_blocked = null, $is_following = null, $connection_response = null, string $contentType = self::contentTypes['createOrUpdateConnection'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createOrUpdateConnection'
-            );
-        }
 
 
 
@@ -1653,8 +1582,7 @@ class ConnectionApi
 
 
 
-
-        $resourcePath = '/api/{version}/consumer/connection/add';
+        $resourcePath = '/consumer/connection/add';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1789,14 +1717,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1857,7 +1777,6 @@ class ConnectionApi
      *
      * Create or Update Connection Group
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1878,9 +1797,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function createOrUpdateGroup($version, $return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
+    public function createOrUpdateGroup($return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
     {
-        list($response) = $this->createOrUpdateGroupWithHttpInfo($version, $return_nulls, $device_id, $account_id, $name, $group_id, $asset_id, $connections, $description, $can_view_profile_info, $can_view_game_info, $can_view_friend_info, $active, $latitude, $longitude, $contentType);
+        list($response) = $this->createOrUpdateGroupWithHttpInfo($return_nulls, $device_id, $account_id, $name, $group_id, $asset_id, $connections, $description, $can_view_profile_info, $can_view_game_info, $can_view_friend_info, $active, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1889,7 +1808,6 @@ class ConnectionApi
      *
      * Create or Update Connection Group
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1910,9 +1828,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOrUpdateGroupWithHttpInfo($version, $return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
+    public function createOrUpdateGroupWithHttpInfo($return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
     {
-        $request = $this->createOrUpdateGroupRequest($version, $return_nulls, $device_id, $account_id, $name, $group_id, $asset_id, $connections, $description, $can_view_profile_info, $can_view_game_info, $can_view_friend_info, $active, $latitude, $longitude, $contentType);
+        $request = $this->createOrUpdateGroupRequest($return_nulls, $device_id, $account_id, $name, $group_id, $asset_id, $connections, $description, $can_view_profile_info, $can_view_game_info, $can_view_friend_info, $active, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1988,7 +1906,6 @@ class ConnectionApi
      *
      * Create or Update Connection Group
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2008,9 +1925,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrUpdateGroupAsync($version, $return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
+    public function createOrUpdateGroupAsync($return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
     {
-        return $this->createOrUpdateGroupAsyncWithHttpInfo($version, $return_nulls, $device_id, $account_id, $name, $group_id, $asset_id, $connections, $description, $can_view_profile_info, $can_view_game_info, $can_view_friend_info, $active, $latitude, $longitude, $contentType)
+        return $this->createOrUpdateGroupAsyncWithHttpInfo($return_nulls, $device_id, $account_id, $name, $group_id, $asset_id, $connections, $description, $can_view_profile_info, $can_view_game_info, $can_view_friend_info, $active, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2023,7 +1940,6 @@ class ConnectionApi
      *
      * Create or Update Connection Group
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2043,10 +1959,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrUpdateGroupAsyncWithHttpInfo($version, $return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
+    public function createOrUpdateGroupAsyncWithHttpInfo($return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->createOrUpdateGroupRequest($version, $return_nulls, $device_id, $account_id, $name, $group_id, $asset_id, $connections, $description, $can_view_profile_info, $can_view_game_info, $can_view_friend_info, $active, $latitude, $longitude, $contentType);
+        $request = $this->createOrUpdateGroupRequest($return_nulls, $device_id, $account_id, $name, $group_id, $asset_id, $connections, $description, $can_view_profile_info, $can_view_game_info, $can_view_friend_info, $active, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2087,7 +2003,6 @@ class ConnectionApi
     /**
      * Create request for operation 'createOrUpdateGroup'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2107,15 +2022,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOrUpdateGroupRequest($version, $return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
+    public function createOrUpdateGroupRequest($return_nulls, $device_id = null, $account_id = null, $name = null, $group_id = null, $asset_id = null, $connections = null, $description = null, $can_view_profile_info = null, $can_view_game_info = null, $can_view_friend_info = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createOrUpdateGroup'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createOrUpdateGroup'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -2138,7 +2046,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/connection/group';
+        $resourcePath = '/consumer/connection/group';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2273,14 +2181,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2341,7 +2241,6 @@ class ConnectionApi
      *
      * Accept Follow Request
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2351,9 +2250,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function followAccept($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
+    public function followAccept($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
     {
-        list($response) = $this->followAcceptWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $contentType);
+        list($response) = $this->followAcceptWithHttpInfo($account_id, $connection_account_id, $app_key, $contentType);
         return $response;
     }
 
@@ -2362,7 +2261,6 @@ class ConnectionApi
      *
      * Accept Follow Request
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2372,9 +2270,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function followAcceptWithHttpInfo($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
+    public function followAcceptWithHttpInfo($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
     {
-        $request = $this->followAcceptRequest($version, $account_id, $connection_account_id, $app_key, $contentType);
+        $request = $this->followAcceptRequest($account_id, $connection_account_id, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2450,7 +2348,6 @@ class ConnectionApi
      *
      * Accept Follow Request
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2459,9 +2356,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function followAcceptAsync($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
+    public function followAcceptAsync($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
     {
-        return $this->followAcceptAsyncWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $contentType)
+        return $this->followAcceptAsyncWithHttpInfo($account_id, $connection_account_id, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2474,7 +2371,6 @@ class ConnectionApi
      *
      * Accept Follow Request
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2483,10 +2379,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function followAcceptAsyncWithHttpInfo($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
+    public function followAcceptAsyncWithHttpInfo($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->followAcceptRequest($version, $account_id, $connection_account_id, $app_key, $contentType);
+        $request = $this->followAcceptRequest($account_id, $connection_account_id, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2527,7 +2423,6 @@ class ConnectionApi
     /**
      * Create request for operation 'followAccept'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2536,15 +2431,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function followAcceptRequest($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
+    public function followAcceptRequest($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followAccept'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling followAccept'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2568,7 +2456,7 @@ class ConnectionApi
         }
 
 
-        $resourcePath = '/api/{version}/consumer/follow/accept';
+        $resourcePath = '/consumer/follow/accept';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2604,14 +2492,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2672,7 +2552,6 @@ class ConnectionApi
      *
      * Reject Follow Request
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2682,9 +2561,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function followReject($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
+    public function followReject($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
     {
-        list($response) = $this->followRejectWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $contentType);
+        list($response) = $this->followRejectWithHttpInfo($account_id, $connection_account_id, $app_key, $contentType);
         return $response;
     }
 
@@ -2693,7 +2572,6 @@ class ConnectionApi
      *
      * Reject Follow Request
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2703,9 +2581,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function followRejectWithHttpInfo($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
+    public function followRejectWithHttpInfo($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
     {
-        $request = $this->followRejectRequest($version, $account_id, $connection_account_id, $app_key, $contentType);
+        $request = $this->followRejectRequest($account_id, $connection_account_id, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2781,7 +2659,6 @@ class ConnectionApi
      *
      * Reject Follow Request
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2790,9 +2667,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function followRejectAsync($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
+    public function followRejectAsync($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
     {
-        return $this->followRejectAsyncWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $contentType)
+        return $this->followRejectAsyncWithHttpInfo($account_id, $connection_account_id, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2805,7 +2682,6 @@ class ConnectionApi
      *
      * Reject Follow Request
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2814,10 +2690,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function followRejectAsyncWithHttpInfo($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
+    public function followRejectAsyncWithHttpInfo($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->followRejectRequest($version, $account_id, $connection_account_id, $app_key, $contentType);
+        $request = $this->followRejectRequest($account_id, $connection_account_id, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2858,7 +2734,6 @@ class ConnectionApi
     /**
      * Create request for operation 'followReject'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who initiated the follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -2867,15 +2742,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function followRejectRequest($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
+    public function followRejectRequest($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followReject'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling followReject'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2899,7 +2767,7 @@ class ConnectionApi
         }
 
 
-        $resourcePath = '/api/{version}/consumer/follow/reject';
+        $resourcePath = '/consumer/follow/reject';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2935,14 +2803,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3003,7 +2863,6 @@ class ConnectionApi
      *
      * Remove Follower / Unfollow
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to unfollow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3013,9 +2872,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function followRemove($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
+    public function followRemove($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
     {
-        list($response) = $this->followRemoveWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $contentType);
+        list($response) = $this->followRemoveWithHttpInfo($account_id, $connection_account_id, $app_key, $contentType);
         return $response;
     }
 
@@ -3024,7 +2883,6 @@ class ConnectionApi
      *
      * Remove Follower / Unfollow
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to unfollow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3034,9 +2892,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function followRemoveWithHttpInfo($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
+    public function followRemoveWithHttpInfo($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
     {
-        $request = $this->followRemoveRequest($version, $account_id, $connection_account_id, $app_key, $contentType);
+        $request = $this->followRemoveRequest($account_id, $connection_account_id, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3112,7 +2970,6 @@ class ConnectionApi
      *
      * Remove Follower / Unfollow
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to unfollow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3121,9 +2978,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function followRemoveAsync($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
+    public function followRemoveAsync($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
     {
-        return $this->followRemoveAsyncWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $contentType)
+        return $this->followRemoveAsyncWithHttpInfo($account_id, $connection_account_id, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3136,7 +2993,6 @@ class ConnectionApi
      *
      * Remove Follower / Unfollow
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to unfollow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3145,10 +3001,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function followRemoveAsyncWithHttpInfo($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
+    public function followRemoveAsyncWithHttpInfo($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->followRemoveRequest($version, $account_id, $connection_account_id, $app_key, $contentType);
+        $request = $this->followRemoveRequest($account_id, $connection_account_id, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3189,7 +3045,6 @@ class ConnectionApi
     /**
      * Create request for operation 'followRemove'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to unfollow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3198,15 +3053,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function followRemoveRequest($version, $account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
+    public function followRemoveRequest($account_id, $connection_account_id, $app_key, string $contentType = self::contentTypes['followRemove'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling followRemove'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3230,7 +3078,7 @@ class ConnectionApi
         }
 
 
-        $resourcePath = '/api/{version}/consumer/follow/remove';
+        $resourcePath = '/consumer/follow/remove';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3266,14 +3114,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3334,7 +3174,6 @@ class ConnectionApi
      *
      * Send Follow Request
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3345,9 +3184,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function followRequest($version, $account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
+    public function followRequest($account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
     {
-        list($response) = $this->followRequestWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $approval_needed, $contentType);
+        list($response) = $this->followRequestWithHttpInfo($account_id, $connection_account_id, $app_key, $approval_needed, $contentType);
         return $response;
     }
 
@@ -3356,7 +3195,6 @@ class ConnectionApi
      *
      * Send Follow Request
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3367,9 +3205,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function followRequestWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
+    public function followRequestWithHttpInfo($account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
     {
-        $request = $this->followRequestRequest($version, $account_id, $connection_account_id, $app_key, $approval_needed, $contentType);
+        $request = $this->followRequestRequest($account_id, $connection_account_id, $app_key, $approval_needed, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3445,7 +3283,6 @@ class ConnectionApi
      *
      * Send Follow Request
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3455,9 +3292,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function followRequestAsync($version, $account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
+    public function followRequestAsync($account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
     {
-        return $this->followRequestAsyncWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $approval_needed, $contentType)
+        return $this->followRequestAsyncWithHttpInfo($account_id, $connection_account_id, $app_key, $approval_needed, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3470,7 +3307,6 @@ class ConnectionApi
      *
      * Send Follow Request
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3480,10 +3316,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function followRequestAsyncWithHttpInfo($version, $account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
+    public function followRequestAsyncWithHttpInfo($account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->followRequestRequest($version, $account_id, $connection_account_id, $app_key, $approval_needed, $contentType);
+        $request = $this->followRequestRequest($account_id, $connection_account_id, $app_key, $approval_needed, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3524,7 +3360,6 @@ class ConnectionApi
     /**
      * Create request for operation 'followRequest'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $connection_account_id the account ID of the user who you want to follow (required)
      * @param  string $app_key the application key for sending notifications (required)
@@ -3534,15 +3369,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function followRequestRequest($version, $account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
+    public function followRequestRequest($account_id, $connection_account_id, $app_key, $approval_needed = true, string $contentType = self::contentTypes['followRequest'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling followRequest'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3567,7 +3395,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/follow/request';
+        $resourcePath = '/consumer/follow/request';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3612,14 +3440,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3680,7 +3500,6 @@ class ConnectionApi
      *
      * Accept Friend
      *
-     * @param  float $version version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  bool $notify_friend determines whether to send a notification to the afflicting party (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -3694,9 +3513,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function friendAccept($version, $friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
+    public function friendAccept($friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
     {
-        list($response) = $this->friendAcceptWithHttpInfo($version, $friend_account_id, $notify_friend, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
+        list($response) = $this->friendAcceptWithHttpInfo($friend_account_id, $notify_friend, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
         return $response;
     }
 
@@ -3705,7 +3524,6 @@ class ConnectionApi
      *
      * Accept Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  bool $notify_friend determines whether to send a notification to the afflicting party (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -3719,9 +3537,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function friendAcceptWithHttpInfo($version, $friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
+    public function friendAcceptWithHttpInfo($friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
     {
-        $request = $this->friendAcceptRequest($version, $friend_account_id, $notify_friend, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
+        $request = $this->friendAcceptRequest($friend_account_id, $notify_friend, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3797,7 +3615,6 @@ class ConnectionApi
      *
      * Accept Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  bool $notify_friend determines whether to send a notification to the afflicting party (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -3810,9 +3627,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function friendAcceptAsync($version, $friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
+    public function friendAcceptAsync($friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
     {
-        return $this->friendAcceptAsyncWithHttpInfo($version, $friend_account_id, $notify_friend, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType)
+        return $this->friendAcceptAsyncWithHttpInfo($friend_account_id, $notify_friend, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3825,7 +3642,6 @@ class ConnectionApi
      *
      * Accept Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  bool $notify_friend determines whether to send a notification to the afflicting party (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -3838,10 +3654,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function friendAcceptAsyncWithHttpInfo($version, $friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
+    public function friendAcceptAsyncWithHttpInfo($friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->friendAcceptRequest($version, $friend_account_id, $notify_friend, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
+        $request = $this->friendAcceptRequest($friend_account_id, $notify_friend, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3882,7 +3698,6 @@ class ConnectionApi
     /**
      * Create request for operation 'friendAccept'
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  bool $notify_friend determines whether to send a notification to the afflicting party (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -3895,15 +3710,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function friendAcceptRequest($version, $friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
+    public function friendAcceptRequest($friend_account_id, $notify_friend, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendAccept'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling friendAccept'
-            );
-        }
 
         // verify the required parameter 'friend_account_id' is set
         if ($friend_account_id === null || (is_array($friend_account_id) && count($friend_account_id) === 0)) {
@@ -3925,7 +3733,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/friend/accept';
+        $resourcePath = '/consumer/friend/accept';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3997,14 +3805,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4065,7 +3865,6 @@ class ConnectionApi
      *
      * Decline Friend
      *
-     * @param  float $version version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4079,9 +3878,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function friendReject($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
+    public function friendReject($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
     {
-        list($response) = $this->friendRejectWithHttpInfo($version, $friend_account_id, $device_id, $account_id, $game_type, $app_key, $notify_friend, $notification_message, $contentType);
+        list($response) = $this->friendRejectWithHttpInfo($friend_account_id, $device_id, $account_id, $game_type, $app_key, $notify_friend, $notification_message, $contentType);
         return $response;
     }
 
@@ -4090,7 +3889,6 @@ class ConnectionApi
      *
      * Decline Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4104,9 +3902,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function friendRejectWithHttpInfo($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
+    public function friendRejectWithHttpInfo($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
     {
-        $request = $this->friendRejectRequest($version, $friend_account_id, $device_id, $account_id, $game_type, $app_key, $notify_friend, $notification_message, $contentType);
+        $request = $this->friendRejectRequest($friend_account_id, $device_id, $account_id, $game_type, $app_key, $notify_friend, $notification_message, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4182,7 +3980,6 @@ class ConnectionApi
      *
      * Decline Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4195,9 +3992,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function friendRejectAsync($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
+    public function friendRejectAsync($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
     {
-        return $this->friendRejectAsyncWithHttpInfo($version, $friend_account_id, $device_id, $account_id, $game_type, $app_key, $notify_friend, $notification_message, $contentType)
+        return $this->friendRejectAsyncWithHttpInfo($friend_account_id, $device_id, $account_id, $game_type, $app_key, $notify_friend, $notification_message, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4210,7 +4007,6 @@ class ConnectionApi
      *
      * Decline Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4223,10 +4019,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function friendRejectAsyncWithHttpInfo($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
+    public function friendRejectAsyncWithHttpInfo($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->friendRejectRequest($version, $friend_account_id, $device_id, $account_id, $game_type, $app_key, $notify_friend, $notification_message, $contentType);
+        $request = $this->friendRejectRequest($friend_account_id, $device_id, $account_id, $game_type, $app_key, $notify_friend, $notification_message, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4267,7 +4063,6 @@ class ConnectionApi
     /**
      * Create request for operation 'friendReject'
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4280,15 +4075,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function friendRejectRequest($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
+    public function friendRejectRequest($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notify_friend = null, $notification_message = null, string $contentType = self::contentTypes['friendReject'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling friendReject'
-            );
-        }
 
         // verify the required parameter 'friend_account_id' is set
         if ($friend_account_id === null || (is_array($friend_account_id) && count($friend_account_id) === 0)) {
@@ -4304,7 +4092,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/friend/reject';
+        $resourcePath = '/consumer/friend/reject';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4376,14 +4164,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4444,7 +4224,6 @@ class ConnectionApi
      *
      * Delete Friend
      *
-     * @param  float $version version (required)
      * @param  int $friend_account_id the account ID of the friend to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4456,9 +4235,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function friendRemove($version, $friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
+    public function friendRemove($friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
     {
-        list($response) = $this->friendRemoveWithHttpInfo($version, $friend_account_id, $device_id, $account_id, $notify_friend, $remove_from_groups, $contentType);
+        list($response) = $this->friendRemoveWithHttpInfo($friend_account_id, $device_id, $account_id, $notify_friend, $remove_from_groups, $contentType);
         return $response;
     }
 
@@ -4467,7 +4246,6 @@ class ConnectionApi
      *
      * Delete Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the account ID of the friend to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4479,9 +4257,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function friendRemoveWithHttpInfo($version, $friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
+    public function friendRemoveWithHttpInfo($friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
     {
-        $request = $this->friendRemoveRequest($version, $friend_account_id, $device_id, $account_id, $notify_friend, $remove_from_groups, $contentType);
+        $request = $this->friendRemoveRequest($friend_account_id, $device_id, $account_id, $notify_friend, $remove_from_groups, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4557,7 +4335,6 @@ class ConnectionApi
      *
      * Delete Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the account ID of the friend to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4568,9 +4345,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function friendRemoveAsync($version, $friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
+    public function friendRemoveAsync($friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
     {
-        return $this->friendRemoveAsyncWithHttpInfo($version, $friend_account_id, $device_id, $account_id, $notify_friend, $remove_from_groups, $contentType)
+        return $this->friendRemoveAsyncWithHttpInfo($friend_account_id, $device_id, $account_id, $notify_friend, $remove_from_groups, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4583,7 +4360,6 @@ class ConnectionApi
      *
      * Delete Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the account ID of the friend to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4594,10 +4370,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function friendRemoveAsyncWithHttpInfo($version, $friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
+    public function friendRemoveAsyncWithHttpInfo($friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->friendRemoveRequest($version, $friend_account_id, $device_id, $account_id, $notify_friend, $remove_from_groups, $contentType);
+        $request = $this->friendRemoveRequest($friend_account_id, $device_id, $account_id, $notify_friend, $remove_from_groups, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4638,7 +4414,6 @@ class ConnectionApi
     /**
      * Create request for operation 'friendRemove'
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the account ID of the friend to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4649,15 +4424,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function friendRemoveRequest($version, $friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
+    public function friendRemoveRequest($friend_account_id, $device_id = null, $account_id = null, $notify_friend = null, $remove_from_groups = null, string $contentType = self::contentTypes['friendRemove'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling friendRemove'
-            );
-        }
 
         // verify the required parameter 'friend_account_id' is set
         if ($friend_account_id === null || (is_array($friend_account_id) && count($friend_account_id) === 0)) {
@@ -4671,7 +4439,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/friend/remove';
+        $resourcePath = '/consumer/friend/remove';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4725,14 +4493,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4793,7 +4553,6 @@ class ConnectionApi
      *
      * Request Friend
      *
-     * @param  float $version version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4806,9 +4565,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function friendRequest($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
+    public function friendRequest($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
     {
-        list($response) = $this->friendRequestWithHttpInfo($version, $friend_account_id, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
+        list($response) = $this->friendRequestWithHttpInfo($friend_account_id, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
         return $response;
     }
 
@@ -4817,7 +4576,6 @@ class ConnectionApi
      *
      * Request Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4830,9 +4588,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function friendRequestWithHttpInfo($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
+    public function friendRequestWithHttpInfo($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
     {
-        $request = $this->friendRequestRequest($version, $friend_account_id, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
+        $request = $this->friendRequestRequest($friend_account_id, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4908,7 +4666,6 @@ class ConnectionApi
      *
      * Request Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4920,9 +4677,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function friendRequestAsync($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
+    public function friendRequestAsync($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
     {
-        return $this->friendRequestAsyncWithHttpInfo($version, $friend_account_id, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType)
+        return $this->friendRequestAsyncWithHttpInfo($friend_account_id, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4935,7 +4692,6 @@ class ConnectionApi
      *
      * Request Friend
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -4947,10 +4703,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function friendRequestAsyncWithHttpInfo($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
+    public function friendRequestAsyncWithHttpInfo($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->friendRequestRequest($version, $friend_account_id, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
+        $request = $this->friendRequestRequest($friend_account_id, $device_id, $account_id, $game_type, $app_key, $notification_message, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4991,7 +4747,6 @@ class ConnectionApi
     /**
      * Create request for operation 'friendRequest'
      *
-     * @param  float $version (required)
      * @param  int $friend_account_id the friend&#39;s account id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -5003,15 +4758,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function friendRequestRequest($version, $friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
+    public function friendRequestRequest($friend_account_id, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $notification_message = null, string $contentType = self::contentTypes['friendRequest'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling friendRequest'
-            );
-        }
 
         // verify the required parameter 'friend_account_id' is set
         if ($friend_account_id === null || (is_array($friend_account_id) && count($friend_account_id) === 0)) {
@@ -5026,7 +4774,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/friend/request';
+        $resourcePath = '/consumer/friend/request';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5089,14 +4837,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5157,7 +4897,6 @@ class ConnectionApi
      *
      * Get Sent Friend Requests
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the ID of the device (optional)
      * @param  int|null $account_id the id of the account (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConnectionSentFriendRequests'] to see the possible values for this operation
@@ -5166,9 +4905,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ConnectionListResponse
      */
-    public function getConnectionSentFriendRequests($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
+    public function getConnectionSentFriendRequests($device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
     {
-        list($response) = $this->getConnectionSentFriendRequestsWithHttpInfo($version, $device_id, $account_id, $contentType);
+        list($response) = $this->getConnectionSentFriendRequestsWithHttpInfo($device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -5177,7 +4916,6 @@ class ConnectionApi
      *
      * Get Sent Friend Requests
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the ID of the device (optional)
      * @param  int|null $account_id the id of the account (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConnectionSentFriendRequests'] to see the possible values for this operation
@@ -5186,9 +4924,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ConnectionListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getConnectionSentFriendRequestsWithHttpInfo($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
+    public function getConnectionSentFriendRequestsWithHttpInfo($device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
     {
-        $request = $this->getConnectionSentFriendRequestsRequest($version, $device_id, $account_id, $contentType);
+        $request = $this->getConnectionSentFriendRequestsRequest($device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5264,7 +5002,6 @@ class ConnectionApi
      *
      * Get Sent Friend Requests
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the ID of the device (optional)
      * @param  int|null $account_id the id of the account (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConnectionSentFriendRequests'] to see the possible values for this operation
@@ -5272,9 +5009,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConnectionSentFriendRequestsAsync($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
+    public function getConnectionSentFriendRequestsAsync($device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
     {
-        return $this->getConnectionSentFriendRequestsAsyncWithHttpInfo($version, $device_id, $account_id, $contentType)
+        return $this->getConnectionSentFriendRequestsAsyncWithHttpInfo($device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5287,7 +5024,6 @@ class ConnectionApi
      *
      * Get Sent Friend Requests
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the ID of the device (optional)
      * @param  int|null $account_id the id of the account (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConnectionSentFriendRequests'] to see the possible values for this operation
@@ -5295,10 +5031,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConnectionSentFriendRequestsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
+    public function getConnectionSentFriendRequestsAsyncWithHttpInfo($device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConnectionListResponse';
-        $request = $this->getConnectionSentFriendRequestsRequest($version, $device_id, $account_id, $contentType);
+        $request = $this->getConnectionSentFriendRequestsRequest($device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5339,7 +5075,6 @@ class ConnectionApi
     /**
      * Create request for operation 'getConnectionSentFriendRequests'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the ID of the device (optional)
      * @param  int|null $account_id the id of the account (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConnectionSentFriendRequests'] to see the possible values for this operation
@@ -5347,20 +5082,13 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getConnectionSentFriendRequestsRequest($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
+    public function getConnectionSentFriendRequestsRequest($device_id = null, $account_id = null, string $contentType = self::contentTypes['getConnectionSentFriendRequests'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getConnectionSentFriendRequests'
-            );
-        }
 
 
 
-
-        $resourcePath = '/api/{version}/consumer/connection/getRequested';
+        $resourcePath = '/consumer/connection/getRequested';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5387,14 +5115,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5455,7 +5175,6 @@ class ConnectionApi
      *
      * Search Connections
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string $filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param  string $sort_field sorts the response list by ConnectionApiMap (required)
@@ -5477,9 +5196,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ConnectionListResponse
      */
-    public function getConnections($version, $return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
+    public function getConnections($return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
     {
-        list($response) = $this->getConnectionsWithHttpInfo($version, $return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $connection_account_id, $q, $keyword, $_i, $_l, $latitude, $longitude, $contentType);
+        list($response) = $this->getConnectionsWithHttpInfo($return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $connection_account_id, $q, $keyword, $_i, $_l, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -5488,7 +5207,6 @@ class ConnectionApi
      *
      * Search Connections
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string $filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param  string $sort_field sorts the response list by ConnectionApiMap (required)
@@ -5510,9 +5228,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ConnectionListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getConnectionsWithHttpInfo($version, $return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
+    public function getConnectionsWithHttpInfo($return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
     {
-        $request = $this->getConnectionsRequest($version, $return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $connection_account_id, $q, $keyword, $_i, $_l, $latitude, $longitude, $contentType);
+        $request = $this->getConnectionsRequest($return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $connection_account_id, $q, $keyword, $_i, $_l, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5588,7 +5306,6 @@ class ConnectionApi
      *
      * Search Connections
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string $filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param  string $sort_field sorts the response list by ConnectionApiMap (required)
@@ -5609,9 +5326,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConnectionsAsync($version, $return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
+    public function getConnectionsAsync($return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
     {
-        return $this->getConnectionsAsyncWithHttpInfo($version, $return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $connection_account_id, $q, $keyword, $_i, $_l, $latitude, $longitude, $contentType)
+        return $this->getConnectionsAsyncWithHttpInfo($return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $connection_account_id, $q, $keyword, $_i, $_l, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5624,7 +5341,6 @@ class ConnectionApi
      *
      * Search Connections
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string $filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param  string $sort_field sorts the response list by ConnectionApiMap (required)
@@ -5645,10 +5361,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConnectionsAsyncWithHttpInfo($version, $return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
+    public function getConnectionsAsyncWithHttpInfo($return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConnectionListResponse';
-        $request = $this->getConnectionsRequest($version, $return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $connection_account_id, $q, $keyword, $_i, $_l, $latitude, $longitude, $contentType);
+        $request = $this->getConnectionsRequest($return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $connection_account_id, $q, $keyword, $_i, $_l, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5689,7 +5405,6 @@ class ConnectionApi
     /**
      * Create request for operation 'getConnections'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  string $filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param  string $sort_field sorts the response list by ConnectionApiMap (required)
@@ -5710,15 +5425,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getConnectionsRequest($version, $return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
+    public function getConnectionsRequest($return_nulls, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $connection_account_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getConnections'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getConnections'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -5772,7 +5480,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/connection/get';
+        $resourcePath = '/consumer/connection/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5916,14 +5624,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5984,7 +5684,6 @@ class ConnectionApi
      *
      * Get Connection Group
      *
-     * @param  float $version version (required)
      * @param  bool $combine_connections whether to combine connections or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -5997,9 +5696,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ConnectionGroupResponse
      */
-    public function getGroupDetails($version, $combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
+    public function getGroupDetails($combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
     {
-        list($response) = $this->getGroupDetailsWithHttpInfo($version, $combine_connections, $device_id, $account_id, $group_id, $latitude, $longitude, $contentType);
+        list($response) = $this->getGroupDetailsWithHttpInfo($combine_connections, $device_id, $account_id, $group_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -6008,7 +5707,6 @@ class ConnectionApi
      *
      * Get Connection Group
      *
-     * @param  float $version (required)
      * @param  bool $combine_connections whether to combine connections or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -6021,9 +5719,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ConnectionGroupResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGroupDetailsWithHttpInfo($version, $combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
+    public function getGroupDetailsWithHttpInfo($combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
     {
-        $request = $this->getGroupDetailsRequest($version, $combine_connections, $device_id, $account_id, $group_id, $latitude, $longitude, $contentType);
+        $request = $this->getGroupDetailsRequest($combine_connections, $device_id, $account_id, $group_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6099,7 +5797,6 @@ class ConnectionApi
      *
      * Get Connection Group
      *
-     * @param  float $version (required)
      * @param  bool $combine_connections whether to combine connections or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -6111,9 +5808,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGroupDetailsAsync($version, $combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
+    public function getGroupDetailsAsync($combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
     {
-        return $this->getGroupDetailsAsyncWithHttpInfo($version, $combine_connections, $device_id, $account_id, $group_id, $latitude, $longitude, $contentType)
+        return $this->getGroupDetailsAsyncWithHttpInfo($combine_connections, $device_id, $account_id, $group_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6126,7 +5823,6 @@ class ConnectionApi
      *
      * Get Connection Group
      *
-     * @param  float $version (required)
      * @param  bool $combine_connections whether to combine connections or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -6138,10 +5834,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGroupDetailsAsyncWithHttpInfo($version, $combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
+    public function getGroupDetailsAsyncWithHttpInfo($combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConnectionGroupResponse';
-        $request = $this->getGroupDetailsRequest($version, $combine_connections, $device_id, $account_id, $group_id, $latitude, $longitude, $contentType);
+        $request = $this->getGroupDetailsRequest($combine_connections, $device_id, $account_id, $group_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6182,7 +5878,6 @@ class ConnectionApi
     /**
      * Create request for operation 'getGroupDetails'
      *
-     * @param  float $version (required)
      * @param  bool $combine_connections whether to combine connections or not (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -6194,15 +5889,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGroupDetailsRequest($version, $combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
+    public function getGroupDetailsRequest($combine_connections, $device_id = null, $account_id = null, $group_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getGroupDetails'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getGroupDetails'
-            );
-        }
 
         // verify the required parameter 'combine_connections' is set
         if ($combine_connections === null || (is_array($combine_connections) && count($combine_connections) === 0)) {
@@ -6217,7 +5905,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/connection/group/details/get';
+        $resourcePath = '/consumer/connection/group/details/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6280,14 +5968,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6348,7 +6028,6 @@ class ConnectionApi
      *
      * Search Connection Groups
      *
-     * @param  float $version version (required)
      * @param  string $sort_field the field to sort by (required)
      * @param  bool $descending whether to return results in descending or ascending order (required)
      * @param  bool $active_only to search on active only or not (required)
@@ -6365,9 +6044,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ConnectionInfoResponse[]
      */
-    public function groupSearch($version, $sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
+    public function groupSearch($sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
     {
-        list($response) = $this->groupSearchWithHttpInfo($version, $sort_field, $descending, $active_only, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
+        list($response) = $this->groupSearchWithHttpInfo($sort_field, $descending, $active_only, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
         return $response;
     }
 
@@ -6376,7 +6055,6 @@ class ConnectionApi
      *
      * Search Connection Groups
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by (required)
      * @param  bool $descending whether to return results in descending or ascending order (required)
      * @param  bool $active_only to search on active only or not (required)
@@ -6393,9 +6071,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ConnectionInfoResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function groupSearchWithHttpInfo($version, $sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
+    public function groupSearchWithHttpInfo($sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
     {
-        $request = $this->groupSearchRequest($version, $sort_field, $descending, $active_only, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
+        $request = $this->groupSearchRequest($sort_field, $descending, $active_only, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6471,7 +6149,6 @@ class ConnectionApi
      *
      * Search Connection Groups
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by (required)
      * @param  bool $descending whether to return results in descending or ascending order (required)
      * @param  bool $active_only to search on active only or not (required)
@@ -6487,9 +6164,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function groupSearchAsync($version, $sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
+    public function groupSearchAsync($sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
     {
-        return $this->groupSearchAsyncWithHttpInfo($version, $sort_field, $descending, $active_only, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType)
+        return $this->groupSearchAsyncWithHttpInfo($sort_field, $descending, $active_only, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6502,7 +6179,6 @@ class ConnectionApi
      *
      * Search Connection Groups
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by (required)
      * @param  bool $descending whether to return results in descending or ascending order (required)
      * @param  bool $active_only to search on active only or not (required)
@@ -6518,10 +6194,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function groupSearchAsyncWithHttpInfo($version, $sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
+    public function groupSearchAsyncWithHttpInfo($sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConnectionInfoResponse[]';
-        $request = $this->groupSearchRequest($version, $sort_field, $descending, $active_only, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
+        $request = $this->groupSearchRequest($sort_field, $descending, $active_only, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6562,7 +6238,6 @@ class ConnectionApi
     /**
      * Create request for operation 'groupSearch'
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by (required)
      * @param  bool $descending whether to return results in descending or ascending order (required)
      * @param  bool $active_only to search on active only or not (required)
@@ -6578,15 +6253,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function groupSearchRequest($version, $sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
+    public function groupSearchRequest($sort_field, $descending, $active_only, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['groupSearch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling groupSearch'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -6629,7 +6297,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/connection/group/search';
+        $resourcePath = '/connection/group/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6728,14 +6396,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6796,7 +6456,6 @@ class ConnectionApi
      *
      * Delete Connection
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -6812,9 +6471,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removeConnectionFromGroup($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
+    public function removeConnectionFromGroup($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
     {
-        list($response) = $this->removeConnectionFromGroupWithHttpInfo($version, $return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
+        list($response) = $this->removeConnectionFromGroupWithHttpInfo($return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -6823,7 +6482,6 @@ class ConnectionApi
      *
      * Delete Connection
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -6839,9 +6497,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeConnectionFromGroupWithHttpInfo($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
+    public function removeConnectionFromGroupWithHttpInfo($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
     {
-        $request = $this->removeConnectionFromGroupRequest($version, $return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
+        $request = $this->removeConnectionFromGroupRequest($return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6917,7 +6575,6 @@ class ConnectionApi
      *
      * Delete Connection
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -6932,9 +6589,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeConnectionFromGroupAsync($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
+    public function removeConnectionFromGroupAsync($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
     {
-        return $this->removeConnectionFromGroupAsyncWithHttpInfo($version, $return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType)
+        return $this->removeConnectionFromGroupAsyncWithHttpInfo($return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6947,7 +6604,6 @@ class ConnectionApi
      *
      * Delete Connection
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -6962,10 +6618,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeConnectionFromGroupAsyncWithHttpInfo($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
+    public function removeConnectionFromGroupAsyncWithHttpInfo($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removeConnectionFromGroupRequest($version, $return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
+        $request = $this->removeConnectionFromGroupRequest($return_nulls, $group_id, $device_id, $account_id, $connection_id, $connection_account_id, $pending_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7006,7 +6662,6 @@ class ConnectionApi
     /**
      * Create request for operation 'removeConnectionFromGroup'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -7021,15 +6676,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeConnectionFromGroupRequest($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
+    public function removeConnectionFromGroupRequest($return_nulls, $group_id, $device_id = null, $account_id = null, $connection_id = null, $connection_account_id = null, $pending_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionFromGroup'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeConnectionFromGroup'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -7053,7 +6701,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/connection/group/removeConnection';
+        $resourcePath = '/consumer/connection/group/removeConnection';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7143,14 +6791,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7211,7 +6851,6 @@ class ConnectionApi
      *
      * Remove Connections
      *
-     * @param  float $version version (required)
      * @param  int $connection_group_id connection group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -7225,9 +6864,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removeConnectionsFromGroup($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
+    public function removeConnectionsFromGroup($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
     {
-        list($response) = $this->removeConnectionsFromGroupWithHttpInfo($version, $connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
+        list($response) = $this->removeConnectionsFromGroupWithHttpInfo($connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -7236,7 +6875,6 @@ class ConnectionApi
      *
      * Remove Connections
      *
-     * @param  float $version (required)
      * @param  int $connection_group_id connection group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -7250,9 +6888,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeConnectionsFromGroupWithHttpInfo($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
+    public function removeConnectionsFromGroupWithHttpInfo($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
     {
-        $request = $this->removeConnectionsFromGroupRequest($version, $connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
+        $request = $this->removeConnectionsFromGroupRequest($connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7328,7 +6966,6 @@ class ConnectionApi
      *
      * Remove Connections
      *
-     * @param  float $version (required)
      * @param  int $connection_group_id connection group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -7341,9 +6978,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeConnectionsFromGroupAsync($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
+    public function removeConnectionsFromGroupAsync($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
     {
-        return $this->removeConnectionsFromGroupAsyncWithHttpInfo($version, $connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType)
+        return $this->removeConnectionsFromGroupAsyncWithHttpInfo($connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7356,7 +6993,6 @@ class ConnectionApi
      *
      * Remove Connections
      *
-     * @param  float $version (required)
      * @param  int $connection_group_id connection group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -7369,10 +7005,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeConnectionsFromGroupAsyncWithHttpInfo($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
+    public function removeConnectionsFromGroupAsyncWithHttpInfo($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removeConnectionsFromGroupRequest($version, $connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
+        $request = $this->removeConnectionsFromGroupRequest($connection_group_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7413,7 +7049,6 @@ class ConnectionApi
     /**
      * Create request for operation 'removeConnectionsFromGroup'
      *
-     * @param  float $version (required)
      * @param  int $connection_group_id connection group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -7426,15 +7061,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeConnectionsFromGroupRequest($version, $connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
+    public function removeConnectionsFromGroupRequest($connection_group_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeConnectionsFromGroup'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeConnectionsFromGroup'
-            );
-        }
 
         // verify the required parameter 'connection_group_id' is set
         if ($connection_group_id === null || (is_array($connection_group_id) && count($connection_group_id) === 0)) {
@@ -7450,7 +7078,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/connection/group/removeConnections';
+        $resourcePath = '/connection/group/removeConnections';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7522,14 +7150,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7590,7 +7210,6 @@ class ConnectionApi
      *
      * Delete Connection Group
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -7603,9 +7222,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removeGroup($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
+    public function removeGroup($return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
     {
-        list($response) = $this->removeGroupWithHttpInfo($version, $return_nulls, $group_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->removeGroupWithHttpInfo($return_nulls, $group_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -7614,7 +7233,6 @@ class ConnectionApi
      *
      * Delete Connection Group
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -7627,9 +7245,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeGroupWithHttpInfo($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
+    public function removeGroupWithHttpInfo($return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
     {
-        $request = $this->removeGroupRequest($version, $return_nulls, $group_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->removeGroupRequest($return_nulls, $group_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7705,7 +7323,6 @@ class ConnectionApi
      *
      * Delete Connection Group
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -7717,9 +7334,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeGroupAsync($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
+    public function removeGroupAsync($return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
     {
-        return $this->removeGroupAsyncWithHttpInfo($version, $return_nulls, $group_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->removeGroupAsyncWithHttpInfo($return_nulls, $group_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7732,7 +7349,6 @@ class ConnectionApi
      *
      * Delete Connection Group
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -7744,10 +7360,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeGroupAsyncWithHttpInfo($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
+    public function removeGroupAsyncWithHttpInfo($return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removeGroupRequest($version, $return_nulls, $group_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->removeGroupRequest($return_nulls, $group_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7788,7 +7404,6 @@ class ConnectionApi
     /**
      * Create request for operation 'removeGroup'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the group id (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -7800,15 +7415,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeGroupRequest($version, $return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
+    public function removeGroupRequest($return_nulls, $group_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeGroup'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeGroup'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -7829,7 +7437,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/connection/group/remove';
+        $resourcePath = '/consumer/connection/group/remove';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7892,14 +7500,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7960,7 +7560,6 @@ class ConnectionApi
      *
      * Remove Connection Groups
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to remove from the parent group (required)
@@ -7974,9 +7573,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removeSubGroups($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
+    public function removeSubGroups($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
     {
-        list($response) = $this->removeSubGroupsWithHttpInfo($version, $return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->removeSubGroupsWithHttpInfo($return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -7985,7 +7584,6 @@ class ConnectionApi
      *
      * Remove Connection Groups
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to remove from the parent group (required)
@@ -7999,9 +7597,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeSubGroupsWithHttpInfo($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
+    public function removeSubGroupsWithHttpInfo($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
     {
-        $request = $this->removeSubGroupsRequest($version, $return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->removeSubGroupsRequest($return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8077,7 +7675,6 @@ class ConnectionApi
      *
      * Remove Connection Groups
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to remove from the parent group (required)
@@ -8090,9 +7687,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeSubGroupsAsync($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
+    public function removeSubGroupsAsync($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
     {
-        return $this->removeSubGroupsAsyncWithHttpInfo($version, $return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->removeSubGroupsAsyncWithHttpInfo($return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8105,7 +7702,6 @@ class ConnectionApi
      *
      * Remove Connection Groups
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to remove from the parent group (required)
@@ -8118,10 +7714,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeSubGroupsAsyncWithHttpInfo($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
+    public function removeSubGroupsAsyncWithHttpInfo($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removeSubGroupsRequest($version, $return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->removeSubGroupsRequest($return_nulls, $group_id, $sub_group_ids, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8162,7 +7758,6 @@ class ConnectionApi
     /**
      * Create request for operation 'removeSubGroups'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls whether to return nulls or not (required)
      * @param  int $group_id the parent group id (required)
      * @param  string $sub_group_ids comma separated list of group IDs to remove from the parent group (required)
@@ -8175,15 +7770,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeSubGroupsRequest($version, $return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
+    public function removeSubGroupsRequest($return_nulls, $group_id, $sub_group_ids, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeSubGroups'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeSubGroups'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -8211,7 +7799,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/connection/group/removeSubGroup';
+        $resourcePath = '/consumer/connection/group/removeSubGroup';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8283,14 +7871,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8351,7 +7931,6 @@ class ConnectionApi
      *
      * Search Possible Connections
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls return all json attributes if true. defualt is true. (required)
      * @param  int $start start index of the pagination (required)
      * @param  int $limit limit of the pagination (required)
@@ -8373,9 +7952,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ConnectionListResponse
      */
-    public function searchConnections($version, $return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
+    public function searchConnections($return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
     {
-        list($response) = $this->searchConnectionsWithHttpInfo($version, $return_nulls, $start, $limit, $device_id, $account_id, $q, $keyword, $latitude, $longitude, $game_type, $app_key, $_i, $_l, $sort_field, $has_location, $contentType);
+        list($response) = $this->searchConnectionsWithHttpInfo($return_nulls, $start, $limit, $device_id, $account_id, $q, $keyword, $latitude, $longitude, $game_type, $app_key, $_i, $_l, $sort_field, $has_location, $contentType);
         return $response;
     }
 
@@ -8384,7 +7963,6 @@ class ConnectionApi
      *
      * Search Possible Connections
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls return all json attributes if true. defualt is true. (required)
      * @param  int $start start index of the pagination (required)
      * @param  int $limit limit of the pagination (required)
@@ -8406,9 +7984,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ConnectionListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchConnectionsWithHttpInfo($version, $return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
+    public function searchConnectionsWithHttpInfo($return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
     {
-        $request = $this->searchConnectionsRequest($version, $return_nulls, $start, $limit, $device_id, $account_id, $q, $keyword, $latitude, $longitude, $game_type, $app_key, $_i, $_l, $sort_field, $has_location, $contentType);
+        $request = $this->searchConnectionsRequest($return_nulls, $start, $limit, $device_id, $account_id, $q, $keyword, $latitude, $longitude, $game_type, $app_key, $_i, $_l, $sort_field, $has_location, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8484,7 +8062,6 @@ class ConnectionApi
      *
      * Search Possible Connections
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls return all json attributes if true. defualt is true. (required)
      * @param  int $start start index of the pagination (required)
      * @param  int $limit limit of the pagination (required)
@@ -8505,9 +8082,9 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchConnectionsAsync($version, $return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
+    public function searchConnectionsAsync($return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
     {
-        return $this->searchConnectionsAsyncWithHttpInfo($version, $return_nulls, $start, $limit, $device_id, $account_id, $q, $keyword, $latitude, $longitude, $game_type, $app_key, $_i, $_l, $sort_field, $has_location, $contentType)
+        return $this->searchConnectionsAsyncWithHttpInfo($return_nulls, $start, $limit, $device_id, $account_id, $q, $keyword, $latitude, $longitude, $game_type, $app_key, $_i, $_l, $sort_field, $has_location, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8520,7 +8097,6 @@ class ConnectionApi
      *
      * Search Possible Connections
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls return all json attributes if true. defualt is true. (required)
      * @param  int $start start index of the pagination (required)
      * @param  int $limit limit of the pagination (required)
@@ -8541,10 +8117,10 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchConnectionsAsyncWithHttpInfo($version, $return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
+    public function searchConnectionsAsyncWithHttpInfo($return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConnectionListResponse';
-        $request = $this->searchConnectionsRequest($version, $return_nulls, $start, $limit, $device_id, $account_id, $q, $keyword, $latitude, $longitude, $game_type, $app_key, $_i, $_l, $sort_field, $has_location, $contentType);
+        $request = $this->searchConnectionsRequest($return_nulls, $start, $limit, $device_id, $account_id, $q, $keyword, $latitude, $longitude, $game_type, $app_key, $_i, $_l, $sort_field, $has_location, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8585,7 +8161,6 @@ class ConnectionApi
     /**
      * Create request for operation 'searchConnections'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls return all json attributes if true. defualt is true. (required)
      * @param  int $start start index of the pagination (required)
      * @param  int $limit limit of the pagination (required)
@@ -8606,15 +8181,8 @@ class ConnectionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchConnectionsRequest($version, $return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
+    public function searchConnectionsRequest($return_nulls, $start, $limit, $device_id = null, $account_id = null, $q = null, $keyword = null, $latitude = null, $longitude = null, $game_type = null, $app_key = null, $_i = null, $_l = null, $sort_field = null, $has_location = null, string $contentType = self::contentTypes['searchConnections'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchConnections'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -8650,7 +8218,7 @@ class ConnectionApi
 
 
 
-        $resourcePath = '/api/{version}/connection/search';
+        $resourcePath = '/connection/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8794,14 +8362,6 @@ class ConnectionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

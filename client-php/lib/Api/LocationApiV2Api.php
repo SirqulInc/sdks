@@ -134,7 +134,6 @@ class LocationApiV2Api
      *
      * Create new location
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\Location|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationV2'] to see the possible values for this operation
      *
@@ -142,9 +141,9 @@ class LocationApiV2Api
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function createLocationV2($version, $body = null, string $contentType = self::contentTypes['createLocationV2'][0])
+    public function createLocationV2($body = null, string $contentType = self::contentTypes['createLocationV2'][0])
     {
-        list($response) = $this->createLocationV2WithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createLocationV2WithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -153,7 +152,6 @@ class LocationApiV2Api
      *
      * Create new location
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Location|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationV2'] to see the possible values for this operation
      *
@@ -161,9 +159,9 @@ class LocationApiV2Api
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createLocationV2WithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createLocationV2'][0])
+    public function createLocationV2WithHttpInfo($body = null, string $contentType = self::contentTypes['createLocationV2'][0])
     {
-        $request = $this->createLocationV2Request($version, $body, $contentType);
+        $request = $this->createLocationV2Request($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,16 +237,15 @@ class LocationApiV2Api
      *
      * Create new location
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Location|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationV2'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createLocationV2Async($version, $body = null, string $contentType = self::contentTypes['createLocationV2'][0])
+    public function createLocationV2Async($body = null, string $contentType = self::contentTypes['createLocationV2'][0])
     {
-        return $this->createLocationV2AsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createLocationV2AsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,17 +258,16 @@ class LocationApiV2Api
      *
      * Create new location
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Location|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationV2'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createLocationV2AsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createLocationV2'][0])
+    public function createLocationV2AsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createLocationV2'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->createLocationV2Request($version, $body, $contentType);
+        $request = $this->createLocationV2Request($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,26 +308,18 @@ class LocationApiV2Api
     /**
      * Create request for operation 'createLocationV2'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Location|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationV2'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createLocationV2Request($version, $body = null, string $contentType = self::contentTypes['createLocationV2'][0])
+    public function createLocationV2Request($body = null, string $contentType = self::contentTypes['createLocationV2'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createLocationV2'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/location';
+        $resourcePath = '/location';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -340,14 +328,6 @@ class LocationApiV2Api
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -415,7 +395,6 @@ class LocationApiV2Api
      *
      * Update an existing location
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the location to update (required)
      * @param  \OpenAPI\Client\Model\Location|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationV2'] to see the possible values for this operation
@@ -424,9 +403,9 @@ class LocationApiV2Api
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateLocationV2($version, $id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
+    public function updateLocationV2($id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
     {
-        list($response) = $this->updateLocationV2WithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->updateLocationV2WithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -435,7 +414,6 @@ class LocationApiV2Api
      *
      * Update an existing location
      *
-     * @param  float $version (required)
      * @param  int $id the id of the location to update (required)
      * @param  \OpenAPI\Client\Model\Location|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationV2'] to see the possible values for this operation
@@ -444,9 +422,9 @@ class LocationApiV2Api
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateLocationV2WithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
+    public function updateLocationV2WithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
     {
-        $request = $this->updateLocationV2Request($version, $id, $body, $contentType);
+        $request = $this->updateLocationV2Request($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -522,7 +500,6 @@ class LocationApiV2Api
      *
      * Update an existing location
      *
-     * @param  float $version (required)
      * @param  int $id the id of the location to update (required)
      * @param  \OpenAPI\Client\Model\Location|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationV2'] to see the possible values for this operation
@@ -530,9 +507,9 @@ class LocationApiV2Api
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLocationV2Async($version, $id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
+    public function updateLocationV2Async($id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
     {
-        return $this->updateLocationV2AsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->updateLocationV2AsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -545,7 +522,6 @@ class LocationApiV2Api
      *
      * Update an existing location
      *
-     * @param  float $version (required)
      * @param  int $id the id of the location to update (required)
      * @param  \OpenAPI\Client\Model\Location|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationV2'] to see the possible values for this operation
@@ -553,10 +529,10 @@ class LocationApiV2Api
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLocationV2AsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
+    public function updateLocationV2AsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateLocationV2Request($version, $id, $body, $contentType);
+        $request = $this->updateLocationV2Request($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -597,7 +573,6 @@ class LocationApiV2Api
     /**
      * Create request for operation 'updateLocationV2'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the location to update (required)
      * @param  \OpenAPI\Client\Model\Location|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationV2'] to see the possible values for this operation
@@ -605,15 +580,8 @@ class LocationApiV2Api
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateLocationV2Request($version, $id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
+    public function updateLocationV2Request($id, $body = null, string $contentType = self::contentTypes['updateLocationV2'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateLocationV2'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -624,7 +592,7 @@ class LocationApiV2Api
 
 
 
-        $resourcePath = '/api/{version}/location/{id}';
+        $resourcePath = '/location/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -633,14 +601,6 @@ class LocationApiV2Api
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(

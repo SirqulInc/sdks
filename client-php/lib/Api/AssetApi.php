@@ -152,7 +152,6 @@ class AssetApi
      *
      * Download Asset
      *
-     * @param  float $version version (required)
      * @param  string $filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assetDownload'] to see the possible values for this operation
      *
@@ -160,9 +159,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function assetDownload($version, $filename, string $contentType = self::contentTypes['assetDownload'][0])
+    public function assetDownload($filename, string $contentType = self::contentTypes['assetDownload'][0])
     {
-        list($response) = $this->assetDownloadWithHttpInfo($version, $filename, $contentType);
+        list($response) = $this->assetDownloadWithHttpInfo($filename, $contentType);
         return $response;
     }
 
@@ -171,7 +170,6 @@ class AssetApi
      *
      * Download Asset
      *
-     * @param  float $version (required)
      * @param  string $filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assetDownload'] to see the possible values for this operation
      *
@@ -179,9 +177,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assetDownloadWithHttpInfo($version, $filename, string $contentType = self::contentTypes['assetDownload'][0])
+    public function assetDownloadWithHttpInfo($filename, string $contentType = self::contentTypes['assetDownload'][0])
     {
-        $request = $this->assetDownloadRequest($version, $filename, $contentType);
+        $request = $this->assetDownloadRequest($filename, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -257,16 +255,15 @@ class AssetApi
      *
      * Download Asset
      *
-     * @param  float $version (required)
      * @param  string $filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assetDownload'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assetDownloadAsync($version, $filename, string $contentType = self::contentTypes['assetDownload'][0])
+    public function assetDownloadAsync($filename, string $contentType = self::contentTypes['assetDownload'][0])
     {
-        return $this->assetDownloadAsyncWithHttpInfo($version, $filename, $contentType)
+        return $this->assetDownloadAsyncWithHttpInfo($filename, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -279,17 +276,16 @@ class AssetApi
      *
      * Download Asset
      *
-     * @param  float $version (required)
      * @param  string $filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assetDownload'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assetDownloadAsyncWithHttpInfo($version, $filename, string $contentType = self::contentTypes['assetDownload'][0])
+    public function assetDownloadAsyncWithHttpInfo($filename, string $contentType = self::contentTypes['assetDownload'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->assetDownloadRequest($version, $filename, $contentType);
+        $request = $this->assetDownloadRequest($filename, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -330,22 +326,14 @@ class AssetApi
     /**
      * Create request for operation 'assetDownload'
      *
-     * @param  float $version (required)
      * @param  string $filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assetDownload'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assetDownloadRequest($version, $filename, string $contentType = self::contentTypes['assetDownload'][0])
+    public function assetDownloadRequest($filename, string $contentType = self::contentTypes['assetDownload'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assetDownload'
-            );
-        }
 
         // verify the required parameter 'filename' is set
         if ($filename === null || (is_array($filename) && count($filename) === 0)) {
@@ -358,7 +346,7 @@ class AssetApi
         }
         
 
-        $resourcePath = '/api/{version}/asset/download/{filename}';
+        $resourcePath = '/asset/download/{filename}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -367,14 +355,6 @@ class AssetApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($filename !== null) {
             $resourcePath = str_replace(
@@ -443,7 +423,6 @@ class AssetApi
      *
      * Convert Offer to Creative
      *
-     * @param  float $version version (required)
      * @param  int $offer_id offer id used for inserting offer text/flavor (required)
      * @param  string $ad_size the ad size used for selecting a format for the creative image (required)
      * @param  int|null $creative_id used for inserting the newly created image into (optional)
@@ -457,9 +436,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssetShortResponse
      */
-    public function assetMorph($version, $offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
+    public function assetMorph($offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
     {
-        list($response) = $this->assetMorphWithHttpInfo($version, $offer_id, $ad_size, $creative_id, $width, $height, $background_size, $template, $contentType);
+        list($response) = $this->assetMorphWithHttpInfo($offer_id, $ad_size, $creative_id, $width, $height, $background_size, $template, $contentType);
         return $response;
     }
 
@@ -468,7 +447,6 @@ class AssetApi
      *
      * Convert Offer to Creative
      *
-     * @param  float $version (required)
      * @param  int $offer_id offer id used for inserting offer text/flavor (required)
      * @param  string $ad_size the ad size used for selecting a format for the creative image (required)
      * @param  int|null $creative_id used for inserting the newly created image into (optional)
@@ -482,9 +460,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssetShortResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assetMorphWithHttpInfo($version, $offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
+    public function assetMorphWithHttpInfo($offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
     {
-        $request = $this->assetMorphRequest($version, $offer_id, $ad_size, $creative_id, $width, $height, $background_size, $template, $contentType);
+        $request = $this->assetMorphRequest($offer_id, $ad_size, $creative_id, $width, $height, $background_size, $template, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -560,7 +538,6 @@ class AssetApi
      *
      * Convert Offer to Creative
      *
-     * @param  float $version (required)
      * @param  int $offer_id offer id used for inserting offer text/flavor (required)
      * @param  string $ad_size the ad size used for selecting a format for the creative image (required)
      * @param  int|null $creative_id used for inserting the newly created image into (optional)
@@ -573,9 +550,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assetMorphAsync($version, $offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
+    public function assetMorphAsync($offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
     {
-        return $this->assetMorphAsyncWithHttpInfo($version, $offer_id, $ad_size, $creative_id, $width, $height, $background_size, $template, $contentType)
+        return $this->assetMorphAsyncWithHttpInfo($offer_id, $ad_size, $creative_id, $width, $height, $background_size, $template, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -588,7 +565,6 @@ class AssetApi
      *
      * Convert Offer to Creative
      *
-     * @param  float $version (required)
      * @param  int $offer_id offer id used for inserting offer text/flavor (required)
      * @param  string $ad_size the ad size used for selecting a format for the creative image (required)
      * @param  int|null $creative_id used for inserting the newly created image into (optional)
@@ -601,10 +577,10 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assetMorphAsyncWithHttpInfo($version, $offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
+    public function assetMorphAsyncWithHttpInfo($offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssetShortResponse';
-        $request = $this->assetMorphRequest($version, $offer_id, $ad_size, $creative_id, $width, $height, $background_size, $template, $contentType);
+        $request = $this->assetMorphRequest($offer_id, $ad_size, $creative_id, $width, $height, $background_size, $template, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -645,7 +621,6 @@ class AssetApi
     /**
      * Create request for operation 'assetMorph'
      *
-     * @param  float $version (required)
      * @param  int $offer_id offer id used for inserting offer text/flavor (required)
      * @param  string $ad_size the ad size used for selecting a format for the creative image (required)
      * @param  int|null $creative_id used for inserting the newly created image into (optional)
@@ -658,15 +633,8 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assetMorphRequest($version, $offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
+    public function assetMorphRequest($offer_id, $ad_size, $creative_id = null, $width = null, $height = null, $background_size = null, $template = null, string $contentType = self::contentTypes['assetMorph'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assetMorph'
-            );
-        }
 
         // verify the required parameter 'offer_id' is set
         if ($offer_id === null || (is_array($offer_id) && count($offer_id) === 0)) {
@@ -688,7 +656,7 @@ class AssetApi
 
 
 
-        $resourcePath = '/api/{version}/asset/morph';
+        $resourcePath = '/asset/morph';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -760,14 +728,6 @@ class AssetApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -828,7 +788,6 @@ class AssetApi
      *
      * Create Asset
      *
-     * @param  float $version version (required)
      * @param  bool|null $return_nulls to return nulls (optional)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -869,9 +828,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssetResponse
      */
-    public function createAsset($version, $return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
+    public function createAsset($return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
     {
-        list($response) = $this->createAssetWithHttpInfo($version, $return_nulls, $device_id, $account_id, $album_id, $collection_id, $add_to_default_album, $add_to_media_library, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $app, $app_key, $search_tags, $latitude, $longitude, $contentType);
+        list($response) = $this->createAssetWithHttpInfo($return_nulls, $device_id, $account_id, $album_id, $collection_id, $add_to_default_album, $add_to_media_library, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $app, $app_key, $search_tags, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -880,7 +839,6 @@ class AssetApi
      *
      * Create Asset
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls to return nulls (optional)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -921,9 +879,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAssetWithHttpInfo($version, $return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
+    public function createAssetWithHttpInfo($return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
     {
-        $request = $this->createAssetRequest($version, $return_nulls, $device_id, $account_id, $album_id, $collection_id, $add_to_default_album, $add_to_media_library, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $app, $app_key, $search_tags, $latitude, $longitude, $contentType);
+        $request = $this->createAssetRequest($return_nulls, $device_id, $account_id, $album_id, $collection_id, $add_to_default_album, $add_to_media_library, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $app, $app_key, $search_tags, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -999,7 +957,6 @@ class AssetApi
      *
      * Create Asset
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls to return nulls (optional)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1039,9 +996,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAssetAsync($version, $return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
+    public function createAssetAsync($return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
     {
-        return $this->createAssetAsyncWithHttpInfo($version, $return_nulls, $device_id, $account_id, $album_id, $collection_id, $add_to_default_album, $add_to_media_library, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $app, $app_key, $search_tags, $latitude, $longitude, $contentType)
+        return $this->createAssetAsyncWithHttpInfo($return_nulls, $device_id, $account_id, $album_id, $collection_id, $add_to_default_album, $add_to_media_library, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $app, $app_key, $search_tags, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1054,7 +1011,6 @@ class AssetApi
      *
      * Create Asset
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls to return nulls (optional)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1094,10 +1050,10 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAssetAsyncWithHttpInfo($version, $return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
+    public function createAssetAsyncWithHttpInfo($return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssetResponse';
-        $request = $this->createAssetRequest($version, $return_nulls, $device_id, $account_id, $album_id, $collection_id, $add_to_default_album, $add_to_media_library, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $app, $app_key, $search_tags, $latitude, $longitude, $contentType);
+        $request = $this->createAssetRequest($return_nulls, $device_id, $account_id, $album_id, $collection_id, $add_to_default_album, $add_to_media_library, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $app, $app_key, $search_tags, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1138,7 +1094,6 @@ class AssetApi
     /**
      * Create request for operation 'createAsset'
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls to return nulls (optional)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1178,15 +1133,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createAssetRequest($version, $return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
+    public function createAssetRequest($return_nulls = null, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $add_to_default_album = null, $add_to_media_library = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $app = null, $app_key = null, $search_tags = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createAsset'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createAsset'
-            );
-        }
 
 
 
@@ -1222,8 +1171,7 @@ class AssetApi
 
 
 
-
-        $resourcePath = '/api/{version}/asset/create';
+        $resourcePath = '/asset/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1538,14 +1486,6 @@ class AssetApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1606,7 +1546,6 @@ class AssetApi
      *
      * Delete Asset
      *
-     * @param  float $version version (required)
      * @param  string $asset_id the id of the asset to delete (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1618,9 +1557,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteAsset($version, $asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
+    public function deleteAsset($asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
     {
-        list($response) = $this->deleteAssetWithHttpInfo($version, $asset_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->deleteAssetWithHttpInfo($asset_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1629,7 +1568,6 @@ class AssetApi
      *
      * Delete Asset
      *
-     * @param  float $version (required)
      * @param  string $asset_id the id of the asset to delete (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1641,9 +1579,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAssetWithHttpInfo($version, $asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
+    public function deleteAssetWithHttpInfo($asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
     {
-        $request = $this->deleteAssetRequest($version, $asset_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->deleteAssetRequest($asset_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1719,7 +1657,6 @@ class AssetApi
      *
      * Delete Asset
      *
-     * @param  float $version (required)
      * @param  string $asset_id the id of the asset to delete (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1730,9 +1667,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAssetAsync($version, $asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
+    public function deleteAssetAsync($asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
     {
-        return $this->deleteAssetAsyncWithHttpInfo($version, $asset_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->deleteAssetAsyncWithHttpInfo($asset_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1745,7 +1682,6 @@ class AssetApi
      *
      * Delete Asset
      *
-     * @param  float $version (required)
      * @param  string $asset_id the id of the asset to delete (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1756,10 +1692,10 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAssetAsyncWithHttpInfo($version, $asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
+    public function deleteAssetAsyncWithHttpInfo($asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteAssetRequest($version, $asset_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->deleteAssetRequest($asset_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1800,7 +1736,6 @@ class AssetApi
     /**
      * Create request for operation 'deleteAsset'
      *
-     * @param  float $version (required)
      * @param  string $asset_id the id of the asset to delete (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1811,15 +1746,8 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteAssetRequest($version, $asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
+    public function deleteAssetRequest($asset_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteAsset'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteAsset'
-            );
-        }
 
         // verify the required parameter 'asset_id' is set
         if ($asset_id === null || (is_array($asset_id) && count($asset_id) === 0)) {
@@ -1833,7 +1761,7 @@ class AssetApi
 
 
 
-        $resourcePath = '/api/{version}/asset/delete';
+        $resourcePath = '/asset/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1887,14 +1815,6 @@ class AssetApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1955,7 +1875,6 @@ class AssetApi
      *
      * Get Asset
      *
-     * @param  float $version version (required)
      * @param  int $asset_id the asset ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1966,9 +1885,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssetFullResponse
      */
-    public function getAsset($version, $asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
+    public function getAsset($asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
     {
-        list($response) = $this->getAssetWithHttpInfo($version, $asset_id, $device_id, $account_id, $note_descending, $contentType);
+        list($response) = $this->getAssetWithHttpInfo($asset_id, $device_id, $account_id, $note_descending, $contentType);
         return $response;
     }
 
@@ -1977,7 +1896,6 @@ class AssetApi
      *
      * Get Asset
      *
-     * @param  float $version (required)
      * @param  int $asset_id the asset ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1988,9 +1906,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssetFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAssetWithHttpInfo($version, $asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
+    public function getAssetWithHttpInfo($asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
     {
-        $request = $this->getAssetRequest($version, $asset_id, $device_id, $account_id, $note_descending, $contentType);
+        $request = $this->getAssetRequest($asset_id, $device_id, $account_id, $note_descending, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2066,7 +1984,6 @@ class AssetApi
      *
      * Get Asset
      *
-     * @param  float $version (required)
      * @param  int $asset_id the asset ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2076,9 +1993,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetAsync($version, $asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
+    public function getAssetAsync($asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
     {
-        return $this->getAssetAsyncWithHttpInfo($version, $asset_id, $device_id, $account_id, $note_descending, $contentType)
+        return $this->getAssetAsyncWithHttpInfo($asset_id, $device_id, $account_id, $note_descending, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2091,7 +2008,6 @@ class AssetApi
      *
      * Get Asset
      *
-     * @param  float $version (required)
      * @param  int $asset_id the asset ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2101,10 +2017,10 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetAsyncWithHttpInfo($version, $asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
+    public function getAssetAsyncWithHttpInfo($asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssetFullResponse';
-        $request = $this->getAssetRequest($version, $asset_id, $device_id, $account_id, $note_descending, $contentType);
+        $request = $this->getAssetRequest($asset_id, $device_id, $account_id, $note_descending, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2145,7 +2061,6 @@ class AssetApi
     /**
      * Create request for operation 'getAsset'
      *
-     * @param  float $version (required)
      * @param  int $asset_id the asset ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2155,15 +2070,8 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAssetRequest($version, $asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
+    public function getAssetRequest($asset_id, $device_id = null, $account_id = null, $note_descending = false, string $contentType = self::contentTypes['getAsset'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAsset'
-            );
-        }
 
         // verify the required parameter 'asset_id' is set
         if ($asset_id === null || (is_array($asset_id) && count($asset_id) === 0)) {
@@ -2176,7 +2084,7 @@ class AssetApi
 
 
 
-        $resourcePath = '/api/{version}/asset/get';
+        $resourcePath = '/asset/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2221,14 +2129,6 @@ class AssetApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2289,7 +2189,6 @@ class AssetApi
      *
      * Remove Asset from Collection
      *
-     * @param  float $version version (required)
      * @param  string $asset_id the id of the asset to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2304,9 +2203,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removeAsset($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
+    public function removeAsset($asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
     {
-        list($response) = $this->removeAssetWithHttpInfo($version, $asset_id, $device_id, $account_id, $album_id, $collection_id, $remove_from_default_albums, $latitude, $longitude, $contentType);
+        list($response) = $this->removeAssetWithHttpInfo($asset_id, $device_id, $account_id, $album_id, $collection_id, $remove_from_default_albums, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -2315,7 +2214,6 @@ class AssetApi
      *
      * Remove Asset from Collection
      *
-     * @param  float $version (required)
      * @param  string $asset_id the id of the asset to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2330,9 +2228,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeAssetWithHttpInfo($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
+    public function removeAssetWithHttpInfo($asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
     {
-        $request = $this->removeAssetRequest($version, $asset_id, $device_id, $account_id, $album_id, $collection_id, $remove_from_default_albums, $latitude, $longitude, $contentType);
+        $request = $this->removeAssetRequest($asset_id, $device_id, $account_id, $album_id, $collection_id, $remove_from_default_albums, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2408,7 +2306,6 @@ class AssetApi
      *
      * Remove Asset from Collection
      *
-     * @param  float $version (required)
      * @param  string $asset_id the id of the asset to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2422,9 +2319,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeAssetAsync($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
+    public function removeAssetAsync($asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
     {
-        return $this->removeAssetAsyncWithHttpInfo($version, $asset_id, $device_id, $account_id, $album_id, $collection_id, $remove_from_default_albums, $latitude, $longitude, $contentType)
+        return $this->removeAssetAsyncWithHttpInfo($asset_id, $device_id, $account_id, $album_id, $collection_id, $remove_from_default_albums, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2437,7 +2334,6 @@ class AssetApi
      *
      * Remove Asset from Collection
      *
-     * @param  float $version (required)
      * @param  string $asset_id the id of the asset to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2451,10 +2347,10 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeAssetAsyncWithHttpInfo($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
+    public function removeAssetAsyncWithHttpInfo($asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removeAssetRequest($version, $asset_id, $device_id, $account_id, $album_id, $collection_id, $remove_from_default_albums, $latitude, $longitude, $contentType);
+        $request = $this->removeAssetRequest($asset_id, $device_id, $account_id, $album_id, $collection_id, $remove_from_default_albums, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2495,7 +2391,6 @@ class AssetApi
     /**
      * Create request for operation 'removeAsset'
      *
-     * @param  float $version (required)
      * @param  string $asset_id the id of the asset to remove (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2509,15 +2404,8 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeAssetRequest($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
+    public function removeAssetRequest($asset_id, $device_id = null, $account_id = null, $album_id = null, $collection_id = null, $remove_from_default_albums = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeAsset'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeAsset'
-            );
-        }
 
         // verify the required parameter 'asset_id' is set
         if ($asset_id === null || (is_array($asset_id) && count($asset_id) === 0)) {
@@ -2534,7 +2422,7 @@ class AssetApi
 
 
 
-        $resourcePath = '/api/{version}/asset/remove';
+        $resourcePath = '/asset/remove';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2615,14 +2503,6 @@ class AssetApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2683,7 +2563,6 @@ class AssetApi
      *
      * Search Assets
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  string|null $album_ids comma separated list of album ids to search on (optional)
@@ -2714,9 +2593,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssetResponse[]
      */
-    public function searchAssets($version, $device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
+    public function searchAssets($device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
     {
-        list($response) = $this->searchAssetsWithHttpInfo($version, $device_id, $account_id, $album_ids, $asset_ids, $app_key, $media_type, $mime_type, $keyword, $version_code, $version_name, $updated_since, $updated_before, $sort_field, $descending, $search_media_library, $filter_by_billable, $active_only, $return_app, $start, $limit, $search_mode, $asset_type, $approval_status, $assigned_account_id, $contentType);
+        list($response) = $this->searchAssetsWithHttpInfo($device_id, $account_id, $album_ids, $asset_ids, $app_key, $media_type, $mime_type, $keyword, $version_code, $version_name, $updated_since, $updated_before, $sort_field, $descending, $search_media_library, $filter_by_billable, $active_only, $return_app, $start, $limit, $search_mode, $asset_type, $approval_status, $assigned_account_id, $contentType);
         return $response;
     }
 
@@ -2725,7 +2604,6 @@ class AssetApi
      *
      * Search Assets
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  string|null $album_ids comma separated list of album ids to search on (optional)
@@ -2756,9 +2634,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssetResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAssetsWithHttpInfo($version, $device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
+    public function searchAssetsWithHttpInfo($device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
     {
-        $request = $this->searchAssetsRequest($version, $device_id, $account_id, $album_ids, $asset_ids, $app_key, $media_type, $mime_type, $keyword, $version_code, $version_name, $updated_since, $updated_before, $sort_field, $descending, $search_media_library, $filter_by_billable, $active_only, $return_app, $start, $limit, $search_mode, $asset_type, $approval_status, $assigned_account_id, $contentType);
+        $request = $this->searchAssetsRequest($device_id, $account_id, $album_ids, $asset_ids, $app_key, $media_type, $mime_type, $keyword, $version_code, $version_name, $updated_since, $updated_before, $sort_field, $descending, $search_media_library, $filter_by_billable, $active_only, $return_app, $start, $limit, $search_mode, $asset_type, $approval_status, $assigned_account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2834,7 +2712,6 @@ class AssetApi
      *
      * Search Assets
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  string|null $album_ids comma separated list of album ids to search on (optional)
@@ -2864,9 +2741,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAssetsAsync($version, $device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
+    public function searchAssetsAsync($device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
     {
-        return $this->searchAssetsAsyncWithHttpInfo($version, $device_id, $account_id, $album_ids, $asset_ids, $app_key, $media_type, $mime_type, $keyword, $version_code, $version_name, $updated_since, $updated_before, $sort_field, $descending, $search_media_library, $filter_by_billable, $active_only, $return_app, $start, $limit, $search_mode, $asset_type, $approval_status, $assigned_account_id, $contentType)
+        return $this->searchAssetsAsyncWithHttpInfo($device_id, $account_id, $album_ids, $asset_ids, $app_key, $media_type, $mime_type, $keyword, $version_code, $version_name, $updated_since, $updated_before, $sort_field, $descending, $search_media_library, $filter_by_billable, $active_only, $return_app, $start, $limit, $search_mode, $asset_type, $approval_status, $assigned_account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2879,7 +2756,6 @@ class AssetApi
      *
      * Search Assets
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  string|null $album_ids comma separated list of album ids to search on (optional)
@@ -2909,10 +2785,10 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAssetsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
+    public function searchAssetsAsyncWithHttpInfo($device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssetResponse[]';
-        $request = $this->searchAssetsRequest($version, $device_id, $account_id, $album_ids, $asset_ids, $app_key, $media_type, $mime_type, $keyword, $version_code, $version_name, $updated_since, $updated_before, $sort_field, $descending, $search_media_library, $filter_by_billable, $active_only, $return_app, $start, $limit, $search_mode, $asset_type, $approval_status, $assigned_account_id, $contentType);
+        $request = $this->searchAssetsRequest($device_id, $account_id, $album_ids, $asset_ids, $app_key, $media_type, $mime_type, $keyword, $version_code, $version_name, $updated_since, $updated_before, $sort_field, $descending, $search_media_library, $filter_by_billable, $active_only, $return_app, $start, $limit, $search_mode, $asset_type, $approval_status, $assigned_account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2953,7 +2829,6 @@ class AssetApi
     /**
      * Create request for operation 'searchAssets'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
      * @param  string|null $album_ids comma separated list of album ids to search on (optional)
@@ -2983,15 +2858,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchAssetsRequest($version, $device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
+    public function searchAssetsRequest($device_id = null, $account_id = null, $album_ids = null, $asset_ids = null, $app_key = null, $media_type = null, $mime_type = null, $keyword = null, $version_code = null, $version_name = null, $updated_since = null, $updated_before = null, $sort_field = null, $descending = null, $search_media_library = null, $filter_by_billable = null, $active_only = null, $return_app = null, $start = null, $limit = null, $search_mode = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, string $contentType = self::contentTypes['searchAssets'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchAssets'
-            );
-        }
 
 
 
@@ -3017,8 +2886,7 @@ class AssetApi
 
 
 
-
-        $resourcePath = '/api/{version}/asset/search';
+        $resourcePath = '/asset/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3243,14 +3111,6 @@ class AssetApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3311,7 +3171,6 @@ class AssetApi
      *
      * Update Asset
      *
-     * @param  float $version version (required)
      * @param  int $asset_id the ID of the asset to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -3349,9 +3208,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateAsset($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
+    public function updateAsset($asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
     {
-        list($response) = $this->updateAssetWithHttpInfo($version, $asset_id, $device_id, $account_id, $album_id, $attached_asset_id, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $search_tags, $app_key, $latitude, $longitude, $contentType);
+        list($response) = $this->updateAssetWithHttpInfo($asset_id, $device_id, $account_id, $album_id, $attached_asset_id, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $search_tags, $app_key, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -3360,7 +3219,6 @@ class AssetApi
      *
      * Update Asset
      *
-     * @param  float $version (required)
      * @param  int $asset_id the ID of the asset to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -3398,9 +3256,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAssetWithHttpInfo($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
+    public function updateAssetWithHttpInfo($asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
     {
-        $request = $this->updateAssetRequest($version, $asset_id, $device_id, $account_id, $album_id, $attached_asset_id, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $search_tags, $app_key, $latitude, $longitude, $contentType);
+        $request = $this->updateAssetRequest($asset_id, $device_id, $account_id, $album_id, $attached_asset_id, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $search_tags, $app_key, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3476,7 +3334,6 @@ class AssetApi
      *
      * Update Asset
      *
-     * @param  float $version (required)
      * @param  int $asset_id the ID of the asset to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -3513,9 +3370,9 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAssetAsync($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
+    public function updateAssetAsync($asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
     {
-        return $this->updateAssetAsyncWithHttpInfo($version, $asset_id, $device_id, $account_id, $album_id, $attached_asset_id, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $search_tags, $app_key, $latitude, $longitude, $contentType)
+        return $this->updateAssetAsyncWithHttpInfo($asset_id, $device_id, $account_id, $album_id, $attached_asset_id, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $search_tags, $app_key, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3528,7 +3385,6 @@ class AssetApi
      *
      * Update Asset
      *
-     * @param  float $version (required)
      * @param  int $asset_id the ID of the asset to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -3565,10 +3421,10 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAssetAsyncWithHttpInfo($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
+    public function updateAssetAsyncWithHttpInfo($asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateAssetRequest($version, $asset_id, $device_id, $account_id, $album_id, $attached_asset_id, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $search_tags, $app_key, $latitude, $longitude, $contentType);
+        $request = $this->updateAssetRequest($asset_id, $device_id, $account_id, $album_id, $attached_asset_id, $version_code, $version_name, $meta_data, $caption, $asset_type, $approval_status, $assigned_account_id, $media, $media_url, $media_string, $media_string_file_name, $media_string_content_type, $media_height, $media_width, $attached_media, $attached_media_url, $attached_media_string, $attached_media_string_file_name, $attached_media_string_content_type, $attached_media_height, $attached_media_width, $location_description, $search_tags, $app_key, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3609,7 +3465,6 @@ class AssetApi
     /**
      * Create request for operation 'updateAsset'
      *
-     * @param  float $version (required)
      * @param  int $asset_id the ID of the asset to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -3646,15 +3501,8 @@ class AssetApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateAssetRequest($version, $asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
+    public function updateAssetRequest($asset_id, $device_id = null, $account_id = null, $album_id = null, $attached_asset_id = null, $version_code = null, $version_name = null, $meta_data = null, $caption = null, $asset_type = null, $approval_status = null, $assigned_account_id = null, $media = null, $media_url = null, $media_string = null, $media_string_file_name = null, $media_string_content_type = null, $media_height = null, $media_width = null, $attached_media = null, $attached_media_url = null, $attached_media_string = null, $attached_media_string_file_name = null, $attached_media_string_content_type = null, $attached_media_height = null, $attached_media_width = null, $location_description = null, $search_tags = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateAsset'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateAsset'
-            );
-        }
 
         // verify the required parameter 'asset_id' is set
         if ($asset_id === null || (is_array($asset_id) && count($asset_id) === 0)) {
@@ -3694,7 +3542,7 @@ class AssetApi
 
 
 
-        $resourcePath = '/api/{version}/asset/update';
+        $resourcePath = '/asset/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3982,14 +3830,6 @@ class AssetApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

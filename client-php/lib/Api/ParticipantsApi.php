@@ -134,7 +134,6 @@ class ParticipantsApi
      *
      * Process All Participant Feeds
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
      * @param  bool|null $use_short_name_as_id Whether to use short name as the participant ID (optional)
@@ -144,9 +143,9 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function processAllParticipants($version, $account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
+    public function processAllParticipants($account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
     {
-        list($response) = $this->processAllParticipantsWithHttpInfo($version, $account_id, $app_key, $use_short_name_as_id, $contentType);
+        list($response) = $this->processAllParticipantsWithHttpInfo($account_id, $app_key, $use_short_name_as_id, $contentType);
         return $response;
     }
 
@@ -155,7 +154,6 @@ class ParticipantsApi
      *
      * Process All Participant Feeds
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
      * @param  bool|null $use_short_name_as_id Whether to use short name as the participant ID (optional)
@@ -165,9 +163,9 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function processAllParticipantsWithHttpInfo($version, $account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
+    public function processAllParticipantsWithHttpInfo($account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
     {
-        $request = $this->processAllParticipantsRequest($version, $account_id, $app_key, $use_short_name_as_id, $contentType);
+        $request = $this->processAllParticipantsRequest($account_id, $app_key, $use_short_name_as_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -243,7 +241,6 @@ class ParticipantsApi
      *
      * Process All Participant Feeds
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
      * @param  bool|null $use_short_name_as_id Whether to use short name as the participant ID (optional)
@@ -252,9 +249,9 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function processAllParticipantsAsync($version, $account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
+    public function processAllParticipantsAsync($account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
     {
-        return $this->processAllParticipantsAsyncWithHttpInfo($version, $account_id, $app_key, $use_short_name_as_id, $contentType)
+        return $this->processAllParticipantsAsyncWithHttpInfo($account_id, $app_key, $use_short_name_as_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -267,7 +264,6 @@ class ParticipantsApi
      *
      * Process All Participant Feeds
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
      * @param  bool|null $use_short_name_as_id Whether to use short name as the participant ID (optional)
@@ -276,10 +272,10 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function processAllParticipantsAsyncWithHttpInfo($version, $account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
+    public function processAllParticipantsAsyncWithHttpInfo($account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->processAllParticipantsRequest($version, $account_id, $app_key, $use_short_name_as_id, $contentType);
+        $request = $this->processAllParticipantsRequest($account_id, $app_key, $use_short_name_as_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -320,7 +316,6 @@ class ParticipantsApi
     /**
      * Create request for operation 'processAllParticipants'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
      * @param  bool|null $use_short_name_as_id Whether to use short name as the participant ID (optional)
@@ -329,15 +324,8 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function processAllParticipantsRequest($version, $account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
+    public function processAllParticipantsRequest($account_id, $app_key = null, $use_short_name_as_id = null, string $contentType = self::contentTypes['processAllParticipants'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling processAllParticipants'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -349,7 +337,7 @@ class ParticipantsApi
 
 
 
-        $resourcePath = '/api/{version}/participant/process/all';
+        $resourcePath = '/participant/process/all';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -385,14 +373,6 @@ class ParticipantsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -453,7 +433,6 @@ class ParticipantsApi
      *
      * Process Participants Feed
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $league The league identifier to process (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
@@ -465,9 +444,9 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function processParticipants($version, $account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
+    public function processParticipants($account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
     {
-        list($response) = $this->processParticipantsWithHttpInfo($version, $account_id, $league, $app_key, $use_short_name_as_id, $file, $contentType);
+        list($response) = $this->processParticipantsWithHttpInfo($account_id, $league, $app_key, $use_short_name_as_id, $file, $contentType);
         return $response;
     }
 
@@ -476,7 +455,6 @@ class ParticipantsApi
      *
      * Process Participants Feed
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $league The league identifier to process (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
@@ -488,9 +466,9 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function processParticipantsWithHttpInfo($version, $account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
+    public function processParticipantsWithHttpInfo($account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
     {
-        $request = $this->processParticipantsRequest($version, $account_id, $league, $app_key, $use_short_name_as_id, $file, $contentType);
+        $request = $this->processParticipantsRequest($account_id, $league, $app_key, $use_short_name_as_id, $file, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -566,7 +544,6 @@ class ParticipantsApi
      *
      * Process Participants Feed
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $league The league identifier to process (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
@@ -577,9 +554,9 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function processParticipantsAsync($version, $account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
+    public function processParticipantsAsync($account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
     {
-        return $this->processParticipantsAsyncWithHttpInfo($version, $account_id, $league, $app_key, $use_short_name_as_id, $file, $contentType)
+        return $this->processParticipantsAsyncWithHttpInfo($account_id, $league, $app_key, $use_short_name_as_id, $file, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -592,7 +569,6 @@ class ParticipantsApi
      *
      * Process Participants Feed
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $league The league identifier to process (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
@@ -603,10 +579,10 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function processParticipantsAsyncWithHttpInfo($version, $account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
+    public function processParticipantsAsyncWithHttpInfo($account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->processParticipantsRequest($version, $account_id, $league, $app_key, $use_short_name_as_id, $file, $contentType);
+        $request = $this->processParticipantsRequest($account_id, $league, $app_key, $use_short_name_as_id, $file, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -647,7 +623,6 @@ class ParticipantsApi
     /**
      * Create request for operation 'processParticipants'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $league The league identifier to process (required)
      * @param  string|null $app_key The application key used to identify the application (optional)
@@ -658,15 +633,8 @@ class ParticipantsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function processParticipantsRequest($version, $account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
+    public function processParticipantsRequest($account_id, $league, $app_key = null, $use_short_name_as_id = null, $file = null, string $contentType = self::contentTypes['processParticipants'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling processParticipants'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -686,7 +654,7 @@ class ParticipantsApi
 
 
 
-        $resourcePath = '/api/{version}/participant/process';
+        $resourcePath = '/participant/process';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -740,14 +708,6 @@ class ParticipantsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

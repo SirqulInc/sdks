@@ -131,7 +131,6 @@ class ActivityApi
      *
      * Create an entity reference.
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\EntityReference $body The entity reference object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEntityReference'] to see the possible values for this operation
      *
@@ -139,9 +138,9 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ActivityResponse
      */
-    public function createEntityReference($version, $body, string $contentType = self::contentTypes['createEntityReference'][0])
+    public function createEntityReference($body, string $contentType = self::contentTypes['createEntityReference'][0])
     {
-        list($response) = $this->createEntityReferenceWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createEntityReferenceWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -150,7 +149,6 @@ class ActivityApi
      *
      * Create an entity reference.
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\EntityReference $body The entity reference object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEntityReference'] to see the possible values for this operation
      *
@@ -158,9 +156,9 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createEntityReferenceWithHttpInfo($version, $body, string $contentType = self::contentTypes['createEntityReference'][0])
+    public function createEntityReferenceWithHttpInfo($body, string $contentType = self::contentTypes['createEntityReference'][0])
     {
-        $request = $this->createEntityReferenceRequest($version, $body, $contentType);
+        $request = $this->createEntityReferenceRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -236,16 +234,15 @@ class ActivityApi
      *
      * Create an entity reference.
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\EntityReference $body The entity reference object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEntityReference'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createEntityReferenceAsync($version, $body, string $contentType = self::contentTypes['createEntityReference'][0])
+    public function createEntityReferenceAsync($body, string $contentType = self::contentTypes['createEntityReference'][0])
     {
-        return $this->createEntityReferenceAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createEntityReferenceAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -258,17 +255,16 @@ class ActivityApi
      *
      * Create an entity reference.
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\EntityReference $body The entity reference object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEntityReference'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createEntityReferenceAsyncWithHttpInfo($version, $body, string $contentType = self::contentTypes['createEntityReference'][0])
+    public function createEntityReferenceAsyncWithHttpInfo($body, string $contentType = self::contentTypes['createEntityReference'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ActivityResponse';
-        $request = $this->createEntityReferenceRequest($version, $body, $contentType);
+        $request = $this->createEntityReferenceRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -309,22 +305,14 @@ class ActivityApi
     /**
      * Create request for operation 'createEntityReference'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\EntityReference $body The entity reference object (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEntityReference'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createEntityReferenceRequest($version, $body, string $contentType = self::contentTypes['createEntityReference'][0])
+    public function createEntityReferenceRequest($body, string $contentType = self::contentTypes['createEntityReference'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createEntityReference'
-            );
-        }
 
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
@@ -334,7 +322,7 @@ class ActivityApi
         }
 
 
-        $resourcePath = '/api/{version}/entity/reference';
+        $resourcePath = '/entity/reference';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -343,14 +331,6 @@ class ActivityApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

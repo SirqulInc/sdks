@@ -146,7 +146,6 @@ class RetailerApi
      *
      * Create Retailer
      *
-     * @param  float $version version (required)
      * @param  string $name The name of the retailer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -186,9 +185,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerFullResponse
      */
-    public function createRetailer($version, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
+    public function createRetailer($name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
     {
-        list($response) = $this->createRetailerWithHttpInfo($version, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $category_ids_to_add, $category_ids_to_remove, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $create_default_location, $response_format, $contentType);
+        list($response) = $this->createRetailerWithHttpInfo($name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $category_ids_to_add, $category_ids_to_remove, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $create_default_location, $response_format, $contentType);
         return $response;
     }
 
@@ -197,7 +196,6 @@ class RetailerApi
      *
      * Create Retailer
      *
-     * @param  float $version (required)
      * @param  string $name The name of the retailer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -237,9 +235,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRetailerWithHttpInfo($version, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
+    public function createRetailerWithHttpInfo($name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
     {
-        $request = $this->createRetailerRequest($version, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $category_ids_to_add, $category_ids_to_remove, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $create_default_location, $response_format, $contentType);
+        $request = $this->createRetailerRequest($name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $category_ids_to_add, $category_ids_to_remove, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $create_default_location, $response_format, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -315,7 +313,6 @@ class RetailerApi
      *
      * Create Retailer
      *
-     * @param  float $version (required)
      * @param  string $name The name of the retailer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -354,9 +351,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRetailerAsync($version, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
+    public function createRetailerAsync($name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
     {
-        return $this->createRetailerAsyncWithHttpInfo($version, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $category_ids_to_add, $category_ids_to_remove, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $create_default_location, $response_format, $contentType)
+        return $this->createRetailerAsyncWithHttpInfo($name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $category_ids_to_add, $category_ids_to_remove, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $create_default_location, $response_format, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -369,7 +366,6 @@ class RetailerApi
      *
      * Create Retailer
      *
-     * @param  float $version (required)
      * @param  string $name The name of the retailer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -408,10 +404,10 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRetailerAsyncWithHttpInfo($version, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
+    public function createRetailerAsyncWithHttpInfo($name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerFullResponse';
-        $request = $this->createRetailerRequest($version, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $category_ids_to_add, $category_ids_to_remove, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $create_default_location, $response_format, $contentType);
+        $request = $this->createRetailerRequest($name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $category_ids_to_add, $category_ids_to_remove, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $create_default_location, $response_format, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -452,7 +448,6 @@ class RetailerApi
     /**
      * Create request for operation 'createRetailer'
      *
-     * @param  float $version (required)
      * @param  string $name The name of the retailer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -491,15 +486,8 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRetailerRequest($version, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
+    public function createRetailerRequest($name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $category_ids_to_add = null, $category_ids_to_remove = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $create_default_location = null, $response_format = null, string $contentType = self::contentTypes['createRetailer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRetailer'
-            );
-        }
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -541,7 +529,7 @@ class RetailerApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/create';
+        $resourcePath = '/retailer/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -847,14 +835,6 @@ class RetailerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -915,7 +895,6 @@ class RetailerApi
      *
      * Delete Retailer
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param  int|null $retailer_id The ID of the retailer to be deleted (optional)
@@ -925,9 +904,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteRetailer($version, $device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
+    public function deleteRetailer($device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
     {
-        list($response) = $this->deleteRetailerWithHttpInfo($version, $device_id, $account_id, $retailer_id, $contentType);
+        list($response) = $this->deleteRetailerWithHttpInfo($device_id, $account_id, $retailer_id, $contentType);
         return $response;
     }
 
@@ -936,7 +915,6 @@ class RetailerApi
      *
      * Delete Retailer
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param  int|null $retailer_id The ID of the retailer to be deleted (optional)
@@ -946,9 +924,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRetailerWithHttpInfo($version, $device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
+    public function deleteRetailerWithHttpInfo($device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
     {
-        $request = $this->deleteRetailerRequest($version, $device_id, $account_id, $retailer_id, $contentType);
+        $request = $this->deleteRetailerRequest($device_id, $account_id, $retailer_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1024,7 +1002,6 @@ class RetailerApi
      *
      * Delete Retailer
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param  int|null $retailer_id The ID of the retailer to be deleted (optional)
@@ -1033,9 +1010,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRetailerAsync($version, $device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
+    public function deleteRetailerAsync($device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
     {
-        return $this->deleteRetailerAsyncWithHttpInfo($version, $device_id, $account_id, $retailer_id, $contentType)
+        return $this->deleteRetailerAsyncWithHttpInfo($device_id, $account_id, $retailer_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1048,7 +1025,6 @@ class RetailerApi
      *
      * Delete Retailer
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param  int|null $retailer_id The ID of the retailer to be deleted (optional)
@@ -1057,10 +1033,10 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRetailerAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
+    public function deleteRetailerAsyncWithHttpInfo($device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteRetailerRequest($version, $device_id, $account_id, $retailer_id, $contentType);
+        $request = $this->deleteRetailerRequest($device_id, $account_id, $retailer_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1101,7 +1077,6 @@ class RetailerApi
     /**
      * Create request for operation 'deleteRetailer'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param  int|null $retailer_id The ID of the retailer to be deleted (optional)
@@ -1110,21 +1085,14 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteRetailerRequest($version, $device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
+    public function deleteRetailerRequest($device_id = null, $account_id = null, $retailer_id = null, string $contentType = self::contentTypes['deleteRetailer'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteRetailer'
-            );
-        }
 
 
 
 
-
-        $resourcePath = '/api/{version}/retailer/delete';
+        $resourcePath = '/retailer/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1160,14 +1128,6 @@ class RetailerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1228,7 +1188,6 @@ class RetailerApi
      *
      * Get Retailer
      *
-     * @param  float $version version (required)
      * @param  int $retailer_id the ID of the retailer (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1239,9 +1198,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerFullResponse
      */
-    public function getRetailer($version, $retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
+    public function getRetailer($retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
     {
-        list($response) = $this->getRetailerWithHttpInfo($version, $retailer_id, $device_id, $account_id, $include_counts, $contentType);
+        list($response) = $this->getRetailerWithHttpInfo($retailer_id, $device_id, $account_id, $include_counts, $contentType);
         return $response;
     }
 
@@ -1250,7 +1209,6 @@ class RetailerApi
      *
      * Get Retailer
      *
-     * @param  float $version (required)
      * @param  int $retailer_id the ID of the retailer (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1261,9 +1219,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRetailerWithHttpInfo($version, $retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
+    public function getRetailerWithHttpInfo($retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
     {
-        $request = $this->getRetailerRequest($version, $retailer_id, $device_id, $account_id, $include_counts, $contentType);
+        $request = $this->getRetailerRequest($retailer_id, $device_id, $account_id, $include_counts, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1339,7 +1297,6 @@ class RetailerApi
      *
      * Get Retailer
      *
-     * @param  float $version (required)
      * @param  int $retailer_id the ID of the retailer (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1349,9 +1306,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetailerAsync($version, $retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
+    public function getRetailerAsync($retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
     {
-        return $this->getRetailerAsyncWithHttpInfo($version, $retailer_id, $device_id, $account_id, $include_counts, $contentType)
+        return $this->getRetailerAsyncWithHttpInfo($retailer_id, $device_id, $account_id, $include_counts, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1364,7 +1321,6 @@ class RetailerApi
      *
      * Get Retailer
      *
-     * @param  float $version (required)
      * @param  int $retailer_id the ID of the retailer (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1374,10 +1330,10 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetailerAsyncWithHttpInfo($version, $retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
+    public function getRetailerAsyncWithHttpInfo($retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerFullResponse';
-        $request = $this->getRetailerRequest($version, $retailer_id, $device_id, $account_id, $include_counts, $contentType);
+        $request = $this->getRetailerRequest($retailer_id, $device_id, $account_id, $include_counts, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1418,7 +1374,6 @@ class RetailerApi
     /**
      * Create request for operation 'getRetailer'
      *
-     * @param  float $version (required)
      * @param  int $retailer_id the ID of the retailer (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1428,15 +1383,8 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRetailerRequest($version, $retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
+    public function getRetailerRequest($retailer_id, $device_id = null, $account_id = null, $include_counts = null, string $contentType = self::contentTypes['getRetailer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRetailer'
-            );
-        }
 
         // verify the required parameter 'retailer_id' is set
         if ($retailer_id === null || (is_array($retailer_id) && count($retailer_id) === 0)) {
@@ -1449,7 +1397,7 @@ class RetailerApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/get';
+        $resourcePath = '/retailer/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1494,14 +1442,6 @@ class RetailerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1562,7 +1502,6 @@ class RetailerApi
      *
      * Search Retailers
      *
-     * @param  float $version version (required)
      * @param  string $visibility  (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1583,9 +1522,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerResponse[]
      */
-    public function getRetailers($version, $visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
+    public function getRetailers($visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
     {
-        list($response) = $this->getRetailersWithHttpInfo($version, $visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $category_ids, $filter_ids, $_i, $_l, $contentType);
+        list($response) = $this->getRetailersWithHttpInfo($visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $category_ids, $filter_ids, $_i, $_l, $contentType);
         return $response;
     }
 
@@ -1594,7 +1533,6 @@ class RetailerApi
      *
      * Search Retailers
      *
-     * @param  float $version (required)
      * @param  string $visibility  (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1615,9 +1553,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRetailersWithHttpInfo($version, $visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
+    public function getRetailersWithHttpInfo($visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
     {
-        $request = $this->getRetailersRequest($version, $visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $category_ids, $filter_ids, $_i, $_l, $contentType);
+        $request = $this->getRetailersRequest($visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $category_ids, $filter_ids, $_i, $_l, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1693,7 +1631,6 @@ class RetailerApi
      *
      * Search Retailers
      *
-     * @param  float $version (required)
      * @param  string $visibility  (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1713,9 +1650,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetailersAsync($version, $visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
+    public function getRetailersAsync($visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
     {
-        return $this->getRetailersAsyncWithHttpInfo($version, $visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $category_ids, $filter_ids, $_i, $_l, $contentType)
+        return $this->getRetailersAsyncWithHttpInfo($visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $category_ids, $filter_ids, $_i, $_l, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1728,7 +1665,6 @@ class RetailerApi
      *
      * Search Retailers
      *
-     * @param  float $version (required)
      * @param  string $visibility  (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1748,10 +1684,10 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetailersAsyncWithHttpInfo($version, $visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
+    public function getRetailersAsyncWithHttpInfo($visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerResponse[]';
-        $request = $this->getRetailersRequest($version, $visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $category_ids, $filter_ids, $_i, $_l, $contentType);
+        $request = $this->getRetailersRequest($visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $category_ids, $filter_ids, $_i, $_l, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1792,7 +1728,6 @@ class RetailerApi
     /**
      * Create request for operation 'getRetailers'
      *
-     * @param  float $version (required)
      * @param  string $visibility  (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1812,15 +1747,8 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRetailersRequest($version, $visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
+    public function getRetailersRequest($visibility, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $category_ids = null, $filter_ids = null, $_i = null, $_l = null, string $contentType = self::contentTypes['getRetailers'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRetailers'
-            );
-        }
 
         // verify the required parameter 'visibility' is set
         if ($visibility === null || (is_array($visibility) && count($visibility) === 0)) {
@@ -1873,7 +1801,7 @@ class RetailerApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/search';
+        $resourcePath = '/retailer/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2008,14 +1936,6 @@ class RetailerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2076,7 +1996,6 @@ class RetailerApi
      *
      * Login Retailer
      *
-     * @param  float $version version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional) (optional)
@@ -2089,9 +2008,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AccountLoginResponse
      */
-    public function retailerLoginCheck($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
+    public function retailerLoginCheck($username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
     {
-        list($response) = $this->retailerLoginCheckWithHttpInfo($version, $username, $password, $device_id, $latitude, $longitude, $app_key, $contentType);
+        list($response) = $this->retailerLoginCheckWithHttpInfo($username, $password, $device_id, $latitude, $longitude, $app_key, $contentType);
         return $response;
     }
 
@@ -2100,7 +2019,6 @@ class RetailerApi
      *
      * Login Retailer
      *
-     * @param  float $version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional) (optional)
@@ -2113,9 +2031,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AccountLoginResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retailerLoginCheckWithHttpInfo($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
+    public function retailerLoginCheckWithHttpInfo($username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
     {
-        $request = $this->retailerLoginCheckRequest($version, $username, $password, $device_id, $latitude, $longitude, $app_key, $contentType);
+        $request = $this->retailerLoginCheckRequest($username, $password, $device_id, $latitude, $longitude, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2191,7 +2109,6 @@ class RetailerApi
      *
      * Login Retailer
      *
-     * @param  float $version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional) (optional)
@@ -2203,9 +2120,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retailerLoginCheckAsync($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
+    public function retailerLoginCheckAsync($username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
     {
-        return $this->retailerLoginCheckAsyncWithHttpInfo($version, $username, $password, $device_id, $latitude, $longitude, $app_key, $contentType)
+        return $this->retailerLoginCheckAsyncWithHttpInfo($username, $password, $device_id, $latitude, $longitude, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2218,7 +2135,6 @@ class RetailerApi
      *
      * Login Retailer
      *
-     * @param  float $version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional) (optional)
@@ -2230,10 +2146,10 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retailerLoginCheckAsyncWithHttpInfo($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
+    public function retailerLoginCheckAsyncWithHttpInfo($username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountLoginResponse';
-        $request = $this->retailerLoginCheckRequest($version, $username, $password, $device_id, $latitude, $longitude, $app_key, $contentType);
+        $request = $this->retailerLoginCheckRequest($username, $password, $device_id, $latitude, $longitude, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2274,7 +2190,6 @@ class RetailerApi
     /**
      * Create request for operation 'retailerLoginCheck'
      *
-     * @param  float $version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional) (optional)
@@ -2286,15 +2201,8 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retailerLoginCheckRequest($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
+    public function retailerLoginCheckRequest($username, $password, $device_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['retailerLoginCheck'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling retailerLoginCheck'
-            );
-        }
 
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -2315,7 +2223,7 @@ class RetailerApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/login';
+        $resourcePath = '/retailer/login';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2378,14 +2286,6 @@ class RetailerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2446,7 +2346,6 @@ class RetailerApi
      *
      * Update Retailer
      *
-     * @param  float $version version (required)
      * @param  int $retailer_id The ID of the retailer to update (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2485,9 +2384,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerFullResponse
      */
-    public function updateRetailer($version, $retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
+    public function updateRetailer($retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
     {
-        list($response) = $this->updateRetailerWithHttpInfo($version, $retailer_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $active, $response_format, $contentType);
+        list($response) = $this->updateRetailerWithHttpInfo($retailer_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $active, $response_format, $contentType);
         return $response;
     }
 
@@ -2496,7 +2395,6 @@ class RetailerApi
      *
      * Update Retailer
      *
-     * @param  float $version (required)
      * @param  int $retailer_id The ID of the retailer to update (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2535,9 +2433,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRetailerWithHttpInfo($version, $retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
+    public function updateRetailerWithHttpInfo($retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
     {
-        $request = $this->updateRetailerRequest($version, $retailer_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $active, $response_format, $contentType);
+        $request = $this->updateRetailerRequest($retailer_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $active, $response_format, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2613,7 +2511,6 @@ class RetailerApi
      *
      * Update Retailer
      *
-     * @param  float $version (required)
      * @param  int $retailer_id The ID of the retailer to update (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2651,9 +2548,9 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRetailerAsync($version, $retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
+    public function updateRetailerAsync($retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
     {
-        return $this->updateRetailerAsyncWithHttpInfo($version, $retailer_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $active, $response_format, $contentType)
+        return $this->updateRetailerAsyncWithHttpInfo($retailer_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $active, $response_format, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2666,7 +2563,6 @@ class RetailerApi
      *
      * Update Retailer
      *
-     * @param  float $version (required)
      * @param  int $retailer_id The ID of the retailer to update (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2704,10 +2600,10 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRetailerAsyncWithHttpInfo($version, $retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
+    public function updateRetailerAsyncWithHttpInfo($retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerFullResponse';
-        $request = $this->updateRetailerRequest($version, $retailer_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $active, $response_format, $contentType);
+        $request = $this->updateRetailerRequest($retailer_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $facebook_url, $twitter_url, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $meta_data, $search_tags, $retailer_type, $visibility, $active, $response_format, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2748,7 +2644,6 @@ class RetailerApi
     /**
      * Create request for operation 'updateRetailer'
      *
-     * @param  float $version (required)
      * @param  int $retailer_id The ID of the retailer to update (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2786,15 +2681,8 @@ class RetailerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRetailerRequest($version, $retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
+    public function updateRetailerRequest($retailer_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $facebook_url = null, $twitter_url = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $meta_data = null, $search_tags = null, $retailer_type = null, $visibility = null, $active = null, $response_format = null, string $contentType = self::contentTypes['updateRetailer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRetailer'
-            );
-        }
 
         // verify the required parameter 'retailer_id' is set
         if ($retailer_id === null || (is_array($retailer_id) && count($retailer_id) === 0)) {
@@ -2835,7 +2723,7 @@ class RetailerApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/update';
+        $resourcePath = '/retailer/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3132,14 +3020,6 @@ class RetailerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

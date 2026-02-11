@@ -146,7 +146,6 @@ class ReportingApi
      *
      * Create Offline Report
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user for passing account related params (required)
      * @param  string $status the status of the report (required)
      * @param  int $preview_limit the limit on how much you can preview of the batch report (required)
@@ -164,9 +163,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ReportBatchResponse
      */
-    public function createBatch($version, $account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
+    public function createBatch($account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
     {
-        list($response) = $this->createBatchWithHttpInfo($version, $account_id, $status, $preview_limit, $app_key, $endpoint, $parameters, $name, $start_date, $end_date, $description, $page_url, $contentType);
+        list($response) = $this->createBatchWithHttpInfo($account_id, $status, $preview_limit, $app_key, $endpoint, $parameters, $name, $start_date, $end_date, $description, $page_url, $contentType);
         return $response;
     }
 
@@ -175,7 +174,6 @@ class ReportingApi
      *
      * Create Offline Report
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user for passing account related params (required)
      * @param  string $status the status of the report (required)
      * @param  int $preview_limit the limit on how much you can preview of the batch report (required)
@@ -193,9 +191,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ReportBatchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBatchWithHttpInfo($version, $account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
+    public function createBatchWithHttpInfo($account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
     {
-        $request = $this->createBatchRequest($version, $account_id, $status, $preview_limit, $app_key, $endpoint, $parameters, $name, $start_date, $end_date, $description, $page_url, $contentType);
+        $request = $this->createBatchRequest($account_id, $status, $preview_limit, $app_key, $endpoint, $parameters, $name, $start_date, $end_date, $description, $page_url, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -271,7 +269,6 @@ class ReportingApi
      *
      * Create Offline Report
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user for passing account related params (required)
      * @param  string $status the status of the report (required)
      * @param  int $preview_limit the limit on how much you can preview of the batch report (required)
@@ -288,9 +285,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBatchAsync($version, $account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
+    public function createBatchAsync($account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
     {
-        return $this->createBatchAsyncWithHttpInfo($version, $account_id, $status, $preview_limit, $app_key, $endpoint, $parameters, $name, $start_date, $end_date, $description, $page_url, $contentType)
+        return $this->createBatchAsyncWithHttpInfo($account_id, $status, $preview_limit, $app_key, $endpoint, $parameters, $name, $start_date, $end_date, $description, $page_url, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -303,7 +300,6 @@ class ReportingApi
      *
      * Create Offline Report
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user for passing account related params (required)
      * @param  string $status the status of the report (required)
      * @param  int $preview_limit the limit on how much you can preview of the batch report (required)
@@ -320,10 +316,10 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBatchAsyncWithHttpInfo($version, $account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
+    public function createBatchAsyncWithHttpInfo($account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ReportBatchResponse';
-        $request = $this->createBatchRequest($version, $account_id, $status, $preview_limit, $app_key, $endpoint, $parameters, $name, $start_date, $end_date, $description, $page_url, $contentType);
+        $request = $this->createBatchRequest($account_id, $status, $preview_limit, $app_key, $endpoint, $parameters, $name, $start_date, $end_date, $description, $page_url, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -364,7 +360,6 @@ class ReportingApi
     /**
      * Create request for operation 'createBatch'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user for passing account related params (required)
      * @param  string $status the status of the report (required)
      * @param  int $preview_limit the limit on how much you can preview of the batch report (required)
@@ -381,15 +376,8 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createBatchRequest($version, $account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
+    public function createBatchRequest($account_id, $status, $preview_limit, $app_key = null, $endpoint = null, $parameters = null, $name = null, $start_date = null, $end_date = null, $description = null, $page_url = null, string $contentType = self::contentTypes['createBatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createBatch'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -421,7 +409,7 @@ class ReportingApi
 
 
 
-        $resourcePath = '/api/{version}/report/batch/create';
+        $resourcePath = '/report/batch/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -529,14 +517,6 @@ class ReportingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -597,7 +577,6 @@ class ReportingApi
      *
      * Create Offline Report
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\RegionLegSummary[]|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRegionLegSummaryBatch'] to see the possible values for this operation
      *
@@ -605,9 +584,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ReportRegionLegSummaryBatchResponse
      */
-    public function createRegionLegSummaryBatch($version, $body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
+    public function createRegionLegSummaryBatch($body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
     {
-        list($response) = $this->createRegionLegSummaryBatchWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createRegionLegSummaryBatchWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -616,7 +595,6 @@ class ReportingApi
      *
      * Create Offline Report
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\RegionLegSummary[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRegionLegSummaryBatch'] to see the possible values for this operation
      *
@@ -624,9 +602,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ReportRegionLegSummaryBatchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRegionLegSummaryBatchWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
+    public function createRegionLegSummaryBatchWithHttpInfo($body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
     {
-        $request = $this->createRegionLegSummaryBatchRequest($version, $body, $contentType);
+        $request = $this->createRegionLegSummaryBatchRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -702,16 +680,15 @@ class ReportingApi
      *
      * Create Offline Report
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\RegionLegSummary[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRegionLegSummaryBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRegionLegSummaryBatchAsync($version, $body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
+    public function createRegionLegSummaryBatchAsync($body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
     {
-        return $this->createRegionLegSummaryBatchAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createRegionLegSummaryBatchAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -724,17 +701,16 @@ class ReportingApi
      *
      * Create Offline Report
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\RegionLegSummary[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRegionLegSummaryBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRegionLegSummaryBatchAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
+    public function createRegionLegSummaryBatchAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ReportRegionLegSummaryBatchResponse';
-        $request = $this->createRegionLegSummaryBatchRequest($version, $body, $contentType);
+        $request = $this->createRegionLegSummaryBatchRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -775,26 +751,18 @@ class ReportingApi
     /**
      * Create request for operation 'createRegionLegSummaryBatch'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\RegionLegSummary[]|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRegionLegSummaryBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRegionLegSummaryBatchRequest($version, $body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
+    public function createRegionLegSummaryBatchRequest($body = null, string $contentType = self::contentTypes['createRegionLegSummaryBatch'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRegionLegSummaryBatch'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/report/region/summary/batch';
+        $resourcePath = '/report/region/summary/batch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -803,14 +771,6 @@ class ReportingApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -878,7 +838,6 @@ class ReportingApi
      *
      * Delete Offline Report
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBatch'] to see the possible values for this operation
@@ -887,9 +846,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteBatch($version, $account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
+    public function deleteBatch($account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
     {
-        list($response) = $this->deleteBatchWithHttpInfo($version, $account_id, $batch_id, $contentType);
+        list($response) = $this->deleteBatchWithHttpInfo($account_id, $batch_id, $contentType);
         return $response;
     }
 
@@ -898,7 +857,6 @@ class ReportingApi
      *
      * Delete Offline Report
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBatch'] to see the possible values for this operation
@@ -907,9 +865,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBatchWithHttpInfo($version, $account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
+    public function deleteBatchWithHttpInfo($account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
     {
-        $request = $this->deleteBatchRequest($version, $account_id, $batch_id, $contentType);
+        $request = $this->deleteBatchRequest($account_id, $batch_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -985,7 +943,6 @@ class ReportingApi
      *
      * Delete Offline Report
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBatch'] to see the possible values for this operation
@@ -993,9 +950,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBatchAsync($version, $account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
+    public function deleteBatchAsync($account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
     {
-        return $this->deleteBatchAsyncWithHttpInfo($version, $account_id, $batch_id, $contentType)
+        return $this->deleteBatchAsyncWithHttpInfo($account_id, $batch_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1008,7 +965,6 @@ class ReportingApi
      *
      * Delete Offline Report
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBatch'] to see the possible values for this operation
@@ -1016,10 +972,10 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBatchAsyncWithHttpInfo($version, $account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
+    public function deleteBatchAsyncWithHttpInfo($account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteBatchRequest($version, $account_id, $batch_id, $contentType);
+        $request = $this->deleteBatchRequest($account_id, $batch_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1060,7 +1016,6 @@ class ReportingApi
     /**
      * Create request for operation 'deleteBatch'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBatch'] to see the possible values for this operation
@@ -1068,15 +1023,8 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteBatchRequest($version, $account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
+    public function deleteBatchRequest($account_id, $batch_id, string $contentType = self::contentTypes['deleteBatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteBatch'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1093,7 +1041,7 @@ class ReportingApi
         }
 
 
-        $resourcePath = '/api/{version}/report/batch/delete';
+        $resourcePath = '/report/batch/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1120,14 +1068,6 @@ class ReportingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1188,7 +1128,6 @@ class ReportingApi
      *
      * Get Offline Report
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id returned by /report/batch/create (required)
      * @param  bool $all_results whether to return all batch results or not (required)
@@ -1198,9 +1137,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ReportBatchResponse
      */
-    public function getReportBatch($version, $account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
+    public function getReportBatch($account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
     {
-        list($response) = $this->getReportBatchWithHttpInfo($version, $account_id, $batch_id, $all_results, $contentType);
+        list($response) = $this->getReportBatchWithHttpInfo($account_id, $batch_id, $all_results, $contentType);
         return $response;
     }
 
@@ -1209,7 +1148,6 @@ class ReportingApi
      *
      * Get Offline Report
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id returned by /report/batch/create (required)
      * @param  bool $all_results whether to return all batch results or not (required)
@@ -1219,9 +1157,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ReportBatchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportBatchWithHttpInfo($version, $account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
+    public function getReportBatchWithHttpInfo($account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
     {
-        $request = $this->getReportBatchRequest($version, $account_id, $batch_id, $all_results, $contentType);
+        $request = $this->getReportBatchRequest($account_id, $batch_id, $all_results, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1297,7 +1235,6 @@ class ReportingApi
      *
      * Get Offline Report
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id returned by /report/batch/create (required)
      * @param  bool $all_results whether to return all batch results or not (required)
@@ -1306,9 +1243,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBatchAsync($version, $account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
+    public function getReportBatchAsync($account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
     {
-        return $this->getReportBatchAsyncWithHttpInfo($version, $account_id, $batch_id, $all_results, $contentType)
+        return $this->getReportBatchAsyncWithHttpInfo($account_id, $batch_id, $all_results, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1321,7 +1258,6 @@ class ReportingApi
      *
      * Get Offline Report
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id returned by /report/batch/create (required)
      * @param  bool $all_results whether to return all batch results or not (required)
@@ -1330,10 +1266,10 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBatchAsyncWithHttpInfo($version, $account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
+    public function getReportBatchAsyncWithHttpInfo($account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ReportBatchResponse';
-        $request = $this->getReportBatchRequest($version, $account_id, $batch_id, $all_results, $contentType);
+        $request = $this->getReportBatchRequest($account_id, $batch_id, $all_results, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1374,7 +1310,6 @@ class ReportingApi
     /**
      * Create request for operation 'getReportBatch'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id returned by /report/batch/create (required)
      * @param  bool $all_results whether to return all batch results or not (required)
@@ -1383,15 +1318,8 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReportBatchRequest($version, $account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
+    public function getReportBatchRequest($account_id, $batch_id, $all_results, string $contentType = self::contentTypes['getReportBatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getReportBatch'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1415,7 +1343,7 @@ class ReportingApi
         }
 
 
-        $resourcePath = '/api/{version}/report/batch/get';
+        $resourcePath = '/report/batch/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1451,14 +1379,6 @@ class ReportingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1519,7 +1439,6 @@ class ReportingApi
      *
      * Run Report
      *
-     * @param  float $version version (required)
      * @param  bool $desc If true then descending order, false is ascending (required)
      * @param  int|null $account_id The account id of the user for passing account related params (optional)
      * @param  string|null $query The named identifier of the query (optional)
@@ -1534,9 +1453,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ReportResponse
      */
-    public function runReport($version, $desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
+    public function runReport($desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
     {
-        list($response) = $this->runReportWithHttpInfo($version, $desc, $account_id, $query, $parameters, $order, $start, $limit, $response_format, $contentType);
+        list($response) = $this->runReportWithHttpInfo($desc, $account_id, $query, $parameters, $order, $start, $limit, $response_format, $contentType);
         return $response;
     }
 
@@ -1545,7 +1464,6 @@ class ReportingApi
      *
      * Run Report
      *
-     * @param  float $version (required)
      * @param  bool $desc If true then descending order, false is ascending (required)
      * @param  int|null $account_id The account id of the user for passing account related params (optional)
      * @param  string|null $query The named identifier of the query (optional)
@@ -1560,9 +1478,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ReportResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function runReportWithHttpInfo($version, $desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
+    public function runReportWithHttpInfo($desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
     {
-        $request = $this->runReportRequest($version, $desc, $account_id, $query, $parameters, $order, $start, $limit, $response_format, $contentType);
+        $request = $this->runReportRequest($desc, $account_id, $query, $parameters, $order, $start, $limit, $response_format, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1638,7 +1556,6 @@ class ReportingApi
      *
      * Run Report
      *
-     * @param  float $version (required)
      * @param  bool $desc If true then descending order, false is ascending (required)
      * @param  int|null $account_id The account id of the user for passing account related params (optional)
      * @param  string|null $query The named identifier of the query (optional)
@@ -1652,9 +1569,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function runReportAsync($version, $desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
+    public function runReportAsync($desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
     {
-        return $this->runReportAsyncWithHttpInfo($version, $desc, $account_id, $query, $parameters, $order, $start, $limit, $response_format, $contentType)
+        return $this->runReportAsyncWithHttpInfo($desc, $account_id, $query, $parameters, $order, $start, $limit, $response_format, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1667,7 +1584,6 @@ class ReportingApi
      *
      * Run Report
      *
-     * @param  float $version (required)
      * @param  bool $desc If true then descending order, false is ascending (required)
      * @param  int|null $account_id The account id of the user for passing account related params (optional)
      * @param  string|null $query The named identifier of the query (optional)
@@ -1681,10 +1597,10 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function runReportAsyncWithHttpInfo($version, $desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
+    public function runReportAsyncWithHttpInfo($desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ReportResponse';
-        $request = $this->runReportRequest($version, $desc, $account_id, $query, $parameters, $order, $start, $limit, $response_format, $contentType);
+        $request = $this->runReportRequest($desc, $account_id, $query, $parameters, $order, $start, $limit, $response_format, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1725,7 +1641,6 @@ class ReportingApi
     /**
      * Create request for operation 'runReport'
      *
-     * @param  float $version (required)
      * @param  bool $desc If true then descending order, false is ascending (required)
      * @param  int|null $account_id The account id of the user for passing account related params (optional)
      * @param  string|null $query The named identifier of the query (optional)
@@ -1739,15 +1654,8 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function runReportRequest($version, $desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
+    public function runReportRequest($desc, $account_id = null, $query = null, $parameters = null, $order = null, $start = null, $limit = null, $response_format = null, string $contentType = self::contentTypes['runReport'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling runReport'
-            );
-        }
 
         // verify the required parameter 'desc' is set
         if ($desc === null || (is_array($desc) && count($desc) === 0)) {
@@ -1764,7 +1672,7 @@ class ReportingApi
 
 
 
-        $resourcePath = '/api/{version}/report/run';
+        $resourcePath = '/report/run';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1845,14 +1753,6 @@ class ReportingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1913,7 +1813,6 @@ class ReportingApi
      *
      * Search Offline Reports
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $start the start of the index and/or pagination (required)
      * @param  int $limit the limit of the index and/or pagination (required)
@@ -1929,9 +1828,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ReportBatchResponse[]
      */
-    public function searchBatch($version, $account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
+    public function searchBatch($account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
     {
-        list($response) = $this->searchBatchWithHttpInfo($version, $account_id, $start, $limit, $names, $app_key, $status, $global_app_search, $start_date, $end_date, $contentType);
+        list($response) = $this->searchBatchWithHttpInfo($account_id, $start, $limit, $names, $app_key, $status, $global_app_search, $start_date, $end_date, $contentType);
         return $response;
     }
 
@@ -1940,7 +1839,6 @@ class ReportingApi
      *
      * Search Offline Reports
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $start the start of the index and/or pagination (required)
      * @param  int $limit the limit of the index and/or pagination (required)
@@ -1956,9 +1854,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ReportBatchResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchBatchWithHttpInfo($version, $account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
+    public function searchBatchWithHttpInfo($account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
     {
-        $request = $this->searchBatchRequest($version, $account_id, $start, $limit, $names, $app_key, $status, $global_app_search, $start_date, $end_date, $contentType);
+        $request = $this->searchBatchRequest($account_id, $start, $limit, $names, $app_key, $status, $global_app_search, $start_date, $end_date, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2034,7 +1932,6 @@ class ReportingApi
      *
      * Search Offline Reports
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $start the start of the index and/or pagination (required)
      * @param  int $limit the limit of the index and/or pagination (required)
@@ -2049,9 +1946,9 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchBatchAsync($version, $account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
+    public function searchBatchAsync($account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
     {
-        return $this->searchBatchAsyncWithHttpInfo($version, $account_id, $start, $limit, $names, $app_key, $status, $global_app_search, $start_date, $end_date, $contentType)
+        return $this->searchBatchAsyncWithHttpInfo($account_id, $start, $limit, $names, $app_key, $status, $global_app_search, $start_date, $end_date, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2064,7 +1961,6 @@ class ReportingApi
      *
      * Search Offline Reports
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $start the start of the index and/or pagination (required)
      * @param  int $limit the limit of the index and/or pagination (required)
@@ -2079,10 +1975,10 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchBatchAsyncWithHttpInfo($version, $account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
+    public function searchBatchAsyncWithHttpInfo($account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ReportBatchResponse[]';
-        $request = $this->searchBatchRequest($version, $account_id, $start, $limit, $names, $app_key, $status, $global_app_search, $start_date, $end_date, $contentType);
+        $request = $this->searchBatchRequest($account_id, $start, $limit, $names, $app_key, $status, $global_app_search, $start_date, $end_date, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2123,7 +2019,6 @@ class ReportingApi
     /**
      * Create request for operation 'searchBatch'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $start the start of the index and/or pagination (required)
      * @param  int $limit the limit of the index and/or pagination (required)
@@ -2138,15 +2033,8 @@ class ReportingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchBatchRequest($version, $account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
+    public function searchBatchRequest($account_id, $start, $limit, $names = null, $app_key = null, $status = null, $global_app_search = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['searchBatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchBatch'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2176,7 +2064,7 @@ class ReportingApi
 
 
 
-        $resourcePath = '/api/{version}/report/batch/search';
+        $resourcePath = '/report/batch/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2266,14 +2154,6 @@ class ReportingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

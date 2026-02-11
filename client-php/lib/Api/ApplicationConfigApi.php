@@ -146,7 +146,6 @@ class ApplicationConfigApi
      *
      * Create AppConfig
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string $app_key The application key that the newly created applicationConfig will be associated to (required)
      * @param  string $config_version The application configuration, has to be unique within the application (required)
@@ -160,9 +159,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationConfigResponse
      */
-    public function createApplicationConfig($version, $account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
+    public function createApplicationConfig($account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
     {
-        list($response) = $this->createApplicationConfigWithHttpInfo($version, $account_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
+        list($response) = $this->createApplicationConfigWithHttpInfo($account_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
         return $response;
     }
 
@@ -171,7 +170,6 @@ class ApplicationConfigApi
      *
      * Create AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string $app_key The application key that the newly created applicationConfig will be associated to (required)
      * @param  string $config_version The application configuration, has to be unique within the application (required)
@@ -185,9 +183,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationConfigResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createApplicationConfigWithHttpInfo($version, $account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
+    public function createApplicationConfigWithHttpInfo($account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
     {
-        $request = $this->createApplicationConfigRequest($version, $account_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
+        $request = $this->createApplicationConfigRequest($account_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -263,7 +261,6 @@ class ApplicationConfigApi
      *
      * Create AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string $app_key The application key that the newly created applicationConfig will be associated to (required)
      * @param  string $config_version The application configuration, has to be unique within the application (required)
@@ -276,9 +273,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createApplicationConfigAsync($version, $account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
+    public function createApplicationConfigAsync($account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
     {
-        return $this->createApplicationConfigAsyncWithHttpInfo($version, $account_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType)
+        return $this->createApplicationConfigAsyncWithHttpInfo($account_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -291,7 +288,6 @@ class ApplicationConfigApi
      *
      * Create AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string $app_key The application key that the newly created applicationConfig will be associated to (required)
      * @param  string $config_version The application configuration, has to be unique within the application (required)
@@ -304,10 +300,10 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createApplicationConfigAsyncWithHttpInfo($version, $account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
+    public function createApplicationConfigAsyncWithHttpInfo($account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationConfigResponse';
-        $request = $this->createApplicationConfigRequest($version, $account_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
+        $request = $this->createApplicationConfigRequest($account_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -348,7 +344,6 @@ class ApplicationConfigApi
     /**
      * Create request for operation 'createApplicationConfig'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string $app_key The application key that the newly created applicationConfig will be associated to (required)
      * @param  string $config_version The application configuration, has to be unique within the application (required)
@@ -361,15 +356,8 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createApplicationConfigRequest($version, $account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
+    public function createApplicationConfigRequest($account_id, $app_key, $config_version, $asset_id, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['createApplicationConfig'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createApplicationConfig'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -403,7 +391,7 @@ class ApplicationConfigApi
 
 
 
-        $resourcePath = '/api/{version}/appconfig/create';
+        $resourcePath = '/appconfig/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -475,14 +463,6 @@ class ApplicationConfigApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -543,7 +523,6 @@ class ApplicationConfigApi
      *
      * Delete AppConfig
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplicationConfig'] to see the possible values for this operation
@@ -552,9 +531,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteApplicationConfig($version, $account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
+    public function deleteApplicationConfig($account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
     {
-        list($response) = $this->deleteApplicationConfigWithHttpInfo($version, $account_id, $config_id, $contentType);
+        list($response) = $this->deleteApplicationConfigWithHttpInfo($account_id, $config_id, $contentType);
         return $response;
     }
 
@@ -563,7 +542,6 @@ class ApplicationConfigApi
      *
      * Delete AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplicationConfig'] to see the possible values for this operation
@@ -572,9 +550,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteApplicationConfigWithHttpInfo($version, $account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
+    public function deleteApplicationConfigWithHttpInfo($account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
     {
-        $request = $this->deleteApplicationConfigRequest($version, $account_id, $config_id, $contentType);
+        $request = $this->deleteApplicationConfigRequest($account_id, $config_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -650,7 +628,6 @@ class ApplicationConfigApi
      *
      * Delete AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplicationConfig'] to see the possible values for this operation
@@ -658,9 +635,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApplicationConfigAsync($version, $account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
+    public function deleteApplicationConfigAsync($account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
     {
-        return $this->deleteApplicationConfigAsyncWithHttpInfo($version, $account_id, $config_id, $contentType)
+        return $this->deleteApplicationConfigAsyncWithHttpInfo($account_id, $config_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -673,7 +650,6 @@ class ApplicationConfigApi
      *
      * Delete AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplicationConfig'] to see the possible values for this operation
@@ -681,10 +657,10 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApplicationConfigAsyncWithHttpInfo($version, $account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
+    public function deleteApplicationConfigAsyncWithHttpInfo($account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteApplicationConfigRequest($version, $account_id, $config_id, $contentType);
+        $request = $this->deleteApplicationConfigRequest($account_id, $config_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -725,7 +701,6 @@ class ApplicationConfigApi
     /**
      * Create request for operation 'deleteApplicationConfig'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplicationConfig'] to see the possible values for this operation
@@ -733,15 +708,8 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteApplicationConfigRequest($version, $account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
+    public function deleteApplicationConfigRequest($account_id, $config_id, string $contentType = self::contentTypes['deleteApplicationConfig'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteApplicationConfig'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -758,7 +726,7 @@ class ApplicationConfigApi
         }
 
 
-        $resourcePath = '/api/{version}/appconfig/delete';
+        $resourcePath = '/appconfig/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -785,14 +753,6 @@ class ApplicationConfigApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -853,7 +813,6 @@ class ApplicationConfigApi
      *
      * Get AppConfig
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationConfig'] to see the possible values for this operation
@@ -862,9 +821,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationConfigResponse
      */
-    public function getApplicationConfig($version, $account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
+    public function getApplicationConfig($account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
     {
-        list($response) = $this->getApplicationConfigWithHttpInfo($version, $account_id, $config_id, $contentType);
+        list($response) = $this->getApplicationConfigWithHttpInfo($account_id, $config_id, $contentType);
         return $response;
     }
 
@@ -873,7 +832,6 @@ class ApplicationConfigApi
      *
      * Get AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationConfig'] to see the possible values for this operation
@@ -882,9 +840,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationConfigResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationConfigWithHttpInfo($version, $account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
+    public function getApplicationConfigWithHttpInfo($account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
     {
-        $request = $this->getApplicationConfigRequest($version, $account_id, $config_id, $contentType);
+        $request = $this->getApplicationConfigRequest($account_id, $config_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -960,7 +918,6 @@ class ApplicationConfigApi
      *
      * Get AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationConfig'] to see the possible values for this operation
@@ -968,9 +925,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationConfigAsync($version, $account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
+    public function getApplicationConfigAsync($account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
     {
-        return $this->getApplicationConfigAsyncWithHttpInfo($version, $account_id, $config_id, $contentType)
+        return $this->getApplicationConfigAsyncWithHttpInfo($account_id, $config_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -983,7 +940,6 @@ class ApplicationConfigApi
      *
      * Get AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationConfig'] to see the possible values for this operation
@@ -991,10 +947,10 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationConfigAsyncWithHttpInfo($version, $account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
+    public function getApplicationConfigAsyncWithHttpInfo($account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationConfigResponse';
-        $request = $this->getApplicationConfigRequest($version, $account_id, $config_id, $contentType);
+        $request = $this->getApplicationConfigRequest($account_id, $config_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1035,7 +991,6 @@ class ApplicationConfigApi
     /**
      * Create request for operation 'getApplicationConfig'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationConfig'] to see the possible values for this operation
@@ -1043,15 +998,8 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getApplicationConfigRequest($version, $account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
+    public function getApplicationConfigRequest($account_id, $config_id, string $contentType = self::contentTypes['getApplicationConfig'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getApplicationConfig'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1068,7 +1016,7 @@ class ApplicationConfigApi
         }
 
 
-        $resourcePath = '/api/{version}/appconfig/get';
+        $resourcePath = '/appconfig/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1095,14 +1043,6 @@ class ApplicationConfigApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1163,7 +1103,6 @@ class ApplicationConfigApi
      *
      * Get AppConfig by Version
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key (required)
      * @param  string $config_version The version of the application configuration (required)
      * @param  int|null $retailer_id Only returns the config that matches the given retailer (optional)
@@ -1176,9 +1115,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationConfigResponse
      */
-    public function getApplicationConfigByConfigVersion($version, $app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
+    public function getApplicationConfigByConfigVersion($app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
     {
-        list($response) = $this->getApplicationConfigByConfigVersionWithHttpInfo($version, $app_key, $config_version, $retailer_id, $retailer_location_id, $udid, $allow_older_versions, $contentType);
+        list($response) = $this->getApplicationConfigByConfigVersionWithHttpInfo($app_key, $config_version, $retailer_id, $retailer_location_id, $udid, $allow_older_versions, $contentType);
         return $response;
     }
 
@@ -1187,7 +1126,6 @@ class ApplicationConfigApi
      *
      * Get AppConfig by Version
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string $config_version The version of the application configuration (required)
      * @param  int|null $retailer_id Only returns the config that matches the given retailer (optional)
@@ -1200,9 +1138,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationConfigResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationConfigByConfigVersionWithHttpInfo($version, $app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
+    public function getApplicationConfigByConfigVersionWithHttpInfo($app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
     {
-        $request = $this->getApplicationConfigByConfigVersionRequest($version, $app_key, $config_version, $retailer_id, $retailer_location_id, $udid, $allow_older_versions, $contentType);
+        $request = $this->getApplicationConfigByConfigVersionRequest($app_key, $config_version, $retailer_id, $retailer_location_id, $udid, $allow_older_versions, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1278,7 +1216,6 @@ class ApplicationConfigApi
      *
      * Get AppConfig by Version
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string $config_version The version of the application configuration (required)
      * @param  int|null $retailer_id Only returns the config that matches the given retailer (optional)
@@ -1290,9 +1227,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationConfigByConfigVersionAsync($version, $app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
+    public function getApplicationConfigByConfigVersionAsync($app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
     {
-        return $this->getApplicationConfigByConfigVersionAsyncWithHttpInfo($version, $app_key, $config_version, $retailer_id, $retailer_location_id, $udid, $allow_older_versions, $contentType)
+        return $this->getApplicationConfigByConfigVersionAsyncWithHttpInfo($app_key, $config_version, $retailer_id, $retailer_location_id, $udid, $allow_older_versions, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1305,7 +1242,6 @@ class ApplicationConfigApi
      *
      * Get AppConfig by Version
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string $config_version The version of the application configuration (required)
      * @param  int|null $retailer_id Only returns the config that matches the given retailer (optional)
@@ -1317,10 +1253,10 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationConfigByConfigVersionAsyncWithHttpInfo($version, $app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
+    public function getApplicationConfigByConfigVersionAsyncWithHttpInfo($app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationConfigResponse';
-        $request = $this->getApplicationConfigByConfigVersionRequest($version, $app_key, $config_version, $retailer_id, $retailer_location_id, $udid, $allow_older_versions, $contentType);
+        $request = $this->getApplicationConfigByConfigVersionRequest($app_key, $config_version, $retailer_id, $retailer_location_id, $udid, $allow_older_versions, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1361,7 +1297,6 @@ class ApplicationConfigApi
     /**
      * Create request for operation 'getApplicationConfigByConfigVersion'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string $config_version The version of the application configuration (required)
      * @param  int|null $retailer_id Only returns the config that matches the given retailer (optional)
@@ -1373,15 +1308,8 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getApplicationConfigByConfigVersionRequest($version, $app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
+    public function getApplicationConfigByConfigVersionRequest($app_key, $config_version, $retailer_id = null, $retailer_location_id = null, $udid = null, $allow_older_versions = false, string $contentType = self::contentTypes['getApplicationConfigByConfigVersion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getApplicationConfigByConfigVersion'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -1402,7 +1330,7 @@ class ApplicationConfigApi
 
 
 
-        $resourcePath = '/api/{version}/appconfig/getbyversion';
+        $resourcePath = '/appconfig/getbyversion';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1465,14 +1393,6 @@ class ApplicationConfigApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1533,7 +1453,6 @@ class ApplicationConfigApi
      *
      * Search AppConfigs
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string|null $app_key The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param  int|null $retailer_id Only returns the configs that matches the given retailer (optional)
@@ -1550,9 +1469,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationConfigResponse[]
      */
-    public function searchApplicationConfig($version, $account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
+    public function searchApplicationConfig($account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
     {
-        list($response) = $this->searchApplicationConfigWithHttpInfo($version, $account_id, $app_key, $retailer_id, $retailer_location_id, $udid, $config_version, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchApplicationConfigWithHttpInfo($account_id, $app_key, $retailer_id, $retailer_location_id, $udid, $config_version, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1561,7 +1480,6 @@ class ApplicationConfigApi
      *
      * Search AppConfigs
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string|null $app_key The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param  int|null $retailer_id Only returns the configs that matches the given retailer (optional)
@@ -1578,9 +1496,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationConfigResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchApplicationConfigWithHttpInfo($version, $account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
+    public function searchApplicationConfigWithHttpInfo($account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
     {
-        $request = $this->searchApplicationConfigRequest($version, $account_id, $app_key, $retailer_id, $retailer_location_id, $udid, $config_version, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchApplicationConfigRequest($account_id, $app_key, $retailer_id, $retailer_location_id, $udid, $config_version, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1656,7 +1574,6 @@ class ApplicationConfigApi
      *
      * Search AppConfigs
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string|null $app_key The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param  int|null $retailer_id Only returns the configs that matches the given retailer (optional)
@@ -1672,9 +1589,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchApplicationConfigAsync($version, $account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
+    public function searchApplicationConfigAsync($account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
     {
-        return $this->searchApplicationConfigAsyncWithHttpInfo($version, $account_id, $app_key, $retailer_id, $retailer_location_id, $udid, $config_version, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->searchApplicationConfigAsyncWithHttpInfo($account_id, $app_key, $retailer_id, $retailer_location_id, $udid, $config_version, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1687,7 +1604,6 @@ class ApplicationConfigApi
      *
      * Search AppConfigs
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string|null $app_key The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param  int|null $retailer_id Only returns the configs that matches the given retailer (optional)
@@ -1703,10 +1619,10 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchApplicationConfigAsyncWithHttpInfo($version, $account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
+    public function searchApplicationConfigAsyncWithHttpInfo($account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationConfigResponse[]';
-        $request = $this->searchApplicationConfigRequest($version, $account_id, $app_key, $retailer_id, $retailer_location_id, $udid, $config_version, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchApplicationConfigRequest($account_id, $app_key, $retailer_id, $retailer_location_id, $udid, $config_version, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1747,7 +1663,6 @@ class ApplicationConfigApi
     /**
      * Create request for operation 'searchApplicationConfig'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  string|null $app_key The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param  int|null $retailer_id Only returns the configs that matches the given retailer (optional)
@@ -1763,15 +1678,8 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchApplicationConfigRequest($version, $account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
+    public function searchApplicationConfigRequest($account_id, $app_key = null, $retailer_id = null, $retailer_location_id = null, $udid = null, $config_version = null, $sort_field = 'CONFIG_VERSION_INDEX', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationConfig'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchApplicationConfig'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1790,7 +1698,7 @@ class ApplicationConfigApi
 
 
 
-        $resourcePath = '/api/{version}/appconfig/search';
+        $resourcePath = '/appconfig/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1889,14 +1797,6 @@ class ApplicationConfigApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1957,7 +1857,6 @@ class ApplicationConfigApi
      *
      * Update AppConfig
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to update (required)
      * @param  string|null $app_key The application key that the updated applicationConfig will be associated to (optional)
@@ -1972,9 +1871,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationConfigResponse
      */
-    public function updateApplicationConfig($version, $account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
+    public function updateApplicationConfig($account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
     {
-        list($response) = $this->updateApplicationConfigWithHttpInfo($version, $account_id, $config_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
+        list($response) = $this->updateApplicationConfigWithHttpInfo($account_id, $config_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
         return $response;
     }
 
@@ -1983,7 +1882,6 @@ class ApplicationConfigApi
      *
      * Update AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to update (required)
      * @param  string|null $app_key The application key that the updated applicationConfig will be associated to (optional)
@@ -1998,9 +1896,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationConfigResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateApplicationConfigWithHttpInfo($version, $account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
+    public function updateApplicationConfigWithHttpInfo($account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
     {
-        $request = $this->updateApplicationConfigRequest($version, $account_id, $config_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
+        $request = $this->updateApplicationConfigRequest($account_id, $config_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2076,7 +1974,6 @@ class ApplicationConfigApi
      *
      * Update AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to update (required)
      * @param  string|null $app_key The application key that the updated applicationConfig will be associated to (optional)
@@ -2090,9 +1987,9 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApplicationConfigAsync($version, $account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
+    public function updateApplicationConfigAsync($account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
     {
-        return $this->updateApplicationConfigAsyncWithHttpInfo($version, $account_id, $config_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType)
+        return $this->updateApplicationConfigAsyncWithHttpInfo($account_id, $config_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2105,7 +2002,6 @@ class ApplicationConfigApi
      *
      * Update AppConfig
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to update (required)
      * @param  string|null $app_key The application key that the updated applicationConfig will be associated to (optional)
@@ -2119,10 +2015,10 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApplicationConfigAsyncWithHttpInfo($version, $account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
+    public function updateApplicationConfigAsyncWithHttpInfo($account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationConfigResponse';
-        $request = $this->updateApplicationConfigRequest($version, $account_id, $config_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
+        $request = $this->updateApplicationConfigRequest($account_id, $config_id, $app_key, $config_version, $asset_id, $retailer_id, $retailer_location_id, $udid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2163,7 +2059,6 @@ class ApplicationConfigApi
     /**
      * Create request for operation 'updateApplicationConfig'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user (required)
      * @param  int $config_id The config ID of the application configuration to update (required)
      * @param  string|null $app_key The application key that the updated applicationConfig will be associated to (optional)
@@ -2177,15 +2072,8 @@ class ApplicationConfigApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateApplicationConfigRequest($version, $account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
+    public function updateApplicationConfigRequest($account_id, $config_id, $app_key = null, $config_version = null, $asset_id = null, $retailer_id = null, $retailer_location_id = null, $udid = null, string $contentType = self::contentTypes['updateApplicationConfig'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateApplicationConfig'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2208,7 +2096,7 @@ class ApplicationConfigApi
 
 
 
-        $resourcePath = '/api/{version}/appconfig/update';
+        $resourcePath = '/appconfig/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2289,14 +2177,6 @@ class ApplicationConfigApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

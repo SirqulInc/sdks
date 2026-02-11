@@ -143,7 +143,6 @@ class RegionApi
      *
      * Create Region
      *
-     * @param  float $version version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  string $region_class RegionClass of this region (required)
      * @param  string $short_name Short name of the region. This is optimized for search (required)
@@ -171,9 +170,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RegionResponse
      */
-    public function createRegion($version, $account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
+    public function createRegion($account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
     {
-        list($response) = $this->createRegionWithHttpInfo($version, $account_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $contentType);
+        list($response) = $this->createRegionWithHttpInfo($account_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $contentType);
         return $response;
     }
 
@@ -182,7 +181,6 @@ class RegionApi
      *
      * Create Region
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  string $region_class RegionClass of this region (required)
      * @param  string $short_name Short name of the region. This is optimized for search (required)
@@ -210,9 +208,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RegionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRegionWithHttpInfo($version, $account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
+    public function createRegionWithHttpInfo($account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
     {
-        $request = $this->createRegionRequest($version, $account_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $contentType);
+        $request = $this->createRegionRequest($account_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -288,7 +286,6 @@ class RegionApi
      *
      * Create Region
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  string $region_class RegionClass of this region (required)
      * @param  string $short_name Short name of the region. This is optimized for search (required)
@@ -315,9 +312,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRegionAsync($version, $account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
+    public function createRegionAsync($account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
     {
-        return $this->createRegionAsyncWithHttpInfo($version, $account_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $contentType)
+        return $this->createRegionAsyncWithHttpInfo($account_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -330,7 +327,6 @@ class RegionApi
      *
      * Create Region
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  string $region_class RegionClass of this region (required)
      * @param  string $short_name Short name of the region. This is optimized for search (required)
@@ -357,10 +353,10 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRegionAsyncWithHttpInfo($version, $account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
+    public function createRegionAsyncWithHttpInfo($account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RegionResponse';
-        $request = $this->createRegionRequest($version, $account_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $contentType);
+        $request = $this->createRegionRequest($account_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -401,7 +397,6 @@ class RegionApi
     /**
      * Create request for operation 'createRegion'
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  string $region_class RegionClass of this region (required)
      * @param  string $short_name Short name of the region. This is optimized for search (required)
@@ -428,15 +423,8 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRegionRequest($version, $account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
+    public function createRegionRequest($account_id, $region_class, $short_name, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, string $contentType = self::contentTypes['createRegion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRegion'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -478,7 +466,7 @@ class RegionApi
 
 
 
-        $resourcePath = '/api/{version}/region/create';
+        $resourcePath = '/region/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -676,14 +664,6 @@ class RegionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -744,7 +724,6 @@ class RegionApi
      *
      * Delete Region
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $region_id the id of the region (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRegion'] to see the possible values for this operation
@@ -753,9 +732,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RegionResponse
      */
-    public function deleteRegion($version, $account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
+    public function deleteRegion($account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
     {
-        list($response) = $this->deleteRegionWithHttpInfo($version, $account_id, $region_id, $contentType);
+        list($response) = $this->deleteRegionWithHttpInfo($account_id, $region_id, $contentType);
         return $response;
     }
 
@@ -764,7 +743,6 @@ class RegionApi
      *
      * Delete Region
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $region_id the id of the region (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRegion'] to see the possible values for this operation
@@ -773,9 +751,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RegionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRegionWithHttpInfo($version, $account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
+    public function deleteRegionWithHttpInfo($account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
     {
-        $request = $this->deleteRegionRequest($version, $account_id, $region_id, $contentType);
+        $request = $this->deleteRegionRequest($account_id, $region_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -851,7 +829,6 @@ class RegionApi
      *
      * Delete Region
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $region_id the id of the region (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRegion'] to see the possible values for this operation
@@ -859,9 +836,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRegionAsync($version, $account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
+    public function deleteRegionAsync($account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
     {
-        return $this->deleteRegionAsyncWithHttpInfo($version, $account_id, $region_id, $contentType)
+        return $this->deleteRegionAsyncWithHttpInfo($account_id, $region_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -874,7 +851,6 @@ class RegionApi
      *
      * Delete Region
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $region_id the id of the region (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRegion'] to see the possible values for this operation
@@ -882,10 +858,10 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRegionAsyncWithHttpInfo($version, $account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
+    public function deleteRegionAsyncWithHttpInfo($account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RegionResponse';
-        $request = $this->deleteRegionRequest($version, $account_id, $region_id, $contentType);
+        $request = $this->deleteRegionRequest($account_id, $region_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -926,7 +902,6 @@ class RegionApi
     /**
      * Create request for operation 'deleteRegion'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $region_id the id of the region (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRegion'] to see the possible values for this operation
@@ -934,15 +909,8 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteRegionRequest($version, $account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
+    public function deleteRegionRequest($account_id, $region_id, string $contentType = self::contentTypes['deleteRegion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteRegion'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -959,7 +927,7 @@ class RegionApi
         }
 
 
-        $resourcePath = '/api/{version}/region/delete';
+        $resourcePath = '/region/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -986,14 +954,6 @@ class RegionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1054,7 +1014,6 @@ class RegionApi
      *
      * Get Region
      *
-     * @param  float $version version (required)
      * @param  int $region_id the id of the region to get (required)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRegion'] to see the possible values for this operation
@@ -1063,9 +1022,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RegionResponse
      */
-    public function getRegion($version, $region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
+    public function getRegion($region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
     {
-        list($response) = $this->getRegionWithHttpInfo($version, $region_id, $account_id, $contentType);
+        list($response) = $this->getRegionWithHttpInfo($region_id, $account_id, $contentType);
         return $response;
     }
 
@@ -1074,7 +1033,6 @@ class RegionApi
      *
      * Get Region
      *
-     * @param  float $version (required)
      * @param  int $region_id the id of the region to get (required)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRegion'] to see the possible values for this operation
@@ -1083,9 +1041,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RegionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRegionWithHttpInfo($version, $region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
+    public function getRegionWithHttpInfo($region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
     {
-        $request = $this->getRegionRequest($version, $region_id, $account_id, $contentType);
+        $request = $this->getRegionRequest($region_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1161,7 +1119,6 @@ class RegionApi
      *
      * Get Region
      *
-     * @param  float $version (required)
      * @param  int $region_id the id of the region to get (required)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRegion'] to see the possible values for this operation
@@ -1169,9 +1126,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRegionAsync($version, $region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
+    public function getRegionAsync($region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
     {
-        return $this->getRegionAsyncWithHttpInfo($version, $region_id, $account_id, $contentType)
+        return $this->getRegionAsyncWithHttpInfo($region_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1184,7 +1141,6 @@ class RegionApi
      *
      * Get Region
      *
-     * @param  float $version (required)
      * @param  int $region_id the id of the region to get (required)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRegion'] to see the possible values for this operation
@@ -1192,10 +1148,10 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRegionAsyncWithHttpInfo($version, $region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
+    public function getRegionAsyncWithHttpInfo($region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RegionResponse';
-        $request = $this->getRegionRequest($version, $region_id, $account_id, $contentType);
+        $request = $this->getRegionRequest($region_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1236,7 +1192,6 @@ class RegionApi
     /**
      * Create request for operation 'getRegion'
      *
-     * @param  float $version (required)
      * @param  int $region_id the id of the region to get (required)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRegion'] to see the possible values for this operation
@@ -1244,15 +1199,8 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRegionRequest($version, $region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
+    public function getRegionRequest($region_id, $account_id = null, string $contentType = self::contentTypes['getRegion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRegion'
-            );
-        }
 
         // verify the required parameter 'region_id' is set
         if ($region_id === null || (is_array($region_id) && count($region_id) === 0)) {
@@ -1263,7 +1211,7 @@ class RegionApi
 
 
 
-        $resourcePath = '/api/{version}/region/get';
+        $resourcePath = '/region/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1290,14 +1238,6 @@ class RegionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1358,7 +1298,6 @@ class RegionApi
      *
      * Search Regions
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id the owner account id of the region to be created (optional)
      * @param  string|null $query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param  string|null $keyword the keyword to filter results on (optional)
@@ -1387,9 +1326,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RegionResponse[]
      */
-    public function searchRegions($version, $account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
+    public function searchRegions($account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
     {
-        list($response) = $this->searchRegionsWithHttpInfo($version, $account_id, $query, $keyword, $latitude, $longitude, $range, $region_class, $visibility, $search_mode, $sort_field, $descending, $include_parent, $include_children, $include_postal_codes, $category_ids, $filter_ids, $version_code, $active_only, $show_deleted, $last_updated_since, $start, $limit, $contentType);
+        list($response) = $this->searchRegionsWithHttpInfo($account_id, $query, $keyword, $latitude, $longitude, $range, $region_class, $visibility, $search_mode, $sort_field, $descending, $include_parent, $include_children, $include_postal_codes, $category_ids, $filter_ids, $version_code, $active_only, $show_deleted, $last_updated_since, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1398,7 +1337,6 @@ class RegionApi
      *
      * Search Regions
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the owner account id of the region to be created (optional)
      * @param  string|null $query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param  string|null $keyword the keyword to filter results on (optional)
@@ -1427,9 +1365,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RegionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRegionsWithHttpInfo($version, $account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
+    public function searchRegionsWithHttpInfo($account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
     {
-        $request = $this->searchRegionsRequest($version, $account_id, $query, $keyword, $latitude, $longitude, $range, $region_class, $visibility, $search_mode, $sort_field, $descending, $include_parent, $include_children, $include_postal_codes, $category_ids, $filter_ids, $version_code, $active_only, $show_deleted, $last_updated_since, $start, $limit, $contentType);
+        $request = $this->searchRegionsRequest($account_id, $query, $keyword, $latitude, $longitude, $range, $region_class, $visibility, $search_mode, $sort_field, $descending, $include_parent, $include_children, $include_postal_codes, $category_ids, $filter_ids, $version_code, $active_only, $show_deleted, $last_updated_since, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1505,7 +1443,6 @@ class RegionApi
      *
      * Search Regions
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the owner account id of the region to be created (optional)
      * @param  string|null $query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param  string|null $keyword the keyword to filter results on (optional)
@@ -1533,9 +1470,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRegionsAsync($version, $account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
+    public function searchRegionsAsync($account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
     {
-        return $this->searchRegionsAsyncWithHttpInfo($version, $account_id, $query, $keyword, $latitude, $longitude, $range, $region_class, $visibility, $search_mode, $sort_field, $descending, $include_parent, $include_children, $include_postal_codes, $category_ids, $filter_ids, $version_code, $active_only, $show_deleted, $last_updated_since, $start, $limit, $contentType)
+        return $this->searchRegionsAsyncWithHttpInfo($account_id, $query, $keyword, $latitude, $longitude, $range, $region_class, $visibility, $search_mode, $sort_field, $descending, $include_parent, $include_children, $include_postal_codes, $category_ids, $filter_ids, $version_code, $active_only, $show_deleted, $last_updated_since, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1548,7 +1485,6 @@ class RegionApi
      *
      * Search Regions
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the owner account id of the region to be created (optional)
      * @param  string|null $query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param  string|null $keyword the keyword to filter results on (optional)
@@ -1576,10 +1512,10 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRegionsAsyncWithHttpInfo($version, $account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
+    public function searchRegionsAsyncWithHttpInfo($account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RegionResponse[]';
-        $request = $this->searchRegionsRequest($version, $account_id, $query, $keyword, $latitude, $longitude, $range, $region_class, $visibility, $search_mode, $sort_field, $descending, $include_parent, $include_children, $include_postal_codes, $category_ids, $filter_ids, $version_code, $active_only, $show_deleted, $last_updated_since, $start, $limit, $contentType);
+        $request = $this->searchRegionsRequest($account_id, $query, $keyword, $latitude, $longitude, $range, $region_class, $visibility, $search_mode, $sort_field, $descending, $include_parent, $include_children, $include_postal_codes, $category_ids, $filter_ids, $version_code, $active_only, $show_deleted, $last_updated_since, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1620,7 +1556,6 @@ class RegionApi
     /**
      * Create request for operation 'searchRegions'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the owner account id of the region to be created (optional)
      * @param  string|null $query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param  string|null $keyword the keyword to filter results on (optional)
@@ -1648,15 +1583,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRegionsRequest($version, $account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
+    public function searchRegionsRequest($account_id = null, $query = null, $keyword = null, $latitude = null, $longitude = null, $range = null, $region_class = null, $visibility = null, $search_mode = null, $sort_field = null, $descending = null, $include_parent = null, $include_children = null, $include_postal_codes = null, $category_ids = null, $filter_ids = null, $version_code = null, $active_only = null, $show_deleted = null, $last_updated_since = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRegions'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchRegions'
-            );
-        }
 
 
 
@@ -1680,8 +1609,7 @@ class RegionApi
 
 
 
-
-        $resourcePath = '/api/{version}/region/search';
+        $resourcePath = '/region/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1888,14 +1816,6 @@ class RegionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1956,7 +1876,6 @@ class RegionApi
      *
      * Update Region
      *
-     * @param  float $version version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  int $region_id The id of the region to be updated (required)
      * @param  string|null $region_class RegionClass of this region (optional)
@@ -1986,9 +1905,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RegionResponse
      */
-    public function updateRegion($version, $account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
+    public function updateRegion($account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
     {
-        list($response) = $this->updateRegionWithHttpInfo($version, $account_id, $region_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $clear_lists, $contentType);
+        list($response) = $this->updateRegionWithHttpInfo($account_id, $region_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $clear_lists, $contentType);
         return $response;
     }
 
@@ -1997,7 +1916,6 @@ class RegionApi
      *
      * Update Region
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  int $region_id The id of the region to be updated (required)
      * @param  string|null $region_class RegionClass of this region (optional)
@@ -2027,9 +1945,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RegionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRegionWithHttpInfo($version, $account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
+    public function updateRegionWithHttpInfo($account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
     {
-        $request = $this->updateRegionRequest($version, $account_id, $region_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $clear_lists, $contentType);
+        $request = $this->updateRegionRequest($account_id, $region_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $clear_lists, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2105,7 +2023,6 @@ class RegionApi
      *
      * Update Region
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  int $region_id The id of the region to be updated (required)
      * @param  string|null $region_class RegionClass of this region (optional)
@@ -2134,9 +2051,9 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRegionAsync($version, $account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
+    public function updateRegionAsync($account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
     {
-        return $this->updateRegionAsyncWithHttpInfo($version, $account_id, $region_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $clear_lists, $contentType)
+        return $this->updateRegionAsyncWithHttpInfo($account_id, $region_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $clear_lists, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2149,7 +2066,6 @@ class RegionApi
      *
      * Update Region
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  int $region_id The id of the region to be updated (required)
      * @param  string|null $region_class RegionClass of this region (optional)
@@ -2178,10 +2094,10 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRegionAsyncWithHttpInfo($version, $account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
+    public function updateRegionAsyncWithHttpInfo($account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RegionResponse';
-        $request = $this->updateRegionRequest($version, $account_id, $region_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $clear_lists, $contentType);
+        $request = $this->updateRegionRequest($account_id, $region_id, $region_class, $short_name, $full_name, $parent_ids, $children_ids, $postal_code_ids, $locations, $retailer_location_id, $visibility, $category_ids, $filter_ids, $start, $end, $polygon, $meta_data, $latitude, $longitude, $version_code, $root, $active, $clear_lists, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2222,7 +2138,6 @@ class RegionApi
     /**
      * Create request for operation 'updateRegion'
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account sending the request (required)
      * @param  int $region_id The id of the region to be updated (required)
      * @param  string|null $region_class RegionClass of this region (optional)
@@ -2251,15 +2166,8 @@ class RegionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRegionRequest($version, $account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
+    public function updateRegionRequest($account_id, $region_id, $region_class = null, $short_name = null, $full_name = null, $parent_ids = null, $children_ids = null, $postal_code_ids = null, $locations = null, $retailer_location_id = null, $visibility = null, $category_ids = null, $filter_ids = null, $start = null, $end = null, $polygon = null, $meta_data = null, $latitude = null, $longitude = null, $version_code = null, $root = null, $active = null, $clear_lists = null, string $contentType = self::contentTypes['updateRegion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRegion'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2297,7 +2205,7 @@ class RegionApi
 
 
 
-        $resourcePath = '/api/{version}/region/update';
+        $resourcePath = '/region/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2513,14 +2421,6 @@ class RegionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

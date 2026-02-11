@@ -143,7 +143,6 @@ class PurchaseItemApi
      *
      * Create Purchase
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key that the purchase can be used in (required)
      * @param  string $name The name of the purchase item (required)
      * @param  string $purchase_type The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -170,9 +169,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PurchaseItemFullResponse
      */
-    public function createPurchaseItem($version, $app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
+    public function createPurchaseItem($app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
     {
-        list($response) = $this->createPurchaseItemWithHttpInfo($version, $app_key, $name, $purchase_type, $device_id, $account_id, $description, $tickets, $price, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
+        list($response) = $this->createPurchaseItemWithHttpInfo($app_key, $name, $purchase_type, $device_id, $account_id, $description, $tickets, $price, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
         return $response;
     }
 
@@ -181,7 +180,6 @@ class PurchaseItemApi
      *
      * Create Purchase
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key that the purchase can be used in (required)
      * @param  string $name The name of the purchase item (required)
      * @param  string $purchase_type The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -208,9 +206,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PurchaseItemFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPurchaseItemWithHttpInfo($version, $app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
+    public function createPurchaseItemWithHttpInfo($app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
     {
-        $request = $this->createPurchaseItemRequest($version, $app_key, $name, $purchase_type, $device_id, $account_id, $description, $tickets, $price, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
+        $request = $this->createPurchaseItemRequest($app_key, $name, $purchase_type, $device_id, $account_id, $description, $tickets, $price, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -286,7 +284,6 @@ class PurchaseItemApi
      *
      * Create Purchase
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key that the purchase can be used in (required)
      * @param  string $name The name of the purchase item (required)
      * @param  string $purchase_type The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -312,9 +309,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPurchaseItemAsync($version, $app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
+    public function createPurchaseItemAsync($app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
     {
-        return $this->createPurchaseItemAsyncWithHttpInfo($version, $app_key, $name, $purchase_type, $device_id, $account_id, $description, $tickets, $price, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType)
+        return $this->createPurchaseItemAsyncWithHttpInfo($app_key, $name, $purchase_type, $device_id, $account_id, $description, $tickets, $price, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -327,7 +324,6 @@ class PurchaseItemApi
      *
      * Create Purchase
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key that the purchase can be used in (required)
      * @param  string $name The name of the purchase item (required)
      * @param  string $purchase_type The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -353,10 +349,10 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPurchaseItemAsyncWithHttpInfo($version, $app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
+    public function createPurchaseItemAsyncWithHttpInfo($app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PurchaseItemFullResponse';
-        $request = $this->createPurchaseItemRequest($version, $app_key, $name, $purchase_type, $device_id, $account_id, $description, $tickets, $price, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
+        $request = $this->createPurchaseItemRequest($app_key, $name, $purchase_type, $device_id, $account_id, $description, $tickets, $price, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -397,7 +393,6 @@ class PurchaseItemApi
     /**
      * Create request for operation 'createPurchaseItem'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key that the purchase can be used in (required)
      * @param  string $name The name of the purchase item (required)
      * @param  string $purchase_type The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -423,15 +418,8 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createPurchaseItemRequest($version, $app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
+    public function createPurchaseItemRequest($app_key, $name, $purchase_type, $device_id = null, $account_id = null, $description = null, $tickets = null, $price = null, $purchase_code = null, $secret_key = null, $purchase_limit = 0, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['createPurchaseItem'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createPurchaseItem'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -472,7 +460,7 @@ class PurchaseItemApi
 
 
 
-        $resourcePath = '/api/{version}/purchase/create';
+        $resourcePath = '/purchase/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -661,14 +649,6 @@ class PurchaseItemApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -729,7 +709,6 @@ class PurchaseItemApi
      *
      * Delete Purchase
      *
-     * @param  float $version version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -739,9 +718,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deletePurchaseItem($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
+    public function deletePurchaseItem($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
     {
-        list($response) = $this->deletePurchaseItemWithHttpInfo($version, $purchase_item_id, $device_id, $account_id, $contentType);
+        list($response) = $this->deletePurchaseItemWithHttpInfo($purchase_item_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -750,7 +729,6 @@ class PurchaseItemApi
      *
      * Delete Purchase
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -760,9 +738,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePurchaseItemWithHttpInfo($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
+    public function deletePurchaseItemWithHttpInfo($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
     {
-        $request = $this->deletePurchaseItemRequest($version, $purchase_item_id, $device_id, $account_id, $contentType);
+        $request = $this->deletePurchaseItemRequest($purchase_item_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -838,7 +816,6 @@ class PurchaseItemApi
      *
      * Delete Purchase
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -847,9 +824,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePurchaseItemAsync($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
+    public function deletePurchaseItemAsync($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
     {
-        return $this->deletePurchaseItemAsyncWithHttpInfo($version, $purchase_item_id, $device_id, $account_id, $contentType)
+        return $this->deletePurchaseItemAsyncWithHttpInfo($purchase_item_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -862,7 +839,6 @@ class PurchaseItemApi
      *
      * Delete Purchase
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -871,10 +847,10 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePurchaseItemAsyncWithHttpInfo($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
+    public function deletePurchaseItemAsyncWithHttpInfo($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deletePurchaseItemRequest($version, $purchase_item_id, $device_id, $account_id, $contentType);
+        $request = $this->deletePurchaseItemRequest($purchase_item_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -915,7 +891,6 @@ class PurchaseItemApi
     /**
      * Create request for operation 'deletePurchaseItem'
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -924,15 +899,8 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletePurchaseItemRequest($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
+    public function deletePurchaseItemRequest($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deletePurchaseItem'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deletePurchaseItem'
-            );
-        }
 
         // verify the required parameter 'purchase_item_id' is set
         if ($purchase_item_id === null || (is_array($purchase_item_id) && count($purchase_item_id) === 0)) {
@@ -944,7 +912,7 @@ class PurchaseItemApi
 
 
 
-        $resourcePath = '/api/{version}/purchase/delete';
+        $resourcePath = '/purchase/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -980,14 +948,6 @@ class PurchaseItemApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1048,7 +1008,6 @@ class PurchaseItemApi
      *
      * Get Purchase
      *
-     * @param  float $version version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1058,9 +1017,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PurchaseItemFullResponse
      */
-    public function getPurchaseItem($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
+    public function getPurchaseItem($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
     {
-        list($response) = $this->getPurchaseItemWithHttpInfo($version, $purchase_item_id, $device_id, $account_id, $contentType);
+        list($response) = $this->getPurchaseItemWithHttpInfo($purchase_item_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -1069,7 +1028,6 @@ class PurchaseItemApi
      *
      * Get Purchase
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1079,9 +1037,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PurchaseItemFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPurchaseItemWithHttpInfo($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
+    public function getPurchaseItemWithHttpInfo($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
     {
-        $request = $this->getPurchaseItemRequest($version, $purchase_item_id, $device_id, $account_id, $contentType);
+        $request = $this->getPurchaseItemRequest($purchase_item_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1157,7 +1115,6 @@ class PurchaseItemApi
      *
      * Get Purchase
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1166,9 +1123,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseItemAsync($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
+    public function getPurchaseItemAsync($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
     {
-        return $this->getPurchaseItemAsyncWithHttpInfo($version, $purchase_item_id, $device_id, $account_id, $contentType)
+        return $this->getPurchaseItemAsyncWithHttpInfo($purchase_item_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1181,7 +1138,6 @@ class PurchaseItemApi
      *
      * Get Purchase
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1190,10 +1146,10 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseItemAsyncWithHttpInfo($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
+    public function getPurchaseItemAsyncWithHttpInfo($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PurchaseItemFullResponse';
-        $request = $this->getPurchaseItemRequest($version, $purchase_item_id, $device_id, $account_id, $contentType);
+        $request = $this->getPurchaseItemRequest($purchase_item_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1234,7 +1190,6 @@ class PurchaseItemApi
     /**
      * Create request for operation 'getPurchaseItem'
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1243,15 +1198,8 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPurchaseItemRequest($version, $purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
+    public function getPurchaseItemRequest($purchase_item_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getPurchaseItem'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPurchaseItem'
-            );
-        }
 
         // verify the required parameter 'purchase_item_id' is set
         if ($purchase_item_id === null || (is_array($purchase_item_id) && count($purchase_item_id) === 0)) {
@@ -1263,7 +1211,7 @@ class PurchaseItemApi
 
 
 
-        $resourcePath = '/api/{version}/purchase/get';
+        $resourcePath = '/purchase/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1299,14 +1247,6 @@ class PurchaseItemApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1367,7 +1307,6 @@ class PurchaseItemApi
      *
      * Search Purchases
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key to filter results by application (optional)
@@ -1386,9 +1325,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PurchaseItemResponse[]
      */
-    public function searchPurchaseItems($version, $device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
+    public function searchPurchaseItems($device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
     {
-        list($response) = $this->searchPurchaseItemsWithHttpInfo($version, $device_id, $account_id, $app_key, $filter_by_billable, $purchase_type, $service_action, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        list($response) = $this->searchPurchaseItemsWithHttpInfo($device_id, $account_id, $app_key, $filter_by_billable, $purchase_type, $service_action, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
         return $response;
     }
 
@@ -1397,7 +1336,6 @@ class PurchaseItemApi
      *
      * Search Purchases
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key to filter results by application (optional)
@@ -1416,9 +1354,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PurchaseItemResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchPurchaseItemsWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
+    public function searchPurchaseItemsWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
     {
-        $request = $this->searchPurchaseItemsRequest($version, $device_id, $account_id, $app_key, $filter_by_billable, $purchase_type, $service_action, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchPurchaseItemsRequest($device_id, $account_id, $app_key, $filter_by_billable, $purchase_type, $service_action, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1494,7 +1432,6 @@ class PurchaseItemApi
      *
      * Search Purchases
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key to filter results by application (optional)
@@ -1512,9 +1449,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPurchaseItemsAsync($version, $device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
+    public function searchPurchaseItemsAsync($device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
     {
-        return $this->searchPurchaseItemsAsyncWithHttpInfo($version, $device_id, $account_id, $app_key, $filter_by_billable, $purchase_type, $service_action, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType)
+        return $this->searchPurchaseItemsAsyncWithHttpInfo($device_id, $account_id, $app_key, $filter_by_billable, $purchase_type, $service_action, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1527,7 +1464,6 @@ class PurchaseItemApi
      *
      * Search Purchases
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key to filter results by application (optional)
@@ -1545,10 +1481,10 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPurchaseItemsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
+    public function searchPurchaseItemsAsyncWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PurchaseItemResponse[]';
-        $request = $this->searchPurchaseItemsRequest($version, $device_id, $account_id, $app_key, $filter_by_billable, $purchase_type, $service_action, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchPurchaseItemsRequest($device_id, $account_id, $app_key, $filter_by_billable, $purchase_type, $service_action, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1589,7 +1525,6 @@ class PurchaseItemApi
     /**
      * Create request for operation 'searchPurchaseItems'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key to filter results by application (optional)
@@ -1607,15 +1542,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchPurchaseItemsRequest($version, $device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
+    public function searchPurchaseItemsRequest($device_id = null, $account_id = null, $app_key = null, $filter_by_billable = false, $purchase_type = null, $service_action = null, $keyword = null, $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchPurchaseItems'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchPurchaseItems'
-            );
-        }
 
 
 
@@ -1629,8 +1558,7 @@ class PurchaseItemApi
 
 
 
-
-        $resourcePath = '/api/{version}/purchase/search';
+        $resourcePath = '/purchase/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1747,14 +1675,6 @@ class PurchaseItemApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1815,7 +1735,6 @@ class PurchaseItemApi
      *
      * Update Purchase
      *
-     * @param  float $version version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1843,9 +1762,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PurchaseItemFullResponse
      */
-    public function updatePurchaseItem($version, $purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
+    public function updatePurchaseItem($purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
     {
-        list($response) = $this->updatePurchaseItemWithHttpInfo($version, $purchase_item_id, $device_id, $account_id, $name, $description, $tickets, $price, $purchase_type, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $active, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
+        list($response) = $this->updatePurchaseItemWithHttpInfo($purchase_item_id, $device_id, $account_id, $name, $description, $tickets, $price, $purchase_type, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $active, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
         return $response;
     }
 
@@ -1854,7 +1773,6 @@ class PurchaseItemApi
      *
      * Update Purchase
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1882,9 +1800,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PurchaseItemFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePurchaseItemWithHttpInfo($version, $purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
+    public function updatePurchaseItemWithHttpInfo($purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
     {
-        $request = $this->updatePurchaseItemRequest($version, $purchase_item_id, $device_id, $account_id, $name, $description, $tickets, $price, $purchase_type, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $active, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
+        $request = $this->updatePurchaseItemRequest($purchase_item_id, $device_id, $account_id, $name, $description, $tickets, $price, $purchase_type, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $active, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1960,7 +1878,6 @@ class PurchaseItemApi
      *
      * Update Purchase
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1987,9 +1904,9 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePurchaseItemAsync($version, $purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
+    public function updatePurchaseItemAsync($purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
     {
-        return $this->updatePurchaseItemAsyncWithHttpInfo($version, $purchase_item_id, $device_id, $account_id, $name, $description, $tickets, $price, $purchase_type, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $active, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType)
+        return $this->updatePurchaseItemAsyncWithHttpInfo($purchase_item_id, $device_id, $account_id, $name, $description, $tickets, $price, $purchase_type, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $active, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2002,7 +1919,6 @@ class PurchaseItemApi
      *
      * Update Purchase
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2029,10 +1945,10 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePurchaseItemAsyncWithHttpInfo($version, $purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
+    public function updatePurchaseItemAsyncWithHttpInfo($purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PurchaseItemFullResponse';
-        $request = $this->updatePurchaseItemRequest($version, $purchase_item_id, $device_id, $account_id, $name, $description, $tickets, $price, $purchase_type, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $active, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
+        $request = $this->updatePurchaseItemRequest($purchase_item_id, $device_id, $account_id, $name, $description, $tickets, $price, $purchase_type, $purchase_code, $secret_key, $purchase_limit, $service_action, $cover_asset_id, $promo_asset_id, $giftable, $assetable, $active, $allocate_tickets, $ticket_type, $points, $offer_location_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2073,7 +1989,6 @@ class PurchaseItemApi
     /**
      * Create request for operation 'updatePurchaseItem'
      *
-     * @param  float $version (required)
      * @param  int $purchase_item_id The purchase item id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2100,15 +2015,8 @@ class PurchaseItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePurchaseItemRequest($version, $purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
+    public function updatePurchaseItemRequest($purchase_item_id, $device_id = null, $account_id = null, $name = null, $description = null, $tickets = null, $price = null, $purchase_type = null, $purchase_code = null, $secret_key = null, $purchase_limit = null, $service_action = null, $cover_asset_id = null, $promo_asset_id = null, $giftable = null, $assetable = null, $active = null, $allocate_tickets = false, $ticket_type = null, $points = null, $offer_location_id = null, string $contentType = self::contentTypes['updatePurchaseItem'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updatePurchaseItem'
-            );
-        }
 
         // verify the required parameter 'purchase_item_id' is set
         if ($purchase_item_id === null || (is_array($purchase_item_id) && count($purchase_item_id) === 0)) {
@@ -2138,7 +2046,7 @@ class PurchaseItemApi
 
 
 
-        $resourcePath = '/api/{version}/purchase/update';
+        $resourcePath = '/purchase/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2336,14 +2244,6 @@ class PurchaseItemApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

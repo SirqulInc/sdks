@@ -158,7 +158,6 @@ class TournamentApi
      *
      * Create Tournament
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The appKey the tournament is created for. (required)
      * @param  string $title The title of the tournament (required)
@@ -200,9 +199,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TournamentResponse
      */
-    public function createTournament($version, $account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
+    public function createTournament($account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
     {
-        list($response) = $this->createTournamentWithHttpInfo($version, $account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $mission_type, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
+        list($response) = $this->createTournamentWithHttpInfo($account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $mission_type, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
         return $response;
     }
 
@@ -211,7 +210,6 @@ class TournamentApi
      *
      * Create Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The appKey the tournament is created for. (required)
      * @param  string $title The title of the tournament (required)
@@ -253,9 +251,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TournamentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTournamentWithHttpInfo($version, $account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
+    public function createTournamentWithHttpInfo($account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
     {
-        $request = $this->createTournamentRequest($version, $account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $mission_type, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
+        $request = $this->createTournamentRequest($account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $mission_type, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -331,7 +329,6 @@ class TournamentApi
      *
      * Create Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The appKey the tournament is created for. (required)
      * @param  string $title The title of the tournament (required)
@@ -372,9 +369,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTournamentAsync($version, $account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
+    public function createTournamentAsync($account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
     {
-        return $this->createTournamentAsyncWithHttpInfo($version, $account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $mission_type, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType)
+        return $this->createTournamentAsyncWithHttpInfo($account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $mission_type, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -387,7 +384,6 @@ class TournamentApi
      *
      * Create Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The appKey the tournament is created for. (required)
      * @param  string $title The title of the tournament (required)
@@ -428,10 +424,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTournamentAsyncWithHttpInfo($version, $account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
+    public function createTournamentAsyncWithHttpInfo($account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TournamentResponse';
-        $request = $this->createTournamentRequest($version, $account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $mission_type, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
+        $request = $this->createTournamentRequest($account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $mission_type, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -472,7 +468,6 @@ class TournamentApi
     /**
      * Create request for operation 'createTournament'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The appKey the tournament is created for. (required)
      * @param  string $title The title of the tournament (required)
@@ -513,15 +508,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTournamentRequest($version, $account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
+    public function createTournamentRequest($account_id, $app_key, $title, $cost_to_play, $start_date, $sub_type = null, $image_asset_id = null, $seconds_between_levels = 600, $seconds_for_tie_breaker = 600, $seconds_between_packs = 86400, $maximum_level_length = 1800, $cost_to_play_type = null, $minimum_to_play = 1, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $audience_ids = null, $active = null, $enable_buy_back = false, $offer_ids = null, $offer_asset_id = null, $fixed_reward = false, $split_reward = 'ALL', $allocate_tickets = null, $tournament_data = null, $mission_type = 'MULTISTAGE', $visibility = 'PUBLIC', $preliminary_groups = 1, $preliminary_group_advancements = '1', $enable_multiple_entries = false, $enable_multiple_votes = false, $featured = false, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['createTournament'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createTournament'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -589,7 +577,7 @@ class TournamentApi
 
 
 
-        $resourcePath = '/api/{version}/tournament/create';
+        $resourcePath = '/tournament/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -913,14 +901,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -981,7 +961,6 @@ class TournamentApi
      *
      * Delete Tournament
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTournament'] to see the possible values for this operation
@@ -990,9 +969,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteTournament($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
+    public function deleteTournament($account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
     {
-        list($response) = $this->deleteTournamentWithHttpInfo($version, $account_id, $mission_id, $contentType);
+        list($response) = $this->deleteTournamentWithHttpInfo($account_id, $mission_id, $contentType);
         return $response;
     }
 
@@ -1001,7 +980,6 @@ class TournamentApi
      *
      * Delete Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTournament'] to see the possible values for this operation
@@ -1010,9 +988,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTournamentWithHttpInfo($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
+    public function deleteTournamentWithHttpInfo($account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
     {
-        $request = $this->deleteTournamentRequest($version, $account_id, $mission_id, $contentType);
+        $request = $this->deleteTournamentRequest($account_id, $mission_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1088,7 +1066,6 @@ class TournamentApi
      *
      * Delete Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTournament'] to see the possible values for this operation
@@ -1096,9 +1073,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTournamentAsync($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
+    public function deleteTournamentAsync($account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
     {
-        return $this->deleteTournamentAsyncWithHttpInfo($version, $account_id, $mission_id, $contentType)
+        return $this->deleteTournamentAsyncWithHttpInfo($account_id, $mission_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1111,7 +1088,6 @@ class TournamentApi
      *
      * Delete Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTournament'] to see the possible values for this operation
@@ -1119,10 +1095,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTournamentAsyncWithHttpInfo($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
+    public function deleteTournamentAsyncWithHttpInfo($account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteTournamentRequest($version, $account_id, $mission_id, $contentType);
+        $request = $this->deleteTournamentRequest($account_id, $mission_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1163,7 +1139,6 @@ class TournamentApi
     /**
      * Create request for operation 'deleteTournament'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTournament'] to see the possible values for this operation
@@ -1171,15 +1146,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteTournamentRequest($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
+    public function deleteTournamentRequest($account_id, $mission_id, string $contentType = self::contentTypes['deleteTournament'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteTournament'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1196,7 +1164,7 @@ class TournamentApi
         }
 
 
-        $resourcePath = '/api/{version}/tournament/delete';
+        $resourcePath = '/tournament/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1223,14 +1191,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1291,7 +1251,6 @@ class TournamentApi
      *
      * Get Tournament
      *
-     * @param  float $version version (required)
      * @param  int $account_id The id of the logged in user (required)
      * @param  int|null $mission_id The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param  string|null $join_code Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -1303,9 +1262,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TournamentResponse
      */
-    public function getTournament($version, $account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
+    public function getTournament($account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
     {
-        list($response) = $this->getTournamentWithHttpInfo($version, $account_id, $mission_id, $join_code, $include_scores, $object_preview_size, $contentType);
+        list($response) = $this->getTournamentWithHttpInfo($account_id, $mission_id, $join_code, $include_scores, $object_preview_size, $contentType);
         return $response;
     }
 
@@ -1314,7 +1273,6 @@ class TournamentApi
      *
      * Get Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the logged in user (required)
      * @param  int|null $mission_id The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param  string|null $join_code Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -1326,9 +1284,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TournamentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTournamentWithHttpInfo($version, $account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
+    public function getTournamentWithHttpInfo($account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
     {
-        $request = $this->getTournamentRequest($version, $account_id, $mission_id, $join_code, $include_scores, $object_preview_size, $contentType);
+        $request = $this->getTournamentRequest($account_id, $mission_id, $join_code, $include_scores, $object_preview_size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1404,7 +1362,6 @@ class TournamentApi
      *
      * Get Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the logged in user (required)
      * @param  int|null $mission_id The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param  string|null $join_code Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -1415,9 +1372,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTournamentAsync($version, $account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
+    public function getTournamentAsync($account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
     {
-        return $this->getTournamentAsyncWithHttpInfo($version, $account_id, $mission_id, $join_code, $include_scores, $object_preview_size, $contentType)
+        return $this->getTournamentAsyncWithHttpInfo($account_id, $mission_id, $join_code, $include_scores, $object_preview_size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1430,7 +1387,6 @@ class TournamentApi
      *
      * Get Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the logged in user (required)
      * @param  int|null $mission_id The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param  string|null $join_code Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -1441,10 +1397,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTournamentAsyncWithHttpInfo($version, $account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
+    public function getTournamentAsyncWithHttpInfo($account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TournamentResponse';
-        $request = $this->getTournamentRequest($version, $account_id, $mission_id, $join_code, $include_scores, $object_preview_size, $contentType);
+        $request = $this->getTournamentRequest($account_id, $mission_id, $join_code, $include_scores, $object_preview_size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1485,7 +1441,6 @@ class TournamentApi
     /**
      * Create request for operation 'getTournament'
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the logged in user (required)
      * @param  int|null $mission_id The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param  string|null $join_code Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -1496,15 +1451,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTournamentRequest($version, $account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
+    public function getTournamentRequest($account_id, $mission_id = null, $join_code = null, $include_scores = null, $object_preview_size = 50, string $contentType = self::contentTypes['getTournament'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTournament'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1518,7 +1466,7 @@ class TournamentApi
 
 
 
-        $resourcePath = '/api/{version}/tournament/get';
+        $resourcePath = '/tournament/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1572,14 +1520,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1640,7 +1580,6 @@ class TournamentApi
      *
      * Search Tournament Objects
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID (required)
      * @param  int $game_level_id the game level id to filter results by (required)
      * @param  string|null $sort_field the field to sort by (optional, default to 'PLAYER_SCORE_COUNT')
@@ -1653,9 +1592,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function searchObjects($version, $account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
+    public function searchObjects($account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
     {
-        list($response) = $this->searchObjectsWithHttpInfo($version, $account_id, $game_level_id, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchObjectsWithHttpInfo($account_id, $game_level_id, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1664,7 +1603,6 @@ class TournamentApi
      *
      * Search Tournament Objects
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID (required)
      * @param  int $game_level_id the game level id to filter results by (required)
      * @param  string|null $sort_field the field to sort by (optional, default to 'PLAYER_SCORE_COUNT')
@@ -1677,9 +1615,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchObjectsWithHttpInfo($version, $account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
+    public function searchObjectsWithHttpInfo($account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
     {
-        $request = $this->searchObjectsRequest($version, $account_id, $game_level_id, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchObjectsRequest($account_id, $game_level_id, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1755,7 +1693,6 @@ class TournamentApi
      *
      * Search Tournament Objects
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID (required)
      * @param  int $game_level_id the game level id to filter results by (required)
      * @param  string|null $sort_field the field to sort by (optional, default to 'PLAYER_SCORE_COUNT')
@@ -1767,9 +1704,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObjectsAsync($version, $account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
+    public function searchObjectsAsync($account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
     {
-        return $this->searchObjectsAsyncWithHttpInfo($version, $account_id, $game_level_id, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->searchObjectsAsyncWithHttpInfo($account_id, $game_level_id, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1782,7 +1719,6 @@ class TournamentApi
      *
      * Search Tournament Objects
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID (required)
      * @param  int $game_level_id the game level id to filter results by (required)
      * @param  string|null $sort_field the field to sort by (optional, default to 'PLAYER_SCORE_COUNT')
@@ -1794,10 +1730,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObjectsAsyncWithHttpInfo($version, $account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
+    public function searchObjectsAsyncWithHttpInfo($account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->searchObjectsRequest($version, $account_id, $game_level_id, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchObjectsRequest($account_id, $game_level_id, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1838,7 +1774,6 @@ class TournamentApi
     /**
      * Create request for operation 'searchObjects'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID (required)
      * @param  int $game_level_id the game level id to filter results by (required)
      * @param  string|null $sort_field the field to sort by (optional, default to 'PLAYER_SCORE_COUNT')
@@ -1850,15 +1785,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchObjectsRequest($version, $account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
+    public function searchObjectsRequest($account_id, $game_level_id, $sort_field = 'PLAYER_SCORE_COUNT', $descending = true, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchObjects'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchObjects'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1879,7 +1807,7 @@ class TournamentApi
 
 
 
-        $resourcePath = '/api/{version}/tournament/object/search';
+        $resourcePath = '/tournament/object/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1942,14 +1870,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2010,7 +1930,6 @@ class TournamentApi
      *
      * Search Tournament Rounds
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $status comma separated list of statuses to filter results by (optional, default to 'ACCEPTED,ACTIVE')
@@ -2025,9 +1944,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function searchRounds($version, $account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
+    public function searchRounds($account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
     {
-        list($response) = $this->searchRoundsWithHttpInfo($version, $account_id, $app_key, $status, $mission_type, $current_only, $visibilities, $start, $limit, $contentType);
+        list($response) = $this->searchRoundsWithHttpInfo($account_id, $app_key, $status, $mission_type, $current_only, $visibilities, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2036,7 +1955,6 @@ class TournamentApi
      *
      * Search Tournament Rounds
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $status comma separated list of statuses to filter results by (optional, default to 'ACCEPTED,ACTIVE')
@@ -2051,9 +1969,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRoundsWithHttpInfo($version, $account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
+    public function searchRoundsWithHttpInfo($account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
     {
-        $request = $this->searchRoundsRequest($version, $account_id, $app_key, $status, $mission_type, $current_only, $visibilities, $start, $limit, $contentType);
+        $request = $this->searchRoundsRequest($account_id, $app_key, $status, $mission_type, $current_only, $visibilities, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2129,7 +2047,6 @@ class TournamentApi
      *
      * Search Tournament Rounds
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $status comma separated list of statuses to filter results by (optional, default to 'ACCEPTED,ACTIVE')
@@ -2143,9 +2060,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRoundsAsync($version, $account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
+    public function searchRoundsAsync($account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
     {
-        return $this->searchRoundsAsyncWithHttpInfo($version, $account_id, $app_key, $status, $mission_type, $current_only, $visibilities, $start, $limit, $contentType)
+        return $this->searchRoundsAsyncWithHttpInfo($account_id, $app_key, $status, $mission_type, $current_only, $visibilities, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2158,7 +2075,6 @@ class TournamentApi
      *
      * Search Tournament Rounds
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $status comma separated list of statuses to filter results by (optional, default to 'ACCEPTED,ACTIVE')
@@ -2172,10 +2088,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRoundsAsyncWithHttpInfo($version, $account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
+    public function searchRoundsAsyncWithHttpInfo($account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->searchRoundsRequest($version, $account_id, $app_key, $status, $mission_type, $current_only, $visibilities, $start, $limit, $contentType);
+        $request = $this->searchRoundsRequest($account_id, $app_key, $status, $mission_type, $current_only, $visibilities, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2216,7 +2132,6 @@ class TournamentApi
     /**
      * Create request for operation 'searchRounds'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID (required)
      * @param  string $app_key the application key (required)
      * @param  string|null $status comma separated list of statuses to filter results by (optional, default to 'ACCEPTED,ACTIVE')
@@ -2230,15 +2145,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRoundsRequest($version, $account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
+    public function searchRoundsRequest($account_id, $app_key, $status = 'ACCEPTED,ACTIVE', $mission_type = null, $current_only = true, $visibilities = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchRounds'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchRounds'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2261,7 +2169,7 @@ class TournamentApi
 
 
 
-        $resourcePath = '/api/{version}/tournament/round/search';
+        $resourcePath = '/tournament/round/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2342,14 +2250,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2410,7 +2310,6 @@ class TournamentApi
      *
      * Search Tournaments
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword the keyword to search tournament on (optional)
@@ -2429,9 +2328,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionShortResponse
      */
-    public function searchTournaments($version, $account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
+    public function searchTournaments($account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
     {
-        list($response) = $this->searchTournamentsWithHttpInfo($version, $account_id, $app_key, $keyword, $sub_type, $include_inactive, $mission_types, $filter, $sort_field, $descending, $visibility, $start, $limit, $contentType);
+        list($response) = $this->searchTournamentsWithHttpInfo($account_id, $app_key, $keyword, $sub_type, $include_inactive, $mission_types, $filter, $sort_field, $descending, $visibility, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2440,7 +2339,6 @@ class TournamentApi
      *
      * Search Tournaments
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword the keyword to search tournament on (optional)
@@ -2459,9 +2357,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionShortResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchTournamentsWithHttpInfo($version, $account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
+    public function searchTournamentsWithHttpInfo($account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
     {
-        $request = $this->searchTournamentsRequest($version, $account_id, $app_key, $keyword, $sub_type, $include_inactive, $mission_types, $filter, $sort_field, $descending, $visibility, $start, $limit, $contentType);
+        $request = $this->searchTournamentsRequest($account_id, $app_key, $keyword, $sub_type, $include_inactive, $mission_types, $filter, $sort_field, $descending, $visibility, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2537,7 +2435,6 @@ class TournamentApi
      *
      * Search Tournaments
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword the keyword to search tournament on (optional)
@@ -2555,9 +2452,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTournamentsAsync($version, $account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
+    public function searchTournamentsAsync($account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
     {
-        return $this->searchTournamentsAsyncWithHttpInfo($version, $account_id, $app_key, $keyword, $sub_type, $include_inactive, $mission_types, $filter, $sort_field, $descending, $visibility, $start, $limit, $contentType)
+        return $this->searchTournamentsAsyncWithHttpInfo($account_id, $app_key, $keyword, $sub_type, $include_inactive, $mission_types, $filter, $sort_field, $descending, $visibility, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2570,7 +2467,6 @@ class TournamentApi
      *
      * Search Tournaments
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword the keyword to search tournament on (optional)
@@ -2588,10 +2484,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTournamentsAsyncWithHttpInfo($version, $account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
+    public function searchTournamentsAsyncWithHttpInfo($account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionShortResponse';
-        $request = $this->searchTournamentsRequest($version, $account_id, $app_key, $keyword, $sub_type, $include_inactive, $mission_types, $filter, $sort_field, $descending, $visibility, $start, $limit, $contentType);
+        $request = $this->searchTournamentsRequest($account_id, $app_key, $keyword, $sub_type, $include_inactive, $mission_types, $filter, $sort_field, $descending, $visibility, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2632,7 +2528,6 @@ class TournamentApi
     /**
      * Create request for operation 'searchTournaments'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword the keyword to search tournament on (optional)
@@ -2650,15 +2545,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchTournamentsRequest($version, $account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
+    public function searchTournamentsRequest($account_id, $app_key, $keyword = null, $sub_type = null, $include_inactive = false, $mission_types = 'MULTISTAGE,TOURNAMENT,POOLPLAY', $filter = 'UPCOMING', $sort_field = 'START_DATE', $descending = null, $visibility = 'PUBLIC', $start = 0, $limit = 20, string $contentType = self::contentTypes['searchTournaments'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchTournaments'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2685,7 +2573,7 @@ class TournamentApi
 
 
 
-        $resourcePath = '/api/{version}/tournament/search';
+        $resourcePath = '/tournament/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2802,14 +2690,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2870,7 +2750,6 @@ class TournamentApi
      *
      * Submit Tournament Score
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user account ID. (required)
      * @param  string $app_key The application key. (required)
      * @param  int $mission_id The missionId to score for (required)
@@ -2884,9 +2763,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function submitTournamentScore($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
+    public function submitTournamentScore($account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
     {
-        list($response) = $this->submitTournamentScoreWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id, $contentType);
+        list($response) = $this->submitTournamentScoreWithHttpInfo($account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id, $contentType);
         return $response;
     }
 
@@ -2895,7 +2774,6 @@ class TournamentApi
      *
      * Submit Tournament Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user account ID. (required)
      * @param  string $app_key The application key. (required)
      * @param  int $mission_id The missionId to score for (required)
@@ -2909,9 +2787,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function submitTournamentScoreWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
+    public function submitTournamentScoreWithHttpInfo($account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
     {
-        $request = $this->submitTournamentScoreRequest($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id, $contentType);
+        $request = $this->submitTournamentScoreRequest($account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2987,7 +2865,6 @@ class TournamentApi
      *
      * Submit Tournament Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user account ID. (required)
      * @param  string $app_key The application key. (required)
      * @param  int $mission_id The missionId to score for (required)
@@ -3000,9 +2877,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function submitTournamentScoreAsync($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
+    public function submitTournamentScoreAsync($account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
     {
-        return $this->submitTournamentScoreAsyncWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id, $contentType)
+        return $this->submitTournamentScoreAsyncWithHttpInfo($account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3015,7 +2892,6 @@ class TournamentApi
      *
      * Submit Tournament Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user account ID. (required)
      * @param  string $app_key The application key. (required)
      * @param  int $mission_id The missionId to score for (required)
@@ -3028,10 +2904,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function submitTournamentScoreAsyncWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
+    public function submitTournamentScoreAsyncWithHttpInfo($account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->submitTournamentScoreRequest($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id, $contentType);
+        $request = $this->submitTournamentScoreRequest($account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3072,7 +2948,6 @@ class TournamentApi
     /**
      * Create request for operation 'submitTournamentScore'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user account ID. (required)
      * @param  string $app_key The application key. (required)
      * @param  int $mission_id The missionId to score for (required)
@@ -3085,15 +2960,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function submitTournamentScoreRequest($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
+    public function submitTournamentScoreRequest($account_id, $app_key, $mission_id, $game_id, $pack_id, $scores, $game_level_id = null, string $contentType = self::contentTypes['submitTournamentScore'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling submitTournamentScore'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3139,7 +3007,7 @@ class TournamentApi
 
 
 
-        $resourcePath = '/api/{version}/tournament/score';
+        $resourcePath = '/tournament/score';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3211,14 +3079,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3279,7 +3139,6 @@ class TournamentApi
      *
      * Submit a vote for a multi-stage album tournament.
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  int $mission_id The tournament&#39;s primary id (required)
@@ -3292,9 +3151,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function submitTournamentVote($version, $account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
+    public function submitTournamentVote($account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
     {
-        list($response) = $this->submitTournamentVoteWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_object_id, $device_id, $check_if_device_already_voted, $contentType);
+        list($response) = $this->submitTournamentVoteWithHttpInfo($account_id, $app_key, $mission_id, $game_object_id, $device_id, $check_if_device_already_voted, $contentType);
         return $response;
     }
 
@@ -3303,7 +3162,6 @@ class TournamentApi
      *
      * Submit a vote for a multi-stage album tournament.
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  int $mission_id The tournament&#39;s primary id (required)
@@ -3316,9 +3174,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function submitTournamentVoteWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
+    public function submitTournamentVoteWithHttpInfo($account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
     {
-        $request = $this->submitTournamentVoteRequest($version, $account_id, $app_key, $mission_id, $game_object_id, $device_id, $check_if_device_already_voted, $contentType);
+        $request = $this->submitTournamentVoteRequest($account_id, $app_key, $mission_id, $game_object_id, $device_id, $check_if_device_already_voted, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3394,7 +3252,6 @@ class TournamentApi
      *
      * Submit a vote for a multi-stage album tournament.
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  int $mission_id The tournament&#39;s primary id (required)
@@ -3406,9 +3263,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function submitTournamentVoteAsync($version, $account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
+    public function submitTournamentVoteAsync($account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
     {
-        return $this->submitTournamentVoteAsyncWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_object_id, $device_id, $check_if_device_already_voted, $contentType)
+        return $this->submitTournamentVoteAsyncWithHttpInfo($account_id, $app_key, $mission_id, $game_object_id, $device_id, $check_if_device_already_voted, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3421,7 +3278,6 @@ class TournamentApi
      *
      * Submit a vote for a multi-stage album tournament.
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  int $mission_id The tournament&#39;s primary id (required)
@@ -3433,10 +3289,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function submitTournamentVoteAsyncWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
+    public function submitTournamentVoteAsyncWithHttpInfo($account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->submitTournamentVoteRequest($version, $account_id, $app_key, $mission_id, $game_object_id, $device_id, $check_if_device_already_voted, $contentType);
+        $request = $this->submitTournamentVoteRequest($account_id, $app_key, $mission_id, $game_object_id, $device_id, $check_if_device_already_voted, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3477,7 +3333,6 @@ class TournamentApi
     /**
      * Create request for operation 'submitTournamentVote'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  int $mission_id The tournament&#39;s primary id (required)
@@ -3489,15 +3344,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function submitTournamentVoteRequest($version, $account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
+    public function submitTournamentVoteRequest($account_id, $app_key, $mission_id, $game_object_id, $device_id = null, $check_if_device_already_voted = false, string $contentType = self::contentTypes['submitTournamentVote'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling submitTournamentVote'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3530,7 +3378,7 @@ class TournamentApi
 
 
 
-        $resourcePath = '/api/{version}/tournament/vote';
+        $resourcePath = '/tournament/vote';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3593,14 +3441,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3661,7 +3501,6 @@ class TournamentApi
      *
      * Substitute Tournament Player
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission (required)
      * @param  int $pack_id the id of the pack (required)
@@ -3672,9 +3511,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function substituteTournamentPlayer($version, $account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
+    public function substituteTournamentPlayer($account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
     {
-        list($response) = $this->substituteTournamentPlayerWithHttpInfo($version, $account_id, $mission_id, $pack_id, $game_level_id, $contentType);
+        list($response) = $this->substituteTournamentPlayerWithHttpInfo($account_id, $mission_id, $pack_id, $game_level_id, $contentType);
         return $response;
     }
 
@@ -3683,7 +3522,6 @@ class TournamentApi
      *
      * Substitute Tournament Player
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission (required)
      * @param  int $pack_id the id of the pack (required)
@@ -3694,9 +3532,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function substituteTournamentPlayerWithHttpInfo($version, $account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
+    public function substituteTournamentPlayerWithHttpInfo($account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
     {
-        $request = $this->substituteTournamentPlayerRequest($version, $account_id, $mission_id, $pack_id, $game_level_id, $contentType);
+        $request = $this->substituteTournamentPlayerRequest($account_id, $mission_id, $pack_id, $game_level_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3772,7 +3610,6 @@ class TournamentApi
      *
      * Substitute Tournament Player
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission (required)
      * @param  int $pack_id the id of the pack (required)
@@ -3782,9 +3619,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function substituteTournamentPlayerAsync($version, $account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
+    public function substituteTournamentPlayerAsync($account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
     {
-        return $this->substituteTournamentPlayerAsyncWithHttpInfo($version, $account_id, $mission_id, $pack_id, $game_level_id, $contentType)
+        return $this->substituteTournamentPlayerAsyncWithHttpInfo($account_id, $mission_id, $pack_id, $game_level_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3797,7 +3634,6 @@ class TournamentApi
      *
      * Substitute Tournament Player
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission (required)
      * @param  int $pack_id the id of the pack (required)
@@ -3807,10 +3643,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function substituteTournamentPlayerAsyncWithHttpInfo($version, $account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
+    public function substituteTournamentPlayerAsyncWithHttpInfo($account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->substituteTournamentPlayerRequest($version, $account_id, $mission_id, $pack_id, $game_level_id, $contentType);
+        $request = $this->substituteTournamentPlayerRequest($account_id, $mission_id, $pack_id, $game_level_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3851,7 +3687,6 @@ class TournamentApi
     /**
      * Create request for operation 'substituteTournamentPlayer'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission (required)
      * @param  int $pack_id the id of the pack (required)
@@ -3861,15 +3696,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function substituteTournamentPlayerRequest($version, $account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
+    public function substituteTournamentPlayerRequest($account_id, $mission_id, $pack_id, $game_level_id, string $contentType = self::contentTypes['substituteTournamentPlayer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling substituteTournamentPlayer'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3900,7 +3728,7 @@ class TournamentApi
         }
 
 
-        $resourcePath = '/api/{version}/tournament/substitute';
+        $resourcePath = '/tournament/substitute';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3945,14 +3773,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4013,7 +3833,6 @@ class TournamentApi
      *
      * Update Tournament
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The mission/tournament to update (required)
      * @param  string|null $title The title of the tournament (optional)
@@ -4054,9 +3873,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TournamentResponse
      */
-    public function updateTournament($version, $account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
+    public function updateTournament($account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
     {
-        list($response) = $this->updateTournamentWithHttpInfo($version, $account_id, $mission_id, $title, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $start_date, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
+        list($response) = $this->updateTournamentWithHttpInfo($account_id, $mission_id, $title, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $start_date, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
         return $response;
     }
 
@@ -4065,7 +3884,6 @@ class TournamentApi
      *
      * Update Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The mission/tournament to update (required)
      * @param  string|null $title The title of the tournament (optional)
@@ -4106,9 +3924,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TournamentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTournamentWithHttpInfo($version, $account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
+    public function updateTournamentWithHttpInfo($account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
     {
-        $request = $this->updateTournamentRequest($version, $account_id, $mission_id, $title, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $start_date, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
+        $request = $this->updateTournamentRequest($account_id, $mission_id, $title, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $start_date, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4184,7 +4002,6 @@ class TournamentApi
      *
      * Update Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The mission/tournament to update (required)
      * @param  string|null $title The title of the tournament (optional)
@@ -4224,9 +4041,9 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTournamentAsync($version, $account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
+    public function updateTournamentAsync($account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
     {
-        return $this->updateTournamentAsyncWithHttpInfo($version, $account_id, $mission_id, $title, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $start_date, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType)
+        return $this->updateTournamentAsyncWithHttpInfo($account_id, $mission_id, $title, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $start_date, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4239,7 +4056,6 @@ class TournamentApi
      *
      * Update Tournament
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The mission/tournament to update (required)
      * @param  string|null $title The title of the tournament (optional)
@@ -4279,10 +4095,10 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTournamentAsyncWithHttpInfo($version, $account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
+    public function updateTournamentAsyncWithHttpInfo($account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TournamentResponse';
-        $request = $this->updateTournamentRequest($version, $account_id, $mission_id, $title, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $start_date, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
+        $request = $this->updateTournamentRequest($account_id, $mission_id, $title, $sub_type, $image_asset_id, $seconds_between_levels, $seconds_for_tie_breaker, $seconds_between_packs, $maximum_level_length, $cost_to_play, $cost_to_play_type, $minimum_to_play, $starting_limit, $available_limit, $description, $meta_data, $start_date, $audience_ids, $active, $enable_buy_back, $offer_ids, $offer_asset_id, $fixed_reward, $split_reward, $allocate_tickets, $tournament_data, $visibility, $preliminary_groups, $preliminary_group_advancements, $enable_multiple_entries, $enable_multiple_votes, $featured, $winner_tag, $tie_tag, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4323,7 +4139,6 @@ class TournamentApi
     /**
      * Create request for operation 'updateTournament'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The mission/tournament to update (required)
      * @param  string|null $title The title of the tournament (optional)
@@ -4363,15 +4178,8 @@ class TournamentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTournamentRequest($version, $account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
+    public function updateTournamentRequest($account_id, $mission_id, $title = null, $sub_type = null, $image_asset_id = null, $seconds_between_levels = null, $seconds_for_tie_breaker = null, $seconds_between_packs = null, $maximum_level_length = null, $cost_to_play = null, $cost_to_play_type = null, $minimum_to_play = null, $starting_limit = null, $available_limit = null, $description = null, $meta_data = null, $start_date = null, $audience_ids = null, $active = null, $enable_buy_back = null, $offer_ids = null, $offer_asset_id = null, $fixed_reward = null, $split_reward = null, $allocate_tickets = null, $tournament_data = null, $visibility = null, $preliminary_groups = null, $preliminary_group_advancements = null, $enable_multiple_entries = null, $enable_multiple_votes = null, $featured = null, $winner_tag = null, $tie_tag = null, string $contentType = self::contentTypes['updateTournament'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateTournament'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4420,7 +4228,7 @@ class TournamentApi
 
 
 
-        $resourcePath = '/api/{version}/tournament/update';
+        $resourcePath = '/tournament/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4735,14 +4543,6 @@ class TournamentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

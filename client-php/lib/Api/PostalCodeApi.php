@@ -143,7 +143,6 @@ class PostalCodeApi
      *
      * Create Postal Code
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $code the postal code (required)
      * @param  float $latitude the latitude of the postal code (required)
@@ -157,9 +156,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PostalCodeResponse
      */
-    public function createPostalCode($version, $account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
+    public function createPostalCode($account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
     {
-        list($response) = $this->createPostalCodeWithHttpInfo($version, $account_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
+        list($response) = $this->createPostalCodeWithHttpInfo($account_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
         return $response;
     }
 
@@ -168,7 +167,6 @@ class PostalCodeApi
      *
      * Create Postal Code
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $code the postal code (required)
      * @param  float $latitude the latitude of the postal code (required)
@@ -182,9 +180,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PostalCodeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPostalCodeWithHttpInfo($version, $account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
+    public function createPostalCodeWithHttpInfo($account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
     {
-        $request = $this->createPostalCodeRequest($version, $account_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
+        $request = $this->createPostalCodeRequest($account_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -260,7 +258,6 @@ class PostalCodeApi
      *
      * Create Postal Code
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $code the postal code (required)
      * @param  float $latitude the latitude of the postal code (required)
@@ -273,9 +270,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPostalCodeAsync($version, $account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
+    public function createPostalCodeAsync($account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
     {
-        return $this->createPostalCodeAsyncWithHttpInfo($version, $account_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType)
+        return $this->createPostalCodeAsyncWithHttpInfo($account_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -288,7 +285,6 @@ class PostalCodeApi
      *
      * Create Postal Code
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $code the postal code (required)
      * @param  float $latitude the latitude of the postal code (required)
@@ -301,10 +297,10 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPostalCodeAsyncWithHttpInfo($version, $account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
+    public function createPostalCodeAsyncWithHttpInfo($account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PostalCodeResponse';
-        $request = $this->createPostalCodeRequest($version, $account_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
+        $request = $this->createPostalCodeRequest($account_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -345,7 +341,6 @@ class PostalCodeApi
     /**
      * Create request for operation 'createPostalCode'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $code the postal code (required)
      * @param  float $latitude the latitude of the postal code (required)
@@ -358,15 +353,8 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createPostalCodeRequest($version, $account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
+    public function createPostalCodeRequest($account_id, $code, $latitude, $longitude, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['createPostalCode'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createPostalCode'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -400,7 +388,7 @@ class PostalCodeApi
 
 
 
-        $resourcePath = '/api/{version}/postalCode/create';
+        $resourcePath = '/postalCode/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -472,14 +460,6 @@ class PostalCodeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -540,7 +520,6 @@ class PostalCodeApi
      *
      * Delete Postal Code
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePostalCode'] to see the possible values for this operation
@@ -549,9 +528,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deletePostalCode($version, $account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
+    public function deletePostalCode($account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
     {
-        list($response) = $this->deletePostalCodeWithHttpInfo($version, $account_id, $postal_code_id, $contentType);
+        list($response) = $this->deletePostalCodeWithHttpInfo($account_id, $postal_code_id, $contentType);
         return $response;
     }
 
@@ -560,7 +539,6 @@ class PostalCodeApi
      *
      * Delete Postal Code
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePostalCode'] to see the possible values for this operation
@@ -569,9 +547,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePostalCodeWithHttpInfo($version, $account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
+    public function deletePostalCodeWithHttpInfo($account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
     {
-        $request = $this->deletePostalCodeRequest($version, $account_id, $postal_code_id, $contentType);
+        $request = $this->deletePostalCodeRequest($account_id, $postal_code_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -647,7 +625,6 @@ class PostalCodeApi
      *
      * Delete Postal Code
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePostalCode'] to see the possible values for this operation
@@ -655,9 +632,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePostalCodeAsync($version, $account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
+    public function deletePostalCodeAsync($account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
     {
-        return $this->deletePostalCodeAsyncWithHttpInfo($version, $account_id, $postal_code_id, $contentType)
+        return $this->deletePostalCodeAsyncWithHttpInfo($account_id, $postal_code_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -670,7 +647,6 @@ class PostalCodeApi
      *
      * Delete Postal Code
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePostalCode'] to see the possible values for this operation
@@ -678,10 +654,10 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePostalCodeAsyncWithHttpInfo($version, $account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
+    public function deletePostalCodeAsyncWithHttpInfo($account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deletePostalCodeRequest($version, $account_id, $postal_code_id, $contentType);
+        $request = $this->deletePostalCodeRequest($account_id, $postal_code_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -722,7 +698,6 @@ class PostalCodeApi
     /**
      * Create request for operation 'deletePostalCode'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePostalCode'] to see the possible values for this operation
@@ -730,15 +705,8 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletePostalCodeRequest($version, $account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
+    public function deletePostalCodeRequest($account_id, $postal_code_id, string $contentType = self::contentTypes['deletePostalCode'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deletePostalCode'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -755,7 +723,7 @@ class PostalCodeApi
         }
 
 
-        $resourcePath = '/api/{version}/postalCode/delete';
+        $resourcePath = '/postalCode/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -782,14 +750,6 @@ class PostalCodeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -850,7 +810,6 @@ class PostalCodeApi
      *
      * Get Postal Code
      *
-     * @param  float $version version (required)
      * @param  int $postal_code_id the id of the postal code to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPostalCode'] to see the possible values for this operation
      *
@@ -858,9 +817,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PostalCodeResponse
      */
-    public function getPostalCode($version, $postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
+    public function getPostalCode($postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
     {
-        list($response) = $this->getPostalCodeWithHttpInfo($version, $postal_code_id, $contentType);
+        list($response) = $this->getPostalCodeWithHttpInfo($postal_code_id, $contentType);
         return $response;
     }
 
@@ -869,7 +828,6 @@ class PostalCodeApi
      *
      * Get Postal Code
      *
-     * @param  float $version (required)
      * @param  int $postal_code_id the id of the postal code to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPostalCode'] to see the possible values for this operation
      *
@@ -877,9 +835,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PostalCodeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPostalCodeWithHttpInfo($version, $postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
+    public function getPostalCodeWithHttpInfo($postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
     {
-        $request = $this->getPostalCodeRequest($version, $postal_code_id, $contentType);
+        $request = $this->getPostalCodeRequest($postal_code_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -955,16 +913,15 @@ class PostalCodeApi
      *
      * Get Postal Code
      *
-     * @param  float $version (required)
      * @param  int $postal_code_id the id of the postal code to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPostalCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPostalCodeAsync($version, $postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
+    public function getPostalCodeAsync($postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
     {
-        return $this->getPostalCodeAsyncWithHttpInfo($version, $postal_code_id, $contentType)
+        return $this->getPostalCodeAsyncWithHttpInfo($postal_code_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -977,17 +934,16 @@ class PostalCodeApi
      *
      * Get Postal Code
      *
-     * @param  float $version (required)
      * @param  int $postal_code_id the id of the postal code to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPostalCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPostalCodeAsyncWithHttpInfo($version, $postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
+    public function getPostalCodeAsyncWithHttpInfo($postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PostalCodeResponse';
-        $request = $this->getPostalCodeRequest($version, $postal_code_id, $contentType);
+        $request = $this->getPostalCodeRequest($postal_code_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1028,22 +984,14 @@ class PostalCodeApi
     /**
      * Create request for operation 'getPostalCode'
      *
-     * @param  float $version (required)
      * @param  int $postal_code_id the id of the postal code to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPostalCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPostalCodeRequest($version, $postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
+    public function getPostalCodeRequest($postal_code_id, string $contentType = self::contentTypes['getPostalCode'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPostalCode'
-            );
-        }
 
         // verify the required parameter 'postal_code_id' is set
         if ($postal_code_id === null || (is_array($postal_code_id) && count($postal_code_id) === 0)) {
@@ -1053,7 +1001,7 @@ class PostalCodeApi
         }
 
 
-        $resourcePath = '/api/{version}/postalCode/get';
+        $resourcePath = '/postalCode/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1071,14 +1019,6 @@ class PostalCodeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1139,7 +1079,6 @@ class PostalCodeApi
      *
      * Search Postal Codes
      *
-     * @param  float $version version (required)
      * @param  string $sort_field the field to sort the results on (required)
      * @param  bool $descending whether to order results in ascending or descending order (required)
      * @param  float|null $latitude the latitude of the postal code to search on (optional)
@@ -1154,9 +1093,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PostalCodeResponse[]
      */
-    public function getPostalCodes($version, $sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
+    public function getPostalCodes($sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
     {
-        list($response) = $this->getPostalCodesWithHttpInfo($version, $sort_field, $descending, $latitude, $longitude, $keyword, $miles, $start, $limit, $contentType);
+        list($response) = $this->getPostalCodesWithHttpInfo($sort_field, $descending, $latitude, $longitude, $keyword, $miles, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1165,7 +1104,6 @@ class PostalCodeApi
      *
      * Search Postal Codes
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort the results on (required)
      * @param  bool $descending whether to order results in ascending or descending order (required)
      * @param  float|null $latitude the latitude of the postal code to search on (optional)
@@ -1180,9 +1118,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PostalCodeResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPostalCodesWithHttpInfo($version, $sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
+    public function getPostalCodesWithHttpInfo($sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
     {
-        $request = $this->getPostalCodesRequest($version, $sort_field, $descending, $latitude, $longitude, $keyword, $miles, $start, $limit, $contentType);
+        $request = $this->getPostalCodesRequest($sort_field, $descending, $latitude, $longitude, $keyword, $miles, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1258,7 +1196,6 @@ class PostalCodeApi
      *
      * Search Postal Codes
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort the results on (required)
      * @param  bool $descending whether to order results in ascending or descending order (required)
      * @param  float|null $latitude the latitude of the postal code to search on (optional)
@@ -1272,9 +1209,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPostalCodesAsync($version, $sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
+    public function getPostalCodesAsync($sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
     {
-        return $this->getPostalCodesAsyncWithHttpInfo($version, $sort_field, $descending, $latitude, $longitude, $keyword, $miles, $start, $limit, $contentType)
+        return $this->getPostalCodesAsyncWithHttpInfo($sort_field, $descending, $latitude, $longitude, $keyword, $miles, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1287,7 +1224,6 @@ class PostalCodeApi
      *
      * Search Postal Codes
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort the results on (required)
      * @param  bool $descending whether to order results in ascending or descending order (required)
      * @param  float|null $latitude the latitude of the postal code to search on (optional)
@@ -1301,10 +1237,10 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPostalCodesAsyncWithHttpInfo($version, $sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
+    public function getPostalCodesAsyncWithHttpInfo($sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PostalCodeResponse[]';
-        $request = $this->getPostalCodesRequest($version, $sort_field, $descending, $latitude, $longitude, $keyword, $miles, $start, $limit, $contentType);
+        $request = $this->getPostalCodesRequest($sort_field, $descending, $latitude, $longitude, $keyword, $miles, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1345,7 +1281,6 @@ class PostalCodeApi
     /**
      * Create request for operation 'getPostalCodes'
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort the results on (required)
      * @param  bool $descending whether to order results in ascending or descending order (required)
      * @param  float|null $latitude the latitude of the postal code to search on (optional)
@@ -1359,15 +1294,8 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPostalCodesRequest($version, $sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
+    public function getPostalCodesRequest($sort_field, $descending, $latitude = null, $longitude = null, $keyword = null, $miles = null, $start = null, $limit = null, string $contentType = self::contentTypes['getPostalCodes'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPostalCodes'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -1390,7 +1318,7 @@ class PostalCodeApi
 
 
 
-        $resourcePath = '/api/{version}/postalCode/search';
+        $resourcePath = '/postalCode/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1471,14 +1399,6 @@ class PostalCodeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1539,7 +1459,6 @@ class PostalCodeApi
      *
      * Update Postal Code
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to update (required)
      * @param  string|null $code the postal code to update (optional)
@@ -1554,9 +1473,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PostalCodeResponse
      */
-    public function updatePostalCode($version, $account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
+    public function updatePostalCode($account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
     {
-        list($response) = $this->updatePostalCodeWithHttpInfo($version, $account_id, $postal_code_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
+        list($response) = $this->updatePostalCodeWithHttpInfo($account_id, $postal_code_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
         return $response;
     }
 
@@ -1565,7 +1484,6 @@ class PostalCodeApi
      *
      * Update Postal Code
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to update (required)
      * @param  string|null $code the postal code to update (optional)
@@ -1580,9 +1498,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PostalCodeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePostalCodeWithHttpInfo($version, $account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
+    public function updatePostalCodeWithHttpInfo($account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
     {
-        $request = $this->updatePostalCodeRequest($version, $account_id, $postal_code_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
+        $request = $this->updatePostalCodeRequest($account_id, $postal_code_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1658,7 +1576,6 @@ class PostalCodeApi
      *
      * Update Postal Code
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to update (required)
      * @param  string|null $code the postal code to update (optional)
@@ -1672,9 +1589,9 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePostalCodeAsync($version, $account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
+    public function updatePostalCodeAsync($account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
     {
-        return $this->updatePostalCodeAsyncWithHttpInfo($version, $account_id, $postal_code_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType)
+        return $this->updatePostalCodeAsyncWithHttpInfo($account_id, $postal_code_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1687,7 +1604,6 @@ class PostalCodeApi
      *
      * Update Postal Code
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to update (required)
      * @param  string|null $code the postal code to update (optional)
@@ -1701,10 +1617,10 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePostalCodeAsyncWithHttpInfo($version, $account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
+    public function updatePostalCodeAsyncWithHttpInfo($account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PostalCodeResponse';
-        $request = $this->updatePostalCodeRequest($version, $account_id, $postal_code_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
+        $request = $this->updatePostalCodeRequest($account_id, $postal_code_id, $code, $latitude, $longitude, $state_code, $city, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1745,7 +1661,6 @@ class PostalCodeApi
     /**
      * Create request for operation 'updatePostalCode'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $postal_code_id the id of the postal code to update (required)
      * @param  string|null $code the postal code to update (optional)
@@ -1759,15 +1674,8 @@ class PostalCodeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePostalCodeRequest($version, $account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
+    public function updatePostalCodeRequest($account_id, $postal_code_id, $code = null, $latitude = null, $longitude = null, $state_code = null, $city = null, $active = null, string $contentType = self::contentTypes['updatePostalCode'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updatePostalCode'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1790,7 +1698,7 @@ class PostalCodeApi
 
 
 
-        $resourcePath = '/api/{version}/postalCode/update';
+        $resourcePath = '/postalCode/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1871,14 +1779,6 @@ class PostalCodeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -146,7 +146,6 @@ class ProgramApi
      *
      * Create Program
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\Program|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProgram'] to see the possible values for this operation
      *
@@ -154,9 +153,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Program
      */
-    public function createProgram($version, $body = null, string $contentType = self::contentTypes['createProgram'][0])
+    public function createProgram($body = null, string $contentType = self::contentTypes['createProgram'][0])
     {
-        list($response) = $this->createProgramWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createProgramWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -165,7 +164,6 @@ class ProgramApi
      *
      * Create Program
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProgram'] to see the possible values for this operation
      *
@@ -173,9 +171,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Program, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createProgramWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createProgram'][0])
+    public function createProgramWithHttpInfo($body = null, string $contentType = self::contentTypes['createProgram'][0])
     {
-        $request = $this->createProgramRequest($version, $body, $contentType);
+        $request = $this->createProgramRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -251,16 +249,15 @@ class ProgramApi
      *
      * Create Program
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProgramAsync($version, $body = null, string $contentType = self::contentTypes['createProgram'][0])
+    public function createProgramAsync($body = null, string $contentType = self::contentTypes['createProgram'][0])
     {
-        return $this->createProgramAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createProgramAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -273,17 +270,16 @@ class ProgramApi
      *
      * Create Program
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProgramAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createProgram'][0])
+    public function createProgramAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createProgram'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Program';
-        $request = $this->createProgramRequest($version, $body, $contentType);
+        $request = $this->createProgramRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -324,26 +320,18 @@ class ProgramApi
     /**
      * Create request for operation 'createProgram'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createProgramRequest($version, $body = null, string $contentType = self::contentTypes['createProgram'][0])
+    public function createProgramRequest($body = null, string $contentType = self::contentTypes['createProgram'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createProgram'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/program';
+        $resourcePath = '/program';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -352,14 +340,6 @@ class ProgramApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -427,7 +407,6 @@ class ProgramApi
      *
      * Delete Program
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProgram'] to see the possible values for this operation
      *
@@ -435,9 +414,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteProgram($version, $id, string $contentType = self::contentTypes['deleteProgram'][0])
+    public function deleteProgram($id, string $contentType = self::contentTypes['deleteProgram'][0])
     {
-        $this->deleteProgramWithHttpInfo($version, $id, $contentType);
+        $this->deleteProgramWithHttpInfo($id, $contentType);
     }
 
     /**
@@ -445,7 +424,6 @@ class ProgramApi
      *
      * Delete Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProgram'] to see the possible values for this operation
      *
@@ -453,9 +431,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProgramWithHttpInfo($version, $id, string $contentType = self::contentTypes['deleteProgram'][0])
+    public function deleteProgramWithHttpInfo($id, string $contentType = self::contentTypes['deleteProgram'][0])
     {
-        $request = $this->deleteProgramRequest($version, $id, $contentType);
+        $request = $this->deleteProgramRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -495,16 +473,15 @@ class ProgramApi
      *
      * Delete Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProgramAsync($version, $id, string $contentType = self::contentTypes['deleteProgram'][0])
+    public function deleteProgramAsync($id, string $contentType = self::contentTypes['deleteProgram'][0])
     {
-        return $this->deleteProgramAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->deleteProgramAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -517,17 +494,16 @@ class ProgramApi
      *
      * Delete Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProgramAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['deleteProgram'][0])
+    public function deleteProgramAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteProgram'][0])
     {
         $returnType = '';
-        $request = $this->deleteProgramRequest($version, $id, $contentType);
+        $request = $this->deleteProgramRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -555,22 +531,14 @@ class ProgramApi
     /**
      * Create request for operation 'deleteProgram'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteProgramRequest($version, $id, string $contentType = self::contentTypes['deleteProgram'][0])
+    public function deleteProgramRequest($id, string $contentType = self::contentTypes['deleteProgram'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteProgram'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -580,7 +548,7 @@ class ProgramApi
         }
 
 
-        $resourcePath = '/api/{version}/program/{id}';
+        $resourcePath = '/program/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -589,14 +557,6 @@ class ProgramApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -665,7 +625,6 @@ class ProgramApi
      *
      * Get Program
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgram'] to see the possible values for this operation
      *
@@ -673,9 +632,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Program
      */
-    public function getProgram($version, $id, string $contentType = self::contentTypes['getProgram'][0])
+    public function getProgram($id, string $contentType = self::contentTypes['getProgram'][0])
     {
-        list($response) = $this->getProgramWithHttpInfo($version, $id, $contentType);
+        list($response) = $this->getProgramWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -684,7 +643,6 @@ class ProgramApi
      *
      * Get Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgram'] to see the possible values for this operation
      *
@@ -692,9 +650,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Program, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProgramWithHttpInfo($version, $id, string $contentType = self::contentTypes['getProgram'][0])
+    public function getProgramWithHttpInfo($id, string $contentType = self::contentTypes['getProgram'][0])
     {
-        $request = $this->getProgramRequest($version, $id, $contentType);
+        $request = $this->getProgramRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -770,16 +728,15 @@ class ProgramApi
      *
      * Get Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProgramAsync($version, $id, string $contentType = self::contentTypes['getProgram'][0])
+    public function getProgramAsync($id, string $contentType = self::contentTypes['getProgram'][0])
     {
-        return $this->getProgramAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->getProgramAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -792,17 +749,16 @@ class ProgramApi
      *
      * Get Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProgramAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['getProgram'][0])
+    public function getProgramAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getProgram'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Program';
-        $request = $this->getProgramRequest($version, $id, $contentType);
+        $request = $this->getProgramRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -843,22 +799,14 @@ class ProgramApi
     /**
      * Create request for operation 'getProgram'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProgramRequest($version, $id, string $contentType = self::contentTypes['getProgram'][0])
+    public function getProgramRequest($id, string $contentType = self::contentTypes['getProgram'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getProgram'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -868,7 +816,7 @@ class ProgramApi
         }
 
 
-        $resourcePath = '/api/{version}/program/{id}';
+        $resourcePath = '/program/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -877,14 +825,6 @@ class ProgramApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -953,7 +893,6 @@ class ProgramApi
      *
      * Update Program
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postProgram'] to see the possible values for this operation
@@ -962,9 +901,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Program
      */
-    public function postProgram($version, $id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
+    public function postProgram($id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
     {
-        list($response) = $this->postProgramWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->postProgramWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -973,7 +912,6 @@ class ProgramApi
      *
      * Update Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postProgram'] to see the possible values for this operation
@@ -982,9 +920,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Program, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postProgramWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
+    public function postProgramWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
     {
-        $request = $this->postProgramRequest($version, $id, $body, $contentType);
+        $request = $this->postProgramRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1060,7 +998,6 @@ class ProgramApi
      *
      * Update Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postProgram'] to see the possible values for this operation
@@ -1068,9 +1005,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postProgramAsync($version, $id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
+    public function postProgramAsync($id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
     {
-        return $this->postProgramAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->postProgramAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1083,7 +1020,6 @@ class ProgramApi
      *
      * Update Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postProgram'] to see the possible values for this operation
@@ -1091,10 +1027,10 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postProgramAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
+    public function postProgramAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Program';
-        $request = $this->postProgramRequest($version, $id, $body, $contentType);
+        $request = $this->postProgramRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1135,7 +1071,6 @@ class ProgramApi
     /**
      * Create request for operation 'postProgram'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postProgram'] to see the possible values for this operation
@@ -1143,15 +1078,8 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postProgramRequest($version, $id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
+    public function postProgramRequest($id, $body = null, string $contentType = self::contentTypes['postProgram'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling postProgram'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1162,7 +1090,7 @@ class ProgramApi
 
 
 
-        $resourcePath = '/api/{version}/program/{id}';
+        $resourcePath = '/program/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1171,14 +1099,6 @@ class ProgramApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1254,7 +1174,6 @@ class ProgramApi
      *
      * Update Program
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putProgram'] to see the possible values for this operation
@@ -1263,9 +1182,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Program
      */
-    public function putProgram($version, $id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
+    public function putProgram($id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
     {
-        list($response) = $this->putProgramWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->putProgramWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -1274,7 +1193,6 @@ class ProgramApi
      *
      * Update Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putProgram'] to see the possible values for this operation
@@ -1283,9 +1201,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Program, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putProgramWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
+    public function putProgramWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
     {
-        $request = $this->putProgramRequest($version, $id, $body, $contentType);
+        $request = $this->putProgramRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1361,7 +1279,6 @@ class ProgramApi
      *
      * Update Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putProgram'] to see the possible values for this operation
@@ -1369,9 +1286,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putProgramAsync($version, $id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
+    public function putProgramAsync($id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
     {
-        return $this->putProgramAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->putProgramAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1384,7 +1301,6 @@ class ProgramApi
      *
      * Update Program
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putProgram'] to see the possible values for this operation
@@ -1392,10 +1308,10 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putProgramAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
+    public function putProgramAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Program';
-        $request = $this->putProgramRequest($version, $id, $body, $contentType);
+        $request = $this->putProgramRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1436,7 +1352,6 @@ class ProgramApi
     /**
      * Create request for operation 'putProgram'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the program (required)
      * @param  \OpenAPI\Client\Model\Program|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putProgram'] to see the possible values for this operation
@@ -1444,15 +1359,8 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putProgramRequest($version, $id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
+    public function putProgramRequest($id, $body = null, string $contentType = self::contentTypes['putProgram'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling putProgram'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1463,7 +1371,7 @@ class ProgramApi
 
 
 
-        $resourcePath = '/api/{version}/program/{id}';
+        $resourcePath = '/program/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1472,14 +1380,6 @@ class ProgramApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1555,7 +1455,6 @@ class ProgramApi
      *
      * Search Programs
      *
-     * @param  float $version version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1568,9 +1467,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Program[]
      */
-    public function searchPrograms($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
+    public function searchPrograms($sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
     {
-        list($response) = $this->searchProgramsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
+        list($response) = $this->searchProgramsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
         return $response;
     }
 
@@ -1579,7 +1478,6 @@ class ProgramApi
      *
      * Search Programs
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1592,9 +1490,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Program[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchProgramsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
+    public function searchProgramsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
     {
-        $request = $this->searchProgramsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
+        $request = $this->searchProgramsRequest($sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1670,7 +1568,6 @@ class ProgramApi
      *
      * Search Programs
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1682,9 +1579,9 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchProgramsAsync($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
+    public function searchProgramsAsync($sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
     {
-        return $this->searchProgramsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType)
+        return $this->searchProgramsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1697,7 +1594,6 @@ class ProgramApi
      *
      * Search Programs
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1709,10 +1605,10 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchProgramsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
+    public function searchProgramsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Program[]';
-        $request = $this->searchProgramsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
+        $request = $this->searchProgramsRequest($sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1753,7 +1649,6 @@ class ProgramApi
     /**
      * Create request for operation 'searchPrograms'
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1765,15 +1660,8 @@ class ProgramApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchProgramsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
+    public function searchProgramsRequest($sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchPrograms'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchPrograms'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -1812,7 +1700,7 @@ class ProgramApi
 
 
 
-        $resourcePath = '/api/{version}/program';
+        $resourcePath = '/program';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1875,14 +1763,6 @@ class ProgramApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -161,7 +161,6 @@ class AssignmentApi
      *
      * Search Assignment Assignees
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id sending the request (required)
      * @param  string|null $keyword The keyword to filter the returned results (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assigmentAssigneeAccountSearch'] to see the possible values for this operation
@@ -170,9 +169,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AccountMiniResponse[]
      */
-    public function assigmentAssigneeAccountSearch($version, $account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
+    public function assigmentAssigneeAccountSearch($account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
     {
-        list($response) = $this->assigmentAssigneeAccountSearchWithHttpInfo($version, $account_id, $keyword, $contentType);
+        list($response) = $this->assigmentAssigneeAccountSearchWithHttpInfo($account_id, $keyword, $contentType);
         return $response;
     }
 
@@ -181,7 +180,6 @@ class AssignmentApi
      *
      * Search Assignment Assignees
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id sending the request (required)
      * @param  string|null $keyword The keyword to filter the returned results (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assigmentAssigneeAccountSearch'] to see the possible values for this operation
@@ -190,9 +188,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AccountMiniResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function assigmentAssigneeAccountSearchWithHttpInfo($version, $account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
+    public function assigmentAssigneeAccountSearchWithHttpInfo($account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
     {
-        $request = $this->assigmentAssigneeAccountSearchRequest($version, $account_id, $keyword, $contentType);
+        $request = $this->assigmentAssigneeAccountSearchRequest($account_id, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -268,7 +266,6 @@ class AssignmentApi
      *
      * Search Assignment Assignees
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id sending the request (required)
      * @param  string|null $keyword The keyword to filter the returned results (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assigmentAssigneeAccountSearch'] to see the possible values for this operation
@@ -276,9 +273,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assigmentAssigneeAccountSearchAsync($version, $account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
+    public function assigmentAssigneeAccountSearchAsync($account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
     {
-        return $this->assigmentAssigneeAccountSearchAsyncWithHttpInfo($version, $account_id, $keyword, $contentType)
+        return $this->assigmentAssigneeAccountSearchAsyncWithHttpInfo($account_id, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -291,7 +288,6 @@ class AssignmentApi
      *
      * Search Assignment Assignees
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id sending the request (required)
      * @param  string|null $keyword The keyword to filter the returned results (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assigmentAssigneeAccountSearch'] to see the possible values for this operation
@@ -299,10 +295,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assigmentAssigneeAccountSearchAsyncWithHttpInfo($version, $account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
+    public function assigmentAssigneeAccountSearchAsyncWithHttpInfo($account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountMiniResponse[]';
-        $request = $this->assigmentAssigneeAccountSearchRequest($version, $account_id, $keyword, $contentType);
+        $request = $this->assigmentAssigneeAccountSearchRequest($account_id, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -343,7 +339,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assigmentAssigneeAccountSearch'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id sending the request (required)
      * @param  string|null $keyword The keyword to filter the returned results (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assigmentAssigneeAccountSearch'] to see the possible values for this operation
@@ -351,15 +346,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assigmentAssigneeAccountSearchRequest($version, $account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
+    public function assigmentAssigneeAccountSearchRequest($account_id, $keyword = null, string $contentType = self::contentTypes['assigmentAssigneeAccountSearch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assigmentAssigneeAccountSearch'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -370,7 +358,7 @@ class AssignmentApi
 
 
 
-        $resourcePath = '/api/{version}/assignment/assignee/search';
+        $resourcePath = '/assignment/assignee/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -397,14 +385,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -465,7 +445,6 @@ class AssignmentApi
      *
      * Create Assignment
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $name the name for the assignment (required)
      * @param  int $assignee_account_id the account id to assign to (required)
@@ -479,9 +458,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssignmentResponse
      */
-    public function assignmentCreate($version, $account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
+    public function assignmentCreate($account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
     {
-        list($response) = $this->assignmentCreateWithHttpInfo($version, $account_id, $name, $assignee_account_id, $description, $retailer_location_id, $tags, $active, $contentType);
+        list($response) = $this->assignmentCreateWithHttpInfo($account_id, $name, $assignee_account_id, $description, $retailer_location_id, $tags, $active, $contentType);
         return $response;
     }
 
@@ -490,7 +469,6 @@ class AssignmentApi
      *
      * Create Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $name the name for the assignment (required)
      * @param  int $assignee_account_id the account id to assign to (required)
@@ -504,9 +482,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssignmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentCreateWithHttpInfo($version, $account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
+    public function assignmentCreateWithHttpInfo($account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
     {
-        $request = $this->assignmentCreateRequest($version, $account_id, $name, $assignee_account_id, $description, $retailer_location_id, $tags, $active, $contentType);
+        $request = $this->assignmentCreateRequest($account_id, $name, $assignee_account_id, $description, $retailer_location_id, $tags, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -582,7 +560,6 @@ class AssignmentApi
      *
      * Create Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $name the name for the assignment (required)
      * @param  int $assignee_account_id the account id to assign to (required)
@@ -595,9 +572,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentCreateAsync($version, $account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
+    public function assignmentCreateAsync($account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
     {
-        return $this->assignmentCreateAsyncWithHttpInfo($version, $account_id, $name, $assignee_account_id, $description, $retailer_location_id, $tags, $active, $contentType)
+        return $this->assignmentCreateAsyncWithHttpInfo($account_id, $name, $assignee_account_id, $description, $retailer_location_id, $tags, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -610,7 +587,6 @@ class AssignmentApi
      *
      * Create Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $name the name for the assignment (required)
      * @param  int $assignee_account_id the account id to assign to (required)
@@ -623,10 +599,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentCreateAsyncWithHttpInfo($version, $account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
+    public function assignmentCreateAsyncWithHttpInfo($account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssignmentResponse';
-        $request = $this->assignmentCreateRequest($version, $account_id, $name, $assignee_account_id, $description, $retailer_location_id, $tags, $active, $contentType);
+        $request = $this->assignmentCreateRequest($account_id, $name, $assignee_account_id, $description, $retailer_location_id, $tags, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -667,7 +643,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentCreate'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $name the name for the assignment (required)
      * @param  int $assignee_account_id the account id to assign to (required)
@@ -680,15 +655,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentCreateRequest($version, $account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
+    public function assignmentCreateRequest($account_id, $name, $assignee_account_id, $description = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentCreate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentCreate'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -716,7 +684,7 @@ class AssignmentApi
 
 
 
-        $resourcePath = '/api/{version}/assignment/create';
+        $resourcePath = '/assignment/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -788,14 +756,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -856,7 +816,6 @@ class AssignmentApi
      *
      * Delete Assignment
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentDelete'] to see the possible values for this operation
@@ -865,9 +824,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function assignmentDelete($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
+    public function assignmentDelete($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
     {
-        list($response) = $this->assignmentDeleteWithHttpInfo($version, $account_id, $assignment_id, $contentType);
+        list($response) = $this->assignmentDeleteWithHttpInfo($account_id, $assignment_id, $contentType);
         return $response;
     }
 
@@ -876,7 +835,6 @@ class AssignmentApi
      *
      * Delete Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentDelete'] to see the possible values for this operation
@@ -885,9 +843,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentDeleteWithHttpInfo($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
+    public function assignmentDeleteWithHttpInfo($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
     {
-        $request = $this->assignmentDeleteRequest($version, $account_id, $assignment_id, $contentType);
+        $request = $this->assignmentDeleteRequest($account_id, $assignment_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -963,7 +921,6 @@ class AssignmentApi
      *
      * Delete Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentDelete'] to see the possible values for this operation
@@ -971,9 +928,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentDeleteAsync($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
+    public function assignmentDeleteAsync($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
     {
-        return $this->assignmentDeleteAsyncWithHttpInfo($version, $account_id, $assignment_id, $contentType)
+        return $this->assignmentDeleteAsyncWithHttpInfo($account_id, $assignment_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -986,7 +943,6 @@ class AssignmentApi
      *
      * Delete Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentDelete'] to see the possible values for this operation
@@ -994,10 +950,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentDeleteAsyncWithHttpInfo($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
+    public function assignmentDeleteAsyncWithHttpInfo($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->assignmentDeleteRequest($version, $account_id, $assignment_id, $contentType);
+        $request = $this->assignmentDeleteRequest($account_id, $assignment_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1038,7 +994,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentDelete'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentDelete'] to see the possible values for this operation
@@ -1046,15 +1001,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentDeleteRequest($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
+    public function assignmentDeleteRequest($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentDelete'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentDelete'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1071,7 +1019,7 @@ class AssignmentApi
         }
 
 
-        $resourcePath = '/api/{version}/assignment/delete';
+        $resourcePath = '/assignment/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1098,14 +1046,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1166,7 +1106,6 @@ class AssignmentApi
      *
      * Get Assignment
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentGet'] to see the possible values for this operation
@@ -1175,9 +1114,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssignmentResponse
      */
-    public function assignmentGet($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
+    public function assignmentGet($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
     {
-        list($response) = $this->assignmentGetWithHttpInfo($version, $account_id, $assignment_id, $contentType);
+        list($response) = $this->assignmentGetWithHttpInfo($account_id, $assignment_id, $contentType);
         return $response;
     }
 
@@ -1186,7 +1125,6 @@ class AssignmentApi
      *
      * Get Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentGet'] to see the possible values for this operation
@@ -1195,9 +1133,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssignmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentGetWithHttpInfo($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
+    public function assignmentGetWithHttpInfo($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
     {
-        $request = $this->assignmentGetRequest($version, $account_id, $assignment_id, $contentType);
+        $request = $this->assignmentGetRequest($account_id, $assignment_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1273,7 +1211,6 @@ class AssignmentApi
      *
      * Get Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentGet'] to see the possible values for this operation
@@ -1281,9 +1218,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentGetAsync($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
+    public function assignmentGetAsync($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
     {
-        return $this->assignmentGetAsyncWithHttpInfo($version, $account_id, $assignment_id, $contentType)
+        return $this->assignmentGetAsyncWithHttpInfo($account_id, $assignment_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1296,7 +1233,6 @@ class AssignmentApi
      *
      * Get Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentGet'] to see the possible values for this operation
@@ -1304,10 +1240,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentGetAsyncWithHttpInfo($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
+    public function assignmentGetAsyncWithHttpInfo($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssignmentResponse';
-        $request = $this->assignmentGetRequest($version, $account_id, $assignment_id, $contentType);
+        $request = $this->assignmentGetRequest($account_id, $assignment_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1348,7 +1284,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentGet'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentGet'] to see the possible values for this operation
@@ -1356,15 +1291,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentGetRequest($version, $account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
+    public function assignmentGetRequest($account_id, $assignment_id, string $contentType = self::contentTypes['assignmentGet'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentGet'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1381,7 +1309,7 @@ class AssignmentApi
         }
 
 
-        $resourcePath = '/api/{version}/assignment/get';
+        $resourcePath = '/assignment/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1408,14 +1336,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1476,7 +1396,6 @@ class AssignmentApi
      *
      * Search Assignments
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account sending the request (required)
      * @param  string $sort_field sort by table field (required)
      * @param  bool $descending return results in descending order or not (required)
@@ -1494,9 +1413,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssignmentResponse[]
      */
-    public function assignmentSearch($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
+    public function assignmentSearch($account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
     {
-        list($response) = $this->assignmentSearchWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id, $assignee_account_ids, $retailer_location_ids, $current_status_type, $keyword, $contentType);
+        list($response) = $this->assignmentSearchWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id, $assignee_account_ids, $retailer_location_ids, $current_status_type, $keyword, $contentType);
         return $response;
     }
 
@@ -1505,7 +1424,6 @@ class AssignmentApi
      *
      * Search Assignments
      *
-     * @param  float $version (required)
      * @param  int $account_id the account sending the request (required)
      * @param  string $sort_field sort by table field (required)
      * @param  bool $descending return results in descending order or not (required)
@@ -1523,9 +1441,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssignmentResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentSearchWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
+    public function assignmentSearchWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
     {
-        $request = $this->assignmentSearchRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id, $assignee_account_ids, $retailer_location_ids, $current_status_type, $keyword, $contentType);
+        $request = $this->assignmentSearchRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id, $assignee_account_ids, $retailer_location_ids, $current_status_type, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1601,7 +1519,6 @@ class AssignmentApi
      *
      * Search Assignments
      *
-     * @param  float $version (required)
      * @param  int $account_id the account sending the request (required)
      * @param  string $sort_field sort by table field (required)
      * @param  bool $descending return results in descending order or not (required)
@@ -1618,9 +1535,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentSearchAsync($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
+    public function assignmentSearchAsync($account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
     {
-        return $this->assignmentSearchAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id, $assignee_account_ids, $retailer_location_ids, $current_status_type, $keyword, $contentType)
+        return $this->assignmentSearchAsyncWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id, $assignee_account_ids, $retailer_location_ids, $current_status_type, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1633,7 +1550,6 @@ class AssignmentApi
      *
      * Search Assignments
      *
-     * @param  float $version (required)
      * @param  int $account_id the account sending the request (required)
      * @param  string $sort_field sort by table field (required)
      * @param  bool $descending return results in descending order or not (required)
@@ -1650,10 +1566,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentSearchAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
+    public function assignmentSearchAsyncWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssignmentResponse[]';
-        $request = $this->assignmentSearchRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id, $assignee_account_ids, $retailer_location_ids, $current_status_type, $keyword, $contentType);
+        $request = $this->assignmentSearchRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id, $assignee_account_ids, $retailer_location_ids, $current_status_type, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1694,7 +1610,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentSearch'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account sending the request (required)
      * @param  string $sort_field sort by table field (required)
      * @param  bool $descending return results in descending order or not (required)
@@ -1711,15 +1626,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentSearchRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
+    public function assignmentSearchRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $creator_account_id = null, $assignee_account_ids = null, $retailer_location_ids = null, $current_status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentSearch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentSearch'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1769,7 +1677,7 @@ class AssignmentApi
 
 
 
-        $resourcePath = '/api/{version}/assignment/search';
+        $resourcePath = '/assignment/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1877,14 +1785,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1945,7 +1845,6 @@ class AssignmentApi
      *
      * Create Assignment Status
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -1963,9 +1862,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssignmentStatusResponse
      */
-    public function assignmentStatusCreate($version, $account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
+    public function assignmentStatusCreate($account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
     {
-        list($response) = $this->assignmentStatusCreateWithHttpInfo($version, $account_id, $assignment_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
+        list($response) = $this->assignmentStatusCreateWithHttpInfo($account_id, $assignment_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
         return $response;
     }
 
@@ -1974,7 +1873,6 @@ class AssignmentApi
      *
      * Create Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -1992,9 +1890,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssignmentStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentStatusCreateWithHttpInfo($version, $account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
+    public function assignmentStatusCreateWithHttpInfo($account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
     {
-        $request = $this->assignmentStatusCreateRequest($version, $account_id, $assignment_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
+        $request = $this->assignmentStatusCreateRequest($account_id, $assignment_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2070,7 +1968,6 @@ class AssignmentApi
      *
      * Create Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -2087,9 +1984,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusCreateAsync($version, $account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
+    public function assignmentStatusCreateAsync($account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
     {
-        return $this->assignmentStatusCreateAsyncWithHttpInfo($version, $account_id, $assignment_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType)
+        return $this->assignmentStatusCreateAsyncWithHttpInfo($account_id, $assignment_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2102,7 +1999,6 @@ class AssignmentApi
      *
      * Create Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -2119,10 +2015,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusCreateAsyncWithHttpInfo($version, $account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
+    public function assignmentStatusCreateAsyncWithHttpInfo($account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssignmentStatusResponse';
-        $request = $this->assignmentStatusCreateRequest($version, $account_id, $assignment_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
+        $request = $this->assignmentStatusCreateRequest($account_id, $assignment_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2163,7 +2059,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentStatusCreate'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -2180,15 +2075,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentStatusCreateRequest($version, $account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
+    public function assignmentStatusCreateRequest($account_id, $assignment_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusCreate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentStatusCreate'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2214,7 +2102,7 @@ class AssignmentApi
 
 
 
-        $resourcePath = '/api/{version}/assignment/status/create';
+        $resourcePath = '/assignment/status/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2322,14 +2210,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2390,7 +2270,6 @@ class AssignmentApi
      *
      * Deletes Assignment Status
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusDelete'] to see the possible values for this operation
@@ -2399,9 +2278,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function assignmentStatusDelete($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
+    public function assignmentStatusDelete($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
     {
-        list($response) = $this->assignmentStatusDeleteWithHttpInfo($version, $account_id, $assignment_status_id, $contentType);
+        list($response) = $this->assignmentStatusDeleteWithHttpInfo($account_id, $assignment_status_id, $contentType);
         return $response;
     }
 
@@ -2410,7 +2289,6 @@ class AssignmentApi
      *
      * Deletes Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusDelete'] to see the possible values for this operation
@@ -2419,9 +2297,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentStatusDeleteWithHttpInfo($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
+    public function assignmentStatusDeleteWithHttpInfo($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
     {
-        $request = $this->assignmentStatusDeleteRequest($version, $account_id, $assignment_status_id, $contentType);
+        $request = $this->assignmentStatusDeleteRequest($account_id, $assignment_status_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2497,7 +2375,6 @@ class AssignmentApi
      *
      * Deletes Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusDelete'] to see the possible values for this operation
@@ -2505,9 +2382,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusDeleteAsync($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
+    public function assignmentStatusDeleteAsync($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
     {
-        return $this->assignmentStatusDeleteAsyncWithHttpInfo($version, $account_id, $assignment_status_id, $contentType)
+        return $this->assignmentStatusDeleteAsyncWithHttpInfo($account_id, $assignment_status_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2520,7 +2397,6 @@ class AssignmentApi
      *
      * Deletes Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusDelete'] to see the possible values for this operation
@@ -2528,10 +2404,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusDeleteAsyncWithHttpInfo($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
+    public function assignmentStatusDeleteAsyncWithHttpInfo($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->assignmentStatusDeleteRequest($version, $account_id, $assignment_status_id, $contentType);
+        $request = $this->assignmentStatusDeleteRequest($account_id, $assignment_status_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2572,7 +2448,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentStatusDelete'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusDelete'] to see the possible values for this operation
@@ -2580,15 +2455,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentStatusDeleteRequest($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
+    public function assignmentStatusDeleteRequest($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusDelete'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentStatusDelete'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2605,7 +2473,7 @@ class AssignmentApi
         }
 
 
-        $resourcePath = '/api/{version}/assignment/status/delete';
+        $resourcePath = '/assignment/status/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2632,14 +2500,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2700,7 +2560,6 @@ class AssignmentApi
      *
      * Get Assignment Status
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusGet'] to see the possible values for this operation
@@ -2709,9 +2568,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssignmentStatusResponse
      */
-    public function assignmentStatusGet($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
+    public function assignmentStatusGet($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
     {
-        list($response) = $this->assignmentStatusGetWithHttpInfo($version, $account_id, $assignment_status_id, $contentType);
+        list($response) = $this->assignmentStatusGetWithHttpInfo($account_id, $assignment_status_id, $contentType);
         return $response;
     }
 
@@ -2720,7 +2579,6 @@ class AssignmentApi
      *
      * Get Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusGet'] to see the possible values for this operation
@@ -2729,9 +2587,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssignmentStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentStatusGetWithHttpInfo($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
+    public function assignmentStatusGetWithHttpInfo($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
     {
-        $request = $this->assignmentStatusGetRequest($version, $account_id, $assignment_status_id, $contentType);
+        $request = $this->assignmentStatusGetRequest($account_id, $assignment_status_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2807,7 +2665,6 @@ class AssignmentApi
      *
      * Get Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusGet'] to see the possible values for this operation
@@ -2815,9 +2672,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusGetAsync($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
+    public function assignmentStatusGetAsync($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
     {
-        return $this->assignmentStatusGetAsyncWithHttpInfo($version, $account_id, $assignment_status_id, $contentType)
+        return $this->assignmentStatusGetAsyncWithHttpInfo($account_id, $assignment_status_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2830,7 +2687,6 @@ class AssignmentApi
      *
      * Get Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusGet'] to see the possible values for this operation
@@ -2838,10 +2694,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusGetAsyncWithHttpInfo($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
+    public function assignmentStatusGetAsyncWithHttpInfo($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssignmentStatusResponse';
-        $request = $this->assignmentStatusGetRequest($version, $account_id, $assignment_status_id, $contentType);
+        $request = $this->assignmentStatusGetRequest($account_id, $assignment_status_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2882,7 +2738,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentStatusGet'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignmentStatusGet'] to see the possible values for this operation
@@ -2890,15 +2745,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentStatusGetRequest($version, $account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
+    public function assignmentStatusGetRequest($account_id, $assignment_status_id, string $contentType = self::contentTypes['assignmentStatusGet'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentStatusGet'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2915,7 +2763,7 @@ class AssignmentApi
         }
 
 
-        $resourcePath = '/api/{version}/assignment/status/get';
+        $resourcePath = '/assignment/status/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2942,14 +2790,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3010,7 +2850,6 @@ class AssignmentApi
      *
      * Search Assignment Statuses
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $sort_field the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -3029,9 +2868,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssignmentStatusResponse[]
      */
-    public function assignmentStatusSearch($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
+    public function assignmentStatusSearch($account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
     {
-        list($response) = $this->assignmentStatusSearchWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id, $creator_account_id, $assignee_account_id, $retailer_location_id, $status_type, $keyword, $contentType);
+        list($response) = $this->assignmentStatusSearchWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id, $creator_account_id, $assignee_account_id, $retailer_location_id, $status_type, $keyword, $contentType);
         return $response;
     }
 
@@ -3040,7 +2879,6 @@ class AssignmentApi
      *
      * Search Assignment Statuses
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $sort_field the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -3059,9 +2897,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssignmentStatusResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentStatusSearchWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
+    public function assignmentStatusSearchWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
     {
-        $request = $this->assignmentStatusSearchRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id, $creator_account_id, $assignee_account_id, $retailer_location_id, $status_type, $keyword, $contentType);
+        $request = $this->assignmentStatusSearchRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id, $creator_account_id, $assignee_account_id, $retailer_location_id, $status_type, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3137,7 +2975,6 @@ class AssignmentApi
      *
      * Search Assignment Statuses
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $sort_field the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -3155,9 +2992,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusSearchAsync($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
+    public function assignmentStatusSearchAsync($account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
     {
-        return $this->assignmentStatusSearchAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id, $creator_account_id, $assignee_account_id, $retailer_location_id, $status_type, $keyword, $contentType)
+        return $this->assignmentStatusSearchAsyncWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id, $creator_account_id, $assignee_account_id, $retailer_location_id, $status_type, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3170,7 +3007,6 @@ class AssignmentApi
      *
      * Search Assignment Statuses
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $sort_field the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -3188,10 +3024,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusSearchAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
+    public function assignmentStatusSearchAsyncWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssignmentStatusResponse[]';
-        $request = $this->assignmentStatusSearchRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id, $creator_account_id, $assignee_account_id, $retailer_location_id, $status_type, $keyword, $contentType);
+        $request = $this->assignmentStatusSearchRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id, $creator_account_id, $assignee_account_id, $retailer_location_id, $status_type, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3232,7 +3068,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentStatusSearch'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  string $sort_field the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -3250,15 +3085,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentStatusSearchRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
+    public function assignmentStatusSearchRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $assignment_id = null, $creator_account_id = null, $assignee_account_id = null, $retailer_location_id = null, $status_type = null, $keyword = null, string $contentType = self::contentTypes['assignmentStatusSearch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentStatusSearch'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3309,7 +3137,7 @@ class AssignmentApi
 
 
 
-        $resourcePath = '/api/{version}/assignment/status/search';
+        $resourcePath = '/assignment/status/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3426,14 +3254,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3494,7 +3314,6 @@ class AssignmentApi
      *
      * Update Assignment Status
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -3512,9 +3331,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssignmentStatusResponse
      */
-    public function assignmentStatusUpdate($version, $account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
+    public function assignmentStatusUpdate($account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
     {
-        list($response) = $this->assignmentStatusUpdateWithHttpInfo($version, $account_id, $assignment_status_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
+        list($response) = $this->assignmentStatusUpdateWithHttpInfo($account_id, $assignment_status_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
         return $response;
     }
 
@@ -3523,7 +3342,6 @@ class AssignmentApi
      *
      * Update Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -3541,9 +3359,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssignmentStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentStatusUpdateWithHttpInfo($version, $account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
+    public function assignmentStatusUpdateWithHttpInfo($account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
     {
-        $request = $this->assignmentStatusUpdateRequest($version, $account_id, $assignment_status_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
+        $request = $this->assignmentStatusUpdateRequest($account_id, $assignment_status_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3619,7 +3437,6 @@ class AssignmentApi
      *
      * Update Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -3636,9 +3453,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusUpdateAsync($version, $account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
+    public function assignmentStatusUpdateAsync($account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
     {
-        return $this->assignmentStatusUpdateAsyncWithHttpInfo($version, $account_id, $assignment_status_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType)
+        return $this->assignmentStatusUpdateAsyncWithHttpInfo($account_id, $assignment_status_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3651,7 +3468,6 @@ class AssignmentApi
      *
      * Update Assignment Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -3668,10 +3484,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentStatusUpdateAsyncWithHttpInfo($version, $account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
+    public function assignmentStatusUpdateAsyncWithHttpInfo($account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssignmentStatusResponse';
-        $request = $this->assignmentStatusUpdateRequest($version, $account_id, $assignment_status_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
+        $request = $this->assignmentStatusUpdateRequest($account_id, $assignment_status_id, $scheduled_notification_id, $to_do, $connection, $method, $status, $closure, $message, $follow_up, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3712,7 +3528,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentStatusUpdate'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_status_id the assignment status id (required)
      * @param  int|null $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -3729,15 +3544,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentStatusUpdateRequest($version, $account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
+    public function assignmentStatusUpdateRequest($account_id, $assignment_status_id, $scheduled_notification_id = null, $to_do = null, $connection = null, $method = null, $status = null, $closure = null, $message = null, $follow_up = null, $active = null, string $contentType = self::contentTypes['assignmentStatusUpdate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentStatusUpdate'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3763,7 +3571,7 @@ class AssignmentApi
 
 
 
-        $resourcePath = '/api/{version}/assignment/status/update';
+        $resourcePath = '/assignment/status/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3871,14 +3679,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3939,7 +3739,6 @@ class AssignmentApi
      *
      * Update Assignment
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string|null $name the name of the assignment (optional)
@@ -3954,9 +3753,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssignmentResponse
      */
-    public function assignmentUpdate($version, $account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
+    public function assignmentUpdate($account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
     {
-        list($response) = $this->assignmentUpdateWithHttpInfo($version, $account_id, $assignment_id, $name, $description, $assignee_account_id, $retailer_location_id, $tags, $active, $contentType);
+        list($response) = $this->assignmentUpdateWithHttpInfo($account_id, $assignment_id, $name, $description, $assignee_account_id, $retailer_location_id, $tags, $active, $contentType);
         return $response;
     }
 
@@ -3965,7 +3764,6 @@ class AssignmentApi
      *
      * Update Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string|null $name the name of the assignment (optional)
@@ -3980,9 +3778,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssignmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignmentUpdateWithHttpInfo($version, $account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
+    public function assignmentUpdateWithHttpInfo($account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
     {
-        $request = $this->assignmentUpdateRequest($version, $account_id, $assignment_id, $name, $description, $assignee_account_id, $retailer_location_id, $tags, $active, $contentType);
+        $request = $this->assignmentUpdateRequest($account_id, $assignment_id, $name, $description, $assignee_account_id, $retailer_location_id, $tags, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4058,7 +3856,6 @@ class AssignmentApi
      *
      * Update Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string|null $name the name of the assignment (optional)
@@ -4072,9 +3869,9 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentUpdateAsync($version, $account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
+    public function assignmentUpdateAsync($account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
     {
-        return $this->assignmentUpdateAsyncWithHttpInfo($version, $account_id, $assignment_id, $name, $description, $assignee_account_id, $retailer_location_id, $tags, $active, $contentType)
+        return $this->assignmentUpdateAsyncWithHttpInfo($account_id, $assignment_id, $name, $description, $assignee_account_id, $retailer_location_id, $tags, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4087,7 +3884,6 @@ class AssignmentApi
      *
      * Update Assignment
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string|null $name the name of the assignment (optional)
@@ -4101,10 +3897,10 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignmentUpdateAsyncWithHttpInfo($version, $account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
+    public function assignmentUpdateAsyncWithHttpInfo($account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssignmentResponse';
-        $request = $this->assignmentUpdateRequest($version, $account_id, $assignment_id, $name, $description, $assignee_account_id, $retailer_location_id, $tags, $active, $contentType);
+        $request = $this->assignmentUpdateRequest($account_id, $assignment_id, $name, $description, $assignee_account_id, $retailer_location_id, $tags, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4145,7 +3941,6 @@ class AssignmentApi
     /**
      * Create request for operation 'assignmentUpdate'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user account id (required)
      * @param  int $assignment_id the assignment id (required)
      * @param  string|null $name the name of the assignment (optional)
@@ -4159,15 +3954,8 @@ class AssignmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignmentUpdateRequest($version, $account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
+    public function assignmentUpdateRequest($account_id, $assignment_id, $name = null, $description = null, $assignee_account_id = null, $retailer_location_id = null, $tags = null, $active = null, string $contentType = self::contentTypes['assignmentUpdate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignmentUpdate'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4190,7 +3978,7 @@ class AssignmentApi
 
 
 
-        $resourcePath = '/api/{version}/assignment/update';
+        $resourcePath = '/assignment/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4271,14 +4059,6 @@ class AssignmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

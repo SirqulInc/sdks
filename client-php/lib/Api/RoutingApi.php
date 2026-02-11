@@ -131,7 +131,6 @@ class RoutingApi
      *
      * Compute Route
      *
-     * @param  float $version version (required)
      * @param  string $data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeRouting'] to see the possible values for this operation
      *
@@ -139,9 +138,9 @@ class RoutingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RoutingListResponse
      */
-    public function computeRouting($version, $data, string $contentType = self::contentTypes['computeRouting'][0])
+    public function computeRouting($data, string $contentType = self::contentTypes['computeRouting'][0])
     {
-        list($response) = $this->computeRoutingWithHttpInfo($version, $data, $contentType);
+        list($response) = $this->computeRoutingWithHttpInfo($data, $contentType);
         return $response;
     }
 
@@ -150,7 +149,6 @@ class RoutingApi
      *
      * Compute Route
      *
-     * @param  float $version (required)
      * @param  string $data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeRouting'] to see the possible values for this operation
      *
@@ -158,9 +156,9 @@ class RoutingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RoutingListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function computeRoutingWithHttpInfo($version, $data, string $contentType = self::contentTypes['computeRouting'][0])
+    public function computeRoutingWithHttpInfo($data, string $contentType = self::contentTypes['computeRouting'][0])
     {
-        $request = $this->computeRoutingRequest($version, $data, $contentType);
+        $request = $this->computeRoutingRequest($data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -236,16 +234,15 @@ class RoutingApi
      *
      * Compute Route
      *
-     * @param  float $version (required)
      * @param  string $data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeRouting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function computeRoutingAsync($version, $data, string $contentType = self::contentTypes['computeRouting'][0])
+    public function computeRoutingAsync($data, string $contentType = self::contentTypes['computeRouting'][0])
     {
-        return $this->computeRoutingAsyncWithHttpInfo($version, $data, $contentType)
+        return $this->computeRoutingAsyncWithHttpInfo($data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -258,17 +255,16 @@ class RoutingApi
      *
      * Compute Route
      *
-     * @param  float $version (required)
      * @param  string $data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeRouting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function computeRoutingAsyncWithHttpInfo($version, $data, string $contentType = self::contentTypes['computeRouting'][0])
+    public function computeRoutingAsyncWithHttpInfo($data, string $contentType = self::contentTypes['computeRouting'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RoutingListResponse';
-        $request = $this->computeRoutingRequest($version, $data, $contentType);
+        $request = $this->computeRoutingRequest($data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -309,22 +305,14 @@ class RoutingApi
     /**
      * Create request for operation 'computeRouting'
      *
-     * @param  float $version (required)
      * @param  string $data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeRouting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function computeRoutingRequest($version, $data, string $contentType = self::contentTypes['computeRouting'][0])
+    public function computeRoutingRequest($data, string $contentType = self::contentTypes['computeRouting'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling computeRouting'
-            );
-        }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
@@ -334,7 +322,7 @@ class RoutingApi
         }
 
 
-        $resourcePath = '/api/{version}/routing/compute';
+        $resourcePath = '/routing/compute';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -352,14 +340,6 @@ class RoutingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

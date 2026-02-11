@@ -131,7 +131,6 @@ class SimulationApi
      *
      * Routing Simulation
      *
-     * @param  float $version version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json {   \&quot;startDate\&quot;: 1474268400000,   \&quot;endDate\&quot;: 1474268700000,   \&quot;checkoutStops\&quot;: [     {       \&quot;latitude\&quot;: 25.060453943481615,       \&quot;longitude\&quot;: 121.57487118216957     }   ],   \&quot;requests\&quot;: [     {       \&quot;vehicles\&quot;: [         {           \&quot;id\&quot;: \&quot;customer1\&quot;,           \&quot;name\&quot;: \&quot;Customer 1\&quot;,           \&quot;depot\&quot;: {             \&quot;latitude\&quot;: 25.060453943481615,             \&quot;longitude\&quot;: 121.57487118216957           },           \&quot;startWindow\&quot;: 1474268464537         }       ],       \&quot;items\&quot;: [         {           \&quot;id\&quot;: 152712,           \&quot;name\&quot;: \&quot;Appliance Product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060306635544144,             \&quot;longitude\&quot;: 121.5750770690688           }         },         {           \&quot;id\&quot;: 152711,           \&quot;name\&quot;: \&quot;TV product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060126352576326,             \&quot;longitude\&quot;: 121.57505023621624           }         }       ]     }   ],   \&quot;featuredItems\&quot;: [],   \&quot;floorPlan\&quot;: {     \&quot;metersPerX\&quot;: 0.81493109028875,     \&quot;metersPerY\&quot;: 1.8525267552262,     \&quot;width\&quot;: 75,     \&quot;height\&quot;: 50,     \&quot;exclusions\&quot;: [       { \&quot;x\&quot;: 14, \&quot;y\&quot;: 49 }     ],     \&quot;southwest\&quot;: {       \&quot;x\&quot;: 0,       \&quot;y\&quot;: 0,       \&quot;latitude\&quot;: 25.05961539530497,       \&quot;longitude\&quot;: 121.57487591737885     }   } } &#x60;&#x60;&#x60; (required)
      * @param  bool $real_time determines whether to run the simulation and return the results in the same request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['simulation'] to see the possible values for this operation
@@ -140,9 +139,9 @@ class SimulationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function simulation($version, $data, $real_time, string $contentType = self::contentTypes['simulation'][0])
+    public function simulation($data, $real_time, string $contentType = self::contentTypes['simulation'][0])
     {
-        list($response) = $this->simulationWithHttpInfo($version, $data, $real_time, $contentType);
+        list($response) = $this->simulationWithHttpInfo($data, $real_time, $contentType);
         return $response;
     }
 
@@ -151,7 +150,6 @@ class SimulationApi
      *
      * Routing Simulation
      *
-     * @param  float $version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json {   \&quot;startDate\&quot;: 1474268400000,   \&quot;endDate\&quot;: 1474268700000,   \&quot;checkoutStops\&quot;: [     {       \&quot;latitude\&quot;: 25.060453943481615,       \&quot;longitude\&quot;: 121.57487118216957     }   ],   \&quot;requests\&quot;: [     {       \&quot;vehicles\&quot;: [         {           \&quot;id\&quot;: \&quot;customer1\&quot;,           \&quot;name\&quot;: \&quot;Customer 1\&quot;,           \&quot;depot\&quot;: {             \&quot;latitude\&quot;: 25.060453943481615,             \&quot;longitude\&quot;: 121.57487118216957           },           \&quot;startWindow\&quot;: 1474268464537         }       ],       \&quot;items\&quot;: [         {           \&quot;id\&quot;: 152712,           \&quot;name\&quot;: \&quot;Appliance Product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060306635544144,             \&quot;longitude\&quot;: 121.5750770690688           }         },         {           \&quot;id\&quot;: 152711,           \&quot;name\&quot;: \&quot;TV product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060126352576326,             \&quot;longitude\&quot;: 121.57505023621624           }         }       ]     }   ],   \&quot;featuredItems\&quot;: [],   \&quot;floorPlan\&quot;: {     \&quot;metersPerX\&quot;: 0.81493109028875,     \&quot;metersPerY\&quot;: 1.8525267552262,     \&quot;width\&quot;: 75,     \&quot;height\&quot;: 50,     \&quot;exclusions\&quot;: [       { \&quot;x\&quot;: 14, \&quot;y\&quot;: 49 }     ],     \&quot;southwest\&quot;: {       \&quot;x\&quot;: 0,       \&quot;y\&quot;: 0,       \&quot;latitude\&quot;: 25.05961539530497,       \&quot;longitude\&quot;: 121.57487591737885     }   } } &#x60;&#x60;&#x60; (required)
      * @param  bool $real_time determines whether to run the simulation and return the results in the same request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['simulation'] to see the possible values for this operation
@@ -160,9 +158,9 @@ class SimulationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function simulationWithHttpInfo($version, $data, $real_time, string $contentType = self::contentTypes['simulation'][0])
+    public function simulationWithHttpInfo($data, $real_time, string $contentType = self::contentTypes['simulation'][0])
     {
-        $request = $this->simulationRequest($version, $data, $real_time, $contentType);
+        $request = $this->simulationRequest($data, $real_time, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -238,7 +236,6 @@ class SimulationApi
      *
      * Routing Simulation
      *
-     * @param  float $version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json {   \&quot;startDate\&quot;: 1474268400000,   \&quot;endDate\&quot;: 1474268700000,   \&quot;checkoutStops\&quot;: [     {       \&quot;latitude\&quot;: 25.060453943481615,       \&quot;longitude\&quot;: 121.57487118216957     }   ],   \&quot;requests\&quot;: [     {       \&quot;vehicles\&quot;: [         {           \&quot;id\&quot;: \&quot;customer1\&quot;,           \&quot;name\&quot;: \&quot;Customer 1\&quot;,           \&quot;depot\&quot;: {             \&quot;latitude\&quot;: 25.060453943481615,             \&quot;longitude\&quot;: 121.57487118216957           },           \&quot;startWindow\&quot;: 1474268464537         }       ],       \&quot;items\&quot;: [         {           \&quot;id\&quot;: 152712,           \&quot;name\&quot;: \&quot;Appliance Product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060306635544144,             \&quot;longitude\&quot;: 121.5750770690688           }         },         {           \&quot;id\&quot;: 152711,           \&quot;name\&quot;: \&quot;TV product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060126352576326,             \&quot;longitude\&quot;: 121.57505023621624           }         }       ]     }   ],   \&quot;featuredItems\&quot;: [],   \&quot;floorPlan\&quot;: {     \&quot;metersPerX\&quot;: 0.81493109028875,     \&quot;metersPerY\&quot;: 1.8525267552262,     \&quot;width\&quot;: 75,     \&quot;height\&quot;: 50,     \&quot;exclusions\&quot;: [       { \&quot;x\&quot;: 14, \&quot;y\&quot;: 49 }     ],     \&quot;southwest\&quot;: {       \&quot;x\&quot;: 0,       \&quot;y\&quot;: 0,       \&quot;latitude\&quot;: 25.05961539530497,       \&quot;longitude\&quot;: 121.57487591737885     }   } } &#x60;&#x60;&#x60; (required)
      * @param  bool $real_time determines whether to run the simulation and return the results in the same request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['simulation'] to see the possible values for this operation
@@ -246,9 +243,9 @@ class SimulationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function simulationAsync($version, $data, $real_time, string $contentType = self::contentTypes['simulation'][0])
+    public function simulationAsync($data, $real_time, string $contentType = self::contentTypes['simulation'][0])
     {
-        return $this->simulationAsyncWithHttpInfo($version, $data, $real_time, $contentType)
+        return $this->simulationAsyncWithHttpInfo($data, $real_time, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,7 +258,6 @@ class SimulationApi
      *
      * Routing Simulation
      *
-     * @param  float $version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json {   \&quot;startDate\&quot;: 1474268400000,   \&quot;endDate\&quot;: 1474268700000,   \&quot;checkoutStops\&quot;: [     {       \&quot;latitude\&quot;: 25.060453943481615,       \&quot;longitude\&quot;: 121.57487118216957     }   ],   \&quot;requests\&quot;: [     {       \&quot;vehicles\&quot;: [         {           \&quot;id\&quot;: \&quot;customer1\&quot;,           \&quot;name\&quot;: \&quot;Customer 1\&quot;,           \&quot;depot\&quot;: {             \&quot;latitude\&quot;: 25.060453943481615,             \&quot;longitude\&quot;: 121.57487118216957           },           \&quot;startWindow\&quot;: 1474268464537         }       ],       \&quot;items\&quot;: [         {           \&quot;id\&quot;: 152712,           \&quot;name\&quot;: \&quot;Appliance Product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060306635544144,             \&quot;longitude\&quot;: 121.5750770690688           }         },         {           \&quot;id\&quot;: 152711,           \&quot;name\&quot;: \&quot;TV product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060126352576326,             \&quot;longitude\&quot;: 121.57505023621624           }         }       ]     }   ],   \&quot;featuredItems\&quot;: [],   \&quot;floorPlan\&quot;: {     \&quot;metersPerX\&quot;: 0.81493109028875,     \&quot;metersPerY\&quot;: 1.8525267552262,     \&quot;width\&quot;: 75,     \&quot;height\&quot;: 50,     \&quot;exclusions\&quot;: [       { \&quot;x\&quot;: 14, \&quot;y\&quot;: 49 }     ],     \&quot;southwest\&quot;: {       \&quot;x\&quot;: 0,       \&quot;y\&quot;: 0,       \&quot;latitude\&quot;: 25.05961539530497,       \&quot;longitude\&quot;: 121.57487591737885     }   } } &#x60;&#x60;&#x60; (required)
      * @param  bool $real_time determines whether to run the simulation and return the results in the same request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['simulation'] to see the possible values for this operation
@@ -269,10 +265,10 @@ class SimulationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function simulationAsyncWithHttpInfo($version, $data, $real_time, string $contentType = self::contentTypes['simulation'][0])
+    public function simulationAsyncWithHttpInfo($data, $real_time, string $contentType = self::contentTypes['simulation'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->simulationRequest($version, $data, $real_time, $contentType);
+        $request = $this->simulationRequest($data, $real_time, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -313,7 +309,6 @@ class SimulationApi
     /**
      * Create request for operation 'simulation'
      *
-     * @param  float $version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json {   \&quot;startDate\&quot;: 1474268400000,   \&quot;endDate\&quot;: 1474268700000,   \&quot;checkoutStops\&quot;: [     {       \&quot;latitude\&quot;: 25.060453943481615,       \&quot;longitude\&quot;: 121.57487118216957     }   ],   \&quot;requests\&quot;: [     {       \&quot;vehicles\&quot;: [         {           \&quot;id\&quot;: \&quot;customer1\&quot;,           \&quot;name\&quot;: \&quot;Customer 1\&quot;,           \&quot;depot\&quot;: {             \&quot;latitude\&quot;: 25.060453943481615,             \&quot;longitude\&quot;: 121.57487118216957           },           \&quot;startWindow\&quot;: 1474268464537         }       ],       \&quot;items\&quot;: [         {           \&quot;id\&quot;: 152712,           \&quot;name\&quot;: \&quot;Appliance Product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060306635544144,             \&quot;longitude\&quot;: 121.5750770690688           }         },         {           \&quot;id\&quot;: 152711,           \&quot;name\&quot;: \&quot;TV product\&quot;,           \&quot;pickup\&quot;: {             \&quot;latitude\&quot;: 25.060126352576326,             \&quot;longitude\&quot;: 121.57505023621624           }         }       ]     }   ],   \&quot;featuredItems\&quot;: [],   \&quot;floorPlan\&quot;: {     \&quot;metersPerX\&quot;: 0.81493109028875,     \&quot;metersPerY\&quot;: 1.8525267552262,     \&quot;width\&quot;: 75,     \&quot;height\&quot;: 50,     \&quot;exclusions\&quot;: [       { \&quot;x\&quot;: 14, \&quot;y\&quot;: 49 }     ],     \&quot;southwest\&quot;: {       \&quot;x\&quot;: 0,       \&quot;y\&quot;: 0,       \&quot;latitude\&quot;: 25.05961539530497,       \&quot;longitude\&quot;: 121.57487591737885     }   } } &#x60;&#x60;&#x60; (required)
      * @param  bool $real_time determines whether to run the simulation and return the results in the same request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['simulation'] to see the possible values for this operation
@@ -321,15 +316,8 @@ class SimulationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function simulationRequest($version, $data, $real_time, string $contentType = self::contentTypes['simulation'][0])
+    public function simulationRequest($data, $real_time, string $contentType = self::contentTypes['simulation'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling simulation'
-            );
-        }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
@@ -346,7 +334,7 @@ class SimulationApi
         }
 
 
-        $resourcePath = '/api/{version}/simulation/routing';
+        $resourcePath = '/simulation/routing';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -373,14 +361,6 @@ class SimulationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

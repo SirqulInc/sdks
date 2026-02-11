@@ -131,7 +131,6 @@ class OpenAIApi
      *
      * Generate images with OpenAI
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $post_body Post Body Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -141,9 +140,9 @@ class OpenAIApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WrappedProxyItemResponse
      */
-    public function imageGeneration($version, $account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
+    public function imageGeneration($account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
     {
-        list($response) = $this->imageGenerationWithHttpInfo($version, $account_id, $post_body, $return_raw_response, $contentType);
+        list($response) = $this->imageGenerationWithHttpInfo($account_id, $post_body, $return_raw_response, $contentType);
         return $response;
     }
 
@@ -152,7 +151,6 @@ class OpenAIApi
      *
      * Generate images with OpenAI
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $post_body Post Body Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -162,9 +160,9 @@ class OpenAIApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WrappedProxyItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function imageGenerationWithHttpInfo($version, $account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
+    public function imageGenerationWithHttpInfo($account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
     {
-        $request = $this->imageGenerationRequest($version, $account_id, $post_body, $return_raw_response, $contentType);
+        $request = $this->imageGenerationRequest($account_id, $post_body, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -240,7 +238,6 @@ class OpenAIApi
      *
      * Generate images with OpenAI
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $post_body Post Body Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -249,9 +246,9 @@ class OpenAIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageGenerationAsync($version, $account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
+    public function imageGenerationAsync($account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
     {
-        return $this->imageGenerationAsyncWithHttpInfo($version, $account_id, $post_body, $return_raw_response, $contentType)
+        return $this->imageGenerationAsyncWithHttpInfo($account_id, $post_body, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -264,7 +261,6 @@ class OpenAIApi
      *
      * Generate images with OpenAI
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $post_body Post Body Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -273,10 +269,10 @@ class OpenAIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageGenerationAsyncWithHttpInfo($version, $account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
+    public function imageGenerationAsyncWithHttpInfo($account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WrappedProxyItemResponse';
-        $request = $this->imageGenerationRequest($version, $account_id, $post_body, $return_raw_response, $contentType);
+        $request = $this->imageGenerationRequest($account_id, $post_body, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -317,7 +313,6 @@ class OpenAIApi
     /**
      * Create request for operation 'imageGeneration'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $post_body Post Body Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -326,15 +321,8 @@ class OpenAIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function imageGenerationRequest($version, $account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
+    public function imageGenerationRequest($account_id, $post_body, $return_raw_response = null, string $contentType = self::contentTypes['imageGeneration'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling imageGeneration'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -352,7 +340,7 @@ class OpenAIApi
 
 
 
-        $resourcePath = '/api/{version}/openai/v1/images/generations';
+        $resourcePath = '/openai/v1/images/generations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -388,14 +376,6 @@ class OpenAIApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

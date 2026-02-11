@@ -176,7 +176,6 @@ class TripApi
      *
      * Create Trip
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrip'] to see the possible values for this operation
      *
@@ -184,9 +183,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip
      */
-    public function createTrip($version, $body = null, string $contentType = self::contentTypes['createTrip'][0])
+    public function createTrip($body = null, string $contentType = self::contentTypes['createTrip'][0])
     {
-        list($response) = $this->createTripWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createTripWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -195,7 +194,6 @@ class TripApi
      *
      * Create Trip
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrip'] to see the possible values for this operation
      *
@@ -203,9 +201,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTripWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createTrip'][0])
+    public function createTripWithHttpInfo($body = null, string $contentType = self::contentTypes['createTrip'][0])
     {
-        $request = $this->createTripRequest($version, $body, $contentType);
+        $request = $this->createTripRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -281,16 +279,15 @@ class TripApi
      *
      * Create Trip
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrip'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTripAsync($version, $body = null, string $contentType = self::contentTypes['createTrip'][0])
+    public function createTripAsync($body = null, string $contentType = self::contentTypes['createTrip'][0])
     {
-        return $this->createTripAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createTripAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -303,17 +300,16 @@ class TripApi
      *
      * Create Trip
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrip'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTripAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createTrip'][0])
+    public function createTripAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createTrip'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip';
-        $request = $this->createTripRequest($version, $body, $contentType);
+        $request = $this->createTripRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -354,26 +350,18 @@ class TripApi
     /**
      * Create request for operation 'createTrip'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrip'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTripRequest($version, $body = null, string $contentType = self::contentTypes['createTrip'][0])
+    public function createTripRequest($body = null, string $contentType = self::contentTypes['createTrip'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createTrip'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/trip';
+        $resourcePath = '/trip';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -382,14 +370,6 @@ class TripApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -457,7 +437,6 @@ class TripApi
      *
      * Delete Trip
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['delete'] to see the possible values for this operation
      *
@@ -465,9 +444,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function delete($version, $id, string $contentType = self::contentTypes['delete'][0])
+    public function delete($id, string $contentType = self::contentTypes['delete'][0])
     {
-        $this->deleteWithHttpInfo($version, $id, $contentType);
+        $this->deleteWithHttpInfo($id, $contentType);
     }
 
     /**
@@ -475,7 +454,6 @@ class TripApi
      *
      * Delete Trip
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['delete'] to see the possible values for this operation
      *
@@ -483,9 +461,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWithHttpInfo($version, $id, string $contentType = self::contentTypes['delete'][0])
+    public function deleteWithHttpInfo($id, string $contentType = self::contentTypes['delete'][0])
     {
-        $request = $this->deleteRequest($version, $id, $contentType);
+        $request = $this->deleteRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -525,16 +503,15 @@ class TripApi
      *
      * Delete Trip
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['delete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAsync($version, $id, string $contentType = self::contentTypes['delete'][0])
+    public function deleteAsync($id, string $contentType = self::contentTypes['delete'][0])
     {
-        return $this->deleteAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->deleteAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -547,17 +524,16 @@ class TripApi
      *
      * Delete Trip
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['delete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['delete'][0])
+    public function deleteAsyncWithHttpInfo($id, string $contentType = self::contentTypes['delete'][0])
     {
         $returnType = '';
-        $request = $this->deleteRequest($version, $id, $contentType);
+        $request = $this->deleteRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -585,22 +561,14 @@ class TripApi
     /**
      * Create request for operation 'delete'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['delete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteRequest($version, $id, string $contentType = self::contentTypes['delete'][0])
+    public function deleteRequest($id, string $contentType = self::contentTypes['delete'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling delete'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -610,7 +578,7 @@ class TripApi
         }
 
 
-        $resourcePath = '/api/{version}/trip/{id}';
+        $resourcePath = '/trip/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -619,14 +587,6 @@ class TripApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -695,7 +655,6 @@ class TripApi
      *
      * Set Trip Preference Driver
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['driveTrip'] to see the possible values for this operation
@@ -704,9 +663,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip
      */
-    public function driveTrip($version, $id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
+    public function driveTrip($id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
     {
-        list($response) = $this->driveTripWithHttpInfo($version, $id, $recurrence, $contentType);
+        list($response) = $this->driveTripWithHttpInfo($id, $recurrence, $contentType);
         return $response;
     }
 
@@ -715,7 +674,6 @@ class TripApi
      *
      * Set Trip Preference Driver
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['driveTrip'] to see the possible values for this operation
@@ -724,9 +682,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip, HTTP status code, HTTP response headers (array of strings)
      */
-    public function driveTripWithHttpInfo($version, $id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
+    public function driveTripWithHttpInfo($id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
     {
-        $request = $this->driveTripRequest($version, $id, $recurrence, $contentType);
+        $request = $this->driveTripRequest($id, $recurrence, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -802,7 +760,6 @@ class TripApi
      *
      * Set Trip Preference Driver
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['driveTrip'] to see the possible values for this operation
@@ -810,9 +767,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function driveTripAsync($version, $id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
+    public function driveTripAsync($id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
     {
-        return $this->driveTripAsyncWithHttpInfo($version, $id, $recurrence, $contentType)
+        return $this->driveTripAsyncWithHttpInfo($id, $recurrence, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -825,7 +782,6 @@ class TripApi
      *
      * Set Trip Preference Driver
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['driveTrip'] to see the possible values for this operation
@@ -833,10 +789,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function driveTripAsyncWithHttpInfo($version, $id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
+    public function driveTripAsyncWithHttpInfo($id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip';
-        $request = $this->driveTripRequest($version, $id, $recurrence, $contentType);
+        $request = $this->driveTripRequest($id, $recurrence, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -877,7 +833,6 @@ class TripApi
     /**
      * Create request for operation 'driveTrip'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['driveTrip'] to see the possible values for this operation
@@ -885,15 +840,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function driveTripRequest($version, $id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
+    public function driveTripRequest($id, $recurrence, string $contentType = self::contentTypes['driveTrip'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling driveTrip'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -910,7 +858,7 @@ class TripApi
         }
 
 
-        $resourcePath = '/api/{version}/trip/{id}/drive';
+        $resourcePath = '/trip/{id}/drive';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -928,14 +876,6 @@ class TripApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1004,7 +944,6 @@ class TripApi
      *
      * Set Trip Preference Flexible
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['flexibleTrip'] to see the possible values for this operation
@@ -1013,9 +952,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip
      */
-    public function flexibleTrip($version, $id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
+    public function flexibleTrip($id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
     {
-        list($response) = $this->flexibleTripWithHttpInfo($version, $id, $recurrence, $contentType);
+        list($response) = $this->flexibleTripWithHttpInfo($id, $recurrence, $contentType);
         return $response;
     }
 
@@ -1024,7 +963,6 @@ class TripApi
      *
      * Set Trip Preference Flexible
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['flexibleTrip'] to see the possible values for this operation
@@ -1033,9 +971,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip, HTTP status code, HTTP response headers (array of strings)
      */
-    public function flexibleTripWithHttpInfo($version, $id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
+    public function flexibleTripWithHttpInfo($id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
     {
-        $request = $this->flexibleTripRequest($version, $id, $recurrence, $contentType);
+        $request = $this->flexibleTripRequest($id, $recurrence, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1111,7 +1049,6 @@ class TripApi
      *
      * Set Trip Preference Flexible
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['flexibleTrip'] to see the possible values for this operation
@@ -1119,9 +1056,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function flexibleTripAsync($version, $id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
+    public function flexibleTripAsync($id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
     {
-        return $this->flexibleTripAsyncWithHttpInfo($version, $id, $recurrence, $contentType)
+        return $this->flexibleTripAsyncWithHttpInfo($id, $recurrence, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1134,7 +1071,6 @@ class TripApi
      *
      * Set Trip Preference Flexible
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['flexibleTrip'] to see the possible values for this operation
@@ -1142,10 +1078,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function flexibleTripAsyncWithHttpInfo($version, $id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
+    public function flexibleTripAsyncWithHttpInfo($id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip';
-        $request = $this->flexibleTripRequest($version, $id, $recurrence, $contentType);
+        $request = $this->flexibleTripRequest($id, $recurrence, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1186,7 +1122,6 @@ class TripApi
     /**
      * Create request for operation 'flexibleTrip'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['flexibleTrip'] to see the possible values for this operation
@@ -1194,15 +1129,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function flexibleTripRequest($version, $id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
+    public function flexibleTripRequest($id, $recurrence, string $contentType = self::contentTypes['flexibleTrip'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling flexibleTrip'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1219,7 +1147,7 @@ class TripApi
         }
 
 
-        $resourcePath = '/api/{version}/trip/{id}/flexible';
+        $resourcePath = '/trip/{id}/flexible';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1237,14 +1165,6 @@ class TripApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1313,7 +1233,6 @@ class TripApi
      *
      * Get Trip
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrip'] to see the possible values for this operation
      *
@@ -1321,9 +1240,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip
      */
-    public function getTrip($version, $id, string $contentType = self::contentTypes['getTrip'][0])
+    public function getTrip($id, string $contentType = self::contentTypes['getTrip'][0])
     {
-        list($response) = $this->getTripWithHttpInfo($version, $id, $contentType);
+        list($response) = $this->getTripWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -1332,7 +1251,6 @@ class TripApi
      *
      * Get Trip
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrip'] to see the possible values for this operation
      *
@@ -1340,9 +1258,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTripWithHttpInfo($version, $id, string $contentType = self::contentTypes['getTrip'][0])
+    public function getTripWithHttpInfo($id, string $contentType = self::contentTypes['getTrip'][0])
     {
-        $request = $this->getTripRequest($version, $id, $contentType);
+        $request = $this->getTripRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1418,16 +1336,15 @@ class TripApi
      *
      * Get Trip
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrip'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTripAsync($version, $id, string $contentType = self::contentTypes['getTrip'][0])
+    public function getTripAsync($id, string $contentType = self::contentTypes['getTrip'][0])
     {
-        return $this->getTripAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->getTripAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1440,17 +1357,16 @@ class TripApi
      *
      * Get Trip
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrip'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTripAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['getTrip'][0])
+    public function getTripAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getTrip'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip';
-        $request = $this->getTripRequest($version, $id, $contentType);
+        $request = $this->getTripRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1491,22 +1407,14 @@ class TripApi
     /**
      * Create request for operation 'getTrip'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrip'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTripRequest($version, $id, string $contentType = self::contentTypes['getTrip'][0])
+    public function getTripRequest($id, string $contentType = self::contentTypes['getTrip'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTrip'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1516,7 +1424,7 @@ class TripApi
         }
 
 
-        $resourcePath = '/api/{version}/trip/{id}';
+        $resourcePath = '/trip/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1525,14 +1433,6 @@ class TripApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1601,7 +1501,6 @@ class TripApi
      *
      * Get Trip Matches
      *
-     * @param  float $version version (required)
      * @param  int $id The id The id of the trip to search for matches for (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1616,9 +1515,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip[]
      */
-    public function getTripMatches($version, $id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
+    public function getTripMatches($id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
     {
-        list($response) = $this->getTripMatchesWithHttpInfo($version, $id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route, $matched_has_driver, $contentType);
+        list($response) = $this->getTripMatchesWithHttpInfo($id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route, $matched_has_driver, $contentType);
         return $response;
     }
 
@@ -1627,7 +1526,6 @@ class TripApi
      *
      * Get Trip Matches
      *
-     * @param  float $version (required)
      * @param  int $id The id The id of the trip to search for matches for (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1642,9 +1540,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTripMatchesWithHttpInfo($version, $id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
+    public function getTripMatchesWithHttpInfo($id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
     {
-        $request = $this->getTripMatchesRequest($version, $id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route, $matched_has_driver, $contentType);
+        $request = $this->getTripMatchesRequest($id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route, $matched_has_driver, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1720,7 +1618,6 @@ class TripApi
      *
      * Get Trip Matches
      *
-     * @param  float $version (required)
      * @param  int $id The id The id of the trip to search for matches for (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1734,9 +1631,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTripMatchesAsync($version, $id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
+    public function getTripMatchesAsync($id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
     {
-        return $this->getTripMatchesAsyncWithHttpInfo($version, $id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route, $matched_has_driver, $contentType)
+        return $this->getTripMatchesAsyncWithHttpInfo($id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route, $matched_has_driver, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1749,7 +1646,6 @@ class TripApi
      *
      * Get Trip Matches
      *
-     * @param  float $version (required)
      * @param  int $id The id The id of the trip to search for matches for (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1763,10 +1659,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTripMatchesAsyncWithHttpInfo($version, $id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
+    public function getTripMatchesAsyncWithHttpInfo($id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip[]';
-        $request = $this->getTripMatchesRequest($version, $id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route, $matched_has_driver, $contentType);
+        $request = $this->getTripMatchesRequest($id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route, $matched_has_driver, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1807,7 +1703,6 @@ class TripApi
     /**
      * Create request for operation 'getTripMatches'
      *
-     * @param  float $version (required)
      * @param  int $id The id The id of the trip to search for matches for (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1821,15 +1716,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTripMatchesRequest($version, $id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
+    public function getTripMatchesRequest($id, $sort_field, $descending, $start, $limit, $active_only, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['getTripMatches'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTripMatches'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1876,7 +1764,7 @@ class TripApi
 
 
 
-        $resourcePath = '/api/{version}/trip/{id}/match';
+        $resourcePath = '/trip/{id}/match';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1949,14 +1837,6 @@ class TripApi
 
 
         // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
-        // path params
         if ($id !== null) {
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
@@ -2024,7 +1904,6 @@ class TripApi
      *
      * Process Trip Matches
      *
-     * @param  float $version version (required)
      * @param  int|null $start_date The lower bound date to process matchings (optional)
      * @param  int|null $end_date The upper bound date to process matchings (optional)
      * @param  int|null $trip_id the id of the trip to process (optional)
@@ -2034,9 +1913,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip[]
      */
-    public function processTripMatches($version, $start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
+    public function processTripMatches($start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
     {
-        list($response) = $this->processTripMatchesWithHttpInfo($version, $start_date, $end_date, $trip_id, $contentType);
+        list($response) = $this->processTripMatchesWithHttpInfo($start_date, $end_date, $trip_id, $contentType);
         return $response;
     }
 
@@ -2045,7 +1924,6 @@ class TripApi
      *
      * Process Trip Matches
      *
-     * @param  float $version (required)
      * @param  int|null $start_date The lower bound date to process matchings (optional)
      * @param  int|null $end_date The upper bound date to process matchings (optional)
      * @param  int|null $trip_id the id of the trip to process (optional)
@@ -2055,9 +1933,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function processTripMatchesWithHttpInfo($version, $start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
+    public function processTripMatchesWithHttpInfo($start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
     {
-        $request = $this->processTripMatchesRequest($version, $start_date, $end_date, $trip_id, $contentType);
+        $request = $this->processTripMatchesRequest($start_date, $end_date, $trip_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2133,7 +2011,6 @@ class TripApi
      *
      * Process Trip Matches
      *
-     * @param  float $version (required)
      * @param  int|null $start_date The lower bound date to process matchings (optional)
      * @param  int|null $end_date The upper bound date to process matchings (optional)
      * @param  int|null $trip_id the id of the trip to process (optional)
@@ -2142,9 +2019,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function processTripMatchesAsync($version, $start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
+    public function processTripMatchesAsync($start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
     {
-        return $this->processTripMatchesAsyncWithHttpInfo($version, $start_date, $end_date, $trip_id, $contentType)
+        return $this->processTripMatchesAsyncWithHttpInfo($start_date, $end_date, $trip_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2157,7 +2034,6 @@ class TripApi
      *
      * Process Trip Matches
      *
-     * @param  float $version (required)
      * @param  int|null $start_date The lower bound date to process matchings (optional)
      * @param  int|null $end_date The upper bound date to process matchings (optional)
      * @param  int|null $trip_id the id of the trip to process (optional)
@@ -2166,10 +2042,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function processTripMatchesAsyncWithHttpInfo($version, $start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
+    public function processTripMatchesAsyncWithHttpInfo($start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip[]';
-        $request = $this->processTripMatchesRequest($version, $start_date, $end_date, $trip_id, $contentType);
+        $request = $this->processTripMatchesRequest($start_date, $end_date, $trip_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2210,7 +2086,6 @@ class TripApi
     /**
      * Create request for operation 'processTripMatches'
      *
-     * @param  float $version (required)
      * @param  int|null $start_date The lower bound date to process matchings (optional)
      * @param  int|null $end_date The upper bound date to process matchings (optional)
      * @param  int|null $trip_id the id of the trip to process (optional)
@@ -2219,21 +2094,14 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function processTripMatchesRequest($version, $start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
+    public function processTripMatchesRequest($start_date = null, $end_date = null, $trip_id = null, string $contentType = self::contentTypes['processTripMatches'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling processTripMatches'
-            );
-        }
 
 
 
 
-
-        $resourcePath = '/api/{version}/trip/match/process';
+        $resourcePath = '/trip/match/process';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2269,14 +2137,6 @@ class TripApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2337,7 +2197,6 @@ class TripApi
      *
      * Set Trip Preference Rider
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ride'] to see the possible values for this operation
@@ -2346,9 +2205,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip
      */
-    public function ride($version, $id, $recurrence, string $contentType = self::contentTypes['ride'][0])
+    public function ride($id, $recurrence, string $contentType = self::contentTypes['ride'][0])
     {
-        list($response) = $this->rideWithHttpInfo($version, $id, $recurrence, $contentType);
+        list($response) = $this->rideWithHttpInfo($id, $recurrence, $contentType);
         return $response;
     }
 
@@ -2357,7 +2216,6 @@ class TripApi
      *
      * Set Trip Preference Rider
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ride'] to see the possible values for this operation
@@ -2366,9 +2224,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip, HTTP status code, HTTP response headers (array of strings)
      */
-    public function rideWithHttpInfo($version, $id, $recurrence, string $contentType = self::contentTypes['ride'][0])
+    public function rideWithHttpInfo($id, $recurrence, string $contentType = self::contentTypes['ride'][0])
     {
-        $request = $this->rideRequest($version, $id, $recurrence, $contentType);
+        $request = $this->rideRequest($id, $recurrence, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2444,7 +2302,6 @@ class TripApi
      *
      * Set Trip Preference Rider
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ride'] to see the possible values for this operation
@@ -2452,9 +2309,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rideAsync($version, $id, $recurrence, string $contentType = self::contentTypes['ride'][0])
+    public function rideAsync($id, $recurrence, string $contentType = self::contentTypes['ride'][0])
     {
-        return $this->rideAsyncWithHttpInfo($version, $id, $recurrence, $contentType)
+        return $this->rideAsyncWithHttpInfo($id, $recurrence, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2467,7 +2324,6 @@ class TripApi
      *
      * Set Trip Preference Rider
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ride'] to see the possible values for this operation
@@ -2475,10 +2331,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rideAsyncWithHttpInfo($version, $id, $recurrence, string $contentType = self::contentTypes['ride'][0])
+    public function rideAsyncWithHttpInfo($id, $recurrence, string $contentType = self::contentTypes['ride'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip';
-        $request = $this->rideRequest($version, $id, $recurrence, $contentType);
+        $request = $this->rideRequest($id, $recurrence, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2519,7 +2375,6 @@ class TripApi
     /**
      * Create request for operation 'ride'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  bool $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ride'] to see the possible values for this operation
@@ -2527,15 +2382,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function rideRequest($version, $id, $recurrence, string $contentType = self::contentTypes['ride'][0])
+    public function rideRequest($id, $recurrence, string $contentType = self::contentTypes['ride'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling ride'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2552,7 +2400,7 @@ class TripApi
         }
 
 
-        $resourcePath = '/api/{version}/trip/{id}/ride';
+        $resourcePath = '/trip/{id}/ride';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2570,14 +2418,6 @@ class TripApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -2646,7 +2486,6 @@ class TripApi
      *
      * Search Trips
      *
-     * @param  float $version version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -2662,9 +2501,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip[]
      */
-    public function search($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
+    public function search($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
     {
-        list($response) = $this->searchWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $has_notifications, $contentType);
+        list($response) = $this->searchWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $has_notifications, $contentType);
         return $response;
     }
 
@@ -2673,7 +2512,6 @@ class TripApi
      *
      * Search Trips
      *
-     * @param  float $version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -2689,9 +2527,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
+    public function searchWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
     {
-        $request = $this->searchRequest($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $has_notifications, $contentType);
+        $request = $this->searchRequest($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $has_notifications, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2767,7 +2605,6 @@ class TripApi
      *
      * Search Trips
      *
-     * @param  float $version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -2782,9 +2619,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAsync($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
+    public function searchAsync($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
     {
-        return $this->searchAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $has_notifications, $contentType)
+        return $this->searchAsyncWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $has_notifications, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2797,7 +2634,6 @@ class TripApi
      *
      * Search Trips
      *
-     * @param  float $version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -2812,10 +2648,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
+    public function searchAsyncWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip[]';
-        $request = $this->searchRequest($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $has_notifications, $contentType);
+        $request = $this->searchRequest($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $has_notifications, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2856,7 +2692,6 @@ class TripApi
     /**
      * Create request for operation 'search'
      *
-     * @param  float $version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -2871,15 +2706,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRequest($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
+    public function searchRequest($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $has_notifications = null, string $contentType = self::contentTypes['search'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling search'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2927,7 +2755,7 @@ class TripApi
 
 
 
-        $resourcePath = '/api/{version}/trip';
+        $resourcePath = '/trip';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3017,14 +2845,6 @@ class TripApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3085,7 +2905,6 @@ class TripApi
      *
      * Search Trips
      *
-     * @param  float $version version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -3102,9 +2921,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip[]
      */
-    public function searchTrips($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
+    public function searchTrips($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
     {
-        list($response) = $this->searchTripsWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $matched_has_route, $matched_has_driver, $contentType);
+        list($response) = $this->searchTripsWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $matched_has_route, $matched_has_driver, $contentType);
         return $response;
     }
 
@@ -3113,7 +2932,6 @@ class TripApi
      *
      * Search Trips
      *
-     * @param  float $version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -3130,9 +2948,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchTripsWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
+    public function searchTripsWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
     {
-        $request = $this->searchTripsRequest($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $matched_has_route, $matched_has_driver, $contentType);
+        $request = $this->searchTripsRequest($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $matched_has_route, $matched_has_driver, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3208,7 +3026,6 @@ class TripApi
      *
      * Search Trips
      *
-     * @param  float $version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -3224,9 +3041,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTripsAsync($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
+    public function searchTripsAsync($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
     {
-        return $this->searchTripsAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $matched_has_route, $matched_has_driver, $contentType)
+        return $this->searchTripsAsyncWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $matched_has_route, $matched_has_driver, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3239,7 +3056,6 @@ class TripApi
      *
      * Search Trips
      *
-     * @param  float $version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -3255,10 +3071,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTripsAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
+    public function searchTripsAsyncWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip[]';
-        $request = $this->searchTripsRequest($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $matched_has_route, $matched_has_driver, $contentType);
+        $request = $this->searchTripsRequest($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date, $end_date, $matched_has_route, $matched_has_driver, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3299,7 +3115,6 @@ class TripApi
     /**
      * Create request for operation 'searchTrips'
      *
-     * @param  float $version (required)
      * @param  int $account_id The owner of the trips (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -3315,15 +3130,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchTripsRequest($version, $account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
+    public function searchTripsRequest($account_id, $sort_field, $descending, $start, $limit, $active_only, $start_date = null, $end_date = null, $matched_has_route = null, $matched_has_driver = null, string $contentType = self::contentTypes['searchTrips'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchTrips'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3372,7 +3180,7 @@ class TripApi
 
 
 
-        $resourcePath = '/api/{version}/trip/match';
+        $resourcePath = '/trip/match';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3471,14 +3279,6 @@ class TripApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3539,7 +3339,6 @@ class TripApi
      *
      * Update Trip Locations
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip to update locations for (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocations'] to see the possible values for this operation
@@ -3548,9 +3347,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip
      */
-    public function updateLocations($version, $id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
+    public function updateLocations($id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
     {
-        list($response) = $this->updateLocationsWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->updateLocationsWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -3559,7 +3358,6 @@ class TripApi
      *
      * Update Trip Locations
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to update locations for (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocations'] to see the possible values for this operation
@@ -3568,9 +3366,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateLocationsWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
+    public function updateLocationsWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
     {
-        $request = $this->updateLocationsRequest($version, $id, $body, $contentType);
+        $request = $this->updateLocationsRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3646,7 +3444,6 @@ class TripApi
      *
      * Update Trip Locations
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to update locations for (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocations'] to see the possible values for this operation
@@ -3654,9 +3451,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLocationsAsync($version, $id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
+    public function updateLocationsAsync($id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
     {
-        return $this->updateLocationsAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->updateLocationsAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3669,7 +3466,6 @@ class TripApi
      *
      * Update Trip Locations
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to update locations for (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocations'] to see the possible values for this operation
@@ -3677,10 +3473,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLocationsAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
+    public function updateLocationsAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip';
-        $request = $this->updateLocationsRequest($version, $id, $body, $contentType);
+        $request = $this->updateLocationsRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3721,7 +3517,6 @@ class TripApi
     /**
      * Create request for operation 'updateLocations'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to update locations for (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocations'] to see the possible values for this operation
@@ -3729,15 +3524,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateLocationsRequest($version, $id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
+    public function updateLocationsRequest($id, $body = null, string $contentType = self::contentTypes['updateLocations'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateLocations'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -3748,7 +3536,7 @@ class TripApi
 
 
 
-        $resourcePath = '/api/{version}/trip/{id}/locations';
+        $resourcePath = '/trip/{id}/locations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3757,14 +3545,6 @@ class TripApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -3840,7 +3620,6 @@ class TripApi
      *
      * Update Recurrence Locations
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceLocations'] to see the possible values for this operation
@@ -3849,9 +3628,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip[]
      */
-    public function updateRecurrenceLocations($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
+    public function updateRecurrenceLocations($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
     {
-        list($response) = $this->updateRecurrenceLocationsWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->updateRecurrenceLocationsWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -3860,7 +3639,6 @@ class TripApi
      *
      * Update Recurrence Locations
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceLocations'] to see the possible values for this operation
@@ -3869,9 +3647,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRecurrenceLocationsWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
+    public function updateRecurrenceLocationsWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
     {
-        $request = $this->updateRecurrenceLocationsRequest($version, $id, $body, $contentType);
+        $request = $this->updateRecurrenceLocationsRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3947,7 +3725,6 @@ class TripApi
      *
      * Update Recurrence Locations
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceLocations'] to see the possible values for this operation
@@ -3955,9 +3732,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRecurrenceLocationsAsync($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
+    public function updateRecurrenceLocationsAsync($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
     {
-        return $this->updateRecurrenceLocationsAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->updateRecurrenceLocationsAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3970,7 +3747,6 @@ class TripApi
      *
      * Update Recurrence Locations
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceLocations'] to see the possible values for this operation
@@ -3978,10 +3754,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRecurrenceLocationsAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
+    public function updateRecurrenceLocationsAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip[]';
-        $request = $this->updateRecurrenceLocationsRequest($version, $id, $body, $contentType);
+        $request = $this->updateRecurrenceLocationsRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4022,7 +3798,6 @@ class TripApi
     /**
      * Create request for operation 'updateRecurrenceLocations'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceLocations'] to see the possible values for this operation
@@ -4030,15 +3805,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRecurrenceLocationsRequest($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
+    public function updateRecurrenceLocationsRequest($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceLocations'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRecurrenceLocations'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -4049,7 +3817,7 @@ class TripApi
 
 
 
-        $resourcePath = '/api/{version}/trip/{id}/locations/recurrence';
+        $resourcePath = '/trip/{id}/locations/recurrence';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4058,14 +3826,6 @@ class TripApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -4141,7 +3901,6 @@ class TripApi
      *
      * Update Recurrence Shipments
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceShipments'] to see the possible values for this operation
@@ -4150,9 +3909,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip[]
      */
-    public function updateRecurrenceShipments($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
+    public function updateRecurrenceShipments($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
     {
-        list($response) = $this->updateRecurrenceShipmentsWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->updateRecurrenceShipmentsWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -4161,7 +3920,6 @@ class TripApi
      *
      * Update Recurrence Shipments
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceShipments'] to see the possible values for this operation
@@ -4170,9 +3928,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRecurrenceShipmentsWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
+    public function updateRecurrenceShipmentsWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
     {
-        $request = $this->updateRecurrenceShipmentsRequest($version, $id, $body, $contentType);
+        $request = $this->updateRecurrenceShipmentsRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4248,7 +4006,6 @@ class TripApi
      *
      * Update Recurrence Shipments
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceShipments'] to see the possible values for this operation
@@ -4256,9 +4013,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRecurrenceShipmentsAsync($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
+    public function updateRecurrenceShipmentsAsync($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
     {
-        return $this->updateRecurrenceShipmentsAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->updateRecurrenceShipmentsAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4271,7 +4028,6 @@ class TripApi
      *
      * Update Recurrence Shipments
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceShipments'] to see the possible values for this operation
@@ -4279,10 +4035,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRecurrenceShipmentsAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
+    public function updateRecurrenceShipmentsAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip[]';
-        $request = $this->updateRecurrenceShipmentsRequest($version, $id, $body, $contentType);
+        $request = $this->updateRecurrenceShipmentsRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4323,7 +4079,6 @@ class TripApi
     /**
      * Create request for operation 'updateRecurrenceShipments'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurrenceShipments'] to see the possible values for this operation
@@ -4331,15 +4086,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRecurrenceShipmentsRequest($version, $id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
+    public function updateRecurrenceShipmentsRequest($id, $body = null, string $contentType = self::contentTypes['updateRecurrenceShipments'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRecurrenceShipments'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -4350,7 +4098,7 @@ class TripApi
 
 
 
-        $resourcePath = '/api/{version}/trip/{id}/shipments/recurrence';
+        $resourcePath = '/trip/{id}/shipments/recurrence';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4359,14 +4107,6 @@ class TripApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -4442,7 +4182,6 @@ class TripApi
      *
      * Update Trip Shipments
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip shipments to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipments'] to see the possible values for this operation
@@ -4451,9 +4190,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip
      */
-    public function updateShipments($version, $id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
+    public function updateShipments($id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
     {
-        list($response) = $this->updateShipmentsWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->updateShipmentsWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -4462,7 +4201,6 @@ class TripApi
      *
      * Update Trip Shipments
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip shipments to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipments'] to see the possible values for this operation
@@ -4471,9 +4209,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateShipmentsWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
+    public function updateShipmentsWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
     {
-        $request = $this->updateShipmentsRequest($version, $id, $body, $contentType);
+        $request = $this->updateShipmentsRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4549,7 +4287,6 @@ class TripApi
      *
      * Update Trip Shipments
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip shipments to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipments'] to see the possible values for this operation
@@ -4557,9 +4294,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShipmentsAsync($version, $id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
+    public function updateShipmentsAsync($id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
     {
-        return $this->updateShipmentsAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->updateShipmentsAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4572,7 +4309,6 @@ class TripApi
      *
      * Update Trip Shipments
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip shipments to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipments'] to see the possible values for this operation
@@ -4580,10 +4316,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShipmentsAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
+    public function updateShipmentsAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip';
-        $request = $this->updateShipmentsRequest($version, $id, $body, $contentType);
+        $request = $this->updateShipmentsRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4624,7 +4360,6 @@ class TripApi
     /**
      * Create request for operation 'updateShipments'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip shipments to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipments'] to see the possible values for this operation
@@ -4632,15 +4367,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateShipmentsRequest($version, $id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
+    public function updateShipmentsRequest($id, $body = null, string $contentType = self::contentTypes['updateShipments'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateShipments'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -4651,7 +4379,7 @@ class TripApi
 
 
 
-        $resourcePath = '/api/{version}/trip/{id}/shipments';
+        $resourcePath = '/trip/{id}/shipments';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4660,14 +4388,6 @@ class TripApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -4743,7 +4463,6 @@ class TripApi
      *
      * Update Trip
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrip'] to see the possible values for this operation
@@ -4752,9 +4471,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip
      */
-    public function updateTrip($version, $id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
+    public function updateTrip($id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
     {
-        list($response) = $this->updateTripWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->updateTripWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -4763,7 +4482,6 @@ class TripApi
      *
      * Update Trip
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrip'] to see the possible values for this operation
@@ -4772,9 +4490,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTripWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
+    public function updateTripWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
     {
-        $request = $this->updateTripRequest($version, $id, $body, $contentType);
+        $request = $this->updateTripRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4850,7 +4568,6 @@ class TripApi
      *
      * Update Trip
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrip'] to see the possible values for this operation
@@ -4858,9 +4575,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTripAsync($version, $id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
+    public function updateTripAsync($id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
     {
-        return $this->updateTripAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->updateTripAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4873,7 +4590,6 @@ class TripApi
      *
      * Update Trip
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrip'] to see the possible values for this operation
@@ -4881,10 +4597,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTripAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
+    public function updateTripAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip';
-        $request = $this->updateTripRequest($version, $id, $body, $contentType);
+        $request = $this->updateTripRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4925,7 +4641,6 @@ class TripApi
     /**
      * Create request for operation 'updateTrip'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip to update (required)
      * @param  \OpenAPI\Client\Model\Trip|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrip'] to see the possible values for this operation
@@ -4933,15 +4648,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTripRequest($version, $id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
+    public function updateTripRequest($id, $body = null, string $contentType = self::contentTypes['updateTrip'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateTrip'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -4952,7 +4660,7 @@ class TripApi
 
 
 
-        $resourcePath = '/api/{version}/trip/{id}';
+        $resourcePath = '/trip/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4961,14 +4669,6 @@ class TripApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -5044,7 +4744,6 @@ class TripApi
      *
      * Trip Notifications
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the trip (required)
      * @param  string|null $notifications the notifications to update on the trip (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTripNotifications'] to see the possible values for this operation
@@ -5053,9 +4752,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Trip
      */
-    public function updateTripNotifications($version, $id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
+    public function updateTripNotifications($id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
     {
-        list($response) = $this->updateTripNotificationsWithHttpInfo($version, $id, $notifications, $contentType);
+        list($response) = $this->updateTripNotificationsWithHttpInfo($id, $notifications, $contentType);
         return $response;
     }
 
@@ -5064,7 +4763,6 @@ class TripApi
      *
      * Trip Notifications
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  string|null $notifications the notifications to update on the trip (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTripNotifications'] to see the possible values for this operation
@@ -5073,9 +4771,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Trip, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTripNotificationsWithHttpInfo($version, $id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
+    public function updateTripNotificationsWithHttpInfo($id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
     {
-        $request = $this->updateTripNotificationsRequest($version, $id, $notifications, $contentType);
+        $request = $this->updateTripNotificationsRequest($id, $notifications, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5151,7 +4849,6 @@ class TripApi
      *
      * Trip Notifications
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  string|null $notifications the notifications to update on the trip (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTripNotifications'] to see the possible values for this operation
@@ -5159,9 +4856,9 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTripNotificationsAsync($version, $id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
+    public function updateTripNotificationsAsync($id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
     {
-        return $this->updateTripNotificationsAsyncWithHttpInfo($version, $id, $notifications, $contentType)
+        return $this->updateTripNotificationsAsyncWithHttpInfo($id, $notifications, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5174,7 +4871,6 @@ class TripApi
      *
      * Trip Notifications
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  string|null $notifications the notifications to update on the trip (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTripNotifications'] to see the possible values for this operation
@@ -5182,10 +4878,10 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTripNotificationsAsyncWithHttpInfo($version, $id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
+    public function updateTripNotificationsAsyncWithHttpInfo($id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Trip';
-        $request = $this->updateTripNotificationsRequest($version, $id, $notifications, $contentType);
+        $request = $this->updateTripNotificationsRequest($id, $notifications, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5226,7 +4922,6 @@ class TripApi
     /**
      * Create request for operation 'updateTripNotifications'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the trip (required)
      * @param  string|null $notifications the notifications to update on the trip (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTripNotifications'] to see the possible values for this operation
@@ -5234,15 +4929,8 @@ class TripApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTripNotificationsRequest($version, $id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
+    public function updateTripNotificationsRequest($id, $notifications = null, string $contentType = self::contentTypes['updateTripNotifications'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateTripNotifications'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -5253,7 +4941,7 @@ class TripApi
 
 
 
-        $resourcePath = '/api/{version}/trip/notifications';
+        $resourcePath = '/trip/notifications';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5280,14 +4968,6 @@ class TripApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

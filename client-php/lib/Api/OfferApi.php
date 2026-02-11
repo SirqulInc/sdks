@@ -176,7 +176,6 @@ class OfferApi
      *
      * Update Offer Locations
      *
-     * @param  float $version version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -186,9 +185,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function batchUpdateOfferLocations($version, $data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
+    public function batchUpdateOfferLocations($data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
     {
-        list($response) = $this->batchUpdateOfferLocationsWithHttpInfo($version, $data, $device_id, $account_id, $contentType);
+        list($response) = $this->batchUpdateOfferLocationsWithHttpInfo($data, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -197,7 +196,6 @@ class OfferApi
      *
      * Update Offer Locations
      *
-     * @param  float $version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -207,9 +205,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function batchUpdateOfferLocationsWithHttpInfo($version, $data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
+    public function batchUpdateOfferLocationsWithHttpInfo($data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
     {
-        $request = $this->batchUpdateOfferLocationsRequest($version, $data, $device_id, $account_id, $contentType);
+        $request = $this->batchUpdateOfferLocationsRequest($data, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -285,7 +283,6 @@ class OfferApi
      *
      * Update Offer Locations
      *
-     * @param  float $version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -294,9 +291,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchUpdateOfferLocationsAsync($version, $data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
+    public function batchUpdateOfferLocationsAsync($data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
     {
-        return $this->batchUpdateOfferLocationsAsyncWithHttpInfo($version, $data, $device_id, $account_id, $contentType)
+        return $this->batchUpdateOfferLocationsAsyncWithHttpInfo($data, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -309,7 +306,6 @@ class OfferApi
      *
      * Update Offer Locations
      *
-     * @param  float $version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -318,10 +314,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchUpdateOfferLocationsAsyncWithHttpInfo($version, $data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
+    public function batchUpdateOfferLocationsAsyncWithHttpInfo($data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->batchUpdateOfferLocationsRequest($version, $data, $device_id, $account_id, $contentType);
+        $request = $this->batchUpdateOfferLocationsRequest($data, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -362,7 +358,6 @@ class OfferApi
     /**
      * Create request for operation 'batchUpdateOfferLocations'
      *
-     * @param  float $version (required)
      * @param  string $data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -371,15 +366,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function batchUpdateOfferLocationsRequest($version, $data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
+    public function batchUpdateOfferLocationsRequest($data, $device_id = null, $account_id = null, string $contentType = self::contentTypes['batchUpdateOfferLocations'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling batchUpdateOfferLocations'
-            );
-        }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
@@ -391,7 +379,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/location/batchUpdate';
+        $resourcePath = '/retailer/offer/location/batchUpdate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -427,14 +415,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -495,7 +475,6 @@ class OfferApi
      *
      * Create Offer
      *
-     * @param  float $version version (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -588,9 +567,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerOfferResponse
      */
-    public function createOffer($version, $include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
+    public function createOffer($include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
     {
-        list($response) = $this->createOfferWithHttpInfo($version, $include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id, $account_id, $tags, $parent_offer_id, $retailer_location_ids, $offer_locations, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
+        list($response) = $this->createOfferWithHttpInfo($include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id, $account_id, $tags, $parent_offer_id, $retailer_location_ids, $offer_locations, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
         return $response;
     }
 
@@ -599,7 +578,6 @@ class OfferApi
      *
      * Create Offer
      *
-     * @param  float $version (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -692,9 +670,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerOfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOfferWithHttpInfo($version, $include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
+    public function createOfferWithHttpInfo($include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
     {
-        $request = $this->createOfferRequest($version, $include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id, $account_id, $tags, $parent_offer_id, $retailer_location_ids, $offer_locations, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
+        $request = $this->createOfferRequest($include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id, $account_id, $tags, $parent_offer_id, $retailer_location_ids, $offer_locations, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -770,7 +748,6 @@ class OfferApi
      *
      * Create Offer
      *
-     * @param  float $version (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -862,9 +839,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOfferAsync($version, $include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
+    public function createOfferAsync($include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
     {
-        return $this->createOfferAsyncWithHttpInfo($version, $include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id, $account_id, $tags, $parent_offer_id, $retailer_location_ids, $offer_locations, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType)
+        return $this->createOfferAsyncWithHttpInfo($include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id, $account_id, $tags, $parent_offer_id, $retailer_location_ids, $offer_locations, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -877,7 +854,6 @@ class OfferApi
      *
      * Create Offer
      *
-     * @param  float $version (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -969,10 +945,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOfferAsyncWithHttpInfo($version, $include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
+    public function createOfferAsyncWithHttpInfo($include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerOfferResponse';
-        $request = $this->createOfferRequest($version, $include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id, $account_id, $tags, $parent_offer_id, $retailer_location_ids, $offer_locations, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
+        $request = $this->createOfferRequest($include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id, $account_id, $tags, $parent_offer_id, $retailer_location_ids, $offer_locations, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1013,7 +989,6 @@ class OfferApi
     /**
      * Create request for operation 'createOffer'
      *
-     * @param  float $version (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -1105,15 +1080,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOfferRequest($version, $include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
+    public function createOfferRequest($include_offer_locations, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $offer_type, $special_offer_type, $offer_visibility, $active, $device_id = null, $account_id = null, $tags = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createOffer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createOffer'
-            );
-        }
 
         // verify the required parameter 'include_offer_locations' is set
         if ($include_offer_locations === null || (is_array($include_offer_locations) && count($include_offer_locations) === 0)) {
@@ -1298,7 +1266,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/create';
+        $resourcePath = '/retailer/offer/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2081,14 +2049,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2149,7 +2109,6 @@ class OfferApi
      *
      * Delete Offer
      *
-     * @param  float $version version (required)
      * @param  int $offer_id The ID of the offer to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -2159,9 +2118,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteOffer($version, $offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
+    public function deleteOffer($offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
     {
-        list($response) = $this->deleteOfferWithHttpInfo($version, $offer_id, $device_id, $account_id, $contentType);
+        list($response) = $this->deleteOfferWithHttpInfo($offer_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -2170,7 +2129,6 @@ class OfferApi
      *
      * Delete Offer
      *
-     * @param  float $version (required)
      * @param  int $offer_id The ID of the offer to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -2180,9 +2138,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOfferWithHttpInfo($version, $offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
+    public function deleteOfferWithHttpInfo($offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
     {
-        $request = $this->deleteOfferRequest($version, $offer_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteOfferRequest($offer_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2258,7 +2216,6 @@ class OfferApi
      *
      * Delete Offer
      *
-     * @param  float $version (required)
      * @param  int $offer_id The ID of the offer to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -2267,9 +2224,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOfferAsync($version, $offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
+    public function deleteOfferAsync($offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
     {
-        return $this->deleteOfferAsyncWithHttpInfo($version, $offer_id, $device_id, $account_id, $contentType)
+        return $this->deleteOfferAsyncWithHttpInfo($offer_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2282,7 +2239,6 @@ class OfferApi
      *
      * Delete Offer
      *
-     * @param  float $version (required)
      * @param  int $offer_id The ID of the offer to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -2291,10 +2247,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOfferAsyncWithHttpInfo($version, $offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
+    public function deleteOfferAsyncWithHttpInfo($offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteOfferRequest($version, $offer_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteOfferRequest($offer_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2335,7 +2291,6 @@ class OfferApi
     /**
      * Create request for operation 'deleteOffer'
      *
-     * @param  float $version (required)
      * @param  int $offer_id The ID of the offer to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -2344,15 +2299,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteOfferRequest($version, $offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
+    public function deleteOfferRequest($offer_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOffer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteOffer'
-            );
-        }
 
         // verify the required parameter 'offer_id' is set
         if ($offer_id === null || (is_array($offer_id) && count($offer_id) === 0)) {
@@ -2364,7 +2312,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/delete';
+        $resourcePath = '/retailer/offer/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2400,14 +2348,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2468,7 +2408,6 @@ class OfferApi
      *
      * Delete Offer Location
      *
-     * @param  float $version version (required)
      * @param  int $offer_location_id The ID of the offer location to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -2478,9 +2417,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteOfferLocation($version, $offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
+    public function deleteOfferLocation($offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
     {
-        list($response) = $this->deleteOfferLocationWithHttpInfo($version, $offer_location_id, $device_id, $account_id, $contentType);
+        list($response) = $this->deleteOfferLocationWithHttpInfo($offer_location_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -2489,7 +2428,6 @@ class OfferApi
      *
      * Delete Offer Location
      *
-     * @param  float $version (required)
      * @param  int $offer_location_id The ID of the offer location to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -2499,9 +2437,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOfferLocationWithHttpInfo($version, $offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
+    public function deleteOfferLocationWithHttpInfo($offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
     {
-        $request = $this->deleteOfferLocationRequest($version, $offer_location_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteOfferLocationRequest($offer_location_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2577,7 +2515,6 @@ class OfferApi
      *
      * Delete Offer Location
      *
-     * @param  float $version (required)
      * @param  int $offer_location_id The ID of the offer location to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -2586,9 +2523,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOfferLocationAsync($version, $offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
+    public function deleteOfferLocationAsync($offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
     {
-        return $this->deleteOfferLocationAsyncWithHttpInfo($version, $offer_location_id, $device_id, $account_id, $contentType)
+        return $this->deleteOfferLocationAsyncWithHttpInfo($offer_location_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2601,7 +2538,6 @@ class OfferApi
      *
      * Delete Offer Location
      *
-     * @param  float $version (required)
      * @param  int $offer_location_id The ID of the offer location to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -2610,10 +2546,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOfferLocationAsyncWithHttpInfo($version, $offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
+    public function deleteOfferLocationAsyncWithHttpInfo($offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteOfferLocationRequest($version, $offer_location_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteOfferLocationRequest($offer_location_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2654,7 +2590,6 @@ class OfferApi
     /**
      * Create request for operation 'deleteOfferLocation'
      *
-     * @param  float $version (required)
      * @param  int $offer_location_id The ID of the offer location to be deleted (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -2663,15 +2598,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteOfferLocationRequest($version, $offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
+    public function deleteOfferLocationRequest($offer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferLocation'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteOfferLocation'
-            );
-        }
 
         // verify the required parameter 'offer_location_id' is set
         if ($offer_location_id === null || (is_array($offer_location_id) && count($offer_location_id) === 0)) {
@@ -2683,7 +2611,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/location/delete';
+        $resourcePath = '/retailer/offer/location/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2719,14 +2647,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2787,7 +2707,6 @@ class OfferApi
      *
      * Get Offer
      *
-     * @param  float $version version (required)
      * @param  int $offer_id The id of the offer (required)
      * @param  bool $include_offer_locations  (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2798,9 +2717,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerOfferResponse
      */
-    public function getOffer($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
+    public function getOffer($offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
     {
-        list($response) = $this->getOfferWithHttpInfo($version, $offer_id, $include_offer_locations, $device_id, $account_id, $contentType);
+        list($response) = $this->getOfferWithHttpInfo($offer_id, $include_offer_locations, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -2809,7 +2728,6 @@ class OfferApi
      *
      * Get Offer
      *
-     * @param  float $version (required)
      * @param  int $offer_id The id of the offer (required)
      * @param  bool $include_offer_locations  (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2820,9 +2738,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerOfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOfferWithHttpInfo($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
+    public function getOfferWithHttpInfo($offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
     {
-        $request = $this->getOfferRequest($version, $offer_id, $include_offer_locations, $device_id, $account_id, $contentType);
+        $request = $this->getOfferRequest($offer_id, $include_offer_locations, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2898,7 +2816,6 @@ class OfferApi
      *
      * Get Offer
      *
-     * @param  float $version (required)
      * @param  int $offer_id The id of the offer (required)
      * @param  bool $include_offer_locations  (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2908,9 +2825,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferAsync($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
+    public function getOfferAsync($offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
     {
-        return $this->getOfferAsyncWithHttpInfo($version, $offer_id, $include_offer_locations, $device_id, $account_id, $contentType)
+        return $this->getOfferAsyncWithHttpInfo($offer_id, $include_offer_locations, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2923,7 +2840,6 @@ class OfferApi
      *
      * Get Offer
      *
-     * @param  float $version (required)
      * @param  int $offer_id The id of the offer (required)
      * @param  bool $include_offer_locations  (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2933,10 +2849,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferAsyncWithHttpInfo($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
+    public function getOfferAsyncWithHttpInfo($offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerOfferResponse';
-        $request = $this->getOfferRequest($version, $offer_id, $include_offer_locations, $device_id, $account_id, $contentType);
+        $request = $this->getOfferRequest($offer_id, $include_offer_locations, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2977,7 +2893,6 @@ class OfferApi
     /**
      * Create request for operation 'getOffer'
      *
-     * @param  float $version (required)
      * @param  int $offer_id The id of the offer (required)
      * @param  bool $include_offer_locations  (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2987,15 +2902,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOfferRequest($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
+    public function getOfferRequest($offer_id, $include_offer_locations, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getOffer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOffer'
-            );
-        }
 
         // verify the required parameter 'offer_id' is set
         if ($offer_id === null || (is_array($offer_id) && count($offer_id) === 0)) {
@@ -3014,7 +2922,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/get';
+        $resourcePath = '/retailer/offer/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3059,14 +2967,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3127,7 +3027,6 @@ class OfferApi
      *
      * Get Offer
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
      * @param  int|null $offer_id The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -3144,9 +3043,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferResponse
      */
-    public function getOfferDetails($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
+    public function getOfferDetails($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
     {
-        list($response) = $this->getOfferDetailsWithHttpInfo($version, $device_id, $account_id, $offer_id, $offer_location_id, $distance, $latitude, $longitude, $include_offer_locations, $include_retailer_locations, $include_child_offers, $contentType);
+        list($response) = $this->getOfferDetailsWithHttpInfo($device_id, $account_id, $offer_id, $offer_location_id, $distance, $latitude, $longitude, $include_offer_locations, $include_retailer_locations, $include_child_offers, $contentType);
         return $response;
     }
 
@@ -3155,7 +3054,6 @@ class OfferApi
      *
      * Get Offer
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
      * @param  int|null $offer_id The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -3172,9 +3070,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOfferDetailsWithHttpInfo($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
+    public function getOfferDetailsWithHttpInfo($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
     {
-        $request = $this->getOfferDetailsRequest($version, $device_id, $account_id, $offer_id, $offer_location_id, $distance, $latitude, $longitude, $include_offer_locations, $include_retailer_locations, $include_child_offers, $contentType);
+        $request = $this->getOfferDetailsRequest($device_id, $account_id, $offer_id, $offer_location_id, $distance, $latitude, $longitude, $include_offer_locations, $include_retailer_locations, $include_child_offers, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3250,7 +3148,6 @@ class OfferApi
      *
      * Get Offer
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
      * @param  int|null $offer_id The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -3266,9 +3163,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferDetailsAsync($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
+    public function getOfferDetailsAsync($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
     {
-        return $this->getOfferDetailsAsyncWithHttpInfo($version, $device_id, $account_id, $offer_id, $offer_location_id, $distance, $latitude, $longitude, $include_offer_locations, $include_retailer_locations, $include_child_offers, $contentType)
+        return $this->getOfferDetailsAsyncWithHttpInfo($device_id, $account_id, $offer_id, $offer_location_id, $distance, $latitude, $longitude, $include_offer_locations, $include_retailer_locations, $include_child_offers, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3281,7 +3178,6 @@ class OfferApi
      *
      * Get Offer
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
      * @param  int|null $offer_id The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -3297,10 +3193,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferDetailsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
+    public function getOfferDetailsAsyncWithHttpInfo($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferResponse';
-        $request = $this->getOfferDetailsRequest($version, $device_id, $account_id, $offer_id, $offer_location_id, $distance, $latitude, $longitude, $include_offer_locations, $include_retailer_locations, $include_child_offers, $contentType);
+        $request = $this->getOfferDetailsRequest($device_id, $account_id, $offer_id, $offer_location_id, $distance, $latitude, $longitude, $include_offer_locations, $include_retailer_locations, $include_child_offers, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3341,7 +3237,6 @@ class OfferApi
     /**
      * Create request for operation 'getOfferDetails'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
      * @param  int|null $offer_id The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -3357,15 +3252,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOfferDetailsRequest($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
+    public function getOfferDetailsRequest($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $distance = null, $latitude = null, $longitude = null, $include_offer_locations = false, $include_retailer_locations = false, $include_child_offers = false, string $contentType = self::contentTypes['getOfferDetails'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOfferDetails'
-            );
-        }
 
 
 
@@ -3377,8 +3266,7 @@ class OfferApi
 
 
 
-
-        $resourcePath = '/api/{version}/offer/get';
+        $resourcePath = '/offer/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3477,14 +3365,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3545,7 +3425,6 @@ class OfferApi
      *
      * Get Offers (Counts)
      *
-     * @param  float $version version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  float|null $search_range The range of the search (optional, default to 5)
@@ -3556,9 +3435,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ListCountResponse
      */
-    public function getOfferListCounts($version, $latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
+    public function getOfferListCounts($latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
     {
-        list($response) = $this->getOfferListCountsWithHttpInfo($version, $latitude, $longitude, $search_range, $distance_unit, $contentType);
+        list($response) = $this->getOfferListCountsWithHttpInfo($latitude, $longitude, $search_range, $distance_unit, $contentType);
         return $response;
     }
 
@@ -3567,7 +3446,6 @@ class OfferApi
      *
      * Get Offers (Counts)
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  float|null $search_range The range of the search (optional, default to 5)
@@ -3578,9 +3456,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ListCountResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOfferListCountsWithHttpInfo($version, $latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
+    public function getOfferListCountsWithHttpInfo($latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
     {
-        $request = $this->getOfferListCountsRequest($version, $latitude, $longitude, $search_range, $distance_unit, $contentType);
+        $request = $this->getOfferListCountsRequest($latitude, $longitude, $search_range, $distance_unit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3656,7 +3534,6 @@ class OfferApi
      *
      * Get Offers (Counts)
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  float|null $search_range The range of the search (optional, default to 5)
@@ -3666,9 +3543,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferListCountsAsync($version, $latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
+    public function getOfferListCountsAsync($latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
     {
-        return $this->getOfferListCountsAsyncWithHttpInfo($version, $latitude, $longitude, $search_range, $distance_unit, $contentType)
+        return $this->getOfferListCountsAsyncWithHttpInfo($latitude, $longitude, $search_range, $distance_unit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3681,7 +3558,6 @@ class OfferApi
      *
      * Get Offers (Counts)
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  float|null $search_range The range of the search (optional, default to 5)
@@ -3691,10 +3567,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferListCountsAsyncWithHttpInfo($version, $latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
+    public function getOfferListCountsAsyncWithHttpInfo($latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ListCountResponse';
-        $request = $this->getOfferListCountsRequest($version, $latitude, $longitude, $search_range, $distance_unit, $contentType);
+        $request = $this->getOfferListCountsRequest($latitude, $longitude, $search_range, $distance_unit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3735,7 +3611,6 @@ class OfferApi
     /**
      * Create request for operation 'getOfferListCounts'
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  float|null $search_range The range of the search (optional, default to 5)
@@ -3745,15 +3620,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOfferListCountsRequest($version, $latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
+    public function getOfferListCountsRequest($latitude, $longitude, $search_range = 5, $distance_unit = 'MILES', string $contentType = self::contentTypes['getOfferListCounts'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOfferListCounts'
-            );
-        }
 
         // verify the required parameter 'latitude' is set
         if ($latitude === null || (is_array($latitude) && count($latitude) === 0)) {
@@ -3772,7 +3640,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/offer/lists/count';
+        $resourcePath = '/offer/lists/count';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3817,14 +3685,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3885,7 +3745,6 @@ class OfferApi
      *
      * Get Offer Location
      *
-     * @param  float $version version (required)
      * @param  int|null $offer_location_id the id of the offer location to get (optional)
      * @param  string|null $udid the UDID of the device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferLocation'] to see the possible values for this operation
@@ -3894,9 +3753,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferShortResponse
      */
-    public function getOfferLocation($version, $offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
+    public function getOfferLocation($offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
     {
-        list($response) = $this->getOfferLocationWithHttpInfo($version, $offer_location_id, $udid, $contentType);
+        list($response) = $this->getOfferLocationWithHttpInfo($offer_location_id, $udid, $contentType);
         return $response;
     }
 
@@ -3905,7 +3764,6 @@ class OfferApi
      *
      * Get Offer Location
      *
-     * @param  float $version (required)
      * @param  int|null $offer_location_id the id of the offer location to get (optional)
      * @param  string|null $udid the UDID of the device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferLocation'] to see the possible values for this operation
@@ -3914,9 +3772,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferShortResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOfferLocationWithHttpInfo($version, $offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
+    public function getOfferLocationWithHttpInfo($offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
     {
-        $request = $this->getOfferLocationRequest($version, $offer_location_id, $udid, $contentType);
+        $request = $this->getOfferLocationRequest($offer_location_id, $udid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3992,7 +3850,6 @@ class OfferApi
      *
      * Get Offer Location
      *
-     * @param  float $version (required)
      * @param  int|null $offer_location_id the id of the offer location to get (optional)
      * @param  string|null $udid the UDID of the device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferLocation'] to see the possible values for this operation
@@ -4000,9 +3857,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferLocationAsync($version, $offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
+    public function getOfferLocationAsync($offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
     {
-        return $this->getOfferLocationAsyncWithHttpInfo($version, $offer_location_id, $udid, $contentType)
+        return $this->getOfferLocationAsyncWithHttpInfo($offer_location_id, $udid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4015,7 +3872,6 @@ class OfferApi
      *
      * Get Offer Location
      *
-     * @param  float $version (required)
      * @param  int|null $offer_location_id the id of the offer location to get (optional)
      * @param  string|null $udid the UDID of the device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferLocation'] to see the possible values for this operation
@@ -4023,10 +3879,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferLocationAsyncWithHttpInfo($version, $offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
+    public function getOfferLocationAsyncWithHttpInfo($offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferShortResponse';
-        $request = $this->getOfferLocationRequest($version, $offer_location_id, $udid, $contentType);
+        $request = $this->getOfferLocationRequest($offer_location_id, $udid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4067,7 +3923,6 @@ class OfferApi
     /**
      * Create request for operation 'getOfferLocation'
      *
-     * @param  float $version (required)
      * @param  int|null $offer_location_id the id of the offer location to get (optional)
      * @param  string|null $udid the UDID of the device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferLocation'] to see the possible values for this operation
@@ -4075,20 +3930,13 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOfferLocationRequest($version, $offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
+    public function getOfferLocationRequest($offer_location_id = null, $udid = null, string $contentType = self::contentTypes['getOfferLocation'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOfferLocation'
-            );
-        }
 
 
 
-
-        $resourcePath = '/api/{version}/offer/location/get';
+        $resourcePath = '/offer/location/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4115,14 +3963,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4183,7 +4023,6 @@ class OfferApi
      *
      * Search Offer Locations
      *
-     * @param  float $version version (required)
      * @param  string $sort_field The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param  int $start The index into the record set to start with. Default is 0. (required)
@@ -4210,9 +4049,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferShortResponse[]
      */
-    public function getOfferLocationsForRetailers($version, $sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
+    public function getOfferLocationsForRetailers($sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
     {
-        list($response) = $this->getOfferLocationsForRetailersWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id, $account_id, $keyword, $retailer_id, $retailer_location_id, $offer_type, $special_offer_type, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
+        list($response) = $this->getOfferLocationsForRetailersWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id, $account_id, $keyword, $retailer_id, $retailer_location_id, $offer_type, $special_offer_type, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
         return $response;
     }
 
@@ -4221,7 +4060,6 @@ class OfferApi
      *
      * Search Offer Locations
      *
-     * @param  float $version (required)
      * @param  string $sort_field The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param  int $start The index into the record set to start with. Default is 0. (required)
@@ -4248,9 +4086,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferShortResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOfferLocationsForRetailersWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
+    public function getOfferLocationsForRetailersWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
     {
-        $request = $this->getOfferLocationsForRetailersRequest($version, $sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id, $account_id, $keyword, $retailer_id, $retailer_location_id, $offer_type, $special_offer_type, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
+        $request = $this->getOfferLocationsForRetailersRequest($sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id, $account_id, $keyword, $retailer_id, $retailer_location_id, $offer_type, $special_offer_type, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4326,7 +4164,6 @@ class OfferApi
      *
      * Search Offer Locations
      *
-     * @param  float $version (required)
      * @param  string $sort_field The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param  int $start The index into the record set to start with. Default is 0. (required)
@@ -4352,9 +4189,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferLocationsForRetailersAsync($version, $sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
+    public function getOfferLocationsForRetailersAsync($sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
     {
-        return $this->getOfferLocationsForRetailersAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id, $account_id, $keyword, $retailer_id, $retailer_location_id, $offer_type, $special_offer_type, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType)
+        return $this->getOfferLocationsForRetailersAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id, $account_id, $keyword, $retailer_id, $retailer_location_id, $offer_type, $special_offer_type, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4367,7 +4204,6 @@ class OfferApi
      *
      * Search Offer Locations
      *
-     * @param  float $version (required)
      * @param  string $sort_field The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param  int $start The index into the record set to start with. Default is 0. (required)
@@ -4393,10 +4229,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferLocationsForRetailersAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
+    public function getOfferLocationsForRetailersAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferShortResponse[]';
-        $request = $this->getOfferLocationsForRetailersRequest($version, $sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id, $account_id, $keyword, $retailer_id, $retailer_location_id, $offer_type, $special_offer_type, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
+        $request = $this->getOfferLocationsForRetailersRequest($sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id, $account_id, $keyword, $retailer_id, $retailer_location_id, $offer_type, $special_offer_type, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4437,7 +4273,6 @@ class OfferApi
     /**
      * Create request for operation 'getOfferLocationsForRetailers'
      *
-     * @param  float $version (required)
      * @param  string $sort_field The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param  int $start The index into the record set to start with. Default is 0. (required)
@@ -4463,15 +4298,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOfferLocationsForRetailersRequest($version, $sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
+    public function getOfferLocationsForRetailersRequest($sort_field, $descending, $start, $limit, $active_only, $include_retailer_location, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_type = null, $special_offer_type = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOfferLocationsForRetailers'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOfferLocationsForRetailers'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -4530,7 +4358,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/location/search';
+        $resourcePath = '/retailer/offer/location/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4719,14 +4547,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4787,7 +4607,6 @@ class OfferApi
      *
      * Search Offers
      *
-     * @param  float $version version (required)
      * @param  string $offer_visibility  (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param  bool $descending The order to return the search results (required)
@@ -4825,9 +4644,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferResponse[]
      */
-    public function getOffersForRetailers($version, $offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
+    public function getOffersForRetailers($offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
     {
-        list($response) = $this->getOffersForRetailersWithHttpInfo($version, $offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id, $account_id, $category_ids, $filter_ids, $q, $keyword, $retailer_id, $retailer_location_id, $coupon_type, $offer_type, $offer_types, $special_offer_type, $_i, $_l, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
+        list($response) = $this->getOffersForRetailersWithHttpInfo($offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id, $account_id, $category_ids, $filter_ids, $q, $keyword, $retailer_id, $retailer_location_id, $coupon_type, $offer_type, $offer_types, $special_offer_type, $_i, $_l, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
         return $response;
     }
 
@@ -4836,7 +4655,6 @@ class OfferApi
      *
      * Search Offers
      *
-     * @param  float $version (required)
      * @param  string $offer_visibility  (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param  bool $descending The order to return the search results (required)
@@ -4874,9 +4692,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOffersForRetailersWithHttpInfo($version, $offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
+    public function getOffersForRetailersWithHttpInfo($offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
     {
-        $request = $this->getOffersForRetailersRequest($version, $offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id, $account_id, $category_ids, $filter_ids, $q, $keyword, $retailer_id, $retailer_location_id, $coupon_type, $offer_type, $offer_types, $special_offer_type, $_i, $_l, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
+        $request = $this->getOffersForRetailersRequest($offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id, $account_id, $category_ids, $filter_ids, $q, $keyword, $retailer_id, $retailer_location_id, $coupon_type, $offer_type, $offer_types, $special_offer_type, $_i, $_l, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4952,7 +4770,6 @@ class OfferApi
      *
      * Search Offers
      *
-     * @param  float $version (required)
      * @param  string $offer_visibility  (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param  bool $descending The order to return the search results (required)
@@ -4989,9 +4806,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOffersForRetailersAsync($version, $offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
+    public function getOffersForRetailersAsync($offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
     {
-        return $this->getOffersForRetailersAsyncWithHttpInfo($version, $offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id, $account_id, $category_ids, $filter_ids, $q, $keyword, $retailer_id, $retailer_location_id, $coupon_type, $offer_type, $offer_types, $special_offer_type, $_i, $_l, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType)
+        return $this->getOffersForRetailersAsyncWithHttpInfo($offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id, $account_id, $category_ids, $filter_ids, $q, $keyword, $retailer_id, $retailer_location_id, $coupon_type, $offer_type, $offer_types, $special_offer_type, $_i, $_l, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5004,7 +4821,6 @@ class OfferApi
      *
      * Search Offers
      *
-     * @param  float $version (required)
      * @param  string $offer_visibility  (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param  bool $descending The order to return the search results (required)
@@ -5041,10 +4857,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOffersForRetailersAsyncWithHttpInfo($version, $offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
+    public function getOffersForRetailersAsyncWithHttpInfo($offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferResponse[]';
-        $request = $this->getOffersForRetailersRequest($version, $offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id, $account_id, $category_ids, $filter_ids, $q, $keyword, $retailer_id, $retailer_location_id, $coupon_type, $offer_type, $offer_types, $special_offer_type, $_i, $_l, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
+        $request = $this->getOffersForRetailersRequest($offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id, $account_id, $category_ids, $filter_ids, $q, $keyword, $retailer_id, $retailer_location_id, $coupon_type, $offer_type, $offer_types, $special_offer_type, $_i, $_l, $barcode_type, $barcode_entry, $isbn, $asin, $device_status, $needs_notification_sent, $last_notification_sent, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5085,7 +4901,6 @@ class OfferApi
     /**
      * Create request for operation 'getOffersForRetailers'
      *
-     * @param  float $version (required)
      * @param  string $offer_visibility  (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param  bool $descending The order to return the search results (required)
@@ -5122,15 +4937,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOffersForRetailersRequest($version, $offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
+    public function getOffersForRetailersRequest($offer_visibility, $sort_field, $descending, $start, $limit, $available_only, $active_only, $include_categories, $include_filters, $include_offer_locations, $device_id = null, $account_id = null, $category_ids = null, $filter_ids = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $coupon_type = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $_i = null, $_l = null, $barcode_type = null, $barcode_entry = null, $isbn = null, $asin = null, $device_status = null, $needs_notification_sent = null, $last_notification_sent = null, string $contentType = self::contentTypes['getOffersForRetailers'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOffersForRetailers'
-            );
-        }
 
         // verify the required parameter 'offer_visibility' is set
         if ($offer_visibility === null || (is_array($offer_visibility) && count($offer_visibility) === 0)) {
@@ -5224,7 +5032,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/search';
+        $resourcePath = '/retailer/offer/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5512,14 +5320,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5580,7 +5380,6 @@ class OfferApi
      *
      * Update Offer Transaction
      *
-     * @param  float $version version (required)
      * @param  int $offer_transaction_id the OfferTransaction ID of the transaction being redeemed (required)
      * @param  int $status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -5592,9 +5391,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function redeemOfferTransaction($version, $offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
+    public function redeemOfferTransaction($offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
     {
-        list($response) = $this->redeemOfferTransactionWithHttpInfo($version, $offer_transaction_id, $status, $device_id, $account_id, $offer_location_id, $contentType);
+        list($response) = $this->redeemOfferTransactionWithHttpInfo($offer_transaction_id, $status, $device_id, $account_id, $offer_location_id, $contentType);
         return $response;
     }
 
@@ -5603,7 +5402,6 @@ class OfferApi
      *
      * Update Offer Transaction
      *
-     * @param  float $version (required)
      * @param  int $offer_transaction_id the OfferTransaction ID of the transaction being redeemed (required)
      * @param  int $status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -5615,9 +5413,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function redeemOfferTransactionWithHttpInfo($version, $offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
+    public function redeemOfferTransactionWithHttpInfo($offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
     {
-        $request = $this->redeemOfferTransactionRequest($version, $offer_transaction_id, $status, $device_id, $account_id, $offer_location_id, $contentType);
+        $request = $this->redeemOfferTransactionRequest($offer_transaction_id, $status, $device_id, $account_id, $offer_location_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5693,7 +5491,6 @@ class OfferApi
      *
      * Update Offer Transaction
      *
-     * @param  float $version (required)
      * @param  int $offer_transaction_id the OfferTransaction ID of the transaction being redeemed (required)
      * @param  int $status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -5704,9 +5501,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function redeemOfferTransactionAsync($version, $offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
+    public function redeemOfferTransactionAsync($offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
     {
-        return $this->redeemOfferTransactionAsyncWithHttpInfo($version, $offer_transaction_id, $status, $device_id, $account_id, $offer_location_id, $contentType)
+        return $this->redeemOfferTransactionAsyncWithHttpInfo($offer_transaction_id, $status, $device_id, $account_id, $offer_location_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5719,7 +5516,6 @@ class OfferApi
      *
      * Update Offer Transaction
      *
-     * @param  float $version (required)
      * @param  int $offer_transaction_id the OfferTransaction ID of the transaction being redeemed (required)
      * @param  int $status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -5730,10 +5526,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function redeemOfferTransactionAsyncWithHttpInfo($version, $offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
+    public function redeemOfferTransactionAsyncWithHttpInfo($offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->redeemOfferTransactionRequest($version, $offer_transaction_id, $status, $device_id, $account_id, $offer_location_id, $contentType);
+        $request = $this->redeemOfferTransactionRequest($offer_transaction_id, $status, $device_id, $account_id, $offer_location_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5774,7 +5570,6 @@ class OfferApi
     /**
      * Create request for operation 'redeemOfferTransaction'
      *
-     * @param  float $version (required)
      * @param  int $offer_transaction_id the OfferTransaction ID of the transaction being redeemed (required)
      * @param  int $status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -5785,15 +5580,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function redeemOfferTransactionRequest($version, $offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
+    public function redeemOfferTransactionRequest($offer_transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, string $contentType = self::contentTypes['redeemOfferTransaction'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling redeemOfferTransaction'
-            );
-        }
 
         // verify the required parameter 'offer_transaction_id' is set
         if ($offer_transaction_id === null || (is_array($offer_transaction_id) && count($offer_transaction_id) === 0)) {
@@ -5813,7 +5601,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/transaction/update';
+        $resourcePath = '/retailer/offer/transaction/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5867,14 +5655,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5935,7 +5715,6 @@ class OfferApi
      *
      * Search Offer Transactions
      *
-     * @param  float $version version (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
      * @param  int $start The start index for pagination (required)
@@ -5966,9 +5745,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionResponse[]
      */
-    public function searchOfferTransactionsForRetailers($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
+    public function searchOfferTransactionsForRetailers($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
     {
-        list($response) = $this->searchOfferTransactionsForRetailersWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $retailer_id, $retailer_location_id, $offer_id, $offer_location_id, $redeemed, $reservations_only, $coupon_type, $offer_type, $special_offer_type, $customer_account_ids, $category_ids, $redeemable_start_date, $redeemable_end_date, $_i, $_l, $contentType);
+        list($response) = $this->searchOfferTransactionsForRetailersWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $retailer_id, $retailer_location_id, $offer_id, $offer_location_id, $redeemed, $reservations_only, $coupon_type, $offer_type, $special_offer_type, $customer_account_ids, $category_ids, $redeemable_start_date, $redeemable_end_date, $_i, $_l, $contentType);
         return $response;
     }
 
@@ -5977,7 +5756,6 @@ class OfferApi
      *
      * Search Offer Transactions
      *
-     * @param  float $version (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
      * @param  int $start The start index for pagination (required)
@@ -6008,9 +5786,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchOfferTransactionsForRetailersWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
+    public function searchOfferTransactionsForRetailersWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
     {
-        $request = $this->searchOfferTransactionsForRetailersRequest($version, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $retailer_id, $retailer_location_id, $offer_id, $offer_location_id, $redeemed, $reservations_only, $coupon_type, $offer_type, $special_offer_type, $customer_account_ids, $category_ids, $redeemable_start_date, $redeemable_end_date, $_i, $_l, $contentType);
+        $request = $this->searchOfferTransactionsForRetailersRequest($sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $retailer_id, $retailer_location_id, $offer_id, $offer_location_id, $redeemed, $reservations_only, $coupon_type, $offer_type, $special_offer_type, $customer_account_ids, $category_ids, $redeemable_start_date, $redeemable_end_date, $_i, $_l, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6086,7 +5864,6 @@ class OfferApi
      *
      * Search Offer Transactions
      *
-     * @param  float $version (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
      * @param  int $start The start index for pagination (required)
@@ -6116,9 +5893,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOfferTransactionsForRetailersAsync($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
+    public function searchOfferTransactionsForRetailersAsync($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
     {
-        return $this->searchOfferTransactionsForRetailersAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $retailer_id, $retailer_location_id, $offer_id, $offer_location_id, $redeemed, $reservations_only, $coupon_type, $offer_type, $special_offer_type, $customer_account_ids, $category_ids, $redeemable_start_date, $redeemable_end_date, $_i, $_l, $contentType)
+        return $this->searchOfferTransactionsForRetailersAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $retailer_id, $retailer_location_id, $offer_id, $offer_location_id, $redeemed, $reservations_only, $coupon_type, $offer_type, $special_offer_type, $customer_account_ids, $category_ids, $redeemable_start_date, $redeemable_end_date, $_i, $_l, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6131,7 +5908,6 @@ class OfferApi
      *
      * Search Offer Transactions
      *
-     * @param  float $version (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
      * @param  int $start The start index for pagination (required)
@@ -6161,10 +5937,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOfferTransactionsForRetailersAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
+    public function searchOfferTransactionsForRetailersAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionResponse[]';
-        $request = $this->searchOfferTransactionsForRetailersRequest($version, $sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $retailer_id, $retailer_location_id, $offer_id, $offer_location_id, $redeemed, $reservations_only, $coupon_type, $offer_type, $special_offer_type, $customer_account_ids, $category_ids, $redeemable_start_date, $redeemable_end_date, $_i, $_l, $contentType);
+        $request = $this->searchOfferTransactionsForRetailersRequest($sort_field, $descending, $start, $limit, $active_only, $device_id, $account_id, $q, $keyword, $retailer_id, $retailer_location_id, $offer_id, $offer_location_id, $redeemed, $reservations_only, $coupon_type, $offer_type, $special_offer_type, $customer_account_ids, $category_ids, $redeemable_start_date, $redeemable_end_date, $_i, $_l, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6205,7 +5981,6 @@ class OfferApi
     /**
      * Create request for operation 'searchOfferTransactionsForRetailers'
      *
-     * @param  float $version (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
      * @param  int $start The start index for pagination (required)
@@ -6235,15 +6010,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchOfferTransactionsForRetailersRequest($version, $sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
+    public function searchOfferTransactionsForRetailersRequest($sort_field, $descending, $start, $limit, $active_only, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_id = null, $retailer_location_id = null, $offer_id = null, $offer_location_id = null, $redeemed = null, $reservations_only = null, $coupon_type = null, $offer_type = null, $special_offer_type = null, $customer_account_ids = null, $category_ids = null, $redeemable_start_date = null, $redeemable_end_date = null, $_i = null, $_l = null, string $contentType = self::contentTypes['searchOfferTransactionsForRetailers'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchOfferTransactionsForRetailers'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -6300,7 +6068,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/transaction/search';
+        $resourcePath = '/retailer/offer/transaction/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6525,14 +6293,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6593,7 +6353,6 @@ class OfferApi
      *
      * Search Offers
      *
-     * @param  float $version version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  string $recommendation_type The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -6631,9 +6390,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferListResponse
      */
-    public function searchOffersForConsumer($version, $latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
+    public function searchOffersForConsumer($latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
     {
-        list($response) = $this->searchOffersForConsumerWithHttpInfo($version, $latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key, $device_id, $account_id, $search_range, $tags, $supported_postal_codes, $keyword, $categories, $filters, $offer_types, $type, $sort_field, $recommend_offer_ids, $retailer_location_ids, $offer_id, $include_mission, $include_categories, $include_filters, $include_expired, $include_favorite, $closest_offer_only, $search_expression, $group_by, $contentType);
+        list($response) = $this->searchOffersForConsumerWithHttpInfo($latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key, $device_id, $account_id, $search_range, $tags, $supported_postal_codes, $keyword, $categories, $filters, $offer_types, $type, $sort_field, $recommend_offer_ids, $retailer_location_ids, $offer_id, $include_mission, $include_categories, $include_filters, $include_expired, $include_favorite, $closest_offer_only, $search_expression, $group_by, $contentType);
         return $response;
     }
 
@@ -6642,7 +6401,6 @@ class OfferApi
      *
      * Search Offers
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  string $recommendation_type The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -6680,9 +6438,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchOffersForConsumerWithHttpInfo($version, $latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
+    public function searchOffersForConsumerWithHttpInfo($latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
     {
-        $request = $this->searchOffersForConsumerRequest($version, $latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key, $device_id, $account_id, $search_range, $tags, $supported_postal_codes, $keyword, $categories, $filters, $offer_types, $type, $sort_field, $recommend_offer_ids, $retailer_location_ids, $offer_id, $include_mission, $include_categories, $include_filters, $include_expired, $include_favorite, $closest_offer_only, $search_expression, $group_by, $contentType);
+        $request = $this->searchOffersForConsumerRequest($latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key, $device_id, $account_id, $search_range, $tags, $supported_postal_codes, $keyword, $categories, $filters, $offer_types, $type, $sort_field, $recommend_offer_ids, $retailer_location_ids, $offer_id, $include_mission, $include_categories, $include_filters, $include_expired, $include_favorite, $closest_offer_only, $search_expression, $group_by, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6758,7 +6516,6 @@ class OfferApi
      *
      * Search Offers
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  string $recommendation_type The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -6795,9 +6552,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOffersForConsumerAsync($version, $latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
+    public function searchOffersForConsumerAsync($latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
     {
-        return $this->searchOffersForConsumerAsyncWithHttpInfo($version, $latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key, $device_id, $account_id, $search_range, $tags, $supported_postal_codes, $keyword, $categories, $filters, $offer_types, $type, $sort_field, $recommend_offer_ids, $retailer_location_ids, $offer_id, $include_mission, $include_categories, $include_filters, $include_expired, $include_favorite, $closest_offer_only, $search_expression, $group_by, $contentType)
+        return $this->searchOffersForConsumerAsyncWithHttpInfo($latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key, $device_id, $account_id, $search_range, $tags, $supported_postal_codes, $keyword, $categories, $filters, $offer_types, $type, $sort_field, $recommend_offer_ids, $retailer_location_ids, $offer_id, $include_mission, $include_categories, $include_filters, $include_expired, $include_favorite, $closest_offer_only, $search_expression, $group_by, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6810,7 +6567,6 @@ class OfferApi
      *
      * Search Offers
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  string $recommendation_type The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -6847,10 +6603,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOffersForConsumerAsyncWithHttpInfo($version, $latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
+    public function searchOffersForConsumerAsyncWithHttpInfo($latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferListResponse';
-        $request = $this->searchOffersForConsumerRequest($version, $latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key, $device_id, $account_id, $search_range, $tags, $supported_postal_codes, $keyword, $categories, $filters, $offer_types, $type, $sort_field, $recommend_offer_ids, $retailer_location_ids, $offer_id, $include_mission, $include_categories, $include_filters, $include_expired, $include_favorite, $closest_offer_only, $search_expression, $group_by, $contentType);
+        $request = $this->searchOffersForConsumerRequest($latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key, $device_id, $account_id, $search_range, $tags, $supported_postal_codes, $keyword, $categories, $filters, $offer_types, $type, $sort_field, $recommend_offer_ids, $retailer_location_ids, $offer_id, $include_mission, $include_categories, $include_filters, $include_expired, $include_favorite, $closest_offer_only, $search_expression, $group_by, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6891,7 +6647,6 @@ class OfferApi
     /**
      * Create request for operation 'searchOffersForConsumer'
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of where the search will center at (required)
      * @param  float $longitude The longitude of where the search will center at (required)
      * @param  string $recommendation_type The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -6928,15 +6683,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchOffersForConsumerRequest($version, $latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
+    public function searchOffersForConsumerRequest($latitude, $longitude, $recommendation_type, $location_id, $start, $limit, $max_recommendations, $distance_unit, $app_key = null, $device_id = null, $account_id = null, $search_range = 5, $tags = null, $supported_postal_codes = null, $keyword = null, $categories = null, $filters = null, $offer_types = 'COUPON, VOUCHER', $type = null, $sort_field = null, $recommend_offer_ids = null, $retailer_location_ids = null, $offer_id = null, $include_mission = null, $include_categories = null, $include_filters = null, $include_expired = null, $include_favorite = null, $closest_offer_only = null, $search_expression = null, $group_by = null, string $contentType = self::contentTypes['searchOffersForConsumer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchOffersForConsumer'
-            );
-        }
 
         // verify the required parameter 'latitude' is set
         if ($latitude === null || (is_array($latitude) && count($latitude) === 0)) {
@@ -7018,7 +6766,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/offer/lists';
+        $resourcePath = '/offer/lists';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7306,14 +7054,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7374,7 +7114,6 @@ class OfferApi
      *
      * Get Offers (Top)
      *
-     * @param  float $version version (required)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param  int|null $limit The total number of record to return. Default id 20. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['topOfferTransactions'] to see the possible values for this operation
@@ -7383,9 +7122,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferListResponse
      */
-    public function topOfferTransactions($version, $start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
+    public function topOfferTransactions($start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
     {
-        list($response) = $this->topOfferTransactionsWithHttpInfo($version, $start, $limit, $contentType);
+        list($response) = $this->topOfferTransactionsWithHttpInfo($start, $limit, $contentType);
         return $response;
     }
 
@@ -7394,7 +7133,6 @@ class OfferApi
      *
      * Get Offers (Top)
      *
-     * @param  float $version (required)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param  int|null $limit The total number of record to return. Default id 20. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['topOfferTransactions'] to see the possible values for this operation
@@ -7403,9 +7141,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function topOfferTransactionsWithHttpInfo($version, $start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
+    public function topOfferTransactionsWithHttpInfo($start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
     {
-        $request = $this->topOfferTransactionsRequest($version, $start, $limit, $contentType);
+        $request = $this->topOfferTransactionsRequest($start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7481,7 +7219,6 @@ class OfferApi
      *
      * Get Offers (Top)
      *
-     * @param  float $version (required)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param  int|null $limit The total number of record to return. Default id 20. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['topOfferTransactions'] to see the possible values for this operation
@@ -7489,9 +7226,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function topOfferTransactionsAsync($version, $start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
+    public function topOfferTransactionsAsync($start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
     {
-        return $this->topOfferTransactionsAsyncWithHttpInfo($version, $start, $limit, $contentType)
+        return $this->topOfferTransactionsAsyncWithHttpInfo($start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7504,7 +7241,6 @@ class OfferApi
      *
      * Get Offers (Top)
      *
-     * @param  float $version (required)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param  int|null $limit The total number of record to return. Default id 20. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['topOfferTransactions'] to see the possible values for this operation
@@ -7512,10 +7248,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function topOfferTransactionsAsyncWithHttpInfo($version, $start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
+    public function topOfferTransactionsAsyncWithHttpInfo($start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferListResponse';
-        $request = $this->topOfferTransactionsRequest($version, $start, $limit, $contentType);
+        $request = $this->topOfferTransactionsRequest($start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7556,7 +7292,6 @@ class OfferApi
     /**
      * Create request for operation 'topOfferTransactions'
      *
-     * @param  float $version (required)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param  int|null $limit The total number of record to return. Default id 20. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['topOfferTransactions'] to see the possible values for this operation
@@ -7564,20 +7299,13 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function topOfferTransactionsRequest($version, $start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
+    public function topOfferTransactionsRequest($start = 0, $limit = 20, string $contentType = self::contentTypes['topOfferTransactions'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling topOfferTransactions'
-            );
-        }
 
 
 
-
-        $resourcePath = '/api/{version}/offer/top';
+        $resourcePath = '/offer/top';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7604,14 +7332,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7672,7 +7392,6 @@ class OfferApi
      *
      * Update Offer
      *
-     * @param  float $version version (required)
      * @param  int $offer_id The offer to update (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -7766,9 +7485,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerOfferResponse
      */
-    public function updateOffer($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
+    public function updateOffer($offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
     {
-        list($response) = $this->updateOfferWithHttpInfo($version, $offer_id, $include_offer_locations, $device_id, $account_id, $parent_offer_id, $retailer_location_ids, $offer_locations, $tags, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $offer_type, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
+        list($response) = $this->updateOfferWithHttpInfo($offer_id, $include_offer_locations, $device_id, $account_id, $parent_offer_id, $retailer_location_ids, $offer_locations, $tags, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $offer_type, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
         return $response;
     }
 
@@ -7777,7 +7496,6 @@ class OfferApi
      *
      * Update Offer
      *
-     * @param  float $version (required)
      * @param  int $offer_id The offer to update (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -7871,9 +7589,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerOfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOfferWithHttpInfo($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
+    public function updateOfferWithHttpInfo($offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
     {
-        $request = $this->updateOfferRequest($version, $offer_id, $include_offer_locations, $device_id, $account_id, $parent_offer_id, $retailer_location_ids, $offer_locations, $tags, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $offer_type, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
+        $request = $this->updateOfferRequest($offer_id, $include_offer_locations, $device_id, $account_id, $parent_offer_id, $retailer_location_ids, $offer_locations, $tags, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $offer_type, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7949,7 +7667,6 @@ class OfferApi
      *
      * Update Offer
      *
-     * @param  float $version (required)
      * @param  int $offer_id The offer to update (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -8042,9 +7759,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOfferAsync($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
+    public function updateOfferAsync($offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
     {
-        return $this->updateOfferAsyncWithHttpInfo($version, $offer_id, $include_offer_locations, $device_id, $account_id, $parent_offer_id, $retailer_location_ids, $offer_locations, $tags, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $offer_type, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType)
+        return $this->updateOfferAsyncWithHttpInfo($offer_id, $include_offer_locations, $device_id, $account_id, $parent_offer_id, $retailer_location_ids, $offer_locations, $tags, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $offer_type, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8057,7 +7774,6 @@ class OfferApi
      *
      * Update Offer
      *
-     * @param  float $version (required)
      * @param  int $offer_id The offer to update (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -8150,10 +7866,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOfferAsyncWithHttpInfo($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
+    public function updateOfferAsyncWithHttpInfo($offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerOfferResponse';
-        $request = $this->updateOfferRequest($version, $offer_id, $include_offer_locations, $device_id, $account_id, $parent_offer_id, $retailer_location_ids, $offer_locations, $tags, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $offer_type, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
+        $request = $this->updateOfferRequest($offer_id, $include_offer_locations, $device_id, $account_id, $parent_offer_id, $retailer_location_ids, $offer_locations, $tags, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $external_id, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $offer_type, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $brand, $product_type, $condition_type, $isbn, $asin, $catalog_numbers, $department, $features, $minimum_price, $width, $height, $depth, $weight, $unit, $studio, $parental_rating, $publish_date, $availability_date, $size_id, $listing_id, $media_type, $duration, $author, $release_date, $collection_ids, $reboot_time_hour, $reboot_time_minute, $idle_timeout_in_second, $serial_number, $udid, $device_type, $device_power, $device_interference, $availability, $availability_summary, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8194,7 +7910,6 @@ class OfferApi
     /**
      * Create request for operation 'updateOffer'
      *
-     * @param  float $version (required)
      * @param  int $offer_id The offer to update (required)
      * @param  bool $include_offer_locations If true return all the offer locations associated with the offer (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -8287,15 +8002,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateOfferRequest($version, $offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
+    public function updateOfferRequest($offer_id, $include_offer_locations, $device_id = null, $account_id = null, $parent_offer_id = null, $retailer_location_ids = null, $offer_locations = null, $tags = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $external_id = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $offer_type = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $brand = null, $product_type = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $department = null, $features = null, $minimum_price = null, $width = null, $height = null, $depth = null, $weight = null, $unit = null, $studio = null, $parental_rating = null, $publish_date = null, $availability_date = null, $size_id = null, $listing_id = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $reboot_time_hour = null, $reboot_time_minute = null, $idle_timeout_in_second = null, $serial_number = null, $udid = null, $device_type = null, $device_power = null, $device_interference = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateOffer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateOffer'
-            );
-        }
 
         // verify the required parameter 'offer_id' is set
         if ($offer_id === null || (is_array($offer_id) && count($offer_id) === 0)) {
@@ -8397,7 +8105,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/update';
+        $resourcePath = '/retailer/offer/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -9189,14 +8897,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -9257,7 +8957,6 @@ class OfferApi
      *
      * Activate Offer
      *
-     * @param  float $version version (required)
      * @param  string $offer_ids Comma separated list of offer ids (required)
      * @param  bool $active Determines whether to make the offer active as well (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -9268,9 +8967,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateOfferStatus($version, $offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
+    public function updateOfferStatus($offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
     {
-        list($response) = $this->updateOfferStatusWithHttpInfo($version, $offer_ids, $active, $device_id, $account_id, $contentType);
+        list($response) = $this->updateOfferStatusWithHttpInfo($offer_ids, $active, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -9279,7 +8978,6 @@ class OfferApi
      *
      * Activate Offer
      *
-     * @param  float $version (required)
      * @param  string $offer_ids Comma separated list of offer ids (required)
      * @param  bool $active Determines whether to make the offer active as well (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -9290,9 +8988,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOfferStatusWithHttpInfo($version, $offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
+    public function updateOfferStatusWithHttpInfo($offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
     {
-        $request = $this->updateOfferStatusRequest($version, $offer_ids, $active, $device_id, $account_id, $contentType);
+        $request = $this->updateOfferStatusRequest($offer_ids, $active, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9368,7 +9066,6 @@ class OfferApi
      *
      * Activate Offer
      *
-     * @param  float $version (required)
      * @param  string $offer_ids Comma separated list of offer ids (required)
      * @param  bool $active Determines whether to make the offer active as well (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -9378,9 +9075,9 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOfferStatusAsync($version, $offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
+    public function updateOfferStatusAsync($offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
     {
-        return $this->updateOfferStatusAsyncWithHttpInfo($version, $offer_ids, $active, $device_id, $account_id, $contentType)
+        return $this->updateOfferStatusAsyncWithHttpInfo($offer_ids, $active, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9393,7 +9090,6 @@ class OfferApi
      *
      * Activate Offer
      *
-     * @param  float $version (required)
      * @param  string $offer_ids Comma separated list of offer ids (required)
      * @param  bool $active Determines whether to make the offer active as well (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -9403,10 +9099,10 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOfferStatusAsyncWithHttpInfo($version, $offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
+    public function updateOfferStatusAsyncWithHttpInfo($offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateOfferStatusRequest($version, $offer_ids, $active, $device_id, $account_id, $contentType);
+        $request = $this->updateOfferStatusRequest($offer_ids, $active, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9447,7 +9143,6 @@ class OfferApi
     /**
      * Create request for operation 'updateOfferStatus'
      *
-     * @param  float $version (required)
      * @param  string $offer_ids Comma separated list of offer ids (required)
      * @param  bool $active Determines whether to make the offer active as well (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -9457,15 +9152,8 @@ class OfferApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateOfferStatusRequest($version, $offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
+    public function updateOfferStatusRequest($offer_ids, $active, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateOfferStatus'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateOfferStatus'
-            );
-        }
 
         // verify the required parameter 'offer_ids' is set
         if ($offer_ids === null || (is_array($offer_ids) && count($offer_ids) === 0)) {
@@ -9484,7 +9172,7 @@ class OfferApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/offer/status';
+        $resourcePath = '/retailer/offer/status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -9529,14 +9217,6 @@ class OfferApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

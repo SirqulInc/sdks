@@ -134,7 +134,6 @@ class OptimizeApi
      *
      * Get Optimization Result
      *
-     * @param  float $version version (required)
      * @param  string $batch_id The batchID for getting the import status of. (required)
      * @param  int $start The start index for pagination (required)
      * @param  int $limit The limit for pagination (required)
@@ -144,9 +143,9 @@ class OptimizeApi
      * @throws \InvalidArgumentException
      * @return array<string,\OpenAPI\Client\Model\ShipmentOrder>
      */
-    public function getOptimizationResult($version, $batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
+    public function getOptimizationResult($batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
     {
-        list($response) = $this->getOptimizationResultWithHttpInfo($version, $batch_id, $start, $limit, $contentType);
+        list($response) = $this->getOptimizationResultWithHttpInfo($batch_id, $start, $limit, $contentType);
         return $response;
     }
 
@@ -155,7 +154,6 @@ class OptimizeApi
      *
      * Get Optimization Result
      *
-     * @param  float $version (required)
      * @param  string $batch_id The batchID for getting the import status of. (required)
      * @param  int $start The start index for pagination (required)
      * @param  int $limit The limit for pagination (required)
@@ -165,9 +163,9 @@ class OptimizeApi
      * @throws \InvalidArgumentException
      * @return array of array<string,\OpenAPI\Client\Model\ShipmentOrder>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOptimizationResultWithHttpInfo($version, $batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
+    public function getOptimizationResultWithHttpInfo($batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
     {
-        $request = $this->getOptimizationResultRequest($version, $batch_id, $start, $limit, $contentType);
+        $request = $this->getOptimizationResultRequest($batch_id, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -243,7 +241,6 @@ class OptimizeApi
      *
      * Get Optimization Result
      *
-     * @param  float $version (required)
      * @param  string $batch_id The batchID for getting the import status of. (required)
      * @param  int $start The start index for pagination (required)
      * @param  int $limit The limit for pagination (required)
@@ -252,9 +249,9 @@ class OptimizeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOptimizationResultAsync($version, $batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
+    public function getOptimizationResultAsync($batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
     {
-        return $this->getOptimizationResultAsyncWithHttpInfo($version, $batch_id, $start, $limit, $contentType)
+        return $this->getOptimizationResultAsyncWithHttpInfo($batch_id, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -267,7 +264,6 @@ class OptimizeApi
      *
      * Get Optimization Result
      *
-     * @param  float $version (required)
      * @param  string $batch_id The batchID for getting the import status of. (required)
      * @param  int $start The start index for pagination (required)
      * @param  int $limit The limit for pagination (required)
@@ -276,10 +272,10 @@ class OptimizeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOptimizationResultAsyncWithHttpInfo($version, $batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
+    public function getOptimizationResultAsyncWithHttpInfo($batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
     {
         $returnType = 'array<string,\OpenAPI\Client\Model\ShipmentOrder>';
-        $request = $this->getOptimizationResultRequest($version, $batch_id, $start, $limit, $contentType);
+        $request = $this->getOptimizationResultRequest($batch_id, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -320,7 +316,6 @@ class OptimizeApi
     /**
      * Create request for operation 'getOptimizationResult'
      *
-     * @param  float $version (required)
      * @param  string $batch_id The batchID for getting the import status of. (required)
      * @param  int $start The start index for pagination (required)
      * @param  int $limit The limit for pagination (required)
@@ -329,15 +324,8 @@ class OptimizeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOptimizationResultRequest($version, $batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
+    public function getOptimizationResultRequest($batch_id, $start, $limit, string $contentType = self::contentTypes['getOptimizationResult'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOptimizationResult'
-            );
-        }
 
         // verify the required parameter 'batch_id' is set
         if ($batch_id === null || (is_array($batch_id) && count($batch_id) === 0)) {
@@ -361,7 +349,7 @@ class OptimizeApi
         }
 
 
-        $resourcePath = '/api/{version}/optimize/result/{batchID}';
+        $resourcePath = '/optimize/result/{batchID}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -388,14 +376,6 @@ class OptimizeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($batch_id !== null) {
             $resourcePath = str_replace(
@@ -464,7 +444,6 @@ class OptimizeApi
      *
      * Request Optimization
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\Orders|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestOptimization'] to see the possible values for this operation
      *
@@ -472,9 +451,9 @@ class OptimizeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ImportStatuses
      */
-    public function requestOptimization($version, $body = null, string $contentType = self::contentTypes['requestOptimization'][0])
+    public function requestOptimization($body = null, string $contentType = self::contentTypes['requestOptimization'][0])
     {
-        list($response) = $this->requestOptimizationWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->requestOptimizationWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -483,7 +462,6 @@ class OptimizeApi
      *
      * Request Optimization
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Orders|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestOptimization'] to see the possible values for this operation
      *
@@ -491,9 +469,9 @@ class OptimizeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ImportStatuses, HTTP status code, HTTP response headers (array of strings)
      */
-    public function requestOptimizationWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['requestOptimization'][0])
+    public function requestOptimizationWithHttpInfo($body = null, string $contentType = self::contentTypes['requestOptimization'][0])
     {
-        $request = $this->requestOptimizationRequest($version, $body, $contentType);
+        $request = $this->requestOptimizationRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -569,16 +547,15 @@ class OptimizeApi
      *
      * Request Optimization
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Orders|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestOptimization'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestOptimizationAsync($version, $body = null, string $contentType = self::contentTypes['requestOptimization'][0])
+    public function requestOptimizationAsync($body = null, string $contentType = self::contentTypes['requestOptimization'][0])
     {
-        return $this->requestOptimizationAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->requestOptimizationAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -591,17 +568,16 @@ class OptimizeApi
      *
      * Request Optimization
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Orders|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestOptimization'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestOptimizationAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['requestOptimization'][0])
+    public function requestOptimizationAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['requestOptimization'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ImportStatuses';
-        $request = $this->requestOptimizationRequest($version, $body, $contentType);
+        $request = $this->requestOptimizationRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -642,26 +618,18 @@ class OptimizeApi
     /**
      * Create request for operation 'requestOptimization'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Orders|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestOptimization'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function requestOptimizationRequest($version, $body = null, string $contentType = self::contentTypes['requestOptimization'][0])
+    public function requestOptimizationRequest($body = null, string $contentType = self::contentTypes['requestOptimization'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling requestOptimization'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/optimize/request';
+        $resourcePath = '/optimize/request';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -670,14 +638,6 @@ class OptimizeApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -143,7 +143,6 @@ class ShipmentBatchApi
      *
      * Create Shipment Batch
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\ShipmentBatch|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipmentBatch'] to see the possible values for this operation
      *
@@ -151,9 +150,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ShipmentBatch
      */
-    public function createShipmentBatch($version, $body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
+    public function createShipmentBatch($body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
     {
-        list($response) = $this->createShipmentBatchWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createShipmentBatchWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -162,7 +161,6 @@ class ShipmentBatchApi
      *
      * Create Shipment Batch
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\ShipmentBatch|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipmentBatch'] to see the possible values for this operation
      *
@@ -170,9 +168,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ShipmentBatch, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createShipmentBatchWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
+    public function createShipmentBatchWithHttpInfo($body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
     {
-        $request = $this->createShipmentBatchRequest($version, $body, $contentType);
+        $request = $this->createShipmentBatchRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -248,16 +246,15 @@ class ShipmentBatchApi
      *
      * Create Shipment Batch
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\ShipmentBatch|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipmentBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createShipmentBatchAsync($version, $body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
+    public function createShipmentBatchAsync($body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
     {
-        return $this->createShipmentBatchAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createShipmentBatchAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,17 +267,16 @@ class ShipmentBatchApi
      *
      * Create Shipment Batch
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\ShipmentBatch|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipmentBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createShipmentBatchAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
+    public function createShipmentBatchAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShipmentBatch';
-        $request = $this->createShipmentBatchRequest($version, $body, $contentType);
+        $request = $this->createShipmentBatchRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -321,26 +317,18 @@ class ShipmentBatchApi
     /**
      * Create request for operation 'createShipmentBatch'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\ShipmentBatch|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipmentBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createShipmentBatchRequest($version, $body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
+    public function createShipmentBatchRequest($body = null, string $contentType = self::contentTypes['createShipmentBatch'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createShipmentBatch'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/shipment/batch';
+        $resourcePath = '/shipment/batch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -349,14 +337,6 @@ class ShipmentBatchApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -424,7 +404,6 @@ class ShipmentBatchApi
      *
      * Delete Shipment Batch
      *
-     * @param  float $version version (required)
      * @param  int $batch_id the id of the shipment batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipmentBatch'] to see the possible values for this operation
      *
@@ -432,9 +411,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteShipmentBatch($version, $batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
+    public function deleteShipmentBatch($batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
     {
-        $this->deleteShipmentBatchWithHttpInfo($version, $batch_id, $contentType);
+        $this->deleteShipmentBatchWithHttpInfo($batch_id, $contentType);
     }
 
     /**
@@ -442,7 +421,6 @@ class ShipmentBatchApi
      *
      * Delete Shipment Batch
      *
-     * @param  float $version (required)
      * @param  int $batch_id the id of the shipment batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipmentBatch'] to see the possible values for this operation
      *
@@ -450,9 +428,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteShipmentBatchWithHttpInfo($version, $batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
+    public function deleteShipmentBatchWithHttpInfo($batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
     {
-        $request = $this->deleteShipmentBatchRequest($version, $batch_id, $contentType);
+        $request = $this->deleteShipmentBatchRequest($batch_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -492,16 +470,15 @@ class ShipmentBatchApi
      *
      * Delete Shipment Batch
      *
-     * @param  float $version (required)
      * @param  int $batch_id the id of the shipment batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipmentBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteShipmentBatchAsync($version, $batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
+    public function deleteShipmentBatchAsync($batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
     {
-        return $this->deleteShipmentBatchAsyncWithHttpInfo($version, $batch_id, $contentType)
+        return $this->deleteShipmentBatchAsyncWithHttpInfo($batch_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -514,17 +491,16 @@ class ShipmentBatchApi
      *
      * Delete Shipment Batch
      *
-     * @param  float $version (required)
      * @param  int $batch_id the id of the shipment batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipmentBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteShipmentBatchAsyncWithHttpInfo($version, $batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
+    public function deleteShipmentBatchAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
     {
         $returnType = '';
-        $request = $this->deleteShipmentBatchRequest($version, $batch_id, $contentType);
+        $request = $this->deleteShipmentBatchRequest($batch_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -552,22 +528,14 @@ class ShipmentBatchApi
     /**
      * Create request for operation 'deleteShipmentBatch'
      *
-     * @param  float $version (required)
      * @param  int $batch_id the id of the shipment batch to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipmentBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteShipmentBatchRequest($version, $batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
+    public function deleteShipmentBatchRequest($batch_id, string $contentType = self::contentTypes['deleteShipmentBatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteShipmentBatch'
-            );
-        }
 
         // verify the required parameter 'batch_id' is set
         if ($batch_id === null || (is_array($batch_id) && count($batch_id) === 0)) {
@@ -577,7 +545,7 @@ class ShipmentBatchApi
         }
 
 
-        $resourcePath = '/api/{version}/shipment/batch/{batchId}';
+        $resourcePath = '/shipment/batch/{batchId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -586,14 +554,6 @@ class ShipmentBatchApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($batch_id !== null) {
             $resourcePath = str_replace(
@@ -662,7 +622,6 @@ class ShipmentBatchApi
      *
      * Get Shipment Batch
      *
-     * @param  float $version version (required)
      * @param  int $batch_id the id of the shipment batch to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentBatch'] to see the possible values for this operation
      *
@@ -670,9 +629,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ShipmentBatch
      */
-    public function getShipmentBatch($version, $batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
+    public function getShipmentBatch($batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
     {
-        list($response) = $this->getShipmentBatchWithHttpInfo($version, $batch_id, $contentType);
+        list($response) = $this->getShipmentBatchWithHttpInfo($batch_id, $contentType);
         return $response;
     }
 
@@ -681,7 +640,6 @@ class ShipmentBatchApi
      *
      * Get Shipment Batch
      *
-     * @param  float $version (required)
      * @param  int $batch_id the id of the shipment batch to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentBatch'] to see the possible values for this operation
      *
@@ -689,9 +647,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ShipmentBatch, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShipmentBatchWithHttpInfo($version, $batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
+    public function getShipmentBatchWithHttpInfo($batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
     {
-        $request = $this->getShipmentBatchRequest($version, $batch_id, $contentType);
+        $request = $this->getShipmentBatchRequest($batch_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -767,16 +725,15 @@ class ShipmentBatchApi
      *
      * Get Shipment Batch
      *
-     * @param  float $version (required)
      * @param  int $batch_id the id of the shipment batch to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentBatchAsync($version, $batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
+    public function getShipmentBatchAsync($batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
     {
-        return $this->getShipmentBatchAsyncWithHttpInfo($version, $batch_id, $contentType)
+        return $this->getShipmentBatchAsyncWithHttpInfo($batch_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -789,17 +746,16 @@ class ShipmentBatchApi
      *
      * Get Shipment Batch
      *
-     * @param  float $version (required)
      * @param  int $batch_id the id of the shipment batch to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentBatchAsyncWithHttpInfo($version, $batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
+    public function getShipmentBatchAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShipmentBatch';
-        $request = $this->getShipmentBatchRequest($version, $batch_id, $contentType);
+        $request = $this->getShipmentBatchRequest($batch_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -840,22 +796,14 @@ class ShipmentBatchApi
     /**
      * Create request for operation 'getShipmentBatch'
      *
-     * @param  float $version (required)
      * @param  int $batch_id the id of the shipment batch to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShipmentBatchRequest($version, $batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
+    public function getShipmentBatchRequest($batch_id, string $contentType = self::contentTypes['getShipmentBatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getShipmentBatch'
-            );
-        }
 
         // verify the required parameter 'batch_id' is set
         if ($batch_id === null || (is_array($batch_id) && count($batch_id) === 0)) {
@@ -865,7 +813,7 @@ class ShipmentBatchApi
         }
 
 
-        $resourcePath = '/api/{version}/shipment/batch/{batchId}';
+        $resourcePath = '/shipment/batch/{batchId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -874,14 +822,6 @@ class ShipmentBatchApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($batch_id !== null) {
             $resourcePath = str_replace(
@@ -950,7 +890,6 @@ class ShipmentBatchApi
      *
      * Get Shipment Batch Status
      *
-     * @param  float $version version (required)
      * @param  int $batch_id The id of the requested shipment batch (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $sort_field The field to sort by (required)
@@ -969,9 +908,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ShipmentImportStatus[]
      */
-    public function getShipmentBatchStatus($version, $batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
+    public function getShipmentBatchStatus($batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
     {
-        list($response) = $this->getShipmentBatchStatusWithHttpInfo($version, $batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid, $started, $completed, $has_shipment, $has_route, $keyword, $contentType);
+        list($response) = $this->getShipmentBatchStatusWithHttpInfo($batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid, $started, $completed, $has_shipment, $has_route, $keyword, $contentType);
         return $response;
     }
 
@@ -980,7 +919,6 @@ class ShipmentBatchApi
      *
      * Get Shipment Batch Status
      *
-     * @param  float $version (required)
      * @param  int $batch_id The id of the requested shipment batch (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $sort_field The field to sort by (required)
@@ -999,9 +937,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ShipmentImportStatus[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShipmentBatchStatusWithHttpInfo($version, $batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
+    public function getShipmentBatchStatusWithHttpInfo($batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
     {
-        $request = $this->getShipmentBatchStatusRequest($version, $batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid, $started, $completed, $has_shipment, $has_route, $keyword, $contentType);
+        $request = $this->getShipmentBatchStatusRequest($batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid, $started, $completed, $has_shipment, $has_route, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1077,7 +1015,6 @@ class ShipmentBatchApi
      *
      * Get Shipment Batch Status
      *
-     * @param  float $version (required)
      * @param  int $batch_id The id of the requested shipment batch (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $sort_field The field to sort by (required)
@@ -1095,9 +1032,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentBatchStatusAsync($version, $batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
+    public function getShipmentBatchStatusAsync($batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
     {
-        return $this->getShipmentBatchStatusAsyncWithHttpInfo($version, $batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid, $started, $completed, $has_shipment, $has_route, $keyword, $contentType)
+        return $this->getShipmentBatchStatusAsyncWithHttpInfo($batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid, $started, $completed, $has_shipment, $has_route, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1110,7 +1047,6 @@ class ShipmentBatchApi
      *
      * Get Shipment Batch Status
      *
-     * @param  float $version (required)
      * @param  int $batch_id The id of the requested shipment batch (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $sort_field The field to sort by (required)
@@ -1128,10 +1064,10 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentBatchStatusAsyncWithHttpInfo($version, $batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
+    public function getShipmentBatchStatusAsyncWithHttpInfo($batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShipmentImportStatus[]';
-        $request = $this->getShipmentBatchStatusRequest($version, $batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid, $started, $completed, $has_shipment, $has_route, $keyword, $contentType);
+        $request = $this->getShipmentBatchStatusRequest($batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid, $started, $completed, $has_shipment, $has_route, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1172,7 +1108,6 @@ class ShipmentBatchApi
     /**
      * Create request for operation 'getShipmentBatchStatus'
      *
-     * @param  float $version (required)
      * @param  int $batch_id The id of the requested shipment batch (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $sort_field The field to sort by (required)
@@ -1190,15 +1125,8 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShipmentBatchStatusRequest($version, $batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
+    public function getShipmentBatchStatusRequest($batch_id, $account_id, $sort_field, $descending, $start, $limit, $valid = null, $started = null, $completed = null, $has_shipment = null, $has_route = null, $keyword = null, string $contentType = self::contentTypes['getShipmentBatchStatus'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getShipmentBatchStatus'
-            );
-        }
 
         // verify the required parameter 'batch_id' is set
         if ($batch_id === null || (is_array($batch_id) && count($batch_id) === 0)) {
@@ -1249,7 +1177,7 @@ class ShipmentBatchApi
 
 
 
-        $resourcePath = '/api/{version}/shipment/batch/{batchId}/status';
+        $resourcePath = '/shipment/batch/{batchId}/status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1358,14 +1286,6 @@ class ShipmentBatchApi
 
 
         // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
-        // path params
         if ($batch_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'batchId' . '}',
@@ -1433,7 +1353,6 @@ class ShipmentBatchApi
      *
      * Search Shipment Batch
      *
-     * @param  float $version version (required)
      * @param  int $hub_id The associated service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1445,9 +1364,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ShipmentBatch[]
      */
-    public function searchShipmentBatch($version, $hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
+    public function searchShipmentBatch($hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
     {
-        list($response) = $this->searchShipmentBatchWithHttpInfo($version, $hub_id, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchShipmentBatchWithHttpInfo($hub_id, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1456,7 +1375,6 @@ class ShipmentBatchApi
      *
      * Search Shipment Batch
      *
-     * @param  float $version (required)
      * @param  int $hub_id The associated service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1468,9 +1386,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ShipmentBatch[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchShipmentBatchWithHttpInfo($version, $hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
+    public function searchShipmentBatchWithHttpInfo($hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
     {
-        $request = $this->searchShipmentBatchRequest($version, $hub_id, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchShipmentBatchRequest($hub_id, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1546,7 +1464,6 @@ class ShipmentBatchApi
      *
      * Search Shipment Batch
      *
-     * @param  float $version (required)
      * @param  int $hub_id The associated service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1557,9 +1474,9 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchShipmentBatchAsync($version, $hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
+    public function searchShipmentBatchAsync($hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
     {
-        return $this->searchShipmentBatchAsyncWithHttpInfo($version, $hub_id, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->searchShipmentBatchAsyncWithHttpInfo($hub_id, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1572,7 +1489,6 @@ class ShipmentBatchApi
      *
      * Search Shipment Batch
      *
-     * @param  float $version (required)
      * @param  int $hub_id The associated service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1583,10 +1499,10 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchShipmentBatchAsyncWithHttpInfo($version, $hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
+    public function searchShipmentBatchAsyncWithHttpInfo($hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShipmentBatch[]';
-        $request = $this->searchShipmentBatchRequest($version, $hub_id, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchShipmentBatchRequest($hub_id, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1627,7 +1543,6 @@ class ShipmentBatchApi
     /**
      * Create request for operation 'searchShipmentBatch'
      *
-     * @param  float $version (required)
      * @param  int $hub_id The associated service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1638,15 +1553,8 @@ class ShipmentBatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchShipmentBatchRequest($version, $hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
+    public function searchShipmentBatchRequest($hub_id, $sort_field, $descending, $start, $limit, string $contentType = self::contentTypes['searchShipmentBatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchShipmentBatch'
-            );
-        }
 
         // verify the required parameter 'hub_id' is set
         if ($hub_id === null || (is_array($hub_id) && count($hub_id) === 0)) {
@@ -1684,7 +1592,7 @@ class ShipmentBatchApi
         }
 
 
-        $resourcePath = '/api/{version}/shipment/batch';
+        $resourcePath = '/shipment/batch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1738,14 +1646,6 @@ class ShipmentBatchApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

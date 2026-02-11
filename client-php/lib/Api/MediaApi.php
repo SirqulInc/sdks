@@ -143,7 +143,6 @@ class MediaApi
      *
      * Create Media
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -207,9 +206,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MediaOfferResponse
      */
-    public function createMedia($version, $account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
+    public function createMedia($account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
     {
-        list($response) = $this->createMediaWithHttpInfo($version, $account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $parental_rating, $availability_date, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
+        list($response) = $this->createMediaWithHttpInfo($account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $parental_rating, $availability_date, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
         return $response;
     }
 
@@ -218,7 +217,6 @@ class MediaApi
      *
      * Create Media
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -282,9 +280,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MediaOfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createMediaWithHttpInfo($version, $account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
+    public function createMediaWithHttpInfo($account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
     {
-        $request = $this->createMediaRequest($version, $account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $parental_rating, $availability_date, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
+        $request = $this->createMediaRequest($account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $parental_rating, $availability_date, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -360,7 +358,6 @@ class MediaApi
      *
      * Create Media
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -423,9 +420,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMediaAsync($version, $account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
+    public function createMediaAsync($account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
     {
-        return $this->createMediaAsyncWithHttpInfo($version, $account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $parental_rating, $availability_date, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType)
+        return $this->createMediaAsyncWithHttpInfo($account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $parental_rating, $availability_date, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -438,7 +435,6 @@ class MediaApi
      *
      * Create Media
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -501,10 +497,10 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMediaAsyncWithHttpInfo($version, $account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
+    public function createMediaAsyncWithHttpInfo($account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MediaOfferResponse';
-        $request = $this->createMediaRequest($version, $account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $parental_rating, $availability_date, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
+        $request = $this->createMediaRequest($account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids, $sub_title, $details, $sub_details, $fine_print, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $ticket_price_type, $show_remaining, $show_redeemed, $replaced, $featured, $category_ids, $filter_ids, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $parental_rating, $availability_date, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -545,7 +541,6 @@ class MediaApi
     /**
      * Create request for operation 'createMedia'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $title The title (255 char limit) (required)
      * @param  string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -608,15 +603,8 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createMediaRequest($version, $account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
+    public function createMediaRequest($account_id, $title, $barcode_type, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price, $full_price, $discount_price, $special_offer_type, $offer_visibility, $active, $retailer_location_ids = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $ticket_price_type = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $category_ids = null, $filter_ids = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $parental_rating = null, $availability_date = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['createMedia'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createMedia'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -766,7 +754,7 @@ class MediaApi
 
 
 
-        $resourcePath = '/api/{version}/media/create';
+        $resourcePath = '/media/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1288,14 +1276,6 @@ class MediaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1356,7 +1336,6 @@ class MediaApi
      *
      * Delete Media
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the ID of the media to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
@@ -1365,9 +1344,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteMedia($version, $account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMedia($account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
     {
-        list($response) = $this->deleteMediaWithHttpInfo($version, $account_id, $media_id, $contentType);
+        list($response) = $this->deleteMediaWithHttpInfo($account_id, $media_id, $contentType);
         return $response;
     }
 
@@ -1376,7 +1355,6 @@ class MediaApi
      *
      * Delete Media
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the ID of the media to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
@@ -1385,9 +1363,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMediaWithHttpInfo($version, $account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMediaWithHttpInfo($account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
     {
-        $request = $this->deleteMediaRequest($version, $account_id, $media_id, $contentType);
+        $request = $this->deleteMediaRequest($account_id, $media_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1463,7 +1441,6 @@ class MediaApi
      *
      * Delete Media
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the ID of the media to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
@@ -1471,9 +1448,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMediaAsync($version, $account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMediaAsync($account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
     {
-        return $this->deleteMediaAsyncWithHttpInfo($version, $account_id, $media_id, $contentType)
+        return $this->deleteMediaAsyncWithHttpInfo($account_id, $media_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1486,7 +1463,6 @@ class MediaApi
      *
      * Delete Media
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the ID of the media to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
@@ -1494,10 +1470,10 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMediaAsyncWithHttpInfo($version, $account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMediaAsyncWithHttpInfo($account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteMediaRequest($version, $account_id, $media_id, $contentType);
+        $request = $this->deleteMediaRequest($account_id, $media_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1538,7 +1514,6 @@ class MediaApi
     /**
      * Create request for operation 'deleteMedia'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the ID of the media to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
@@ -1546,15 +1521,8 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteMediaRequest($version, $account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMediaRequest($account_id, $media_id, string $contentType = self::contentTypes['deleteMedia'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteMedia'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1571,7 +1539,7 @@ class MediaApi
         }
 
 
-        $resourcePath = '/api/{version}/media/delete';
+        $resourcePath = '/media/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1598,14 +1566,6 @@ class MediaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1666,7 +1626,6 @@ class MediaApi
      *
      * Media Get
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the id of the media to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
@@ -1675,9 +1634,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MediaOfferResponse
      */
-    public function getMedia($version, $account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
+    public function getMedia($account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
     {
-        list($response) = $this->getMediaWithHttpInfo($version, $account_id, $media_id, $contentType);
+        list($response) = $this->getMediaWithHttpInfo($account_id, $media_id, $contentType);
         return $response;
     }
 
@@ -1686,7 +1645,6 @@ class MediaApi
      *
      * Media Get
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the id of the media to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
@@ -1695,9 +1653,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MediaOfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMediaWithHttpInfo($version, $account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
+    public function getMediaWithHttpInfo($account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
     {
-        $request = $this->getMediaRequest($version, $account_id, $media_id, $contentType);
+        $request = $this->getMediaRequest($account_id, $media_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1773,7 +1731,6 @@ class MediaApi
      *
      * Media Get
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the id of the media to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
@@ -1781,9 +1738,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMediaAsync($version, $account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
+    public function getMediaAsync($account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
     {
-        return $this->getMediaAsyncWithHttpInfo($version, $account_id, $media_id, $contentType)
+        return $this->getMediaAsyncWithHttpInfo($account_id, $media_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1796,7 +1753,6 @@ class MediaApi
      *
      * Media Get
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the id of the media to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
@@ -1804,10 +1760,10 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMediaAsyncWithHttpInfo($version, $account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
+    public function getMediaAsyncWithHttpInfo($account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MediaOfferResponse';
-        $request = $this->getMediaRequest($version, $account_id, $media_id, $contentType);
+        $request = $this->getMediaRequest($account_id, $media_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1848,7 +1804,6 @@ class MediaApi
     /**
      * Create request for operation 'getMedia'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $media_id the id of the media to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
@@ -1856,15 +1811,8 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMediaRequest($version, $account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
+    public function getMediaRequest($account_id, $media_id, string $contentType = self::contentTypes['getMedia'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getMedia'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1881,7 +1829,7 @@ class MediaApi
         }
 
 
-        $resourcePath = '/api/{version}/media/get';
+        $resourcePath = '/media/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1908,14 +1856,6 @@ class MediaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1976,7 +1916,6 @@ class MediaApi
      *
      * Search Media
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  bool $active_only Return only active results (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -1992,9 +1931,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MediaOfferResponse[]
      */
-    public function searchMedia($version, $account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
+    public function searchMedia($account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
     {
-        list($response) = $this->searchMediaWithHttpInfo($version, $account_id, $active_only, $sort_field, $descending, $keyword, $category_ids, $filter_ids, $start, $limit, $contentType);
+        list($response) = $this->searchMediaWithHttpInfo($account_id, $active_only, $sort_field, $descending, $keyword, $category_ids, $filter_ids, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2003,7 +1942,6 @@ class MediaApi
      *
      * Search Media
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  bool $active_only Return only active results (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -2019,9 +1957,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MediaOfferResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchMediaWithHttpInfo($version, $account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
+    public function searchMediaWithHttpInfo($account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
     {
-        $request = $this->searchMediaRequest($version, $account_id, $active_only, $sort_field, $descending, $keyword, $category_ids, $filter_ids, $start, $limit, $contentType);
+        $request = $this->searchMediaRequest($account_id, $active_only, $sort_field, $descending, $keyword, $category_ids, $filter_ids, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2097,7 +2035,6 @@ class MediaApi
      *
      * Search Media
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  bool $active_only Return only active results (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -2112,9 +2049,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMediaAsync($version, $account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
+    public function searchMediaAsync($account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
     {
-        return $this->searchMediaAsyncWithHttpInfo($version, $account_id, $active_only, $sort_field, $descending, $keyword, $category_ids, $filter_ids, $start, $limit, $contentType)
+        return $this->searchMediaAsyncWithHttpInfo($account_id, $active_only, $sort_field, $descending, $keyword, $category_ids, $filter_ids, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2127,7 +2064,6 @@ class MediaApi
      *
      * Search Media
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  bool $active_only Return only active results (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -2142,10 +2078,10 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMediaAsyncWithHttpInfo($version, $account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
+    public function searchMediaAsyncWithHttpInfo($account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MediaOfferResponse[]';
-        $request = $this->searchMediaRequest($version, $account_id, $active_only, $sort_field, $descending, $keyword, $category_ids, $filter_ids, $start, $limit, $contentType);
+        $request = $this->searchMediaRequest($account_id, $active_only, $sort_field, $descending, $keyword, $category_ids, $filter_ids, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2186,7 +2122,6 @@ class MediaApi
     /**
      * Create request for operation 'searchMedia'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  bool $active_only Return only active results (required)
      * @param  string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -2201,15 +2136,8 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchMediaRequest($version, $account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
+    public function searchMediaRequest($account_id, $active_only, $sort_field, $descending, $keyword = null, $category_ids = null, $filter_ids = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchMedia'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchMedia'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2245,7 +2173,7 @@ class MediaApi
 
 
 
-        $resourcePath = '/api/{version}/media/search';
+        $resourcePath = '/media/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2335,14 +2263,6 @@ class MediaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2403,7 +2323,6 @@ class MediaApi
      *
      * Update Media
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param  int $media_id  (required)
      * @param  string|null $retailer_location_ids Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -2469,9 +2388,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MediaOfferResponse
      */
-    public function updateMedia($version, $account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function updateMedia($account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
     {
-        list($response) = $this->updateMediaWithHttpInfo($version, $account_id, $media_id, $retailer_location_ids, $offer_locations, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $availability_date, $parental_rating, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
+        list($response) = $this->updateMediaWithHttpInfo($account_id, $media_id, $retailer_location_ids, $offer_locations, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $availability_date, $parental_rating, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
         return $response;
     }
 
@@ -2480,7 +2399,6 @@ class MediaApi
      *
      * Update Media
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param  int $media_id  (required)
      * @param  string|null $retailer_location_ids Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -2546,9 +2464,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MediaOfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMediaWithHttpInfo($version, $account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function updateMediaWithHttpInfo($account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
     {
-        $request = $this->updateMediaRequest($version, $account_id, $media_id, $retailer_location_ids, $offer_locations, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $availability_date, $parental_rating, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
+        $request = $this->updateMediaRequest($account_id, $media_id, $retailer_location_ids, $offer_locations, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $availability_date, $parental_rating, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2624,7 +2542,6 @@ class MediaApi
      *
      * Update Media
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param  int $media_id  (required)
      * @param  string|null $retailer_location_ids Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -2689,9 +2606,9 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMediaAsync($version, $account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function updateMediaAsync($account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
     {
-        return $this->updateMediaAsyncWithHttpInfo($version, $account_id, $media_id, $retailer_location_ids, $offer_locations, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $availability_date, $parental_rating, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType)
+        return $this->updateMediaAsyncWithHttpInfo($account_id, $media_id, $retailer_location_ids, $offer_locations, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $availability_date, $parental_rating, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2704,7 +2621,6 @@ class MediaApi
      *
      * Update Media
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param  int $media_id  (required)
      * @param  string|null $retailer_location_ids Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -2769,10 +2685,10 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMediaAsyncWithHttpInfo($version, $account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function updateMediaAsyncWithHttpInfo($account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MediaOfferResponse';
-        $request = $this->updateMediaRequest($version, $account_id, $media_id, $retailer_location_ids, $offer_locations, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $availability_date, $parental_rating, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
+        $request = $this->updateMediaRequest($account_id, $media_id, $retailer_location_ids, $offer_locations, $title, $sub_title, $details, $sub_details, $fine_print, $barcode_type, $barcode_entry, $external_redeem_options, $external_url, $tickets_reward_type, $tickets_reward, $activated, $expires, $no_expiration, $available_limit, $available_limit_per_user, $added_limit, $view_limit, $max_prints, $ticket_price_type, $ticket_price, $full_price, $discount_price, $show_remaining, $show_redeemed, $replaced, $featured, $special_offer_type, $offer_visibility, $category_ids, $filter_ids, $active, $barcode_asset_id, $image_asset_id, $image_asset_id1, $image_asset_id2, $image_asset_id3, $image_asset_id4, $image_asset_id5, $publisher, $redeemable_start, $redeemable_end, $condition_type, $isbn, $asin, $catalog_numbers, $availability_date, $parental_rating, $media_type, $duration, $author, $release_date, $collection_ids, $availability, $availability_summary, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2813,7 +2729,6 @@ class MediaApi
     /**
      * Create request for operation 'updateMedia'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param  int $media_id  (required)
      * @param  string|null $retailer_location_ids Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -2878,15 +2793,8 @@ class MediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMediaRequest($version, $account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function updateMediaRequest($account_id, $media_id, $retailer_location_ids = null, $offer_locations = null, $title = null, $sub_title = null, $details = null, $sub_details = null, $fine_print = null, $barcode_type = null, $barcode_entry = null, $external_redeem_options = null, $external_url = null, $tickets_reward_type = null, $tickets_reward = null, $activated = null, $expires = null, $no_expiration = null, $available_limit = null, $available_limit_per_user = null, $added_limit = null, $view_limit = null, $max_prints = null, $ticket_price_type = null, $ticket_price = null, $full_price = null, $discount_price = null, $show_remaining = null, $show_redeemed = null, $replaced = null, $featured = null, $special_offer_type = null, $offer_visibility = null, $category_ids = null, $filter_ids = null, $active = null, $barcode_asset_id = null, $image_asset_id = null, $image_asset_id1 = null, $image_asset_id2 = null, $image_asset_id3 = null, $image_asset_id4 = null, $image_asset_id5 = null, $publisher = null, $redeemable_start = null, $redeemable_end = null, $condition_type = null, $isbn = null, $asin = null, $catalog_numbers = null, $availability_date = null, $parental_rating = null, $media_type = null, $duration = null, $author = null, $release_date = null, $collection_ids = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['updateMedia'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateMedia'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2960,7 +2868,7 @@ class MediaApi
 
 
 
-        $resourcePath = '/api/{version}/media/update';
+        $resourcePath = '/media/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3500,14 +3408,6 @@ class MediaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

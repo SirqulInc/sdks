@@ -131,7 +131,6 @@ class StripeApi
      *
      * Create Stripe Checkout Session
      *
-     * @param  float $version version (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $stripe_parameters Stripe Parameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createStripeCheckoutSession'] to see the possible values for this operation
@@ -140,9 +139,9 @@ class StripeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function createStripeCheckoutSession($version, $app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
+    public function createStripeCheckoutSession($app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
     {
-        list($response) = $this->createStripeCheckoutSessionWithHttpInfo($version, $app_key, $stripe_parameters, $contentType);
+        list($response) = $this->createStripeCheckoutSessionWithHttpInfo($app_key, $stripe_parameters, $contentType);
         return $response;
     }
 
@@ -151,7 +150,6 @@ class StripeApi
      *
      * Create Stripe Checkout Session
      *
-     * @param  float $version (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $stripe_parameters Stripe Parameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createStripeCheckoutSession'] to see the possible values for this operation
@@ -160,9 +158,9 @@ class StripeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createStripeCheckoutSessionWithHttpInfo($version, $app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
+    public function createStripeCheckoutSessionWithHttpInfo($app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
     {
-        $request = $this->createStripeCheckoutSessionRequest($version, $app_key, $stripe_parameters, $contentType);
+        $request = $this->createStripeCheckoutSessionRequest($app_key, $stripe_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -238,7 +236,6 @@ class StripeApi
      *
      * Create Stripe Checkout Session
      *
-     * @param  float $version (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $stripe_parameters Stripe Parameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createStripeCheckoutSession'] to see the possible values for this operation
@@ -246,9 +243,9 @@ class StripeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createStripeCheckoutSessionAsync($version, $app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
+    public function createStripeCheckoutSessionAsync($app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
     {
-        return $this->createStripeCheckoutSessionAsyncWithHttpInfo($version, $app_key, $stripe_parameters, $contentType)
+        return $this->createStripeCheckoutSessionAsyncWithHttpInfo($app_key, $stripe_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,7 +258,6 @@ class StripeApi
      *
      * Create Stripe Checkout Session
      *
-     * @param  float $version (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $stripe_parameters Stripe Parameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createStripeCheckoutSession'] to see the possible values for this operation
@@ -269,10 +265,10 @@ class StripeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createStripeCheckoutSessionAsyncWithHttpInfo($version, $app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
+    public function createStripeCheckoutSessionAsyncWithHttpInfo($app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->createStripeCheckoutSessionRequest($version, $app_key, $stripe_parameters, $contentType);
+        $request = $this->createStripeCheckoutSessionRequest($app_key, $stripe_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -313,7 +309,6 @@ class StripeApi
     /**
      * Create request for operation 'createStripeCheckoutSession'
      *
-     * @param  float $version (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $stripe_parameters Stripe Parameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createStripeCheckoutSession'] to see the possible values for this operation
@@ -321,15 +316,8 @@ class StripeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createStripeCheckoutSessionRequest($version, $app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
+    public function createStripeCheckoutSessionRequest($app_key, $stripe_parameters, string $contentType = self::contentTypes['createStripeCheckoutSession'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createStripeCheckoutSession'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -346,7 +334,7 @@ class StripeApi
         }
 
 
-        $resourcePath = '/api/{version}/stripe/checkout/session/create';
+        $resourcePath = '/stripe/checkout/session/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -373,14 +361,6 @@ class StripeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

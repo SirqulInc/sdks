@@ -209,7 +209,6 @@ class AccountApi
      *
      * Search Accounts by Location
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q Deprecated - legacy query parameter (optional)
@@ -250,9 +249,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\UserLocationSearchResponse
      */
-    public function accountLocationSearch($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
+    public function accountLocationSearch($device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
     {
-        list($response) = $this->accountLocationSearchWithHttpInfo($version, $device_id, $account_id, $q, $keyword, $postal_code, $latitude, $longitude, $app_key, $range, $location_last_updated, $gender, $min_age, $max_age, $companionship_index, $_i, $start, $_l, $limit, $search_mode, $sort_field, $descending, $roles, $tags, $experience, $category_ids, $audience_ids, $audience_operator, $update_current_location, $update_preferred_settings, $show_exact_locations, $show_connection_to_searcher, $flag_count_minimum, $verified_user_only, $content_admin_only, $contentType);
+        list($response) = $this->accountLocationSearchWithHttpInfo($device_id, $account_id, $q, $keyword, $postal_code, $latitude, $longitude, $app_key, $range, $location_last_updated, $gender, $min_age, $max_age, $companionship_index, $_i, $start, $_l, $limit, $search_mode, $sort_field, $descending, $roles, $tags, $experience, $category_ids, $audience_ids, $audience_operator, $update_current_location, $update_preferred_settings, $show_exact_locations, $show_connection_to_searcher, $flag_count_minimum, $verified_user_only, $content_admin_only, $contentType);
         return $response;
     }
 
@@ -261,7 +260,6 @@ class AccountApi
      *
      * Search Accounts by Location
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q Deprecated - legacy query parameter (optional)
@@ -302,9 +300,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\UserLocationSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountLocationSearchWithHttpInfo($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
+    public function accountLocationSearchWithHttpInfo($device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
     {
-        $request = $this->accountLocationSearchRequest($version, $device_id, $account_id, $q, $keyword, $postal_code, $latitude, $longitude, $app_key, $range, $location_last_updated, $gender, $min_age, $max_age, $companionship_index, $_i, $start, $_l, $limit, $search_mode, $sort_field, $descending, $roles, $tags, $experience, $category_ids, $audience_ids, $audience_operator, $update_current_location, $update_preferred_settings, $show_exact_locations, $show_connection_to_searcher, $flag_count_minimum, $verified_user_only, $content_admin_only, $contentType);
+        $request = $this->accountLocationSearchRequest($device_id, $account_id, $q, $keyword, $postal_code, $latitude, $longitude, $app_key, $range, $location_last_updated, $gender, $min_age, $max_age, $companionship_index, $_i, $start, $_l, $limit, $search_mode, $sort_field, $descending, $roles, $tags, $experience, $category_ids, $audience_ids, $audience_operator, $update_current_location, $update_preferred_settings, $show_exact_locations, $show_connection_to_searcher, $flag_count_minimum, $verified_user_only, $content_admin_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -380,7 +378,6 @@ class AccountApi
      *
      * Search Accounts by Location
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q Deprecated - legacy query parameter (optional)
@@ -420,9 +417,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountLocationSearchAsync($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
+    public function accountLocationSearchAsync($device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
     {
-        return $this->accountLocationSearchAsyncWithHttpInfo($version, $device_id, $account_id, $q, $keyword, $postal_code, $latitude, $longitude, $app_key, $range, $location_last_updated, $gender, $min_age, $max_age, $companionship_index, $_i, $start, $_l, $limit, $search_mode, $sort_field, $descending, $roles, $tags, $experience, $category_ids, $audience_ids, $audience_operator, $update_current_location, $update_preferred_settings, $show_exact_locations, $show_connection_to_searcher, $flag_count_minimum, $verified_user_only, $content_admin_only, $contentType)
+        return $this->accountLocationSearchAsyncWithHttpInfo($device_id, $account_id, $q, $keyword, $postal_code, $latitude, $longitude, $app_key, $range, $location_last_updated, $gender, $min_age, $max_age, $companionship_index, $_i, $start, $_l, $limit, $search_mode, $sort_field, $descending, $roles, $tags, $experience, $category_ids, $audience_ids, $audience_operator, $update_current_location, $update_preferred_settings, $show_exact_locations, $show_connection_to_searcher, $flag_count_minimum, $verified_user_only, $content_admin_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -435,7 +432,6 @@ class AccountApi
      *
      * Search Accounts by Location
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q Deprecated - legacy query parameter (optional)
@@ -475,10 +471,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountLocationSearchAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
+    public function accountLocationSearchAsyncWithHttpInfo($device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UserLocationSearchResponse';
-        $request = $this->accountLocationSearchRequest($version, $device_id, $account_id, $q, $keyword, $postal_code, $latitude, $longitude, $app_key, $range, $location_last_updated, $gender, $min_age, $max_age, $companionship_index, $_i, $start, $_l, $limit, $search_mode, $sort_field, $descending, $roles, $tags, $experience, $category_ids, $audience_ids, $audience_operator, $update_current_location, $update_preferred_settings, $show_exact_locations, $show_connection_to_searcher, $flag_count_minimum, $verified_user_only, $content_admin_only, $contentType);
+        $request = $this->accountLocationSearchRequest($device_id, $account_id, $q, $keyword, $postal_code, $latitude, $longitude, $app_key, $range, $location_last_updated, $gender, $min_age, $max_age, $companionship_index, $_i, $start, $_l, $limit, $search_mode, $sort_field, $descending, $roles, $tags, $experience, $category_ids, $audience_ids, $audience_operator, $update_current_location, $update_preferred_settings, $show_exact_locations, $show_connection_to_searcher, $flag_count_minimum, $verified_user_only, $content_admin_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -519,7 +515,6 @@ class AccountApi
     /**
      * Create request for operation 'accountLocationSearch'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q Deprecated - legacy query parameter (optional)
@@ -559,15 +554,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountLocationSearchRequest($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
+    public function accountLocationSearchRequest($device_id = null, $account_id = null, $q = null, $keyword = null, $postal_code = null, $latitude = null, $longitude = null, $app_key = null, $range = 10, $location_last_updated = null, $gender = null, $min_age = null, $max_age = null, $companionship_index = null, $_i = null, $start = 0, $_l = null, $limit = 100, $search_mode = null, $sort_field = null, $descending = null, $roles = null, $tags = null, $experience = null, $category_ids = null, $audience_ids = null, $audience_operator = 'AND', $update_current_location = false, $update_preferred_settings = false, $show_exact_locations = true, $show_connection_to_searcher = false, $flag_count_minimum = null, $verified_user_only = null, $content_admin_only = null, string $contentType = self::contentTypes['accountLocationSearch'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling accountLocationSearch'
-            );
-        }
 
 
 
@@ -603,8 +592,7 @@ class AccountApi
 
 
 
-
-        $resourcePath = '/api/{version}/account/search';
+        $resourcePath = '/account/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -919,14 +907,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -987,7 +967,6 @@ class AccountApi
      *
      * Block Account
      *
-     * @param  float $version version (required)
      * @param  int $account_id_being_blocked The id of the account to be blocked/unblocked (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1001,9 +980,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function blockAccount($version, $account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
+    public function blockAccount($account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
     {
-        list($response) = $this->blockAccountWithHttpInfo($version, $account_id_being_blocked, $device_id, $account_id, $block_flag_value, $remove_from_groups_if_blocked, $latitude, $longitude, $contentType);
+        list($response) = $this->blockAccountWithHttpInfo($account_id_being_blocked, $device_id, $account_id, $block_flag_value, $remove_from_groups_if_blocked, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1012,7 +991,6 @@ class AccountApi
      *
      * Block Account
      *
-     * @param  float $version (required)
      * @param  int $account_id_being_blocked The id of the account to be blocked/unblocked (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1026,9 +1004,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function blockAccountWithHttpInfo($version, $account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
+    public function blockAccountWithHttpInfo($account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
     {
-        $request = $this->blockAccountRequest($version, $account_id_being_blocked, $device_id, $account_id, $block_flag_value, $remove_from_groups_if_blocked, $latitude, $longitude, $contentType);
+        $request = $this->blockAccountRequest($account_id_being_blocked, $device_id, $account_id, $block_flag_value, $remove_from_groups_if_blocked, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1104,7 +1082,6 @@ class AccountApi
      *
      * Block Account
      *
-     * @param  float $version (required)
      * @param  int $account_id_being_blocked The id of the account to be blocked/unblocked (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1117,9 +1094,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blockAccountAsync($version, $account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
+    public function blockAccountAsync($account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
     {
-        return $this->blockAccountAsyncWithHttpInfo($version, $account_id_being_blocked, $device_id, $account_id, $block_flag_value, $remove_from_groups_if_blocked, $latitude, $longitude, $contentType)
+        return $this->blockAccountAsyncWithHttpInfo($account_id_being_blocked, $device_id, $account_id, $block_flag_value, $remove_from_groups_if_blocked, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1132,7 +1109,6 @@ class AccountApi
      *
      * Block Account
      *
-     * @param  float $version (required)
      * @param  int $account_id_being_blocked The id of the account to be blocked/unblocked (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1145,10 +1121,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blockAccountAsyncWithHttpInfo($version, $account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
+    public function blockAccountAsyncWithHttpInfo($account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->blockAccountRequest($version, $account_id_being_blocked, $device_id, $account_id, $block_flag_value, $remove_from_groups_if_blocked, $latitude, $longitude, $contentType);
+        $request = $this->blockAccountRequest($account_id_being_blocked, $device_id, $account_id, $block_flag_value, $remove_from_groups_if_blocked, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1189,7 +1165,6 @@ class AccountApi
     /**
      * Create request for operation 'blockAccount'
      *
-     * @param  float $version (required)
      * @param  int $account_id_being_blocked The id of the account to be blocked/unblocked (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1202,15 +1177,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function blockAccountRequest($version, $account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
+    public function blockAccountRequest($account_id_being_blocked, $device_id = null, $account_id = null, $block_flag_value = true, $remove_from_groups_if_blocked = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['blockAccount'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling blockAccount'
-            );
-        }
 
         // verify the required parameter 'account_id_being_blocked' is set
         if ($account_id_being_blocked === null || (is_array($account_id_being_blocked) && count($account_id_being_blocked) === 0)) {
@@ -1226,7 +1194,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/block';
+        $resourcePath = '/account/block';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1298,14 +1266,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1366,7 +1326,6 @@ class AccountApi
      *
      * Create Account
      *
-     * @param  float $version version (required)
      * @param  string $username The access token to authenticate with (ex: username) (required)
      * @param  string $password The secret to authenticate with (ex: password) (required)
      * @param  string|null $name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -1445,9 +1404,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AccountLoginResponse
      */
-    public function createAccount($version, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
+    public function createAccount($username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
     {
-        list($response) = $this->createAccountWithHttpInfo($version, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id, $device_id_type, $email_address, $asset_id, $street_address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $invite_token, $referral_account_id, $send_validation, $game_type, $app_key, $app_version, $response_type, $audience_ids_to_add, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $location_visibility, $home_latitude, $home_longitude, $app_nickname, $personal_audience_id, $contentType);
+        list($response) = $this->createAccountWithHttpInfo($username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id, $device_id_type, $email_address, $asset_id, $street_address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $invite_token, $referral_account_id, $send_validation, $game_type, $app_key, $app_version, $response_type, $audience_ids_to_add, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $location_visibility, $home_latitude, $home_longitude, $app_nickname, $personal_audience_id, $contentType);
         return $response;
     }
 
@@ -1456,7 +1415,6 @@ class AccountApi
      *
      * Create Account
      *
-     * @param  float $version (required)
      * @param  string $username The access token to authenticate with (ex: username) (required)
      * @param  string $password The secret to authenticate with (ex: password) (required)
      * @param  string|null $name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -1535,9 +1493,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AccountLoginResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAccountWithHttpInfo($version, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
+    public function createAccountWithHttpInfo($username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
     {
-        $request = $this->createAccountRequest($version, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id, $device_id_type, $email_address, $asset_id, $street_address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $invite_token, $referral_account_id, $send_validation, $game_type, $app_key, $app_version, $response_type, $audience_ids_to_add, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $location_visibility, $home_latitude, $home_longitude, $app_nickname, $personal_audience_id, $contentType);
+        $request = $this->createAccountRequest($username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id, $device_id_type, $email_address, $asset_id, $street_address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $invite_token, $referral_account_id, $send_validation, $game_type, $app_key, $app_version, $response_type, $audience_ids_to_add, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $location_visibility, $home_latitude, $home_longitude, $app_nickname, $personal_audience_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1613,7 +1571,6 @@ class AccountApi
      *
      * Create Account
      *
-     * @param  float $version (required)
      * @param  string $username The access token to authenticate with (ex: username) (required)
      * @param  string $password The secret to authenticate with (ex: password) (required)
      * @param  string|null $name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -1691,9 +1648,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAccountAsync($version, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
+    public function createAccountAsync($username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
     {
-        return $this->createAccountAsyncWithHttpInfo($version, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id, $device_id_type, $email_address, $asset_id, $street_address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $invite_token, $referral_account_id, $send_validation, $game_type, $app_key, $app_version, $response_type, $audience_ids_to_add, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $location_visibility, $home_latitude, $home_longitude, $app_nickname, $personal_audience_id, $contentType)
+        return $this->createAccountAsyncWithHttpInfo($username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id, $device_id_type, $email_address, $asset_id, $street_address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $invite_token, $referral_account_id, $send_validation, $game_type, $app_key, $app_version, $response_type, $audience_ids_to_add, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $location_visibility, $home_latitude, $home_longitude, $app_nickname, $personal_audience_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1706,7 +1663,6 @@ class AccountApi
      *
      * Create Account
      *
-     * @param  float $version (required)
      * @param  string $username The access token to authenticate with (ex: username) (required)
      * @param  string $password The secret to authenticate with (ex: password) (required)
      * @param  string|null $name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -1784,10 +1740,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAccountAsyncWithHttpInfo($version, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
+    public function createAccountAsyncWithHttpInfo($username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountLoginResponse';
-        $request = $this->createAccountRequest($version, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id, $device_id_type, $email_address, $asset_id, $street_address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $invite_token, $referral_account_id, $send_validation, $game_type, $app_key, $app_version, $response_type, $audience_ids_to_add, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $location_visibility, $home_latitude, $home_longitude, $app_nickname, $personal_audience_id, $contentType);
+        $request = $this->createAccountRequest($username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id, $device_id_type, $email_address, $asset_id, $street_address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $invite_token, $referral_account_id, $send_validation, $game_type, $app_key, $app_version, $response_type, $audience_ids_to_add, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $location_visibility, $home_latitude, $home_longitude, $app_nickname, $personal_audience_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1828,7 +1784,6 @@ class AccountApi
     /**
      * Create request for operation 'createAccount'
      *
-     * @param  float $version (required)
      * @param  string $username The access token to authenticate with (ex: username) (required)
      * @param  string $password The secret to authenticate with (ex: password) (required)
      * @param  string|null $name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -1906,15 +1861,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createAccountRequest($version, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
+    public function createAccountRequest($username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id = null, $device_id_type = null, $email_address = null, $asset_id = null, $street_address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = null, $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = null, $invite_token = null, $referral_account_id = null, $send_validation = null, $game_type = null, $app_key = null, $app_version = null, $response_type = null, $audience_ids_to_add = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $location_visibility = null, $home_latitude = null, $home_longitude = null, $app_nickname = null, $personal_audience_id = null, string $contentType = self::contentTypes['createAccount'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createAccount'
-            );
-        }
 
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -2001,7 +1949,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/create';
+        $resourcePath = '/account/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2658,14 +2606,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2726,7 +2666,6 @@ class AccountApi
      *
      * Update Account
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to edit another person&#39;s account (optional)
@@ -2815,9 +2754,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileInfoResponse
      */
-    public function editAccount($version, $device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
+    public function editAccount($device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
     {
-        list($response) = $this->editAccountWithHttpInfo($version, $device_id, $account_id, $connection_account_id, $role, $asset_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $gender, $age, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $make_profile_info_public, $make_game_info_public, $make_friends_info_public, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $platforms, $tags, $about_us, $match_token, $game_experience, $categories, $category_ids, $response_filters, $show_as_zipcode, $show_exact_location, $show_others_exact_location, $accepted_terms, $location_visibility, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $game_type, $app_key, $latitude, $longitude, $return_profile, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $app_nickname, $personal_audience_id, $non_guest_username, $contentType);
+        list($response) = $this->editAccountWithHttpInfo($device_id, $account_id, $connection_account_id, $role, $asset_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $gender, $age, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $make_profile_info_public, $make_game_info_public, $make_friends_info_public, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $platforms, $tags, $about_us, $match_token, $game_experience, $categories, $category_ids, $response_filters, $show_as_zipcode, $show_exact_location, $show_others_exact_location, $accepted_terms, $location_visibility, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $game_type, $app_key, $latitude, $longitude, $return_profile, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $app_nickname, $personal_audience_id, $non_guest_username, $contentType);
         return $response;
     }
 
@@ -2826,7 +2765,6 @@ class AccountApi
      *
      * Update Account
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to edit another person&#39;s account (optional)
@@ -2915,9 +2853,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileInfoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function editAccountWithHttpInfo($version, $device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
+    public function editAccountWithHttpInfo($device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
     {
-        $request = $this->editAccountRequest($version, $device_id, $account_id, $connection_account_id, $role, $asset_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $gender, $age, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $make_profile_info_public, $make_game_info_public, $make_friends_info_public, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $platforms, $tags, $about_us, $match_token, $game_experience, $categories, $category_ids, $response_filters, $show_as_zipcode, $show_exact_location, $show_others_exact_location, $accepted_terms, $location_visibility, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $game_type, $app_key, $latitude, $longitude, $return_profile, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $app_nickname, $personal_audience_id, $non_guest_username, $contentType);
+        $request = $this->editAccountRequest($device_id, $account_id, $connection_account_id, $role, $asset_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $gender, $age, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $make_profile_info_public, $make_game_info_public, $make_friends_info_public, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $platforms, $tags, $about_us, $match_token, $game_experience, $categories, $category_ids, $response_filters, $show_as_zipcode, $show_exact_location, $show_others_exact_location, $accepted_terms, $location_visibility, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $game_type, $app_key, $latitude, $longitude, $return_profile, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $app_nickname, $personal_audience_id, $non_guest_username, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2993,7 +2931,6 @@ class AccountApi
      *
      * Update Account
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to edit another person&#39;s account (optional)
@@ -3081,9 +3018,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editAccountAsync($version, $device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
+    public function editAccountAsync($device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
     {
-        return $this->editAccountAsyncWithHttpInfo($version, $device_id, $account_id, $connection_account_id, $role, $asset_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $gender, $age, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $make_profile_info_public, $make_game_info_public, $make_friends_info_public, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $platforms, $tags, $about_us, $match_token, $game_experience, $categories, $category_ids, $response_filters, $show_as_zipcode, $show_exact_location, $show_others_exact_location, $accepted_terms, $location_visibility, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $game_type, $app_key, $latitude, $longitude, $return_profile, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $app_nickname, $personal_audience_id, $non_guest_username, $contentType)
+        return $this->editAccountAsyncWithHttpInfo($device_id, $account_id, $connection_account_id, $role, $asset_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $gender, $age, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $make_profile_info_public, $make_game_info_public, $make_friends_info_public, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $platforms, $tags, $about_us, $match_token, $game_experience, $categories, $category_ids, $response_filters, $show_as_zipcode, $show_exact_location, $show_others_exact_location, $accepted_terms, $location_visibility, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $game_type, $app_key, $latitude, $longitude, $return_profile, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $app_nickname, $personal_audience_id, $non_guest_username, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3096,7 +3033,6 @@ class AccountApi
      *
      * Update Account
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to edit another person&#39;s account (optional)
@@ -3184,10 +3120,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editAccountAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
+    public function editAccountAsyncWithHttpInfo($device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileInfoResponse';
-        $request = $this->editAccountRequest($version, $device_id, $account_id, $connection_account_id, $role, $asset_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $gender, $age, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $make_profile_info_public, $make_game_info_public, $make_friends_info_public, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $platforms, $tags, $about_us, $match_token, $game_experience, $categories, $category_ids, $response_filters, $show_as_zipcode, $show_exact_location, $show_others_exact_location, $accepted_terms, $location_visibility, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $game_type, $app_key, $latitude, $longitude, $return_profile, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $app_nickname, $personal_audience_id, $non_guest_username, $contentType);
+        $request = $this->editAccountRequest($device_id, $account_id, $connection_account_id, $role, $asset_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $gender, $age, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $make_profile_info_public, $make_game_info_public, $make_friends_info_public, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $platforms, $tags, $about_us, $match_token, $game_experience, $categories, $category_ids, $response_filters, $show_as_zipcode, $show_exact_location, $show_others_exact_location, $accepted_terms, $location_visibility, $app_blob, $app_enable_push, $app_enable_sms, $app_enable_email, $game_type, $app_key, $latitude, $longitude, $return_profile, $audience_ids_to_add, $audience_ids_to_remove, $referral_account_id, $app_nickname, $personal_audience_id, $non_guest_username, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3228,7 +3164,6 @@ class AccountApi
     /**
      * Create request for operation 'editAccount'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to edit another person&#39;s account (optional)
@@ -3316,15 +3251,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function editAccountRequest($version, $device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
+    public function editAccountRequest($device_id = null, $account_id = null, $connection_account_id = null, $role = null, $asset_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $gender = null, $age = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $make_profile_info_public = null, $make_game_info_public = null, $make_friends_info_public = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $platforms = null, $tags = null, $about_us = null, $match_token = null, $game_experience = null, $categories = null, $category_ids = null, $response_filters = 'PROFILE,PROFILE_CONTACT', $show_as_zipcode = null, $show_exact_location = null, $show_others_exact_location = null, $accepted_terms = null, $location_visibility = null, $app_blob = null, $app_enable_push = null, $app_enable_sms = null, $app_enable_email = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, $return_profile = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $referral_account_id = null, $app_nickname = null, $personal_audience_id = null, $non_guest_username = null, string $contentType = self::contentTypes['editAccount'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling editAccount'
-            );
-        }
 
 
 
@@ -3408,8 +3337,7 @@ class AccountApi
 
 
 
-
-        $resourcePath = '/api/{version}/account/profile/update';
+        $resourcePath = '/account/profile/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4156,14 +4084,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4224,7 +4144,6 @@ class AccountApi
      *
      * Update Username and Email
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $email_address the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -4235,9 +4154,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function editUsername($version, $device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
+    public function editUsername($device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
     {
-        list($response) = $this->editUsernameWithHttpInfo($version, $device_id, $account_id, $email_address, $username, $contentType);
+        list($response) = $this->editUsernameWithHttpInfo($device_id, $account_id, $email_address, $username, $contentType);
         return $response;
     }
 
@@ -4246,7 +4165,6 @@ class AccountApi
      *
      * Update Username and Email
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $email_address the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -4257,9 +4175,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function editUsernameWithHttpInfo($version, $device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
+    public function editUsernameWithHttpInfo($device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
     {
-        $request = $this->editUsernameRequest($version, $device_id, $account_id, $email_address, $username, $contentType);
+        $request = $this->editUsernameRequest($device_id, $account_id, $email_address, $username, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4335,7 +4253,6 @@ class AccountApi
      *
      * Update Username and Email
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $email_address the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -4345,9 +4262,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editUsernameAsync($version, $device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
+    public function editUsernameAsync($device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
     {
-        return $this->editUsernameAsyncWithHttpInfo($version, $device_id, $account_id, $email_address, $username, $contentType)
+        return $this->editUsernameAsyncWithHttpInfo($device_id, $account_id, $email_address, $username, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4360,7 +4277,6 @@ class AccountApi
      *
      * Update Username and Email
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $email_address the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -4370,10 +4286,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editUsernameAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
+    public function editUsernameAsyncWithHttpInfo($device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->editUsernameRequest($version, $device_id, $account_id, $email_address, $username, $contentType);
+        $request = $this->editUsernameRequest($device_id, $account_id, $email_address, $username, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4414,7 +4330,6 @@ class AccountApi
     /**
      * Create request for operation 'editUsername'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $email_address the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -4424,22 +4339,15 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function editUsernameRequest($version, $device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
+    public function editUsernameRequest($device_id = null, $account_id = null, $email_address = null, $username = null, string $contentType = self::contentTypes['editUsername'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling editUsername'
-            );
-        }
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/account/username/update';
+        $resourcePath = '/account/username/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4484,14 +4392,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4552,7 +4452,6 @@ class AccountApi
      *
      * Get Account
      *
-     * @param  float $version version (required)
      * @param  bool|null $return_nulls Return Nulls (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4571,9 +4470,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function getAccount($version, $return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
+    public function getAccount($return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
     {
-        list($response) = $this->getAccountWithHttpInfo($version, $return_nulls, $device_id, $account_id, $connection_account_email, $connection_account_id, $response_filters, $game_type, $app_key, $purchase_type, $update_viewed_date, $latitude, $longitude, $contentType);
+        list($response) = $this->getAccountWithHttpInfo($return_nulls, $device_id, $account_id, $connection_account_email, $connection_account_id, $response_filters, $game_type, $app_key, $purchase_type, $update_viewed_date, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -4582,7 +4481,6 @@ class AccountApi
      *
      * Get Account
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls Return Nulls (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4601,9 +4499,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountWithHttpInfo($version, $return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
+    public function getAccountWithHttpInfo($return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
     {
-        $request = $this->getAccountRequest($version, $return_nulls, $device_id, $account_id, $connection_account_email, $connection_account_id, $response_filters, $game_type, $app_key, $purchase_type, $update_viewed_date, $latitude, $longitude, $contentType);
+        $request = $this->getAccountRequest($return_nulls, $device_id, $account_id, $connection_account_email, $connection_account_id, $response_filters, $game_type, $app_key, $purchase_type, $update_viewed_date, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4679,7 +4577,6 @@ class AccountApi
      *
      * Get Account
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls Return Nulls (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4697,9 +4594,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAsync($version, $return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
+    public function getAccountAsync($return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
     {
-        return $this->getAccountAsyncWithHttpInfo($version, $return_nulls, $device_id, $account_id, $connection_account_email, $connection_account_id, $response_filters, $game_type, $app_key, $purchase_type, $update_viewed_date, $latitude, $longitude, $contentType)
+        return $this->getAccountAsyncWithHttpInfo($return_nulls, $device_id, $account_id, $connection_account_email, $connection_account_id, $response_filters, $game_type, $app_key, $purchase_type, $update_viewed_date, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4712,7 +4609,6 @@ class AccountApi
      *
      * Get Account
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls Return Nulls (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4730,10 +4626,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAsyncWithHttpInfo($version, $return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
+    public function getAccountAsyncWithHttpInfo($return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->getAccountRequest($version, $return_nulls, $device_id, $account_id, $connection_account_email, $connection_account_id, $response_filters, $game_type, $app_key, $purchase_type, $update_viewed_date, $latitude, $longitude, $contentType);
+        $request = $this->getAccountRequest($return_nulls, $device_id, $account_id, $connection_account_email, $connection_account_id, $response_filters, $game_type, $app_key, $purchase_type, $update_viewed_date, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4774,7 +4670,6 @@ class AccountApi
     /**
      * Create request for operation 'getAccount'
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls Return Nulls (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4792,15 +4687,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountRequest($version, $return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
+    public function getAccountRequest($return_nulls = false, $device_id = null, $account_id = null, $connection_account_email = null, $connection_account_id = 0, $response_filters = 'PROFILE', $game_type = null, $app_key = null, $purchase_type = 'SIRQUL', $update_viewed_date = false, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAccount'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAccount'
-            );
-        }
 
 
 
@@ -4814,8 +4703,7 @@ class AccountApi
 
 
 
-
-        $resourcePath = '/api/{version}/account/profile/get';
+        $resourcePath = '/account/profile/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4932,14 +4820,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5000,7 +4880,6 @@ class AccountApi
      *
      * Get Profile Assets
      *
-     * @param  float $version version (required)
      * @param  bool|null $return_nulls Determines whether to return null fields in the response (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -5021,9 +4900,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AssetListResponse
      */
-    public function getProfileAssets($version, $return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
+    public function getProfileAssets($return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
     {
-        list($response) = $this->getProfileAssetsWithHttpInfo($version, $return_nulls, $device_id, $account_id, $owner_id, $media_types, $mime_types, $sort_field, $descending, $latitude, $longitude, $_i, $start, $_l, $limit, $contentType);
+        list($response) = $this->getProfileAssetsWithHttpInfo($return_nulls, $device_id, $account_id, $owner_id, $media_types, $mime_types, $sort_field, $descending, $latitude, $longitude, $_i, $start, $_l, $limit, $contentType);
         return $response;
     }
 
@@ -5032,7 +4911,6 @@ class AccountApi
      *
      * Get Profile Assets
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls Determines whether to return null fields in the response (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -5053,9 +4931,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AssetListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProfileAssetsWithHttpInfo($version, $return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
+    public function getProfileAssetsWithHttpInfo($return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
     {
-        $request = $this->getProfileAssetsRequest($version, $return_nulls, $device_id, $account_id, $owner_id, $media_types, $mime_types, $sort_field, $descending, $latitude, $longitude, $_i, $start, $_l, $limit, $contentType);
+        $request = $this->getProfileAssetsRequest($return_nulls, $device_id, $account_id, $owner_id, $media_types, $mime_types, $sort_field, $descending, $latitude, $longitude, $_i, $start, $_l, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5131,7 +5009,6 @@ class AccountApi
      *
      * Get Profile Assets
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls Determines whether to return null fields in the response (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -5151,9 +5028,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProfileAssetsAsync($version, $return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
+    public function getProfileAssetsAsync($return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
     {
-        return $this->getProfileAssetsAsyncWithHttpInfo($version, $return_nulls, $device_id, $account_id, $owner_id, $media_types, $mime_types, $sort_field, $descending, $latitude, $longitude, $_i, $start, $_l, $limit, $contentType)
+        return $this->getProfileAssetsAsyncWithHttpInfo($return_nulls, $device_id, $account_id, $owner_id, $media_types, $mime_types, $sort_field, $descending, $latitude, $longitude, $_i, $start, $_l, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5166,7 +5043,6 @@ class AccountApi
      *
      * Get Profile Assets
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls Determines whether to return null fields in the response (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -5186,10 +5062,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProfileAssetsAsyncWithHttpInfo($version, $return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
+    public function getProfileAssetsAsyncWithHttpInfo($return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssetListResponse';
-        $request = $this->getProfileAssetsRequest($version, $return_nulls, $device_id, $account_id, $owner_id, $media_types, $mime_types, $sort_field, $descending, $latitude, $longitude, $_i, $start, $_l, $limit, $contentType);
+        $request = $this->getProfileAssetsRequest($return_nulls, $device_id, $account_id, $owner_id, $media_types, $mime_types, $sort_field, $descending, $latitude, $longitude, $_i, $start, $_l, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5230,7 +5106,6 @@ class AccountApi
     /**
      * Create request for operation 'getProfileAssets'
      *
-     * @param  float $version (required)
      * @param  bool|null $return_nulls Determines whether to return null fields in the response (optional, default to false)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -5250,15 +5125,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProfileAssetsRequest($version, $return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
+    public function getProfileAssetsRequest($return_nulls = false, $device_id = null, $account_id = null, $owner_id = null, $media_types = null, $mime_types = null, $sort_field = 'CREATED', $descending = true, $latitude = null, $longitude = null, $_i = null, $start = 0, $_l = null, $limit = 0, string $contentType = self::contentTypes['getProfileAssets'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getProfileAssets'
-            );
-        }
 
 
 
@@ -5274,8 +5143,7 @@ class AccountApi
 
 
 
-
-        $resourcePath = '/api/{version}/account/profile/assets';
+        $resourcePath = '/account/profile/assets';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5410,14 +5278,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5478,7 +5338,6 @@ class AccountApi
      *
      * Search Accounts
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $retrieve_type one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -5496,9 +5355,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getReferralList($version, $account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
+    public function getReferralList($account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
     {
-        $this->getReferralListWithHttpInfo($version, $account_id, $app_key, $retrieve_type, $level_limit, $ancestor_level_limit, $children_level_limit, $ancestor_list_start, $ancestor_list_limit, $children_list_start, $children_list_limit, $children_children, $contentType);
+        $this->getReferralListWithHttpInfo($account_id, $app_key, $retrieve_type, $level_limit, $ancestor_level_limit, $children_level_limit, $ancestor_list_start, $ancestor_list_limit, $children_list_start, $children_list_limit, $children_children, $contentType);
     }
 
     /**
@@ -5506,7 +5365,6 @@ class AccountApi
      *
      * Search Accounts
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $retrieve_type one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -5524,9 +5382,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReferralListWithHttpInfo($version, $account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
+    public function getReferralListWithHttpInfo($account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
     {
-        $request = $this->getReferralListRequest($version, $account_id, $app_key, $retrieve_type, $level_limit, $ancestor_level_limit, $children_level_limit, $ancestor_list_start, $ancestor_list_limit, $children_list_start, $children_list_limit, $children_children, $contentType);
+        $request = $this->getReferralListRequest($account_id, $app_key, $retrieve_type, $level_limit, $ancestor_level_limit, $children_level_limit, $ancestor_list_start, $ancestor_list_limit, $children_list_start, $children_list_limit, $children_children, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5566,7 +5424,6 @@ class AccountApi
      *
      * Search Accounts
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $retrieve_type one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -5583,9 +5440,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReferralListAsync($version, $account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
+    public function getReferralListAsync($account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
     {
-        return $this->getReferralListAsyncWithHttpInfo($version, $account_id, $app_key, $retrieve_type, $level_limit, $ancestor_level_limit, $children_level_limit, $ancestor_list_start, $ancestor_list_limit, $children_list_start, $children_list_limit, $children_children, $contentType)
+        return $this->getReferralListAsyncWithHttpInfo($account_id, $app_key, $retrieve_type, $level_limit, $ancestor_level_limit, $children_level_limit, $ancestor_list_start, $ancestor_list_limit, $children_list_start, $children_list_limit, $children_children, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5598,7 +5455,6 @@ class AccountApi
      *
      * Search Accounts
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $retrieve_type one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -5615,10 +5471,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReferralListAsyncWithHttpInfo($version, $account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
+    public function getReferralListAsyncWithHttpInfo($account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
     {
         $returnType = '';
-        $request = $this->getReferralListRequest($version, $account_id, $app_key, $retrieve_type, $level_limit, $ancestor_level_limit, $children_level_limit, $ancestor_list_start, $ancestor_list_limit, $children_list_start, $children_list_limit, $children_children, $contentType);
+        $request = $this->getReferralListRequest($account_id, $app_key, $retrieve_type, $level_limit, $ancestor_level_limit, $children_level_limit, $ancestor_list_start, $ancestor_list_limit, $children_list_start, $children_list_limit, $children_children, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5646,7 +5502,6 @@ class AccountApi
     /**
      * Create request for operation 'getReferralList'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $retrieve_type one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -5663,15 +5518,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReferralListRequest($version, $account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
+    public function getReferralListRequest($account_id = null, $app_key = null, $retrieve_type = null, $level_limit = null, $ancestor_level_limit = null, $children_level_limit = null, $ancestor_list_start = null, $ancestor_list_limit = null, $children_list_start = null, $children_list_limit = null, $children_children = true, string $contentType = self::contentTypes['getReferralList'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getReferralList'
-            );
-        }
 
 
 
@@ -5684,8 +5533,7 @@ class AccountApi
 
 
 
-
-        $resourcePath = '/api/{version}/account/referral/list';
+        $resourcePath = '/account/referral/list';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5793,14 +5641,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5861,7 +5701,6 @@ class AccountApi
      *
      * Get Account Settings
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -5872,9 +5711,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\UserSettingsResponse
      */
-    public function getSettings($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
+    public function getSettings($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
     {
-        list($response) = $this->getSettingsWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->getSettingsWithHttpInfo($device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -5883,7 +5722,6 @@ class AccountApi
      *
      * Get Account Settings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -5894,9 +5732,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\UserSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSettingsWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
+    public function getSettingsWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
     {
-        $request = $this->getSettingsRequest($version, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getSettingsRequest($device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5972,7 +5810,6 @@ class AccountApi
      *
      * Get Account Settings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -5982,9 +5819,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSettingsAsync($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
+    public function getSettingsAsync($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
     {
-        return $this->getSettingsAsyncWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->getSettingsAsyncWithHttpInfo($device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5997,7 +5834,6 @@ class AccountApi
      *
      * Get Account Settings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -6007,10 +5843,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSettingsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
+    public function getSettingsAsyncWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UserSettingsResponse';
-        $request = $this->getSettingsRequest($version, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getSettingsRequest($device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6051,7 +5887,6 @@ class AccountApi
     /**
      * Create request for operation 'getSettings'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -6061,22 +5896,15 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSettingsRequest($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
+    public function getSettingsRequest($device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getSettings'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getSettings'
-            );
-        }
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/account/settings/get';
+        $resourcePath = '/account/settings/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6121,14 +5949,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6189,7 +6009,6 @@ class AccountApi
      *
      * Login as Account
      *
-     * @param  float $version version (required)
      * @param  string $access_token access_token (required)
      * @param  string $app_key app_key (required)
      * @param  string|null $device_id device_id (optional)
@@ -6207,9 +6026,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function loginDelegate($version, $access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
+    public function loginDelegate($access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
     {
-        list($response) = $this->loginDelegateWithHttpInfo($version, $access_token, $app_key, $device_id, $access_token_secret, $delegated_account_id, $delegated_username, $network_uid, $age_restriction, $response_filters, $latitude, $longitude, $contentType);
+        list($response) = $this->loginDelegateWithHttpInfo($access_token, $app_key, $device_id, $access_token_secret, $delegated_account_id, $delegated_username, $network_uid, $age_restriction, $response_filters, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -6218,7 +6037,6 @@ class AccountApi
      *
      * Login as Account
      *
-     * @param  float $version (required)
      * @param  string $access_token (required)
      * @param  string $app_key (required)
      * @param  string|null $device_id (optional)
@@ -6236,9 +6054,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loginDelegateWithHttpInfo($version, $access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
+    public function loginDelegateWithHttpInfo($access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
     {
-        $request = $this->loginDelegateRequest($version, $access_token, $app_key, $device_id, $access_token_secret, $delegated_account_id, $delegated_username, $network_uid, $age_restriction, $response_filters, $latitude, $longitude, $contentType);
+        $request = $this->loginDelegateRequest($access_token, $app_key, $device_id, $access_token_secret, $delegated_account_id, $delegated_username, $network_uid, $age_restriction, $response_filters, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6314,7 +6132,6 @@ class AccountApi
      *
      * Login as Account
      *
-     * @param  float $version (required)
      * @param  string $access_token (required)
      * @param  string $app_key (required)
      * @param  string|null $device_id (optional)
@@ -6331,9 +6148,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginDelegateAsync($version, $access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
+    public function loginDelegateAsync($access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
     {
-        return $this->loginDelegateAsyncWithHttpInfo($version, $access_token, $app_key, $device_id, $access_token_secret, $delegated_account_id, $delegated_username, $network_uid, $age_restriction, $response_filters, $latitude, $longitude, $contentType)
+        return $this->loginDelegateAsyncWithHttpInfo($access_token, $app_key, $device_id, $access_token_secret, $delegated_account_id, $delegated_username, $network_uid, $age_restriction, $response_filters, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6346,7 +6163,6 @@ class AccountApi
      *
      * Login as Account
      *
-     * @param  float $version (required)
      * @param  string $access_token (required)
      * @param  string $app_key (required)
      * @param  string|null $device_id (optional)
@@ -6363,10 +6179,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginDelegateAsyncWithHttpInfo($version, $access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
+    public function loginDelegateAsyncWithHttpInfo($access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->loginDelegateRequest($version, $access_token, $app_key, $device_id, $access_token_secret, $delegated_account_id, $delegated_username, $network_uid, $age_restriction, $response_filters, $latitude, $longitude, $contentType);
+        $request = $this->loginDelegateRequest($access_token, $app_key, $device_id, $access_token_secret, $delegated_account_id, $delegated_username, $network_uid, $age_restriction, $response_filters, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6407,7 +6223,6 @@ class AccountApi
     /**
      * Create request for operation 'loginDelegate'
      *
-     * @param  float $version (required)
      * @param  string $access_token (required)
      * @param  string $app_key (required)
      * @param  string|null $device_id (optional)
@@ -6424,15 +6239,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function loginDelegateRequest($version, $access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
+    public function loginDelegateRequest($access_token, $app_key, $device_id = null, $access_token_secret = null, $delegated_account_id = null, $delegated_username = null, $network_uid = 'USERNAME', $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginDelegate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling loginDelegate'
-            );
-        }
 
         // verify the required parameter 'access_token' is set
         if ($access_token === null || (is_array($access_token) && count($access_token) === 0)) {
@@ -6458,7 +6266,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/login/delegate';
+        $resourcePath = '/account/login/delegate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6566,14 +6374,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6634,7 +6434,6 @@ class AccountApi
      *
      * Login Account
      *
-     * @param  float $version version (required)
      * @param  string $access_token The access token to authenticate with (ex: username or fb token) (required)
      * @param  string $network_uid The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE (required)
      * @param  string $app_key The application key (required)
@@ -6654,9 +6453,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function loginGeneral($version, $access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
+    public function loginGeneral($access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
     {
-        list($response) = $this->loginGeneralWithHttpInfo($version, $access_token, $network_uid, $app_key, $device_id, $device_id_type, $access_token_secret, $age_restriction, $response_filters, $latitude, $longitude, $email_match, $chosen_account_id, $third_party_credential_id, $contentType);
+        list($response) = $this->loginGeneralWithHttpInfo($access_token, $network_uid, $app_key, $device_id, $device_id_type, $access_token_secret, $age_restriction, $response_filters, $latitude, $longitude, $email_match, $chosen_account_id, $third_party_credential_id, $contentType);
         return $response;
     }
 
@@ -6665,7 +6464,6 @@ class AccountApi
      *
      * Login Account
      *
-     * @param  float $version (required)
      * @param  string $access_token The access token to authenticate with (ex: username or fb token) (required)
      * @param  string $network_uid The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE (required)
      * @param  string $app_key The application key (required)
@@ -6685,9 +6483,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loginGeneralWithHttpInfo($version, $access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
+    public function loginGeneralWithHttpInfo($access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
     {
-        $request = $this->loginGeneralRequest($version, $access_token, $network_uid, $app_key, $device_id, $device_id_type, $access_token_secret, $age_restriction, $response_filters, $latitude, $longitude, $email_match, $chosen_account_id, $third_party_credential_id, $contentType);
+        $request = $this->loginGeneralRequest($access_token, $network_uid, $app_key, $device_id, $device_id_type, $access_token_secret, $age_restriction, $response_filters, $latitude, $longitude, $email_match, $chosen_account_id, $third_party_credential_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6763,7 +6561,6 @@ class AccountApi
      *
      * Login Account
      *
-     * @param  float $version (required)
      * @param  string $access_token The access token to authenticate with (ex: username or fb token) (required)
      * @param  string $network_uid The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE (required)
      * @param  string $app_key The application key (required)
@@ -6782,9 +6579,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginGeneralAsync($version, $access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
+    public function loginGeneralAsync($access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
     {
-        return $this->loginGeneralAsyncWithHttpInfo($version, $access_token, $network_uid, $app_key, $device_id, $device_id_type, $access_token_secret, $age_restriction, $response_filters, $latitude, $longitude, $email_match, $chosen_account_id, $third_party_credential_id, $contentType)
+        return $this->loginGeneralAsyncWithHttpInfo($access_token, $network_uid, $app_key, $device_id, $device_id_type, $access_token_secret, $age_restriction, $response_filters, $latitude, $longitude, $email_match, $chosen_account_id, $third_party_credential_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6797,7 +6594,6 @@ class AccountApi
      *
      * Login Account
      *
-     * @param  float $version (required)
      * @param  string $access_token The access token to authenticate with (ex: username or fb token) (required)
      * @param  string $network_uid The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE (required)
      * @param  string $app_key The application key (required)
@@ -6816,10 +6612,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginGeneralAsyncWithHttpInfo($version, $access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
+    public function loginGeneralAsyncWithHttpInfo($access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->loginGeneralRequest($version, $access_token, $network_uid, $app_key, $device_id, $device_id_type, $access_token_secret, $age_restriction, $response_filters, $latitude, $longitude, $email_match, $chosen_account_id, $third_party_credential_id, $contentType);
+        $request = $this->loginGeneralRequest($access_token, $network_uid, $app_key, $device_id, $device_id_type, $access_token_secret, $age_restriction, $response_filters, $latitude, $longitude, $email_match, $chosen_account_id, $third_party_credential_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6860,7 +6656,6 @@ class AccountApi
     /**
      * Create request for operation 'loginGeneral'
      *
-     * @param  float $version (required)
      * @param  string $access_token The access token to authenticate with (ex: username or fb token) (required)
      * @param  string $network_uid The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE (required)
      * @param  string $app_key The application key (required)
@@ -6879,15 +6674,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function loginGeneralRequest($version, $access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
+    public function loginGeneralRequest($access_token, $network_uid, $app_key, $device_id = null, $device_id_type = null, $access_token_secret = null, $age_restriction = 0, $response_filters = 'PROFILE', $latitude = null, $longitude = null, $email_match = false, $chosen_account_id = 0, $third_party_credential_id = 0, string $contentType = self::contentTypes['loginGeneral'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling loginGeneral'
-            );
-        }
 
         // verify the required parameter 'access_token' is set
         if ($access_token === null || (is_array($access_token) && count($access_token) === 0)) {
@@ -6921,7 +6709,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/login';
+        $resourcePath = '/account/login';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7047,14 +6835,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7115,7 +6895,6 @@ class AccountApi
      *
      * Login Account (Username)
      *
-     * @param  float $version version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional)
@@ -7132,9 +6911,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function loginUsername($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
+    public function loginUsername($username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
     {
-        list($response) = $this->loginUsernameWithHttpInfo($version, $username, $password, $device_id, $latitude, $longitude, $app, $game_type, $app_key, $return_profile, $response_filters, $contentType);
+        list($response) = $this->loginUsernameWithHttpInfo($username, $password, $device_id, $latitude, $longitude, $app, $game_type, $app_key, $return_profile, $response_filters, $contentType);
         return $response;
     }
 
@@ -7143,7 +6922,6 @@ class AccountApi
      *
      * Login Account (Username)
      *
-     * @param  float $version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional)
@@ -7160,9 +6938,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loginUsernameWithHttpInfo($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
+    public function loginUsernameWithHttpInfo($username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
     {
-        $request = $this->loginUsernameRequest($version, $username, $password, $device_id, $latitude, $longitude, $app, $game_type, $app_key, $return_profile, $response_filters, $contentType);
+        $request = $this->loginUsernameRequest($username, $password, $device_id, $latitude, $longitude, $app, $game_type, $app_key, $return_profile, $response_filters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7238,7 +7016,6 @@ class AccountApi
      *
      * Login Account (Username)
      *
-     * @param  float $version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional)
@@ -7254,9 +7031,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginUsernameAsync($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
+    public function loginUsernameAsync($username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
     {
-        return $this->loginUsernameAsyncWithHttpInfo($version, $username, $password, $device_id, $latitude, $longitude, $app, $game_type, $app_key, $return_profile, $response_filters, $contentType)
+        return $this->loginUsernameAsyncWithHttpInfo($username, $password, $device_id, $latitude, $longitude, $app, $game_type, $app_key, $return_profile, $response_filters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7269,7 +7046,6 @@ class AccountApi
      *
      * Login Account (Username)
      *
-     * @param  float $version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional)
@@ -7285,10 +7061,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginUsernameAsyncWithHttpInfo($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
+    public function loginUsernameAsyncWithHttpInfo($username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->loginUsernameRequest($version, $username, $password, $device_id, $latitude, $longitude, $app, $game_type, $app_key, $return_profile, $response_filters, $contentType);
+        $request = $this->loginUsernameRequest($username, $password, $device_id, $latitude, $longitude, $app, $game_type, $app_key, $return_profile, $response_filters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7329,7 +7105,6 @@ class AccountApi
     /**
      * Create request for operation 'loginUsername'
      *
-     * @param  float $version (required)
      * @param  string $username the user&#39;s email address they used to sign-up (required)
      * @param  string $password the password (required)
      * @param  string|null $device_id the device id (optional)
@@ -7345,15 +7120,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function loginUsernameRequest($version, $username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
+    public function loginUsernameRequest($username, $password, $device_id = null, $latitude = null, $longitude = null, $app = null, $game_type = null, $app_key = null, $return_profile = null, $response_filters = null, string $contentType = self::contentTypes['loginUsername'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling loginUsername'
-            );
-        }
 
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -7378,7 +7146,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/get';
+        $resourcePath = '/account/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7477,14 +7245,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7545,7 +7305,6 @@ class AccountApi
      *
      * Logout Account
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  string|null $device_id_type Device Id Type (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7557,9 +7316,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function logout($version, $device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
+    public function logout($device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
     {
-        list($response) = $this->logoutWithHttpInfo($version, $device_id, $device_id_type, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->logoutWithHttpInfo($device_id, $device_id_type, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -7568,7 +7327,6 @@ class AccountApi
      *
      * Logout Account
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  string|null $device_id_type Device Id Type (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7580,9 +7338,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function logoutWithHttpInfo($version, $device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
+    public function logoutWithHttpInfo($device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
     {
-        $request = $this->logoutRequest($version, $device_id, $device_id_type, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->logoutRequest($device_id, $device_id_type, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7658,7 +7416,6 @@ class AccountApi
      *
      * Logout Account
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  string|null $device_id_type Device Id Type (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7669,9 +7426,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function logoutAsync($version, $device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
+    public function logoutAsync($device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
     {
-        return $this->logoutAsyncWithHttpInfo($version, $device_id, $device_id_type, $account_id, $latitude, $longitude, $contentType)
+        return $this->logoutAsyncWithHttpInfo($device_id, $device_id_type, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7684,7 +7441,6 @@ class AccountApi
      *
      * Logout Account
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  string|null $device_id_type Device Id Type (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7695,10 +7451,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function logoutAsyncWithHttpInfo($version, $device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
+    public function logoutAsyncWithHttpInfo($device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->logoutRequest($version, $device_id, $device_id_type, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->logoutRequest($device_id, $device_id_type, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7739,7 +7495,6 @@ class AccountApi
     /**
      * Create request for operation 'logout'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  string|null $device_id_type Device Id Type (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7750,23 +7505,16 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function logoutRequest($version, $device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
+    public function logoutRequest($device_id = null, $device_id_type = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['logout'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling logout'
-            );
-        }
 
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/account/logout';
+        $resourcePath = '/account/logout';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7820,14 +7568,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7888,7 +7628,6 @@ class AccountApi
      *
      * Merge Account
      *
-     * @param  float $version version (required)
      * @param  int $merge_account_id The id of the account to being merged (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -7899,9 +7638,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function mergeAccount($version, $merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
+    public function mergeAccount($merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
     {
-        list($response) = $this->mergeAccountWithHttpInfo($version, $merge_account_id, $app_key, $device_id, $account_id, $contentType);
+        list($response) = $this->mergeAccountWithHttpInfo($merge_account_id, $app_key, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -7910,7 +7649,6 @@ class AccountApi
      *
      * Merge Account
      *
-     * @param  float $version (required)
      * @param  int $merge_account_id The id of the account to being merged (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -7921,9 +7659,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function mergeAccountWithHttpInfo($version, $merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
+    public function mergeAccountWithHttpInfo($merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
     {
-        $request = $this->mergeAccountRequest($version, $merge_account_id, $app_key, $device_id, $account_id, $contentType);
+        $request = $this->mergeAccountRequest($merge_account_id, $app_key, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7999,7 +7737,6 @@ class AccountApi
      *
      * Merge Account
      *
-     * @param  float $version (required)
      * @param  int $merge_account_id The id of the account to being merged (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -8009,9 +7746,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mergeAccountAsync($version, $merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
+    public function mergeAccountAsync($merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
     {
-        return $this->mergeAccountAsyncWithHttpInfo($version, $merge_account_id, $app_key, $device_id, $account_id, $contentType)
+        return $this->mergeAccountAsyncWithHttpInfo($merge_account_id, $app_key, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8024,7 +7761,6 @@ class AccountApi
      *
      * Merge Account
      *
-     * @param  float $version (required)
      * @param  int $merge_account_id The id of the account to being merged (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -8034,10 +7770,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mergeAccountAsyncWithHttpInfo($version, $merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
+    public function mergeAccountAsyncWithHttpInfo($merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->mergeAccountRequest($version, $merge_account_id, $app_key, $device_id, $account_id, $contentType);
+        $request = $this->mergeAccountRequest($merge_account_id, $app_key, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8078,7 +7814,6 @@ class AccountApi
     /**
      * Create request for operation 'mergeAccount'
      *
-     * @param  float $version (required)
      * @param  int $merge_account_id The id of the account to being merged (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -8088,15 +7823,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function mergeAccountRequest($version, $merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
+    public function mergeAccountRequest($merge_account_id, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['mergeAccount'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling mergeAccount'
-            );
-        }
 
         // verify the required parameter 'merge_account_id' is set
         if ($merge_account_id === null || (is_array($merge_account_id) && count($merge_account_id) === 0)) {
@@ -8115,7 +7843,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/merge';
+        $resourcePath = '/account/merge';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8160,14 +7888,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8228,7 +7948,6 @@ class AccountApi
      *
      * Update Password
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account to update (required)
      * @param  string $old_password The current password, used to validate access (required)
      * @param  string $new_password The new password to set, cannot be empty (required)
@@ -8239,9 +7958,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function passwordChange($version, $account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
+    public function passwordChange($account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
     {
-        list($response) = $this->passwordChangeWithHttpInfo($version, $account_id, $old_password, $new_password, $confirm_password, $contentType);
+        list($response) = $this->passwordChangeWithHttpInfo($account_id, $old_password, $new_password, $confirm_password, $contentType);
         return $response;
     }
 
@@ -8250,7 +7969,6 @@ class AccountApi
      *
      * Update Password
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to update (required)
      * @param  string $old_password The current password, used to validate access (required)
      * @param  string $new_password The new password to set, cannot be empty (required)
@@ -8261,9 +7979,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function passwordChangeWithHttpInfo($version, $account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
+    public function passwordChangeWithHttpInfo($account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
     {
-        $request = $this->passwordChangeRequest($version, $account_id, $old_password, $new_password, $confirm_password, $contentType);
+        $request = $this->passwordChangeRequest($account_id, $old_password, $new_password, $confirm_password, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8339,7 +8057,6 @@ class AccountApi
      *
      * Update Password
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to update (required)
      * @param  string $old_password The current password, used to validate access (required)
      * @param  string $new_password The new password to set, cannot be empty (required)
@@ -8349,9 +8066,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function passwordChangeAsync($version, $account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
+    public function passwordChangeAsync($account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
     {
-        return $this->passwordChangeAsyncWithHttpInfo($version, $account_id, $old_password, $new_password, $confirm_password, $contentType)
+        return $this->passwordChangeAsyncWithHttpInfo($account_id, $old_password, $new_password, $confirm_password, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8364,7 +8081,6 @@ class AccountApi
      *
      * Update Password
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to update (required)
      * @param  string $old_password The current password, used to validate access (required)
      * @param  string $new_password The new password to set, cannot be empty (required)
@@ -8374,10 +8090,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function passwordChangeAsyncWithHttpInfo($version, $account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
+    public function passwordChangeAsyncWithHttpInfo($account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->passwordChangeRequest($version, $account_id, $old_password, $new_password, $confirm_password, $contentType);
+        $request = $this->passwordChangeRequest($account_id, $old_password, $new_password, $confirm_password, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8418,7 +8134,6 @@ class AccountApi
     /**
      * Create request for operation 'passwordChange'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to update (required)
      * @param  string $old_password The current password, used to validate access (required)
      * @param  string $new_password The new password to set, cannot be empty (required)
@@ -8428,15 +8143,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function passwordChangeRequest($version, $account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
+    public function passwordChangeRequest($account_id, $old_password, $new_password, $confirm_password, string $contentType = self::contentTypes['passwordChange'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling passwordChange'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -8467,7 +8175,7 @@ class AccountApi
         }
 
 
-        $resourcePath = '/api/{version}/account/passwordchange';
+        $resourcePath = '/account/passwordchange';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8512,14 +8220,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8580,7 +8280,6 @@ class AccountApi
      *
      * Reset Password
      *
-     * @param  float $version version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $password The new password to set, cannot be empty (required)
      * @param  string $confirm The new password to confirm, must match newPassword (required)
@@ -8590,9 +8289,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function passwordReset($version, $token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
+    public function passwordReset($token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
     {
-        list($response) = $this->passwordResetWithHttpInfo($version, $token, $password, $confirm, $contentType);
+        list($response) = $this->passwordResetWithHttpInfo($token, $password, $confirm, $contentType);
         return $response;
     }
 
@@ -8601,7 +8300,6 @@ class AccountApi
      *
      * Reset Password
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $password The new password to set, cannot be empty (required)
      * @param  string $confirm The new password to confirm, must match newPassword (required)
@@ -8611,9 +8309,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function passwordResetWithHttpInfo($version, $token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
+    public function passwordResetWithHttpInfo($token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
     {
-        $request = $this->passwordResetRequest($version, $token, $password, $confirm, $contentType);
+        $request = $this->passwordResetRequest($token, $password, $confirm, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8689,7 +8387,6 @@ class AccountApi
      *
      * Reset Password
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $password The new password to set, cannot be empty (required)
      * @param  string $confirm The new password to confirm, must match newPassword (required)
@@ -8698,9 +8395,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function passwordResetAsync($version, $token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
+    public function passwordResetAsync($token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
     {
-        return $this->passwordResetAsyncWithHttpInfo($version, $token, $password, $confirm, $contentType)
+        return $this->passwordResetAsyncWithHttpInfo($token, $password, $confirm, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8713,7 +8410,6 @@ class AccountApi
      *
      * Reset Password
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $password The new password to set, cannot be empty (required)
      * @param  string $confirm The new password to confirm, must match newPassword (required)
@@ -8722,10 +8418,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function passwordResetAsyncWithHttpInfo($version, $token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
+    public function passwordResetAsyncWithHttpInfo($token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->passwordResetRequest($version, $token, $password, $confirm, $contentType);
+        $request = $this->passwordResetRequest($token, $password, $confirm, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8766,7 +8462,6 @@ class AccountApi
     /**
      * Create request for operation 'passwordReset'
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $password The new password to set, cannot be empty (required)
      * @param  string $confirm The new password to confirm, must match newPassword (required)
@@ -8775,15 +8470,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function passwordResetRequest($version, $token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
+    public function passwordResetRequest($token, $password, $confirm, string $contentType = self::contentTypes['passwordReset'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling passwordReset'
-            );
-        }
 
         // verify the required parameter 'token' is set
         if ($token === null || (is_array($token) && count($token) === 0)) {
@@ -8807,7 +8495,7 @@ class AccountApi
         }
 
 
-        $resourcePath = '/api/{version}/account/passwordreset';
+        $resourcePath = '/account/passwordreset';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8843,14 +8531,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8911,7 +8591,6 @@ class AccountApi
      *
      * Request Password Reset
      *
-     * @param  float $version version (required)
      * @param  string $email The email/username of the account (required)
      * @param  string|null $from this is the sender email (optional, default to 'Sirqul')
      * @param  string|null $domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -8923,9 +8602,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function requestPasswordReset($version, $email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
+    public function requestPasswordReset($email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
     {
-        list($response) = $this->requestPasswordResetWithHttpInfo($version, $email, $from, $domain, $sub_url, $referer, $contentType);
+        list($response) = $this->requestPasswordResetWithHttpInfo($email, $from, $domain, $sub_url, $referer, $contentType);
         return $response;
     }
 
@@ -8934,7 +8613,6 @@ class AccountApi
      *
      * Request Password Reset
      *
-     * @param  float $version (required)
      * @param  string $email The email/username of the account (required)
      * @param  string|null $from this is the sender email (optional, default to 'Sirqul')
      * @param  string|null $domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -8946,9 +8624,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function requestPasswordResetWithHttpInfo($version, $email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
+    public function requestPasswordResetWithHttpInfo($email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
     {
-        $request = $this->requestPasswordResetRequest($version, $email, $from, $domain, $sub_url, $referer, $contentType);
+        $request = $this->requestPasswordResetRequest($email, $from, $domain, $sub_url, $referer, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9024,7 +8702,6 @@ class AccountApi
      *
      * Request Password Reset
      *
-     * @param  float $version (required)
      * @param  string $email The email/username of the account (required)
      * @param  string|null $from this is the sender email (optional, default to 'Sirqul')
      * @param  string|null $domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -9035,9 +8712,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestPasswordResetAsync($version, $email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
+    public function requestPasswordResetAsync($email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
     {
-        return $this->requestPasswordResetAsyncWithHttpInfo($version, $email, $from, $domain, $sub_url, $referer, $contentType)
+        return $this->requestPasswordResetAsyncWithHttpInfo($email, $from, $domain, $sub_url, $referer, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9050,7 +8727,6 @@ class AccountApi
      *
      * Request Password Reset
      *
-     * @param  float $version (required)
      * @param  string $email The email/username of the account (required)
      * @param  string|null $from this is the sender email (optional, default to 'Sirqul')
      * @param  string|null $domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -9061,10 +8737,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestPasswordResetAsyncWithHttpInfo($version, $email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
+    public function requestPasswordResetAsyncWithHttpInfo($email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->requestPasswordResetRequest($version, $email, $from, $domain, $sub_url, $referer, $contentType);
+        $request = $this->requestPasswordResetRequest($email, $from, $domain, $sub_url, $referer, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9105,7 +8781,6 @@ class AccountApi
     /**
      * Create request for operation 'requestPasswordReset'
      *
-     * @param  float $version (required)
      * @param  string $email The email/username of the account (required)
      * @param  string|null $from this is the sender email (optional, default to 'Sirqul')
      * @param  string|null $domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -9116,15 +8791,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function requestPasswordResetRequest($version, $email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
+    public function requestPasswordResetRequest($email, $from = 'Sirqul', $domain = null, $sub_url = null, $referer = 'http://dev.sirqul.com/resetpassword', string $contentType = self::contentTypes['requestPasswordReset'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling requestPasswordReset'
-            );
-        }
 
         // verify the required parameter 'email' is set
         if ($email === null || (is_array($email) && count($email) === 0)) {
@@ -9138,7 +8806,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/requestpasswordreset';
+        $resourcePath = '/account/requestpasswordreset';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -9192,14 +8860,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -9260,7 +8920,6 @@ class AccountApi
      *
      * Send Validation Request
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestValidateAccount'] to see the possible values for this operation
      *
@@ -9268,9 +8927,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function requestValidateAccount($version, $account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
+    public function requestValidateAccount($account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
     {
-        list($response) = $this->requestValidateAccountWithHttpInfo($version, $account_id, $contentType);
+        list($response) = $this->requestValidateAccountWithHttpInfo($account_id, $contentType);
         return $response;
     }
 
@@ -9279,7 +8938,6 @@ class AccountApi
      *
      * Send Validation Request
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestValidateAccount'] to see the possible values for this operation
      *
@@ -9287,9 +8945,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function requestValidateAccountWithHttpInfo($version, $account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
+    public function requestValidateAccountWithHttpInfo($account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
     {
-        $request = $this->requestValidateAccountRequest($version, $account_id, $contentType);
+        $request = $this->requestValidateAccountRequest($account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9365,16 +9023,15 @@ class AccountApi
      *
      * Send Validation Request
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestValidateAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestValidateAccountAsync($version, $account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
+    public function requestValidateAccountAsync($account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
     {
-        return $this->requestValidateAccountAsyncWithHttpInfo($version, $account_id, $contentType)
+        return $this->requestValidateAccountAsyncWithHttpInfo($account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9387,17 +9044,16 @@ class AccountApi
      *
      * Send Validation Request
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestValidateAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestValidateAccountAsyncWithHttpInfo($version, $account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
+    public function requestValidateAccountAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->requestValidateAccountRequest($version, $account_id, $contentType);
+        $request = $this->requestValidateAccountRequest($account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9438,22 +9094,14 @@ class AccountApi
     /**
      * Create request for operation 'requestValidateAccount'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the user (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestValidateAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function requestValidateAccountRequest($version, $account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
+    public function requestValidateAccountRequest($account_id, string $contentType = self::contentTypes['requestValidateAccount'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling requestValidateAccount'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -9463,7 +9111,7 @@ class AccountApi
         }
 
 
-        $resourcePath = '/api/{version}/account/requestValidateAccount';
+        $resourcePath = '/account/requestValidateAccount';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -9481,14 +9129,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -9549,7 +9189,6 @@ class AccountApi
      *
      * Search Accounts
      *
-     * @param  float $version version (required)
      * @param  int $account_id The id of the account requesting (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword The keyword for for querying the account (optional)
@@ -9574,9 +9213,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse[]
      */
-    public function searchAccounts($version, $account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
+    public function searchAccounts($account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
     {
-        list($response) = $this->searchAccountsWithHttpInfo($version, $account_id, $app_key, $keyword, $latitude, $longitude, $radius, $gender, $game_experience, $age, $category_ids, $return_nulls, $response_filters, $purchase_type, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        list($response) = $this->searchAccountsWithHttpInfo($account_id, $app_key, $keyword, $latitude, $longitude, $radius, $gender, $game_experience, $age, $category_ids, $return_nulls, $response_filters, $purchase_type, $sort_field, $descending, $start, $limit, $active_only, $contentType);
         return $response;
     }
 
@@ -9585,7 +9224,6 @@ class AccountApi
      *
      * Search Accounts
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account requesting (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword The keyword for for querying the account (optional)
@@ -9610,9 +9248,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAccountsWithHttpInfo($version, $account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
+    public function searchAccountsWithHttpInfo($account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
     {
-        $request = $this->searchAccountsRequest($version, $account_id, $app_key, $keyword, $latitude, $longitude, $radius, $gender, $game_experience, $age, $category_ids, $return_nulls, $response_filters, $purchase_type, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchAccountsRequest($account_id, $app_key, $keyword, $latitude, $longitude, $radius, $gender, $game_experience, $age, $category_ids, $return_nulls, $response_filters, $purchase_type, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9688,7 +9326,6 @@ class AccountApi
      *
      * Search Accounts
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account requesting (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword The keyword for for querying the account (optional)
@@ -9712,9 +9349,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAccountsAsync($version, $account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
+    public function searchAccountsAsync($account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
     {
-        return $this->searchAccountsAsyncWithHttpInfo($version, $account_id, $app_key, $keyword, $latitude, $longitude, $radius, $gender, $game_experience, $age, $category_ids, $return_nulls, $response_filters, $purchase_type, $sort_field, $descending, $start, $limit, $active_only, $contentType)
+        return $this->searchAccountsAsyncWithHttpInfo($account_id, $app_key, $keyword, $latitude, $longitude, $radius, $gender, $game_experience, $age, $category_ids, $return_nulls, $response_filters, $purchase_type, $sort_field, $descending, $start, $limit, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9727,7 +9364,6 @@ class AccountApi
      *
      * Search Accounts
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account requesting (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword The keyword for for querying the account (optional)
@@ -9751,10 +9387,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAccountsAsyncWithHttpInfo($version, $account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
+    public function searchAccountsAsyncWithHttpInfo($account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse[]';
-        $request = $this->searchAccountsRequest($version, $account_id, $app_key, $keyword, $latitude, $longitude, $radius, $gender, $game_experience, $age, $category_ids, $return_nulls, $response_filters, $purchase_type, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchAccountsRequest($account_id, $app_key, $keyword, $latitude, $longitude, $radius, $gender, $game_experience, $age, $category_ids, $return_nulls, $response_filters, $purchase_type, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9795,7 +9431,6 @@ class AccountApi
     /**
      * Create request for operation 'searchAccounts'
      *
-     * @param  float $version (required)
      * @param  int $account_id The id of the account requesting (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $keyword The keyword for for querying the account (optional)
@@ -9819,15 +9454,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchAccountsRequest($version, $account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
+    public function searchAccountsRequest($account_id, $app_key, $keyword = null, $latitude = null, $longitude = null, $radius = 5, $gender = null, $game_experience = null, $age = null, $category_ids = null, $return_nulls = true, $response_filters = 'PROFILE', $purchase_type = 'SIRQUL', $sort_field = 'id', $descending = false, $start = 0, $limit = 20, $active_only = false, string $contentType = self::contentTypes['searchAccounts'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchAccounts'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -9860,7 +9488,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/profile/search';
+        $resourcePath = '/account/profile/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -10031,14 +9659,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -10099,7 +9719,6 @@ class AccountApi
      *
      * Login Account (Encrypted Username)
      *
-     * @param  float $version version (required)
      * @param  string $username The user&#39;s encrypted email address they used to sign-up (required)
      * @param  string $password The encrypted password (required)
      * @param  string $game_type The application key (required)
@@ -10115,9 +9734,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function secureLogin($version, $username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
+    public function secureLogin($username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
     {
-        list($response) = $this->secureLoginWithHttpInfo($version, $username, $password, $game_type, $device_id, $charset_name, $latitude, $longitude, $return_profile, $response_filters, $contentType);
+        list($response) = $this->secureLoginWithHttpInfo($username, $password, $game_type, $device_id, $charset_name, $latitude, $longitude, $return_profile, $response_filters, $contentType);
         return $response;
     }
 
@@ -10126,7 +9745,6 @@ class AccountApi
      *
      * Login Account (Encrypted Username)
      *
-     * @param  float $version (required)
      * @param  string $username The user&#39;s encrypted email address they used to sign-up (required)
      * @param  string $password The encrypted password (required)
      * @param  string $game_type The application key (required)
@@ -10142,9 +9760,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function secureLoginWithHttpInfo($version, $username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
+    public function secureLoginWithHttpInfo($username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
     {
-        $request = $this->secureLoginRequest($version, $username, $password, $game_type, $device_id, $charset_name, $latitude, $longitude, $return_profile, $response_filters, $contentType);
+        $request = $this->secureLoginRequest($username, $password, $game_type, $device_id, $charset_name, $latitude, $longitude, $return_profile, $response_filters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10220,7 +9838,6 @@ class AccountApi
      *
      * Login Account (Encrypted Username)
      *
-     * @param  float $version (required)
      * @param  string $username The user&#39;s encrypted email address they used to sign-up (required)
      * @param  string $password The encrypted password (required)
      * @param  string $game_type The application key (required)
@@ -10235,9 +9852,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function secureLoginAsync($version, $username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
+    public function secureLoginAsync($username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
     {
-        return $this->secureLoginAsyncWithHttpInfo($version, $username, $password, $game_type, $device_id, $charset_name, $latitude, $longitude, $return_profile, $response_filters, $contentType)
+        return $this->secureLoginAsyncWithHttpInfo($username, $password, $game_type, $device_id, $charset_name, $latitude, $longitude, $return_profile, $response_filters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10250,7 +9867,6 @@ class AccountApi
      *
      * Login Account (Encrypted Username)
      *
-     * @param  float $version (required)
      * @param  string $username The user&#39;s encrypted email address they used to sign-up (required)
      * @param  string $password The encrypted password (required)
      * @param  string $game_type The application key (required)
@@ -10265,10 +9881,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function secureLoginAsyncWithHttpInfo($version, $username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
+    public function secureLoginAsyncWithHttpInfo($username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->secureLoginRequest($version, $username, $password, $game_type, $device_id, $charset_name, $latitude, $longitude, $return_profile, $response_filters, $contentType);
+        $request = $this->secureLoginRequest($username, $password, $game_type, $device_id, $charset_name, $latitude, $longitude, $return_profile, $response_filters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10309,7 +9925,6 @@ class AccountApi
     /**
      * Create request for operation 'secureLogin'
      *
-     * @param  float $version (required)
      * @param  string $username The user&#39;s encrypted email address they used to sign-up (required)
      * @param  string $password The encrypted password (required)
      * @param  string $game_type The application key (required)
@@ -10324,15 +9939,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function secureLoginRequest($version, $username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
+    public function secureLoginRequest($username, $password, $game_type, $device_id = null, $charset_name = 'UTF-8', $latitude = null, $longitude = null, $return_profile = false, $response_filters = 'PROFILE', string $contentType = self::contentTypes['secureLogin'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling secureLogin'
-            );
-        }
 
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -10362,7 +9970,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/login/validate';
+        $resourcePath = '/account/login/validate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -10452,14 +10060,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -10520,7 +10120,6 @@ class AccountApi
      *
      * Create Account (Encrypted Username)
      *
-     * @param  float $version version (required)
      * @param  string $device_id The device id (required)
      * @param  string $username The encrypted email of the user, this is what will be used when they login (required)
      * @param  string $password The encrypted password of the user (required)
@@ -10588,9 +10187,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileInfoResponse
      */
-    public function secureSignup($version, $device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
+    public function secureSignup($device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
     {
-        list($response) = $this->secureSignupWithHttpInfo($version, $device_id, $username, $password, $name, $invite_token, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id_type, $email_address, $asset_id, $address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $charset_name, $game_type, $app_key, $app_version, $response_type, $contentType);
+        list($response) = $this->secureSignupWithHttpInfo($device_id, $username, $password, $name, $invite_token, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id_type, $email_address, $asset_id, $address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $charset_name, $game_type, $app_key, $app_version, $response_type, $contentType);
         return $response;
     }
 
@@ -10599,7 +10198,6 @@ class AccountApi
      *
      * Create Account (Encrypted Username)
      *
-     * @param  float $version (required)
      * @param  string $device_id The device id (required)
      * @param  string $username The encrypted email of the user, this is what will be used when they login (required)
      * @param  string $password The encrypted password of the user (required)
@@ -10667,9 +10265,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileInfoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function secureSignupWithHttpInfo($version, $device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
+    public function secureSignupWithHttpInfo($device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
     {
-        $request = $this->secureSignupRequest($version, $device_id, $username, $password, $name, $invite_token, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id_type, $email_address, $asset_id, $address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $charset_name, $game_type, $app_key, $app_version, $response_type, $contentType);
+        $request = $this->secureSignupRequest($device_id, $username, $password, $name, $invite_token, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id_type, $email_address, $asset_id, $address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $charset_name, $game_type, $app_key, $app_version, $response_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10745,7 +10343,6 @@ class AccountApi
      *
      * Create Account (Encrypted Username)
      *
-     * @param  float $version (required)
      * @param  string $device_id The device id (required)
      * @param  string $username The encrypted email of the user, this is what will be used when they login (required)
      * @param  string $password The encrypted password of the user (required)
@@ -10812,9 +10409,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function secureSignupAsync($version, $device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
+    public function secureSignupAsync($device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
     {
-        return $this->secureSignupAsyncWithHttpInfo($version, $device_id, $username, $password, $name, $invite_token, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id_type, $email_address, $asset_id, $address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $charset_name, $game_type, $app_key, $app_version, $response_type, $contentType)
+        return $this->secureSignupAsyncWithHttpInfo($device_id, $username, $password, $name, $invite_token, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id_type, $email_address, $asset_id, $address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $charset_name, $game_type, $app_key, $app_version, $response_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10827,7 +10424,6 @@ class AccountApi
      *
      * Create Account (Encrypted Username)
      *
-     * @param  float $version (required)
      * @param  string $device_id The device id (required)
      * @param  string $username The encrypted email of the user, this is what will be used when they login (required)
      * @param  string $password The encrypted password of the user (required)
@@ -10894,10 +10490,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function secureSignupAsyncWithHttpInfo($version, $device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
+    public function secureSignupAsyncWithHttpInfo($device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileInfoResponse';
-        $request = $this->secureSignupRequest($version, $device_id, $username, $password, $name, $invite_token, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id_type, $email_address, $asset_id, $address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $charset_name, $game_type, $app_key, $app_version, $response_type, $contentType);
+        $request = $this->secureSignupRequest($device_id, $username, $password, $name, $invite_token, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $device_id_type, $email_address, $asset_id, $address, $zipcode, $gender, $birthday, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $role, $platforms, $tags, $about_us, $game_experience, $category_ids, $hometown, $height, $height_index, $ethnicity, $body_type, $marital_status, $children, $religion, $education, $education_index, $smoke, $drink, $companionship, $companionship_index, $preferred_min_age, $preferred_max_age, $preferred_min_height, $preferred_max_height, $preferred_gender, $preferred_education, $preferred_education_index, $preferred_body_type, $preferred_ethnicity, $preferred_location, $preferred_location_range, $latitude, $longitude, $accepted_terms, $charset_name, $game_type, $app_key, $app_version, $response_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10938,7 +10534,6 @@ class AccountApi
     /**
      * Create request for operation 'secureSignup'
      *
-     * @param  float $version (required)
      * @param  string $device_id The device id (required)
      * @param  string $username The encrypted email of the user, this is what will be used when they login (required)
      * @param  string $password The encrypted password of the user (required)
@@ -11005,15 +10600,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function secureSignupRequest($version, $device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
+    public function secureSignupRequest($device_id, $username, $password, $name = null, $invite_token = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $device_id_type = null, $email_address = null, $asset_id = null, $address = null, $zipcode = null, $gender = null, $birthday = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $role = 'MEMBER', $platforms = null, $tags = null, $about_us = null, $game_experience = null, $category_ids = null, $hometown = null, $height = null, $height_index = null, $ethnicity = null, $body_type = null, $marital_status = null, $children = null, $religion = null, $education = null, $education_index = null, $smoke = null, $drink = null, $companionship = null, $companionship_index = null, $preferred_min_age = null, $preferred_max_age = null, $preferred_min_height = null, $preferred_max_height = null, $preferred_gender = null, $preferred_education = null, $preferred_education_index = null, $preferred_body_type = null, $preferred_ethnicity = null, $preferred_location = null, $preferred_location_range = null, $latitude = null, $longitude = null, $accepted_terms = true, $charset_name = 'UTF-8', $game_type = null, $app_key = null, $app_version = null, $response_type = null, string $contentType = self::contentTypes['secureSignup'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling secureSignup'
-            );
-        }
 
         // verify the required parameter 'device_id' is set
         if ($device_id === null || (is_array($device_id) && count($device_id) === 0)) {
@@ -11095,7 +10683,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/create/validate';
+        $resourcePath = '/account/create/validate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -11653,14 +11241,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -11721,7 +11301,6 @@ class AccountApi
      *
      * Save Match Token
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $match_token A string of numbers (optional)
@@ -11735,9 +11314,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function setMatchToken($version, $device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
+    public function setMatchToken($device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
     {
-        list($response) = $this->setMatchTokenWithHttpInfo($version, $device_id, $account_id, $match_token, $game_type, $app_key, $latitude, $longitude, $contentType);
+        list($response) = $this->setMatchTokenWithHttpInfo($device_id, $account_id, $match_token, $game_type, $app_key, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -11746,7 +11325,6 @@ class AccountApi
      *
      * Save Match Token
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $match_token A string of numbers (optional)
@@ -11760,9 +11338,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setMatchTokenWithHttpInfo($version, $device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
+    public function setMatchTokenWithHttpInfo($device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
     {
-        $request = $this->setMatchTokenRequest($version, $device_id, $account_id, $match_token, $game_type, $app_key, $latitude, $longitude, $contentType);
+        $request = $this->setMatchTokenRequest($device_id, $account_id, $match_token, $game_type, $app_key, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11838,7 +11416,6 @@ class AccountApi
      *
      * Save Match Token
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $match_token A string of numbers (optional)
@@ -11851,9 +11428,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setMatchTokenAsync($version, $device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
+    public function setMatchTokenAsync($device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
     {
-        return $this->setMatchTokenAsyncWithHttpInfo($version, $device_id, $account_id, $match_token, $game_type, $app_key, $latitude, $longitude, $contentType)
+        return $this->setMatchTokenAsyncWithHttpInfo($device_id, $account_id, $match_token, $game_type, $app_key, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11866,7 +11443,6 @@ class AccountApi
      *
      * Save Match Token
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $match_token A string of numbers (optional)
@@ -11879,10 +11455,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setMatchTokenAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
+    public function setMatchTokenAsyncWithHttpInfo($device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->setMatchTokenRequest($version, $device_id, $account_id, $match_token, $game_type, $app_key, $latitude, $longitude, $contentType);
+        $request = $this->setMatchTokenRequest($device_id, $account_id, $match_token, $game_type, $app_key, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11923,7 +11499,6 @@ class AccountApi
     /**
      * Create request for operation 'setMatchToken'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $match_token A string of numbers (optional)
@@ -11936,15 +11511,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function setMatchTokenRequest($version, $device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
+    public function setMatchTokenRequest($device_id = null, $account_id = null, $match_token = null, $game_type = 'BOOPY', $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['setMatchToken'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling setMatchToken'
-            );
-        }
 
 
 
@@ -11953,8 +11522,7 @@ class AccountApi
 
 
 
-
-        $resourcePath = '/api/{version}/consumer/profile/matchToken';
+        $resourcePath = '/consumer/profile/matchToken';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -12026,14 +11594,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -12094,7 +11654,6 @@ class AccountApi
      *
      * Update Account Active Status
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $connection_account_id The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param  bool $active true will activate the user and false will deactivate (required)
@@ -12106,9 +11665,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateActveStatus($version, $account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
+    public function updateActveStatus($account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
     {
-        list($response) = $this->updateActveStatusWithHttpInfo($version, $account_id, $connection_account_id, $active, $device_id, $app_key, $contentType);
+        list($response) = $this->updateActveStatusWithHttpInfo($account_id, $connection_account_id, $active, $device_id, $app_key, $contentType);
         return $response;
     }
 
@@ -12117,7 +11676,6 @@ class AccountApi
      *
      * Update Account Active Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $connection_account_id The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param  bool $active true will activate the user and false will deactivate (required)
@@ -12129,9 +11687,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateActveStatusWithHttpInfo($version, $account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
+    public function updateActveStatusWithHttpInfo($account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
     {
-        $request = $this->updateActveStatusRequest($version, $account_id, $connection_account_id, $active, $device_id, $app_key, $contentType);
+        $request = $this->updateActveStatusRequest($account_id, $connection_account_id, $active, $device_id, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12207,7 +11765,6 @@ class AccountApi
      *
      * Update Account Active Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $connection_account_id The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param  bool $active true will activate the user and false will deactivate (required)
@@ -12218,9 +11775,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateActveStatusAsync($version, $account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
+    public function updateActveStatusAsync($account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
     {
-        return $this->updateActveStatusAsyncWithHttpInfo($version, $account_id, $connection_account_id, $active, $device_id, $app_key, $contentType)
+        return $this->updateActveStatusAsyncWithHttpInfo($account_id, $connection_account_id, $active, $device_id, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12233,7 +11790,6 @@ class AccountApi
      *
      * Update Account Active Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $connection_account_id The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param  bool $active true will activate the user and false will deactivate (required)
@@ -12244,10 +11800,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateActveStatusAsyncWithHttpInfo($version, $account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
+    public function updateActveStatusAsyncWithHttpInfo($account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateActveStatusRequest($version, $account_id, $connection_account_id, $active, $device_id, $app_key, $contentType);
+        $request = $this->updateActveStatusRequest($account_id, $connection_account_id, $active, $device_id, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12288,7 +11844,6 @@ class AccountApi
     /**
      * Create request for operation 'updateActveStatus'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (deviceId or accountId required) (required)
      * @param  int $connection_account_id The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param  bool $active true will activate the user and false will deactivate (required)
@@ -12299,15 +11854,8 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateActveStatusRequest($version, $account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
+    public function updateActveStatusRequest($account_id, $connection_account_id, $active, $device_id = null, $app_key = null, string $contentType = self::contentTypes['updateActveStatus'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateActveStatus'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -12333,7 +11881,7 @@ class AccountApi
 
 
 
-        $resourcePath = '/api/{version}/account/active/update';
+        $resourcePath = '/account/active/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -12387,14 +11935,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -12455,7 +11995,6 @@ class AccountApi
      *
      * Update Location
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -12467,9 +12006,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateLocation($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
+    public function updateLocation($device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
     {
-        list($response) = $this->updateLocationWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $client_time, $contentType);
+        list($response) = $this->updateLocationWithHttpInfo($device_id, $account_id, $latitude, $longitude, $client_time, $contentType);
         return $response;
     }
 
@@ -12478,7 +12017,6 @@ class AccountApi
      *
      * Update Location
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -12490,9 +12028,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateLocationWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
+    public function updateLocationWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
     {
-        $request = $this->updateLocationRequest($version, $device_id, $account_id, $latitude, $longitude, $client_time, $contentType);
+        $request = $this->updateLocationRequest($device_id, $account_id, $latitude, $longitude, $client_time, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12568,7 +12106,6 @@ class AccountApi
      *
      * Update Location
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -12579,9 +12116,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLocationAsync($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
+    public function updateLocationAsync($device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
     {
-        return $this->updateLocationAsyncWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $client_time, $contentType)
+        return $this->updateLocationAsyncWithHttpInfo($device_id, $account_id, $latitude, $longitude, $client_time, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12594,7 +12131,6 @@ class AccountApi
      *
      * Update Location
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -12605,10 +12141,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLocationAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
+    public function updateLocationAsyncWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateLocationRequest($version, $device_id, $account_id, $latitude, $longitude, $client_time, $contentType);
+        $request = $this->updateLocationRequest($device_id, $account_id, $latitude, $longitude, $client_time, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12649,7 +12185,6 @@ class AccountApi
     /**
      * Create request for operation 'updateLocation'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The current latitude of the user (optional)
@@ -12660,23 +12195,16 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateLocationRequest($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
+    public function updateLocationRequest($device_id = null, $account_id = null, $latitude = null, $longitude = null, $client_time = null, string $contentType = self::contentTypes['updateLocation'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateLocation'
-            );
-        }
 
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/account/location/update';
+        $resourcePath = '/account/location/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -12730,14 +12258,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -12798,7 +12318,6 @@ class AccountApi
      *
      * Update Account Settings
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $blocked_notifications The notifications to be blocked (optional)
@@ -12817,9 +12336,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\UserSettingsResponse
      */
-    public function updateSettings($version, $device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
+    public function updateSettings($device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
     {
-        list($response) = $this->updateSettingsWithHttpInfo($version, $device_id, $account_id, $blocked_notifications, $suggestion_method, $suggestion_count, $suggestion_time_frame, $show_others_exact_location, $show_as_zipcode, $show_exact_location, $favorite_visibility, $latitude, $longitude, $contentType);
+        list($response) = $this->updateSettingsWithHttpInfo($device_id, $account_id, $blocked_notifications, $suggestion_method, $suggestion_count, $suggestion_time_frame, $show_others_exact_location, $show_as_zipcode, $show_exact_location, $favorite_visibility, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -12828,7 +12347,6 @@ class AccountApi
      *
      * Update Account Settings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $blocked_notifications The notifications to be blocked (optional)
@@ -12847,9 +12365,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\UserSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSettingsWithHttpInfo($version, $device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
+    public function updateSettingsWithHttpInfo($device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
     {
-        $request = $this->updateSettingsRequest($version, $device_id, $account_id, $blocked_notifications, $suggestion_method, $suggestion_count, $suggestion_time_frame, $show_others_exact_location, $show_as_zipcode, $show_exact_location, $favorite_visibility, $latitude, $longitude, $contentType);
+        $request = $this->updateSettingsRequest($device_id, $account_id, $blocked_notifications, $suggestion_method, $suggestion_count, $suggestion_time_frame, $show_others_exact_location, $show_as_zipcode, $show_exact_location, $favorite_visibility, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12925,7 +12443,6 @@ class AccountApi
      *
      * Update Account Settings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $blocked_notifications The notifications to be blocked (optional)
@@ -12943,9 +12460,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSettingsAsync($version, $device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
+    public function updateSettingsAsync($device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
     {
-        return $this->updateSettingsAsyncWithHttpInfo($version, $device_id, $account_id, $blocked_notifications, $suggestion_method, $suggestion_count, $suggestion_time_frame, $show_others_exact_location, $show_as_zipcode, $show_exact_location, $favorite_visibility, $latitude, $longitude, $contentType)
+        return $this->updateSettingsAsyncWithHttpInfo($device_id, $account_id, $blocked_notifications, $suggestion_method, $suggestion_count, $suggestion_time_frame, $show_others_exact_location, $show_as_zipcode, $show_exact_location, $favorite_visibility, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12958,7 +12475,6 @@ class AccountApi
      *
      * Update Account Settings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $blocked_notifications The notifications to be blocked (optional)
@@ -12976,10 +12492,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSettingsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
+    public function updateSettingsAsyncWithHttpInfo($device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UserSettingsResponse';
-        $request = $this->updateSettingsRequest($version, $device_id, $account_id, $blocked_notifications, $suggestion_method, $suggestion_count, $suggestion_time_frame, $show_others_exact_location, $show_as_zipcode, $show_exact_location, $favorite_visibility, $latitude, $longitude, $contentType);
+        $request = $this->updateSettingsRequest($device_id, $account_id, $blocked_notifications, $suggestion_method, $suggestion_count, $suggestion_time_frame, $show_others_exact_location, $show_as_zipcode, $show_exact_location, $favorite_visibility, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13020,7 +12536,6 @@ class AccountApi
     /**
      * Create request for operation 'updateSettings'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $blocked_notifications The notifications to be blocked (optional)
@@ -13038,15 +12553,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSettingsRequest($version, $device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
+    public function updateSettingsRequest($device_id = null, $account_id = null, $blocked_notifications = null, $suggestion_method = null, $suggestion_count = null, $suggestion_time_frame = null, $show_others_exact_location = null, $show_as_zipcode = null, $show_exact_location = null, $favorite_visibility = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateSettings'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateSettings'
-            );
-        }
 
 
 
@@ -13060,8 +12569,7 @@ class AccountApi
 
 
 
-
-        $resourcePath = '/api/{version}/account/settings/update';
+        $resourcePath = '/account/settings/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -13178,14 +12686,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -13246,7 +12746,6 @@ class AccountApi
      *
      * Save Validation Status
      *
-     * @param  float $version version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAccountSignup'] to see the possible values for this operation
      *
@@ -13254,9 +12753,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AccountLoginResponse
      */
-    public function validateAccountSignup($version, $token, string $contentType = self::contentTypes['validateAccountSignup'][0])
+    public function validateAccountSignup($token, string $contentType = self::contentTypes['validateAccountSignup'][0])
     {
-        list($response) = $this->validateAccountSignupWithHttpInfo($version, $token, $contentType);
+        list($response) = $this->validateAccountSignupWithHttpInfo($token, $contentType);
         return $response;
     }
 
@@ -13265,7 +12764,6 @@ class AccountApi
      *
      * Save Validation Status
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAccountSignup'] to see the possible values for this operation
      *
@@ -13273,9 +12771,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AccountLoginResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function validateAccountSignupWithHttpInfo($version, $token, string $contentType = self::contentTypes['validateAccountSignup'][0])
+    public function validateAccountSignupWithHttpInfo($token, string $contentType = self::contentTypes['validateAccountSignup'][0])
     {
-        $request = $this->validateAccountSignupRequest($version, $token, $contentType);
+        $request = $this->validateAccountSignupRequest($token, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13351,16 +12849,15 @@ class AccountApi
      *
      * Save Validation Status
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAccountSignup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validateAccountSignupAsync($version, $token, string $contentType = self::contentTypes['validateAccountSignup'][0])
+    public function validateAccountSignupAsync($token, string $contentType = self::contentTypes['validateAccountSignup'][0])
     {
-        return $this->validateAccountSignupAsyncWithHttpInfo($version, $token, $contentType)
+        return $this->validateAccountSignupAsyncWithHttpInfo($token, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13373,17 +12870,16 @@ class AccountApi
      *
      * Save Validation Status
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAccountSignup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validateAccountSignupAsyncWithHttpInfo($version, $token, string $contentType = self::contentTypes['validateAccountSignup'][0])
+    public function validateAccountSignupAsyncWithHttpInfo($token, string $contentType = self::contentTypes['validateAccountSignup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountLoginResponse';
-        $request = $this->validateAccountSignupRequest($version, $token, $contentType);
+        $request = $this->validateAccountSignupRequest($token, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13424,22 +12920,14 @@ class AccountApi
     /**
      * Create request for operation 'validateAccountSignup'
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateAccountSignup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function validateAccountSignupRequest($version, $token, string $contentType = self::contentTypes['validateAccountSignup'][0])
+    public function validateAccountSignupRequest($token, string $contentType = self::contentTypes['validateAccountSignup'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling validateAccountSignup'
-            );
-        }
 
         // verify the required parameter 'token' is set
         if ($token === null || (is_array($token) && count($token) === 0)) {
@@ -13449,7 +12937,7 @@ class AccountApi
         }
 
 
-        $resourcePath = '/api/{version}/account/validateAccountSignup';
+        $resourcePath = '/account/validateAccountSignup';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -13467,14 +12955,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -13535,7 +13015,6 @@ class AccountApi
      *
      * Validate Password Reset Token
      *
-     * @param  float $version version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePasswordReset'] to see the possible values for this operation
      *
@@ -13543,9 +13022,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function validatePasswordReset($version, $token, string $contentType = self::contentTypes['validatePasswordReset'][0])
+    public function validatePasswordReset($token, string $contentType = self::contentTypes['validatePasswordReset'][0])
     {
-        list($response) = $this->validatePasswordResetWithHttpInfo($version, $token, $contentType);
+        list($response) = $this->validatePasswordResetWithHttpInfo($token, $contentType);
         return $response;
     }
 
@@ -13554,7 +13033,6 @@ class AccountApi
      *
      * Validate Password Reset Token
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePasswordReset'] to see the possible values for this operation
      *
@@ -13562,9 +13040,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function validatePasswordResetWithHttpInfo($version, $token, string $contentType = self::contentTypes['validatePasswordReset'][0])
+    public function validatePasswordResetWithHttpInfo($token, string $contentType = self::contentTypes['validatePasswordReset'][0])
     {
-        $request = $this->validatePasswordResetRequest($version, $token, $contentType);
+        $request = $this->validatePasswordResetRequest($token, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13640,16 +13118,15 @@ class AccountApi
      *
      * Validate Password Reset Token
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePasswordReset'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validatePasswordResetAsync($version, $token, string $contentType = self::contentTypes['validatePasswordReset'][0])
+    public function validatePasswordResetAsync($token, string $contentType = self::contentTypes['validatePasswordReset'][0])
     {
-        return $this->validatePasswordResetAsyncWithHttpInfo($version, $token, $contentType)
+        return $this->validatePasswordResetAsyncWithHttpInfo($token, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13662,17 +13139,16 @@ class AccountApi
      *
      * Validate Password Reset Token
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePasswordReset'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validatePasswordResetAsyncWithHttpInfo($version, $token, string $contentType = self::contentTypes['validatePasswordReset'][0])
+    public function validatePasswordResetAsyncWithHttpInfo($token, string $contentType = self::contentTypes['validatePasswordReset'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->validatePasswordResetRequest($version, $token, $contentType);
+        $request = $this->validatePasswordResetRequest($token, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13713,22 +13189,14 @@ class AccountApi
     /**
      * Create request for operation 'validatePasswordReset'
      *
-     * @param  float $version (required)
      * @param  string $token The token associated with the account to update, good for 24 hours (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validatePasswordReset'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function validatePasswordResetRequest($version, $token, string $contentType = self::contentTypes['validatePasswordReset'][0])
+    public function validatePasswordResetRequest($token, string $contentType = self::contentTypes['validatePasswordReset'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling validatePasswordReset'
-            );
-        }
 
         // verify the required parameter 'token' is set
         if ($token === null || (is_array($token) && count($token) === 0)) {
@@ -13738,7 +13206,7 @@ class AccountApi
         }
 
 
-        $resourcePath = '/api/{version}/account/validatepasswordreset';
+        $resourcePath = '/account/validatepasswordreset';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -13756,14 +13224,6 @@ class AccountApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

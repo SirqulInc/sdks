@@ -176,7 +176,6 @@ class ApplicationApi
      *
      * Create Application
      *
-     * @param  float $version version (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -262,9 +261,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationResponse
      */
-    public function createApplication($version, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
+    public function createApplication($app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
     {
-        list($response) = $this->createApplicationWithHttpInfo($version, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
+        list($response) = $this->createApplicationWithHttpInfo($app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
         return $response;
     }
 
@@ -273,7 +272,6 @@ class ApplicationApi
      *
      * Create Application
      *
-     * @param  float $version (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -359,9 +357,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createApplicationWithHttpInfo($version, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
+    public function createApplicationWithHttpInfo($app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
     {
-        $request = $this->createApplicationRequest($version, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
+        $request = $this->createApplicationRequest($app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -437,7 +435,6 @@ class ApplicationApi
      *
      * Create Application
      *
-     * @param  float $version (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -522,9 +519,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createApplicationAsync($version, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
+    public function createApplicationAsync($app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
     {
-        return $this->createApplicationAsyncWithHttpInfo($version, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType)
+        return $this->createApplicationAsyncWithHttpInfo($app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -537,7 +534,6 @@ class ApplicationApi
      *
      * Create Application
      *
-     * @param  float $version (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -622,10 +618,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createApplicationAsyncWithHttpInfo($version, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
+    public function createApplicationAsyncWithHttpInfo($app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationResponse';
-        $request = $this->createApplicationRequest($version, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
+        $request = $this->createApplicationRequest($app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -666,7 +662,6 @@ class ApplicationApi
     /**
      * Create request for operation 'createApplication'
      *
-     * @param  float $version (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -751,15 +746,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createApplicationRequest($version, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
+    public function createApplicationRequest($app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['createApplication'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createApplication'
-            );
-        }
 
         // verify the required parameter 'app_name' is set
         if ($app_name === null || (is_array($app_name) && count($app_name) === 0)) {
@@ -847,7 +835,7 @@ class ApplicationApi
 
 
 
-        $resourcePath = '/api/{version}/application/create';
+        $resourcePath = '/application/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1567,14 +1555,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1635,7 +1615,6 @@ class ApplicationApi
      *
      * Create Ad Placement
      *
-     * @param  float $version version (required)
      * @param  string $app_key The appKey of the application the ad placement is for (required)
      * @param  string $size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1653,9 +1632,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PlacementResponse
      */
-    public function createApplicationPlacement($version, $app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
+    public function createApplicationPlacement($app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
     {
-        list($response) = $this->createApplicationPlacementWithHttpInfo($version, $app_key, $size, $device_id, $account_id, $name, $description, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
+        list($response) = $this->createApplicationPlacementWithHttpInfo($app_key, $size, $device_id, $account_id, $name, $description, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
         return $response;
     }
 
@@ -1664,7 +1643,6 @@ class ApplicationApi
      *
      * Create Ad Placement
      *
-     * @param  float $version (required)
      * @param  string $app_key The appKey of the application the ad placement is for (required)
      * @param  string $size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1682,9 +1660,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PlacementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createApplicationPlacementWithHttpInfo($version, $app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
+    public function createApplicationPlacementWithHttpInfo($app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
     {
-        $request = $this->createApplicationPlacementRequest($version, $app_key, $size, $device_id, $account_id, $name, $description, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
+        $request = $this->createApplicationPlacementRequest($app_key, $size, $device_id, $account_id, $name, $description, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1760,7 +1738,6 @@ class ApplicationApi
      *
      * Create Ad Placement
      *
-     * @param  float $version (required)
      * @param  string $app_key The appKey of the application the ad placement is for (required)
      * @param  string $size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1777,9 +1754,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createApplicationPlacementAsync($version, $app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
+    public function createApplicationPlacementAsync($app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
     {
-        return $this->createApplicationPlacementAsyncWithHttpInfo($version, $app_key, $size, $device_id, $account_id, $name, $description, $height, $width, $refresh_interval, $default_image_id, $active, $contentType)
+        return $this->createApplicationPlacementAsyncWithHttpInfo($app_key, $size, $device_id, $account_id, $name, $description, $height, $width, $refresh_interval, $default_image_id, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1792,7 +1769,6 @@ class ApplicationApi
      *
      * Create Ad Placement
      *
-     * @param  float $version (required)
      * @param  string $app_key The appKey of the application the ad placement is for (required)
      * @param  string $size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1809,10 +1785,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createApplicationPlacementAsyncWithHttpInfo($version, $app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
+    public function createApplicationPlacementAsyncWithHttpInfo($app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PlacementResponse';
-        $request = $this->createApplicationPlacementRequest($version, $app_key, $size, $device_id, $account_id, $name, $description, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
+        $request = $this->createApplicationPlacementRequest($app_key, $size, $device_id, $account_id, $name, $description, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1853,7 +1829,6 @@ class ApplicationApi
     /**
      * Create request for operation 'createApplicationPlacement'
      *
-     * @param  float $version (required)
      * @param  string $app_key The appKey of the application the ad placement is for (required)
      * @param  string $size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1870,15 +1845,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createApplicationPlacementRequest($version, $app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
+    public function createApplicationPlacementRequest($app_key, $size, $device_id = null, $account_id = null, $name = null, $description = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['createApplicationPlacement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createApplicationPlacement'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -1904,7 +1872,7 @@ class ApplicationApi
 
 
 
-        $resourcePath = '/api/{version}/application/placement/create';
+        $resourcePath = '/application/placement/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2012,14 +1980,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2080,7 +2040,6 @@ class ApplicationApi
      *
      * Delete Application
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
      * @param  string|null $app_key The key of the application to be deleted (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplication'] to see the possible values for this operation
@@ -2089,9 +2048,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteApplication($version, $account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
+    public function deleteApplication($account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
     {
-        list($response) = $this->deleteApplicationWithHttpInfo($version, $account_id, $app_key, $contentType);
+        list($response) = $this->deleteApplicationWithHttpInfo($account_id, $app_key, $contentType);
         return $response;
     }
 
@@ -2100,7 +2059,6 @@ class ApplicationApi
      *
      * Delete Application
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
      * @param  string|null $app_key The key of the application to be deleted (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplication'] to see the possible values for this operation
@@ -2109,9 +2067,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteApplicationWithHttpInfo($version, $account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
+    public function deleteApplicationWithHttpInfo($account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
     {
-        $request = $this->deleteApplicationRequest($version, $account_id, $app_key, $contentType);
+        $request = $this->deleteApplicationRequest($account_id, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2187,7 +2145,6 @@ class ApplicationApi
      *
      * Delete Application
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
      * @param  string|null $app_key The key of the application to be deleted (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplication'] to see the possible values for this operation
@@ -2195,9 +2152,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApplicationAsync($version, $account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
+    public function deleteApplicationAsync($account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
     {
-        return $this->deleteApplicationAsyncWithHttpInfo($version, $account_id, $app_key, $contentType)
+        return $this->deleteApplicationAsyncWithHttpInfo($account_id, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2210,7 +2167,6 @@ class ApplicationApi
      *
      * Delete Application
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
      * @param  string|null $app_key The key of the application to be deleted (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplication'] to see the possible values for this operation
@@ -2218,10 +2174,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApplicationAsyncWithHttpInfo($version, $account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
+    public function deleteApplicationAsyncWithHttpInfo($account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteApplicationRequest($version, $account_id, $app_key, $contentType);
+        $request = $this->deleteApplicationRequest($account_id, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2262,7 +2218,6 @@ class ApplicationApi
     /**
      * Create request for operation 'deleteApplication'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
      * @param  string|null $app_key The key of the application to be deleted (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteApplication'] to see the possible values for this operation
@@ -2270,20 +2225,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteApplicationRequest($version, $account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
+    public function deleteApplicationRequest($account_id = null, $app_key = null, string $contentType = self::contentTypes['deleteApplication'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteApplication'
-            );
-        }
 
 
 
-
-        $resourcePath = '/api/{version}/application/delete';
+        $resourcePath = '/application/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2310,14 +2258,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2378,7 +2318,6 @@ class ApplicationApi
      *
      * Delete Ad Placement
      *
-     * @param  float $version version (required)
      * @param  int $placement_id The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2388,9 +2327,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PlacementResponse
      */
-    public function deleteApplicationPlacement($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
+    public function deleteApplicationPlacement($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
     {
-        list($response) = $this->deleteApplicationPlacementWithHttpInfo($version, $placement_id, $device_id, $account_id, $contentType);
+        list($response) = $this->deleteApplicationPlacementWithHttpInfo($placement_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -2399,7 +2338,6 @@ class ApplicationApi
      *
      * Delete Ad Placement
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2409,9 +2347,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PlacementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteApplicationPlacementWithHttpInfo($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
+    public function deleteApplicationPlacementWithHttpInfo($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
     {
-        $request = $this->deleteApplicationPlacementRequest($version, $placement_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteApplicationPlacementRequest($placement_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2487,7 +2425,6 @@ class ApplicationApi
      *
      * Delete Ad Placement
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2496,9 +2433,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApplicationPlacementAsync($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
+    public function deleteApplicationPlacementAsync($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
     {
-        return $this->deleteApplicationPlacementAsyncWithHttpInfo($version, $placement_id, $device_id, $account_id, $contentType)
+        return $this->deleteApplicationPlacementAsyncWithHttpInfo($placement_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2511,7 +2448,6 @@ class ApplicationApi
      *
      * Delete Ad Placement
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2520,10 +2456,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApplicationPlacementAsyncWithHttpInfo($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
+    public function deleteApplicationPlacementAsyncWithHttpInfo($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PlacementResponse';
-        $request = $this->deleteApplicationPlacementRequest($version, $placement_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteApplicationPlacementRequest($placement_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2564,7 +2500,6 @@ class ApplicationApi
     /**
      * Create request for operation 'deleteApplicationPlacement'
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2573,15 +2508,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteApplicationPlacementRequest($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
+    public function deleteApplicationPlacementRequest($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteApplicationPlacement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteApplicationPlacement'
-            );
-        }
 
         // verify the required parameter 'placement_id' is set
         if ($placement_id === null || (is_array($placement_id) && count($placement_id) === 0)) {
@@ -2593,7 +2521,7 @@ class ApplicationApi
 
 
 
-        $resourcePath = '/api/{version}/application/placement/delete';
+        $resourcePath = '/application/placement/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2629,14 +2557,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2697,7 +2617,6 @@ class ApplicationApi
      *
      * Get Application
      *
-     * @param  float $version version (required)
      * @param  string|null $app_key The key of the application (optional)
      * @param  int|null $application_id Application Id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplication'] to see the possible values for this operation
@@ -2706,9 +2625,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationResponse
      */
-    public function getApplication($version, $app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
+    public function getApplication($app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
     {
-        list($response) = $this->getApplicationWithHttpInfo($version, $app_key, $application_id, $contentType);
+        list($response) = $this->getApplicationWithHttpInfo($app_key, $application_id, $contentType);
         return $response;
     }
 
@@ -2717,7 +2636,6 @@ class ApplicationApi
      *
      * Get Application
      *
-     * @param  float $version (required)
      * @param  string|null $app_key The key of the application (optional)
      * @param  int|null $application_id Application Id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplication'] to see the possible values for this operation
@@ -2726,9 +2644,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationWithHttpInfo($version, $app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
+    public function getApplicationWithHttpInfo($app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
     {
-        $request = $this->getApplicationRequest($version, $app_key, $application_id, $contentType);
+        $request = $this->getApplicationRequest($app_key, $application_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2804,7 +2722,6 @@ class ApplicationApi
      *
      * Get Application
      *
-     * @param  float $version (required)
      * @param  string|null $app_key The key of the application (optional)
      * @param  int|null $application_id Application Id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplication'] to see the possible values for this operation
@@ -2812,9 +2729,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationAsync($version, $app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
+    public function getApplicationAsync($app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
     {
-        return $this->getApplicationAsyncWithHttpInfo($version, $app_key, $application_id, $contentType)
+        return $this->getApplicationAsyncWithHttpInfo($app_key, $application_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2827,7 +2744,6 @@ class ApplicationApi
      *
      * Get Application
      *
-     * @param  float $version (required)
      * @param  string|null $app_key The key of the application (optional)
      * @param  int|null $application_id Application Id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplication'] to see the possible values for this operation
@@ -2835,10 +2751,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationAsyncWithHttpInfo($version, $app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
+    public function getApplicationAsyncWithHttpInfo($app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationResponse';
-        $request = $this->getApplicationRequest($version, $app_key, $application_id, $contentType);
+        $request = $this->getApplicationRequest($app_key, $application_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2879,7 +2795,6 @@ class ApplicationApi
     /**
      * Create request for operation 'getApplication'
      *
-     * @param  float $version (required)
      * @param  string|null $app_key The key of the application (optional)
      * @param  int|null $application_id Application Id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplication'] to see the possible values for this operation
@@ -2887,20 +2802,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getApplicationRequest($version, $app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
+    public function getApplicationRequest($app_key = null, $application_id = null, string $contentType = self::contentTypes['getApplication'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getApplication'
-            );
-        }
 
 
 
-
-        $resourcePath = '/api/{version}/application/get';
+        $resourcePath = '/application/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2927,14 +2835,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2995,7 +2895,6 @@ class ApplicationApi
      *
      * Get Ad Placement
      *
-     * @param  float $version version (required)
      * @param  int $placement_id The id of the placement (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -3005,9 +2904,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PlacementResponse
      */
-    public function getApplicationPlacement($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
+    public function getApplicationPlacement($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
     {
-        list($response) = $this->getApplicationPlacementWithHttpInfo($version, $placement_id, $device_id, $account_id, $contentType);
+        list($response) = $this->getApplicationPlacementWithHttpInfo($placement_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -3016,7 +2915,6 @@ class ApplicationApi
      *
      * Get Ad Placement
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -3026,9 +2924,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PlacementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationPlacementWithHttpInfo($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
+    public function getApplicationPlacementWithHttpInfo($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
     {
-        $request = $this->getApplicationPlacementRequest($version, $placement_id, $device_id, $account_id, $contentType);
+        $request = $this->getApplicationPlacementRequest($placement_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3104,7 +3002,6 @@ class ApplicationApi
      *
      * Get Ad Placement
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -3113,9 +3010,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationPlacementAsync($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
+    public function getApplicationPlacementAsync($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
     {
-        return $this->getApplicationPlacementAsyncWithHttpInfo($version, $placement_id, $device_id, $account_id, $contentType)
+        return $this->getApplicationPlacementAsyncWithHttpInfo($placement_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3128,7 +3025,6 @@ class ApplicationApi
      *
      * Get Ad Placement
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -3137,10 +3033,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationPlacementAsyncWithHttpInfo($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
+    public function getApplicationPlacementAsyncWithHttpInfo($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PlacementResponse';
-        $request = $this->getApplicationPlacementRequest($version, $placement_id, $device_id, $account_id, $contentType);
+        $request = $this->getApplicationPlacementRequest($placement_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3181,7 +3077,6 @@ class ApplicationApi
     /**
      * Create request for operation 'getApplicationPlacement'
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -3190,15 +3085,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getApplicationPlacementRequest($version, $placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
+    public function getApplicationPlacementRequest($placement_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getApplicationPlacement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getApplicationPlacement'
-            );
-        }
 
         // verify the required parameter 'placement_id' is set
         if ($placement_id === null || (is_array($placement_id) && count($placement_id) === 0)) {
@@ -3210,7 +3098,7 @@ class ApplicationApi
 
 
 
-        $resourcePath = '/api/{version}/application/placement/get';
+        $resourcePath = '/application/placement/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3246,14 +3134,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3314,16 +3194,15 @@ class ApplicationApi
      *
      * Get API versions
      *
-     * @param  float $version version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationVersions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function getApplicationVersions($version, string $contentType = self::contentTypes['getApplicationVersions'][0])
+    public function getApplicationVersions(string $contentType = self::contentTypes['getApplicationVersions'][0])
     {
-        list($response) = $this->getApplicationVersionsWithHttpInfo($version, $contentType);
+        list($response) = $this->getApplicationVersionsWithHttpInfo($contentType);
         return $response;
     }
 
@@ -3332,16 +3211,15 @@ class ApplicationApi
      *
      * Get API versions
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationVersions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationVersionsWithHttpInfo($version, string $contentType = self::contentTypes['getApplicationVersions'][0])
+    public function getApplicationVersionsWithHttpInfo(string $contentType = self::contentTypes['getApplicationVersions'][0])
     {
-        $request = $this->getApplicationVersionsRequest($version, $contentType);
+        $request = $this->getApplicationVersionsRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3417,15 +3295,14 @@ class ApplicationApi
      *
      * Get API versions
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationVersions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationVersionsAsync($version, string $contentType = self::contentTypes['getApplicationVersions'][0])
+    public function getApplicationVersionsAsync(string $contentType = self::contentTypes['getApplicationVersions'][0])
     {
-        return $this->getApplicationVersionsAsyncWithHttpInfo($version, $contentType)
+        return $this->getApplicationVersionsAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3438,16 +3315,15 @@ class ApplicationApi
      *
      * Get API versions
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationVersions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationVersionsAsyncWithHttpInfo($version, string $contentType = self::contentTypes['getApplicationVersions'][0])
+    public function getApplicationVersionsAsyncWithHttpInfo(string $contentType = self::contentTypes['getApplicationVersions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->getApplicationVersionsRequest($version, $contentType);
+        $request = $this->getApplicationVersionsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3488,24 +3364,16 @@ class ApplicationApi
     /**
      * Create request for operation 'getApplicationVersions'
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationVersions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getApplicationVersionsRequest($version, string $contentType = self::contentTypes['getApplicationVersions'][0])
+    public function getApplicationVersionsRequest(string $contentType = self::contentTypes['getApplicationVersions'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getApplicationVersions'
-            );
-        }
 
-
-        $resourcePath = '/api/{version}/application/versions';
+        $resourcePath = '/application/versions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3514,14 +3382,6 @@ class ApplicationApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3582,7 +3442,6 @@ class ApplicationApi
      *
      * Search Application Users
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -3597,9 +3456,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AccountListResponse
      */
-    public function getUniqueUsersByApp($version, $app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
+    public function getUniqueUsersByApp($app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
     {
-        list($response) = $this->getUniqueUsersByAppWithHttpInfo($version, $app_key, $q, $keyword, $since, $_i, $start, $_l, $limit, $contentType);
+        list($response) = $this->getUniqueUsersByAppWithHttpInfo($app_key, $q, $keyword, $since, $_i, $start, $_l, $limit, $contentType);
         return $response;
     }
 
@@ -3608,7 +3467,6 @@ class ApplicationApi
      *
      * Search Application Users
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -3623,9 +3481,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AccountListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUniqueUsersByAppWithHttpInfo($version, $app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
+    public function getUniqueUsersByAppWithHttpInfo($app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
     {
-        $request = $this->getUniqueUsersByAppRequest($version, $app_key, $q, $keyword, $since, $_i, $start, $_l, $limit, $contentType);
+        $request = $this->getUniqueUsersByAppRequest($app_key, $q, $keyword, $since, $_i, $start, $_l, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3701,7 +3559,6 @@ class ApplicationApi
      *
      * Search Application Users
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -3715,9 +3572,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUniqueUsersByAppAsync($version, $app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
+    public function getUniqueUsersByAppAsync($app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
     {
-        return $this->getUniqueUsersByAppAsyncWithHttpInfo($version, $app_key, $q, $keyword, $since, $_i, $start, $_l, $limit, $contentType)
+        return $this->getUniqueUsersByAppAsyncWithHttpInfo($app_key, $q, $keyword, $since, $_i, $start, $_l, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3730,7 +3587,6 @@ class ApplicationApi
      *
      * Search Application Users
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -3744,10 +3600,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUniqueUsersByAppAsyncWithHttpInfo($version, $app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
+    public function getUniqueUsersByAppAsyncWithHttpInfo($app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountListResponse';
-        $request = $this->getUniqueUsersByAppRequest($version, $app_key, $q, $keyword, $since, $_i, $start, $_l, $limit, $contentType);
+        $request = $this->getUniqueUsersByAppRequest($app_key, $q, $keyword, $since, $_i, $start, $_l, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3788,7 +3644,6 @@ class ApplicationApi
     /**
      * Create request for operation 'getUniqueUsersByApp'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -3802,15 +3657,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUniqueUsersByAppRequest($version, $app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
+    public function getUniqueUsersByAppRequest($app_key, $q = null, $keyword = null, $since = null, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getUniqueUsersByApp'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getUniqueUsersByApp'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -3827,7 +3675,7 @@ class ApplicationApi
 
 
 
-        $resourcePath = '/api/{version}/application/users';
+        $resourcePath = '/application/users';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3908,14 +3756,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3976,7 +3816,6 @@ class ApplicationApi
      *
      * List Applications
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account id of the application owner/manager (optional)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search for title, about, and description fields (optional)
@@ -4003,9 +3842,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationShortResponse[]
      */
-    public function listApplications($version, $account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
+    public function listApplications($account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
     {
-        list($response) = $this->listApplicationsWithHttpInfo($version, $account_id, $q, $keyword, $platforms, $device_ids, $device_versions, $category_ids, $sort_field, $has_ads, $public_notifications, $filter_billable, $filter_content_admin, $descending, $_i, $start, $_l, $limit, $application_ids, $has_object_store, $active_only, $contentType);
+        list($response) = $this->listApplicationsWithHttpInfo($account_id, $q, $keyword, $platforms, $device_ids, $device_versions, $category_ids, $sort_field, $has_ads, $public_notifications, $filter_billable, $filter_content_admin, $descending, $_i, $start, $_l, $limit, $application_ids, $has_object_store, $active_only, $contentType);
         return $response;
     }
 
@@ -4014,7 +3853,6 @@ class ApplicationApi
      *
      * List Applications
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the application owner/manager (optional)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search for title, about, and description fields (optional)
@@ -4041,9 +3879,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationShortResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listApplicationsWithHttpInfo($version, $account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
+    public function listApplicationsWithHttpInfo($account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
     {
-        $request = $this->listApplicationsRequest($version, $account_id, $q, $keyword, $platforms, $device_ids, $device_versions, $category_ids, $sort_field, $has_ads, $public_notifications, $filter_billable, $filter_content_admin, $descending, $_i, $start, $_l, $limit, $application_ids, $has_object_store, $active_only, $contentType);
+        $request = $this->listApplicationsRequest($account_id, $q, $keyword, $platforms, $device_ids, $device_versions, $category_ids, $sort_field, $has_ads, $public_notifications, $filter_billable, $filter_content_admin, $descending, $_i, $start, $_l, $limit, $application_ids, $has_object_store, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4119,7 +3957,6 @@ class ApplicationApi
      *
      * List Applications
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the application owner/manager (optional)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search for title, about, and description fields (optional)
@@ -4145,9 +3982,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listApplicationsAsync($version, $account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
+    public function listApplicationsAsync($account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
     {
-        return $this->listApplicationsAsyncWithHttpInfo($version, $account_id, $q, $keyword, $platforms, $device_ids, $device_versions, $category_ids, $sort_field, $has_ads, $public_notifications, $filter_billable, $filter_content_admin, $descending, $_i, $start, $_l, $limit, $application_ids, $has_object_store, $active_only, $contentType)
+        return $this->listApplicationsAsyncWithHttpInfo($account_id, $q, $keyword, $platforms, $device_ids, $device_versions, $category_ids, $sort_field, $has_ads, $public_notifications, $filter_billable, $filter_content_admin, $descending, $_i, $start, $_l, $limit, $application_ids, $has_object_store, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4160,7 +3997,6 @@ class ApplicationApi
      *
      * List Applications
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the application owner/manager (optional)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search for title, about, and description fields (optional)
@@ -4186,10 +4022,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listApplicationsAsyncWithHttpInfo($version, $account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
+    public function listApplicationsAsyncWithHttpInfo($account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationShortResponse[]';
-        $request = $this->listApplicationsRequest($version, $account_id, $q, $keyword, $platforms, $device_ids, $device_versions, $category_ids, $sort_field, $has_ads, $public_notifications, $filter_billable, $filter_content_admin, $descending, $_i, $start, $_l, $limit, $application_ids, $has_object_store, $active_only, $contentType);
+        $request = $this->listApplicationsRequest($account_id, $q, $keyword, $platforms, $device_ids, $device_versions, $category_ids, $sort_field, $has_ads, $public_notifications, $filter_billable, $filter_content_admin, $descending, $_i, $start, $_l, $limit, $application_ids, $has_object_store, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4230,7 +4066,6 @@ class ApplicationApi
     /**
      * Create request for operation 'listApplications'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the application owner/manager (optional)
      * @param  string|null $q Q (optional) (deprecated)
      * @param  string|null $keyword The keyword used to search for title, about, and description fields (optional)
@@ -4256,15 +4091,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listApplicationsRequest($version, $account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
+    public function listApplicationsRequest($account_id = null, $q = null, $keyword = null, $platforms = null, $device_ids = null, $device_versions = null, $category_ids = null, $sort_field = 'UPDATED', $has_ads = null, $public_notifications = null, $filter_billable = null, $filter_content_admin = null, $descending = true, $_i = null, $start = 0, $_l = null, $limit = 20, $application_ids = null, $has_object_store = false, $active_only = true, string $contentType = self::contentTypes['listApplications'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listApplications'
-            );
-        }
 
 
 
@@ -4286,8 +4115,7 @@ class ApplicationApi
 
 
 
-
-        $resourcePath = '/api/{version}/application/list';
+        $resourcePath = '/application/list';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4476,14 +4304,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4544,7 +4364,6 @@ class ApplicationApi
      *
      * Search for Ad Placements
      *
-     * @param  float $version version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4556,9 +4375,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PlacementResponse[]
      */
-    public function searchApplicationPlacement($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
+    public function searchApplicationPlacement($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
     {
-        list($response) = $this->searchApplicationPlacementWithHttpInfo($version, $app_key, $device_id, $account_id, $start, $limit, $contentType);
+        list($response) = $this->searchApplicationPlacementWithHttpInfo($app_key, $device_id, $account_id, $start, $limit, $contentType);
         return $response;
     }
 
@@ -4567,7 +4386,6 @@ class ApplicationApi
      *
      * Search for Ad Placements
      *
-     * @param  float $version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4579,9 +4397,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PlacementResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchApplicationPlacementWithHttpInfo($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
+    public function searchApplicationPlacementWithHttpInfo($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
     {
-        $request = $this->searchApplicationPlacementRequest($version, $app_key, $device_id, $account_id, $start, $limit, $contentType);
+        $request = $this->searchApplicationPlacementRequest($app_key, $device_id, $account_id, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4657,7 +4475,6 @@ class ApplicationApi
      *
      * Search for Ad Placements
      *
-     * @param  float $version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4668,9 +4485,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchApplicationPlacementAsync($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
+    public function searchApplicationPlacementAsync($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
     {
-        return $this->searchApplicationPlacementAsyncWithHttpInfo($version, $app_key, $device_id, $account_id, $start, $limit, $contentType)
+        return $this->searchApplicationPlacementAsyncWithHttpInfo($app_key, $device_id, $account_id, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4683,7 +4500,6 @@ class ApplicationApi
      *
      * Search for Ad Placements
      *
-     * @param  float $version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4694,10 +4510,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchApplicationPlacementAsyncWithHttpInfo($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
+    public function searchApplicationPlacementAsyncWithHttpInfo($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PlacementResponse[]';
-        $request = $this->searchApplicationPlacementRequest($version, $app_key, $device_id, $account_id, $start, $limit, $contentType);
+        $request = $this->searchApplicationPlacementRequest($app_key, $device_id, $account_id, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4738,7 +4554,6 @@ class ApplicationApi
     /**
      * Create request for operation 'searchApplicationPlacement'
      *
-     * @param  float $version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4749,15 +4564,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchApplicationPlacementRequest($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
+    public function searchApplicationPlacementRequest($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchApplicationPlacement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchApplicationPlacement'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -4771,7 +4579,7 @@ class ApplicationApi
 
 
 
-        $resourcePath = '/api/{version}/application/placement/search';
+        $resourcePath = '/application/placement/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4825,14 +4633,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4893,7 +4693,6 @@ class ApplicationApi
      *
      * Search for Application Settings
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to view another person&#39;s account (optional)
@@ -4908,9 +4707,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationSettingsResponse
      */
-    public function searchApplicationSettings($version, $device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
+    public function searchApplicationSettings($device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
     {
-        list($response) = $this->searchApplicationSettingsWithHttpInfo($version, $device_id, $account_id, $connection_account_id, $keyword, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchApplicationSettingsWithHttpInfo($device_id, $account_id, $connection_account_id, $keyword, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -4919,7 +4718,6 @@ class ApplicationApi
      *
      * Search for Application Settings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to view another person&#39;s account (optional)
@@ -4934,9 +4732,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchApplicationSettingsWithHttpInfo($version, $device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
+    public function searchApplicationSettingsWithHttpInfo($device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
     {
-        $request = $this->searchApplicationSettingsRequest($version, $device_id, $account_id, $connection_account_id, $keyword, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchApplicationSettingsRequest($device_id, $account_id, $connection_account_id, $keyword, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5012,7 +4810,6 @@ class ApplicationApi
      *
      * Search for Application Settings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to view another person&#39;s account (optional)
@@ -5026,9 +4823,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchApplicationSettingsAsync($version, $device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
+    public function searchApplicationSettingsAsync($device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
     {
-        return $this->searchApplicationSettingsAsyncWithHttpInfo($version, $device_id, $account_id, $connection_account_id, $keyword, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->searchApplicationSettingsAsyncWithHttpInfo($device_id, $account_id, $connection_account_id, $keyword, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5041,7 +4838,6 @@ class ApplicationApi
      *
      * Search for Application Settings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to view another person&#39;s account (optional)
@@ -5055,10 +4851,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchApplicationSettingsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
+    public function searchApplicationSettingsAsyncWithHttpInfo($device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationSettingsResponse';
-        $request = $this->searchApplicationSettingsRequest($version, $device_id, $account_id, $connection_account_id, $keyword, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchApplicationSettingsRequest($device_id, $account_id, $connection_account_id, $keyword, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5099,7 +4895,6 @@ class ApplicationApi
     /**
      * Create request for operation 'searchApplicationSettings'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id The account id used to view another person&#39;s account (optional)
@@ -5113,15 +4908,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchApplicationSettingsRequest($version, $device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
+    public function searchApplicationSettingsRequest($device_id = null, $account_id = null, $connection_account_id = null, $keyword = null, $sort_field = 'APPLICATION_TITLE', $descending = false, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchApplicationSettings'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchApplicationSettings'
-            );
-        }
 
 
 
@@ -5131,8 +4920,7 @@ class ApplicationApi
 
 
 
-
-        $resourcePath = '/api/{version}/application/settings/search';
+        $resourcePath = '/application/settings/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5213,14 +5001,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5281,7 +5061,6 @@ class ApplicationApi
      *
      * Search Applications
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The location of the device (optional)
@@ -5304,9 +5083,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationResponse[]
      */
-    public function searchApplications($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
+    public function searchApplications($device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
     {
-        list($response) = $this->searchApplicationsWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $q, $keyword, $q_search_fields, $sort_field, $descending, $_i, $start, $_l, $limit, $has_ads, $public_notifications, $active_only, $contentType);
+        list($response) = $this->searchApplicationsWithHttpInfo($device_id, $account_id, $latitude, $longitude, $q, $keyword, $q_search_fields, $sort_field, $descending, $_i, $start, $_l, $limit, $has_ads, $public_notifications, $active_only, $contentType);
         return $response;
     }
 
@@ -5315,7 +5094,6 @@ class ApplicationApi
      *
      * Search Applications
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The location of the device (optional)
@@ -5338,9 +5116,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchApplicationsWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
+    public function searchApplicationsWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
     {
-        $request = $this->searchApplicationsRequest($version, $device_id, $account_id, $latitude, $longitude, $q, $keyword, $q_search_fields, $sort_field, $descending, $_i, $start, $_l, $limit, $has_ads, $public_notifications, $active_only, $contentType);
+        $request = $this->searchApplicationsRequest($device_id, $account_id, $latitude, $longitude, $q, $keyword, $q_search_fields, $sort_field, $descending, $_i, $start, $_l, $limit, $has_ads, $public_notifications, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5416,7 +5194,6 @@ class ApplicationApi
      *
      * Search Applications
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The location of the device (optional)
@@ -5438,9 +5215,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchApplicationsAsync($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
+    public function searchApplicationsAsync($device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
     {
-        return $this->searchApplicationsAsyncWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $q, $keyword, $q_search_fields, $sort_field, $descending, $_i, $start, $_l, $limit, $has_ads, $public_notifications, $active_only, $contentType)
+        return $this->searchApplicationsAsyncWithHttpInfo($device_id, $account_id, $latitude, $longitude, $q, $keyword, $q_search_fields, $sort_field, $descending, $_i, $start, $_l, $limit, $has_ads, $public_notifications, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5453,7 +5230,6 @@ class ApplicationApi
      *
      * Search Applications
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The location of the device (optional)
@@ -5475,10 +5251,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchApplicationsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
+    public function searchApplicationsAsyncWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationResponse[]';
-        $request = $this->searchApplicationsRequest($version, $device_id, $account_id, $latitude, $longitude, $q, $keyword, $q_search_fields, $sort_field, $descending, $_i, $start, $_l, $limit, $has_ads, $public_notifications, $active_only, $contentType);
+        $request = $this->searchApplicationsRequest($device_id, $account_id, $latitude, $longitude, $q, $keyword, $q_search_fields, $sort_field, $descending, $_i, $start, $_l, $limit, $has_ads, $public_notifications, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5519,7 +5295,6 @@ class ApplicationApi
     /**
      * Create request for operation 'searchApplications'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude The location of the device (optional)
@@ -5541,15 +5316,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchApplicationsRequest($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
+    public function searchApplicationsRequest($device_id = null, $account_id = null, $latitude = null, $longitude = null, $q = null, $keyword = null, $q_search_fields = 'NAME,ABOUT,BILLABLE_ENTITY_NAME', $sort_field = 'APPLICATION_ID', $descending = false, $_i = null, $start = 0, $_l = null, $limit = 100, $has_ads = null, $public_notifications = null, $active_only = false, string $contentType = self::contentTypes['searchApplications'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchApplications'
-            );
-        }
 
 
 
@@ -5567,8 +5336,7 @@ class ApplicationApi
 
 
 
-
-        $resourcePath = '/api/{version}/application/search';
+        $resourcePath = '/application/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5721,14 +5489,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5789,7 +5549,6 @@ class ApplicationApi
      *
      * Update Application
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -5876,9 +5635,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationResponse
      */
-    public function updateApplication($version, $app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
+    public function updateApplication($app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
     {
-        list($response) = $this->updateApplicationWithHttpInfo($version, $app_key, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
+        list($response) = $this->updateApplicationWithHttpInfo($app_key, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
         return $response;
     }
 
@@ -5887,7 +5646,6 @@ class ApplicationApi
      *
      * Update Application
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -5974,9 +5732,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateApplicationWithHttpInfo($version, $app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
+    public function updateApplicationWithHttpInfo($app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
     {
-        $request = $this->updateApplicationRequest($version, $app_key, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
+        $request = $this->updateApplicationRequest($app_key, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6052,7 +5810,6 @@ class ApplicationApi
      *
      * Update Application
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -6138,9 +5895,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApplicationAsync($version, $app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
+    public function updateApplicationAsync($app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
     {
-        return $this->updateApplicationAsyncWithHttpInfo($version, $app_key, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType)
+        return $this->updateApplicationAsyncWithHttpInfo($app_key, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6153,7 +5910,6 @@ class ApplicationApi
      *
      * Update Application
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -6239,10 +5995,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApplicationAsyncWithHttpInfo($version, $app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
+    public function updateApplicationAsyncWithHttpInfo($app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationResponse';
-        $request = $this->updateApplicationRequest($version, $app_key, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
+        $request = $this->updateApplicationRequest($app_key, $app_name, $device_id, $account_id, $about, $bundle_id, $app_icon_asset_id, $app_logo_asset_id, $facebook_app_id, $facebook_app_secret, $google_api_key, $update_eula_date, $eula_version, $landing_page_url, $show_in_activities, $activity_description, $invite_welcome_text, $invite_page_url, $url_scheme, $platforms, $download_urls, $category_ids, $scoring_type, $hint_cost, $max_score, $tickets_per_point, $has_game_data, $public_notifications, $use_matching_algorithm, $global_tickets, $build_version, $api_version, $placement_name, $placement_description, $placement_size, $placement_height, $placement_width, $placement_refresh_interval, $create_object_store, $public_content_approval, $production_mode, $minimum_session_length, $session_gap_length, $local_ads_enabled, $sqoot_api_key, $trilat_processing_type, $max_sample_size, $min_rssi, $modules, $authorized_count, $authorized_servers, $default_timezone, $smtp_pass, $meta_data, $placement_meta_data, $ips_floor, $enable_apns_badge, $include_in_report, $default_app_filter_id, $enable_welcome_email, $apple_app_id, $apple_team_id, $apple_auth_key_id, $apple_auth_key, $apple_issuer_id, $app_store_key_id, $app_store_key, $google_private_key_file, $authorize_net_api_key, $authorize_net_transaction_key, $email_sender, $smtp_user, $smtp_host, $vatom_business_id, $vatom_rest_client_id, $vatom_rest_secret_key, $twilio_account_sid, $twilio_auth_token, $twilio_sender_phone_number, $open_ai_secret_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6283,7 +6039,6 @@ class ApplicationApi
     /**
      * Create request for operation 'updateApplication'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $app_name The name of the application (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -6369,15 +6124,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateApplicationRequest($version, $app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
+    public function updateApplicationRequest($app_key, $app_name, $device_id = null, $account_id = null, $about = null, $bundle_id = null, $app_icon_asset_id = null, $app_logo_asset_id = null, $facebook_app_id = null, $facebook_app_secret = null, $google_api_key = null, $update_eula_date = null, $eula_version = null, $landing_page_url = null, $show_in_activities = null, $activity_description = null, $invite_welcome_text = null, $invite_page_url = null, $url_scheme = null, $platforms = null, $download_urls = null, $category_ids = null, $scoring_type = 'GAME_LEVEL', $hint_cost = 11, $max_score = 125, $tickets_per_point = 0.037, $has_game_data = true, $public_notifications = null, $use_matching_algorithm = null, $global_tickets = false, $build_version = 1, $api_version = null, $placement_name = null, $placement_description = null, $placement_size = null, $placement_height = null, $placement_width = null, $placement_refresh_interval = null, $create_object_store = true, $public_content_approval = false, $production_mode = false, $minimum_session_length = null, $session_gap_length = null, $local_ads_enabled = false, $sqoot_api_key = null, $trilat_processing_type = 'FINGERPRINT', $max_sample_size = null, $min_rssi = null, $modules = 'ALL', $authorized_count = 1, $authorized_servers = null, $default_timezone = null, $smtp_pass = null, $meta_data = null, $placement_meta_data = null, $ips_floor = false, $enable_apns_badge = true, $include_in_report = true, $default_app_filter_id = null, $enable_welcome_email = null, $apple_app_id = null, $apple_team_id = null, $apple_auth_key_id = null, $apple_auth_key = null, $apple_issuer_id = null, $app_store_key_id = null, $app_store_key = null, $google_private_key_file = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, $email_sender = null, $smtp_user = null, $smtp_host = null, $vatom_business_id = null, $vatom_rest_client_id = null, $vatom_rest_secret_key = null, $twilio_account_sid = null, $twilio_auth_token = null, $twilio_sender_phone_number = null, $open_ai_secret_key = null, string $contentType = self::contentTypes['updateApplication'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateApplication'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -6472,7 +6220,7 @@ class ApplicationApi
 
 
 
-        $resourcePath = '/api/{version}/application/update';
+        $resourcePath = '/application/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7201,14 +6949,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7269,7 +7009,6 @@ class ApplicationApi
      *
      * Change Appliation Status
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the delete, must have rights to edit the application. (required)
      * @param  string $app_key The key of the application to be deleted (required)
      * @param  bool $active If true then set to active, false otherwise (required)
@@ -7279,9 +7018,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateApplicationActive($version, $account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
+    public function updateApplicationActive($account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
     {
-        list($response) = $this->updateApplicationActiveWithHttpInfo($version, $account_id, $app_key, $active, $contentType);
+        list($response) = $this->updateApplicationActiveWithHttpInfo($account_id, $app_key, $active, $contentType);
         return $response;
     }
 
@@ -7290,7 +7029,6 @@ class ApplicationApi
      *
      * Change Appliation Status
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the delete, must have rights to edit the application. (required)
      * @param  string $app_key The key of the application to be deleted (required)
      * @param  bool $active If true then set to active, false otherwise (required)
@@ -7300,9 +7038,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateApplicationActiveWithHttpInfo($version, $account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
+    public function updateApplicationActiveWithHttpInfo($account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
     {
-        $request = $this->updateApplicationActiveRequest($version, $account_id, $app_key, $active, $contentType);
+        $request = $this->updateApplicationActiveRequest($account_id, $app_key, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7378,7 +7116,6 @@ class ApplicationApi
      *
      * Change Appliation Status
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the delete, must have rights to edit the application. (required)
      * @param  string $app_key The key of the application to be deleted (required)
      * @param  bool $active If true then set to active, false otherwise (required)
@@ -7387,9 +7124,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApplicationActiveAsync($version, $account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
+    public function updateApplicationActiveAsync($account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
     {
-        return $this->updateApplicationActiveAsyncWithHttpInfo($version, $account_id, $app_key, $active, $contentType)
+        return $this->updateApplicationActiveAsyncWithHttpInfo($account_id, $app_key, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7402,7 +7139,6 @@ class ApplicationApi
      *
      * Change Appliation Status
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the delete, must have rights to edit the application. (required)
      * @param  string $app_key The key of the application to be deleted (required)
      * @param  bool $active If true then set to active, false otherwise (required)
@@ -7411,10 +7147,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApplicationActiveAsyncWithHttpInfo($version, $account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
+    public function updateApplicationActiveAsyncWithHttpInfo($account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateApplicationActiveRequest($version, $account_id, $app_key, $active, $contentType);
+        $request = $this->updateApplicationActiveRequest($account_id, $app_key, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7455,7 +7191,6 @@ class ApplicationApi
     /**
      * Create request for operation 'updateApplicationActive'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the delete, must have rights to edit the application. (required)
      * @param  string $app_key The key of the application to be deleted (required)
      * @param  bool $active If true then set to active, false otherwise (required)
@@ -7464,15 +7199,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateApplicationActiveRequest($version, $account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
+    public function updateApplicationActiveRequest($account_id, $app_key, $active, string $contentType = self::contentTypes['updateApplicationActive'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateApplicationActive'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -7496,7 +7224,7 @@ class ApplicationApi
         }
 
 
-        $resourcePath = '/api/{version}/application/active';
+        $resourcePath = '/application/active';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7532,14 +7260,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7600,7 +7320,6 @@ class ApplicationApi
      *
      * Update Ad Placement
      *
-     * @param  float $version version (required)
      * @param  int $placement_id The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7618,9 +7337,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PlacementResponse
      */
-    public function updateApplicationPlacement($version, $placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
+    public function updateApplicationPlacement($placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
     {
-        list($response) = $this->updateApplicationPlacementWithHttpInfo($version, $placement_id, $device_id, $account_id, $name, $description, $size, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
+        list($response) = $this->updateApplicationPlacementWithHttpInfo($placement_id, $device_id, $account_id, $name, $description, $size, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
         return $response;
     }
 
@@ -7629,7 +7348,6 @@ class ApplicationApi
      *
      * Update Ad Placement
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7647,9 +7365,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PlacementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateApplicationPlacementWithHttpInfo($version, $placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
+    public function updateApplicationPlacementWithHttpInfo($placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
     {
-        $request = $this->updateApplicationPlacementRequest($version, $placement_id, $device_id, $account_id, $name, $description, $size, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
+        $request = $this->updateApplicationPlacementRequest($placement_id, $device_id, $account_id, $name, $description, $size, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7725,7 +7443,6 @@ class ApplicationApi
      *
      * Update Ad Placement
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7742,9 +7459,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApplicationPlacementAsync($version, $placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
+    public function updateApplicationPlacementAsync($placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
     {
-        return $this->updateApplicationPlacementAsyncWithHttpInfo($version, $placement_id, $device_id, $account_id, $name, $description, $size, $height, $width, $refresh_interval, $default_image_id, $active, $contentType)
+        return $this->updateApplicationPlacementAsyncWithHttpInfo($placement_id, $device_id, $account_id, $name, $description, $size, $height, $width, $refresh_interval, $default_image_id, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7757,7 +7474,6 @@ class ApplicationApi
      *
      * Update Ad Placement
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7774,10 +7490,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApplicationPlacementAsyncWithHttpInfo($version, $placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
+    public function updateApplicationPlacementAsyncWithHttpInfo($placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PlacementResponse';
-        $request = $this->updateApplicationPlacementRequest($version, $placement_id, $device_id, $account_id, $name, $description, $size, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
+        $request = $this->updateApplicationPlacementRequest($placement_id, $device_id, $account_id, $name, $description, $size, $height, $width, $refresh_interval, $default_image_id, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7818,7 +7534,6 @@ class ApplicationApi
     /**
      * Create request for operation 'updateApplicationPlacement'
      *
-     * @param  float $version (required)
      * @param  int $placement_id The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -7835,15 +7550,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateApplicationPlacementRequest($version, $placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
+    public function updateApplicationPlacementRequest($placement_id, $device_id = null, $account_id = null, $name = null, $description = null, $size = null, $height = null, $width = null, $refresh_interval = null, $default_image_id = null, $active = null, string $contentType = self::contentTypes['updateApplicationPlacement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateApplicationPlacement'
-            );
-        }
 
         // verify the required parameter 'placement_id' is set
         if ($placement_id === null || (is_array($placement_id) && count($placement_id) === 0)) {
@@ -7863,7 +7571,7 @@ class ApplicationApi
 
 
 
-        $resourcePath = '/api/{version}/application/placement/update';
+        $resourcePath = '/application/placement/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7971,14 +7679,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8039,7 +7739,6 @@ class ApplicationApi
      *
      * Create Application Certificate
      *
-     * @param  float $version version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
@@ -8050,9 +7749,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function uploadApplicationCertificate($version, $app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
+    public function uploadApplicationCertificate($app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
     {
-        list($response) = $this->uploadApplicationCertificateWithHttpInfo($version, $app_key, $device_id, $account_id, $certificate, $contentType);
+        list($response) = $this->uploadApplicationCertificateWithHttpInfo($app_key, $device_id, $account_id, $certificate, $contentType);
         return $response;
     }
 
@@ -8061,7 +7760,6 @@ class ApplicationApi
      *
      * Create Application Certificate
      *
-     * @param  float $version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
@@ -8072,9 +7770,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadApplicationCertificateWithHttpInfo($version, $app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
+    public function uploadApplicationCertificateWithHttpInfo($app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
     {
-        $request = $this->uploadApplicationCertificateRequest($version, $app_key, $device_id, $account_id, $certificate, $contentType);
+        $request = $this->uploadApplicationCertificateRequest($app_key, $device_id, $account_id, $certificate, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8150,7 +7848,6 @@ class ApplicationApi
      *
      * Create Application Certificate
      *
-     * @param  float $version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
@@ -8160,9 +7857,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadApplicationCertificateAsync($version, $app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
+    public function uploadApplicationCertificateAsync($app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
     {
-        return $this->uploadApplicationCertificateAsyncWithHttpInfo($version, $app_key, $device_id, $account_id, $certificate, $contentType)
+        return $this->uploadApplicationCertificateAsyncWithHttpInfo($app_key, $device_id, $account_id, $certificate, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8175,7 +7872,6 @@ class ApplicationApi
      *
      * Create Application Certificate
      *
-     * @param  float $version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
@@ -8185,10 +7881,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadApplicationCertificateAsyncWithHttpInfo($version, $app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
+    public function uploadApplicationCertificateAsyncWithHttpInfo($app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->uploadApplicationCertificateRequest($version, $app_key, $device_id, $account_id, $certificate, $contentType);
+        $request = $this->uploadApplicationCertificateRequest($app_key, $device_id, $account_id, $certificate, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8229,7 +7925,6 @@ class ApplicationApi
     /**
      * Create request for operation 'uploadApplicationCertificate'
      *
-     * @param  float $version (required)
      * @param  string $app_key The key of the application (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the application. (optional)
@@ -8239,15 +7934,8 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function uploadApplicationCertificateRequest($version, $app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
+    public function uploadApplicationCertificateRequest($app_key, $device_id = null, $account_id = null, $certificate = null, string $contentType = self::contentTypes['uploadApplicationCertificate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling uploadApplicationCertificate'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -8260,7 +7948,7 @@ class ApplicationApi
 
 
 
-        $resourcePath = '/api/{version}/application/certificate/create';
+        $resourcePath = '/application/certificate/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8305,14 +7993,6 @@ class ApplicationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

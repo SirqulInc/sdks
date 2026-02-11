@@ -146,7 +146,6 @@ class ServiceHubApi
      *
      * Create Service Hub
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServiceHub'] to see the possible values for this operation
      *
@@ -154,9 +153,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ServiceHub
      */
-    public function createServiceHub($version, $body = null, string $contentType = self::contentTypes['createServiceHub'][0])
+    public function createServiceHub($body = null, string $contentType = self::contentTypes['createServiceHub'][0])
     {
-        list($response) = $this->createServiceHubWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createServiceHubWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -165,7 +164,6 @@ class ServiceHubApi
      *
      * Create Service Hub
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServiceHub'] to see the possible values for this operation
      *
@@ -173,9 +171,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ServiceHub, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createServiceHubWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createServiceHub'][0])
+    public function createServiceHubWithHttpInfo($body = null, string $contentType = self::contentTypes['createServiceHub'][0])
     {
-        $request = $this->createServiceHubRequest($version, $body, $contentType);
+        $request = $this->createServiceHubRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -251,16 +249,15 @@ class ServiceHubApi
      *
      * Create Service Hub
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServiceHub'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createServiceHubAsync($version, $body = null, string $contentType = self::contentTypes['createServiceHub'][0])
+    public function createServiceHubAsync($body = null, string $contentType = self::contentTypes['createServiceHub'][0])
     {
-        return $this->createServiceHubAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createServiceHubAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -273,17 +270,16 @@ class ServiceHubApi
      *
      * Create Service Hub
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServiceHub'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createServiceHubAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createServiceHub'][0])
+    public function createServiceHubAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createServiceHub'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ServiceHub';
-        $request = $this->createServiceHubRequest($version, $body, $contentType);
+        $request = $this->createServiceHubRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -324,26 +320,18 @@ class ServiceHubApi
     /**
      * Create request for operation 'createServiceHub'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServiceHub'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createServiceHubRequest($version, $body = null, string $contentType = self::contentTypes['createServiceHub'][0])
+    public function createServiceHubRequest($body = null, string $contentType = self::contentTypes['createServiceHub'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createServiceHub'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/hub';
+        $resourcePath = '/hub';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -352,14 +340,6 @@ class ServiceHubApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -427,7 +407,6 @@ class ServiceHubApi
      *
      * Delete Service Hub
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the service hub to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServiceHub'] to see the possible values for this operation
      *
@@ -435,9 +414,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteServiceHub($version, $id, string $contentType = self::contentTypes['deleteServiceHub'][0])
+    public function deleteServiceHub($id, string $contentType = self::contentTypes['deleteServiceHub'][0])
     {
-        $this->deleteServiceHubWithHttpInfo($version, $id, $contentType);
+        $this->deleteServiceHubWithHttpInfo($id, $contentType);
     }
 
     /**
@@ -445,7 +424,6 @@ class ServiceHubApi
      *
      * Delete Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServiceHub'] to see the possible values for this operation
      *
@@ -453,9 +431,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteServiceHubWithHttpInfo($version, $id, string $contentType = self::contentTypes['deleteServiceHub'][0])
+    public function deleteServiceHubWithHttpInfo($id, string $contentType = self::contentTypes['deleteServiceHub'][0])
     {
-        $request = $this->deleteServiceHubRequest($version, $id, $contentType);
+        $request = $this->deleteServiceHubRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -495,16 +473,15 @@ class ServiceHubApi
      *
      * Delete Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServiceHub'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteServiceHubAsync($version, $id, string $contentType = self::contentTypes['deleteServiceHub'][0])
+    public function deleteServiceHubAsync($id, string $contentType = self::contentTypes['deleteServiceHub'][0])
     {
-        return $this->deleteServiceHubAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->deleteServiceHubAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -517,17 +494,16 @@ class ServiceHubApi
      *
      * Delete Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServiceHub'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteServiceHubAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['deleteServiceHub'][0])
+    public function deleteServiceHubAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteServiceHub'][0])
     {
         $returnType = '';
-        $request = $this->deleteServiceHubRequest($version, $id, $contentType);
+        $request = $this->deleteServiceHubRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -555,22 +531,14 @@ class ServiceHubApi
     /**
      * Create request for operation 'deleteServiceHub'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServiceHub'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteServiceHubRequest($version, $id, string $contentType = self::contentTypes['deleteServiceHub'][0])
+    public function deleteServiceHubRequest($id, string $contentType = self::contentTypes['deleteServiceHub'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteServiceHub'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -580,7 +548,7 @@ class ServiceHubApi
         }
 
 
-        $resourcePath = '/api/{version}/hub/{id}';
+        $resourcePath = '/hub/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -589,14 +557,6 @@ class ServiceHubApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -665,7 +625,6 @@ class ServiceHubApi
      *
      * Get Service Hub
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the service hub to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceHub'] to see the possible values for this operation
      *
@@ -673,9 +632,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function getServiceHub($version, $id, string $contentType = self::contentTypes['getServiceHub'][0])
+    public function getServiceHub($id, string $contentType = self::contentTypes['getServiceHub'][0])
     {
-        list($response) = $this->getServiceHubWithHttpInfo($version, $id, $contentType);
+        list($response) = $this->getServiceHubWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -684,7 +643,6 @@ class ServiceHubApi
      *
      * Get Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceHub'] to see the possible values for this operation
      *
@@ -692,9 +650,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getServiceHubWithHttpInfo($version, $id, string $contentType = self::contentTypes['getServiceHub'][0])
+    public function getServiceHubWithHttpInfo($id, string $contentType = self::contentTypes['getServiceHub'][0])
     {
-        $request = $this->getServiceHubRequest($version, $id, $contentType);
+        $request = $this->getServiceHubRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -770,16 +728,15 @@ class ServiceHubApi
      *
      * Get Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceHub'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceHubAsync($version, $id, string $contentType = self::contentTypes['getServiceHub'][0])
+    public function getServiceHubAsync($id, string $contentType = self::contentTypes['getServiceHub'][0])
     {
-        return $this->getServiceHubAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->getServiceHubAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -792,17 +749,16 @@ class ServiceHubApi
      *
      * Get Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceHub'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceHubAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['getServiceHub'][0])
+    public function getServiceHubAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getServiceHub'][0])
     {
         $returnType = 'object';
-        $request = $this->getServiceHubRequest($version, $id, $contentType);
+        $request = $this->getServiceHubRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -843,22 +799,14 @@ class ServiceHubApi
     /**
      * Create request for operation 'getServiceHub'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceHub'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getServiceHubRequest($version, $id, string $contentType = self::contentTypes['getServiceHub'][0])
+    public function getServiceHubRequest($id, string $contentType = self::contentTypes['getServiceHub'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getServiceHub'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -868,7 +816,7 @@ class ServiceHubApi
         }
 
 
-        $resourcePath = '/api/{version}/hub/{id}';
+        $resourcePath = '/hub/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -877,14 +825,6 @@ class ServiceHubApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -953,7 +893,6 @@ class ServiceHubApi
      *
      * Update Service Hub
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postServiceHub'] to see the possible values for this operation
@@ -962,9 +901,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ServiceHub
      */
-    public function postServiceHub($version, $id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
+    public function postServiceHub($id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
     {
-        list($response) = $this->postServiceHubWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->postServiceHubWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -973,7 +912,6 @@ class ServiceHubApi
      *
      * Update Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postServiceHub'] to see the possible values for this operation
@@ -982,9 +920,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ServiceHub, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postServiceHubWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
+    public function postServiceHubWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
     {
-        $request = $this->postServiceHubRequest($version, $id, $body, $contentType);
+        $request = $this->postServiceHubRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1060,7 +998,6 @@ class ServiceHubApi
      *
      * Update Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postServiceHub'] to see the possible values for this operation
@@ -1068,9 +1005,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postServiceHubAsync($version, $id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
+    public function postServiceHubAsync($id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
     {
-        return $this->postServiceHubAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->postServiceHubAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1083,7 +1020,6 @@ class ServiceHubApi
      *
      * Update Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postServiceHub'] to see the possible values for this operation
@@ -1091,10 +1027,10 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postServiceHubAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
+    public function postServiceHubAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ServiceHub';
-        $request = $this->postServiceHubRequest($version, $id, $body, $contentType);
+        $request = $this->postServiceHubRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1135,7 +1071,6 @@ class ServiceHubApi
     /**
      * Create request for operation 'postServiceHub'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postServiceHub'] to see the possible values for this operation
@@ -1143,15 +1078,8 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postServiceHubRequest($version, $id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
+    public function postServiceHubRequest($id, $body = null, string $contentType = self::contentTypes['postServiceHub'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling postServiceHub'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1162,7 +1090,7 @@ class ServiceHubApi
 
 
 
-        $resourcePath = '/api/{version}/hub/{id}';
+        $resourcePath = '/hub/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1171,14 +1099,6 @@ class ServiceHubApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1254,7 +1174,6 @@ class ServiceHubApi
      *
      * Update Service Hub
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putServiceHub'] to see the possible values for this operation
@@ -1263,9 +1182,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ServiceHub
      */
-    public function putServiceHub($version, $id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
+    public function putServiceHub($id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
     {
-        list($response) = $this->putServiceHubWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->putServiceHubWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -1274,7 +1193,6 @@ class ServiceHubApi
      *
      * Update Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putServiceHub'] to see the possible values for this operation
@@ -1283,9 +1201,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ServiceHub, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putServiceHubWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
+    public function putServiceHubWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
     {
-        $request = $this->putServiceHubRequest($version, $id, $body, $contentType);
+        $request = $this->putServiceHubRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1361,7 +1279,6 @@ class ServiceHubApi
      *
      * Update Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putServiceHub'] to see the possible values for this operation
@@ -1369,9 +1286,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putServiceHubAsync($version, $id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
+    public function putServiceHubAsync($id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
     {
-        return $this->putServiceHubAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->putServiceHubAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1384,7 +1301,6 @@ class ServiceHubApi
      *
      * Update Service Hub
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putServiceHub'] to see the possible values for this operation
@@ -1392,10 +1308,10 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putServiceHubAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
+    public function putServiceHubAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ServiceHub';
-        $request = $this->putServiceHubRequest($version, $id, $body, $contentType);
+        $request = $this->putServiceHubRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1436,7 +1352,6 @@ class ServiceHubApi
     /**
      * Create request for operation 'putServiceHub'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the service hub (required)
      * @param  \OpenAPI\Client\Model\ServiceHub|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putServiceHub'] to see the possible values for this operation
@@ -1444,15 +1359,8 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putServiceHubRequest($version, $id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
+    public function putServiceHubRequest($id, $body = null, string $contentType = self::contentTypes['putServiceHub'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling putServiceHub'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1463,7 +1371,7 @@ class ServiceHubApi
 
 
 
-        $resourcePath = '/api/{version}/hub/{id}';
+        $resourcePath = '/hub/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1472,14 +1380,6 @@ class ServiceHubApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1555,7 +1455,6 @@ class ServiceHubApi
      *
      * Search Service Hubs
      *
-     * @param  float $version version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1569,9 +1468,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ServiceHub[]
      */
-    public function searchServiceHubs($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
+    public function searchServiceHubs($sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
     {
-        list($response) = $this->searchServiceHubsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $keyword, $retailer_id, $contentType);
+        list($response) = $this->searchServiceHubsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $keyword, $retailer_id, $contentType);
         return $response;
     }
 
@@ -1580,7 +1479,6 @@ class ServiceHubApi
      *
      * Search Service Hubs
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1594,9 +1492,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ServiceHub[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchServiceHubsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
+    public function searchServiceHubsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
     {
-        $request = $this->searchServiceHubsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $keyword, $retailer_id, $contentType);
+        $request = $this->searchServiceHubsRequest($sort_field, $descending, $start, $limit, $active_only, $keyword, $retailer_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1672,7 +1570,6 @@ class ServiceHubApi
      *
      * Search Service Hubs
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1685,9 +1582,9 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchServiceHubsAsync($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
+    public function searchServiceHubsAsync($sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
     {
-        return $this->searchServiceHubsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $keyword, $retailer_id, $contentType)
+        return $this->searchServiceHubsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $keyword, $retailer_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1700,7 +1597,6 @@ class ServiceHubApi
      *
      * Search Service Hubs
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1713,10 +1609,10 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchServiceHubsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
+    public function searchServiceHubsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ServiceHub[]';
-        $request = $this->searchServiceHubsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $keyword, $retailer_id, $contentType);
+        $request = $this->searchServiceHubsRequest($sort_field, $descending, $start, $limit, $active_only, $keyword, $retailer_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1757,7 +1653,6 @@ class ServiceHubApi
     /**
      * Create request for operation 'searchServiceHubs'
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1770,15 +1665,8 @@ class ServiceHubApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchServiceHubsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
+    public function searchServiceHubsRequest($sort_field, $descending, $start, $limit, $active_only, $keyword = null, $retailer_id = null, string $contentType = self::contentTypes['searchServiceHubs'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchServiceHubs'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -1818,7 +1706,7 @@ class ServiceHubApi
 
 
 
-        $resourcePath = '/api/{version}/hub';
+        $resourcePath = '/hub';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1890,14 +1778,6 @@ class ServiceHubApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

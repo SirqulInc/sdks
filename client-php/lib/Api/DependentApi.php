@@ -137,7 +137,6 @@ class DependentApi
      *
      * Create Dependent
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the parent account to create a dependent for (required)
      * @param  \OpenAPI\Client\Model\Account|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['create'] to see the possible values for this operation
@@ -146,9 +145,9 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function create($version, $account_id, $body = null, string $contentType = self::contentTypes['create'][0])
+    public function create($account_id, $body = null, string $contentType = self::contentTypes['create'][0])
     {
-        list($response) = $this->createWithHttpInfo($version, $account_id, $body, $contentType);
+        list($response) = $this->createWithHttpInfo($account_id, $body, $contentType);
         return $response;
     }
 
@@ -157,7 +156,6 @@ class DependentApi
      *
      * Create Dependent
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account to create a dependent for (required)
      * @param  \OpenAPI\Client\Model\Account|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['create'] to see the possible values for this operation
@@ -166,9 +164,9 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWithHttpInfo($version, $account_id, $body = null, string $contentType = self::contentTypes['create'][0])
+    public function createWithHttpInfo($account_id, $body = null, string $contentType = self::contentTypes['create'][0])
     {
-        $request = $this->createRequest($version, $account_id, $body, $contentType);
+        $request = $this->createRequest($account_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -244,7 +242,6 @@ class DependentApi
      *
      * Create Dependent
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account to create a dependent for (required)
      * @param  \OpenAPI\Client\Model\Account|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['create'] to see the possible values for this operation
@@ -252,9 +249,9 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAsync($version, $account_id, $body = null, string $contentType = self::contentTypes['create'][0])
+    public function createAsync($account_id, $body = null, string $contentType = self::contentTypes['create'][0])
     {
-        return $this->createAsyncWithHttpInfo($version, $account_id, $body, $contentType)
+        return $this->createAsyncWithHttpInfo($account_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -267,7 +264,6 @@ class DependentApi
      *
      * Create Dependent
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account to create a dependent for (required)
      * @param  \OpenAPI\Client\Model\Account|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['create'] to see the possible values for this operation
@@ -275,10 +271,10 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAsyncWithHttpInfo($version, $account_id, $body = null, string $contentType = self::contentTypes['create'][0])
+    public function createAsyncWithHttpInfo($account_id, $body = null, string $contentType = self::contentTypes['create'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->createRequest($version, $account_id, $body, $contentType);
+        $request = $this->createRequest($account_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -319,7 +315,6 @@ class DependentApi
     /**
      * Create request for operation 'create'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account to create a dependent for (required)
      * @param  \OpenAPI\Client\Model\Account|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['create'] to see the possible values for this operation
@@ -327,15 +322,8 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRequest($version, $account_id, $body = null, string $contentType = self::contentTypes['create'][0])
+    public function createRequest($account_id, $body = null, string $contentType = self::contentTypes['create'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling create'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -346,7 +334,7 @@ class DependentApi
 
 
 
-        $resourcePath = '/api/{version}/cargo/dependent/{accountId}';
+        $resourcePath = '/cargo/dependent/{accountId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -355,14 +343,6 @@ class DependentApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -438,7 +418,6 @@ class DependentApi
      *
      * Get dependent list of an account
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the parent account to get a list of dependents (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDependents'] to see the possible values for this operation
      *
@@ -446,9 +425,9 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function getDependents($version, $account_id, string $contentType = self::contentTypes['getDependents'][0])
+    public function getDependents($account_id, string $contentType = self::contentTypes['getDependents'][0])
     {
-        list($response) = $this->getDependentsWithHttpInfo($version, $account_id, $contentType);
+        list($response) = $this->getDependentsWithHttpInfo($account_id, $contentType);
         return $response;
     }
 
@@ -457,7 +436,6 @@ class DependentApi
      *
      * Get dependent list of an account
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account to get a list of dependents (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDependents'] to see the possible values for this operation
      *
@@ -465,9 +443,9 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDependentsWithHttpInfo($version, $account_id, string $contentType = self::contentTypes['getDependents'][0])
+    public function getDependentsWithHttpInfo($account_id, string $contentType = self::contentTypes['getDependents'][0])
     {
-        $request = $this->getDependentsRequest($version, $account_id, $contentType);
+        $request = $this->getDependentsRequest($account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -543,16 +521,15 @@ class DependentApi
      *
      * Get dependent list of an account
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account to get a list of dependents (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDependents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDependentsAsync($version, $account_id, string $contentType = self::contentTypes['getDependents'][0])
+    public function getDependentsAsync($account_id, string $contentType = self::contentTypes['getDependents'][0])
     {
-        return $this->getDependentsAsyncWithHttpInfo($version, $account_id, $contentType)
+        return $this->getDependentsAsyncWithHttpInfo($account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -565,17 +542,16 @@ class DependentApi
      *
      * Get dependent list of an account
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account to get a list of dependents (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDependents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDependentsAsyncWithHttpInfo($version, $account_id, string $contentType = self::contentTypes['getDependents'][0])
+    public function getDependentsAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['getDependents'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->getDependentsRequest($version, $account_id, $contentType);
+        $request = $this->getDependentsRequest($account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -616,22 +592,14 @@ class DependentApi
     /**
      * Create request for operation 'getDependents'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account to get a list of dependents (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDependents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDependentsRequest($version, $account_id, string $contentType = self::contentTypes['getDependents'][0])
+    public function getDependentsRequest($account_id, string $contentType = self::contentTypes['getDependents'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getDependents'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -641,7 +609,7 @@ class DependentApi
         }
 
 
-        $resourcePath = '/api/{version}/cargo/dependent/{accountId}';
+        $resourcePath = '/cargo/dependent/{accountId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -650,14 +618,6 @@ class DependentApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -726,7 +686,6 @@ class DependentApi
      *
      * Delete Dependent
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the parent account tied to the dependent (required)
      * @param  int $dependent_id the id of the dependent to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDependent'] to see the possible values for this operation
@@ -735,9 +694,9 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function removeDependent($version, $account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
+    public function removeDependent($account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
     {
-        $this->removeDependentWithHttpInfo($version, $account_id, $dependent_id, $contentType);
+        $this->removeDependentWithHttpInfo($account_id, $dependent_id, $contentType);
     }
 
     /**
@@ -745,7 +704,6 @@ class DependentApi
      *
      * Delete Dependent
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account tied to the dependent (required)
      * @param  int $dependent_id the id of the dependent to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDependent'] to see the possible values for this operation
@@ -754,9 +712,9 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeDependentWithHttpInfo($version, $account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
+    public function removeDependentWithHttpInfo($account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
     {
-        $request = $this->removeDependentRequest($version, $account_id, $dependent_id, $contentType);
+        $request = $this->removeDependentRequest($account_id, $dependent_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -796,7 +754,6 @@ class DependentApi
      *
      * Delete Dependent
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account tied to the dependent (required)
      * @param  int $dependent_id the id of the dependent to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDependent'] to see the possible values for this operation
@@ -804,9 +761,9 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeDependentAsync($version, $account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
+    public function removeDependentAsync($account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
     {
-        return $this->removeDependentAsyncWithHttpInfo($version, $account_id, $dependent_id, $contentType)
+        return $this->removeDependentAsyncWithHttpInfo($account_id, $dependent_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -819,7 +776,6 @@ class DependentApi
      *
      * Delete Dependent
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account tied to the dependent (required)
      * @param  int $dependent_id the id of the dependent to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDependent'] to see the possible values for this operation
@@ -827,10 +783,10 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeDependentAsyncWithHttpInfo($version, $account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
+    public function removeDependentAsyncWithHttpInfo($account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
     {
         $returnType = '';
-        $request = $this->removeDependentRequest($version, $account_id, $dependent_id, $contentType);
+        $request = $this->removeDependentRequest($account_id, $dependent_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -858,7 +814,6 @@ class DependentApi
     /**
      * Create request for operation 'removeDependent'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the parent account tied to the dependent (required)
      * @param  int $dependent_id the id of the dependent to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeDependent'] to see the possible values for this operation
@@ -866,15 +821,8 @@ class DependentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeDependentRequest($version, $account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
+    public function removeDependentRequest($account_id, $dependent_id, string $contentType = self::contentTypes['removeDependent'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeDependent'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -891,7 +839,7 @@ class DependentApi
         }
 
 
-        $resourcePath = '/api/{version}/cargo/dependent/{accountId}';
+        $resourcePath = '/cargo/dependent/{accountId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -900,14 +848,6 @@ class DependentApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(

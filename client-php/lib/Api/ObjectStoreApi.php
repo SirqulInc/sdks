@@ -161,7 +161,6 @@ class ObjectStoreApi
      *
      * Create Field
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to add the field to (required)
@@ -173,9 +172,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function addField($version, $account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
+    public function addField($account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
     {
-        list($response) = $this->addFieldWithHttpInfo($version, $account_id, $app_key, $object_name, $field_name, $field_type, $contentType);
+        list($response) = $this->addFieldWithHttpInfo($account_id, $app_key, $object_name, $field_name, $field_type, $contentType);
         return $response;
     }
 
@@ -184,7 +183,6 @@ class ObjectStoreApi
      *
      * Create Field
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to add the field to (required)
@@ -196,9 +194,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addFieldWithHttpInfo($version, $account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
+    public function addFieldWithHttpInfo($account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
     {
-        $request = $this->addFieldRequest($version, $account_id, $app_key, $object_name, $field_name, $field_type, $contentType);
+        $request = $this->addFieldRequest($account_id, $app_key, $object_name, $field_name, $field_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -274,7 +272,6 @@ class ObjectStoreApi
      *
      * Create Field
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to add the field to (required)
@@ -285,9 +282,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFieldAsync($version, $account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
+    public function addFieldAsync($account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
     {
-        return $this->addFieldAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, $field_name, $field_type, $contentType)
+        return $this->addFieldAsyncWithHttpInfo($account_id, $app_key, $object_name, $field_name, $field_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -300,7 +297,6 @@ class ObjectStoreApi
      *
      * Create Field
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to add the field to (required)
@@ -311,10 +307,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFieldAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
+    public function addFieldAsyncWithHttpInfo($account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->addFieldRequest($version, $account_id, $app_key, $object_name, $field_name, $field_type, $contentType);
+        $request = $this->addFieldRequest($account_id, $app_key, $object_name, $field_name, $field_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -355,7 +351,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'addField'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to add the field to (required)
@@ -366,15 +361,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addFieldRequest($version, $account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
+    public function addFieldRequest($account_id, $app_key, $object_name, $field_name, $field_type, string $contentType = self::contentTypes['addField'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addField'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -412,7 +400,7 @@ class ObjectStoreApi
         }
 
 
-        $resourcePath = '/api/{version}/object/field/add';
+        $resourcePath = '/object/field/add';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -466,14 +454,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -534,7 +514,6 @@ class ObjectStoreApi
      *
      * Create Data
      *
-     * @param  float $version version (required)
      * @param  string $object_name the name of the object to create data for (required)
      * @param  int|null $account_id the account id (optional)
      * @param  string|null $body body (optional)
@@ -544,9 +523,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function createData($version, $object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
+    public function createData($object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
     {
-        list($response) = $this->createDataWithHttpInfo($version, $object_name, $account_id, $body, $contentType);
+        list($response) = $this->createDataWithHttpInfo($object_name, $account_id, $body, $contentType);
         return $response;
     }
 
@@ -555,7 +534,6 @@ class ObjectStoreApi
      *
      * Create Data
      *
-     * @param  float $version (required)
      * @param  string $object_name the name of the object to create data for (required)
      * @param  int|null $account_id the account id (optional)
      * @param  string|null $body (optional)
@@ -565,9 +543,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDataWithHttpInfo($version, $object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
+    public function createDataWithHttpInfo($object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
     {
-        $request = $this->createDataRequest($version, $object_name, $account_id, $body, $contentType);
+        $request = $this->createDataRequest($object_name, $account_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -643,7 +621,6 @@ class ObjectStoreApi
      *
      * Create Data
      *
-     * @param  float $version (required)
      * @param  string $object_name the name of the object to create data for (required)
      * @param  int|null $account_id the account id (optional)
      * @param  string|null $body (optional)
@@ -652,9 +629,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDataAsync($version, $object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
+    public function createDataAsync($object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
     {
-        return $this->createDataAsyncWithHttpInfo($version, $object_name, $account_id, $body, $contentType)
+        return $this->createDataAsyncWithHttpInfo($object_name, $account_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -667,7 +644,6 @@ class ObjectStoreApi
      *
      * Create Data
      *
-     * @param  float $version (required)
      * @param  string $object_name the name of the object to create data for (required)
      * @param  int|null $account_id the account id (optional)
      * @param  string|null $body (optional)
@@ -676,10 +652,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDataAsyncWithHttpInfo($version, $object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
+    public function createDataAsyncWithHttpInfo($object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->createDataRequest($version, $object_name, $account_id, $body, $contentType);
+        $request = $this->createDataRequest($object_name, $account_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -720,7 +696,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'createData'
      *
-     * @param  float $version (required)
      * @param  string $object_name the name of the object to create data for (required)
      * @param  int|null $account_id the account id (optional)
      * @param  string|null $body (optional)
@@ -729,15 +704,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createDataRequest($version, $object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
+    public function createDataRequest($object_name, $account_id = null, $body = null, string $contentType = self::contentTypes['createData'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createData'
-            );
-        }
 
         // verify the required parameter 'object_name' is set
         if ($object_name === null || (is_array($object_name) && count($object_name) === 0)) {
@@ -749,7 +717,7 @@ class ObjectStoreApi
 
 
 
-        $resourcePath = '/api/{version}/object/data/{objectName}';
+        $resourcePath = '/object/data/{objectName}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -767,14 +735,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($object_name !== null) {
             $resourcePath = str_replace(
@@ -850,7 +810,6 @@ class ObjectStoreApi
      *
      * Create Object
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to create (required)
@@ -860,9 +819,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function createObject($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
+    public function createObject($account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
     {
-        list($response) = $this->createObjectWithHttpInfo($version, $account_id, $app_key, $object_name, $contentType);
+        list($response) = $this->createObjectWithHttpInfo($account_id, $app_key, $object_name, $contentType);
         return $response;
     }
 
@@ -871,7 +830,6 @@ class ObjectStoreApi
      *
      * Create Object
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to create (required)
@@ -881,9 +839,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createObjectWithHttpInfo($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
+    public function createObjectWithHttpInfo($account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
     {
-        $request = $this->createObjectRequest($version, $account_id, $app_key, $object_name, $contentType);
+        $request = $this->createObjectRequest($account_id, $app_key, $object_name, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -959,7 +917,6 @@ class ObjectStoreApi
      *
      * Create Object
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to create (required)
@@ -968,9 +925,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createObjectAsync($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
+    public function createObjectAsync($account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
     {
-        return $this->createObjectAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, $contentType)
+        return $this->createObjectAsyncWithHttpInfo($account_id, $app_key, $object_name, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -983,7 +940,6 @@ class ObjectStoreApi
      *
      * Create Object
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to create (required)
@@ -992,10 +948,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createObjectAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
+    public function createObjectAsyncWithHttpInfo($account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->createObjectRequest($version, $account_id, $app_key, $object_name, $contentType);
+        $request = $this->createObjectRequest($account_id, $app_key, $object_name, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1036,7 +992,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'createObject'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to create (required)
@@ -1045,15 +1000,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createObjectRequest($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
+    public function createObjectRequest($account_id, $app_key, $object_name, string $contentType = self::contentTypes['createObject'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createObject'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1077,7 +1025,7 @@ class ObjectStoreApi
         }
 
 
-        $resourcePath = '/api/{version}/object/create';
+        $resourcePath = '/object/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1113,14 +1061,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1181,7 +1121,6 @@ class ObjectStoreApi
      *
      * Delete Data
      *
-     * @param  float $version version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -1191,9 +1130,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function deleteData($version, $object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
+    public function deleteData($object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
     {
-        list($response) = $this->deleteDataWithHttpInfo($version, $object_name, $object_id, $account_id, $contentType);
+        list($response) = $this->deleteDataWithHttpInfo($object_name, $object_id, $account_id, $contentType);
         return $response;
     }
 
@@ -1202,7 +1141,6 @@ class ObjectStoreApi
      *
      * Delete Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -1212,9 +1150,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteDataWithHttpInfo($version, $object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
+    public function deleteDataWithHttpInfo($object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
     {
-        $request = $this->deleteDataRequest($version, $object_name, $object_id, $account_id, $contentType);
+        $request = $this->deleteDataRequest($object_name, $object_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1290,7 +1228,6 @@ class ObjectStoreApi
      *
      * Delete Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -1299,9 +1236,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDataAsync($version, $object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
+    public function deleteDataAsync($object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
     {
-        return $this->deleteDataAsyncWithHttpInfo($version, $object_name, $object_id, $account_id, $contentType)
+        return $this->deleteDataAsyncWithHttpInfo($object_name, $object_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1314,7 +1251,6 @@ class ObjectStoreApi
      *
      * Delete Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -1323,10 +1259,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDataAsyncWithHttpInfo($version, $object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
+    public function deleteDataAsyncWithHttpInfo($object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->deleteDataRequest($version, $object_name, $object_id, $account_id, $contentType);
+        $request = $this->deleteDataRequest($object_name, $object_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1367,7 +1303,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'deleteData'
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -1376,15 +1311,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteDataRequest($version, $object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
+    public function deleteDataRequest($object_name, $object_id, $account_id = null, string $contentType = self::contentTypes['deleteData'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteData'
-            );
-        }
 
         // verify the required parameter 'object_name' is set
         if ($object_name === null || (is_array($object_name) && count($object_name) === 0)) {
@@ -1402,7 +1330,7 @@ class ObjectStoreApi
 
 
 
-        $resourcePath = '/api/{version}/object/data/{objectName}/{objectId}';
+        $resourcePath = '/object/data/{objectName}/{objectId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1420,14 +1348,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($object_name !== null) {
             $resourcePath = str_replace(
@@ -1504,7 +1424,6 @@ class ObjectStoreApi
      *
      * Delete Field
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to remove the field from (required)
@@ -1515,9 +1434,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function deleteField($version, $account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
+    public function deleteField($account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
     {
-        list($response) = $this->deleteFieldWithHttpInfo($version, $account_id, $app_key, $object_name, $field_name, $contentType);
+        list($response) = $this->deleteFieldWithHttpInfo($account_id, $app_key, $object_name, $field_name, $contentType);
         return $response;
     }
 
@@ -1526,7 +1445,6 @@ class ObjectStoreApi
      *
      * Delete Field
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to remove the field from (required)
@@ -1537,9 +1455,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFieldWithHttpInfo($version, $account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
+    public function deleteFieldWithHttpInfo($account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
     {
-        $request = $this->deleteFieldRequest($version, $account_id, $app_key, $object_name, $field_name, $contentType);
+        $request = $this->deleteFieldRequest($account_id, $app_key, $object_name, $field_name, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1615,7 +1533,6 @@ class ObjectStoreApi
      *
      * Delete Field
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to remove the field from (required)
@@ -1625,9 +1542,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFieldAsync($version, $account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
+    public function deleteFieldAsync($account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
     {
-        return $this->deleteFieldAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, $field_name, $contentType)
+        return $this->deleteFieldAsyncWithHttpInfo($account_id, $app_key, $object_name, $field_name, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1640,7 +1557,6 @@ class ObjectStoreApi
      *
      * Delete Field
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to remove the field from (required)
@@ -1650,10 +1566,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFieldAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
+    public function deleteFieldAsyncWithHttpInfo($account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->deleteFieldRequest($version, $account_id, $app_key, $object_name, $field_name, $contentType);
+        $request = $this->deleteFieldRequest($account_id, $app_key, $object_name, $field_name, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1694,7 +1610,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'deleteField'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to remove the field from (required)
@@ -1704,15 +1619,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFieldRequest($version, $account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
+    public function deleteFieldRequest($account_id, $app_key, $object_name, $field_name, string $contentType = self::contentTypes['deleteField'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteField'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1743,7 +1651,7 @@ class ObjectStoreApi
         }
 
 
-        $resourcePath = '/api/{version}/object/field/delete';
+        $resourcePath = '/object/field/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1788,14 +1696,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1856,7 +1756,6 @@ class ObjectStoreApi
      *
      * Delete Object
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $app_key the application key (required)
      * @param  string $object_name the name of the object to delete (required)
@@ -1866,9 +1765,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function deleteObject($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
+    public function deleteObject($account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
     {
-        list($response) = $this->deleteObjectWithHttpInfo($version, $account_id, $app_key, $object_name, $contentType);
+        list($response) = $this->deleteObjectWithHttpInfo($account_id, $app_key, $object_name, $contentType);
         return $response;
     }
 
@@ -1877,7 +1776,6 @@ class ObjectStoreApi
      *
      * Delete Object
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $app_key the application key (required)
      * @param  string $object_name the name of the object to delete (required)
@@ -1887,9 +1785,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteObjectWithHttpInfo($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
+    public function deleteObjectWithHttpInfo($account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
     {
-        $request = $this->deleteObjectRequest($version, $account_id, $app_key, $object_name, $contentType);
+        $request = $this->deleteObjectRequest($account_id, $app_key, $object_name, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1965,7 +1863,6 @@ class ObjectStoreApi
      *
      * Delete Object
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $app_key the application key (required)
      * @param  string $object_name the name of the object to delete (required)
@@ -1974,9 +1871,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteObjectAsync($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
+    public function deleteObjectAsync($account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
     {
-        return $this->deleteObjectAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, $contentType)
+        return $this->deleteObjectAsyncWithHttpInfo($account_id, $app_key, $object_name, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1989,7 +1886,6 @@ class ObjectStoreApi
      *
      * Delete Object
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $app_key the application key (required)
      * @param  string $object_name the name of the object to delete (required)
@@ -1998,10 +1894,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteObjectAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
+    public function deleteObjectAsyncWithHttpInfo($account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->deleteObjectRequest($version, $account_id, $app_key, $object_name, $contentType);
+        $request = $this->deleteObjectRequest($account_id, $app_key, $object_name, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2042,7 +1938,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'deleteObject'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $app_key the application key (required)
      * @param  string $object_name the name of the object to delete (required)
@@ -2051,15 +1946,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteObjectRequest($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
+    public function deleteObjectRequest($account_id, $app_key, $object_name, string $contentType = self::contentTypes['deleteObject'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteObject'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2083,7 +1971,7 @@ class ObjectStoreApi
         }
 
 
-        $resourcePath = '/api/{version}/object/delete';
+        $resourcePath = '/object/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2119,14 +2007,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2187,7 +2067,6 @@ class ObjectStoreApi
      *
      * Get Data
      *
-     * @param  float $version version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -2198,9 +2077,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function getData($version, $object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
+    public function getData($object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
     {
-        list($response) = $this->getDataWithHttpInfo($version, $object_name, $object_id, $account_id, $include, $contentType);
+        list($response) = $this->getDataWithHttpInfo($object_name, $object_id, $account_id, $include, $contentType);
         return $response;
     }
 
@@ -2209,7 +2088,6 @@ class ObjectStoreApi
      *
      * Get Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -2220,9 +2098,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDataWithHttpInfo($version, $object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
+    public function getDataWithHttpInfo($object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
     {
-        $request = $this->getDataRequest($version, $object_name, $object_id, $account_id, $include, $contentType);
+        $request = $this->getDataRequest($object_name, $object_id, $account_id, $include, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2298,7 +2176,6 @@ class ObjectStoreApi
      *
      * Get Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -2308,9 +2185,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataAsync($version, $object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
+    public function getDataAsync($object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
     {
-        return $this->getDataAsyncWithHttpInfo($version, $object_name, $object_id, $account_id, $include, $contentType)
+        return $this->getDataAsyncWithHttpInfo($object_name, $object_id, $account_id, $include, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2323,7 +2200,6 @@ class ObjectStoreApi
      *
      * Get Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -2333,10 +2209,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataAsyncWithHttpInfo($version, $object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
+    public function getDataAsyncWithHttpInfo($object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->getDataRequest($version, $object_name, $object_id, $account_id, $include, $contentType);
+        $request = $this->getDataRequest($object_name, $object_id, $account_id, $include, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2377,7 +2253,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'getData'
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -2387,15 +2262,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDataRequest($version, $object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
+    public function getDataRequest($object_name, $object_id, $account_id = null, $include = null, string $contentType = self::contentTypes['getData'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getData'
-            );
-        }
 
         // verify the required parameter 'object_name' is set
         if ($object_name === null || (is_array($object_name) && count($object_name) === 0)) {
@@ -2414,7 +2282,7 @@ class ObjectStoreApi
 
 
 
-        $resourcePath = '/api/{version}/object/data/{objectName}/{objectId}';
+        $resourcePath = '/object/data/{objectName}/{objectId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2441,14 +2309,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($object_name !== null) {
             $resourcePath = str_replace(
@@ -2525,7 +2385,6 @@ class ObjectStoreApi
      *
      * Get Object
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to get the definition for (required)
@@ -2535,9 +2394,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function getObject($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
+    public function getObject($account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
     {
-        list($response) = $this->getObjectWithHttpInfo($version, $account_id, $app_key, $object_name, $contentType);
+        list($response) = $this->getObjectWithHttpInfo($account_id, $app_key, $object_name, $contentType);
         return $response;
     }
 
@@ -2546,7 +2405,6 @@ class ObjectStoreApi
      *
      * Get Object
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to get the definition for (required)
@@ -2556,9 +2414,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getObjectWithHttpInfo($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
+    public function getObjectWithHttpInfo($account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
     {
-        $request = $this->getObjectRequest($version, $account_id, $app_key, $object_name, $contentType);
+        $request = $this->getObjectRequest($account_id, $app_key, $object_name, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2634,7 +2492,6 @@ class ObjectStoreApi
      *
      * Get Object
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to get the definition for (required)
@@ -2643,9 +2500,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getObjectAsync($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
+    public function getObjectAsync($account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
     {
-        return $this->getObjectAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, $contentType)
+        return $this->getObjectAsyncWithHttpInfo($account_id, $app_key, $object_name, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2658,7 +2515,6 @@ class ObjectStoreApi
      *
      * Get Object
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to get the definition for (required)
@@ -2667,10 +2523,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getObjectAsyncWithHttpInfo($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
+    public function getObjectAsyncWithHttpInfo($account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->getObjectRequest($version, $account_id, $app_key, $object_name, $contentType);
+        $request = $this->getObjectRequest($account_id, $app_key, $object_name, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2711,7 +2567,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'getObject'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $object_name The name of the object to get the definition for (required)
@@ -2720,15 +2575,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getObjectRequest($version, $account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
+    public function getObjectRequest($account_id, $app_key, $object_name, string $contentType = self::contentTypes['getObject'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getObject'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2752,7 +2600,7 @@ class ObjectStoreApi
         }
 
 
-        $resourcePath = '/api/{version}/object/get';
+        $resourcePath = '/object/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2788,14 +2636,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2856,7 +2696,6 @@ class ObjectStoreApi
      *
      * Search Data
      *
-     * @param  float $version version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  bool $count If true just return the record count of the search. False (default) will return the actual records (required)
      * @param  int $start The start of the pagination (required)
@@ -2871,9 +2710,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function searchData($version, $object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
+    public function searchData($object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
     {
-        list($response) = $this->searchDataWithHttpInfo($version, $object_name, $count, $start, $limit, $account_id, $criteria, $order, $include, $contentType);
+        list($response) = $this->searchDataWithHttpInfo($object_name, $count, $start, $limit, $account_id, $criteria, $order, $include, $contentType);
         return $response;
     }
 
@@ -2882,7 +2721,6 @@ class ObjectStoreApi
      *
      * Search Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  bool $count If true just return the record count of the search. False (default) will return the actual records (required)
      * @param  int $start The start of the pagination (required)
@@ -2897,9 +2735,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchDataWithHttpInfo($version, $object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
+    public function searchDataWithHttpInfo($object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
     {
-        $request = $this->searchDataRequest($version, $object_name, $count, $start, $limit, $account_id, $criteria, $order, $include, $contentType);
+        $request = $this->searchDataRequest($object_name, $count, $start, $limit, $account_id, $criteria, $order, $include, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2975,7 +2813,6 @@ class ObjectStoreApi
      *
      * Search Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  bool $count If true just return the record count of the search. False (default) will return the actual records (required)
      * @param  int $start The start of the pagination (required)
@@ -2989,9 +2826,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchDataAsync($version, $object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
+    public function searchDataAsync($object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
     {
-        return $this->searchDataAsyncWithHttpInfo($version, $object_name, $count, $start, $limit, $account_id, $criteria, $order, $include, $contentType)
+        return $this->searchDataAsyncWithHttpInfo($object_name, $count, $start, $limit, $account_id, $criteria, $order, $include, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3004,7 +2841,6 @@ class ObjectStoreApi
      *
      * Search Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  bool $count If true just return the record count of the search. False (default) will return the actual records (required)
      * @param  int $start The start of the pagination (required)
@@ -3018,10 +2854,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchDataAsyncWithHttpInfo($version, $object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
+    public function searchDataAsyncWithHttpInfo($object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->searchDataRequest($version, $object_name, $count, $start, $limit, $account_id, $criteria, $order, $include, $contentType);
+        $request = $this->searchDataRequest($object_name, $count, $start, $limit, $account_id, $criteria, $order, $include, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3062,7 +2898,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'searchData'
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  bool $count If true just return the record count of the search. False (default) will return the actual records (required)
      * @param  int $start The start of the pagination (required)
@@ -3076,15 +2911,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchDataRequest($version, $object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
+    public function searchDataRequest($object_name, $count, $start, $limit, $account_id = null, $criteria = null, $order = null, $include = null, string $contentType = self::contentTypes['searchData'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchData'
-            );
-        }
 
         // verify the required parameter 'object_name' is set
         if ($object_name === null || (is_array($object_name) && count($object_name) === 0)) {
@@ -3119,7 +2947,7 @@ class ObjectStoreApi
 
 
 
-        $resourcePath = '/api/{version}/object/data/{objectName}';
+        $resourcePath = '/object/data/{objectName}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3192,14 +3020,6 @@ class ObjectStoreApi
 
 
         // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
-        // path params
         if ($object_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'objectName' . '}',
@@ -3267,7 +3087,6 @@ class ObjectStoreApi
      *
      * Search Objects
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  int $start The start of the pagination (required)
@@ -3279,9 +3098,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function searchObject($version, $account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
+    public function searchObject($account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
     {
-        list($response) = $this->searchObjectWithHttpInfo($version, $account_id, $app_key, $start, $limit, $keyword, $contentType);
+        list($response) = $this->searchObjectWithHttpInfo($account_id, $app_key, $start, $limit, $keyword, $contentType);
         return $response;
     }
 
@@ -3290,7 +3109,6 @@ class ObjectStoreApi
      *
      * Search Objects
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  int $start The start of the pagination (required)
@@ -3302,9 +3120,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchObjectWithHttpInfo($version, $account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
+    public function searchObjectWithHttpInfo($account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
     {
-        $request = $this->searchObjectRequest($version, $account_id, $app_key, $start, $limit, $keyword, $contentType);
+        $request = $this->searchObjectRequest($account_id, $app_key, $start, $limit, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3380,7 +3198,6 @@ class ObjectStoreApi
      *
      * Search Objects
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  int $start The start of the pagination (required)
@@ -3391,9 +3208,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObjectAsync($version, $account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
+    public function searchObjectAsync($account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
     {
-        return $this->searchObjectAsyncWithHttpInfo($version, $account_id, $app_key, $start, $limit, $keyword, $contentType)
+        return $this->searchObjectAsyncWithHttpInfo($account_id, $app_key, $start, $limit, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3406,7 +3223,6 @@ class ObjectStoreApi
      *
      * Search Objects
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  int $start The start of the pagination (required)
@@ -3417,10 +3233,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObjectAsyncWithHttpInfo($version, $account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
+    public function searchObjectAsyncWithHttpInfo($account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->searchObjectRequest($version, $account_id, $app_key, $start, $limit, $keyword, $contentType);
+        $request = $this->searchObjectRequest($account_id, $app_key, $start, $limit, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3461,7 +3277,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'searchObject'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  int $start The start of the pagination (required)
@@ -3472,15 +3287,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchObjectRequest($version, $account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
+    public function searchObjectRequest($account_id, $app_key, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchObject'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchObject'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3512,7 +3320,7 @@ class ObjectStoreApi
 
 
 
-        $resourcePath = '/api/{version}/object/search';
+        $resourcePath = '/object/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3566,14 +3374,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3634,7 +3434,6 @@ class ObjectStoreApi
      *
      * Update Data
      *
-     * @param  float $version version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -3645,9 +3444,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ObjectStoreResponse
      */
-    public function updateData($version, $object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
+    public function updateData($object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
     {
-        list($response) = $this->updateDataWithHttpInfo($version, $object_name, $object_id, $account_id, $body, $contentType);
+        list($response) = $this->updateDataWithHttpInfo($object_name, $object_id, $account_id, $body, $contentType);
         return $response;
     }
 
@@ -3656,7 +3455,6 @@ class ObjectStoreApi
      *
      * Update Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -3667,9 +3465,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ObjectStoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDataWithHttpInfo($version, $object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
+    public function updateDataWithHttpInfo($object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
     {
-        $request = $this->updateDataRequest($version, $object_name, $object_id, $account_id, $body, $contentType);
+        $request = $this->updateDataRequest($object_name, $object_id, $account_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3745,7 +3543,6 @@ class ObjectStoreApi
      *
      * Update Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -3755,9 +3552,9 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDataAsync($version, $object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
+    public function updateDataAsync($object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
     {
-        return $this->updateDataAsyncWithHttpInfo($version, $object_name, $object_id, $account_id, $body, $contentType)
+        return $this->updateDataAsyncWithHttpInfo($object_name, $object_id, $account_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3770,7 +3567,6 @@ class ObjectStoreApi
      *
      * Update Data
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -3780,10 +3576,10 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDataAsyncWithHttpInfo($version, $object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
+    public function updateDataAsyncWithHttpInfo($object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ObjectStoreResponse';
-        $request = $this->updateDataRequest($version, $object_name, $object_id, $account_id, $body, $contentType);
+        $request = $this->updateDataRequest($object_name, $object_id, $account_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3824,7 +3620,6 @@ class ObjectStoreApi
     /**
      * Create request for operation 'updateData'
      *
-     * @param  float $version (required)
      * @param  string $object_name The name of the object to search upon (required)
      * @param  string $object_id objectId The id of the record to return (required)
      * @param  int|null $account_id The account id of the logged in user (optional)
@@ -3834,15 +3629,8 @@ class ObjectStoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateDataRequest($version, $object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
+    public function updateDataRequest($object_name, $object_id, $account_id = null, $body = null, string $contentType = self::contentTypes['updateData'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateData'
-            );
-        }
 
         // verify the required parameter 'object_name' is set
         if ($object_name === null || (is_array($object_name) && count($object_name) === 0)) {
@@ -3861,7 +3649,7 @@ class ObjectStoreApi
 
 
 
-        $resourcePath = '/api/{version}/object/data/{objectName}/{objectId}';
+        $resourcePath = '/object/data/{objectName}/{objectId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3879,14 +3667,6 @@ class ObjectStoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($object_name !== null) {
             $resourcePath = str_replace(

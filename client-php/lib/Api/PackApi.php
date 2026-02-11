@@ -143,7 +143,6 @@ class PackApi
      *
      * Create Pack
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the pack (required)
      * @param  int $pack_order The order of the pack (required)
@@ -174,9 +173,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PackResponse
      */
-    public function createPack($version, $account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
+    public function createPack($account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
     {
-        list($response) = $this->createPackWithHttpInfo($version, $account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price_type, $game_level_ids, $in_game, $ticket_type, $points, $contentType);
+        list($response) = $this->createPackWithHttpInfo($account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price_type, $game_level_ids, $in_game, $ticket_type, $points, $contentType);
         return $response;
     }
 
@@ -185,7 +184,6 @@ class PackApi
      *
      * Create Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the pack (required)
      * @param  int $pack_order The order of the pack (required)
@@ -216,9 +214,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PackResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPackWithHttpInfo($version, $account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
+    public function createPackWithHttpInfo($account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
     {
-        $request = $this->createPackRequest($version, $account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price_type, $game_level_ids, $in_game, $ticket_type, $points, $contentType);
+        $request = $this->createPackRequest($account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price_type, $game_level_ids, $in_game, $ticket_type, $points, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -294,7 +292,6 @@ class PackApi
      *
      * Create Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the pack (required)
      * @param  int $pack_order The order of the pack (required)
@@ -324,9 +321,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPackAsync($version, $account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
+    public function createPackAsync($account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
     {
-        return $this->createPackAsyncWithHttpInfo($version, $account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price_type, $game_level_ids, $in_game, $ticket_type, $points, $contentType)
+        return $this->createPackAsyncWithHttpInfo($account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price_type, $game_level_ids, $in_game, $ticket_type, $points, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -339,7 +336,6 @@ class PackApi
      *
      * Create Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the pack (required)
      * @param  int $pack_order The order of the pack (required)
@@ -369,10 +365,10 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPackAsyncWithHttpInfo($version, $account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
+    public function createPackAsyncWithHttpInfo($account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PackResponse';
-        $request = $this->createPackRequest($version, $account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price_type, $game_level_ids, $in_game, $ticket_type, $points, $contentType);
+        $request = $this->createPackRequest($account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price_type, $game_level_ids, $in_game, $ticket_type, $points, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -413,7 +409,6 @@ class PackApi
     /**
      * Create request for operation 'createPack'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the pack (required)
      * @param  int $pack_order The order of the pack (required)
@@ -443,15 +438,8 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createPackRequest($version, $account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
+    public function createPackRequest($account_id, $title, $pack_order, $price, $highest, $allocate_tickets, $ticket_count, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price_type = null, $game_level_ids = null, $in_game = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createPack'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createPack'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -520,7 +508,7 @@ class PackApi
 
 
 
-        $resourcePath = '/api/{version}/pack/create';
+        $resourcePath = '/pack/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -745,14 +733,6 @@ class PackApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -813,7 +793,6 @@ class PackApi
      *
      * Delete Pack
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $pack_id the id of the pack to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePack'] to see the possible values for this operation
@@ -822,9 +801,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deletePack($version, $account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
+    public function deletePack($account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
     {
-        list($response) = $this->deletePackWithHttpInfo($version, $account_id, $pack_id, $contentType);
+        list($response) = $this->deletePackWithHttpInfo($account_id, $pack_id, $contentType);
         return $response;
     }
 
@@ -833,7 +812,6 @@ class PackApi
      *
      * Delete Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $pack_id the id of the pack to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePack'] to see the possible values for this operation
@@ -842,9 +820,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePackWithHttpInfo($version, $account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
+    public function deletePackWithHttpInfo($account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
     {
-        $request = $this->deletePackRequest($version, $account_id, $pack_id, $contentType);
+        $request = $this->deletePackRequest($account_id, $pack_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -920,7 +898,6 @@ class PackApi
      *
      * Delete Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $pack_id the id of the pack to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePack'] to see the possible values for this operation
@@ -928,9 +905,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePackAsync($version, $account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
+    public function deletePackAsync($account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
     {
-        return $this->deletePackAsyncWithHttpInfo($version, $account_id, $pack_id, $contentType)
+        return $this->deletePackAsyncWithHttpInfo($account_id, $pack_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -943,7 +920,6 @@ class PackApi
      *
      * Delete Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $pack_id the id of the pack to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePack'] to see the possible values for this operation
@@ -951,10 +927,10 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePackAsyncWithHttpInfo($version, $account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
+    public function deletePackAsyncWithHttpInfo($account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deletePackRequest($version, $account_id, $pack_id, $contentType);
+        $request = $this->deletePackRequest($account_id, $pack_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -995,7 +971,6 @@ class PackApi
     /**
      * Create request for operation 'deletePack'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $pack_id the id of the pack to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePack'] to see the possible values for this operation
@@ -1003,15 +978,8 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletePackRequest($version, $account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
+    public function deletePackRequest($account_id, $pack_id, string $contentType = self::contentTypes['deletePack'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deletePack'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1028,7 +996,7 @@ class PackApi
         }
 
 
-        $resourcePath = '/api/{version}/pack/delete';
+        $resourcePath = '/pack/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1055,14 +1023,6 @@ class PackApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1123,7 +1083,6 @@ class PackApi
      *
      * Get Pack
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to return. (required)
      * @param  bool $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (required)
@@ -1133,9 +1092,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PackResponse
      */
-    public function getPack($version, $account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
+    public function getPack($account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
     {
-        list($response) = $this->getPackWithHttpInfo($version, $account_id, $pack_id, $include_game_data, $contentType);
+        list($response) = $this->getPackWithHttpInfo($account_id, $pack_id, $include_game_data, $contentType);
         return $response;
     }
 
@@ -1144,7 +1103,6 @@ class PackApi
      *
      * Get Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to return. (required)
      * @param  bool $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (required)
@@ -1154,9 +1112,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PackResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPackWithHttpInfo($version, $account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
+    public function getPackWithHttpInfo($account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
     {
-        $request = $this->getPackRequest($version, $account_id, $pack_id, $include_game_data, $contentType);
+        $request = $this->getPackRequest($account_id, $pack_id, $include_game_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1232,7 +1190,6 @@ class PackApi
      *
      * Get Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to return. (required)
      * @param  bool $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (required)
@@ -1241,9 +1198,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPackAsync($version, $account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
+    public function getPackAsync($account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
     {
-        return $this->getPackAsyncWithHttpInfo($version, $account_id, $pack_id, $include_game_data, $contentType)
+        return $this->getPackAsyncWithHttpInfo($account_id, $pack_id, $include_game_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1256,7 +1213,6 @@ class PackApi
      *
      * Get Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to return. (required)
      * @param  bool $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (required)
@@ -1265,10 +1221,10 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPackAsyncWithHttpInfo($version, $account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
+    public function getPackAsyncWithHttpInfo($account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PackResponse';
-        $request = $this->getPackRequest($version, $account_id, $pack_id, $include_game_data, $contentType);
+        $request = $this->getPackRequest($account_id, $pack_id, $include_game_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1309,7 +1265,6 @@ class PackApi
     /**
      * Create request for operation 'getPack'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to return. (required)
      * @param  bool $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (required)
@@ -1318,15 +1273,8 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPackRequest($version, $account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
+    public function getPackRequest($account_id, $pack_id, $include_game_data, string $contentType = self::contentTypes['getPack'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPack'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1350,7 +1298,7 @@ class PackApi
         }
 
 
-        $resourcePath = '/api/{version}/pack/get';
+        $resourcePath = '/pack/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1386,14 +1334,6 @@ class PackApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1454,7 +1394,6 @@ class PackApi
      *
      * Search Packs
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1471,9 +1410,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PackResponse[]
      */
-    public function searchPacks($version, $account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
+    public function searchPacks($account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
     {
-        list($response) = $this->searchPacksWithHttpInfo($version, $account_id, $sort_field, $descending, $keyword, $pack_type, $start, $limit, $include_game_data, $include_inactive, $app_key, $contentType);
+        list($response) = $this->searchPacksWithHttpInfo($account_id, $sort_field, $descending, $keyword, $pack_type, $start, $limit, $include_game_data, $include_inactive, $app_key, $contentType);
         return $response;
     }
 
@@ -1482,7 +1421,6 @@ class PackApi
      *
      * Search Packs
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1499,9 +1437,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PackResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchPacksWithHttpInfo($version, $account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
+    public function searchPacksWithHttpInfo($account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
     {
-        $request = $this->searchPacksRequest($version, $account_id, $sort_field, $descending, $keyword, $pack_type, $start, $limit, $include_game_data, $include_inactive, $app_key, $contentType);
+        $request = $this->searchPacksRequest($account_id, $sort_field, $descending, $keyword, $pack_type, $start, $limit, $include_game_data, $include_inactive, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1577,7 +1515,6 @@ class PackApi
      *
      * Search Packs
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1593,9 +1530,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPacksAsync($version, $account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
+    public function searchPacksAsync($account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
     {
-        return $this->searchPacksAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $keyword, $pack_type, $start, $limit, $include_game_data, $include_inactive, $app_key, $contentType)
+        return $this->searchPacksAsyncWithHttpInfo($account_id, $sort_field, $descending, $keyword, $pack_type, $start, $limit, $include_game_data, $include_inactive, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1608,7 +1545,6 @@ class PackApi
      *
      * Search Packs
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1624,10 +1560,10 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPacksAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
+    public function searchPacksAsyncWithHttpInfo($account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PackResponse[]';
-        $request = $this->searchPacksRequest($version, $account_id, $sort_field, $descending, $keyword, $pack_type, $start, $limit, $include_game_data, $include_inactive, $app_key, $contentType);
+        $request = $this->searchPacksRequest($account_id, $sort_field, $descending, $keyword, $pack_type, $start, $limit, $include_game_data, $include_inactive, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1668,7 +1604,6 @@ class PackApi
     /**
      * Create request for operation 'searchPacks'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1684,15 +1619,8 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchPacksRequest($version, $account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
+    public function searchPacksRequest($account_id, $sort_field, $descending, $keyword = null, $pack_type = null, $start = null, $limit = null, $include_game_data = null, $include_inactive = null, $app_key = null, string $contentType = self::contentTypes['searchPacks'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchPacks'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1723,7 +1651,7 @@ class PackApi
 
 
 
-        $resourcePath = '/api/{version}/pack/search';
+        $resourcePath = '/pack/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1822,14 +1750,6 @@ class PackApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1890,7 +1810,6 @@ class PackApi
      *
      * Update Pack
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to update. (required)
      * @param  bool $allocate_tickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -1922,9 +1841,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PackResponse
      */
-    public function updatePack($version, $account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
+    public function updatePack($account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
     {
-        list($response) = $this->updatePackWithHttpInfo($version, $account_id, $pack_id, $allocate_tickets, $ticket_count, $title, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $pack_order, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price, $price_type, $game_level_ids, $in_game, $highest, $ticket_type, $points, $contentType);
+        list($response) = $this->updatePackWithHttpInfo($account_id, $pack_id, $allocate_tickets, $ticket_count, $title, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $pack_order, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price, $price_type, $game_level_ids, $in_game, $highest, $ticket_type, $points, $contentType);
         return $response;
     }
 
@@ -1933,7 +1852,6 @@ class PackApi
      *
      * Update Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to update. (required)
      * @param  bool $allocate_tickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -1965,9 +1883,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PackResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePackWithHttpInfo($version, $account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
+    public function updatePackWithHttpInfo($account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
     {
-        $request = $this->updatePackRequest($version, $account_id, $pack_id, $allocate_tickets, $ticket_count, $title, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $pack_order, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price, $price_type, $game_level_ids, $in_game, $highest, $ticket_type, $points, $contentType);
+        $request = $this->updatePackRequest($account_id, $pack_id, $allocate_tickets, $ticket_count, $title, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $pack_order, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price, $price_type, $game_level_ids, $in_game, $highest, $ticket_type, $points, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2043,7 +1961,6 @@ class PackApi
      *
      * Update Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to update. (required)
      * @param  bool $allocate_tickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -2074,9 +1991,9 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePackAsync($version, $account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
+    public function updatePackAsync($account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
     {
-        return $this->updatePackAsyncWithHttpInfo($version, $account_id, $pack_id, $allocate_tickets, $ticket_count, $title, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $pack_order, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price, $price_type, $game_level_ids, $in_game, $highest, $ticket_type, $points, $contentType)
+        return $this->updatePackAsyncWithHttpInfo($account_id, $pack_id, $allocate_tickets, $ticket_count, $title, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $pack_order, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price, $price_type, $game_level_ids, $in_game, $highest, $ticket_type, $points, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2089,7 +2006,6 @@ class PackApi
      *
      * Update Pack
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to update. (required)
      * @param  bool $allocate_tickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -2120,10 +2036,10 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePackAsyncWithHttpInfo($version, $account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
+    public function updatePackAsyncWithHttpInfo($account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PackResponse';
-        $request = $this->updatePackRequest($version, $account_id, $pack_id, $allocate_tickets, $ticket_count, $title, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $pack_order, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price, $price_type, $game_level_ids, $in_game, $highest, $ticket_type, $points, $contentType);
+        $request = $this->updatePackRequest($account_id, $pack_id, $allocate_tickets, $ticket_count, $title, $description, $search_tags, $active, $game_type, $app_key, $pack_type, $pack_order, $sequence_type, $background_id, $image_id, $start_date, $end_date, $author_override, $price, $price_type, $game_level_ids, $in_game, $highest, $ticket_type, $points, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2164,7 +2080,6 @@ class PackApi
     /**
      * Create request for operation 'updatePack'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $pack_id The id of the pack to update. (required)
      * @param  bool $allocate_tickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -2195,15 +2110,8 @@ class PackApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePackRequest($version, $account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
+    public function updatePackRequest($account_id, $pack_id, $allocate_tickets, $ticket_count, $title = null, $description = null, $search_tags = null, $active = null, $game_type = null, $app_key = null, $pack_type = null, $pack_order = null, $sequence_type = null, $background_id = null, $image_id = null, $start_date = null, $end_date = null, $author_override = null, $price = null, $price_type = null, $game_level_ids = null, $in_game = null, $highest = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updatePack'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updatePack'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2255,7 +2163,7 @@ class PackApi
 
 
 
-        $resourcePath = '/api/{version}/pack/update';
+        $resourcePath = '/pack/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2489,14 +2397,6 @@ class PackApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -146,7 +146,6 @@ class ListingApi
      *
      * Create Listing
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  string $name the name of the listing (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -167,9 +166,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ListingFullResponse
      */
-    public function createListing($version, $account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
+    public function createListing($account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
     {
-        list($response) = $this->createListingWithHttpInfo($version, $account_id, $name, $filter_ids, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
+        list($response) = $this->createListingWithHttpInfo($account_id, $name, $filter_ids, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
         return $response;
     }
 
@@ -178,7 +177,6 @@ class ListingApi
      *
      * Create Listing
      *
-     * @param  float $version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  string $name the name of the listing (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -199,9 +197,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ListingFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createListingWithHttpInfo($version, $account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
+    public function createListingWithHttpInfo($account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
     {
-        $request = $this->createListingRequest($version, $account_id, $name, $filter_ids, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
+        $request = $this->createListingRequest($account_id, $name, $filter_ids, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -277,7 +275,6 @@ class ListingApi
      *
      * Create Listing
      *
-     * @param  float $version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  string $name the name of the listing (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -297,9 +294,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createListingAsync($version, $account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
+    public function createListingAsync($account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
     {
-        return $this->createListingAsyncWithHttpInfo($version, $account_id, $name, $filter_ids, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType)
+        return $this->createListingAsyncWithHttpInfo($account_id, $name, $filter_ids, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -312,7 +309,6 @@ class ListingApi
      *
      * Create Listing
      *
-     * @param  float $version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  string $name the name of the listing (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -332,10 +328,10 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createListingAsyncWithHttpInfo($version, $account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
+    public function createListingAsyncWithHttpInfo($account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ListingFullResponse';
-        $request = $this->createListingRequest($version, $account_id, $name, $filter_ids, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
+        $request = $this->createListingRequest($account_id, $name, $filter_ids, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -376,7 +372,6 @@ class ListingApi
     /**
      * Create request for operation 'createListing'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  string $name the name of the listing (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -396,15 +391,8 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createListingRequest($version, $account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
+    public function createListingRequest($account_id, $name, $filter_ids = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = false, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['createListing'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createListing'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -433,7 +421,7 @@ class ListingApi
 
 
 
-        $resourcePath = '/api/{version}/listing/create';
+        $resourcePath = '/listing/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -568,14 +556,6 @@ class ListingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -636,7 +616,6 @@ class ListingApi
      *
      * Delete Listing
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $listing_id the id of the listing to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteListing'] to see the possible values for this operation
@@ -645,9 +624,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteListing($version, $account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
+    public function deleteListing($account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
     {
-        list($response) = $this->deleteListingWithHttpInfo($version, $account_id, $listing_id, $contentType);
+        list($response) = $this->deleteListingWithHttpInfo($account_id, $listing_id, $contentType);
         return $response;
     }
 
@@ -656,7 +635,6 @@ class ListingApi
      *
      * Delete Listing
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $listing_id the id of the listing to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteListing'] to see the possible values for this operation
@@ -665,9 +643,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteListingWithHttpInfo($version, $account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
+    public function deleteListingWithHttpInfo($account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
     {
-        $request = $this->deleteListingRequest($version, $account_id, $listing_id, $contentType);
+        $request = $this->deleteListingRequest($account_id, $listing_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -743,7 +721,6 @@ class ListingApi
      *
      * Delete Listing
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $listing_id the id of the listing to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteListing'] to see the possible values for this operation
@@ -751,9 +728,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListingAsync($version, $account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
+    public function deleteListingAsync($account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
     {
-        return $this->deleteListingAsyncWithHttpInfo($version, $account_id, $listing_id, $contentType)
+        return $this->deleteListingAsyncWithHttpInfo($account_id, $listing_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -766,7 +743,6 @@ class ListingApi
      *
      * Delete Listing
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $listing_id the id of the listing to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteListing'] to see the possible values for this operation
@@ -774,10 +750,10 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListingAsyncWithHttpInfo($version, $account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
+    public function deleteListingAsyncWithHttpInfo($account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteListingRequest($version, $account_id, $listing_id, $contentType);
+        $request = $this->deleteListingRequest($account_id, $listing_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -818,7 +794,6 @@ class ListingApi
     /**
      * Create request for operation 'deleteListing'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $listing_id the id of the listing to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteListing'] to see the possible values for this operation
@@ -826,15 +801,8 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteListingRequest($version, $account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
+    public function deleteListingRequest($account_id, $listing_id, string $contentType = self::contentTypes['deleteListing'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteListing'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -851,7 +819,7 @@ class ListingApi
         }
 
 
-        $resourcePath = '/api/{version}/listing/delete';
+        $resourcePath = '/listing/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -878,14 +846,6 @@ class ListingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -946,7 +906,6 @@ class ListingApi
      *
      * Get Listing
      *
-     * @param  float $version version (required)
      * @param  int $listing_id the id of the listing to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListing'] to see the possible values for this operation
      *
@@ -954,9 +913,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ListingFullResponse
      */
-    public function getListing($version, $listing_id, string $contentType = self::contentTypes['getListing'][0])
+    public function getListing($listing_id, string $contentType = self::contentTypes['getListing'][0])
     {
-        list($response) = $this->getListingWithHttpInfo($version, $listing_id, $contentType);
+        list($response) = $this->getListingWithHttpInfo($listing_id, $contentType);
         return $response;
     }
 
@@ -965,7 +924,6 @@ class ListingApi
      *
      * Get Listing
      *
-     * @param  float $version (required)
      * @param  int $listing_id the id of the listing to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListing'] to see the possible values for this operation
      *
@@ -973,9 +931,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ListingFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getListingWithHttpInfo($version, $listing_id, string $contentType = self::contentTypes['getListing'][0])
+    public function getListingWithHttpInfo($listing_id, string $contentType = self::contentTypes['getListing'][0])
     {
-        $request = $this->getListingRequest($version, $listing_id, $contentType);
+        $request = $this->getListingRequest($listing_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1051,16 +1009,15 @@ class ListingApi
      *
      * Get Listing
      *
-     * @param  float $version (required)
      * @param  int $listing_id the id of the listing to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListing'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListingAsync($version, $listing_id, string $contentType = self::contentTypes['getListing'][0])
+    public function getListingAsync($listing_id, string $contentType = self::contentTypes['getListing'][0])
     {
-        return $this->getListingAsyncWithHttpInfo($version, $listing_id, $contentType)
+        return $this->getListingAsyncWithHttpInfo($listing_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1073,17 +1030,16 @@ class ListingApi
      *
      * Get Listing
      *
-     * @param  float $version (required)
      * @param  int $listing_id the id of the listing to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListing'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListingAsyncWithHttpInfo($version, $listing_id, string $contentType = self::contentTypes['getListing'][0])
+    public function getListingAsyncWithHttpInfo($listing_id, string $contentType = self::contentTypes['getListing'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ListingFullResponse';
-        $request = $this->getListingRequest($version, $listing_id, $contentType);
+        $request = $this->getListingRequest($listing_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1124,22 +1080,14 @@ class ListingApi
     /**
      * Create request for operation 'getListing'
      *
-     * @param  float $version (required)
      * @param  int $listing_id the id of the listing to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListing'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getListingRequest($version, $listing_id, string $contentType = self::contentTypes['getListing'][0])
+    public function getListingRequest($listing_id, string $contentType = self::contentTypes['getListing'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getListing'
-            );
-        }
 
         // verify the required parameter 'listing_id' is set
         if ($listing_id === null || (is_array($listing_id) && count($listing_id) === 0)) {
@@ -1149,7 +1097,7 @@ class ListingApi
         }
 
 
-        $resourcePath = '/api/{version}/listing/get';
+        $resourcePath = '/listing/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1167,14 +1115,6 @@ class ListingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1235,7 +1175,6 @@ class ListingApi
      *
      * Search Listings
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $keyword search the event name and description for this keyword (optional)
      * @param  int|null $start the record to begin the return set on (optional, default to 0)
@@ -1257,9 +1196,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ListingResponse[]
      */
-    public function searchListing($version, $account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
+    public function searchListing($account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
     {
-        list($response) = $this->searchListingWithHttpInfo($version, $account_id, $keyword, $start, $limit, $active_only, $latitude, $longitude, $start_date, $end_date, $category_ids, $filter_ids, $use_listing_order_ids, $external_id, $external_id2, $external_group_id, $contentType);
+        list($response) = $this->searchListingWithHttpInfo($account_id, $keyword, $start, $limit, $active_only, $latitude, $longitude, $start_date, $end_date, $category_ids, $filter_ids, $use_listing_order_ids, $external_id, $external_id2, $external_group_id, $contentType);
         return $response;
     }
 
@@ -1268,7 +1207,6 @@ class ListingApi
      *
      * Search Listings
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $keyword search the event name and description for this keyword (optional)
      * @param  int|null $start the record to begin the return set on (optional, default to 0)
@@ -1290,9 +1228,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ListingResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchListingWithHttpInfo($version, $account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
+    public function searchListingWithHttpInfo($account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
     {
-        $request = $this->searchListingRequest($version, $account_id, $keyword, $start, $limit, $active_only, $latitude, $longitude, $start_date, $end_date, $category_ids, $filter_ids, $use_listing_order_ids, $external_id, $external_id2, $external_group_id, $contentType);
+        $request = $this->searchListingRequest($account_id, $keyword, $start, $limit, $active_only, $latitude, $longitude, $start_date, $end_date, $category_ids, $filter_ids, $use_listing_order_ids, $external_id, $external_id2, $external_group_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1368,7 +1306,6 @@ class ListingApi
      *
      * Search Listings
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $keyword search the event name and description for this keyword (optional)
      * @param  int|null $start the record to begin the return set on (optional, default to 0)
@@ -1389,9 +1326,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchListingAsync($version, $account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
+    public function searchListingAsync($account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
     {
-        return $this->searchListingAsyncWithHttpInfo($version, $account_id, $keyword, $start, $limit, $active_only, $latitude, $longitude, $start_date, $end_date, $category_ids, $filter_ids, $use_listing_order_ids, $external_id, $external_id2, $external_group_id, $contentType)
+        return $this->searchListingAsyncWithHttpInfo($account_id, $keyword, $start, $limit, $active_only, $latitude, $longitude, $start_date, $end_date, $category_ids, $filter_ids, $use_listing_order_ids, $external_id, $external_id2, $external_group_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1404,7 +1341,6 @@ class ListingApi
      *
      * Search Listings
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $keyword search the event name and description for this keyword (optional)
      * @param  int|null $start the record to begin the return set on (optional, default to 0)
@@ -1425,10 +1361,10 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchListingAsyncWithHttpInfo($version, $account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
+    public function searchListingAsyncWithHttpInfo($account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ListingResponse[]';
-        $request = $this->searchListingRequest($version, $account_id, $keyword, $start, $limit, $active_only, $latitude, $longitude, $start_date, $end_date, $category_ids, $filter_ids, $use_listing_order_ids, $external_id, $external_id2, $external_group_id, $contentType);
+        $request = $this->searchListingRequest($account_id, $keyword, $start, $limit, $active_only, $latitude, $longitude, $start_date, $end_date, $category_ids, $filter_ids, $use_listing_order_ids, $external_id, $external_id2, $external_group_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1469,7 +1405,6 @@ class ListingApi
     /**
      * Create request for operation 'searchListing'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $keyword search the event name and description for this keyword (optional)
      * @param  int|null $start the record to begin the return set on (optional, default to 0)
@@ -1490,15 +1425,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchListingRequest($version, $account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
+    public function searchListingRequest($account_id = null, $keyword = null, $start = 0, $limit = 20, $active_only = false, $latitude = null, $longitude = null, $start_date = null, $end_date = null, $category_ids = null, $filter_ids = null, $use_listing_order_ids = true, $external_id = null, $external_id2 = null, $external_group_id = null, string $contentType = self::contentTypes['searchListing'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchListing'
-            );
-        }
 
 
 
@@ -1515,8 +1444,7 @@ class ListingApi
 
 
 
-
-        $resourcePath = '/api/{version}/listing/search';
+        $resourcePath = '/listing/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1660,14 +1588,6 @@ class ListingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1728,7 +1648,6 @@ class ListingApi
      *
      * Summary Listing
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  int|null $start_date the start date to search from (optional)
      * @param  string|null $category_ids the list of categories to search on (optional)
@@ -1740,9 +1659,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ListingGroupResponse[]
      */
-    public function summaryListing($version, $account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
+    public function summaryListing($account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
     {
-        list($response) = $this->summaryListingWithHttpInfo($version, $account_id, $start_date, $category_ids, $days_to_include, $use_listing_order_ids, $contentType);
+        list($response) = $this->summaryListingWithHttpInfo($account_id, $start_date, $category_ids, $days_to_include, $use_listing_order_ids, $contentType);
         return $response;
     }
 
@@ -1751,7 +1670,6 @@ class ListingApi
      *
      * Summary Listing
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  int|null $start_date the start date to search from (optional)
      * @param  string|null $category_ids the list of categories to search on (optional)
@@ -1763,9 +1681,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ListingGroupResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function summaryListingWithHttpInfo($version, $account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
+    public function summaryListingWithHttpInfo($account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
     {
-        $request = $this->summaryListingRequest($version, $account_id, $start_date, $category_ids, $days_to_include, $use_listing_order_ids, $contentType);
+        $request = $this->summaryListingRequest($account_id, $start_date, $category_ids, $days_to_include, $use_listing_order_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1841,7 +1759,6 @@ class ListingApi
      *
      * Summary Listing
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  int|null $start_date the start date to search from (optional)
      * @param  string|null $category_ids the list of categories to search on (optional)
@@ -1852,9 +1769,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function summaryListingAsync($version, $account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
+    public function summaryListingAsync($account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
     {
-        return $this->summaryListingAsyncWithHttpInfo($version, $account_id, $start_date, $category_ids, $days_to_include, $use_listing_order_ids, $contentType)
+        return $this->summaryListingAsyncWithHttpInfo($account_id, $start_date, $category_ids, $days_to_include, $use_listing_order_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1867,7 +1784,6 @@ class ListingApi
      *
      * Summary Listing
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  int|null $start_date the start date to search from (optional)
      * @param  string|null $category_ids the list of categories to search on (optional)
@@ -1878,10 +1794,10 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function summaryListingAsyncWithHttpInfo($version, $account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
+    public function summaryListingAsyncWithHttpInfo($account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ListingGroupResponse[]';
-        $request = $this->summaryListingRequest($version, $account_id, $start_date, $category_ids, $days_to_include, $use_listing_order_ids, $contentType);
+        $request = $this->summaryListingRequest($account_id, $start_date, $category_ids, $days_to_include, $use_listing_order_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1922,7 +1838,6 @@ class ListingApi
     /**
      * Create request for operation 'summaryListing'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  int|null $start_date the start date to search from (optional)
      * @param  string|null $category_ids the list of categories to search on (optional)
@@ -1933,23 +1848,16 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function summaryListingRequest($version, $account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
+    public function summaryListingRequest($account_id = null, $start_date = null, $category_ids = null, $days_to_include = 15, $use_listing_order_ids = true, string $contentType = self::contentTypes['summaryListing'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling summaryListing'
-            );
-        }
 
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/listing/summary';
+        $resourcePath = '/listing/summary';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2003,14 +1911,6 @@ class ListingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2071,7 +1971,6 @@ class ListingApi
      *
      * Update Listing
      *
-     * @param  float $version version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  int $listing_id the listing to update (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -2093,9 +1992,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ListingFullResponse
      */
-    public function updateListing($version, $account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
+    public function updateListing($account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
     {
-        list($response) = $this->updateListingWithHttpInfo($version, $account_id, $listing_id, $filter_ids, $name, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
+        list($response) = $this->updateListingWithHttpInfo($account_id, $listing_id, $filter_ids, $name, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
         return $response;
     }
 
@@ -2104,7 +2003,6 @@ class ListingApi
      *
      * Update Listing
      *
-     * @param  float $version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  int $listing_id the listing to update (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -2126,9 +2024,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ListingFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateListingWithHttpInfo($version, $account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
+    public function updateListingWithHttpInfo($account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
     {
-        $request = $this->updateListingRequest($version, $account_id, $listing_id, $filter_ids, $name, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
+        $request = $this->updateListingRequest($account_id, $listing_id, $filter_ids, $name, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2204,7 +2102,6 @@ class ListingApi
      *
      * Update Listing
      *
-     * @param  float $version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  int $listing_id the listing to update (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -2225,9 +2122,9 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateListingAsync($version, $account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
+    public function updateListingAsync($account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
     {
-        return $this->updateListingAsyncWithHttpInfo($version, $account_id, $listing_id, $filter_ids, $name, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType)
+        return $this->updateListingAsyncWithHttpInfo($account_id, $listing_id, $filter_ids, $name, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2240,7 +2137,6 @@ class ListingApi
      *
      * Update Listing
      *
-     * @param  float $version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  int $listing_id the listing to update (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -2261,10 +2157,10 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateListingAsyncWithHttpInfo($version, $account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
+    public function updateListingAsyncWithHttpInfo($account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ListingFullResponse';
-        $request = $this->updateListingRequest($version, $account_id, $listing_id, $filter_ids, $name, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
+        $request = $this->updateListingRequest($account_id, $listing_id, $filter_ids, $name, $description, $start, $end, $location_name, $location_description, $is_private, $external_id, $external_id2, $external_group_id, $active, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2305,7 +2201,6 @@ class ListingApi
     /**
      * Create request for operation 'updateListing'
      *
-     * @param  float $version (required)
      * @param  int $account_id the user&#39;s account ID (required)
      * @param  int $listing_id the listing to update (required)
      * @param  string|null $filter_ids comma separated list of filter IDs (optional)
@@ -2326,15 +2221,8 @@ class ListingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateListingRequest($version, $account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
+    public function updateListingRequest($account_id, $listing_id, $filter_ids = null, $name = null, $description = null, $start = null, $end = null, $location_name = null, $location_description = null, $is_private = null, $external_id = null, $external_id2 = null, $external_group_id = null, $active = null, $meta_data = null, string $contentType = self::contentTypes['updateListing'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateListing'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2364,7 +2252,7 @@ class ListingApi
 
 
 
-        $resourcePath = '/api/{version}/listing/update';
+        $resourcePath = '/listing/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2508,14 +2396,6 @@ class ListingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -290,7 +290,6 @@ class VatomApi
      *
      * Create following
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -300,9 +299,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createFollowing($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
+    public function createFollowing($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
     {
-        $this->createFollowingWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->createFollowingWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -310,7 +309,6 @@ class VatomApi
      *
      * Create following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -320,9 +318,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createFollowingWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
+    public function createFollowingWithHttpInfo($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
     {
-        $request = $this->createFollowingRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->createFollowingRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -362,7 +360,6 @@ class VatomApi
      *
      * Create following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -371,9 +368,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFollowingAsync($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
+    public function createFollowingAsync($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
     {
-        return $this->createFollowingAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->createFollowingAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -386,7 +383,6 @@ class VatomApi
      *
      * Create following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -395,10 +391,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFollowingAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
+    public function createFollowingAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
     {
         $returnType = '';
-        $request = $this->createFollowingRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->createFollowingRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -426,7 +422,6 @@ class VatomApi
     /**
      * Create request for operation 'createFollowing'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -435,15 +430,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createFollowingRequest($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
+    public function createFollowingRequest($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createFollowing'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createFollowing'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -461,7 +449,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/me/rels/following/create';
+        $resourcePath = '/vatom/me/rels/following/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -497,14 +485,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -565,7 +545,6 @@ class VatomApi
      *
      * Create Vatom Space
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -576,9 +555,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createSpace($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
+    public function createSpace($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
     {
-        $this->createSpaceWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->createSpaceWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -586,7 +565,6 @@ class VatomApi
      *
      * Create Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -597,9 +575,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSpaceWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
+    public function createSpaceWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
     {
-        $request = $this->createSpaceRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->createSpaceRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -639,7 +617,6 @@ class VatomApi
      *
      * Create Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -649,9 +626,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSpaceAsync($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
+    public function createSpaceAsync($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
     {
-        return $this->createSpaceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->createSpaceAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -664,7 +641,6 @@ class VatomApi
      *
      * Create Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -674,10 +650,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSpaceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
+    public function createSpaceAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
     {
         $returnType = '';
-        $request = $this->createSpaceRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->createSpaceRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -705,7 +681,6 @@ class VatomApi
     /**
      * Create request for operation 'createSpace'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -715,15 +690,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createSpaceRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
+    public function createSpaceRequest($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createSpace'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createSpace'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -748,7 +716,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/spaces/create';
+        $resourcePath = '/vatom/b/spaces/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -793,14 +761,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -861,7 +821,6 @@ class VatomApi
      *
      * Create Vatom Event
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -872,9 +831,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createVatomEvent($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
+    public function createVatomEvent($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
     {
-        $this->createVatomEventWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->createVatomEventWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -882,7 +841,6 @@ class VatomApi
      *
      * Create Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -893,9 +851,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createVatomEventWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
+    public function createVatomEventWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
     {
-        $request = $this->createVatomEventRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->createVatomEventRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -935,7 +893,6 @@ class VatomApi
      *
      * Create Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -945,9 +902,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createVatomEventAsync($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
+    public function createVatomEventAsync($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
     {
-        return $this->createVatomEventAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->createVatomEventAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -960,7 +917,6 @@ class VatomApi
      *
      * Create Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -970,10 +926,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createVatomEventAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
+    public function createVatomEventAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
     {
         $returnType = '';
-        $request = $this->createVatomEventRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->createVatomEventRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1001,7 +957,6 @@ class VatomApi
     /**
      * Create request for operation 'createVatomEvent'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -1011,15 +966,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createVatomEventRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
+    public function createVatomEventRequest($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['createVatomEvent'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createVatomEvent'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1044,7 +992,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/events/create';
+        $resourcePath = '/vatom/b/events/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1089,14 +1037,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1157,7 +1097,6 @@ class VatomApi
      *
      * Delete following
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_rels_key Vatom Rels Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -1167,9 +1106,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteFollowing($version, $account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
+    public function deleteFollowing($account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
     {
-        $this->deleteFollowingWithHttpInfo($version, $account_id, $vatom_rels_key, $return_raw_response, $contentType);
+        $this->deleteFollowingWithHttpInfo($account_id, $vatom_rels_key, $return_raw_response, $contentType);
     }
 
     /**
@@ -1177,7 +1116,6 @@ class VatomApi
      *
      * Delete following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_rels_key Vatom Rels Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -1187,9 +1125,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFollowingWithHttpInfo($version, $account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
+    public function deleteFollowingWithHttpInfo($account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
     {
-        $request = $this->deleteFollowingRequest($version, $account_id, $vatom_rels_key, $return_raw_response, $contentType);
+        $request = $this->deleteFollowingRequest($account_id, $vatom_rels_key, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1229,7 +1167,6 @@ class VatomApi
      *
      * Delete following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_rels_key Vatom Rels Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -1238,9 +1175,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFollowingAsync($version, $account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
+    public function deleteFollowingAsync($account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
     {
-        return $this->deleteFollowingAsyncWithHttpInfo($version, $account_id, $vatom_rels_key, $return_raw_response, $contentType)
+        return $this->deleteFollowingAsyncWithHttpInfo($account_id, $vatom_rels_key, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1253,7 +1190,6 @@ class VatomApi
      *
      * Delete following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_rels_key Vatom Rels Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -1262,10 +1198,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFollowingAsyncWithHttpInfo($version, $account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
+    public function deleteFollowingAsyncWithHttpInfo($account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
     {
         $returnType = '';
-        $request = $this->deleteFollowingRequest($version, $account_id, $vatom_rels_key, $return_raw_response, $contentType);
+        $request = $this->deleteFollowingRequest($account_id, $vatom_rels_key, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1293,7 +1229,6 @@ class VatomApi
     /**
      * Create request for operation 'deleteFollowing'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_rels_key Vatom Rels Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -1302,15 +1237,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFollowingRequest($version, $account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
+    public function deleteFollowingRequest($account_id, $vatom_rels_key, $return_raw_response = null, string $contentType = self::contentTypes['deleteFollowing'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteFollowing'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1328,7 +1256,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/me/rels/following/delete';
+        $resourcePath = '/vatom/me/rels/following/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1364,14 +1292,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1432,7 +1352,6 @@ class VatomApi
      *
      * Reset All Points Balance
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -1443,9 +1362,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deletePointsBalance($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
+    public function deletePointsBalance($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
     {
-        $this->deletePointsBalanceWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $this->deletePointsBalanceWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -1453,7 +1372,6 @@ class VatomApi
      *
      * Reset All Points Balance
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -1464,9 +1382,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePointsBalanceWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
+    public function deletePointsBalanceWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
     {
-        $request = $this->deletePointsBalanceRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->deletePointsBalanceRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1506,7 +1424,6 @@ class VatomApi
      *
      * Reset All Points Balance
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -1516,9 +1433,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePointsBalanceAsync($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
+    public function deletePointsBalanceAsync($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
     {
-        return $this->deletePointsBalanceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
+        return $this->deletePointsBalanceAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1531,7 +1448,6 @@ class VatomApi
      *
      * Reset All Points Balance
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -1541,10 +1457,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePointsBalanceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
+    public function deletePointsBalanceAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
     {
         $returnType = '';
-        $request = $this->deletePointsBalanceRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->deletePointsBalanceRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1572,7 +1488,6 @@ class VatomApi
     /**
      * Create request for operation 'deletePointsBalance'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -1582,15 +1497,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletePointsBalanceRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
+    public function deletePointsBalanceRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['deletePointsBalance'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deletePointsBalance'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1615,7 +1523,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/campaign/points/delete';
+        $resourcePath = '/vatom/b/campaign/points/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1660,14 +1568,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1728,7 +1628,6 @@ class VatomApi
      *
      * Delete Vatom Space
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -1739,9 +1638,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteSpace($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
+    public function deleteSpace($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
     {
-        $this->deleteSpaceWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
+        $this->deleteSpaceWithHttpInfo($account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -1749,7 +1648,6 @@ class VatomApi
      *
      * Delete Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -1760,9 +1658,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSpaceWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
+    public function deleteSpaceWithHttpInfo($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
     {
-        $request = $this->deleteSpaceRequest($version, $account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
+        $request = $this->deleteSpaceRequest($account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1802,7 +1700,6 @@ class VatomApi
      *
      * Delete Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -1812,9 +1709,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSpaceAsync($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
+    public function deleteSpaceAsync($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
     {
-        return $this->deleteSpaceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType)
+        return $this->deleteSpaceAsyncWithHttpInfo($account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1827,7 +1724,6 @@ class VatomApi
      *
      * Delete Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -1837,10 +1733,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSpaceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
+    public function deleteSpaceAsyncWithHttpInfo($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
     {
         $returnType = '';
-        $request = $this->deleteSpaceRequest($version, $account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
+        $request = $this->deleteSpaceRequest($account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1868,7 +1764,6 @@ class VatomApi
     /**
      * Create request for operation 'deleteSpace'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -1878,15 +1773,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteSpaceRequest($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
+    public function deleteSpaceRequest($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteSpace'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteSpace'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1911,7 +1799,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/spaces/delete';
+        $resourcePath = '/vatom/b/spaces/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1956,14 +1844,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2024,7 +1904,6 @@ class VatomApi
      *
      * Delete Vatom Event
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -2035,9 +1914,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteVatomEvent($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
+    public function deleteVatomEvent($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
     {
-        $this->deleteVatomEventWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
+        $this->deleteVatomEventWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -2045,7 +1924,6 @@ class VatomApi
      *
      * Delete Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -2056,9 +1934,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteVatomEventWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
+    public function deleteVatomEventWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
     {
-        $request = $this->deleteVatomEventRequest($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
+        $request = $this->deleteVatomEventRequest($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2098,7 +1976,6 @@ class VatomApi
      *
      * Delete Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -2108,9 +1985,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteVatomEventAsync($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
+    public function deleteVatomEventAsync($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
     {
-        return $this->deleteVatomEventAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType)
+        return $this->deleteVatomEventAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2123,7 +2000,6 @@ class VatomApi
      *
      * Delete Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -2133,10 +2009,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteVatomEventAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
+    public function deleteVatomEventAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
     {
         $returnType = '';
-        $request = $this->deleteVatomEventRequest($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
+        $request = $this->deleteVatomEventRequest($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2164,7 +2040,6 @@ class VatomApi
     /**
      * Create request for operation 'deleteVatomEvent'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -2174,15 +2049,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteVatomEventRequest($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
+    public function deleteVatomEventRequest($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomEvent'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteVatomEvent'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2207,7 +2075,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/events/delete';
+        $resourcePath = '/vatom/b/events/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2252,14 +2120,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2320,7 +2180,6 @@ class VatomApi
      *
      * Delete Vatom NFT
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -2330,9 +2189,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteVatomNFT($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
+    public function deleteVatomNFT($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
     {
-        $this->deleteVatomNFTWithHttpInfo($version, $account_id, $vatom_id, $return_raw_response, $contentType);
+        $this->deleteVatomNFTWithHttpInfo($account_id, $vatom_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -2340,7 +2199,6 @@ class VatomApi
      *
      * Delete Vatom NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -2350,9 +2208,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteVatomNFTWithHttpInfo($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
+    public function deleteVatomNFTWithHttpInfo($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
     {
-        $request = $this->deleteVatomNFTRequest($version, $account_id, $vatom_id, $return_raw_response, $contentType);
+        $request = $this->deleteVatomNFTRequest($account_id, $vatom_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2392,7 +2250,6 @@ class VatomApi
      *
      * Delete Vatom NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -2401,9 +2258,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteVatomNFTAsync($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
+    public function deleteVatomNFTAsync($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
     {
-        return $this->deleteVatomNFTAsyncWithHttpInfo($version, $account_id, $vatom_id, $return_raw_response, $contentType)
+        return $this->deleteVatomNFTAsyncWithHttpInfo($account_id, $vatom_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2416,7 +2273,6 @@ class VatomApi
      *
      * Delete Vatom NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -2425,10 +2281,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteVatomNFTAsyncWithHttpInfo($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
+    public function deleteVatomNFTAsyncWithHttpInfo($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
     {
         $returnType = '';
-        $request = $this->deleteVatomNFTRequest($version, $account_id, $vatom_id, $return_raw_response, $contentType);
+        $request = $this->deleteVatomNFTRequest($account_id, $vatom_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2456,7 +2312,6 @@ class VatomApi
     /**
      * Create request for operation 'deleteVatomNFT'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -2465,15 +2320,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteVatomNFTRequest($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
+    public function deleteVatomNFTRequest($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['deleteVatomNFT'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteVatomNFT'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2491,7 +2339,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/vatoms/delete';
+        $resourcePath = '/vatom/vatoms/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2527,14 +2375,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2595,7 +2435,6 @@ class VatomApi
      *
      * Execute Action on NFT
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -2606,9 +2445,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function executeActionOnNFT($version, $account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
+    public function executeActionOnNFT($account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
     {
-        $this->executeActionOnNFTWithHttpInfo($version, $account_id, $vatom_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->executeActionOnNFTWithHttpInfo($account_id, $vatom_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -2616,7 +2455,6 @@ class VatomApi
      *
      * Execute Action on NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -2627,9 +2465,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function executeActionOnNFTWithHttpInfo($version, $account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
+    public function executeActionOnNFTWithHttpInfo($account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
     {
-        $request = $this->executeActionOnNFTRequest($version, $account_id, $vatom_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->executeActionOnNFTRequest($account_id, $vatom_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2669,7 +2507,6 @@ class VatomApi
      *
      * Execute Action on NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -2679,9 +2516,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function executeActionOnNFTAsync($version, $account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
+    public function executeActionOnNFTAsync($account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
     {
-        return $this->executeActionOnNFTAsyncWithHttpInfo($version, $account_id, $vatom_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->executeActionOnNFTAsyncWithHttpInfo($account_id, $vatom_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2694,7 +2531,6 @@ class VatomApi
      *
      * Execute Action on NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -2704,10 +2540,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function executeActionOnNFTAsyncWithHttpInfo($version, $account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
+    public function executeActionOnNFTAsyncWithHttpInfo($account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
     {
         $returnType = '';
-        $request = $this->executeActionOnNFTRequest($version, $account_id, $vatom_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->executeActionOnNFTRequest($account_id, $vatom_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2735,7 +2571,6 @@ class VatomApi
     /**
      * Create request for operation 'executeActionOnNFT'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -2745,15 +2580,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function executeActionOnNFTRequest($version, $account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
+    public function executeActionOnNFTRequest($account_id, $vatom_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['executeActionOnNFT'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling executeActionOnNFT'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2778,7 +2606,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/vatoms/execute-action';
+        $resourcePath = '/vatom/vatoms/execute-action';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2823,14 +2651,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2891,7 +2711,6 @@ class VatomApi
      *
      * Search Vatom Geo Map
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -2901,9 +2720,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function geomapSearch($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
+    public function geomapSearch($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
     {
-        $this->geomapSearchWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->geomapSearchWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -2911,7 +2730,6 @@ class VatomApi
      *
      * Search Vatom Geo Map
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -2921,9 +2739,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function geomapSearchWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
+    public function geomapSearchWithHttpInfo($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
     {
-        $request = $this->geomapSearchRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->geomapSearchRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2963,7 +2781,6 @@ class VatomApi
      *
      * Search Vatom Geo Map
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -2972,9 +2789,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function geomapSearchAsync($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
+    public function geomapSearchAsync($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
     {
-        return $this->geomapSearchAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->geomapSearchAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2987,7 +2804,6 @@ class VatomApi
      *
      * Search Vatom Geo Map
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -2996,10 +2812,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function geomapSearchAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
+    public function geomapSearchAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
     {
         $returnType = '';
-        $request = $this->geomapSearchRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->geomapSearchRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3027,7 +2843,6 @@ class VatomApi
     /**
      * Create request for operation 'geomapSearch'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3036,15 +2851,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function geomapSearchRequest($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
+    public function geomapSearchRequest($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['geomapSearch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling geomapSearch'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3062,7 +2870,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/vatoms/geo-map/search';
+        $resourcePath = '/vatom/vatoms/geo-map/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3098,14 +2906,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3166,7 +2966,6 @@ class VatomApi
      *
      * Get Vatom Business Behaviors
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3176,9 +2975,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getBusinessBehaviors($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
+    public function getBusinessBehaviors($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
     {
-        $this->getBusinessBehaviorsWithHttpInfo($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $this->getBusinessBehaviorsWithHttpInfo($account_id, $app_key, $return_raw_response, $contentType);
     }
 
     /**
@@ -3186,7 +2985,6 @@ class VatomApi
      *
      * Get Vatom Business Behaviors
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3196,9 +2994,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessBehaviorsWithHttpInfo($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
+    public function getBusinessBehaviorsWithHttpInfo($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
     {
-        $request = $this->getBusinessBehaviorsRequest($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->getBusinessBehaviorsRequest($account_id, $app_key, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3238,7 +3036,6 @@ class VatomApi
      *
      * Get Vatom Business Behaviors
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3247,9 +3044,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessBehaviorsAsync($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
+    public function getBusinessBehaviorsAsync($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
     {
-        return $this->getBusinessBehaviorsAsyncWithHttpInfo($version, $account_id, $app_key, $return_raw_response, $contentType)
+        return $this->getBusinessBehaviorsAsyncWithHttpInfo($account_id, $app_key, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3262,7 +3059,6 @@ class VatomApi
      *
      * Get Vatom Business Behaviors
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3271,10 +3067,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessBehaviorsAsyncWithHttpInfo($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
+    public function getBusinessBehaviorsAsyncWithHttpInfo($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
     {
         $returnType = '';
-        $request = $this->getBusinessBehaviorsRequest($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->getBusinessBehaviorsRequest($account_id, $app_key, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3302,7 +3098,6 @@ class VatomApi
     /**
      * Create request for operation 'getBusinessBehaviors'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3311,15 +3106,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessBehaviorsRequest($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
+    public function getBusinessBehaviorsRequest($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessBehaviors'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getBusinessBehaviors'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3337,7 +3125,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/behaviors';
+        $resourcePath = '/vatom/b/behaviors';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3373,14 +3161,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3441,7 +3221,6 @@ class VatomApi
      *
      * Get the coins for a Business
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3451,9 +3230,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getBusinessCoinsBalance($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
+    public function getBusinessCoinsBalance($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
     {
-        $this->getBusinessCoinsBalanceWithHttpInfo($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $this->getBusinessCoinsBalanceWithHttpInfo($account_id, $app_key, $return_raw_response, $contentType);
     }
 
     /**
@@ -3461,7 +3240,6 @@ class VatomApi
      *
      * Get the coins for a Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3471,9 +3249,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessCoinsBalanceWithHttpInfo($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
+    public function getBusinessCoinsBalanceWithHttpInfo($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
     {
-        $request = $this->getBusinessCoinsBalanceRequest($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->getBusinessCoinsBalanceRequest($account_id, $app_key, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3513,7 +3291,6 @@ class VatomApi
      *
      * Get the coins for a Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3522,9 +3299,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessCoinsBalanceAsync($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
+    public function getBusinessCoinsBalanceAsync($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
     {
-        return $this->getBusinessCoinsBalanceAsyncWithHttpInfo($version, $account_id, $app_key, $return_raw_response, $contentType)
+        return $this->getBusinessCoinsBalanceAsyncWithHttpInfo($account_id, $app_key, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3537,7 +3314,6 @@ class VatomApi
      *
      * Get the coins for a Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3546,10 +3322,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessCoinsBalanceAsyncWithHttpInfo($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
+    public function getBusinessCoinsBalanceAsyncWithHttpInfo($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
     {
         $returnType = '';
-        $request = $this->getBusinessCoinsBalanceRequest($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->getBusinessCoinsBalanceRequest($account_id, $app_key, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3577,7 +3353,6 @@ class VatomApi
     /**
      * Create request for operation 'getBusinessCoinsBalance'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -3586,15 +3361,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessCoinsBalanceRequest($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
+    public function getBusinessCoinsBalanceRequest($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessCoinsBalance'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getBusinessCoinsBalance'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3612,7 +3380,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/coins/get';
+        $resourcePath = '/vatom/b/coins/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3648,14 +3416,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3716,7 +3476,6 @@ class VatomApi
      *
      * Get the user business ids
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessIds'] to see the possible values for this operation
@@ -3725,9 +3484,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getBusinessIds($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
+    public function getBusinessIds($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
     {
-        $this->getBusinessIdsWithHttpInfo($version, $account_id, $return_raw_response, $contentType);
+        $this->getBusinessIdsWithHttpInfo($account_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -3735,7 +3494,6 @@ class VatomApi
      *
      * Get the user business ids
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessIds'] to see the possible values for this operation
@@ -3744,9 +3502,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessIdsWithHttpInfo($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
+    public function getBusinessIdsWithHttpInfo($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
     {
-        $request = $this->getBusinessIdsRequest($version, $account_id, $return_raw_response, $contentType);
+        $request = $this->getBusinessIdsRequest($account_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3786,7 +3544,6 @@ class VatomApi
      *
      * Get the user business ids
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessIds'] to see the possible values for this operation
@@ -3794,9 +3551,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessIdsAsync($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
+    public function getBusinessIdsAsync($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
     {
-        return $this->getBusinessIdsAsyncWithHttpInfo($version, $account_id, $return_raw_response, $contentType)
+        return $this->getBusinessIdsAsyncWithHttpInfo($account_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3809,7 +3566,6 @@ class VatomApi
      *
      * Get the user business ids
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessIds'] to see the possible values for this operation
@@ -3817,10 +3573,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessIdsAsyncWithHttpInfo($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
+    public function getBusinessIdsAsyncWithHttpInfo($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
     {
         $returnType = '';
-        $request = $this->getBusinessIdsRequest($version, $account_id, $return_raw_response, $contentType);
+        $request = $this->getBusinessIdsRequest($account_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3848,7 +3604,6 @@ class VatomApi
     /**
      * Create request for operation 'getBusinessIds'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessIds'] to see the possible values for this operation
@@ -3856,15 +3611,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessIdsRequest($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
+    public function getBusinessIdsRequest($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessIds'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getBusinessIds'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3875,7 +3623,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/me/businesses';
+        $resourcePath = '/vatom/me/businesses';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3902,14 +3650,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3970,7 +3710,6 @@ class VatomApi
      *
      * Get Vatom Business Info
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -3981,9 +3720,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getBusinessInfo($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
+    public function getBusinessInfo($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
     {
-        $this->getBusinessInfoWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->getBusinessInfoWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -3991,7 +3730,6 @@ class VatomApi
      *
      * Get Vatom Business Info
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -4002,9 +3740,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessInfoWithHttpInfo($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
+    public function getBusinessInfoWithHttpInfo($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
     {
-        $request = $this->getBusinessInfoRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->getBusinessInfoRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4044,7 +3782,6 @@ class VatomApi
      *
      * Get Vatom Business Info
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -4054,9 +3791,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessInfoAsync($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
+    public function getBusinessInfoAsync($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
     {
-        return $this->getBusinessInfoAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->getBusinessInfoAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4069,7 +3806,6 @@ class VatomApi
      *
      * Get Vatom Business Info
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -4079,10 +3815,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessInfoAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
+    public function getBusinessInfoAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
     {
         $returnType = '';
-        $request = $this->getBusinessInfoRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->getBusinessInfoRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4110,7 +3846,6 @@ class VatomApi
     /**
      * Create request for operation 'getBusinessInfo'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -4120,15 +3855,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessInfoRequest($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
+    public function getBusinessInfoRequest($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessInfo'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getBusinessInfo'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4147,7 +3875,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/get';
+        $resourcePath = '/vatom/b/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4192,14 +3920,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4260,7 +3980,6 @@ class VatomApi
      *
      * Get Vatom Business Users
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -4270,9 +3989,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getBusinessUsers($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
+    public function getBusinessUsers($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
     {
-        $this->getBusinessUsersWithHttpInfo($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $this->getBusinessUsersWithHttpInfo($account_id, $app_key, $return_raw_response, $contentType);
     }
 
     /**
@@ -4280,7 +3999,6 @@ class VatomApi
      *
      * Get Vatom Business Users
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -4290,9 +4008,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessUsersWithHttpInfo($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
+    public function getBusinessUsersWithHttpInfo($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
     {
-        $request = $this->getBusinessUsersRequest($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->getBusinessUsersRequest($account_id, $app_key, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4332,7 +4050,6 @@ class VatomApi
      *
      * Get Vatom Business Users
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -4341,9 +4058,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessUsersAsync($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
+    public function getBusinessUsersAsync($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
     {
-        return $this->getBusinessUsersAsyncWithHttpInfo($version, $account_id, $app_key, $return_raw_response, $contentType)
+        return $this->getBusinessUsersAsyncWithHttpInfo($account_id, $app_key, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4356,7 +4073,6 @@ class VatomApi
      *
      * Get Vatom Business Users
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -4365,10 +4081,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessUsersAsyncWithHttpInfo($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
+    public function getBusinessUsersAsyncWithHttpInfo($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
     {
         $returnType = '';
-        $request = $this->getBusinessUsersRequest($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->getBusinessUsersRequest($account_id, $app_key, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4396,7 +4112,6 @@ class VatomApi
     /**
      * Create request for operation 'getBusinessUsers'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -4405,15 +4120,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessUsersRequest($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
+    public function getBusinessUsersRequest($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getBusinessUsers'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getBusinessUsers'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4431,7 +4139,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/users';
+        $resourcePath = '/vatom/b/users';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4467,14 +4175,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4535,7 +4235,6 @@ class VatomApi
      *
      * Get Campaign Group Entities
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4546,9 +4245,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getCampaignGroupEntities($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
+    public function getCampaignGroupEntities($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
     {
-        $this->getCampaignGroupEntitiesWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $this->getCampaignGroupEntitiesWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -4556,7 +4255,6 @@ class VatomApi
      *
      * Get Campaign Group Entities
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4567,9 +4265,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignGroupEntitiesWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
+    public function getCampaignGroupEntitiesWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
     {
-        $request = $this->getCampaignGroupEntitiesRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getCampaignGroupEntitiesRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4609,7 +4307,6 @@ class VatomApi
      *
      * Get Campaign Group Entities
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4619,9 +4316,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignGroupEntitiesAsync($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
+    public function getCampaignGroupEntitiesAsync($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
     {
-        return $this->getCampaignGroupEntitiesAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
+        return $this->getCampaignGroupEntitiesAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4634,7 +4331,6 @@ class VatomApi
      *
      * Get Campaign Group Entities
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4644,10 +4340,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignGroupEntitiesAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
+    public function getCampaignGroupEntitiesAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
     {
         $returnType = '';
-        $request = $this->getCampaignGroupEntitiesRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getCampaignGroupEntitiesRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4675,7 +4371,6 @@ class VatomApi
     /**
      * Create request for operation 'getCampaignGroupEntities'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4685,15 +4380,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCampaignGroupEntitiesRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
+    public function getCampaignGroupEntitiesRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupEntities'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCampaignGroupEntities'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4718,7 +4406,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/campaign-groups/entities';
+        $resourcePath = '/vatom/b/campaign-groups/entities';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4763,14 +4451,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4831,7 +4511,6 @@ class VatomApi
      *
      * Get Campaign Group Rules
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4842,9 +4521,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getCampaignGroupRules($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
+    public function getCampaignGroupRules($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
     {
-        $this->getCampaignGroupRulesWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $this->getCampaignGroupRulesWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -4852,7 +4531,6 @@ class VatomApi
      *
      * Get Campaign Group Rules
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4863,9 +4541,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignGroupRulesWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
+    public function getCampaignGroupRulesWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
     {
-        $request = $this->getCampaignGroupRulesRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getCampaignGroupRulesRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4905,7 +4583,6 @@ class VatomApi
      *
      * Get Campaign Group Rules
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4915,9 +4592,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignGroupRulesAsync($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
+    public function getCampaignGroupRulesAsync($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
     {
-        return $this->getCampaignGroupRulesAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
+        return $this->getCampaignGroupRulesAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4930,7 +4607,6 @@ class VatomApi
      *
      * Get Campaign Group Rules
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4940,10 +4616,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignGroupRulesAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
+    public function getCampaignGroupRulesAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
     {
         $returnType = '';
-        $request = $this->getCampaignGroupRulesRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getCampaignGroupRulesRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4971,7 +4647,6 @@ class VatomApi
     /**
      * Create request for operation 'getCampaignGroupRules'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -4981,15 +4656,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCampaignGroupRulesRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
+    public function getCampaignGroupRulesRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupRules'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCampaignGroupRules'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -5014,7 +4682,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/campaign-groups/rules';
+        $resourcePath = '/vatom/b/campaign-groups/rules';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5059,14 +4727,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5127,7 +4787,6 @@ class VatomApi
      *
      * Get Campaign Group Stats
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5138,9 +4797,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getCampaignGroupStats($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
+    public function getCampaignGroupStats($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
     {
-        $this->getCampaignGroupStatsWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $this->getCampaignGroupStatsWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -5148,7 +4807,6 @@ class VatomApi
      *
      * Get Campaign Group Stats
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5159,9 +4817,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignGroupStatsWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
+    public function getCampaignGroupStatsWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
     {
-        $request = $this->getCampaignGroupStatsRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getCampaignGroupStatsRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5201,7 +4859,6 @@ class VatomApi
      *
      * Get Campaign Group Stats
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5211,9 +4868,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignGroupStatsAsync($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
+    public function getCampaignGroupStatsAsync($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
     {
-        return $this->getCampaignGroupStatsAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
+        return $this->getCampaignGroupStatsAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5226,7 +4883,6 @@ class VatomApi
      *
      * Get Campaign Group Stats
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5236,10 +4892,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignGroupStatsAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
+    public function getCampaignGroupStatsAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
     {
         $returnType = '';
-        $request = $this->getCampaignGroupStatsRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getCampaignGroupStatsRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5267,7 +4923,6 @@ class VatomApi
     /**
      * Create request for operation 'getCampaignGroupStats'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5277,15 +4932,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCampaignGroupStatsRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
+    public function getCampaignGroupStatsRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignGroupStats'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCampaignGroupStats'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -5310,7 +4958,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/campaign-groups/stats';
+        $resourcePath = '/vatom/b/campaign-groups/stats';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5355,14 +5003,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5423,7 +5063,6 @@ class VatomApi
      *
      * Get Campaign Info
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5434,9 +5073,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getCampaignInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
+    public function getCampaignInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
     {
-        $this->getCampaignInfoWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $this->getCampaignInfoWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -5444,7 +5083,6 @@ class VatomApi
      *
      * Get Campaign Info
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5455,9 +5093,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignInfoWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
+    public function getCampaignInfoWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
     {
-        $request = $this->getCampaignInfoRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getCampaignInfoRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5497,7 +5135,6 @@ class VatomApi
      *
      * Get Campaign Info
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5507,9 +5144,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignInfoAsync($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
+    public function getCampaignInfoAsync($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
     {
-        return $this->getCampaignInfoAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
+        return $this->getCampaignInfoAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5522,7 +5159,6 @@ class VatomApi
      *
      * Get Campaign Info
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5532,10 +5168,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignInfoAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
+    public function getCampaignInfoAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
     {
         $returnType = '';
-        $request = $this->getCampaignInfoRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getCampaignInfoRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5563,7 +5199,6 @@ class VatomApi
     /**
      * Create request for operation 'getCampaignInfo'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5573,15 +5208,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCampaignInfoRequest($version, $account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
+    public function getCampaignInfoRequest($account_id, $app_key, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getCampaignInfo'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCampaignInfo'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -5606,7 +5234,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/campaign-groups/get';
+        $resourcePath = '/vatom/b/campaign-groups/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5651,14 +5279,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5719,7 +5339,6 @@ class VatomApi
      *
      * Get Vatom Event Guest List
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -5730,9 +5349,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getEventGuestList($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
+    public function getEventGuestList($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
     {
-        $this->getEventGuestListWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
+        $this->getEventGuestListWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -5740,7 +5359,6 @@ class VatomApi
      *
      * Get Vatom Event Guest List
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -5751,9 +5369,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEventGuestListWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
+    public function getEventGuestListWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
     {
-        $request = $this->getEventGuestListRequest($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
+        $request = $this->getEventGuestListRequest($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5793,7 +5411,6 @@ class VatomApi
      *
      * Get Vatom Event Guest List
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -5803,9 +5420,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventGuestListAsync($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
+    public function getEventGuestListAsync($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
     {
-        return $this->getEventGuestListAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType)
+        return $this->getEventGuestListAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5818,7 +5435,6 @@ class VatomApi
      *
      * Get Vatom Event Guest List
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -5828,10 +5444,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventGuestListAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
+    public function getEventGuestListAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
     {
         $returnType = '';
-        $request = $this->getEventGuestListRequest($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
+        $request = $this->getEventGuestListRequest($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5859,7 +5475,6 @@ class VatomApi
     /**
      * Create request for operation 'getEventGuestList'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -5869,15 +5484,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEventGuestListRequest($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
+    public function getEventGuestListRequest($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getEventGuestList'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getEventGuestList'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -5902,7 +5510,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/events/guests/get';
+        $resourcePath = '/vatom/b/events/guests/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5947,14 +5555,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6015,7 +5615,6 @@ class VatomApi
      *
      * Get Vatom User&#39;s Inventory
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -6025,9 +5624,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getInventory($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
+    public function getInventory($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
     {
-        $this->getInventoryWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->getInventoryWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -6035,7 +5634,6 @@ class VatomApi
      *
      * Get Vatom User&#39;s Inventory
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -6045,9 +5643,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInventoryWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
+    public function getInventoryWithHttpInfo($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
     {
-        $request = $this->getInventoryRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->getInventoryRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6087,7 +5685,6 @@ class VatomApi
      *
      * Get Vatom User&#39;s Inventory
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -6096,9 +5693,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInventoryAsync($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
+    public function getInventoryAsync($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
     {
-        return $this->getInventoryAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->getInventoryAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6111,7 +5708,6 @@ class VatomApi
      *
      * Get Vatom User&#39;s Inventory
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -6120,10 +5716,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInventoryAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
+    public function getInventoryAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
     {
         $returnType = '';
-        $request = $this->getInventoryRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->getInventoryRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6151,7 +5747,6 @@ class VatomApi
     /**
      * Create request for operation 'getInventory'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -6160,15 +5755,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInventoryRequest($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
+    public function getInventoryRequest($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['getInventory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getInventory'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -6186,7 +5774,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/me/inventory';
+        $resourcePath = '/vatom/me/inventory';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6222,14 +5810,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6290,7 +5870,6 @@ class VatomApi
      *
      * Get following
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMyFollowing'] to see the possible values for this operation
@@ -6299,9 +5878,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getMyFollowing($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
+    public function getMyFollowing($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
     {
-        $this->getMyFollowingWithHttpInfo($version, $account_id, $return_raw_response, $contentType);
+        $this->getMyFollowingWithHttpInfo($account_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -6309,7 +5888,6 @@ class VatomApi
      *
      * Get following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMyFollowing'] to see the possible values for this operation
@@ -6318,9 +5896,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMyFollowingWithHttpInfo($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
+    public function getMyFollowingWithHttpInfo($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
     {
-        $request = $this->getMyFollowingRequest($version, $account_id, $return_raw_response, $contentType);
+        $request = $this->getMyFollowingRequest($account_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6360,7 +5938,6 @@ class VatomApi
      *
      * Get following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMyFollowing'] to see the possible values for this operation
@@ -6368,9 +5945,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMyFollowingAsync($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
+    public function getMyFollowingAsync($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
     {
-        return $this->getMyFollowingAsyncWithHttpInfo($version, $account_id, $return_raw_response, $contentType)
+        return $this->getMyFollowingAsyncWithHttpInfo($account_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6383,7 +5960,6 @@ class VatomApi
      *
      * Get following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMyFollowing'] to see the possible values for this operation
@@ -6391,10 +5967,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMyFollowingAsyncWithHttpInfo($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
+    public function getMyFollowingAsyncWithHttpInfo($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
     {
         $returnType = '';
-        $request = $this->getMyFollowingRequest($version, $account_id, $return_raw_response, $contentType);
+        $request = $this->getMyFollowingRequest($account_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6422,7 +5998,6 @@ class VatomApi
     /**
      * Create request for operation 'getMyFollowing'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMyFollowing'] to see the possible values for this operation
@@ -6430,15 +6005,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMyFollowingRequest($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
+    public function getMyFollowingRequest($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getMyFollowing'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getMyFollowing'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -6449,7 +6017,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/me/rels/following';
+        $resourcePath = '/vatom/me/rels/following';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6476,14 +6044,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6544,7 +6104,6 @@ class VatomApi
      *
      * Get Points Balance
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -6555,9 +6114,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getPointsBalance($version, $account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
+    public function getPointsBalance($account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
     {
-        $this->getPointsBalanceWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
+        $this->getPointsBalanceWithHttpInfo($account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -6565,7 +6124,6 @@ class VatomApi
      *
      * Get Points Balance
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -6576,9 +6134,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPointsBalanceWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
+    public function getPointsBalanceWithHttpInfo($account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
     {
-        $request = $this->getPointsBalanceRequest($version, $account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getPointsBalanceRequest($account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6618,7 +6176,6 @@ class VatomApi
      *
      * Get Points Balance
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -6628,9 +6185,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPointsBalanceAsync($version, $account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
+    public function getPointsBalanceAsync($account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
     {
-        return $this->getPointsBalanceAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType)
+        return $this->getPointsBalanceAsyncWithHttpInfo($account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6643,7 +6200,6 @@ class VatomApi
      *
      * Get Points Balance
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -6653,10 +6209,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPointsBalanceAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
+    public function getPointsBalanceAsyncWithHttpInfo($account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
     {
         $returnType = '';
-        $request = $this->getPointsBalanceRequest($version, $account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getPointsBalanceRequest($account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6684,7 +6240,6 @@ class VatomApi
     /**
      * Create request for operation 'getPointsBalance'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -6694,15 +6249,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPointsBalanceRequest($version, $account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
+    public function getPointsBalanceRequest($account_id, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalance'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPointsBalance'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -6727,7 +6275,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/u/campaign/points/get';
+        $resourcePath = '/vatom/u/campaign/points/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6772,14 +6320,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6840,7 +6380,6 @@ class VatomApi
      *
      * Get Points Balance as Business
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -6852,9 +6391,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getPointsBalanceAsBusiness($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
+    public function getPointsBalanceAsBusiness($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
     {
-        $this->getPointsBalanceAsBusinessWithHttpInfo($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
+        $this->getPointsBalanceAsBusinessWithHttpInfo($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -6862,7 +6401,6 @@ class VatomApi
      *
      * Get Points Balance as Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -6874,9 +6412,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPointsBalanceAsBusinessWithHttpInfo($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
+    public function getPointsBalanceAsBusinessWithHttpInfo($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
     {
-        $request = $this->getPointsBalanceAsBusinessRequest($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getPointsBalanceAsBusinessRequest($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6916,7 +6454,6 @@ class VatomApi
      *
      * Get Points Balance as Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -6927,9 +6464,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPointsBalanceAsBusinessAsync($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
+    public function getPointsBalanceAsBusinessAsync($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
     {
-        return $this->getPointsBalanceAsBusinessAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType)
+        return $this->getPointsBalanceAsBusinessAsyncWithHttpInfo($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6942,7 +6479,6 @@ class VatomApi
      *
      * Get Points Balance as Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -6953,10 +6489,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPointsBalanceAsBusinessAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
+    public function getPointsBalanceAsBusinessAsyncWithHttpInfo($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
     {
         $returnType = '';
-        $request = $this->getPointsBalanceAsBusinessRequest($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
+        $request = $this->getPointsBalanceAsBusinessRequest($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6984,7 +6520,6 @@ class VatomApi
     /**
      * Create request for operation 'getPointsBalanceAsBusiness'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -6995,15 +6530,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPointsBalanceAsBusinessRequest($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
+    public function getPointsBalanceAsBusinessRequest($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $return_raw_response = null, string $contentType = self::contentTypes['getPointsBalanceAsBusiness'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPointsBalanceAsBusiness'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -7035,7 +6563,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/campaign/u/points/get';
+        $resourcePath = '/vatom/b/campaign/u/points/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7089,14 +6617,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7157,7 +6677,6 @@ class VatomApi
      *
      * Get Vatom Space
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -7168,9 +6687,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getSpace($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
+    public function getSpace($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
     {
-        $this->getSpaceWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
+        $this->getSpaceWithHttpInfo($account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -7178,7 +6697,6 @@ class VatomApi
      *
      * Get Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -7189,9 +6707,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSpaceWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
+    public function getSpaceWithHttpInfo($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
     {
-        $request = $this->getSpaceRequest($version, $account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
+        $request = $this->getSpaceRequest($account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7231,7 +6749,6 @@ class VatomApi
      *
      * Get Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -7241,9 +6758,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSpaceAsync($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
+    public function getSpaceAsync($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
     {
-        return $this->getSpaceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType)
+        return $this->getSpaceAsyncWithHttpInfo($account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7256,7 +6773,6 @@ class VatomApi
      *
      * Get Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -7266,10 +6782,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSpaceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
+    public function getSpaceAsyncWithHttpInfo($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
     {
         $returnType = '';
-        $request = $this->getSpaceRequest($version, $account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
+        $request = $this->getSpaceRequest($account_id, $app_key, $vatom_space_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7297,7 +6813,6 @@ class VatomApi
     /**
      * Create request for operation 'getSpace'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -7307,15 +6822,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSpaceRequest($version, $account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
+    public function getSpaceRequest($account_id, $app_key, $vatom_space_id, $return_raw_response = null, string $contentType = self::contentTypes['getSpace'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getSpace'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -7340,7 +6848,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/spaces/get';
+        $resourcePath = '/vatom/b/spaces/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7385,14 +6893,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7453,7 +6953,6 @@ class VatomApi
      *
      * Get the coins for a user (as a Business)
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -7464,9 +6963,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getUserCoinsAsBusiness($version, $account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
+    public function getUserCoinsAsBusiness($account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
     {
-        $this->getUserCoinsAsBusinessWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $return_raw_response, $contentType);
+        $this->getUserCoinsAsBusinessWithHttpInfo($account_id, $vatom_user_id, $app_key, $return_raw_response, $contentType);
     }
 
     /**
@@ -7474,7 +6973,6 @@ class VatomApi
      *
      * Get the coins for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -7485,9 +6983,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserCoinsAsBusinessWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
+    public function getUserCoinsAsBusinessWithHttpInfo($account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
     {
-        $request = $this->getUserCoinsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->getUserCoinsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7527,7 +7025,6 @@ class VatomApi
      *
      * Get the coins for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -7537,9 +7034,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCoinsAsBusinessAsync($version, $account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
+    public function getUserCoinsAsBusinessAsync($account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
     {
-        return $this->getUserCoinsAsBusinessAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $return_raw_response, $contentType)
+        return $this->getUserCoinsAsBusinessAsyncWithHttpInfo($account_id, $vatom_user_id, $app_key, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7552,7 +7049,6 @@ class VatomApi
      *
      * Get the coins for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -7562,10 +7058,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCoinsAsBusinessAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
+    public function getUserCoinsAsBusinessAsyncWithHttpInfo($account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
     {
         $returnType = '';
-        $request = $this->getUserCoinsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->getUserCoinsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7593,7 +7089,6 @@ class VatomApi
     /**
      * Create request for operation 'getUserCoinsAsBusiness'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -7603,15 +7098,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserCoinsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
+    public function getUserCoinsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsAsBusiness'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getUserCoinsAsBusiness'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -7636,7 +7124,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/users/coins/get';
+        $resourcePath = '/vatom/b/users/coins/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7681,14 +7169,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7749,7 +7229,6 @@ class VatomApi
      *
      * Gets the coins balance for a Vatom User
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -7760,9 +7239,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getUserCoinsBalance($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
+    public function getUserCoinsBalance($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
     {
-        $this->getUserCoinsBalanceWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->getUserCoinsBalanceWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -7770,7 +7249,6 @@ class VatomApi
      *
      * Gets the coins balance for a Vatom User
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -7781,9 +7259,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserCoinsBalanceWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
+    public function getUserCoinsBalanceWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
     {
-        $request = $this->getUserCoinsBalanceRequest($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->getUserCoinsBalanceRequest($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7823,7 +7301,6 @@ class VatomApi
      *
      * Gets the coins balance for a Vatom User
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -7833,9 +7310,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCoinsBalanceAsync($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
+    public function getUserCoinsBalanceAsync($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
     {
-        return $this->getUserCoinsBalanceAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->getUserCoinsBalanceAsyncWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7848,7 +7325,6 @@ class VatomApi
      *
      * Gets the coins balance for a Vatom User
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -7858,10 +7334,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCoinsBalanceAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
+    public function getUserCoinsBalanceAsyncWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
     {
         $returnType = '';
-        $request = $this->getUserCoinsBalanceRequest($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->getUserCoinsBalanceRequest($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7889,7 +7365,6 @@ class VatomApi
     /**
      * Create request for operation 'getUserCoinsBalance'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -7899,15 +7374,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserCoinsBalanceRequest($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
+    public function getUserCoinsBalanceRequest($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['getUserCoinsBalance'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getUserCoinsBalance'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -7926,7 +7394,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/u/coins/get';
+        $resourcePath = '/vatom/u/coins/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7971,14 +7439,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8039,7 +7499,6 @@ class VatomApi
      *
      * Get user followers
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8049,9 +7508,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getUserFollowers($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
+    public function getUserFollowers($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
     {
-        $this->getUserFollowersWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response, $contentType);
+        $this->getUserFollowersWithHttpInfo($account_id, $vatom_user_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -8059,7 +7518,6 @@ class VatomApi
      *
      * Get user followers
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8069,9 +7527,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserFollowersWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
+    public function getUserFollowersWithHttpInfo($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
     {
-        $request = $this->getUserFollowersRequest($version, $account_id, $vatom_user_id, $return_raw_response, $contentType);
+        $request = $this->getUserFollowersRequest($account_id, $vatom_user_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8111,7 +7569,6 @@ class VatomApi
      *
      * Get user followers
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8120,9 +7577,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserFollowersAsync($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
+    public function getUserFollowersAsync($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
     {
-        return $this->getUserFollowersAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response, $contentType)
+        return $this->getUserFollowersAsyncWithHttpInfo($account_id, $vatom_user_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8135,7 +7592,6 @@ class VatomApi
      *
      * Get user followers
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8144,10 +7600,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserFollowersAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
+    public function getUserFollowersAsyncWithHttpInfo($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
     {
         $returnType = '';
-        $request = $this->getUserFollowersRequest($version, $account_id, $vatom_user_id, $return_raw_response, $contentType);
+        $request = $this->getUserFollowersRequest($account_id, $vatom_user_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8175,7 +7631,6 @@ class VatomApi
     /**
      * Create request for operation 'getUserFollowers'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8184,15 +7639,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserFollowersRequest($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
+    public function getUserFollowersRequest($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowers'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getUserFollowers'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -8210,7 +7658,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/users/rels/followers';
+        $resourcePath = '/vatom/users/rels/followers';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8246,14 +7694,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8314,7 +7754,6 @@ class VatomApi
      *
      * Get user following
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8324,9 +7763,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getUserFollowing($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
+    public function getUserFollowing($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
     {
-        $this->getUserFollowingWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response, $contentType);
+        $this->getUserFollowingWithHttpInfo($account_id, $vatom_user_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -8334,7 +7773,6 @@ class VatomApi
      *
      * Get user following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8344,9 +7782,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserFollowingWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
+    public function getUserFollowingWithHttpInfo($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
     {
-        $request = $this->getUserFollowingRequest($version, $account_id, $vatom_user_id, $return_raw_response, $contentType);
+        $request = $this->getUserFollowingRequest($account_id, $vatom_user_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8386,7 +7824,6 @@ class VatomApi
      *
      * Get user following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8395,9 +7832,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserFollowingAsync($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
+    public function getUserFollowingAsync($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
     {
-        return $this->getUserFollowingAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response, $contentType)
+        return $this->getUserFollowingAsyncWithHttpInfo($account_id, $vatom_user_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8410,7 +7847,6 @@ class VatomApi
      *
      * Get user following
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8419,10 +7855,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserFollowingAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
+    public function getUserFollowingAsyncWithHttpInfo($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
     {
         $returnType = '';
-        $request = $this->getUserFollowingRequest($version, $account_id, $vatom_user_id, $return_raw_response, $contentType);
+        $request = $this->getUserFollowingRequest($account_id, $vatom_user_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8450,7 +7886,6 @@ class VatomApi
     /**
      * Create request for operation 'getUserFollowing'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8459,15 +7894,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserFollowingRequest($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
+    public function getUserFollowingRequest($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserFollowing'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getUserFollowing'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -8485,7 +7913,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/users/rels/following';
+        $resourcePath = '/vatom/users/rels/following';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8521,14 +7949,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8589,7 +8009,6 @@ class VatomApi
      *
      * Get User Info
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8599,9 +8018,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getUserInfo($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
+    public function getUserInfo($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
     {
-        $this->getUserInfoWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response, $contentType);
+        $this->getUserInfoWithHttpInfo($account_id, $vatom_user_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -8609,7 +8028,6 @@ class VatomApi
      *
      * Get User Info
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8619,9 +8037,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserInfoWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
+    public function getUserInfoWithHttpInfo($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
     {
-        $request = $this->getUserInfoRequest($version, $account_id, $vatom_user_id, $return_raw_response, $contentType);
+        $request = $this->getUserInfoRequest($account_id, $vatom_user_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8661,7 +8079,6 @@ class VatomApi
      *
      * Get User Info
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8670,9 +8087,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserInfoAsync($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
+    public function getUserInfoAsync($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
     {
-        return $this->getUserInfoAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response, $contentType)
+        return $this->getUserInfoAsyncWithHttpInfo($account_id, $vatom_user_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8685,7 +8102,6 @@ class VatomApi
      *
      * Get User Info
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8694,10 +8110,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserInfoAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
+    public function getUserInfoAsyncWithHttpInfo($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
     {
         $returnType = '';
-        $request = $this->getUserInfoRequest($version, $account_id, $vatom_user_id, $return_raw_response, $contentType);
+        $request = $this->getUserInfoRequest($account_id, $vatom_user_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8725,7 +8141,6 @@ class VatomApi
     /**
      * Create request for operation 'getUserInfo'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -8734,15 +8149,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserInfoRequest($version, $account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
+    public function getUserInfoRequest($account_id, $vatom_user_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserInfo'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getUserInfo'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -8760,7 +8168,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/user/get';
+        $resourcePath = '/vatom/user/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8796,14 +8204,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8864,7 +8264,6 @@ class VatomApi
      *
      * Get Vatom User Profile
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserProfile'] to see the possible values for this operation
@@ -8873,9 +8272,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getUserProfile($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
+    public function getUserProfile($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
     {
-        $this->getUserProfileWithHttpInfo($version, $account_id, $return_raw_response, $contentType);
+        $this->getUserProfileWithHttpInfo($account_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -8883,7 +8282,6 @@ class VatomApi
      *
      * Get Vatom User Profile
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserProfile'] to see the possible values for this operation
@@ -8892,9 +8290,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserProfileWithHttpInfo($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
+    public function getUserProfileWithHttpInfo($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
     {
-        $request = $this->getUserProfileRequest($version, $account_id, $return_raw_response, $contentType);
+        $request = $this->getUserProfileRequest($account_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8934,7 +8332,6 @@ class VatomApi
      *
      * Get Vatom User Profile
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserProfile'] to see the possible values for this operation
@@ -8942,9 +8339,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserProfileAsync($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
+    public function getUserProfileAsync($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
     {
-        return $this->getUserProfileAsyncWithHttpInfo($version, $account_id, $return_raw_response, $contentType)
+        return $this->getUserProfileAsyncWithHttpInfo($account_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8957,7 +8354,6 @@ class VatomApi
      *
      * Get Vatom User Profile
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserProfile'] to see the possible values for this operation
@@ -8965,10 +8361,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserProfileAsyncWithHttpInfo($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
+    public function getUserProfileAsyncWithHttpInfo($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
     {
         $returnType = '';
-        $request = $this->getUserProfileRequest($version, $account_id, $return_raw_response, $contentType);
+        $request = $this->getUserProfileRequest($account_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8996,7 +8392,6 @@ class VatomApi
     /**
      * Create request for operation 'getUserProfile'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserProfile'] to see the possible values for this operation
@@ -9004,15 +8399,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserProfileRequest($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
+    public function getUserProfileRequest($account_id, $return_raw_response = null, string $contentType = self::contentTypes['getUserProfile'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getUserProfile'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -9023,7 +8411,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/me/get';
+        $resourcePath = '/vatom/me/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -9050,14 +8438,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -9118,7 +8498,6 @@ class VatomApi
      *
      * Get Vatom Event
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -9129,9 +8508,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getVatomEvent($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
+    public function getVatomEvent($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
     {
-        $this->getVatomEventWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
+        $this->getVatomEventWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -9139,7 +8518,6 @@ class VatomApi
      *
      * Get Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -9150,9 +8528,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVatomEventWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
+    public function getVatomEventWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
     {
-        $request = $this->getVatomEventRequest($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
+        $request = $this->getVatomEventRequest($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9192,7 +8570,6 @@ class VatomApi
      *
      * Get Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -9202,9 +8579,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVatomEventAsync($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
+    public function getVatomEventAsync($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
     {
-        return $this->getVatomEventAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType)
+        return $this->getVatomEventAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9217,7 +8594,6 @@ class VatomApi
      *
      * Get Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -9227,10 +8603,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVatomEventAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
+    public function getVatomEventAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
     {
         $returnType = '';
-        $request = $this->getVatomEventRequest($version, $account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
+        $request = $this->getVatomEventRequest($account_id, $app_key, $vatom_event_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9258,7 +8634,6 @@ class VatomApi
     /**
      * Create request for operation 'getVatomEvent'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -9268,15 +8643,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVatomEventRequest($version, $account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
+    public function getVatomEventRequest($account_id, $app_key, $vatom_event_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomEvent'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getVatomEvent'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -9301,7 +8669,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/events/get';
+        $resourcePath = '/vatom/b/events/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -9346,14 +8714,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -9414,7 +8774,6 @@ class VatomApi
      *
      * Get Vatom NFT Details
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -9424,9 +8783,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getVatomNFT($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
+    public function getVatomNFT($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
     {
-        $this->getVatomNFTWithHttpInfo($version, $account_id, $vatom_id, $return_raw_response, $contentType);
+        $this->getVatomNFTWithHttpInfo($account_id, $vatom_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -9434,7 +8793,6 @@ class VatomApi
      *
      * Get Vatom NFT Details
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -9444,9 +8802,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVatomNFTWithHttpInfo($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
+    public function getVatomNFTWithHttpInfo($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
     {
-        $request = $this->getVatomNFTRequest($version, $account_id, $vatom_id, $return_raw_response, $contentType);
+        $request = $this->getVatomNFTRequest($account_id, $vatom_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9486,7 +8844,6 @@ class VatomApi
      *
      * Get Vatom NFT Details
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -9495,9 +8852,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVatomNFTAsync($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
+    public function getVatomNFTAsync($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
     {
-        return $this->getVatomNFTAsyncWithHttpInfo($version, $account_id, $vatom_id, $return_raw_response, $contentType)
+        return $this->getVatomNFTAsyncWithHttpInfo($account_id, $vatom_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9510,7 +8867,6 @@ class VatomApi
      *
      * Get Vatom NFT Details
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -9519,10 +8875,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVatomNFTAsyncWithHttpInfo($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
+    public function getVatomNFTAsyncWithHttpInfo($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
     {
         $returnType = '';
-        $request = $this->getVatomNFTRequest($version, $account_id, $vatom_id, $return_raw_response, $contentType);
+        $request = $this->getVatomNFTRequest($account_id, $vatom_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9550,7 +8906,6 @@ class VatomApi
     /**
      * Create request for operation 'getVatomNFT'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -9559,15 +8914,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVatomNFTRequest($version, $account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
+    public function getVatomNFTRequest($account_id, $vatom_id, $return_raw_response = null, string $contentType = self::contentTypes['getVatomNFT'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getVatomNFT'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -9585,7 +8933,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/vatoms/get';
+        $resourcePath = '/vatom/vatoms/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -9621,14 +8969,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -9689,7 +9029,6 @@ class VatomApi
      *
      * List Vatom Communities
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -9700,9 +9039,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function listCommunities($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
+    public function listCommunities($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
     {
-        $this->listCommunitiesWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->listCommunitiesWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -9710,7 +9049,6 @@ class VatomApi
      *
      * List Vatom Communities
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -9721,9 +9059,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listCommunitiesWithHttpInfo($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
+    public function listCommunitiesWithHttpInfo($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
     {
-        $request = $this->listCommunitiesRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listCommunitiesRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9763,7 +9101,6 @@ class VatomApi
      *
      * List Vatom Communities
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -9773,9 +9110,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCommunitiesAsync($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
+    public function listCommunitiesAsync($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
     {
-        return $this->listCommunitiesAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->listCommunitiesAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9788,7 +9125,6 @@ class VatomApi
      *
      * List Vatom Communities
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -9798,10 +9134,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCommunitiesAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
+    public function listCommunitiesAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
     {
         $returnType = '';
-        $request = $this->listCommunitiesRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listCommunitiesRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9829,7 +9165,6 @@ class VatomApi
     /**
      * Create request for operation 'listCommunities'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -9839,15 +9174,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listCommunitiesRequest($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
+    public function listCommunitiesRequest($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listCommunities'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listCommunities'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -9866,7 +9194,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/communities/search';
+        $resourcePath = '/vatom/b/communities/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -9911,14 +9239,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -9979,7 +9299,6 @@ class VatomApi
      *
      * List Vatom Events
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -9990,9 +9309,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function listEvents($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
+    public function listEvents($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
     {
-        $this->listEventsWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->listEventsWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -10000,7 +9319,6 @@ class VatomApi
      *
      * List Vatom Events
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10011,9 +9329,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listEventsWithHttpInfo($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
+    public function listEventsWithHttpInfo($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
     {
-        $request = $this->listEventsRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listEventsRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10053,7 +9371,6 @@ class VatomApi
      *
      * List Vatom Events
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10063,9 +9380,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listEventsAsync($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
+    public function listEventsAsync($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
     {
-        return $this->listEventsAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->listEventsAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10078,7 +9395,6 @@ class VatomApi
      *
      * List Vatom Events
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10088,10 +9404,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listEventsAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
+    public function listEventsAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
     {
         $returnType = '';
-        $request = $this->listEventsRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listEventsRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10119,7 +9435,6 @@ class VatomApi
     /**
      * Create request for operation 'listEvents'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10129,15 +9444,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listEventsRequest($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
+    public function listEventsRequest($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listEvents'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listEvents'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -10156,7 +9464,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/events/search';
+        $resourcePath = '/vatom/b/events/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -10201,14 +9509,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -10269,7 +9569,6 @@ class VatomApi
      *
      * List Vatom Spaces
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10280,9 +9579,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function listSpaces($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
+    public function listSpaces($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
     {
-        $this->listSpacesWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->listSpacesWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -10290,7 +9589,6 @@ class VatomApi
      *
      * List Vatom Spaces
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10301,9 +9599,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSpacesWithHttpInfo($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
+    public function listSpacesWithHttpInfo($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
     {
-        $request = $this->listSpacesRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listSpacesRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10343,7 +9641,6 @@ class VatomApi
      *
      * List Vatom Spaces
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10353,9 +9650,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSpacesAsync($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
+    public function listSpacesAsync($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
     {
-        return $this->listSpacesAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->listSpacesAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10368,7 +9665,6 @@ class VatomApi
      *
      * List Vatom Spaces
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10378,10 +9674,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSpacesAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
+    public function listSpacesAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
     {
         $returnType = '';
-        $request = $this->listSpacesRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listSpacesRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10409,7 +9705,6 @@ class VatomApi
     /**
      * Create request for operation 'listSpaces'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10419,15 +9714,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listSpacesRequest($version, $account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
+    public function listSpacesRequest($account_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listSpaces'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listSpaces'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -10446,7 +9734,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/spaces/search';
+        $resourcePath = '/vatom/b/spaces/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -10491,14 +9779,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -10559,7 +9839,6 @@ class VatomApi
      *
      * List Coin Transactions for a Vatom User
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10570,9 +9849,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function listUserCoinTransactions($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
+    public function listUserCoinTransactions($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
     {
-        $this->listUserCoinTransactionsWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->listUserCoinTransactionsWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -10580,7 +9859,6 @@ class VatomApi
      *
      * List Coin Transactions for a Vatom User
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10591,9 +9869,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listUserCoinTransactionsWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
+    public function listUserCoinTransactionsWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
     {
-        $request = $this->listUserCoinTransactionsRequest($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listUserCoinTransactionsRequest($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10633,7 +9911,6 @@ class VatomApi
      *
      * List Coin Transactions for a Vatom User
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10643,9 +9920,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUserCoinTransactionsAsync($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
+    public function listUserCoinTransactionsAsync($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
     {
-        return $this->listUserCoinTransactionsAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->listUserCoinTransactionsAsyncWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10658,7 +9935,6 @@ class VatomApi
      *
      * List Coin Transactions for a Vatom User
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10668,10 +9944,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUserCoinTransactionsAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
+    public function listUserCoinTransactionsAsyncWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
     {
         $returnType = '';
-        $request = $this->listUserCoinTransactionsRequest($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listUserCoinTransactionsRequest($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10699,7 +9975,6 @@ class VatomApi
     /**
      * Create request for operation 'listUserCoinTransactions'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
@@ -10709,15 +9984,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listUserCoinTransactionsRequest($version, $account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
+    public function listUserCoinTransactionsRequest($account_id, $vatom_user_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactions'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listUserCoinTransactions'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -10736,7 +10004,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/u/coins/txns/search';
+        $resourcePath = '/vatom/u/coins/txns/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -10781,14 +10049,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -10849,7 +10109,6 @@ class VatomApi
      *
      * List coin transactions for a user (as a Business)
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -10861,9 +10120,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function listUserCoinTransactionsAsBusiness($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
+    public function listUserCoinTransactionsAsBusiness($account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
     {
-        $this->listUserCoinTransactionsAsBusinessWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->listUserCoinTransactionsAsBusinessWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -10871,7 +10130,6 @@ class VatomApi
      *
      * List coin transactions for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -10883,9 +10141,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listUserCoinTransactionsAsBusinessWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
+    public function listUserCoinTransactionsAsBusinessWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
     {
-        $request = $this->listUserCoinTransactionsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listUserCoinTransactionsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10925,7 +10183,6 @@ class VatomApi
      *
      * List coin transactions for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -10936,9 +10193,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUserCoinTransactionsAsBusinessAsync($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
+    public function listUserCoinTransactionsAsBusinessAsync($account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
     {
-        return $this->listUserCoinTransactionsAsBusinessAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->listUserCoinTransactionsAsBusinessAsyncWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10951,7 +10208,6 @@ class VatomApi
      *
      * List coin transactions for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -10962,10 +10218,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUserCoinTransactionsAsBusinessAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
+    public function listUserCoinTransactionsAsBusinessAsyncWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
     {
         $returnType = '';
-        $request = $this->listUserCoinTransactionsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->listUserCoinTransactionsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10993,7 +10249,6 @@ class VatomApi
     /**
      * Create request for operation 'listUserCoinTransactionsAsBusiness'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -11004,15 +10259,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listUserCoinTransactionsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
+    public function listUserCoinTransactionsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['listUserCoinTransactionsAsBusiness'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listUserCoinTransactionsAsBusiness'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -11038,7 +10286,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/users/coins/txns/search';
+        $resourcePath = '/vatom/b/users/coins/txns/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -11092,14 +10340,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -11160,7 +10400,6 @@ class VatomApi
      *
      * Perform Action on NFT
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_action Vatom Action (required)
@@ -11172,9 +10411,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function performActionOnNFT($version, $account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
+    public function performActionOnNFT($account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
     {
-        $this->performActionOnNFTWithHttpInfo($version, $account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response, $contentType);
+        $this->performActionOnNFTWithHttpInfo($account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -11182,7 +10421,6 @@ class VatomApi
      *
      * Perform Action on NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_action Vatom Action (required)
@@ -11194,9 +10432,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function performActionOnNFTWithHttpInfo($version, $account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
+    public function performActionOnNFTWithHttpInfo($account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
     {
-        $request = $this->performActionOnNFTRequest($version, $account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->performActionOnNFTRequest($account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11236,7 +10474,6 @@ class VatomApi
      *
      * Perform Action on NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_action Vatom Action (required)
@@ -11247,9 +10484,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function performActionOnNFTAsync($version, $account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
+    public function performActionOnNFTAsync($account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
     {
-        return $this->performActionOnNFTAsyncWithHttpInfo($version, $account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->performActionOnNFTAsyncWithHttpInfo($account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11262,7 +10499,6 @@ class VatomApi
      *
      * Perform Action on NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_action Vatom Action (required)
@@ -11273,10 +10509,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function performActionOnNFTAsyncWithHttpInfo($version, $account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
+    public function performActionOnNFTAsyncWithHttpInfo($account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
     {
         $returnType = '';
-        $request = $this->performActionOnNFTRequest($version, $account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->performActionOnNFTRequest($account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11304,7 +10540,6 @@ class VatomApi
     /**
      * Create request for operation 'performActionOnNFT'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_id Vatom NFT Id (required)
      * @param  string $vatom_action Vatom Action (required)
@@ -11315,15 +10550,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function performActionOnNFTRequest($version, $account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
+    public function performActionOnNFTRequest($account_id, $vatom_id, $vatom_action, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['performActionOnNFT'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling performActionOnNFT'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -11355,7 +10583,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/me/vatoms/actions';
+        $resourcePath = '/vatom/me/vatoms/actions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -11409,14 +10637,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -11477,7 +10697,6 @@ class VatomApi
      *
      * Redeem NFT
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -11488,9 +10707,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function redeemNFT($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
+    public function redeemNFT($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
     {
-        $this->redeemNFTWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->redeemNFTWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -11498,7 +10717,6 @@ class VatomApi
      *
      * Redeem NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -11509,9 +10727,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function redeemNFTWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
+    public function redeemNFTWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
     {
-        $request = $this->redeemNFTRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->redeemNFTRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11551,7 +10769,6 @@ class VatomApi
      *
      * Redeem NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -11561,9 +10778,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function redeemNFTAsync($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
+    public function redeemNFTAsync($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
     {
-        return $this->redeemNFTAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->redeemNFTAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11576,7 +10793,6 @@ class VatomApi
      *
      * Redeem NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -11586,10 +10802,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function redeemNFTAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
+    public function redeemNFTAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
     {
         $returnType = '';
-        $request = $this->redeemNFTRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->redeemNFTRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11617,7 +10833,6 @@ class VatomApi
     /**
      * Create request for operation 'redeemNFT'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -11627,15 +10842,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function redeemNFTRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
+    public function redeemNFTRequest($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemNFT'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling redeemNFT'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -11660,7 +10868,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/redemptions';
+        $resourcePath = '/vatom/b/redemptions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -11705,14 +10913,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -11773,7 +10973,6 @@ class VatomApi
      *
      * Redeem the coins for a user (as a Business)
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -11785,9 +10984,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function redeemUserCoinsAsBusiness($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
+    public function redeemUserCoinsAsBusiness($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
     {
-        $this->redeemUserCoinsAsBusinessWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->redeemUserCoinsAsBusinessWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -11795,7 +10994,6 @@ class VatomApi
      *
      * Redeem the coins for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -11807,9 +11005,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function redeemUserCoinsAsBusinessWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
+    public function redeemUserCoinsAsBusinessWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
     {
-        $request = $this->redeemUserCoinsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->redeemUserCoinsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11849,7 +11047,6 @@ class VatomApi
      *
      * Redeem the coins for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -11860,9 +11057,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function redeemUserCoinsAsBusinessAsync($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
+    public function redeemUserCoinsAsBusinessAsync($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
     {
-        return $this->redeemUserCoinsAsBusinessAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->redeemUserCoinsAsBusinessAsyncWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11875,7 +11072,6 @@ class VatomApi
      *
      * Redeem the coins for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -11886,10 +11082,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function redeemUserCoinsAsBusinessAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
+    public function redeemUserCoinsAsBusinessAsyncWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
     {
         $returnType = '';
-        $request = $this->redeemUserCoinsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->redeemUserCoinsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11917,7 +11113,6 @@ class VatomApi
     /**
      * Create request for operation 'redeemUserCoinsAsBusiness'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -11928,15 +11123,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function redeemUserCoinsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
+    public function redeemUserCoinsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['redeemUserCoinsAsBusiness'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling redeemUserCoinsAsBusiness'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -11968,7 +11156,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/users/coins/redeem';
+        $resourcePath = '/vatom/b/users/coins/redeem';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -12022,14 +11210,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -12090,7 +11270,6 @@ class VatomApi
      *
      * Search for Vatom Businesses
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12100,9 +11279,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function searchBusinesses($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
+    public function searchBusinesses($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
     {
-        $this->searchBusinessesWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->searchBusinessesWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -12110,7 +11289,6 @@ class VatomApi
      *
      * Search for Vatom Businesses
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12120,9 +11298,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchBusinessesWithHttpInfo($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
+    public function searchBusinessesWithHttpInfo($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
     {
-        $request = $this->searchBusinessesRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->searchBusinessesRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12162,7 +11340,6 @@ class VatomApi
      *
      * Search for Vatom Businesses
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12171,9 +11348,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchBusinessesAsync($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
+    public function searchBusinessesAsync($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
     {
-        return $this->searchBusinessesAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->searchBusinessesAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12186,7 +11363,6 @@ class VatomApi
      *
      * Search for Vatom Businesses
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12195,10 +11371,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchBusinessesAsyncWithHttpInfo($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
+    public function searchBusinessesAsyncWithHttpInfo($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
     {
         $returnType = '';
-        $request = $this->searchBusinessesRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->searchBusinessesRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12226,7 +11402,6 @@ class VatomApi
     /**
      * Create request for operation 'searchBusinesses'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12235,15 +11410,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchBusinessesRequest($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
+    public function searchBusinessesRequest($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchBusinesses'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchBusinesses'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -12255,7 +11423,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/search';
+        $resourcePath = '/vatom/b/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -12291,14 +11459,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -12359,7 +11519,6 @@ class VatomApi
      *
      * Search Campaign Groups
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12369,9 +11528,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function searchCampaignGroups($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
+    public function searchCampaignGroups($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
     {
-        $this->searchCampaignGroupsWithHttpInfo($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $this->searchCampaignGroupsWithHttpInfo($account_id, $app_key, $return_raw_response, $contentType);
     }
 
     /**
@@ -12379,7 +11538,6 @@ class VatomApi
      *
      * Search Campaign Groups
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12389,9 +11547,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCampaignGroupsWithHttpInfo($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
+    public function searchCampaignGroupsWithHttpInfo($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
     {
-        $request = $this->searchCampaignGroupsRequest($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->searchCampaignGroupsRequest($account_id, $app_key, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12431,7 +11589,6 @@ class VatomApi
      *
      * Search Campaign Groups
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12440,9 +11597,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCampaignGroupsAsync($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
+    public function searchCampaignGroupsAsync($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
     {
-        return $this->searchCampaignGroupsAsyncWithHttpInfo($version, $account_id, $app_key, $return_raw_response, $contentType)
+        return $this->searchCampaignGroupsAsyncWithHttpInfo($account_id, $app_key, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12455,7 +11612,6 @@ class VatomApi
      *
      * Search Campaign Groups
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12464,10 +11620,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCampaignGroupsAsyncWithHttpInfo($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
+    public function searchCampaignGroupsAsyncWithHttpInfo($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
     {
         $returnType = '';
-        $request = $this->searchCampaignGroupsRequest($version, $account_id, $app_key, $return_raw_response, $contentType);
+        $request = $this->searchCampaignGroupsRequest($account_id, $app_key, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12495,7 +11651,6 @@ class VatomApi
     /**
      * Create request for operation 'searchCampaignGroups'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12504,15 +11659,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchCampaignGroupsRequest($version, $account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
+    public function searchCampaignGroupsRequest($account_id, $app_key, $return_raw_response = null, string $contentType = self::contentTypes['searchCampaignGroups'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchCampaignGroups'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -12530,7 +11678,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/campaign-groups/search';
+        $resourcePath = '/vatom/b/campaign-groups/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -12566,14 +11714,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -12634,7 +11774,6 @@ class VatomApi
      *
      * Search User Identities
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchIdentities'] to see the possible values for this operation
@@ -12643,9 +11782,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function searchIdentities($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
+    public function searchIdentities($account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
     {
-        $this->searchIdentitiesWithHttpInfo($version, $account_id, $return_raw_response, $contentType);
+        $this->searchIdentitiesWithHttpInfo($account_id, $return_raw_response, $contentType);
     }
 
     /**
@@ -12653,7 +11792,6 @@ class VatomApi
      *
      * Search User Identities
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchIdentities'] to see the possible values for this operation
@@ -12662,9 +11800,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchIdentitiesWithHttpInfo($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
+    public function searchIdentitiesWithHttpInfo($account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
     {
-        $request = $this->searchIdentitiesRequest($version, $account_id, $return_raw_response, $contentType);
+        $request = $this->searchIdentitiesRequest($account_id, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12704,7 +11842,6 @@ class VatomApi
      *
      * Search User Identities
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchIdentities'] to see the possible values for this operation
@@ -12712,9 +11849,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchIdentitiesAsync($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
+    public function searchIdentitiesAsync($account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
     {
-        return $this->searchIdentitiesAsyncWithHttpInfo($version, $account_id, $return_raw_response, $contentType)
+        return $this->searchIdentitiesAsyncWithHttpInfo($account_id, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12727,7 +11864,6 @@ class VatomApi
      *
      * Search User Identities
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchIdentities'] to see the possible values for this operation
@@ -12735,10 +11871,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchIdentitiesAsyncWithHttpInfo($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
+    public function searchIdentitiesAsyncWithHttpInfo($account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
     {
         $returnType = '';
-        $request = $this->searchIdentitiesRequest($version, $account_id, $return_raw_response, $contentType);
+        $request = $this->searchIdentitiesRequest($account_id, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12766,7 +11902,6 @@ class VatomApi
     /**
      * Create request for operation 'searchIdentities'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchIdentities'] to see the possible values for this operation
@@ -12774,15 +11909,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchIdentitiesRequest($version, $account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
+    public function searchIdentitiesRequest($account_id, $return_raw_response = null, string $contentType = self::contentTypes['searchIdentities'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchIdentities'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -12793,7 +11921,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/me/identities/search';
+        $resourcePath = '/vatom/me/identities/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -12820,14 +11948,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -12888,7 +12008,6 @@ class VatomApi
      *
      * Search Vatom User&#39;s Inventory
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12898,9 +12017,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function searchInventory($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
+    public function searchInventory($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
     {
-        $this->searchInventoryWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->searchInventoryWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -12908,7 +12027,6 @@ class VatomApi
      *
      * Search Vatom User&#39;s Inventory
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12918,9 +12036,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchInventoryWithHttpInfo($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
+    public function searchInventoryWithHttpInfo($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
     {
-        $request = $this->searchInventoryRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->searchInventoryRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12960,7 +12078,6 @@ class VatomApi
      *
      * Search Vatom User&#39;s Inventory
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12969,9 +12086,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchInventoryAsync($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
+    public function searchInventoryAsync($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
     {
-        return $this->searchInventoryAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->searchInventoryAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12984,7 +12101,6 @@ class VatomApi
      *
      * Search Vatom User&#39;s Inventory
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -12993,10 +12109,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchInventoryAsyncWithHttpInfo($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
+    public function searchInventoryAsyncWithHttpInfo($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
     {
         $returnType = '';
-        $request = $this->searchInventoryRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->searchInventoryRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13024,7 +12140,6 @@ class VatomApi
     /**
      * Create request for operation 'searchInventory'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $vatom_parameters Vatom Parameters (optional)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -13033,15 +12148,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchInventoryRequest($version, $account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
+    public function searchInventoryRequest($account_id, $vatom_parameters = null, $return_raw_response = null, string $contentType = self::contentTypes['searchInventory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchInventory'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -13053,7 +12161,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/user-inventory/search';
+        $resourcePath = '/vatom/user-inventory/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -13089,14 +12197,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -13157,7 +12257,6 @@ class VatomApi
      *
      * Send NFT
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -13169,9 +12268,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function sendNFT($version, $account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
+    public function sendNFT($account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
     {
-        $this->sendNFTWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->sendNFTWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -13179,7 +12278,6 @@ class VatomApi
      *
      * Send NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -13191,9 +12289,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendNFTWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
+    public function sendNFTWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
     {
-        $request = $this->sendNFTRequest($version, $account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->sendNFTRequest($account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13233,7 +12331,6 @@ class VatomApi
      *
      * Send NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -13244,9 +12341,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendNFTAsync($version, $account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
+    public function sendNFTAsync($account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
     {
-        return $this->sendNFTAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->sendNFTAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13259,7 +12356,6 @@ class VatomApi
      *
      * Send NFT
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -13270,10 +12366,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendNFTAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
+    public function sendNFTAsyncWithHttpInfo($account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
     {
         $returnType = '';
-        $request = $this->sendNFTRequest($version, $account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->sendNFTRequest($account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13301,7 +12397,6 @@ class VatomApi
     /**
      * Create request for operation 'sendNFT'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_campaign_id Vatom Campaign Id (required)
@@ -13312,15 +12407,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendNFTRequest($version, $account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
+    public function sendNFTRequest($account_id, $app_key, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['sendNFT'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling sendNFT'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -13352,7 +12440,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/campaigns/send';
+        $resourcePath = '/vatom/b/campaigns/send';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -13406,14 +12494,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -13474,7 +12554,6 @@ class VatomApi
      *
      * Set Points Balance as Business
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -13487,9 +12566,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function setPointsBalanceAsBusiness($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
+    public function setPointsBalanceAsBusiness($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
     {
-        $this->setPointsBalanceAsBusinessWithHttpInfo($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->setPointsBalanceAsBusinessWithHttpInfo($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -13497,7 +12576,6 @@ class VatomApi
      *
      * Set Points Balance as Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -13510,9 +12588,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setPointsBalanceAsBusinessWithHttpInfo($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
+    public function setPointsBalanceAsBusinessWithHttpInfo($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
     {
-        $request = $this->setPointsBalanceAsBusinessRequest($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->setPointsBalanceAsBusinessRequest($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13552,7 +12630,6 @@ class VatomApi
      *
      * Set Points Balance as Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -13564,9 +12641,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setPointsBalanceAsBusinessAsync($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
+    public function setPointsBalanceAsBusinessAsync($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
     {
-        return $this->setPointsBalanceAsBusinessAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->setPointsBalanceAsBusinessAsyncWithHttpInfo($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13579,7 +12656,6 @@ class VatomApi
      *
      * Set Points Balance as Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -13591,10 +12667,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setPointsBalanceAsBusinessAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
+    public function setPointsBalanceAsBusinessAsyncWithHttpInfo($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
     {
         $returnType = '';
-        $request = $this->setPointsBalanceAsBusinessRequest($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->setPointsBalanceAsBusinessRequest($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13622,7 +12698,6 @@ class VatomApi
     /**
      * Create request for operation 'setPointsBalanceAsBusiness'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_user_id Vatom User Id (required)
@@ -13634,15 +12709,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function setPointsBalanceAsBusinessRequest($version, $account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
+    public function setPointsBalanceAsBusinessRequest($account_id, $app_key, $vatom_user_id, $vatom_campaign_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['setPointsBalanceAsBusiness'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling setPointsBalanceAsBusiness'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -13681,7 +12749,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/campaign/u/points/update';
+        $resourcePath = '/vatom/b/campaign/u/points/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -13744,14 +12812,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -13812,7 +12872,6 @@ class VatomApi
      *
      * Transfer coins from Vatom Users
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -13823,9 +12882,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function transferUserCoins($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
+    public function transferUserCoins($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
     {
-        $this->transferUserCoinsWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->transferUserCoinsWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -13833,7 +12892,6 @@ class VatomApi
      *
      * Transfer coins from Vatom Users
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -13844,9 +12902,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function transferUserCoinsWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
+    public function transferUserCoinsWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
     {
-        $request = $this->transferUserCoinsRequest($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->transferUserCoinsRequest($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13886,7 +12944,6 @@ class VatomApi
      *
      * Transfer coins from Vatom Users
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -13896,9 +12953,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferUserCoinsAsync($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
+    public function transferUserCoinsAsync($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
     {
-        return $this->transferUserCoinsAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->transferUserCoinsAsyncWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13911,7 +12968,6 @@ class VatomApi
      *
      * Transfer coins from Vatom Users
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -13921,10 +12977,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferUserCoinsAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
+    public function transferUserCoinsAsyncWithHttpInfo($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
     {
         $returnType = '';
-        $request = $this->transferUserCoinsRequest($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->transferUserCoinsRequest($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13952,7 +13008,6 @@ class VatomApi
     /**
      * Create request for operation 'transferUserCoins'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -13962,15 +13017,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function transferUserCoinsRequest($version, $account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
+    public function transferUserCoinsRequest($account_id, $vatom_user_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['transferUserCoins'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling transferUserCoins'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -13995,7 +13043,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/u/coins/transfer';
+        $resourcePath = '/vatom/u/coins/transfer';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -14040,14 +13088,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -14108,7 +13148,6 @@ class VatomApi
      *
      * Fund coins for a Business
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -14119,9 +13158,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateBusinessCoins($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
+    public function updateBusinessCoins($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
     {
-        $this->updateBusinessCoinsWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->updateBusinessCoinsWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -14129,7 +13168,6 @@ class VatomApi
      *
      * Fund coins for a Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -14140,9 +13178,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateBusinessCoinsWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
+    public function updateBusinessCoinsWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
     {
-        $request = $this->updateBusinessCoinsRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateBusinessCoinsRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14182,7 +13220,6 @@ class VatomApi
      *
      * Fund coins for a Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -14192,9 +13229,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBusinessCoinsAsync($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
+    public function updateBusinessCoinsAsync($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
     {
-        return $this->updateBusinessCoinsAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->updateBusinessCoinsAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14207,7 +13244,6 @@ class VatomApi
      *
      * Fund coins for a Business
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -14217,10 +13253,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBusinessCoinsAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
+    public function updateBusinessCoinsAsyncWithHttpInfo($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
     {
         $returnType = '';
-        $request = $this->updateBusinessCoinsRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateBusinessCoinsRequest($account_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14248,7 +13284,6 @@ class VatomApi
     /**
      * Create request for operation 'updateBusinessCoins'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
@@ -14258,15 +13293,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateBusinessCoinsRequest($version, $account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
+    public function updateBusinessCoinsRequest($account_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateBusinessCoins'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateBusinessCoins'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -14291,7 +13319,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/coins/update';
+        $resourcePath = '/vatom/b/coins/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -14336,14 +13364,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -14404,7 +13424,6 @@ class VatomApi
      *
      * Update Vatom Event Guest List
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -14416,9 +13435,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateEventGuestList($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
+    public function updateEventGuestList($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
     {
-        $this->updateEventGuestListWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->updateEventGuestListWithHttpInfo($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -14426,7 +13445,6 @@ class VatomApi
      *
      * Update Vatom Event Guest List
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -14438,9 +13456,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEventGuestListWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
+    public function updateEventGuestListWithHttpInfo($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
     {
-        $request = $this->updateEventGuestListRequest($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateEventGuestListRequest($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14480,7 +13498,6 @@ class VatomApi
      *
      * Update Vatom Event Guest List
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -14491,9 +13508,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEventGuestListAsync($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
+    public function updateEventGuestListAsync($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
     {
-        return $this->updateEventGuestListAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->updateEventGuestListAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14506,7 +13523,6 @@ class VatomApi
      *
      * Update Vatom Event Guest List
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -14517,10 +13533,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEventGuestListAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
+    public function updateEventGuestListAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
     {
         $returnType = '';
-        $request = $this->updateEventGuestListRequest($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateEventGuestListRequest($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14548,7 +13564,6 @@ class VatomApi
     /**
      * Create request for operation 'updateEventGuestList'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -14559,15 +13574,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateEventGuestListRequest($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
+    public function updateEventGuestListRequest($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateEventGuestList'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateEventGuestList'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -14599,7 +13607,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/events/guests/update';
+        $resourcePath = '/vatom/b/events/guests/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -14653,14 +13661,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -14721,7 +13721,6 @@ class VatomApi
      *
      * Update Vatom Space
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -14733,9 +13732,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateSpace($version, $account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
+    public function updateSpace($account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
     {
-        $this->updateSpaceWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->updateSpaceWithHttpInfo($account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -14743,7 +13742,6 @@ class VatomApi
      *
      * Update Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -14755,9 +13753,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSpaceWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
+    public function updateSpaceWithHttpInfo($account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
     {
-        $request = $this->updateSpaceRequest($version, $account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateSpaceRequest($account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14797,7 +13795,6 @@ class VatomApi
      *
      * Update Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -14808,9 +13805,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSpaceAsync($version, $account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
+    public function updateSpaceAsync($account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
     {
-        return $this->updateSpaceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->updateSpaceAsyncWithHttpInfo($account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14823,7 +13820,6 @@ class VatomApi
      *
      * Update Vatom Space
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -14834,10 +13830,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSpaceAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
+    public function updateSpaceAsyncWithHttpInfo($account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
     {
         $returnType = '';
-        $request = $this->updateSpaceRequest($version, $account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateSpaceRequest($account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14865,7 +13861,6 @@ class VatomApi
     /**
      * Create request for operation 'updateSpace'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_space_id Vatom Space Id (required)
@@ -14876,15 +13871,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSpaceRequest($version, $account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
+    public function updateSpaceRequest($account_id, $app_key, $vatom_space_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateSpace'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateSpace'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -14916,7 +13904,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/spaces/update';
+        $resourcePath = '/vatom/b/spaces/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -14970,14 +13958,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -15038,7 +14018,6 @@ class VatomApi
      *
      * Update the coins for a user (as a Business)
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -15050,9 +14029,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateUserCoinsAsBusiness($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
+    public function updateUserCoinsAsBusiness($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
     {
-        $this->updateUserCoinsAsBusinessWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $this->updateUserCoinsAsBusinessWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -15060,7 +14039,6 @@ class VatomApi
      *
      * Update the coins for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -15072,9 +14050,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserCoinsAsBusinessWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
+    public function updateUserCoinsAsBusinessWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
     {
-        $request = $this->updateUserCoinsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateUserCoinsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15114,7 +14092,6 @@ class VatomApi
      *
      * Update the coins for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -15125,9 +14102,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserCoinsAsBusinessAsync($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
+    public function updateUserCoinsAsBusinessAsync($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
     {
-        return $this->updateUserCoinsAsBusinessAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->updateUserCoinsAsBusinessAsyncWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15140,7 +14117,6 @@ class VatomApi
      *
      * Update the coins for a user (as a Business)
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -15151,10 +14127,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserCoinsAsBusinessAsyncWithHttpInfo($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
+    public function updateUserCoinsAsBusinessAsyncWithHttpInfo($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
     {
         $returnType = '';
-        $request = $this->updateUserCoinsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateUserCoinsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15182,7 +14158,6 @@ class VatomApi
     /**
      * Create request for operation 'updateUserCoinsAsBusiness'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_user_id Vatom User Id (required)
      * @param  string $app_key Sirqul Application Key (required)
@@ -15193,15 +14168,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUserCoinsAsBusinessRequest($version, $account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
+    public function updateUserCoinsAsBusinessRequest($account_id, $vatom_user_id, $app_key, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserCoinsAsBusiness'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateUserCoinsAsBusiness'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -15233,7 +14201,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/users/coins/update';
+        $resourcePath = '/vatom/b/users/coins/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -15287,14 +14255,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -15355,7 +14315,6 @@ class VatomApi
      *
      * Update Vatom User Profile
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -15365,9 +14324,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateUserProfile($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
+    public function updateUserProfile($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
     {
-        $this->updateUserProfileWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->updateUserProfileWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -15375,7 +14334,6 @@ class VatomApi
      *
      * Update Vatom User Profile
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -15385,9 +14343,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserProfileWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
+    public function updateUserProfileWithHttpInfo($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
     {
-        $request = $this->updateUserProfileRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateUserProfileRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15427,7 +14385,6 @@ class VatomApi
      *
      * Update Vatom User Profile
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -15436,9 +14393,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserProfileAsync($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
+    public function updateUserProfileAsync($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
     {
-        return $this->updateUserProfileAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->updateUserProfileAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15451,7 +14408,6 @@ class VatomApi
      *
      * Update Vatom User Profile
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -15460,10 +14416,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserProfileAsyncWithHttpInfo($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
+    public function updateUserProfileAsyncWithHttpInfo($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
     {
         $returnType = '';
-        $request = $this->updateUserProfileRequest($version, $account_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateUserProfileRequest($account_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15491,7 +14447,6 @@ class VatomApi
     /**
      * Create request for operation 'updateUserProfile'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $vatom_parameters Vatom Parameters (required)
      * @param  bool|null $return_raw_response Return raw response (optional)
@@ -15500,15 +14455,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUserProfileRequest($version, $account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
+    public function updateUserProfileRequest($account_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateUserProfile'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateUserProfile'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -15526,7 +14474,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/me/update';
+        $resourcePath = '/vatom/me/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -15562,14 +14510,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -15630,7 +14570,6 @@ class VatomApi
      *
      * Update Vatom Event
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -15642,9 +14581,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateVatomEvent($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
+    public function updateVatomEvent($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
     {
-        $this->updateVatomEventWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
+        $this->updateVatomEventWithHttpInfo($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
     }
 
     /**
@@ -15652,7 +14591,6 @@ class VatomApi
      *
      * Update Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -15664,9 +14602,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateVatomEventWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
+    public function updateVatomEventWithHttpInfo($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
     {
-        $request = $this->updateVatomEventRequest($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateVatomEventRequest($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15706,7 +14644,6 @@ class VatomApi
      *
      * Update Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -15717,9 +14654,9 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateVatomEventAsync($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
+    public function updateVatomEventAsync($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
     {
-        return $this->updateVatomEventAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType)
+        return $this->updateVatomEventAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15732,7 +14669,6 @@ class VatomApi
      *
      * Update Vatom Event
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -15743,10 +14679,10 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateVatomEventAsyncWithHttpInfo($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
+    public function updateVatomEventAsyncWithHttpInfo($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
     {
         $returnType = '';
-        $request = $this->updateVatomEventRequest($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
+        $request = $this->updateVatomEventRequest($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15774,7 +14710,6 @@ class VatomApi
     /**
      * Create request for operation 'updateVatomEvent'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $app_key Sirqul Application Key (required)
      * @param  string $vatom_event_id Vatom Event Id (required)
@@ -15785,15 +14720,8 @@ class VatomApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateVatomEventRequest($version, $account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
+    public function updateVatomEventRequest($account_id, $app_key, $vatom_event_id, $vatom_parameters, $return_raw_response = null, string $contentType = self::contentTypes['updateVatomEvent'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateVatomEvent'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -15825,7 +14753,7 @@ class VatomApi
 
 
 
-        $resourcePath = '/api/{version}/vatom/b/events/update';
+        $resourcePath = '/vatom/b/events/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -15879,14 +14807,6 @@ class VatomApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

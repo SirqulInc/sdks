@@ -146,7 +146,6 @@ class UserPermissionsApi
      *
      * Add User
      *
-     * @param  float $version version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -170,9 +169,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function addUsersToPermissionable($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
+    public function addUsersToPermissionable($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
     {
-        list($response) = $this->addUsersToPermissionableWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $read, $write, $delete, $add, $connection_ids, $connection_account_ids, $connection_group_ids, $pending, $admin, $include_friend_group, $latitude, $longitude, $audience_ids, $contentType);
+        list($response) = $this->addUsersToPermissionableWithHttpInfo($permissionable_type, $permissionable_id, $device_id, $account_id, $read, $write, $delete, $add, $connection_ids, $connection_account_ids, $connection_group_ids, $pending, $admin, $include_friend_group, $latitude, $longitude, $audience_ids, $contentType);
         return $response;
     }
 
@@ -181,7 +180,6 @@ class UserPermissionsApi
      *
      * Add User
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -205,9 +203,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addUsersToPermissionableWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
+    public function addUsersToPermissionableWithHttpInfo($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
     {
-        $request = $this->addUsersToPermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $read, $write, $delete, $add, $connection_ids, $connection_account_ids, $connection_group_ids, $pending, $admin, $include_friend_group, $latitude, $longitude, $audience_ids, $contentType);
+        $request = $this->addUsersToPermissionableRequest($permissionable_type, $permissionable_id, $device_id, $account_id, $read, $write, $delete, $add, $connection_ids, $connection_account_ids, $connection_group_ids, $pending, $admin, $include_friend_group, $latitude, $longitude, $audience_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -283,7 +281,6 @@ class UserPermissionsApi
      *
      * Add User
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -306,9 +303,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addUsersToPermissionableAsync($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
+    public function addUsersToPermissionableAsync($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
     {
-        return $this->addUsersToPermissionableAsyncWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $read, $write, $delete, $add, $connection_ids, $connection_account_ids, $connection_group_ids, $pending, $admin, $include_friend_group, $latitude, $longitude, $audience_ids, $contentType)
+        return $this->addUsersToPermissionableAsyncWithHttpInfo($permissionable_type, $permissionable_id, $device_id, $account_id, $read, $write, $delete, $add, $connection_ids, $connection_account_ids, $connection_group_ids, $pending, $admin, $include_friend_group, $latitude, $longitude, $audience_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -321,7 +318,6 @@ class UserPermissionsApi
      *
      * Add User
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -344,10 +340,10 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addUsersToPermissionableAsyncWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
+    public function addUsersToPermissionableAsyncWithHttpInfo($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->addUsersToPermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $read, $write, $delete, $add, $connection_ids, $connection_account_ids, $connection_group_ids, $pending, $admin, $include_friend_group, $latitude, $longitude, $audience_ids, $contentType);
+        $request = $this->addUsersToPermissionableRequest($permissionable_type, $permissionable_id, $device_id, $account_id, $read, $write, $delete, $add, $connection_ids, $connection_account_ids, $connection_group_ids, $pending, $admin, $include_friend_group, $latitude, $longitude, $audience_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -388,7 +384,6 @@ class UserPermissionsApi
     /**
      * Create request for operation 'addUsersToPermissionable'
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -411,15 +406,8 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addUsersToPermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
+    public function addUsersToPermissionableRequest($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $read = true, $write = false, $delete = false, $add = false, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $pending = false, $admin = null, $include_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['addUsersToPermissionable'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addUsersToPermissionable'
-            );
-        }
 
         // verify the required parameter 'permissionable_type' is set
         if ($permissionable_type === null || (is_array($permissionable_type) && count($permissionable_type) === 0)) {
@@ -451,7 +439,7 @@ class UserPermissionsApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/permissions/add';
+        $resourcePath = '/consumer/permissions/add';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -613,14 +601,6 @@ class UserPermissionsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -681,7 +661,6 @@ class UserPermissionsApi
      *
      * Approve Permissionable
      *
-     * @param  float $version version (required)
      * @param  string $permissionable_type The permissionable type of the object (required)
      * @param  int $permissionable_id The id of the permissionable object (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -693,9 +672,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function approvePermissionable($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
+    public function approvePermissionable($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
     {
-        list($response) = $this->approvePermissionableWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $approval_status, $contentType);
+        list($response) = $this->approvePermissionableWithHttpInfo($permissionable_type, $permissionable_id, $device_id, $account_id, $approval_status, $contentType);
         return $response;
     }
 
@@ -704,7 +683,6 @@ class UserPermissionsApi
      *
      * Approve Permissionable
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type The permissionable type of the object (required)
      * @param  int $permissionable_id The id of the permissionable object (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -716,9 +694,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function approvePermissionableWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
+    public function approvePermissionableWithHttpInfo($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
     {
-        $request = $this->approvePermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $approval_status, $contentType);
+        $request = $this->approvePermissionableRequest($permissionable_type, $permissionable_id, $device_id, $account_id, $approval_status, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -794,7 +772,6 @@ class UserPermissionsApi
      *
      * Approve Permissionable
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type The permissionable type of the object (required)
      * @param  int $permissionable_id The id of the permissionable object (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -805,9 +782,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approvePermissionableAsync($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
+    public function approvePermissionableAsync($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
     {
-        return $this->approvePermissionableAsyncWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $approval_status, $contentType)
+        return $this->approvePermissionableAsyncWithHttpInfo($permissionable_type, $permissionable_id, $device_id, $account_id, $approval_status, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -820,7 +797,6 @@ class UserPermissionsApi
      *
      * Approve Permissionable
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type The permissionable type of the object (required)
      * @param  int $permissionable_id The id of the permissionable object (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -831,10 +807,10 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approvePermissionableAsyncWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
+    public function approvePermissionableAsyncWithHttpInfo($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->approvePermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $approval_status, $contentType);
+        $request = $this->approvePermissionableRequest($permissionable_type, $permissionable_id, $device_id, $account_id, $approval_status, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -875,7 +851,6 @@ class UserPermissionsApi
     /**
      * Create request for operation 'approvePermissionable'
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type The permissionable type of the object (required)
      * @param  int $permissionable_id The id of the permissionable object (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -886,15 +861,8 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function approvePermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
+    public function approvePermissionableRequest($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $approval_status = 'APPROVED', string $contentType = self::contentTypes['approvePermissionable'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling approvePermissionable'
-            );
-        }
 
         // verify the required parameter 'permissionable_type' is set
         if ($permissionable_type === null || (is_array($permissionable_type) && count($permissionable_type) === 0)) {
@@ -914,7 +882,7 @@ class UserPermissionsApi
 
 
 
-        $resourcePath = '/api/{version}/permissionable/approve';
+        $resourcePath = '/permissionable/approve';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -968,14 +936,6 @@ class UserPermissionsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1036,7 +996,6 @@ class UserPermissionsApi
      *
      * Leave
      *
-     * @param  float $version version (required)
      * @param  string $permissionable_type the permissionable type PermissionableType (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1049,9 +1008,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function leaveFromPermissionable($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
+    public function leaveFromPermissionable($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
     {
-        list($response) = $this->leaveFromPermissionableWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->leaveFromPermissionableWithHttpInfo($permissionable_type, $permissionable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1060,7 +1019,6 @@ class UserPermissionsApi
      *
      * Leave
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type PermissionableType (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1073,9 +1031,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaveFromPermissionableWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
+    public function leaveFromPermissionableWithHttpInfo($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
     {
-        $request = $this->leaveFromPermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->leaveFromPermissionableRequest($permissionable_type, $permissionable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1151,7 +1109,6 @@ class UserPermissionsApi
      *
      * Leave
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type PermissionableType (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1163,9 +1120,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveFromPermissionableAsync($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
+    public function leaveFromPermissionableAsync($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
     {
-        return $this->leaveFromPermissionableAsyncWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->leaveFromPermissionableAsyncWithHttpInfo($permissionable_type, $permissionable_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1178,7 +1135,6 @@ class UserPermissionsApi
      *
      * Leave
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type PermissionableType (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1190,10 +1146,10 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveFromPermissionableAsyncWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
+    public function leaveFromPermissionableAsyncWithHttpInfo($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->leaveFromPermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->leaveFromPermissionableRequest($permissionable_type, $permissionable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1234,7 +1190,6 @@ class UserPermissionsApi
     /**
      * Create request for operation 'leaveFromPermissionable'
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type PermissionableType (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1246,15 +1201,8 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaveFromPermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
+    public function leaveFromPermissionableRequest($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['leaveFromPermissionable'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling leaveFromPermissionable'
-            );
-        }
 
         // verify the required parameter 'permissionable_type' is set
         if ($permissionable_type === null || (is_array($permissionable_type) && count($permissionable_type) === 0)) {
@@ -1275,7 +1223,7 @@ class UserPermissionsApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/permissions/leave';
+        $resourcePath = '/consumer/permissions/leave';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1338,14 +1286,6 @@ class UserPermissionsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1406,7 +1346,6 @@ class UserPermissionsApi
      *
      * Remove User
      *
-     * @param  float $version version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1424,9 +1363,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removeUsersFromPermissionable($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
+    public function removeUsersFromPermissionable($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
     {
-        list($response) = $this->removeUsersFromPermissionableWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $connection_group_ids, $remove_friend_group, $latitude, $longitude, $audience_ids, $contentType);
+        list($response) = $this->removeUsersFromPermissionableWithHttpInfo($permissionable_type, $permissionable_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $connection_group_ids, $remove_friend_group, $latitude, $longitude, $audience_ids, $contentType);
         return $response;
     }
 
@@ -1435,7 +1374,6 @@ class UserPermissionsApi
      *
      * Remove User
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1453,9 +1391,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeUsersFromPermissionableWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
+    public function removeUsersFromPermissionableWithHttpInfo($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
     {
-        $request = $this->removeUsersFromPermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $connection_group_ids, $remove_friend_group, $latitude, $longitude, $audience_ids, $contentType);
+        $request = $this->removeUsersFromPermissionableRequest($permissionable_type, $permissionable_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $connection_group_ids, $remove_friend_group, $latitude, $longitude, $audience_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1531,7 +1469,6 @@ class UserPermissionsApi
      *
      * Remove User
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1548,9 +1485,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeUsersFromPermissionableAsync($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
+    public function removeUsersFromPermissionableAsync($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
     {
-        return $this->removeUsersFromPermissionableAsyncWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $connection_group_ids, $remove_friend_group, $latitude, $longitude, $audience_ids, $contentType)
+        return $this->removeUsersFromPermissionableAsyncWithHttpInfo($permissionable_type, $permissionable_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $connection_group_ids, $remove_friend_group, $latitude, $longitude, $audience_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1563,7 +1500,6 @@ class UserPermissionsApi
      *
      * Remove User
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1580,10 +1516,10 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeUsersFromPermissionableAsyncWithHttpInfo($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
+    public function removeUsersFromPermissionableAsyncWithHttpInfo($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removeUsersFromPermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $connection_group_ids, $remove_friend_group, $latitude, $longitude, $audience_ids, $contentType);
+        $request = $this->removeUsersFromPermissionableRequest($permissionable_type, $permissionable_id, $device_id, $account_id, $connection_ids, $connection_account_ids, $connection_group_ids, $remove_friend_group, $latitude, $longitude, $audience_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1624,7 +1560,6 @@ class UserPermissionsApi
     /**
      * Create request for operation 'removeUsersFromPermissionable'
      *
-     * @param  float $version (required)
      * @param  string $permissionable_type the permissionable type of the object (required)
      * @param  int $permissionable_id the id of the permissionable object (required)
      * @param  string|null $device_id the device id (deviceId or accountId required) (optional)
@@ -1641,15 +1576,8 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeUsersFromPermissionableRequest($version, $permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
+    public function removeUsersFromPermissionableRequest($permissionable_type, $permissionable_id, $device_id = null, $account_id = null, $connection_ids = null, $connection_account_ids = null, $connection_group_ids = null, $remove_friend_group = false, $latitude = null, $longitude = null, $audience_ids = null, string $contentType = self::contentTypes['removeUsersFromPermissionable'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeUsersFromPermissionable'
-            );
-        }
 
         // verify the required parameter 'permissionable_type' is set
         if ($permissionable_type === null || (is_array($permissionable_type) && count($permissionable_type) === 0)) {
@@ -1675,7 +1603,7 @@ class UserPermissionsApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/permissions/remove';
+        $resourcePath = '/consumer/permissions/remove';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1783,14 +1711,6 @@ class UserPermissionsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1851,7 +1771,6 @@ class UserPermissionsApi
      *
      * Search Permissionables
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id Filter results for a specific user account (optional)
@@ -1871,9 +1790,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\UserPermissionsResponse[]
      */
-    public function searchPermissionables($version, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
+    public function searchPermissionables($device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
     {
-        list($response) = $this->searchPermissionablesWithHttpInfo($version, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $keyword, $sort_field, $descending, $pending, $admin, $start, $limit, $contentType);
+        list($response) = $this->searchPermissionablesWithHttpInfo($device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $keyword, $sort_field, $descending, $pending, $admin, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1882,7 +1801,6 @@ class UserPermissionsApi
      *
      * Search Permissionables
      *
-     * @param  float $version (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id Filter results for a specific user account (optional)
@@ -1902,9 +1820,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\UserPermissionsResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchPermissionablesWithHttpInfo($version, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
+    public function searchPermissionablesWithHttpInfo($device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
     {
-        $request = $this->searchPermissionablesRequest($version, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $keyword, $sort_field, $descending, $pending, $admin, $start, $limit, $contentType);
+        $request = $this->searchPermissionablesRequest($device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $keyword, $sort_field, $descending, $pending, $admin, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1980,7 +1898,6 @@ class UserPermissionsApi
      *
      * Search Permissionables
      *
-     * @param  float $version (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id Filter results for a specific user account (optional)
@@ -1999,9 +1916,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPermissionablesAsync($version, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
+    public function searchPermissionablesAsync($device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
     {
-        return $this->searchPermissionablesAsyncWithHttpInfo($version, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $keyword, $sort_field, $descending, $pending, $admin, $start, $limit, $contentType)
+        return $this->searchPermissionablesAsyncWithHttpInfo($device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $keyword, $sort_field, $descending, $pending, $admin, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2014,7 +1931,6 @@ class UserPermissionsApi
      *
      * Search Permissionables
      *
-     * @param  float $version (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id Filter results for a specific user account (optional)
@@ -2033,10 +1949,10 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPermissionablesAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
+    public function searchPermissionablesAsyncWithHttpInfo($device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UserPermissionsResponse[]';
-        $request = $this->searchPermissionablesRequest($version, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $keyword, $sort_field, $descending, $pending, $admin, $start, $limit, $contentType);
+        $request = $this->searchPermissionablesRequest($device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $keyword, $sort_field, $descending, $pending, $admin, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2077,7 +1993,6 @@ class UserPermissionsApi
     /**
      * Create request for operation 'searchPermissionables'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id Filter results for a specific user account (optional)
@@ -2096,15 +2011,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchPermissionablesRequest($version, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
+    public function searchPermissionablesRequest($device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $keyword = null, $sort_field = null, $descending = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionables'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchPermissionables'
-            );
-        }
 
 
 
@@ -2119,8 +2028,7 @@ class UserPermissionsApi
 
 
 
-
-        $resourcePath = '/api/{version}/permissions/search';
+        $resourcePath = '/permissions/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2246,14 +2154,6 @@ class UserPermissionsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2314,7 +2214,6 @@ class UserPermissionsApi
      *
      * Search Permissionables by Distnace
      *
-     * @param  float $version version (required)
      * @param  float $latitude The latitude of the current account (required)
      * @param  float $longitude The longitude of the current account (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -2335,9 +2234,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\UserPermissionsResponse[]
      */
-    public function searchPermissionablesFollowingDistance($version, $latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
+    public function searchPermissionablesFollowingDistance($latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
     {
-        list($response) = $this->searchPermissionablesFollowingDistanceWithHttpInfo($version, $latitude, $longitude, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $search_range, $keyword, $pending, $admin, $start, $limit, $contentType);
+        list($response) = $this->searchPermissionablesFollowingDistanceWithHttpInfo($latitude, $longitude, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $search_range, $keyword, $pending, $admin, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2346,7 +2245,6 @@ class UserPermissionsApi
      *
      * Search Permissionables by Distnace
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of the current account (required)
      * @param  float $longitude The longitude of the current account (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -2367,9 +2265,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\UserPermissionsResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchPermissionablesFollowingDistanceWithHttpInfo($version, $latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
+    public function searchPermissionablesFollowingDistanceWithHttpInfo($latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
     {
-        $request = $this->searchPermissionablesFollowingDistanceRequest($version, $latitude, $longitude, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $search_range, $keyword, $pending, $admin, $start, $limit, $contentType);
+        $request = $this->searchPermissionablesFollowingDistanceRequest($latitude, $longitude, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $search_range, $keyword, $pending, $admin, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2445,7 +2343,6 @@ class UserPermissionsApi
      *
      * Search Permissionables by Distnace
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of the current account (required)
      * @param  float $longitude The longitude of the current account (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -2465,9 +2362,9 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPermissionablesFollowingDistanceAsync($version, $latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
+    public function searchPermissionablesFollowingDistanceAsync($latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
     {
-        return $this->searchPermissionablesFollowingDistanceAsyncWithHttpInfo($version, $latitude, $longitude, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $search_range, $keyword, $pending, $admin, $start, $limit, $contentType)
+        return $this->searchPermissionablesFollowingDistanceAsyncWithHttpInfo($latitude, $longitude, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $search_range, $keyword, $pending, $admin, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2480,7 +2377,6 @@ class UserPermissionsApi
      *
      * Search Permissionables by Distnace
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of the current account (required)
      * @param  float $longitude The longitude of the current account (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -2500,10 +2396,10 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPermissionablesFollowingDistanceAsyncWithHttpInfo($version, $latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
+    public function searchPermissionablesFollowingDistanceAsyncWithHttpInfo($latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UserPermissionsResponse[]';
-        $request = $this->searchPermissionablesFollowingDistanceRequest($version, $latitude, $longitude, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $search_range, $keyword, $pending, $admin, $start, $limit, $contentType);
+        $request = $this->searchPermissionablesFollowingDistanceRequest($latitude, $longitude, $device_id, $account_id, $connection_account_id, $connection_account_ids, $permissionable_type, $permissionable_id, $search_range, $keyword, $pending, $admin, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2544,7 +2440,6 @@ class UserPermissionsApi
     /**
      * Create request for operation 'searchPermissionablesFollowingDistance'
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude of the current account (required)
      * @param  float $longitude The longitude of the current account (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -2564,15 +2459,8 @@ class UserPermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchPermissionablesFollowingDistanceRequest($version, $latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
+    public function searchPermissionablesFollowingDistanceRequest($latitude, $longitude, $device_id = null, $account_id = null, $connection_account_id = null, $connection_account_ids = null, $permissionable_type = null, $permissionable_id = null, $search_range = 5, $keyword = null, $pending = null, $admin = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchPermissionablesFollowingDistance'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchPermissionablesFollowingDistance'
-            );
-        }
 
         // verify the required parameter 'latitude' is set
         if ($latitude === null || (is_array($latitude) && count($latitude) === 0)) {
@@ -2601,7 +2489,7 @@ class UserPermissionsApi
 
 
 
-        $resourcePath = '/api/{version}/permissions/distancesearch';
+        $resourcePath = '/permissions/distancesearch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2736,14 +2624,6 @@ class UserPermissionsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -143,7 +143,6 @@ class LeaderboardApi
      *
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account id of the user creating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $rank_type a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -163,9 +162,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LeaderboardResponse
      */
-    public function createLeaderboard($version, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
+    public function createLeaderboard($account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
     {
-        list($response) = $this->createLeaderboardWithHttpInfo($version, $account_id, $app_key, $rank_type, $leaderboard_mode, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $sort_field, $title, $description, $meta_data, $contentType);
+        list($response) = $this->createLeaderboardWithHttpInfo($account_id, $app_key, $rank_type, $leaderboard_mode, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $sort_field, $title, $description, $meta_data, $contentType);
         return $response;
     }
 
@@ -174,7 +173,6 @@ class LeaderboardApi
      *
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user creating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $rank_type a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -194,9 +192,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LeaderboardResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createLeaderboardWithHttpInfo($version, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
+    public function createLeaderboardWithHttpInfo($account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
     {
-        $request = $this->createLeaderboardRequest($version, $account_id, $app_key, $rank_type, $leaderboard_mode, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $sort_field, $title, $description, $meta_data, $contentType);
+        $request = $this->createLeaderboardRequest($account_id, $app_key, $rank_type, $leaderboard_mode, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $sort_field, $title, $description, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -272,7 +270,6 @@ class LeaderboardApi
      *
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user creating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $rank_type a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -291,9 +288,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createLeaderboardAsync($version, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
+    public function createLeaderboardAsync($account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
     {
-        return $this->createLeaderboardAsyncWithHttpInfo($version, $account_id, $app_key, $rank_type, $leaderboard_mode, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $sort_field, $title, $description, $meta_data, $contentType)
+        return $this->createLeaderboardAsyncWithHttpInfo($account_id, $app_key, $rank_type, $leaderboard_mode, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $sort_field, $title, $description, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -306,7 +303,6 @@ class LeaderboardApi
      *
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user creating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $rank_type a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -325,10 +321,10 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createLeaderboardAsyncWithHttpInfo($version, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
+    public function createLeaderboardAsyncWithHttpInfo($account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LeaderboardResponse';
-        $request = $this->createLeaderboardRequest($version, $account_id, $app_key, $rank_type, $leaderboard_mode, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $sort_field, $title, $description, $meta_data, $contentType);
+        $request = $this->createLeaderboardRequest($account_id, $app_key, $rank_type, $leaderboard_mode, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $sort_field, $title, $description, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -369,7 +365,6 @@ class LeaderboardApi
     /**
      * Create request for operation 'createLeaderboard'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user creating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
      * @param  string|null $rank_type a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -388,15 +383,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createLeaderboardRequest($version, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
+    public function createLeaderboardRequest($account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $sort_field = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['createLeaderboard'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createLeaderboard'
-            );
-        }
 
 
 
@@ -411,8 +400,7 @@ class LeaderboardApi
 
 
 
-
-        $resourcePath = '/api/{version}/leaderboard/create';
+        $resourcePath = '/leaderboard/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -538,14 +526,6 @@ class LeaderboardApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -606,7 +586,6 @@ class LeaderboardApi
      *
      * Delete the Leader Board
      *
-     * @param  float $version version (required)
      * @param  int $leaderboard_id The leaderboard id to delete. (required)
      * @param  int|null $account_id The account id of the user making the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLeaderboard'] to see the possible values for this operation
@@ -615,9 +594,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteLeaderboard($version, $leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
+    public function deleteLeaderboard($leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
     {
-        list($response) = $this->deleteLeaderboardWithHttpInfo($version, $leaderboard_id, $account_id, $contentType);
+        list($response) = $this->deleteLeaderboardWithHttpInfo($leaderboard_id, $account_id, $contentType);
         return $response;
     }
 
@@ -626,7 +605,6 @@ class LeaderboardApi
      *
      * Delete the Leader Board
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id to delete. (required)
      * @param  int|null $account_id The account id of the user making the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLeaderboard'] to see the possible values for this operation
@@ -635,9 +613,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteLeaderboardWithHttpInfo($version, $leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
+    public function deleteLeaderboardWithHttpInfo($leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
     {
-        $request = $this->deleteLeaderboardRequest($version, $leaderboard_id, $account_id, $contentType);
+        $request = $this->deleteLeaderboardRequest($leaderboard_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -713,7 +691,6 @@ class LeaderboardApi
      *
      * Delete the Leader Board
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id to delete. (required)
      * @param  int|null $account_id The account id of the user making the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLeaderboard'] to see the possible values for this operation
@@ -721,9 +698,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteLeaderboardAsync($version, $leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
+    public function deleteLeaderboardAsync($leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
     {
-        return $this->deleteLeaderboardAsyncWithHttpInfo($version, $leaderboard_id, $account_id, $contentType)
+        return $this->deleteLeaderboardAsyncWithHttpInfo($leaderboard_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -736,7 +713,6 @@ class LeaderboardApi
      *
      * Delete the Leader Board
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id to delete. (required)
      * @param  int|null $account_id The account id of the user making the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLeaderboard'] to see the possible values for this operation
@@ -744,10 +720,10 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteLeaderboardAsyncWithHttpInfo($version, $leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
+    public function deleteLeaderboardAsyncWithHttpInfo($leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteLeaderboardRequest($version, $leaderboard_id, $account_id, $contentType);
+        $request = $this->deleteLeaderboardRequest($leaderboard_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -788,7 +764,6 @@ class LeaderboardApi
     /**
      * Create request for operation 'deleteLeaderboard'
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id to delete. (required)
      * @param  int|null $account_id The account id of the user making the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLeaderboard'] to see the possible values for this operation
@@ -796,15 +771,8 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteLeaderboardRequest($version, $leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
+    public function deleteLeaderboardRequest($leaderboard_id, $account_id = null, string $contentType = self::contentTypes['deleteLeaderboard'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteLeaderboard'
-            );
-        }
 
         // verify the required parameter 'leaderboard_id' is set
         if ($leaderboard_id === null || (is_array($leaderboard_id) && count($leaderboard_id) === 0)) {
@@ -815,7 +783,7 @@ class LeaderboardApi
 
 
 
-        $resourcePath = '/api/{version}/leaderboard/delete';
+        $resourcePath = '/leaderboard/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -842,14 +810,6 @@ class LeaderboardApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -910,7 +870,6 @@ class LeaderboardApi
      *
      * Read a leaderboard by id and retrieve the matching ranking list
      *
-     * @param  float $version version (required)
      * @param  int $leaderboard_id The leaderboard id. (required)
      * @param  int|null $account_id A valid account. (optional)
      * @param  bool|null $include_full_ranking_list set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -920,9 +879,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LeaderboardResponse
      */
-    public function getLeaderboard($version, $leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
+    public function getLeaderboard($leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
     {
-        list($response) = $this->getLeaderboardWithHttpInfo($version, $leaderboard_id, $account_id, $include_full_ranking_list, $contentType);
+        list($response) = $this->getLeaderboardWithHttpInfo($leaderboard_id, $account_id, $include_full_ranking_list, $contentType);
         return $response;
     }
 
@@ -931,7 +890,6 @@ class LeaderboardApi
      *
      * Read a leaderboard by id and retrieve the matching ranking list
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id. (required)
      * @param  int|null $account_id A valid account. (optional)
      * @param  bool|null $include_full_ranking_list set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -941,9 +899,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LeaderboardResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLeaderboardWithHttpInfo($version, $leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
+    public function getLeaderboardWithHttpInfo($leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
     {
-        $request = $this->getLeaderboardRequest($version, $leaderboard_id, $account_id, $include_full_ranking_list, $contentType);
+        $request = $this->getLeaderboardRequest($leaderboard_id, $account_id, $include_full_ranking_list, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1019,7 +977,6 @@ class LeaderboardApi
      *
      * Read a leaderboard by id and retrieve the matching ranking list
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id. (required)
      * @param  int|null $account_id A valid account. (optional)
      * @param  bool|null $include_full_ranking_list set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -1028,9 +985,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLeaderboardAsync($version, $leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
+    public function getLeaderboardAsync($leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
     {
-        return $this->getLeaderboardAsyncWithHttpInfo($version, $leaderboard_id, $account_id, $include_full_ranking_list, $contentType)
+        return $this->getLeaderboardAsyncWithHttpInfo($leaderboard_id, $account_id, $include_full_ranking_list, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1043,7 +1000,6 @@ class LeaderboardApi
      *
      * Read a leaderboard by id and retrieve the matching ranking list
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id. (required)
      * @param  int|null $account_id A valid account. (optional)
      * @param  bool|null $include_full_ranking_list set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -1052,10 +1008,10 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLeaderboardAsyncWithHttpInfo($version, $leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
+    public function getLeaderboardAsyncWithHttpInfo($leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LeaderboardResponse';
-        $request = $this->getLeaderboardRequest($version, $leaderboard_id, $account_id, $include_full_ranking_list, $contentType);
+        $request = $this->getLeaderboardRequest($leaderboard_id, $account_id, $include_full_ranking_list, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1096,7 +1052,6 @@ class LeaderboardApi
     /**
      * Create request for operation 'getLeaderboard'
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id. (required)
      * @param  int|null $account_id A valid account. (optional)
      * @param  bool|null $include_full_ranking_list set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -1105,15 +1060,8 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLeaderboardRequest($version, $leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
+    public function getLeaderboardRequest($leaderboard_id, $account_id = null, $include_full_ranking_list = null, string $contentType = self::contentTypes['getLeaderboard'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getLeaderboard'
-            );
-        }
 
         // verify the required parameter 'leaderboard_id' is set
         if ($leaderboard_id === null || (is_array($leaderboard_id) && count($leaderboard_id) === 0)) {
@@ -1125,7 +1073,7 @@ class LeaderboardApi
 
 
 
-        $resourcePath = '/api/{version}/leaderboard/get';
+        $resourcePath = '/leaderboard/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1161,14 +1109,6 @@ class LeaderboardApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1229,7 +1169,6 @@ class LeaderboardApi
      *
      * Search leaderboard and retrieve the matching ranking list
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account id of the user requesting the search. (optional)
      * @param  string|null $app_key The application key. (optional)
      * @param  bool|null $global_only only include global leaderboards (this overrides the appKey filter) (optional)
@@ -1248,9 +1187,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LeaderboardResponse
      */
-    public function searchLeaderboards($version, $account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
+    public function searchLeaderboards($account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
     {
-        list($response) = $this->searchLeaderboardsWithHttpInfo($version, $account_id, $app_key, $global_only, $keyword, $leaderboard_ids, $rank_types, $sort_field, $descending, $include_inactive, $include_app_response, $start, $limit, $contentType);
+        list($response) = $this->searchLeaderboardsWithHttpInfo($account_id, $app_key, $global_only, $keyword, $leaderboard_ids, $rank_types, $sort_field, $descending, $include_inactive, $include_app_response, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1259,7 +1198,6 @@ class LeaderboardApi
      *
      * Search leaderboard and retrieve the matching ranking list
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user requesting the search. (optional)
      * @param  string|null $app_key The application key. (optional)
      * @param  bool|null $global_only only include global leaderboards (this overrides the appKey filter) (optional)
@@ -1278,9 +1216,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LeaderboardResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchLeaderboardsWithHttpInfo($version, $account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
+    public function searchLeaderboardsWithHttpInfo($account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
     {
-        $request = $this->searchLeaderboardsRequest($version, $account_id, $app_key, $global_only, $keyword, $leaderboard_ids, $rank_types, $sort_field, $descending, $include_inactive, $include_app_response, $start, $limit, $contentType);
+        $request = $this->searchLeaderboardsRequest($account_id, $app_key, $global_only, $keyword, $leaderboard_ids, $rank_types, $sort_field, $descending, $include_inactive, $include_app_response, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1356,7 +1294,6 @@ class LeaderboardApi
      *
      * Search leaderboard and retrieve the matching ranking list
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user requesting the search. (optional)
      * @param  string|null $app_key The application key. (optional)
      * @param  bool|null $global_only only include global leaderboards (this overrides the appKey filter) (optional)
@@ -1374,9 +1311,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchLeaderboardsAsync($version, $account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
+    public function searchLeaderboardsAsync($account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
     {
-        return $this->searchLeaderboardsAsyncWithHttpInfo($version, $account_id, $app_key, $global_only, $keyword, $leaderboard_ids, $rank_types, $sort_field, $descending, $include_inactive, $include_app_response, $start, $limit, $contentType)
+        return $this->searchLeaderboardsAsyncWithHttpInfo($account_id, $app_key, $global_only, $keyword, $leaderboard_ids, $rank_types, $sort_field, $descending, $include_inactive, $include_app_response, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1389,7 +1326,6 @@ class LeaderboardApi
      *
      * Search leaderboard and retrieve the matching ranking list
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user requesting the search. (optional)
      * @param  string|null $app_key The application key. (optional)
      * @param  bool|null $global_only only include global leaderboards (this overrides the appKey filter) (optional)
@@ -1407,10 +1343,10 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchLeaderboardsAsyncWithHttpInfo($version, $account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
+    public function searchLeaderboardsAsyncWithHttpInfo($account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LeaderboardResponse';
-        $request = $this->searchLeaderboardsRequest($version, $account_id, $app_key, $global_only, $keyword, $leaderboard_ids, $rank_types, $sort_field, $descending, $include_inactive, $include_app_response, $start, $limit, $contentType);
+        $request = $this->searchLeaderboardsRequest($account_id, $app_key, $global_only, $keyword, $leaderboard_ids, $rank_types, $sort_field, $descending, $include_inactive, $include_app_response, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1451,7 +1387,6 @@ class LeaderboardApi
     /**
      * Create request for operation 'searchLeaderboards'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user requesting the search. (optional)
      * @param  string|null $app_key The application key. (optional)
      * @param  bool|null $global_only only include global leaderboards (this overrides the appKey filter) (optional)
@@ -1469,15 +1404,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchLeaderboardsRequest($version, $account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
+    public function searchLeaderboardsRequest($account_id = null, $app_key = null, $global_only = null, $keyword = null, $leaderboard_ids = null, $rank_types = null, $sort_field = null, $descending = null, $include_inactive = null, $include_app_response = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchLeaderboards'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchLeaderboards'
-            );
-        }
 
 
 
@@ -1491,8 +1420,7 @@ class LeaderboardApi
 
 
 
-
-        $resourcePath = '/api/{version}/leaderboard/search';
+        $resourcePath = '/leaderboard/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1609,14 +1537,6 @@ class LeaderboardApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1677,7 +1597,6 @@ class LeaderboardApi
      *
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      *
-     * @param  float $version version (required)
      * @param  int $leaderboard_id The leaderboard id to update. (required)
      * @param  int|null $account_id The account id of the user updating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1699,9 +1618,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LeaderboardResponse
      */
-    public function updateLeaderboard($version, $leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
+    public function updateLeaderboard($leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
     {
-        list($response) = $this->updateLeaderboardWithHttpInfo($version, $leaderboard_id, $account_id, $app_key, $rank_type, $leaderboard_mode, $sort_field, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $active, $title, $description, $meta_data, $contentType);
+        list($response) = $this->updateLeaderboardWithHttpInfo($leaderboard_id, $account_id, $app_key, $rank_type, $leaderboard_mode, $sort_field, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $active, $title, $description, $meta_data, $contentType);
         return $response;
     }
 
@@ -1710,7 +1629,6 @@ class LeaderboardApi
      *
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id to update. (required)
      * @param  int|null $account_id The account id of the user updating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1732,9 +1650,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LeaderboardResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateLeaderboardWithHttpInfo($version, $leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
+    public function updateLeaderboardWithHttpInfo($leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
     {
-        $request = $this->updateLeaderboardRequest($version, $leaderboard_id, $account_id, $app_key, $rank_type, $leaderboard_mode, $sort_field, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $active, $title, $description, $meta_data, $contentType);
+        $request = $this->updateLeaderboardRequest($leaderboard_id, $account_id, $app_key, $rank_type, $leaderboard_mode, $sort_field, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $active, $title, $description, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1810,7 +1728,6 @@ class LeaderboardApi
      *
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id to update. (required)
      * @param  int|null $account_id The account id of the user updating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1831,9 +1748,9 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLeaderboardAsync($version, $leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
+    public function updateLeaderboardAsync($leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
     {
-        return $this->updateLeaderboardAsyncWithHttpInfo($version, $leaderboard_id, $account_id, $app_key, $rank_type, $leaderboard_mode, $sort_field, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $active, $title, $description, $meta_data, $contentType)
+        return $this->updateLeaderboardAsyncWithHttpInfo($leaderboard_id, $account_id, $app_key, $rank_type, $leaderboard_mode, $sort_field, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $active, $title, $description, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1846,7 +1763,6 @@ class LeaderboardApi
      *
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id to update. (required)
      * @param  int|null $account_id The account id of the user updating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1867,10 +1783,10 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLeaderboardAsyncWithHttpInfo($version, $leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
+    public function updateLeaderboardAsyncWithHttpInfo($leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LeaderboardResponse';
-        $request = $this->updateLeaderboardRequest($version, $leaderboard_id, $account_id, $app_key, $rank_type, $leaderboard_mode, $sort_field, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $active, $title, $description, $meta_data, $contentType);
+        $request = $this->updateLeaderboardRequest($leaderboard_id, $account_id, $app_key, $rank_type, $leaderboard_mode, $sort_field, $icon_media, $icon_asset_id, $banner_media, $banner_asset_id, $limitation, $active, $title, $description, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1911,7 +1827,6 @@ class LeaderboardApi
     /**
      * Create request for operation 'updateLeaderboard'
      *
-     * @param  float $version (required)
      * @param  int $leaderboard_id The leaderboard id to update. (required)
      * @param  int|null $account_id The account id of the user updating the leaderboard. (optional)
      * @param  string|null $app_key The application key (optional)
@@ -1932,15 +1847,8 @@ class LeaderboardApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateLeaderboardRequest($version, $leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
+    public function updateLeaderboardRequest($leaderboard_id, $account_id = null, $app_key = null, $rank_type = null, $leaderboard_mode = null, $sort_field = null, $icon_media = null, $icon_asset_id = null, $banner_media = null, $banner_asset_id = null, $limitation = null, $active = null, $title = null, $description = null, $meta_data = null, string $contentType = self::contentTypes['updateLeaderboard'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateLeaderboard'
-            );
-        }
 
         // verify the required parameter 'leaderboard_id' is set
         if ($leaderboard_id === null || (is_array($leaderboard_id) && count($leaderboard_id) === 0)) {
@@ -1964,7 +1872,7 @@ class LeaderboardApi
 
 
 
-        $resourcePath = '/api/{version}/leaderboard/update';
+        $resourcePath = '/leaderboard/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2108,14 +2016,6 @@ class LeaderboardApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

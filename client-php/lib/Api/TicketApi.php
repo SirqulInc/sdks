@@ -146,7 +146,6 @@ class TicketApi
      *
      * Get Ticket Count
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $game_type this is deprecated. (optional)
@@ -158,9 +157,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CountResponse
      */
-    public function getTicketCount($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
+    public function getTicketCount($device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
     {
-        list($response) = $this->getTicketCountWithHttpInfo($version, $device_id, $account_id, $game_type, $app_key, $ticket_type, $contentType);
+        list($response) = $this->getTicketCountWithHttpInfo($device_id, $account_id, $game_type, $app_key, $ticket_type, $contentType);
         return $response;
     }
 
@@ -169,7 +168,6 @@ class TicketApi
      *
      * Get Ticket Count
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $game_type this is deprecated. (optional)
@@ -181,9 +179,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CountResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTicketCountWithHttpInfo($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
+    public function getTicketCountWithHttpInfo($device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
     {
-        $request = $this->getTicketCountRequest($version, $device_id, $account_id, $game_type, $app_key, $ticket_type, $contentType);
+        $request = $this->getTicketCountRequest($device_id, $account_id, $game_type, $app_key, $ticket_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -259,7 +257,6 @@ class TicketApi
      *
      * Get Ticket Count
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $game_type this is deprecated. (optional)
@@ -270,9 +267,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTicketCountAsync($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
+    public function getTicketCountAsync($device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
     {
-        return $this->getTicketCountAsyncWithHttpInfo($version, $device_id, $account_id, $game_type, $app_key, $ticket_type, $contentType)
+        return $this->getTicketCountAsyncWithHttpInfo($device_id, $account_id, $game_type, $app_key, $ticket_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -285,7 +282,6 @@ class TicketApi
      *
      * Get Ticket Count
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $game_type this is deprecated. (optional)
@@ -296,10 +292,10 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTicketCountAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
+    public function getTicketCountAsyncWithHttpInfo($device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CountResponse';
-        $request = $this->getTicketCountRequest($version, $device_id, $account_id, $game_type, $app_key, $ticket_type, $contentType);
+        $request = $this->getTicketCountRequest($device_id, $account_id, $game_type, $app_key, $ticket_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -340,7 +336,6 @@ class TicketApi
     /**
      * Create request for operation 'getTicketCount'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $game_type this is deprecated. (optional)
@@ -351,23 +346,16 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTicketCountRequest($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
+    public function getTicketCountRequest($device_id = null, $account_id = null, $game_type = null, $app_key = null, $ticket_type = null, string $contentType = self::contentTypes['getTicketCount'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTicketCount'
-            );
-        }
 
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/ticket/count';
+        $resourcePath = '/ticket/count';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -421,14 +409,6 @@ class TicketApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -489,7 +469,6 @@ class TicketApi
      *
      * Get Ticket List
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $ticket_object_type comma separated list of TicketObjectType (optional)
@@ -505,9 +484,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TicketListResponse
      */
-    public function getTicketList($version, $device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
+    public function getTicketList($device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
     {
-        list($response) = $this->getTicketListWithHttpInfo($version, $device_id, $account_id, $ticket_object_type, $action_type, $ticket_ids, $object_ids, $receipt_tokens, $game_type, $app_key, $contentType);
+        list($response) = $this->getTicketListWithHttpInfo($device_id, $account_id, $ticket_object_type, $action_type, $ticket_ids, $object_ids, $receipt_tokens, $game_type, $app_key, $contentType);
         return $response;
     }
 
@@ -516,7 +495,6 @@ class TicketApi
      *
      * Get Ticket List
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $ticket_object_type comma separated list of TicketObjectType (optional)
@@ -532,9 +510,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TicketListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTicketListWithHttpInfo($version, $device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
+    public function getTicketListWithHttpInfo($device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
     {
-        $request = $this->getTicketListRequest($version, $device_id, $account_id, $ticket_object_type, $action_type, $ticket_ids, $object_ids, $receipt_tokens, $game_type, $app_key, $contentType);
+        $request = $this->getTicketListRequest($device_id, $account_id, $ticket_object_type, $action_type, $ticket_ids, $object_ids, $receipt_tokens, $game_type, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -610,7 +588,6 @@ class TicketApi
      *
      * Get Ticket List
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $ticket_object_type comma separated list of TicketObjectType (optional)
@@ -625,9 +602,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTicketListAsync($version, $device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
+    public function getTicketListAsync($device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
     {
-        return $this->getTicketListAsyncWithHttpInfo($version, $device_id, $account_id, $ticket_object_type, $action_type, $ticket_ids, $object_ids, $receipt_tokens, $game_type, $app_key, $contentType)
+        return $this->getTicketListAsyncWithHttpInfo($device_id, $account_id, $ticket_object_type, $action_type, $ticket_ids, $object_ids, $receipt_tokens, $game_type, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -640,7 +617,6 @@ class TicketApi
      *
      * Get Ticket List
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $ticket_object_type comma separated list of TicketObjectType (optional)
@@ -655,10 +631,10 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTicketListAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
+    public function getTicketListAsyncWithHttpInfo($device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TicketListResponse';
-        $request = $this->getTicketListRequest($version, $device_id, $account_id, $ticket_object_type, $action_type, $ticket_ids, $object_ids, $receipt_tokens, $game_type, $app_key, $contentType);
+        $request = $this->getTicketListRequest($device_id, $account_id, $ticket_object_type, $action_type, $ticket_ids, $object_ids, $receipt_tokens, $game_type, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -699,7 +675,6 @@ class TicketApi
     /**
      * Create request for operation 'getTicketList'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the id of the device that owns the tickets (optional)
      * @param  int|null $account_id the id of the account that owns the tickets (optional)
      * @param  string|null $ticket_object_type comma separated list of TicketObjectType (optional)
@@ -714,15 +689,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTicketListRequest($version, $device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
+    public function getTicketListRequest($device_id = null, $account_id = null, $ticket_object_type = null, $action_type = null, $ticket_ids = null, $object_ids = null, $receipt_tokens = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['getTicketList'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTicketList'
-            );
-        }
 
 
 
@@ -733,8 +702,7 @@ class TicketApi
 
 
 
-
-        $resourcePath = '/api/{version}/ticket/getList';
+        $resourcePath = '/ticket/getList';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -824,14 +792,6 @@ class TicketApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -892,7 +852,6 @@ class TicketApi
      *
      * Gift Tickets
      *
-     * @param  float $version version (required)
      * @param  int $receiver_account_id the id of the account receiving the tickets (required)
      * @param  int $ticket_id the id of the tickets (required)
      * @param  string|null $device_id the id of the device (optional)
@@ -907,9 +866,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function giftPurchase($version, $receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
+    public function giftPurchase($receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
     {
-        list($response) = $this->giftPurchaseWithHttpInfo($version, $receiver_account_id, $ticket_id, $device_id, $account_id, $asset_id, $custom_message, $game_type, $app_key, $contentType);
+        list($response) = $this->giftPurchaseWithHttpInfo($receiver_account_id, $ticket_id, $device_id, $account_id, $asset_id, $custom_message, $game_type, $app_key, $contentType);
         return $response;
     }
 
@@ -918,7 +877,6 @@ class TicketApi
      *
      * Gift Tickets
      *
-     * @param  float $version (required)
      * @param  int $receiver_account_id the id of the account receiving the tickets (required)
      * @param  int $ticket_id the id of the tickets (required)
      * @param  string|null $device_id the id of the device (optional)
@@ -933,9 +891,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function giftPurchaseWithHttpInfo($version, $receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
+    public function giftPurchaseWithHttpInfo($receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
     {
-        $request = $this->giftPurchaseRequest($version, $receiver_account_id, $ticket_id, $device_id, $account_id, $asset_id, $custom_message, $game_type, $app_key, $contentType);
+        $request = $this->giftPurchaseRequest($receiver_account_id, $ticket_id, $device_id, $account_id, $asset_id, $custom_message, $game_type, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1011,7 +969,6 @@ class TicketApi
      *
      * Gift Tickets
      *
-     * @param  float $version (required)
      * @param  int $receiver_account_id the id of the account receiving the tickets (required)
      * @param  int $ticket_id the id of the tickets (required)
      * @param  string|null $device_id the id of the device (optional)
@@ -1025,9 +982,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function giftPurchaseAsync($version, $receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
+    public function giftPurchaseAsync($receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
     {
-        return $this->giftPurchaseAsyncWithHttpInfo($version, $receiver_account_id, $ticket_id, $device_id, $account_id, $asset_id, $custom_message, $game_type, $app_key, $contentType)
+        return $this->giftPurchaseAsyncWithHttpInfo($receiver_account_id, $ticket_id, $device_id, $account_id, $asset_id, $custom_message, $game_type, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1040,7 +997,6 @@ class TicketApi
      *
      * Gift Tickets
      *
-     * @param  float $version (required)
      * @param  int $receiver_account_id the id of the account receiving the tickets (required)
      * @param  int $ticket_id the id of the tickets (required)
      * @param  string|null $device_id the id of the device (optional)
@@ -1054,10 +1010,10 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function giftPurchaseAsyncWithHttpInfo($version, $receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
+    public function giftPurchaseAsyncWithHttpInfo($receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->giftPurchaseRequest($version, $receiver_account_id, $ticket_id, $device_id, $account_id, $asset_id, $custom_message, $game_type, $app_key, $contentType);
+        $request = $this->giftPurchaseRequest($receiver_account_id, $ticket_id, $device_id, $account_id, $asset_id, $custom_message, $game_type, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1098,7 +1054,6 @@ class TicketApi
     /**
      * Create request for operation 'giftPurchase'
      *
-     * @param  float $version (required)
      * @param  int $receiver_account_id the id of the account receiving the tickets (required)
      * @param  int $ticket_id the id of the tickets (required)
      * @param  string|null $device_id the id of the device (optional)
@@ -1112,15 +1067,8 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function giftPurchaseRequest($version, $receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
+    public function giftPurchaseRequest($receiver_account_id, $ticket_id, $device_id = null, $account_id = null, $asset_id = null, $custom_message = null, $game_type = null, $app_key = null, string $contentType = self::contentTypes['giftPurchase'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling giftPurchase'
-            );
-        }
 
         // verify the required parameter 'receiver_account_id' is set
         if ($receiver_account_id === null || (is_array($receiver_account_id) && count($receiver_account_id) === 0)) {
@@ -1143,7 +1091,7 @@ class TicketApi
 
 
 
-        $resourcePath = '/api/{version}/purchase/gift';
+        $resourcePath = '/purchase/gift';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1224,14 +1172,6 @@ class TicketApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1292,7 +1232,6 @@ class TicketApi
      *
      * Save Ticket
      *
-     * @param  float $version version (required)
      * @param  string $action_type the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param  string $ticket_object_type the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param  bool|null $return_nulls whether to return nulls or not (optional)
@@ -1317,9 +1256,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function saveTicket($version, $action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
+    public function saveTicket($action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
     {
-        list($response) = $this->saveTicketWithHttpInfo($version, $action_type, $ticket_object_type, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $receipt_data, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
+        list($response) = $this->saveTicketWithHttpInfo($action_type, $ticket_object_type, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $receipt_data, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
         return $response;
     }
 
@@ -1328,7 +1267,6 @@ class TicketApi
      *
      * Save Ticket
      *
-     * @param  float $version (required)
      * @param  string $action_type the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param  string $ticket_object_type the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param  bool|null $return_nulls whether to return nulls or not (optional)
@@ -1353,9 +1291,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saveTicketWithHttpInfo($version, $action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
+    public function saveTicketWithHttpInfo($action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
     {
-        $request = $this->saveTicketRequest($version, $action_type, $ticket_object_type, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $receipt_data, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
+        $request = $this->saveTicketRequest($action_type, $ticket_object_type, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $receipt_data, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1431,7 +1369,6 @@ class TicketApi
      *
      * Save Ticket
      *
-     * @param  float $version (required)
      * @param  string $action_type the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param  string $ticket_object_type the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param  bool|null $return_nulls whether to return nulls or not (optional)
@@ -1455,9 +1392,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saveTicketAsync($version, $action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
+    public function saveTicketAsync($action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
     {
-        return $this->saveTicketAsyncWithHttpInfo($version, $action_type, $ticket_object_type, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $receipt_data, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType)
+        return $this->saveTicketAsyncWithHttpInfo($action_type, $ticket_object_type, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $receipt_data, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1470,7 +1407,6 @@ class TicketApi
      *
      * Save Ticket
      *
-     * @param  float $version (required)
      * @param  string $action_type the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param  string $ticket_object_type the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param  bool|null $return_nulls whether to return nulls or not (optional)
@@ -1494,10 +1430,10 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saveTicketAsyncWithHttpInfo($version, $action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
+    public function saveTicketAsyncWithHttpInfo($action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->saveTicketRequest($version, $action_type, $ticket_object_type, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $receipt_data, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
+        $request = $this->saveTicketRequest($action_type, $ticket_object_type, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $receipt_data, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1538,7 +1474,6 @@ class TicketApi
     /**
      * Create request for operation 'saveTicket'
      *
-     * @param  float $version (required)
      * @param  string $action_type the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param  string $ticket_object_type the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param  bool|null $return_nulls whether to return nulls or not (optional)
@@ -1562,15 +1497,8 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function saveTicketRequest($version, $action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
+    public function saveTicketRequest($action_type, $ticket_object_type, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $receipt_data = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicket'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling saveTicket'
-            );
-        }
 
         // verify the required parameter 'action_type' is set
         if ($action_type === null || (is_array($action_type) && count($action_type) === 0)) {
@@ -1603,7 +1531,7 @@ class TicketApi
 
 
 
-        $resourcePath = '/api/{version}/ticket/save';
+        $resourcePath = '/ticket/save';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1774,14 +1702,6 @@ class TicketApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1842,7 +1762,6 @@ class TicketApi
      *
      * Save Ticket with Reciept
      *
-     * @param  float $version version (required)
      * @param  string $action_type the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param  string $ticket_object_type the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param  \SplFileObject $receipt_data the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -1867,9 +1786,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function saveTicketViaFileUpload($version, $action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
+    public function saveTicketViaFileUpload($action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
     {
-        list($response) = $this->saveTicketViaFileUploadWithHttpInfo($version, $action_type, $ticket_object_type, $receipt_data, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
+        list($response) = $this->saveTicketViaFileUploadWithHttpInfo($action_type, $ticket_object_type, $receipt_data, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
         return $response;
     }
 
@@ -1878,7 +1797,6 @@ class TicketApi
      *
      * Save Ticket with Reciept
      *
-     * @param  float $version (required)
      * @param  string $action_type the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param  string $ticket_object_type the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param  \SplFileObject $receipt_data the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -1903,9 +1821,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saveTicketViaFileUploadWithHttpInfo($version, $action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
+    public function saveTicketViaFileUploadWithHttpInfo($action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
     {
-        $request = $this->saveTicketViaFileUploadRequest($version, $action_type, $ticket_object_type, $receipt_data, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
+        $request = $this->saveTicketViaFileUploadRequest($action_type, $ticket_object_type, $receipt_data, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1981,7 +1899,6 @@ class TicketApi
      *
      * Save Ticket with Reciept
      *
-     * @param  float $version (required)
      * @param  string $action_type the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param  string $ticket_object_type the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param  \SplFileObject $receipt_data the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -2005,9 +1922,9 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saveTicketViaFileUploadAsync($version, $action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
+    public function saveTicketViaFileUploadAsync($action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
     {
-        return $this->saveTicketViaFileUploadAsyncWithHttpInfo($version, $action_type, $ticket_object_type, $receipt_data, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType)
+        return $this->saveTicketViaFileUploadAsyncWithHttpInfo($action_type, $ticket_object_type, $receipt_data, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2020,7 +1937,6 @@ class TicketApi
      *
      * Save Ticket with Reciept
      *
-     * @param  float $version (required)
      * @param  string $action_type the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param  string $ticket_object_type the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param  \SplFileObject $receipt_data the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -2044,10 +1960,10 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saveTicketViaFileUploadAsyncWithHttpInfo($version, $action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
+    public function saveTicketViaFileUploadAsyncWithHttpInfo($action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->saveTicketViaFileUploadRequest($version, $action_type, $ticket_object_type, $receipt_data, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
+        $request = $this->saveTicketViaFileUploadRequest($action_type, $ticket_object_type, $receipt_data, $return_nulls, $device_id, $account_id, $game_type, $app_key, $object_id, $purchase_code, $receipt_token, $count, $ticket_type, $purchase_provider, $purchase_type, $return_profile_response, $include_profile_response, $app_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2088,7 +2004,6 @@ class TicketApi
     /**
      * Create request for operation 'saveTicketViaFileUpload'
      *
-     * @param  float $version (required)
      * @param  string $action_type the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param  string $ticket_object_type the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param  \SplFileObject $receipt_data the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -2112,15 +2027,8 @@ class TicketApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function saveTicketViaFileUploadRequest($version, $action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
+    public function saveTicketViaFileUploadRequest($action_type, $ticket_object_type, $receipt_data, $return_nulls = null, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $object_id = null, $purchase_code = null, $receipt_token = null, $count = null, $ticket_type = null, $purchase_provider = null, $purchase_type = null, $return_profile_response = null, $include_profile_response = null, $app_version = null, string $contentType = self::contentTypes['saveTicketViaFileUpload'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling saveTicketViaFileUpload'
-            );
-        }
 
         // verify the required parameter 'action_type' is set
         if ($action_type === null || (is_array($action_type) && count($action_type) === 0)) {
@@ -2159,7 +2067,7 @@ class TicketApi
 
 
 
-        $resourcePath = '/api/{version}/ticket/save/fileUpload';
+        $resourcePath = '/ticket/save/fileUpload';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2330,14 +2238,6 @@ class TicketApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2398,16 +2298,15 @@ class TicketApi
      *
      * Get Ticket Offers
      *
-     * @param  float $version version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ticketOffers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TicketOfferResponse
      */
-    public function ticketOffers($version, string $contentType = self::contentTypes['ticketOffers'][0])
+    public function ticketOffers(string $contentType = self::contentTypes['ticketOffers'][0])
     {
-        list($response) = $this->ticketOffersWithHttpInfo($version, $contentType);
+        list($response) = $this->ticketOffersWithHttpInfo($contentType);
         return $response;
     }
 
@@ -2416,16 +2315,15 @@ class TicketApi
      *
      * Get Ticket Offers
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ticketOffers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TicketOfferResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ticketOffersWithHttpInfo($version, string $contentType = self::contentTypes['ticketOffers'][0])
+    public function ticketOffersWithHttpInfo(string $contentType = self::contentTypes['ticketOffers'][0])
     {
-        $request = $this->ticketOffersRequest($version, $contentType);
+        $request = $this->ticketOffersRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2501,15 +2399,14 @@ class TicketApi
      *
      * Get Ticket Offers
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ticketOffers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ticketOffersAsync($version, string $contentType = self::contentTypes['ticketOffers'][0])
+    public function ticketOffersAsync(string $contentType = self::contentTypes['ticketOffers'][0])
     {
-        return $this->ticketOffersAsyncWithHttpInfo($version, $contentType)
+        return $this->ticketOffersAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2522,16 +2419,15 @@ class TicketApi
      *
      * Get Ticket Offers
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ticketOffers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ticketOffersAsyncWithHttpInfo($version, string $contentType = self::contentTypes['ticketOffers'][0])
+    public function ticketOffersAsyncWithHttpInfo(string $contentType = self::contentTypes['ticketOffers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TicketOfferResponse';
-        $request = $this->ticketOffersRequest($version, $contentType);
+        $request = $this->ticketOffersRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2572,24 +2468,16 @@ class TicketApi
     /**
      * Create request for operation 'ticketOffers'
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ticketOffers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ticketOffersRequest($version, string $contentType = self::contentTypes['ticketOffers'][0])
+    public function ticketOffersRequest(string $contentType = self::contentTypes['ticketOffers'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling ticketOffers'
-            );
-        }
 
-
-        $resourcePath = '/api/{version}/ticket/ticketoffers';
+        $resourcePath = '/ticket/ticketoffers';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2598,14 +2486,6 @@ class TicketApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

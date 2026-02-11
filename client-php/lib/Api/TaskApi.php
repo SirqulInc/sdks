@@ -143,7 +143,6 @@ class TaskApi
      *
      * Create Task
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the task (required)
      * @param  string|null $app_key The application to target (optional)
@@ -162,9 +161,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TaskResponse
      */
-    public function createTask($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
+    public function createTask($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
     {
-        list($response) = $this->createTaskWithHttpInfo($version, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
+        list($response) = $this->createTaskWithHttpInfo($account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
         return $response;
     }
 
@@ -173,7 +172,6 @@ class TaskApi
      *
      * Create Task
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the task (required)
      * @param  string|null $app_key The application to target (optional)
@@ -192,9 +190,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TaskResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTaskWithHttpInfo($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
+    public function createTaskWithHttpInfo($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
     {
-        $request = $this->createTaskRequest($version, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
+        $request = $this->createTaskRequest($account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -270,7 +268,6 @@ class TaskApi
      *
      * Create Task
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the task (required)
      * @param  string|null $app_key The application to target (optional)
@@ -288,9 +285,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTaskAsync($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
+    public function createTaskAsync($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
     {
-        return $this->createTaskAsyncWithHttpInfo($version, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType)
+        return $this->createTaskAsyncWithHttpInfo($account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -303,7 +300,6 @@ class TaskApi
      *
      * Create Task
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the task (required)
      * @param  string|null $app_key The application to target (optional)
@@ -321,10 +317,10 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTaskAsyncWithHttpInfo($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
+    public function createTaskAsyncWithHttpInfo($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TaskResponse';
-        $request = $this->createTaskRequest($version, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
+        $request = $this->createTaskRequest($account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -365,7 +361,6 @@ class TaskApi
     /**
      * Create request for operation 'createTask'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the task (required)
      * @param  string|null $app_key The application to target (optional)
@@ -383,15 +378,8 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTaskRequest($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
+    public function createTaskRequest($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTask'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createTask'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -418,7 +406,7 @@ class TaskApi
 
 
 
-        $resourcePath = '/api/{version}/task/create';
+        $resourcePath = '/task/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -535,14 +523,6 @@ class TaskApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -603,7 +583,6 @@ class TaskApi
      *
      * Delete Task
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTask'] to see the possible values for this operation
@@ -612,9 +591,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteTask($version, $account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
+    public function deleteTask($account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
     {
-        list($response) = $this->deleteTaskWithHttpInfo($version, $account_id, $task_id, $contentType);
+        list($response) = $this->deleteTaskWithHttpInfo($account_id, $task_id, $contentType);
         return $response;
     }
 
@@ -623,7 +602,6 @@ class TaskApi
      *
      * Delete Task
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTask'] to see the possible values for this operation
@@ -632,9 +610,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTaskWithHttpInfo($version, $account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
+    public function deleteTaskWithHttpInfo($account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
     {
-        $request = $this->deleteTaskRequest($version, $account_id, $task_id, $contentType);
+        $request = $this->deleteTaskRequest($account_id, $task_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -710,7 +688,6 @@ class TaskApi
      *
      * Delete Task
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTask'] to see the possible values for this operation
@@ -718,9 +695,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTaskAsync($version, $account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
+    public function deleteTaskAsync($account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
     {
-        return $this->deleteTaskAsyncWithHttpInfo($version, $account_id, $task_id, $contentType)
+        return $this->deleteTaskAsyncWithHttpInfo($account_id, $task_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -733,7 +710,6 @@ class TaskApi
      *
      * Delete Task
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTask'] to see the possible values for this operation
@@ -741,10 +717,10 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTaskAsyncWithHttpInfo($version, $account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
+    public function deleteTaskAsyncWithHttpInfo($account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteTaskRequest($version, $account_id, $task_id, $contentType);
+        $request = $this->deleteTaskRequest($account_id, $task_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -785,7 +761,6 @@ class TaskApi
     /**
      * Create request for operation 'deleteTask'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTask'] to see the possible values for this operation
@@ -793,15 +768,8 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteTaskRequest($version, $account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
+    public function deleteTaskRequest($account_id, $task_id, string $contentType = self::contentTypes['deleteTask'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteTask'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -818,7 +786,7 @@ class TaskApi
         }
 
 
-        $resourcePath = '/api/{version}/task/delete';
+        $resourcePath = '/task/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -845,14 +813,6 @@ class TaskApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -913,7 +873,6 @@ class TaskApi
      *
      * Get Task
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTask'] to see the possible values for this operation
@@ -922,9 +881,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TaskResponse
      */
-    public function getTask($version, $account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
+    public function getTask($account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
     {
-        list($response) = $this->getTaskWithHttpInfo($version, $account_id, $task_id, $contentType);
+        list($response) = $this->getTaskWithHttpInfo($account_id, $task_id, $contentType);
         return $response;
     }
 
@@ -933,7 +892,6 @@ class TaskApi
      *
      * Get Task
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTask'] to see the possible values for this operation
@@ -942,9 +900,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TaskResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTaskWithHttpInfo($version, $account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
+    public function getTaskWithHttpInfo($account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
     {
-        $request = $this->getTaskRequest($version, $account_id, $task_id, $contentType);
+        $request = $this->getTaskRequest($account_id, $task_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1020,7 +978,6 @@ class TaskApi
      *
      * Get Task
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTask'] to see the possible values for this operation
@@ -1028,9 +985,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaskAsync($version, $account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
+    public function getTaskAsync($account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
     {
-        return $this->getTaskAsyncWithHttpInfo($version, $account_id, $task_id, $contentType)
+        return $this->getTaskAsyncWithHttpInfo($account_id, $task_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1043,7 +1000,6 @@ class TaskApi
      *
      * Get Task
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTask'] to see the possible values for this operation
@@ -1051,10 +1007,10 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaskAsyncWithHttpInfo($version, $account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
+    public function getTaskAsyncWithHttpInfo($account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TaskResponse';
-        $request = $this->getTaskRequest($version, $account_id, $task_id, $contentType);
+        $request = $this->getTaskRequest($account_id, $task_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1095,7 +1051,6 @@ class TaskApi
     /**
      * Create request for operation 'getTask'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $task_id The id of the Task to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTask'] to see the possible values for this operation
@@ -1103,15 +1058,8 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTaskRequest($version, $account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
+    public function getTaskRequest($account_id, $task_id, string $contentType = self::contentTypes['getTask'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTask'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1128,7 +1076,7 @@ class TaskApi
         }
 
 
-        $resourcePath = '/api/{version}/task/get';
+        $resourcePath = '/task/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1155,14 +1103,6 @@ class TaskApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1223,7 +1163,6 @@ class TaskApi
      *
      * Search Tasks
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks (optional, default to 'MINE')
@@ -1242,9 +1181,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TaskResponse[]
      */
-    public function searchTasks($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
+    public function searchTasks($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
     {
-        list($response) = $this->searchTasksWithHttpInfo($version, $account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        list($response) = $this->searchTasksWithHttpInfo($account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
         return $response;
     }
 
@@ -1253,7 +1192,6 @@ class TaskApi
      *
      * Search Tasks
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks (optional, default to 'MINE')
@@ -1272,9 +1210,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TaskResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchTasksWithHttpInfo($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
+    public function searchTasksWithHttpInfo($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
     {
-        $request = $this->searchTasksRequest($version, $account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchTasksRequest($account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1350,7 +1288,6 @@ class TaskApi
      *
      * Search Tasks
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks (optional, default to 'MINE')
@@ -1368,9 +1305,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTasksAsync($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
+    public function searchTasksAsync($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
     {
-        return $this->searchTasksAsyncWithHttpInfo($version, $account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType)
+        return $this->searchTasksAsyncWithHttpInfo($account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1383,7 +1320,6 @@ class TaskApi
      *
      * Search Tasks
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks (optional, default to 'MINE')
@@ -1401,10 +1337,10 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTasksAsyncWithHttpInfo($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
+    public function searchTasksAsyncWithHttpInfo($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TaskResponse[]';
-        $request = $this->searchTasksRequest($version, $account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchTasksRequest($account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1445,7 +1381,6 @@ class TaskApi
     /**
      * Create request for operation 'searchTasks'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks (optional, default to 'MINE')
@@ -1463,15 +1398,8 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchTasksRequest($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
+    public function searchTasksRequest($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTasks'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchTasks'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1492,7 +1420,7 @@ class TaskApi
 
 
 
-        $resourcePath = '/api/{version}/task/search';
+        $resourcePath = '/task/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1609,14 +1537,6 @@ class TaskApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1677,7 +1597,6 @@ class TaskApi
      *
      * Update Task
      *
-     * @param  float $version version (required)
      * @param  int $task_id Task Id (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the task (optional)
@@ -1697,9 +1616,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TaskResponse
      */
-    public function updateTask($version, $task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
+    public function updateTask($task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
     {
-        list($response) = $this->updateTaskWithHttpInfo($version, $task_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
+        list($response) = $this->updateTaskWithHttpInfo($task_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
         return $response;
     }
 
@@ -1708,7 +1627,6 @@ class TaskApi
      *
      * Update Task
      *
-     * @param  float $version (required)
      * @param  int $task_id Task Id (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the task (optional)
@@ -1728,9 +1646,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TaskResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTaskWithHttpInfo($version, $task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
+    public function updateTaskWithHttpInfo($task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
     {
-        $request = $this->updateTaskRequest($version, $task_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
+        $request = $this->updateTaskRequest($task_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1806,7 +1724,6 @@ class TaskApi
      *
      * Update Task
      *
-     * @param  float $version (required)
      * @param  int $task_id Task Id (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the task (optional)
@@ -1825,9 +1742,9 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTaskAsync($version, $task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
+    public function updateTaskAsync($task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
     {
-        return $this->updateTaskAsyncWithHttpInfo($version, $task_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType)
+        return $this->updateTaskAsyncWithHttpInfo($task_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1840,7 +1757,6 @@ class TaskApi
      *
      * Update Task
      *
-     * @param  float $version (required)
      * @param  int $task_id Task Id (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the task (optional)
@@ -1859,10 +1775,10 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTaskAsyncWithHttpInfo($version, $task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
+    public function updateTaskAsyncWithHttpInfo($task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TaskResponse';
-        $request = $this->updateTaskRequest($version, $task_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
+        $request = $this->updateTaskRequest($task_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $visibility, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1903,7 +1819,6 @@ class TaskApi
     /**
      * Create request for operation 'updateTask'
      *
-     * @param  float $version (required)
      * @param  int $task_id Task Id (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the task (optional)
@@ -1922,15 +1837,8 @@ class TaskApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTaskRequest($version, $task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
+    public function updateTaskRequest($task_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTask'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateTask'
-            );
-        }
 
         // verify the required parameter 'task_id' is set
         if ($task_id === null || (is_array($task_id) && count($task_id) === 0)) {
@@ -1958,7 +1866,7 @@ class TaskApi
 
 
 
-        $resourcePath = '/api/{version}/task/update';
+        $resourcePath = '/task/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2084,14 +1992,6 @@ class TaskApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

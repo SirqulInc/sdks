@@ -143,7 +143,6 @@ class MissionInviteApi
      *
      * Create Mission Invite
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for. (optional)
@@ -155,9 +154,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse
      */
-    public function createMissionInvite($version, $device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
+    public function createMissionInvite($device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
     {
-        list($response) = $this->createMissionInviteWithHttpInfo($version, $device_id, $account_id, $mission_id, $join_code, $include_game_data, $contentType);
+        list($response) = $this->createMissionInviteWithHttpInfo($device_id, $account_id, $mission_id, $join_code, $include_game_data, $contentType);
         return $response;
     }
 
@@ -166,7 +165,6 @@ class MissionInviteApi
      *
      * Create Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for. (optional)
@@ -178,9 +176,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createMissionInviteWithHttpInfo($version, $device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
+    public function createMissionInviteWithHttpInfo($device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
     {
-        $request = $this->createMissionInviteRequest($version, $device_id, $account_id, $mission_id, $join_code, $include_game_data, $contentType);
+        $request = $this->createMissionInviteRequest($device_id, $account_id, $mission_id, $join_code, $include_game_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -256,7 +254,6 @@ class MissionInviteApi
      *
      * Create Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for. (optional)
@@ -267,9 +264,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMissionInviteAsync($version, $device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
+    public function createMissionInviteAsync($device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
     {
-        return $this->createMissionInviteAsyncWithHttpInfo($version, $device_id, $account_id, $mission_id, $join_code, $include_game_data, $contentType)
+        return $this->createMissionInviteAsyncWithHttpInfo($device_id, $account_id, $mission_id, $join_code, $include_game_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -282,7 +279,6 @@ class MissionInviteApi
      *
      * Create Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for. (optional)
@@ -293,10 +289,10 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMissionInviteAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
+    public function createMissionInviteAsyncWithHttpInfo($device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse';
-        $request = $this->createMissionInviteRequest($version, $device_id, $account_id, $mission_id, $join_code, $include_game_data, $contentType);
+        $request = $this->createMissionInviteRequest($device_id, $account_id, $mission_id, $join_code, $include_game_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -337,7 +333,6 @@ class MissionInviteApi
     /**
      * Create request for operation 'createMissionInvite'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for. (optional)
@@ -348,23 +343,16 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createMissionInviteRequest($version, $device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
+    public function createMissionInviteRequest($device_id = null, $account_id = null, $mission_id = null, $join_code = null, $include_game_data = null, string $contentType = self::contentTypes['createMissionInvite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createMissionInvite'
-            );
-        }
 
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/mission/invite/create';
+        $resourcePath = '/mission/invite/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -418,14 +406,6 @@ class MissionInviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -486,7 +466,6 @@ class MissionInviteApi
      *
      * Delete Mission Invite
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -498,9 +477,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteMissionInvite($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
+    public function deleteMissionInvite($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
     {
-        list($response) = $this->deleteMissionInviteWithHttpInfo($version, $device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $contentType);
+        list($response) = $this->deleteMissionInviteWithHttpInfo($device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $contentType);
         return $response;
     }
 
@@ -509,7 +488,6 @@ class MissionInviteApi
      *
      * Delete Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -521,9 +499,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMissionInviteWithHttpInfo($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
+    public function deleteMissionInviteWithHttpInfo($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
     {
-        $request = $this->deleteMissionInviteRequest($version, $device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $contentType);
+        $request = $this->deleteMissionInviteRequest($device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -599,7 +577,6 @@ class MissionInviteApi
      *
      * Delete Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -610,9 +587,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMissionInviteAsync($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
+    public function deleteMissionInviteAsync($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
     {
-        return $this->deleteMissionInviteAsyncWithHttpInfo($version, $device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $contentType)
+        return $this->deleteMissionInviteAsyncWithHttpInfo($device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -625,7 +602,6 @@ class MissionInviteApi
      *
      * Delete Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -636,10 +612,10 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMissionInviteAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
+    public function deleteMissionInviteAsyncWithHttpInfo($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteMissionInviteRequest($version, $device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $contentType);
+        $request = $this->deleteMissionInviteRequest($device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -680,7 +656,6 @@ class MissionInviteApi
     /**
      * Create request for operation 'deleteMissionInvite'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -691,23 +666,16 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteMissionInviteRequest($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
+    public function deleteMissionInviteRequest($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, string $contentType = self::contentTypes['deleteMissionInvite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteMissionInvite'
-            );
-        }
 
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/mission/invite/delete';
+        $resourcePath = '/mission/invite/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -761,14 +729,6 @@ class MissionInviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -829,7 +789,6 @@ class MissionInviteApi
      *
      * Get Mission Invite
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -842,9 +801,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse
      */
-    public function getMissionInvite($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
+    public function getMissionInvite($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
     {
-        list($response) = $this->getMissionInviteWithHttpInfo($version, $device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $include_scores, $contentType);
+        list($response) = $this->getMissionInviteWithHttpInfo($device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $include_scores, $contentType);
         return $response;
     }
 
@@ -853,7 +812,6 @@ class MissionInviteApi
      *
      * Get Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -866,9 +824,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMissionInviteWithHttpInfo($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
+    public function getMissionInviteWithHttpInfo($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
     {
-        $request = $this->getMissionInviteRequest($version, $device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $include_scores, $contentType);
+        $request = $this->getMissionInviteRequest($device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $include_scores, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -944,7 +902,6 @@ class MissionInviteApi
      *
      * Get Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -956,9 +913,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMissionInviteAsync($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
+    public function getMissionInviteAsync($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
     {
-        return $this->getMissionInviteAsyncWithHttpInfo($version, $device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $include_scores, $contentType)
+        return $this->getMissionInviteAsyncWithHttpInfo($device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $include_scores, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -971,7 +928,6 @@ class MissionInviteApi
      *
      * Get Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -983,10 +939,10 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMissionInviteAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
+    public function getMissionInviteAsyncWithHttpInfo($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse';
-        $request = $this->getMissionInviteRequest($version, $device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $include_scores, $contentType);
+        $request = $this->getMissionInviteRequest($device_id, $account_id, $mission_id, $mission_invite_id, $include_game_data, $include_scores, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1027,7 +983,6 @@ class MissionInviteApi
     /**
      * Create request for operation 'getMissionInvite'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  int|null $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -1039,15 +994,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMissionInviteRequest($version, $device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
+    public function getMissionInviteRequest($device_id = null, $account_id = null, $mission_id = null, $mission_invite_id = null, $include_game_data = null, $include_scores = null, string $contentType = self::contentTypes['getMissionInvite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getMissionInvite'
-            );
-        }
 
 
 
@@ -1055,8 +1004,7 @@ class MissionInviteApi
 
 
 
-
-        $resourcePath = '/api/{version}/mission/invite/get';
+        $resourcePath = '/mission/invite/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1119,14 +1067,6 @@ class MissionInviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1187,7 +1127,6 @@ class MissionInviteApi
      *
      * Search Mission Invites
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the app to retrieve the data for, use your application key. (optional)
@@ -1207,9 +1146,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse[]
      */
-    public function searchMissionInvites($version, $device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
+    public function searchMissionInvites($device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
     {
-        list($response) = $this->searchMissionInvitesWithHttpInfo($version, $device_id, $account_id, $app_key, $app_version, $mission_id, $status, $last_updated, $start, $limit, $keyword, $mission_types, $filter_by_billable, $include_game_data, $contentType);
+        list($response) = $this->searchMissionInvitesWithHttpInfo($device_id, $account_id, $app_key, $app_version, $mission_id, $status, $last_updated, $start, $limit, $keyword, $mission_types, $filter_by_billable, $include_game_data, $contentType);
         return $response;
     }
 
@@ -1218,7 +1157,6 @@ class MissionInviteApi
      *
      * Search Mission Invites
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the app to retrieve the data for, use your application key. (optional)
@@ -1238,9 +1176,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchMissionInvitesWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
+    public function searchMissionInvitesWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
     {
-        $request = $this->searchMissionInvitesRequest($version, $device_id, $account_id, $app_key, $app_version, $mission_id, $status, $last_updated, $start, $limit, $keyword, $mission_types, $filter_by_billable, $include_game_data, $contentType);
+        $request = $this->searchMissionInvitesRequest($device_id, $account_id, $app_key, $app_version, $mission_id, $status, $last_updated, $start, $limit, $keyword, $mission_types, $filter_by_billable, $include_game_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1316,7 +1254,6 @@ class MissionInviteApi
      *
      * Search Mission Invites
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the app to retrieve the data for, use your application key. (optional)
@@ -1335,9 +1272,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMissionInvitesAsync($version, $device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
+    public function searchMissionInvitesAsync($device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
     {
-        return $this->searchMissionInvitesAsyncWithHttpInfo($version, $device_id, $account_id, $app_key, $app_version, $mission_id, $status, $last_updated, $start, $limit, $keyword, $mission_types, $filter_by_billable, $include_game_data, $contentType)
+        return $this->searchMissionInvitesAsyncWithHttpInfo($device_id, $account_id, $app_key, $app_version, $mission_id, $status, $last_updated, $start, $limit, $keyword, $mission_types, $filter_by_billable, $include_game_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1350,7 +1287,6 @@ class MissionInviteApi
      *
      * Search Mission Invites
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the app to retrieve the data for, use your application key. (optional)
@@ -1369,10 +1305,10 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMissionInvitesAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
+    public function searchMissionInvitesAsyncWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse[]';
-        $request = $this->searchMissionInvitesRequest($version, $device_id, $account_id, $app_key, $app_version, $mission_id, $status, $last_updated, $start, $limit, $keyword, $mission_types, $filter_by_billable, $include_game_data, $contentType);
+        $request = $this->searchMissionInvitesRequest($device_id, $account_id, $app_key, $app_version, $mission_id, $status, $last_updated, $start, $limit, $keyword, $mission_types, $filter_by_billable, $include_game_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1413,7 +1349,6 @@ class MissionInviteApi
     /**
      * Create request for operation 'searchMissionInvites'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the app to retrieve the data for, use your application key. (optional)
@@ -1432,15 +1367,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchMissionInvitesRequest($version, $device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
+    public function searchMissionInvitesRequest($device_id = null, $account_id = null, $app_key = null, $app_version = null, $mission_id = null, $status = null, $last_updated = null, $start = null, $limit = null, $keyword = null, $mission_types = null, $filter_by_billable = null, $include_game_data = null, string $contentType = self::contentTypes['searchMissionInvites'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchMissionInvites'
-            );
-        }
 
 
 
@@ -1455,8 +1384,7 @@ class MissionInviteApi
 
 
 
-
-        $resourcePath = '/api/{version}/mission/invite/search';
+        $resourcePath = '/mission/invite/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1582,14 +1510,6 @@ class MissionInviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1650,7 +1570,6 @@ class MissionInviteApi
      *
      * Update Mission Invite
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the application key (optional)
@@ -1668,9 +1587,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse
      */
-    public function updateMissionInvite($version, $device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
+    public function updateMissionInvite($device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
     {
-        list($response) = $this->updateMissionInviteWithHttpInfo($version, $device_id, $account_id, $app_key, $mission_id, $mission_invite_id, $pack_id, $game_level_id, $status, $permissionable_type, $permissionable_id, $include_game_data, $contentType);
+        list($response) = $this->updateMissionInviteWithHttpInfo($device_id, $account_id, $app_key, $mission_id, $mission_invite_id, $pack_id, $game_level_id, $status, $permissionable_type, $permissionable_id, $include_game_data, $contentType);
         return $response;
     }
 
@@ -1679,7 +1598,6 @@ class MissionInviteApi
      *
      * Update Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the application key (optional)
@@ -1697,9 +1615,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMissionInviteWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
+    public function updateMissionInviteWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
     {
-        $request = $this->updateMissionInviteRequest($version, $device_id, $account_id, $app_key, $mission_id, $mission_invite_id, $pack_id, $game_level_id, $status, $permissionable_type, $permissionable_id, $include_game_data, $contentType);
+        $request = $this->updateMissionInviteRequest($device_id, $account_id, $app_key, $mission_id, $mission_invite_id, $pack_id, $game_level_id, $status, $permissionable_type, $permissionable_id, $include_game_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1775,7 +1693,6 @@ class MissionInviteApi
      *
      * Update Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the application key (optional)
@@ -1792,9 +1709,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMissionInviteAsync($version, $device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
+    public function updateMissionInviteAsync($device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
     {
-        return $this->updateMissionInviteAsyncWithHttpInfo($version, $device_id, $account_id, $app_key, $mission_id, $mission_invite_id, $pack_id, $game_level_id, $status, $permissionable_type, $permissionable_id, $include_game_data, $contentType)
+        return $this->updateMissionInviteAsyncWithHttpInfo($device_id, $account_id, $app_key, $mission_id, $mission_invite_id, $pack_id, $game_level_id, $status, $permissionable_type, $permissionable_id, $include_game_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1807,7 +1724,6 @@ class MissionInviteApi
      *
      * Update Mission Invite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the application key (optional)
@@ -1824,10 +1740,10 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMissionInviteAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
+    public function updateMissionInviteAsyncWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse';
-        $request = $this->updateMissionInviteRequest($version, $device_id, $account_id, $app_key, $mission_id, $mission_invite_id, $pack_id, $game_level_id, $status, $permissionable_type, $permissionable_id, $include_game_data, $contentType);
+        $request = $this->updateMissionInviteRequest($device_id, $account_id, $app_key, $mission_id, $mission_invite_id, $pack_id, $game_level_id, $status, $permissionable_type, $permissionable_id, $include_game_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1868,7 +1784,6 @@ class MissionInviteApi
     /**
      * Create request for operation 'updateMissionInvite'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required). (optional)
      * @param  string|null $app_key the application key (optional)
@@ -1885,15 +1800,9 @@ class MissionInviteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMissionInviteRequest($version, $device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
+    public function updateMissionInviteRequest($device_id = null, $account_id = null, $app_key = null, $mission_id = null, $mission_invite_id = null, $pack_id = null, $game_level_id = null, $status = null, $permissionable_type = null, $permissionable_id = null, $include_game_data = null, string $contentType = self::contentTypes['updateMissionInvite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateMissionInvite'
-            );
-        }
 
 
 
@@ -1906,8 +1815,7 @@ class MissionInviteApi
 
 
 
-
-        $resourcePath = '/api/{version}/mission/invite/update';
+        $resourcePath = '/mission/invite/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2015,14 +1923,6 @@ class MissionInviteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

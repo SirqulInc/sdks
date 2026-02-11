@@ -143,7 +143,6 @@ class RankingApi
      *
      * Search Historical Rankings
      *
-     * @param  float $version version (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type the rank type to return (required)
      * @param  int $start_date timestamp in milliseconds to filter results with (required)
@@ -160,9 +159,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RankFullResponse
      */
-    public function getHistoricalRankings($version, $app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
+    public function getHistoricalRankings($app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
     {
-        list($response) = $this->getHistoricalRankingsWithHttpInfo($version, $app_key, $rank_type, $start_date, $end_date, $device_id, $account_id, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->getHistoricalRankingsWithHttpInfo($app_key, $rank_type, $start_date, $end_date, $device_id, $account_id, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -171,7 +170,6 @@ class RankingApi
      *
      * Search Historical Rankings
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type the rank type to return (required)
      * @param  int $start_date timestamp in milliseconds to filter results with (required)
@@ -188,9 +186,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RankFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getHistoricalRankingsWithHttpInfo($version, $app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
+    public function getHistoricalRankingsWithHttpInfo($app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
     {
-        $request = $this->getHistoricalRankingsRequest($version, $app_key, $rank_type, $start_date, $end_date, $device_id, $account_id, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->getHistoricalRankingsRequest($app_key, $rank_type, $start_date, $end_date, $device_id, $account_id, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -266,7 +264,6 @@ class RankingApi
      *
      * Search Historical Rankings
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type the rank type to return (required)
      * @param  int $start_date timestamp in milliseconds to filter results with (required)
@@ -282,9 +279,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getHistoricalRankingsAsync($version, $app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
+    public function getHistoricalRankingsAsync($app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
     {
-        return $this->getHistoricalRankingsAsyncWithHttpInfo($version, $app_key, $rank_type, $start_date, $end_date, $device_id, $account_id, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->getHistoricalRankingsAsyncWithHttpInfo($app_key, $rank_type, $start_date, $end_date, $device_id, $account_id, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -297,7 +294,6 @@ class RankingApi
      *
      * Search Historical Rankings
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type the rank type to return (required)
      * @param  int $start_date timestamp in milliseconds to filter results with (required)
@@ -313,10 +309,10 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getHistoricalRankingsAsyncWithHttpInfo($version, $app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
+    public function getHistoricalRankingsAsyncWithHttpInfo($app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RankFullResponse';
-        $request = $this->getHistoricalRankingsRequest($version, $app_key, $rank_type, $start_date, $end_date, $device_id, $account_id, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->getHistoricalRankingsRequest($app_key, $rank_type, $start_date, $end_date, $device_id, $account_id, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -357,7 +353,6 @@ class RankingApi
     /**
      * Create request for operation 'getHistoricalRankings'
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type the rank type to return (required)
      * @param  int $start_date timestamp in milliseconds to filter results with (required)
@@ -373,15 +368,8 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getHistoricalRankingsRequest($version, $app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
+    public function getHistoricalRankingsRequest($app_key, $rank_type, $start_date, $end_date, $device_id = null, $account_id = null, $sort_field = 'TOTAL', $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getHistoricalRankings'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getHistoricalRankings'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -418,7 +406,7 @@ class RankingApi
 
 
 
-        $resourcePath = '/api/{version}/ranking/historical/search';
+        $resourcePath = '/ranking/historical/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -517,14 +505,6 @@ class RankingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -585,7 +565,6 @@ class RankingApi
      *
      * Search Rankings
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $game_type This parameter is deprecated. (optional)
@@ -610,9 +589,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RankFullResponse
      */
-    public function getRankings($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
+    public function getRankings($device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
     {
-        list($response) = $this->getRankingsWithHttpInfo($version, $device_id, $account_id, $game_type, $app_key, $q, $keyword, $rank_type, $leaderboard_mode, $within_account_ids, $return_user_rank, $album_id, $audience_id, $sort_field, $descending, $_i, $start, $_l, $limit, $contentType);
+        list($response) = $this->getRankingsWithHttpInfo($device_id, $account_id, $game_type, $app_key, $q, $keyword, $rank_type, $leaderboard_mode, $within_account_ids, $return_user_rank, $album_id, $audience_id, $sort_field, $descending, $_i, $start, $_l, $limit, $contentType);
         return $response;
     }
 
@@ -621,7 +600,6 @@ class RankingApi
      *
      * Search Rankings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $game_type This parameter is deprecated. (optional)
@@ -646,9 +624,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RankFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRankingsWithHttpInfo($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
+    public function getRankingsWithHttpInfo($device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
     {
-        $request = $this->getRankingsRequest($version, $device_id, $account_id, $game_type, $app_key, $q, $keyword, $rank_type, $leaderboard_mode, $within_account_ids, $return_user_rank, $album_id, $audience_id, $sort_field, $descending, $_i, $start, $_l, $limit, $contentType);
+        $request = $this->getRankingsRequest($device_id, $account_id, $game_type, $app_key, $q, $keyword, $rank_type, $leaderboard_mode, $within_account_ids, $return_user_rank, $album_id, $audience_id, $sort_field, $descending, $_i, $start, $_l, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -724,7 +702,6 @@ class RankingApi
      *
      * Search Rankings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $game_type This parameter is deprecated. (optional)
@@ -748,9 +725,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRankingsAsync($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
+    public function getRankingsAsync($device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
     {
-        return $this->getRankingsAsyncWithHttpInfo($version, $device_id, $account_id, $game_type, $app_key, $q, $keyword, $rank_type, $leaderboard_mode, $within_account_ids, $return_user_rank, $album_id, $audience_id, $sort_field, $descending, $_i, $start, $_l, $limit, $contentType)
+        return $this->getRankingsAsyncWithHttpInfo($device_id, $account_id, $game_type, $app_key, $q, $keyword, $rank_type, $leaderboard_mode, $within_account_ids, $return_user_rank, $album_id, $audience_id, $sort_field, $descending, $_i, $start, $_l, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -763,7 +740,6 @@ class RankingApi
      *
      * Search Rankings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $game_type This parameter is deprecated. (optional)
@@ -787,10 +763,10 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRankingsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
+    public function getRankingsAsyncWithHttpInfo($device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RankFullResponse';
-        $request = $this->getRankingsRequest($version, $device_id, $account_id, $game_type, $app_key, $q, $keyword, $rank_type, $leaderboard_mode, $within_account_ids, $return_user_rank, $album_id, $audience_id, $sort_field, $descending, $_i, $start, $_l, $limit, $contentType);
+        $request = $this->getRankingsRequest($device_id, $account_id, $game_type, $app_key, $q, $keyword, $rank_type, $leaderboard_mode, $within_account_ids, $return_user_rank, $album_id, $audience_id, $sort_field, $descending, $_i, $start, $_l, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -831,7 +807,6 @@ class RankingApi
     /**
      * Create request for operation 'getRankings'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $game_type This parameter is deprecated. (optional)
@@ -855,15 +830,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRankingsRequest($version, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
+    public function getRankingsRequest($device_id = null, $account_id = null, $game_type = null, $app_key = null, $q = null, $keyword = null, $rank_type = 'POINTS,DOWNLOADS,INVITATIONS', $leaderboard_mode = 'GLOBAL', $within_account_ids = null, $return_user_rank = true, $album_id = null, $audience_id = null, $sort_field = 'TOTAL', $descending = true, $_i = null, $start = 0, $_l = null, $limit = 100, string $contentType = self::contentTypes['getRankings'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRankings'
-            );
-        }
 
 
 
@@ -883,8 +852,7 @@ class RankingApi
 
 
 
-
-        $resourcePath = '/api/{version}/ranking/search';
+        $resourcePath = '/ranking/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1055,14 +1023,6 @@ class RankingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1123,7 +1083,6 @@ class RankingApi
      *
      * Get Personal Rankings
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key the application key for filtering results by application (required) (optional)
@@ -1141,9 +1100,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function getUserRank($version, $device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
+    public function getUserRank($device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
     {
-        list($response) = $this->getUserRankWithHttpInfo($version, $device_id, $account_id, $app_key, $rank_type, $return_user_rank, $leaderboard_mode, $sort_field, $keyword, $descending, $start, $limit, $contentType);
+        list($response) = $this->getUserRankWithHttpInfo($device_id, $account_id, $app_key, $rank_type, $return_user_rank, $leaderboard_mode, $sort_field, $keyword, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1152,7 +1111,6 @@ class RankingApi
      *
      * Get Personal Rankings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key the application key for filtering results by application (required) (optional)
@@ -1170,9 +1128,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserRankWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
+    public function getUserRankWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
     {
-        $request = $this->getUserRankRequest($version, $device_id, $account_id, $app_key, $rank_type, $return_user_rank, $leaderboard_mode, $sort_field, $keyword, $descending, $start, $limit, $contentType);
+        $request = $this->getUserRankRequest($device_id, $account_id, $app_key, $rank_type, $return_user_rank, $leaderboard_mode, $sort_field, $keyword, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1248,7 +1206,6 @@ class RankingApi
      *
      * Get Personal Rankings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key the application key for filtering results by application (required) (optional)
@@ -1265,9 +1222,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserRankAsync($version, $device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
+    public function getUserRankAsync($device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
     {
-        return $this->getUserRankAsyncWithHttpInfo($version, $device_id, $account_id, $app_key, $rank_type, $return_user_rank, $leaderboard_mode, $sort_field, $keyword, $descending, $start, $limit, $contentType)
+        return $this->getUserRankAsyncWithHttpInfo($device_id, $account_id, $app_key, $rank_type, $return_user_rank, $leaderboard_mode, $sort_field, $keyword, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1280,7 +1237,6 @@ class RankingApi
      *
      * Get Personal Rankings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key the application key for filtering results by application (required) (optional)
@@ -1297,10 +1253,10 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserRankAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
+    public function getUserRankAsyncWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
     {
         $returnType = 'object';
-        $request = $this->getUserRankRequest($version, $device_id, $account_id, $app_key, $rank_type, $return_user_rank, $leaderboard_mode, $sort_field, $keyword, $descending, $start, $limit, $contentType);
+        $request = $this->getUserRankRequest($device_id, $account_id, $app_key, $rank_type, $return_user_rank, $leaderboard_mode, $sort_field, $keyword, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1341,7 +1297,6 @@ class RankingApi
     /**
      * Create request for operation 'getUserRank'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key the application key for filtering results by application (required) (optional)
@@ -1358,15 +1313,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserRankRequest($version, $device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
+    public function getUserRankRequest($device_id = null, $account_id = null, $app_key = null, $rank_type = null, $return_user_rank = false, $leaderboard_mode = 'GLOBAL', $sort_field = 'TOTAL', $keyword = null, $descending = true, $start = 0, $limit = 100, string $contentType = self::contentTypes['getUserRank'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getUserRank'
-            );
-        }
 
 
 
@@ -1379,8 +1328,7 @@ class RankingApi
 
 
 
-
-        $resourcePath = '/api/{version}/ranking/personal/ranks';
+        $resourcePath = '/ranking/personal/ranks';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1488,14 +1436,6 @@ class RankingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1556,7 +1496,6 @@ class RankingApi
      *
      * Override User Rank
      *
-     * @param  float $version version (required)
      * @param  int $account_id the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
      * @param  int $owner_account_id the end user&#39;s account id to override (required)
      * @param  string $app_key the application key the leaderboard is for (required)
@@ -1585,9 +1524,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function overrideUserRank($version, $account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
+    public function overrideUserRank($account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
     {
-        list($response) = $this->overrideUserRankWithHttpInfo($version, $account_id, $owner_account_id, $app_key, $rank_type, $total_score, $total_count, $total_time, $daily_score, $daily_count, $daily_time, $weekly_score, $weekly_count, $weekly_time, $monthly_score, $monthly_count, $monthly_time, $top_score, $lowest_score, $streak_count, $streak_best_count, $start_date, $end_date, $contentType);
+        list($response) = $this->overrideUserRankWithHttpInfo($account_id, $owner_account_id, $app_key, $rank_type, $total_score, $total_count, $total_time, $daily_score, $daily_count, $daily_time, $weekly_score, $weekly_count, $weekly_time, $monthly_score, $monthly_count, $monthly_time, $top_score, $lowest_score, $streak_count, $streak_best_count, $start_date, $end_date, $contentType);
         return $response;
     }
 
@@ -1596,7 +1535,6 @@ class RankingApi
      *
      * Override User Rank
      *
-     * @param  float $version (required)
      * @param  int $account_id the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
      * @param  int $owner_account_id the end user&#39;s account id to override (required)
      * @param  string $app_key the application key the leaderboard is for (required)
@@ -1625,9 +1563,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function overrideUserRankWithHttpInfo($version, $account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
+    public function overrideUserRankWithHttpInfo($account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
     {
-        $request = $this->overrideUserRankRequest($version, $account_id, $owner_account_id, $app_key, $rank_type, $total_score, $total_count, $total_time, $daily_score, $daily_count, $daily_time, $weekly_score, $weekly_count, $weekly_time, $monthly_score, $monthly_count, $monthly_time, $top_score, $lowest_score, $streak_count, $streak_best_count, $start_date, $end_date, $contentType);
+        $request = $this->overrideUserRankRequest($account_id, $owner_account_id, $app_key, $rank_type, $total_score, $total_count, $total_time, $daily_score, $daily_count, $daily_time, $weekly_score, $weekly_count, $weekly_time, $monthly_score, $monthly_count, $monthly_time, $top_score, $lowest_score, $streak_count, $streak_best_count, $start_date, $end_date, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1703,7 +1641,6 @@ class RankingApi
      *
      * Override User Rank
      *
-     * @param  float $version (required)
      * @param  int $account_id the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
      * @param  int $owner_account_id the end user&#39;s account id to override (required)
      * @param  string $app_key the application key the leaderboard is for (required)
@@ -1731,9 +1668,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function overrideUserRankAsync($version, $account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
+    public function overrideUserRankAsync($account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
     {
-        return $this->overrideUserRankAsyncWithHttpInfo($version, $account_id, $owner_account_id, $app_key, $rank_type, $total_score, $total_count, $total_time, $daily_score, $daily_count, $daily_time, $weekly_score, $weekly_count, $weekly_time, $monthly_score, $monthly_count, $monthly_time, $top_score, $lowest_score, $streak_count, $streak_best_count, $start_date, $end_date, $contentType)
+        return $this->overrideUserRankAsyncWithHttpInfo($account_id, $owner_account_id, $app_key, $rank_type, $total_score, $total_count, $total_time, $daily_score, $daily_count, $daily_time, $weekly_score, $weekly_count, $weekly_time, $monthly_score, $monthly_count, $monthly_time, $top_score, $lowest_score, $streak_count, $streak_best_count, $start_date, $end_date, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1746,7 +1683,6 @@ class RankingApi
      *
      * Override User Rank
      *
-     * @param  float $version (required)
      * @param  int $account_id the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
      * @param  int $owner_account_id the end user&#39;s account id to override (required)
      * @param  string $app_key the application key the leaderboard is for (required)
@@ -1774,10 +1710,10 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function overrideUserRankAsyncWithHttpInfo($version, $account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
+    public function overrideUserRankAsyncWithHttpInfo($account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->overrideUserRankRequest($version, $account_id, $owner_account_id, $app_key, $rank_type, $total_score, $total_count, $total_time, $daily_score, $daily_count, $daily_time, $weekly_score, $weekly_count, $weekly_time, $monthly_score, $monthly_count, $monthly_time, $top_score, $lowest_score, $streak_count, $streak_best_count, $start_date, $end_date, $contentType);
+        $request = $this->overrideUserRankRequest($account_id, $owner_account_id, $app_key, $rank_type, $total_score, $total_count, $total_time, $daily_score, $daily_count, $daily_time, $weekly_score, $weekly_count, $weekly_time, $monthly_score, $monthly_count, $monthly_time, $top_score, $lowest_score, $streak_count, $streak_best_count, $start_date, $end_date, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1818,7 +1754,6 @@ class RankingApi
     /**
      * Create request for operation 'overrideUserRank'
      *
-     * @param  float $version (required)
      * @param  int $account_id the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
      * @param  int $owner_account_id the end user&#39;s account id to override (required)
      * @param  string $app_key the application key the leaderboard is for (required)
@@ -1846,15 +1781,8 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function overrideUserRankRequest($version, $account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
+    public function overrideUserRankRequest($account_id, $owner_account_id, $app_key, $rank_type, $total_score = null, $total_count = null, $total_time = null, $daily_score = null, $daily_count = null, $daily_time = null, $weekly_score = null, $weekly_count = null, $weekly_time = null, $monthly_score = null, $monthly_count = null, $monthly_time = null, $top_score = null, $lowest_score = null, $streak_count = null, $streak_best_count = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['overrideUserRank'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling overrideUserRank'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1903,7 +1831,7 @@ class RankingApi
 
 
 
-        $resourcePath = '/api/{version}/ranking/override';
+        $resourcePath = '/ranking/override';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2110,14 +2038,6 @@ class RankingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2178,7 +2098,6 @@ class RankingApi
      *
      * Update Ranking
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -2195,9 +2114,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function updateRankings($version, $account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
+    public function updateRankings($account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
     {
-        list($response) = $this->updateRankingsWithHttpInfo($version, $account_id, $app_key, $rank_type, $increment, $time_increment, $tag, $start_date, $end_date, $update_global, $create_leaderboard, $contentType);
+        list($response) = $this->updateRankingsWithHttpInfo($account_id, $app_key, $rank_type, $increment, $time_increment, $tag, $start_date, $end_date, $update_global, $create_leaderboard, $contentType);
         return $response;
     }
 
@@ -2206,7 +2125,6 @@ class RankingApi
      *
      * Update Ranking
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -2223,9 +2141,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRankingsWithHttpInfo($version, $account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
+    public function updateRankingsWithHttpInfo($account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
     {
-        $request = $this->updateRankingsRequest($version, $account_id, $app_key, $rank_type, $increment, $time_increment, $tag, $start_date, $end_date, $update_global, $create_leaderboard, $contentType);
+        $request = $this->updateRankingsRequest($account_id, $app_key, $rank_type, $increment, $time_increment, $tag, $start_date, $end_date, $update_global, $create_leaderboard, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2301,7 +2219,6 @@ class RankingApi
      *
      * Update Ranking
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -2317,9 +2234,9 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRankingsAsync($version, $account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
+    public function updateRankingsAsync($account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
     {
-        return $this->updateRankingsAsyncWithHttpInfo($version, $account_id, $app_key, $rank_type, $increment, $time_increment, $tag, $start_date, $end_date, $update_global, $create_leaderboard, $contentType)
+        return $this->updateRankingsAsyncWithHttpInfo($account_id, $app_key, $rank_type, $increment, $time_increment, $tag, $start_date, $end_date, $update_global, $create_leaderboard, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2332,7 +2249,6 @@ class RankingApi
      *
      * Update Ranking
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -2348,10 +2264,10 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRankingsAsyncWithHttpInfo($version, $account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
+    public function updateRankingsAsyncWithHttpInfo($account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->updateRankingsRequest($version, $account_id, $app_key, $rank_type, $increment, $time_increment, $tag, $start_date, $end_date, $update_global, $create_leaderboard, $contentType);
+        $request = $this->updateRankingsRequest($account_id, $app_key, $rank_type, $increment, $time_increment, $tag, $start_date, $end_date, $update_global, $create_leaderboard, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2392,7 +2308,6 @@ class RankingApi
     /**
      * Create request for operation 'updateRankings'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  string $app_key the application key for filtering results by application (required)
      * @param  string $rank_type a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -2408,15 +2323,8 @@ class RankingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRankingsRequest($version, $account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
+    public function updateRankingsRequest($account_id, $app_key, $rank_type, $increment = 1, $time_increment = null, $tag = null, $start_date = null, $end_date = null, $update_global = null, $create_leaderboard = false, string $contentType = self::contentTypes['updateRankings'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRankings'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2447,7 +2355,7 @@ class RankingApi
 
 
 
-        $resourcePath = '/api/{version}/ranking/update';
+        $resourcePath = '/ranking/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2546,14 +2454,6 @@ class RankingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -146,7 +146,6 @@ class RatingApi
      *
      * Create Rating
      *
-     * @param  float $version version (required)
      * @param  string $ratable_type The ratable object type {RETAILER_LOCATION} (required)
      * @param  int $ratable_id The id of the ratable object (required)
      * @param  int $rating_value The integer value of 0-100 (required)
@@ -164,9 +163,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RatingResponse
      */
-    public function createRating($version, $ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
+    public function createRating($ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
     {
-        list($response) = $this->createRatingWithHttpInfo($version, $ratable_type, $ratable_id, $rating_value, $device_id, $account_id, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
+        list($response) = $this->createRatingWithHttpInfo($ratable_type, $ratable_id, $rating_value, $device_id, $account_id, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -175,7 +174,6 @@ class RatingApi
      *
      * Create Rating
      *
-     * @param  float $version (required)
      * @param  string $ratable_type The ratable object type {RETAILER_LOCATION} (required)
      * @param  int $ratable_id The id of the ratable object (required)
      * @param  int $rating_value The integer value of 0-100 (required)
@@ -193,9 +191,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RatingResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRatingWithHttpInfo($version, $ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
+    public function createRatingWithHttpInfo($ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
     {
-        $request = $this->createRatingRequest($version, $ratable_type, $ratable_id, $rating_value, $device_id, $account_id, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
+        $request = $this->createRatingRequest($ratable_type, $ratable_id, $rating_value, $device_id, $account_id, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -271,7 +269,6 @@ class RatingApi
      *
      * Create Rating
      *
-     * @param  float $version (required)
      * @param  string $ratable_type The ratable object type {RETAILER_LOCATION} (required)
      * @param  int $ratable_id The id of the ratable object (required)
      * @param  int $rating_value The integer value of 0-100 (required)
@@ -288,9 +285,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRatingAsync($version, $ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
+    public function createRatingAsync($ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
     {
-        return $this->createRatingAsyncWithHttpInfo($version, $ratable_type, $ratable_id, $rating_value, $device_id, $account_id, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType)
+        return $this->createRatingAsyncWithHttpInfo($ratable_type, $ratable_id, $rating_value, $device_id, $account_id, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -303,7 +300,6 @@ class RatingApi
      *
      * Create Rating
      *
-     * @param  float $version (required)
      * @param  string $ratable_type The ratable object type {RETAILER_LOCATION} (required)
      * @param  int $ratable_id The id of the ratable object (required)
      * @param  int $rating_value The integer value of 0-100 (required)
@@ -320,10 +316,10 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRatingAsyncWithHttpInfo($version, $ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
+    public function createRatingAsyncWithHttpInfo($ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RatingResponse';
-        $request = $this->createRatingRequest($version, $ratable_type, $ratable_id, $rating_value, $device_id, $account_id, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
+        $request = $this->createRatingRequest($ratable_type, $ratable_id, $rating_value, $device_id, $account_id, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -364,7 +360,6 @@ class RatingApi
     /**
      * Create request for operation 'createRating'
      *
-     * @param  float $version (required)
      * @param  string $ratable_type The ratable object type {RETAILER_LOCATION} (required)
      * @param  int $ratable_id The id of the ratable object (required)
      * @param  int $rating_value The integer value of 0-100 (required)
@@ -381,15 +376,8 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRatingRequest($version, $ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
+    public function createRatingRequest($ratable_type, $ratable_id, $rating_value, $device_id = null, $account_id = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRating'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRating'
-            );
-        }
 
         // verify the required parameter 'ratable_type' is set
         if ($ratable_type === null || (is_array($ratable_type) && count($ratable_type) === 0)) {
@@ -421,7 +409,7 @@ class RatingApi
 
 
 
-        $resourcePath = '/api/{version}/rating/create';
+        $resourcePath = '/rating/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -529,14 +517,6 @@ class RatingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -597,7 +577,6 @@ class RatingApi
      *
      * Delete Rating
      *
-     * @param  float $version version (required)
      * @param  int $rating_id The ID of the rating to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -607,9 +586,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteRating($version, $rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
+    public function deleteRating($rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
     {
-        list($response) = $this->deleteRatingWithHttpInfo($version, $rating_id, $device_id, $account_id, $contentType);
+        list($response) = $this->deleteRatingWithHttpInfo($rating_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -618,7 +597,6 @@ class RatingApi
      *
      * Delete Rating
      *
-     * @param  float $version (required)
      * @param  int $rating_id The ID of the rating to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -628,9 +606,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRatingWithHttpInfo($version, $rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
+    public function deleteRatingWithHttpInfo($rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
     {
-        $request = $this->deleteRatingRequest($version, $rating_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteRatingRequest($rating_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -706,7 +684,6 @@ class RatingApi
      *
      * Delete Rating
      *
-     * @param  float $version (required)
      * @param  int $rating_id The ID of the rating to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -715,9 +692,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRatingAsync($version, $rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
+    public function deleteRatingAsync($rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
     {
-        return $this->deleteRatingAsyncWithHttpInfo($version, $rating_id, $device_id, $account_id, $contentType)
+        return $this->deleteRatingAsyncWithHttpInfo($rating_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -730,7 +707,6 @@ class RatingApi
      *
      * Delete Rating
      *
-     * @param  float $version (required)
      * @param  int $rating_id The ID of the rating to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -739,10 +715,10 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRatingAsyncWithHttpInfo($version, $rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
+    public function deleteRatingAsyncWithHttpInfo($rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteRatingRequest($version, $rating_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteRatingRequest($rating_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -783,7 +759,6 @@ class RatingApi
     /**
      * Create request for operation 'deleteRating'
      *
-     * @param  float $version (required)
      * @param  int $rating_id The ID of the rating to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -792,15 +767,8 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteRatingRequest($version, $rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
+    public function deleteRatingRequest($rating_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteRating'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteRating'
-            );
-        }
 
         // verify the required parameter 'rating_id' is set
         if ($rating_id === null || (is_array($rating_id) && count($rating_id) === 0)) {
@@ -812,7 +780,7 @@ class RatingApi
 
 
 
-        $resourcePath = '/api/{version}/rating/delete';
+        $resourcePath = '/rating/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -848,14 +816,6 @@ class RatingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -916,7 +876,6 @@ class RatingApi
      *
      * Search Location Rating Indexes
      *
-     * @param  float $version version (required)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  string|null $location_type The type of location to filter the results by (optional)
@@ -940,9 +899,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RatingIndexResponse[]
      */
-    public function searchLocationRatingIndexes($version, $category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
+    public function searchLocationRatingIndexes($category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
     {
-        list($response) = $this->searchLocationRatingIndexesWithHttpInfo($version, $category_ids, $keyword, $location_type, $sort_field, $descending, $start, $limit, $search_range, $latitude, $longitude, $return_overall_rating, $distance_unit, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $contentType);
+        list($response) = $this->searchLocationRatingIndexesWithHttpInfo($category_ids, $keyword, $location_type, $sort_field, $descending, $start, $limit, $search_range, $latitude, $longitude, $return_overall_rating, $distance_unit, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $contentType);
         return $response;
     }
 
@@ -951,7 +910,6 @@ class RatingApi
      *
      * Search Location Rating Indexes
      *
-     * @param  float $version (required)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  string|null $location_type The type of location to filter the results by (optional)
@@ -975,9 +933,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RatingIndexResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchLocationRatingIndexesWithHttpInfo($version, $category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
+    public function searchLocationRatingIndexesWithHttpInfo($category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
     {
-        $request = $this->searchLocationRatingIndexesRequest($version, $category_ids, $keyword, $location_type, $sort_field, $descending, $start, $limit, $search_range, $latitude, $longitude, $return_overall_rating, $distance_unit, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $contentType);
+        $request = $this->searchLocationRatingIndexesRequest($category_ids, $keyword, $location_type, $sort_field, $descending, $start, $limit, $search_range, $latitude, $longitude, $return_overall_rating, $distance_unit, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1053,7 +1011,6 @@ class RatingApi
      *
      * Search Location Rating Indexes
      *
-     * @param  float $version (required)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  string|null $location_type The type of location to filter the results by (optional)
@@ -1076,9 +1033,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchLocationRatingIndexesAsync($version, $category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
+    public function searchLocationRatingIndexesAsync($category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
     {
-        return $this->searchLocationRatingIndexesAsyncWithHttpInfo($version, $category_ids, $keyword, $location_type, $sort_field, $descending, $start, $limit, $search_range, $latitude, $longitude, $return_overall_rating, $distance_unit, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $contentType)
+        return $this->searchLocationRatingIndexesAsyncWithHttpInfo($category_ids, $keyword, $location_type, $sort_field, $descending, $start, $limit, $search_range, $latitude, $longitude, $return_overall_rating, $distance_unit, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1091,7 +1048,6 @@ class RatingApi
      *
      * Search Location Rating Indexes
      *
-     * @param  float $version (required)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  string|null $location_type The type of location to filter the results by (optional)
@@ -1114,10 +1070,10 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchLocationRatingIndexesAsyncWithHttpInfo($version, $category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
+    public function searchLocationRatingIndexesAsyncWithHttpInfo($category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RatingIndexResponse[]';
-        $request = $this->searchLocationRatingIndexesRequest($version, $category_ids, $keyword, $location_type, $sort_field, $descending, $start, $limit, $search_range, $latitude, $longitude, $return_overall_rating, $distance_unit, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $contentType);
+        $request = $this->searchLocationRatingIndexesRequest($category_ids, $keyword, $location_type, $sort_field, $descending, $start, $limit, $search_range, $latitude, $longitude, $return_overall_rating, $distance_unit, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1158,7 +1114,6 @@ class RatingApi
     /**
      * Create request for operation 'searchLocationRatingIndexes'
      *
-     * @param  float $version (required)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
      * @param  string|null $keyword The keyword used to search (optional)
      * @param  string|null $location_type The type of location to filter the results by (optional)
@@ -1181,15 +1136,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchLocationRatingIndexesRequest($version, $category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
+    public function searchLocationRatingIndexesRequest($category_ids = null, $keyword = null, $location_type = null, $sort_field = null, $descending = null, $start = null, $limit = null, $search_range = null, $latitude = null, $longitude = null, $return_overall_rating = null, $distance_unit = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, string $contentType = self::contentTypes['searchLocationRatingIndexes'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchLocationRatingIndexes'
-            );
-        }
 
 
 
@@ -1208,8 +1157,7 @@ class RatingApi
 
 
 
-
-        $resourcePath = '/api/{version}/location/rating/index/search';
+        $resourcePath = '/location/rating/index/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1371,14 +1319,6 @@ class RatingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1439,7 +1379,6 @@ class RatingApi
      *
      * Search Rating Indexes
      *
-     * @param  float $version version (required)
      * @param  string $ratable_type Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param  string|null $ratable_ids Comma separated list of ratable ids to filter the resuts by (optional)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
@@ -1459,9 +1398,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RatingIndexResponse[]
      */
-    public function searchRatingIndexes($version, $ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
+    public function searchRatingIndexes($ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
     {
-        list($response) = $this->searchRatingIndexesWithHttpInfo($version, $ratable_type, $ratable_ids, $category_ids, $secondary_type, $keyword, $sort_field, $descending, $start, $limit, $latitude, $longitude, $return_ratable, $return_overall_rating, $contentType);
+        list($response) = $this->searchRatingIndexesWithHttpInfo($ratable_type, $ratable_ids, $category_ids, $secondary_type, $keyword, $sort_field, $descending, $start, $limit, $latitude, $longitude, $return_ratable, $return_overall_rating, $contentType);
         return $response;
     }
 
@@ -1470,7 +1409,6 @@ class RatingApi
      *
      * Search Rating Indexes
      *
-     * @param  float $version (required)
      * @param  string $ratable_type Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param  string|null $ratable_ids Comma separated list of ratable ids to filter the resuts by (optional)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
@@ -1490,9 +1428,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RatingIndexResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRatingIndexesWithHttpInfo($version, $ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
+    public function searchRatingIndexesWithHttpInfo($ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
     {
-        $request = $this->searchRatingIndexesRequest($version, $ratable_type, $ratable_ids, $category_ids, $secondary_type, $keyword, $sort_field, $descending, $start, $limit, $latitude, $longitude, $return_ratable, $return_overall_rating, $contentType);
+        $request = $this->searchRatingIndexesRequest($ratable_type, $ratable_ids, $category_ids, $secondary_type, $keyword, $sort_field, $descending, $start, $limit, $latitude, $longitude, $return_ratable, $return_overall_rating, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1568,7 +1506,6 @@ class RatingApi
      *
      * Search Rating Indexes
      *
-     * @param  float $version (required)
      * @param  string $ratable_type Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param  string|null $ratable_ids Comma separated list of ratable ids to filter the resuts by (optional)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
@@ -1587,9 +1524,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRatingIndexesAsync($version, $ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
+    public function searchRatingIndexesAsync($ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
     {
-        return $this->searchRatingIndexesAsyncWithHttpInfo($version, $ratable_type, $ratable_ids, $category_ids, $secondary_type, $keyword, $sort_field, $descending, $start, $limit, $latitude, $longitude, $return_ratable, $return_overall_rating, $contentType)
+        return $this->searchRatingIndexesAsyncWithHttpInfo($ratable_type, $ratable_ids, $category_ids, $secondary_type, $keyword, $sort_field, $descending, $start, $limit, $latitude, $longitude, $return_ratable, $return_overall_rating, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1602,7 +1539,6 @@ class RatingApi
      *
      * Search Rating Indexes
      *
-     * @param  float $version (required)
      * @param  string $ratable_type Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param  string|null $ratable_ids Comma separated list of ratable ids to filter the resuts by (optional)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
@@ -1621,10 +1557,10 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRatingIndexesAsyncWithHttpInfo($version, $ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
+    public function searchRatingIndexesAsyncWithHttpInfo($ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RatingIndexResponse[]';
-        $request = $this->searchRatingIndexesRequest($version, $ratable_type, $ratable_ids, $category_ids, $secondary_type, $keyword, $sort_field, $descending, $start, $limit, $latitude, $longitude, $return_ratable, $return_overall_rating, $contentType);
+        $request = $this->searchRatingIndexesRequest($ratable_type, $ratable_ids, $category_ids, $secondary_type, $keyword, $sort_field, $descending, $start, $limit, $latitude, $longitude, $return_ratable, $return_overall_rating, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1665,7 +1601,6 @@ class RatingApi
     /**
      * Create request for operation 'searchRatingIndexes'
      *
-     * @param  float $version (required)
      * @param  string $ratable_type Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param  string|null $ratable_ids Comma separated list of ratable ids to filter the resuts by (optional)
      * @param  string|null $category_ids Comma separated list of category ids to filter the results by (optional)
@@ -1684,15 +1619,8 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRatingIndexesRequest($version, $ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
+    public function searchRatingIndexesRequest($ratable_type, $ratable_ids = null, $category_ids = null, $secondary_type = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $latitude = null, $longitude = null, $return_ratable = null, $return_overall_rating = null, string $contentType = self::contentTypes['searchRatingIndexes'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchRatingIndexes'
-            );
-        }
 
         // verify the required parameter 'ratable_type' is set
         if ($ratable_type === null || (is_array($ratable_type) && count($ratable_type) === 0)) {
@@ -1714,7 +1642,7 @@ class RatingApi
 
 
 
-        $resourcePath = '/api/{version}/rating/index/search';
+        $resourcePath = '/rating/index/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1840,14 +1768,6 @@ class RatingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1908,7 +1828,6 @@ class RatingApi
      *
      * Search Ratings
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $filter_account_id Filter results for a particular account (optional)
@@ -1926,9 +1845,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RatingResponse[]
      */
-    public function searchRatings($version, $device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
+    public function searchRatings($device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
     {
-        list($response) = $this->searchRatingsWithHttpInfo($version, $device_id, $account_id, $filter_account_id, $ratable_type, $ratable_id, $category_ids, $keyword, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchRatingsWithHttpInfo($device_id, $account_id, $filter_account_id, $ratable_type, $ratable_id, $category_ids, $keyword, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1937,7 +1856,6 @@ class RatingApi
      *
      * Search Ratings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $filter_account_id Filter results for a particular account (optional)
@@ -1955,9 +1873,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RatingResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRatingsWithHttpInfo($version, $device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
+    public function searchRatingsWithHttpInfo($device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
     {
-        $request = $this->searchRatingsRequest($version, $device_id, $account_id, $filter_account_id, $ratable_type, $ratable_id, $category_ids, $keyword, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchRatingsRequest($device_id, $account_id, $filter_account_id, $ratable_type, $ratable_id, $category_ids, $keyword, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2033,7 +1951,6 @@ class RatingApi
      *
      * Search Ratings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $filter_account_id Filter results for a particular account (optional)
@@ -2050,9 +1967,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRatingsAsync($version, $device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
+    public function searchRatingsAsync($device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
     {
-        return $this->searchRatingsAsyncWithHttpInfo($version, $device_id, $account_id, $filter_account_id, $ratable_type, $ratable_id, $category_ids, $keyword, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->searchRatingsAsyncWithHttpInfo($device_id, $account_id, $filter_account_id, $ratable_type, $ratable_id, $category_ids, $keyword, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2065,7 +1982,6 @@ class RatingApi
      *
      * Search Ratings
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $filter_account_id Filter results for a particular account (optional)
@@ -2082,10 +1998,10 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRatingsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
+    public function searchRatingsAsyncWithHttpInfo($device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RatingResponse[]';
-        $request = $this->searchRatingsRequest($version, $device_id, $account_id, $filter_account_id, $ratable_type, $ratable_id, $category_ids, $keyword, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchRatingsRequest($device_id, $account_id, $filter_account_id, $ratable_type, $ratable_id, $category_ids, $keyword, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2126,7 +2042,6 @@ class RatingApi
     /**
      * Create request for operation 'searchRatings'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $filter_account_id Filter results for a particular account (optional)
@@ -2143,15 +2058,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRatingsRequest($version, $device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
+    public function searchRatingsRequest($device_id = null, $account_id = null, $filter_account_id = null, $ratable_type = null, $ratable_id = null, $category_ids = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRatings'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchRatings'
-            );
-        }
 
 
 
@@ -2164,8 +2073,7 @@ class RatingApi
 
 
 
-
-        $resourcePath = '/api/{version}/rating/search';
+        $resourcePath = '/rating/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2273,14 +2181,6 @@ class RatingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2341,7 +2241,6 @@ class RatingApi
      *
      * Update Rating
      *
-     * @param  float $version version (required)
      * @param  int $rating_id The id of the rating (Note: this is not the ratable object id) (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -2358,9 +2257,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RatingResponse
      */
-    public function updateRating($version, $rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
+    public function updateRating($rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
     {
-        list($response) = $this->updateRatingWithHttpInfo($version, $rating_id, $device_id, $account_id, $rating_value, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
+        list($response) = $this->updateRatingWithHttpInfo($rating_id, $device_id, $account_id, $rating_value, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -2369,7 +2268,6 @@ class RatingApi
      *
      * Update Rating
      *
-     * @param  float $version (required)
      * @param  int $rating_id The id of the rating (Note: this is not the ratable object id) (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -2386,9 +2284,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RatingResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRatingWithHttpInfo($version, $rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
+    public function updateRatingWithHttpInfo($rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
     {
-        $request = $this->updateRatingRequest($version, $rating_id, $device_id, $account_id, $rating_value, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
+        $request = $this->updateRatingRequest($rating_id, $device_id, $account_id, $rating_value, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2464,7 +2362,6 @@ class RatingApi
      *
      * Update Rating
      *
-     * @param  float $version (required)
      * @param  int $rating_id The id of the rating (Note: this is not the ratable object id) (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -2480,9 +2377,9 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRatingAsync($version, $rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
+    public function updateRatingAsync($rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
     {
-        return $this->updateRatingAsyncWithHttpInfo($version, $rating_id, $device_id, $account_id, $rating_value, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType)
+        return $this->updateRatingAsyncWithHttpInfo($rating_id, $device_id, $account_id, $rating_value, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2495,7 +2392,6 @@ class RatingApi
      *
      * Update Rating
      *
-     * @param  float $version (required)
      * @param  int $rating_id The id of the rating (Note: this is not the ratable object id) (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -2511,10 +2407,10 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRatingAsyncWithHttpInfo($version, $rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
+    public function updateRatingAsyncWithHttpInfo($rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RatingResponse';
-        $request = $this->updateRatingRequest($version, $rating_id, $device_id, $account_id, $rating_value, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
+        $request = $this->updateRatingRequest($rating_id, $device_id, $account_id, $rating_value, $category_id, $display, $description, $location_description, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2555,7 +2451,6 @@ class RatingApi
     /**
      * Create request for operation 'updateRating'
      *
-     * @param  float $version (required)
      * @param  int $rating_id The id of the rating (Note: this is not the ratable object id) (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -2571,15 +2466,8 @@ class RatingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRatingRequest($version, $rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
+    public function updateRatingRequest($rating_id, $device_id = null, $account_id = null, $rating_value = null, $category_id = null, $display = null, $description = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updateRating'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRating'
-            );
-        }
 
         // verify the required parameter 'rating_id' is set
         if ($rating_id === null || (is_array($rating_id) && count($rating_id) === 0)) {
@@ -2598,7 +2486,7 @@ class RatingApi
 
 
 
-        $resourcePath = '/api/{version}/rating/update';
+        $resourcePath = '/rating/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2697,14 +2585,6 @@ class RatingApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

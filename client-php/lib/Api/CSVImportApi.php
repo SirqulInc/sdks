@@ -140,7 +140,6 @@ class CSVImportApi
      *
      * Detail Status
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id the id of the batch (required)
      * @param  string $response_group The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -152,9 +151,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function getStatusCSV($version, $account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
+    public function getStatusCSV($account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
     {
-        list($response) = $this->getStatusCSVWithHttpInfo($version, $account_id, $batch_id, $response_group, $start, $limit, $contentType);
+        list($response) = $this->getStatusCSVWithHttpInfo($account_id, $batch_id, $response_group, $start, $limit, $contentType);
         return $response;
     }
 
@@ -163,7 +162,6 @@ class CSVImportApi
      *
      * Detail Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id the id of the batch (required)
      * @param  string $response_group The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -175,9 +173,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStatusCSVWithHttpInfo($version, $account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
+    public function getStatusCSVWithHttpInfo($account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
     {
-        $request = $this->getStatusCSVRequest($version, $account_id, $batch_id, $response_group, $start, $limit, $contentType);
+        $request = $this->getStatusCSVRequest($account_id, $batch_id, $response_group, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -253,7 +251,6 @@ class CSVImportApi
      *
      * Detail Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id the id of the batch (required)
      * @param  string $response_group The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -264,9 +261,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatusCSVAsync($version, $account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
+    public function getStatusCSVAsync($account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
     {
-        return $this->getStatusCSVAsyncWithHttpInfo($version, $account_id, $batch_id, $response_group, $start, $limit, $contentType)
+        return $this->getStatusCSVAsyncWithHttpInfo($account_id, $batch_id, $response_group, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -279,7 +276,6 @@ class CSVImportApi
      *
      * Detail Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id the id of the batch (required)
      * @param  string $response_group The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -290,10 +286,10 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatusCSVAsyncWithHttpInfo($version, $account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
+    public function getStatusCSVAsyncWithHttpInfo($account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->getStatusCSVRequest($version, $account_id, $batch_id, $response_group, $start, $limit, $contentType);
+        $request = $this->getStatusCSVRequest($account_id, $batch_id, $response_group, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -334,7 +330,6 @@ class CSVImportApi
     /**
      * Create request for operation 'getStatusCSV'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $batch_id the id of the batch (required)
      * @param  string $response_group The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -345,15 +340,8 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStatusCSVRequest($version, $account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
+    public function getStatusCSVRequest($account_id, $batch_id, $response_group, $start, $limit, string $contentType = self::contentTypes['getStatusCSV'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getStatusCSV'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -391,7 +379,7 @@ class CSVImportApi
         }
 
 
-        $resourcePath = '/api/{version}/csvimport/batch/status/details';
+        $resourcePath = '/csvimport/batch/status/details';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -445,14 +433,6 @@ class CSVImportApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -513,7 +493,6 @@ class CSVImportApi
      *
      * Search Status
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $start the start of the pagination (required)
      * @param  int $limit the limit of the pagination (required)
@@ -523,9 +502,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CsvImportResponse
      */
-    public function listStatusCSV($version, $account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
+    public function listStatusCSV($account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
     {
-        list($response) = $this->listStatusCSVWithHttpInfo($version, $account_id, $start, $limit, $contentType);
+        list($response) = $this->listStatusCSVWithHttpInfo($account_id, $start, $limit, $contentType);
         return $response;
     }
 
@@ -534,7 +513,6 @@ class CSVImportApi
      *
      * Search Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $start the start of the pagination (required)
      * @param  int $limit the limit of the pagination (required)
@@ -544,9 +522,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CsvImportResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listStatusCSVWithHttpInfo($version, $account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
+    public function listStatusCSVWithHttpInfo($account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
     {
-        $request = $this->listStatusCSVRequest($version, $account_id, $start, $limit, $contentType);
+        $request = $this->listStatusCSVRequest($account_id, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -622,7 +600,6 @@ class CSVImportApi
      *
      * Search Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $start the start of the pagination (required)
      * @param  int $limit the limit of the pagination (required)
@@ -631,9 +608,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listStatusCSVAsync($version, $account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
+    public function listStatusCSVAsync($account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
     {
-        return $this->listStatusCSVAsyncWithHttpInfo($version, $account_id, $start, $limit, $contentType)
+        return $this->listStatusCSVAsyncWithHttpInfo($account_id, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -646,7 +623,6 @@ class CSVImportApi
      *
      * Search Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $start the start of the pagination (required)
      * @param  int $limit the limit of the pagination (required)
@@ -655,10 +631,10 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listStatusCSVAsyncWithHttpInfo($version, $account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
+    public function listStatusCSVAsyncWithHttpInfo($account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CsvImportResponse';
-        $request = $this->listStatusCSVRequest($version, $account_id, $start, $limit, $contentType);
+        $request = $this->listStatusCSVRequest($account_id, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -699,7 +675,6 @@ class CSVImportApi
     /**
      * Create request for operation 'listStatusCSV'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $start the start of the pagination (required)
      * @param  int $limit the limit of the pagination (required)
@@ -708,15 +683,8 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listStatusCSVRequest($version, $account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
+    public function listStatusCSVRequest($account_id, $start, $limit, string $contentType = self::contentTypes['listStatusCSV'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listStatusCSV'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -740,7 +708,7 @@ class CSVImportApi
         }
 
 
-        $resourcePath = '/api/{version}/csvimport/batch/list';
+        $resourcePath = '/csvimport/batch/list';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -776,14 +744,6 @@ class CSVImportApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -844,7 +804,6 @@ class CSVImportApi
      *
      * Batch Status
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to get its status (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusCSV'] to see the possible values for this operation
@@ -853,9 +812,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CsvImportResponse
      */
-    public function statusCSV($version, $account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
+    public function statusCSV($account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
     {
-        list($response) = $this->statusCSVWithHttpInfo($version, $account_id, $batch_id, $contentType);
+        list($response) = $this->statusCSVWithHttpInfo($account_id, $batch_id, $contentType);
         return $response;
     }
 
@@ -864,7 +823,6 @@ class CSVImportApi
      *
      * Batch Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to get its status (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusCSV'] to see the possible values for this operation
@@ -873,9 +831,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CsvImportResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function statusCSVWithHttpInfo($version, $account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
+    public function statusCSVWithHttpInfo($account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
     {
-        $request = $this->statusCSVRequest($version, $account_id, $batch_id, $contentType);
+        $request = $this->statusCSVRequest($account_id, $batch_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -951,7 +909,6 @@ class CSVImportApi
      *
      * Batch Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to get its status (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusCSV'] to see the possible values for this operation
@@ -959,9 +916,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function statusCSVAsync($version, $account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
+    public function statusCSVAsync($account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
     {
-        return $this->statusCSVAsyncWithHttpInfo($version, $account_id, $batch_id, $contentType)
+        return $this->statusCSVAsyncWithHttpInfo($account_id, $batch_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -974,7 +931,6 @@ class CSVImportApi
      *
      * Batch Status
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to get its status (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusCSV'] to see the possible values for this operation
@@ -982,10 +938,10 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function statusCSVAsyncWithHttpInfo($version, $account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
+    public function statusCSVAsyncWithHttpInfo($account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CsvImportResponse';
-        $request = $this->statusCSVRequest($version, $account_id, $batch_id, $contentType);
+        $request = $this->statusCSVRequest($account_id, $batch_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1026,7 +982,6 @@ class CSVImportApi
     /**
      * Create request for operation 'statusCSV'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $batch_id the id of the batch to get its status (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusCSV'] to see the possible values for this operation
@@ -1034,15 +989,8 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function statusCSVRequest($version, $account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
+    public function statusCSVRequest($account_id, $batch_id, string $contentType = self::contentTypes['statusCSV'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling statusCSV'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1059,7 +1007,7 @@ class CSVImportApi
         }
 
 
-        $resourcePath = '/api/{version}/csvimport/batch/status';
+        $resourcePath = '/csvimport/batch/status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1086,14 +1034,6 @@ class CSVImportApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1154,7 +1094,6 @@ class CSVImportApi
      *
      * Upload CSV
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the account (required)
      * @param  string $upload_type the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param  \SplFileObject $import_file the import file to reference (required)
@@ -1166,9 +1105,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CsvImportResponse
      */
-    public function uploadCSV($version, $account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
+    public function uploadCSV($account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
     {
-        list($response) = $this->uploadCSVWithHttpInfo($version, $account_id, $upload_type, $import_file, $file_format, $app_key, $contentType);
+        list($response) = $this->uploadCSVWithHttpInfo($account_id, $upload_type, $import_file, $file_format, $app_key, $contentType);
         return $response;
     }
 
@@ -1177,7 +1116,6 @@ class CSVImportApi
      *
      * Upload CSV
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  string $upload_type the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param  \SplFileObject $import_file the import file to reference (required)
@@ -1189,9 +1127,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CsvImportResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadCSVWithHttpInfo($version, $account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
+    public function uploadCSVWithHttpInfo($account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
     {
-        $request = $this->uploadCSVRequest($version, $account_id, $upload_type, $import_file, $file_format, $app_key, $contentType);
+        $request = $this->uploadCSVRequest($account_id, $upload_type, $import_file, $file_format, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1267,7 +1205,6 @@ class CSVImportApi
      *
      * Upload CSV
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  string $upload_type the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param  \SplFileObject $import_file the import file to reference (required)
@@ -1278,9 +1215,9 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCSVAsync($version, $account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
+    public function uploadCSVAsync($account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
     {
-        return $this->uploadCSVAsyncWithHttpInfo($version, $account_id, $upload_type, $import_file, $file_format, $app_key, $contentType)
+        return $this->uploadCSVAsyncWithHttpInfo($account_id, $upload_type, $import_file, $file_format, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1293,7 +1230,6 @@ class CSVImportApi
      *
      * Upload CSV
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  string $upload_type the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param  \SplFileObject $import_file the import file to reference (required)
@@ -1304,10 +1240,10 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCSVAsyncWithHttpInfo($version, $account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
+    public function uploadCSVAsyncWithHttpInfo($account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CsvImportResponse';
-        $request = $this->uploadCSVRequest($version, $account_id, $upload_type, $import_file, $file_format, $app_key, $contentType);
+        $request = $this->uploadCSVRequest($account_id, $upload_type, $import_file, $file_format, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1348,7 +1284,6 @@ class CSVImportApi
     /**
      * Create request for operation 'uploadCSV'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  string $upload_type the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param  \SplFileObject $import_file the import file to reference (required)
@@ -1359,15 +1294,8 @@ class CSVImportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function uploadCSVRequest($version, $account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
+    public function uploadCSVRequest($account_id, $upload_type, $import_file, $file_format, $app_key = null, string $contentType = self::contentTypes['uploadCSV'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling uploadCSV'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1399,7 +1327,7 @@ class CSVImportApi
 
 
 
-        $resourcePath = '/api/{version}/csvimport/upload';
+        $resourcePath = '/csvimport/upload';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1453,14 +1381,6 @@ class CSVImportApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -143,7 +143,6 @@ class FlagApi
      *
      * Create Flag
      *
-     * @param  float $version version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -157,9 +156,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function createFlag($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
+    public function createFlag($flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
     {
-        list($response) = $this->createFlagWithHttpInfo($version, $flagable_type, $flagable_id, $device_id, $account_id, $flag_description, $latitude, $longitude, $contentType);
+        list($response) = $this->createFlagWithHttpInfo($flagable_type, $flagable_id, $device_id, $account_id, $flag_description, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -168,7 +167,6 @@ class FlagApi
      *
      * Create Flag
      *
-     * @param  float $version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -182,9 +180,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createFlagWithHttpInfo($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
+    public function createFlagWithHttpInfo($flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
     {
-        $request = $this->createFlagRequest($version, $flagable_type, $flagable_id, $device_id, $account_id, $flag_description, $latitude, $longitude, $contentType);
+        $request = $this->createFlagRequest($flagable_type, $flagable_id, $device_id, $account_id, $flag_description, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -260,7 +258,6 @@ class FlagApi
      *
      * Create Flag
      *
-     * @param  float $version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -273,9 +270,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFlagAsync($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
+    public function createFlagAsync($flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
     {
-        return $this->createFlagAsyncWithHttpInfo($version, $flagable_type, $flagable_id, $device_id, $account_id, $flag_description, $latitude, $longitude, $contentType)
+        return $this->createFlagAsyncWithHttpInfo($flagable_type, $flagable_id, $device_id, $account_id, $flag_description, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -288,7 +285,6 @@ class FlagApi
      *
      * Create Flag
      *
-     * @param  float $version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -301,10 +297,10 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFlagAsyncWithHttpInfo($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
+    public function createFlagAsyncWithHttpInfo($flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->createFlagRequest($version, $flagable_type, $flagable_id, $device_id, $account_id, $flag_description, $latitude, $longitude, $contentType);
+        $request = $this->createFlagRequest($flagable_type, $flagable_id, $device_id, $account_id, $flag_description, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -345,7 +341,6 @@ class FlagApi
     /**
      * Create request for operation 'createFlag'
      *
-     * @param  float $version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -358,15 +353,8 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createFlagRequest($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
+    public function createFlagRequest($flagable_type, $flagable_id, $device_id = null, $account_id = null, $flag_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createFlag'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createFlag'
-            );
-        }
 
         // verify the required parameter 'flagable_type' is set
         if ($flagable_type === null || (is_array($flagable_type) && count($flagable_type) === 0)) {
@@ -388,7 +376,7 @@ class FlagApi
 
 
 
-        $resourcePath = '/api/{version}/flag/create';
+        $resourcePath = '/flag/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -460,14 +448,6 @@ class FlagApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -528,7 +508,6 @@ class FlagApi
      *
      * Delete Flag
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $item_being_flagged_type This parameter is deprecated. (optional)
@@ -541,9 +520,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteFlag($version, $device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
+    public function deleteFlag($device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
     {
-        list($response) = $this->deleteFlagWithHttpInfo($version, $device_id, $account_id, $item_being_flagged_type, $item_being_flagged_id, $flagable_type, $flagable_id, $contentType);
+        list($response) = $this->deleteFlagWithHttpInfo($device_id, $account_id, $item_being_flagged_type, $item_being_flagged_id, $flagable_type, $flagable_id, $contentType);
         return $response;
     }
 
@@ -552,7 +531,6 @@ class FlagApi
      *
      * Delete Flag
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $item_being_flagged_type This parameter is deprecated. (optional)
@@ -565,9 +543,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFlagWithHttpInfo($version, $device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
+    public function deleteFlagWithHttpInfo($device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
     {
-        $request = $this->deleteFlagRequest($version, $device_id, $account_id, $item_being_flagged_type, $item_being_flagged_id, $flagable_type, $flagable_id, $contentType);
+        $request = $this->deleteFlagRequest($device_id, $account_id, $item_being_flagged_type, $item_being_flagged_id, $flagable_type, $flagable_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -643,7 +621,6 @@ class FlagApi
      *
      * Delete Flag
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $item_being_flagged_type This parameter is deprecated. (optional)
@@ -655,9 +632,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFlagAsync($version, $device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
+    public function deleteFlagAsync($device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
     {
-        return $this->deleteFlagAsyncWithHttpInfo($version, $device_id, $account_id, $item_being_flagged_type, $item_being_flagged_id, $flagable_type, $flagable_id, $contentType)
+        return $this->deleteFlagAsyncWithHttpInfo($device_id, $account_id, $item_being_flagged_type, $item_being_flagged_id, $flagable_type, $flagable_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -670,7 +647,6 @@ class FlagApi
      *
      * Delete Flag
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $item_being_flagged_type This parameter is deprecated. (optional)
@@ -682,10 +658,10 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFlagAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
+    public function deleteFlagAsyncWithHttpInfo($device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteFlagRequest($version, $device_id, $account_id, $item_being_flagged_type, $item_being_flagged_id, $flagable_type, $flagable_id, $contentType);
+        $request = $this->deleteFlagRequest($device_id, $account_id, $item_being_flagged_type, $item_being_flagged_id, $flagable_type, $flagable_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -726,7 +702,6 @@ class FlagApi
     /**
      * Create request for operation 'deleteFlag'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $item_being_flagged_type This parameter is deprecated. (optional)
@@ -738,15 +713,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFlagRequest($version, $device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
+    public function deleteFlagRequest($device_id = null, $account_id = null, $item_being_flagged_type = null, $item_being_flagged_id = null, $flagable_type = null, $flagable_id = null, string $contentType = self::contentTypes['deleteFlag'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteFlag'
-            );
-        }
 
 
 
@@ -754,8 +723,7 @@ class FlagApi
 
 
 
-
-        $resourcePath = '/api/{version}/flag/delete';
+        $resourcePath = '/flag/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -818,14 +786,6 @@ class FlagApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -886,7 +846,6 @@ class FlagApi
      *
      * Get Flag
      *
-     * @param  float $version version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -899,9 +858,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\FlagResponse
      */
-    public function getFlag($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
+    public function getFlag($flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
     {
-        list($response) = $this->getFlagWithHttpInfo($version, $flagable_type, $flagable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->getFlagWithHttpInfo($flagable_type, $flagable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -910,7 +869,6 @@ class FlagApi
      *
      * Get Flag
      *
-     * @param  float $version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -923,9 +881,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\FlagResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlagWithHttpInfo($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
+    public function getFlagWithHttpInfo($flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
     {
-        $request = $this->getFlagRequest($version, $flagable_type, $flagable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getFlagRequest($flagable_type, $flagable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1001,7 +959,6 @@ class FlagApi
      *
      * Get Flag
      *
-     * @param  float $version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -1013,9 +970,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlagAsync($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
+    public function getFlagAsync($flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
     {
-        return $this->getFlagAsyncWithHttpInfo($version, $flagable_type, $flagable_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->getFlagAsyncWithHttpInfo($flagable_type, $flagable_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1028,7 +985,6 @@ class FlagApi
      *
      * Get Flag
      *
-     * @param  float $version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -1040,10 +996,10 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlagAsyncWithHttpInfo($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
+    public function getFlagAsyncWithHttpInfo($flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FlagResponse';
-        $request = $this->getFlagRequest($version, $flagable_type, $flagable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getFlagRequest($flagable_type, $flagable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1084,7 +1040,6 @@ class FlagApi
     /**
      * Create request for operation 'getFlag'
      *
-     * @param  float $version (required)
      * @param  string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param  int $flagable_id The flagable object id (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -1096,15 +1051,8 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlagRequest($version, $flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
+    public function getFlagRequest($flagable_type, $flagable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFlag'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getFlag'
-            );
-        }
 
         // verify the required parameter 'flagable_type' is set
         if ($flagable_type === null || (is_array($flagable_type) && count($flagable_type) === 0)) {
@@ -1125,7 +1073,7 @@ class FlagApi
 
 
 
-        $resourcePath = '/api/{version}/flag/get';
+        $resourcePath = '/flag/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1188,14 +1136,6 @@ class FlagApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1256,7 +1196,6 @@ class FlagApi
      *
      * Get Flag Threshold
      *
-     * @param  float $version version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  string $app_key The application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlagThreshold'] to see the possible values for this operation
@@ -1265,9 +1204,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CountResponse
      */
-    public function getFlagThreshold($version, $item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
+    public function getFlagThreshold($item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
     {
-        list($response) = $this->getFlagThresholdWithHttpInfo($version, $item_being_flagged_type, $app_key, $contentType);
+        list($response) = $this->getFlagThresholdWithHttpInfo($item_being_flagged_type, $app_key, $contentType);
         return $response;
     }
 
@@ -1276,7 +1215,6 @@ class FlagApi
      *
      * Get Flag Threshold
      *
-     * @param  float $version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  string $app_key The application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlagThreshold'] to see the possible values for this operation
@@ -1285,9 +1223,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CountResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlagThresholdWithHttpInfo($version, $item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
+    public function getFlagThresholdWithHttpInfo($item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
     {
-        $request = $this->getFlagThresholdRequest($version, $item_being_flagged_type, $app_key, $contentType);
+        $request = $this->getFlagThresholdRequest($item_being_flagged_type, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1363,7 +1301,6 @@ class FlagApi
      *
      * Get Flag Threshold
      *
-     * @param  float $version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  string $app_key The application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlagThreshold'] to see the possible values for this operation
@@ -1371,9 +1308,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlagThresholdAsync($version, $item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
+    public function getFlagThresholdAsync($item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
     {
-        return $this->getFlagThresholdAsyncWithHttpInfo($version, $item_being_flagged_type, $app_key, $contentType)
+        return $this->getFlagThresholdAsyncWithHttpInfo($item_being_flagged_type, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1386,7 +1323,6 @@ class FlagApi
      *
      * Get Flag Threshold
      *
-     * @param  float $version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  string $app_key The application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlagThreshold'] to see the possible values for this operation
@@ -1394,10 +1330,10 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlagThresholdAsyncWithHttpInfo($version, $item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
+    public function getFlagThresholdAsyncWithHttpInfo($item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CountResponse';
-        $request = $this->getFlagThresholdRequest($version, $item_being_flagged_type, $app_key, $contentType);
+        $request = $this->getFlagThresholdRequest($item_being_flagged_type, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1438,7 +1374,6 @@ class FlagApi
     /**
      * Create request for operation 'getFlagThreshold'
      *
-     * @param  float $version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  string $app_key The application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlagThreshold'] to see the possible values for this operation
@@ -1446,15 +1381,8 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlagThresholdRequest($version, $item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
+    public function getFlagThresholdRequest($item_being_flagged_type, $app_key, string $contentType = self::contentTypes['getFlagThreshold'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getFlagThreshold'
-            );
-        }
 
         // verify the required parameter 'item_being_flagged_type' is set
         if ($item_being_flagged_type === null || (is_array($item_being_flagged_type) && count($item_being_flagged_type) === 0)) {
@@ -1471,7 +1399,7 @@ class FlagApi
         }
 
 
-        $resourcePath = '/api/{version}/flag/threshold/get';
+        $resourcePath = '/flag/threshold/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1498,14 +1426,6 @@ class FlagApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1566,7 +1486,6 @@ class FlagApi
      *
      * Update Flag Threshold
      *
-     * @param  float $version version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  int $threshold The threshold value (required)
      * @param  string $app_key The application key (required)
@@ -1578,9 +1497,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CountResponse
      */
-    public function updateFlagThreshold($version, $item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
+    public function updateFlagThreshold($item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
     {
-        list($response) = $this->updateFlagThresholdWithHttpInfo($version, $item_being_flagged_type, $threshold, $app_key, $device_id, $account_id, $contentType);
+        list($response) = $this->updateFlagThresholdWithHttpInfo($item_being_flagged_type, $threshold, $app_key, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -1589,7 +1508,6 @@ class FlagApi
      *
      * Update Flag Threshold
      *
-     * @param  float $version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  int $threshold The threshold value (required)
      * @param  string $app_key The application key (required)
@@ -1601,9 +1519,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CountResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateFlagThresholdWithHttpInfo($version, $item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
+    public function updateFlagThresholdWithHttpInfo($item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
     {
-        $request = $this->updateFlagThresholdRequest($version, $item_being_flagged_type, $threshold, $app_key, $device_id, $account_id, $contentType);
+        $request = $this->updateFlagThresholdRequest($item_being_flagged_type, $threshold, $app_key, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1679,7 +1597,6 @@ class FlagApi
      *
      * Update Flag Threshold
      *
-     * @param  float $version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  int $threshold The threshold value (required)
      * @param  string $app_key The application key (required)
@@ -1690,9 +1607,9 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFlagThresholdAsync($version, $item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
+    public function updateFlagThresholdAsync($item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
     {
-        return $this->updateFlagThresholdAsyncWithHttpInfo($version, $item_being_flagged_type, $threshold, $app_key, $device_id, $account_id, $contentType)
+        return $this->updateFlagThresholdAsyncWithHttpInfo($item_being_flagged_type, $threshold, $app_key, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1705,7 +1622,6 @@ class FlagApi
      *
      * Update Flag Threshold
      *
-     * @param  float $version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  int $threshold The threshold value (required)
      * @param  string $app_key The application key (required)
@@ -1716,10 +1632,10 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFlagThresholdAsyncWithHttpInfo($version, $item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
+    public function updateFlagThresholdAsyncWithHttpInfo($item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CountResponse';
-        $request = $this->updateFlagThresholdRequest($version, $item_being_flagged_type, $threshold, $app_key, $device_id, $account_id, $contentType);
+        $request = $this->updateFlagThresholdRequest($item_being_flagged_type, $threshold, $app_key, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1760,7 +1676,6 @@ class FlagApi
     /**
      * Create request for operation 'updateFlagThreshold'
      *
-     * @param  float $version (required)
      * @param  string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param  int $threshold The threshold value (required)
      * @param  string $app_key The application key (required)
@@ -1771,15 +1686,8 @@ class FlagApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateFlagThresholdRequest($version, $item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
+    public function updateFlagThresholdRequest($item_being_flagged_type, $threshold, $app_key, $device_id = null, $account_id = null, string $contentType = self::contentTypes['updateFlagThreshold'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateFlagThreshold'
-            );
-        }
 
         // verify the required parameter 'item_being_flagged_type' is set
         if ($item_being_flagged_type === null || (is_array($item_being_flagged_type) && count($item_being_flagged_type) === 0)) {
@@ -1805,7 +1713,7 @@ class FlagApi
 
 
 
-        $resourcePath = '/api/{version}/flag/threshold/update';
+        $resourcePath = '/flag/threshold/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1859,14 +1767,6 @@ class FlagApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

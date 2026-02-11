@@ -143,7 +143,6 @@ class LocationApi
      *
      * Create Trilateration Data with File
      *
-     * @param  float $version version (required)
      * @param  string $udid The unique identifier of the source device (required)
      * @param  int|null $source_time The current timestamp of the source device (optional)
      * @param  int|null $minimum_sample_size the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -155,9 +154,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function cacheTrilaterationData($version, $udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
+    public function cacheTrilaterationData($udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
     {
-        list($response) = $this->cacheTrilaterationDataWithHttpInfo($version, $udid, $source_time, $minimum_sample_size, $data, $data_file, $contentType);
+        list($response) = $this->cacheTrilaterationDataWithHttpInfo($udid, $source_time, $minimum_sample_size, $data, $data_file, $contentType);
         return $response;
     }
 
@@ -166,7 +165,6 @@ class LocationApi
      *
      * Create Trilateration Data with File
      *
-     * @param  float $version (required)
      * @param  string $udid The unique identifier of the source device (required)
      * @param  int|null $source_time The current timestamp of the source device (optional)
      * @param  int|null $minimum_sample_size the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -178,9 +176,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cacheTrilaterationDataWithHttpInfo($version, $udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
+    public function cacheTrilaterationDataWithHttpInfo($udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
     {
-        $request = $this->cacheTrilaterationDataRequest($version, $udid, $source_time, $minimum_sample_size, $data, $data_file, $contentType);
+        $request = $this->cacheTrilaterationDataRequest($udid, $source_time, $minimum_sample_size, $data, $data_file, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -256,7 +254,6 @@ class LocationApi
      *
      * Create Trilateration Data with File
      *
-     * @param  float $version (required)
      * @param  string $udid The unique identifier of the source device (required)
      * @param  int|null $source_time The current timestamp of the source device (optional)
      * @param  int|null $minimum_sample_size the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -267,9 +264,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cacheTrilaterationDataAsync($version, $udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
+    public function cacheTrilaterationDataAsync($udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
     {
-        return $this->cacheTrilaterationDataAsyncWithHttpInfo($version, $udid, $source_time, $minimum_sample_size, $data, $data_file, $contentType)
+        return $this->cacheTrilaterationDataAsyncWithHttpInfo($udid, $source_time, $minimum_sample_size, $data, $data_file, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -282,7 +279,6 @@ class LocationApi
      *
      * Create Trilateration Data with File
      *
-     * @param  float $version (required)
      * @param  string $udid The unique identifier of the source device (required)
      * @param  int|null $source_time The current timestamp of the source device (optional)
      * @param  int|null $minimum_sample_size the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -293,10 +289,10 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cacheTrilaterationDataAsyncWithHttpInfo($version, $udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
+    public function cacheTrilaterationDataAsyncWithHttpInfo($udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->cacheTrilaterationDataRequest($version, $udid, $source_time, $minimum_sample_size, $data, $data_file, $contentType);
+        $request = $this->cacheTrilaterationDataRequest($udid, $source_time, $minimum_sample_size, $data, $data_file, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -337,7 +333,6 @@ class LocationApi
     /**
      * Create request for operation 'cacheTrilaterationData'
      *
-     * @param  float $version (required)
      * @param  string $udid The unique identifier of the source device (required)
      * @param  int|null $source_time The current timestamp of the source device (optional)
      * @param  int|null $minimum_sample_size the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -348,15 +343,8 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cacheTrilaterationDataRequest($version, $udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
+    public function cacheTrilaterationDataRequest($udid, $source_time = null, $minimum_sample_size = null, $data = null, $data_file = null, string $contentType = self::contentTypes['cacheTrilaterationData'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling cacheTrilaterationData'
-            );
-        }
 
         // verify the required parameter 'udid' is set
         if ($udid === null || (is_array($udid) && count($udid) === 0)) {
@@ -370,7 +358,7 @@ class LocationApi
 
 
 
-        $resourcePath = '/api/{version}/location/trilaterate/cache';
+        $resourcePath = '/location/trilaterate/cache';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -424,14 +412,6 @@ class LocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -492,7 +472,6 @@ class LocationApi
      *
      * Create Trilateration Data with Rest
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\TrilatCacheRequest|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cacheTrilaterationDataGzip'] to see the possible values for this operation
      *
@@ -500,9 +479,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function cacheTrilaterationDataGzip($version, $body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
+    public function cacheTrilaterationDataGzip($body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
     {
-        list($response) = $this->cacheTrilaterationDataGzipWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->cacheTrilaterationDataGzipWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -511,7 +490,6 @@ class LocationApi
      *
      * Create Trilateration Data with Rest
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\TrilatCacheRequest|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cacheTrilaterationDataGzip'] to see the possible values for this operation
      *
@@ -519,9 +497,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cacheTrilaterationDataGzipWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
+    public function cacheTrilaterationDataGzipWithHttpInfo($body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
     {
-        $request = $this->cacheTrilaterationDataGzipRequest($version, $body, $contentType);
+        $request = $this->cacheTrilaterationDataGzipRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -597,16 +575,15 @@ class LocationApi
      *
      * Create Trilateration Data with Rest
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\TrilatCacheRequest|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cacheTrilaterationDataGzip'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cacheTrilaterationDataGzipAsync($version, $body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
+    public function cacheTrilaterationDataGzipAsync($body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
     {
-        return $this->cacheTrilaterationDataGzipAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->cacheTrilaterationDataGzipAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -619,17 +596,16 @@ class LocationApi
      *
      * Create Trilateration Data with Rest
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\TrilatCacheRequest|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cacheTrilaterationDataGzip'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cacheTrilaterationDataGzipAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
+    public function cacheTrilaterationDataGzipAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->cacheTrilaterationDataGzipRequest($version, $body, $contentType);
+        $request = $this->cacheTrilaterationDataGzipRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -670,26 +646,18 @@ class LocationApi
     /**
      * Create request for operation 'cacheTrilaterationDataGzip'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\TrilatCacheRequest|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cacheTrilaterationDataGzip'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cacheTrilaterationDataGzipRequest($version, $body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
+    public function cacheTrilaterationDataGzipRequest($body = null, string $contentType = self::contentTypes['cacheTrilaterationDataGzip'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling cacheTrilaterationDataGzip'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/location/trilaterate/cache/submit';
+        $resourcePath = '/location/trilaterate/cache/submit';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -698,14 +666,6 @@ class LocationApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -773,7 +733,6 @@ class LocationApi
      *
      * Get Location by IP
      *
-     * @param  float $version version (required)
      * @param  string|null $ip the ip address of the client device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationByIp'] to see the possible values for this operation
      *
@@ -781,9 +740,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CoordsResponse
      */
-    public function getLocationByIp($version, $ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
+    public function getLocationByIp($ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
     {
-        list($response) = $this->getLocationByIpWithHttpInfo($version, $ip, $contentType);
+        list($response) = $this->getLocationByIpWithHttpInfo($ip, $contentType);
         return $response;
     }
 
@@ -792,7 +751,6 @@ class LocationApi
      *
      * Get Location by IP
      *
-     * @param  float $version (required)
      * @param  string|null $ip the ip address of the client device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationByIp'] to see the possible values for this operation
      *
@@ -800,9 +758,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CoordsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLocationByIpWithHttpInfo($version, $ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
+    public function getLocationByIpWithHttpInfo($ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
     {
-        $request = $this->getLocationByIpRequest($version, $ip, $contentType);
+        $request = $this->getLocationByIpRequest($ip, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -878,16 +836,15 @@ class LocationApi
      *
      * Get Location by IP
      *
-     * @param  float $version (required)
      * @param  string|null $ip the ip address of the client device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationByIp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationByIpAsync($version, $ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
+    public function getLocationByIpAsync($ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
     {
-        return $this->getLocationByIpAsyncWithHttpInfo($version, $ip, $contentType)
+        return $this->getLocationByIpAsyncWithHttpInfo($ip, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -900,17 +857,16 @@ class LocationApi
      *
      * Get Location by IP
      *
-     * @param  float $version (required)
      * @param  string|null $ip the ip address of the client device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationByIp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationByIpAsyncWithHttpInfo($version, $ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
+    public function getLocationByIpAsyncWithHttpInfo($ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CoordsResponse';
-        $request = $this->getLocationByIpRequest($version, $ip, $contentType);
+        $request = $this->getLocationByIpRequest($ip, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -951,26 +907,18 @@ class LocationApi
     /**
      * Create request for operation 'getLocationByIp'
      *
-     * @param  float $version (required)
      * @param  string|null $ip the ip address of the client device (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationByIp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLocationByIpRequest($version, $ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
+    public function getLocationByIpRequest($ip = null, string $contentType = self::contentTypes['getLocationByIp'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getLocationByIp'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/location/ip';
+        $resourcePath = '/location/ip';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -988,14 +936,6 @@ class LocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1056,7 +996,6 @@ class LocationApi
      *
      * Get Location by Trilateration
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account making the request, if provided the last know location will be updated (optional)
      * @param  float|null $latitude The known GPS latitude to compare to the calculated version (optional)
      * @param  float|null $longitude The known GPS longitude to compare to the calculated version (optional)
@@ -1068,9 +1007,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GeoPointResponse
      */
-    public function getLocationByTrilateration($version, $account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
+    public function getLocationByTrilateration($account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
     {
-        list($response) = $this->getLocationByTrilaterationWithHttpInfo($version, $account_id, $latitude, $longitude, $data, $response_filters, $contentType);
+        list($response) = $this->getLocationByTrilaterationWithHttpInfo($account_id, $latitude, $longitude, $data, $response_filters, $contentType);
         return $response;
     }
 
@@ -1079,7 +1018,6 @@ class LocationApi
      *
      * Get Location by Trilateration
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account making the request, if provided the last know location will be updated (optional)
      * @param  float|null $latitude The known GPS latitude to compare to the calculated version (optional)
      * @param  float|null $longitude The known GPS longitude to compare to the calculated version (optional)
@@ -1091,9 +1029,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GeoPointResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLocationByTrilaterationWithHttpInfo($version, $account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
+    public function getLocationByTrilaterationWithHttpInfo($account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
     {
-        $request = $this->getLocationByTrilaterationRequest($version, $account_id, $latitude, $longitude, $data, $response_filters, $contentType);
+        $request = $this->getLocationByTrilaterationRequest($account_id, $latitude, $longitude, $data, $response_filters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1169,7 +1107,6 @@ class LocationApi
      *
      * Get Location by Trilateration
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account making the request, if provided the last know location will be updated (optional)
      * @param  float|null $latitude The known GPS latitude to compare to the calculated version (optional)
      * @param  float|null $longitude The known GPS longitude to compare to the calculated version (optional)
@@ -1180,9 +1117,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationByTrilaterationAsync($version, $account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
+    public function getLocationByTrilaterationAsync($account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
     {
-        return $this->getLocationByTrilaterationAsyncWithHttpInfo($version, $account_id, $latitude, $longitude, $data, $response_filters, $contentType)
+        return $this->getLocationByTrilaterationAsyncWithHttpInfo($account_id, $latitude, $longitude, $data, $response_filters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1195,7 +1132,6 @@ class LocationApi
      *
      * Get Location by Trilateration
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account making the request, if provided the last know location will be updated (optional)
      * @param  float|null $latitude The known GPS latitude to compare to the calculated version (optional)
      * @param  float|null $longitude The known GPS longitude to compare to the calculated version (optional)
@@ -1206,10 +1142,10 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationByTrilaterationAsyncWithHttpInfo($version, $account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
+    public function getLocationByTrilaterationAsyncWithHttpInfo($account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GeoPointResponse';
-        $request = $this->getLocationByTrilaterationRequest($version, $account_id, $latitude, $longitude, $data, $response_filters, $contentType);
+        $request = $this->getLocationByTrilaterationRequest($account_id, $latitude, $longitude, $data, $response_filters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1250,7 +1186,6 @@ class LocationApi
     /**
      * Create request for operation 'getLocationByTrilateration'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account making the request, if provided the last know location will be updated (optional)
      * @param  float|null $latitude The known GPS latitude to compare to the calculated version (optional)
      * @param  float|null $longitude The known GPS longitude to compare to the calculated version (optional)
@@ -1261,23 +1196,16 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLocationByTrilaterationRequest($version, $account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
+    public function getLocationByTrilaterationRequest($account_id = null, $latitude = null, $longitude = null, $data = null, $response_filters = null, string $contentType = self::contentTypes['getLocationByTrilateration'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getLocationByTrilateration'
-            );
-        }
 
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/account/location/trilaterate';
+        $resourcePath = '/account/location/trilaterate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1331,14 +1259,6 @@ class LocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1399,7 +1319,6 @@ class LocationApi
      *
      * Search Regions or Postal Codes
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the account id (optional)
      * @param  float|null $currentlatitude This parameter is deprecated. (optional)
@@ -1425,9 +1344,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LocationSearchResponse
      */
-    public function getLocations($version, $device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
+    public function getLocations($device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
     {
-        list($response) = $this->getLocationsWithHttpInfo($version, $device_id, $account_id, $currentlatitude, $currentlongitude, $current_latitude, $current_longitude, $query, $zipcode, $zip_code, $selected_maplatitude, $selected_maplongitude, $selected_map_latitude, $selected_map_longitude, $search_range, $use_geocode, $_i, $start, $_l, $limit, $contentType);
+        list($response) = $this->getLocationsWithHttpInfo($device_id, $account_id, $currentlatitude, $currentlongitude, $current_latitude, $current_longitude, $query, $zipcode, $zip_code, $selected_maplatitude, $selected_maplongitude, $selected_map_latitude, $selected_map_longitude, $search_range, $use_geocode, $_i, $start, $_l, $limit, $contentType);
         return $response;
     }
 
@@ -1436,7 +1355,6 @@ class LocationApi
      *
      * Search Regions or Postal Codes
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the account id (optional)
      * @param  float|null $currentlatitude This parameter is deprecated. (optional)
@@ -1462,9 +1380,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LocationSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLocationsWithHttpInfo($version, $device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
+    public function getLocationsWithHttpInfo($device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
     {
-        $request = $this->getLocationsRequest($version, $device_id, $account_id, $currentlatitude, $currentlongitude, $current_latitude, $current_longitude, $query, $zipcode, $zip_code, $selected_maplatitude, $selected_maplongitude, $selected_map_latitude, $selected_map_longitude, $search_range, $use_geocode, $_i, $start, $_l, $limit, $contentType);
+        $request = $this->getLocationsRequest($device_id, $account_id, $currentlatitude, $currentlongitude, $current_latitude, $current_longitude, $query, $zipcode, $zip_code, $selected_maplatitude, $selected_maplongitude, $selected_map_latitude, $selected_map_longitude, $search_range, $use_geocode, $_i, $start, $_l, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1540,7 +1458,6 @@ class LocationApi
      *
      * Search Regions or Postal Codes
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the account id (optional)
      * @param  float|null $currentlatitude This parameter is deprecated. (optional)
@@ -1565,9 +1482,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsAsync($version, $device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
+    public function getLocationsAsync($device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
     {
-        return $this->getLocationsAsyncWithHttpInfo($version, $device_id, $account_id, $currentlatitude, $currentlongitude, $current_latitude, $current_longitude, $query, $zipcode, $zip_code, $selected_maplatitude, $selected_maplongitude, $selected_map_latitude, $selected_map_longitude, $search_range, $use_geocode, $_i, $start, $_l, $limit, $contentType)
+        return $this->getLocationsAsyncWithHttpInfo($device_id, $account_id, $currentlatitude, $currentlongitude, $current_latitude, $current_longitude, $query, $zipcode, $zip_code, $selected_maplatitude, $selected_maplongitude, $selected_map_latitude, $selected_map_longitude, $search_range, $use_geocode, $_i, $start, $_l, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1580,7 +1497,6 @@ class LocationApi
      *
      * Search Regions or Postal Codes
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the account id (optional)
      * @param  float|null $currentlatitude This parameter is deprecated. (optional)
@@ -1605,10 +1521,10 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
+    public function getLocationsAsyncWithHttpInfo($device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LocationSearchResponse';
-        $request = $this->getLocationsRequest($version, $device_id, $account_id, $currentlatitude, $currentlongitude, $current_latitude, $current_longitude, $query, $zipcode, $zip_code, $selected_maplatitude, $selected_maplongitude, $selected_map_latitude, $selected_map_longitude, $search_range, $use_geocode, $_i, $start, $_l, $limit, $contentType);
+        $request = $this->getLocationsRequest($device_id, $account_id, $currentlatitude, $currentlongitude, $current_latitude, $current_longitude, $query, $zipcode, $zip_code, $selected_maplatitude, $selected_maplongitude, $selected_map_latitude, $selected_map_longitude, $search_range, $use_geocode, $_i, $start, $_l, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1649,7 +1565,6 @@ class LocationApi
     /**
      * Create request for operation 'getLocations'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the account id (optional)
      * @param  float|null $currentlatitude This parameter is deprecated. (optional)
@@ -1674,15 +1589,9 @@ class LocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLocationsRequest($version, $device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
+    public function getLocationsRequest($device_id = null, $account_id = null, $currentlatitude = null, $currentlongitude = null, $current_latitude = null, $current_longitude = null, $query = null, $zipcode = null, $zip_code = null, $selected_maplatitude = null, $selected_maplongitude = null, $selected_map_latitude = null, $selected_map_longitude = null, $search_range = 5, $use_geocode = false, $_i = null, $start = 0, $_l = null, $limit = 20, string $contentType = self::contentTypes['getLocations'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getLocations'
-            );
-        }
 
 
 
@@ -1703,8 +1612,7 @@ class LocationApi
 
 
 
-
-        $resourcePath = '/api/{version}/location/search';
+        $resourcePath = '/location/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1884,14 +1792,6 @@ class LocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

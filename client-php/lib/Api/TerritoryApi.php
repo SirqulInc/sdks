@@ -143,7 +143,6 @@ class TerritoryApi
      *
      * Create Territory
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the territory (required)
      * @param  bool|null $active If true set the game level as active. Default is true. (optional)
@@ -153,9 +152,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TerritoryResponse
      */
-    public function createTerritory($version, $account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
+    public function createTerritory($account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
     {
-        list($response) = $this->createTerritoryWithHttpInfo($version, $account_id, $name, $active, $contentType);
+        list($response) = $this->createTerritoryWithHttpInfo($account_id, $name, $active, $contentType);
         return $response;
     }
 
@@ -164,7 +163,6 @@ class TerritoryApi
      *
      * Create Territory
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the territory (required)
      * @param  bool|null $active If true set the game level as active. Default is true. (optional)
@@ -174,9 +172,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TerritoryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTerritoryWithHttpInfo($version, $account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
+    public function createTerritoryWithHttpInfo($account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
     {
-        $request = $this->createTerritoryRequest($version, $account_id, $name, $active, $contentType);
+        $request = $this->createTerritoryRequest($account_id, $name, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -252,7 +250,6 @@ class TerritoryApi
      *
      * Create Territory
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the territory (required)
      * @param  bool|null $active If true set the game level as active. Default is true. (optional)
@@ -261,9 +258,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTerritoryAsync($version, $account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
+    public function createTerritoryAsync($account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
     {
-        return $this->createTerritoryAsyncWithHttpInfo($version, $account_id, $name, $active, $contentType)
+        return $this->createTerritoryAsyncWithHttpInfo($account_id, $name, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -276,7 +273,6 @@ class TerritoryApi
      *
      * Create Territory
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the territory (required)
      * @param  bool|null $active If true set the game level as active. Default is true. (optional)
@@ -285,10 +281,10 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTerritoryAsyncWithHttpInfo($version, $account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
+    public function createTerritoryAsyncWithHttpInfo($account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TerritoryResponse';
-        $request = $this->createTerritoryRequest($version, $account_id, $name, $active, $contentType);
+        $request = $this->createTerritoryRequest($account_id, $name, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -329,7 +325,6 @@ class TerritoryApi
     /**
      * Create request for operation 'createTerritory'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the territory (required)
      * @param  bool|null $active If true set the game level as active. Default is true. (optional)
@@ -338,15 +333,8 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTerritoryRequest($version, $account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
+    public function createTerritoryRequest($account_id, $name, $active = null, string $contentType = self::contentTypes['createTerritory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createTerritory'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -364,7 +352,7 @@ class TerritoryApi
 
 
 
-        $resourcePath = '/api/{version}/territory/create';
+        $resourcePath = '/territory/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -400,14 +388,6 @@ class TerritoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -468,7 +448,6 @@ class TerritoryApi
      *
      * Delete Territory
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $territory_id the id of the territory to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTerritory'] to see the possible values for this operation
@@ -477,9 +456,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteTerritory($version, $account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
+    public function deleteTerritory($account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
     {
-        list($response) = $this->deleteTerritoryWithHttpInfo($version, $account_id, $territory_id, $contentType);
+        list($response) = $this->deleteTerritoryWithHttpInfo($account_id, $territory_id, $contentType);
         return $response;
     }
 
@@ -488,7 +467,6 @@ class TerritoryApi
      *
      * Delete Territory
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $territory_id the id of the territory to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTerritory'] to see the possible values for this operation
@@ -497,9 +475,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTerritoryWithHttpInfo($version, $account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
+    public function deleteTerritoryWithHttpInfo($account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
     {
-        $request = $this->deleteTerritoryRequest($version, $account_id, $territory_id, $contentType);
+        $request = $this->deleteTerritoryRequest($account_id, $territory_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -575,7 +553,6 @@ class TerritoryApi
      *
      * Delete Territory
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $territory_id the id of the territory to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTerritory'] to see the possible values for this operation
@@ -583,9 +560,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTerritoryAsync($version, $account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
+    public function deleteTerritoryAsync($account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
     {
-        return $this->deleteTerritoryAsyncWithHttpInfo($version, $account_id, $territory_id, $contentType)
+        return $this->deleteTerritoryAsyncWithHttpInfo($account_id, $territory_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -598,7 +575,6 @@ class TerritoryApi
      *
      * Delete Territory
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $territory_id the id of the territory to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTerritory'] to see the possible values for this operation
@@ -606,10 +582,10 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTerritoryAsyncWithHttpInfo($version, $account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
+    public function deleteTerritoryAsyncWithHttpInfo($account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteTerritoryRequest($version, $account_id, $territory_id, $contentType);
+        $request = $this->deleteTerritoryRequest($account_id, $territory_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -650,7 +626,6 @@ class TerritoryApi
     /**
      * Create request for operation 'deleteTerritory'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $territory_id the id of the territory to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTerritory'] to see the possible values for this operation
@@ -658,15 +633,8 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteTerritoryRequest($version, $account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
+    public function deleteTerritoryRequest($account_id, $territory_id, string $contentType = self::contentTypes['deleteTerritory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteTerritory'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -683,7 +651,7 @@ class TerritoryApi
         }
 
 
-        $resourcePath = '/api/{version}/territory/delete';
+        $resourcePath = '/territory/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -710,14 +678,6 @@ class TerritoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -778,7 +738,6 @@ class TerritoryApi
      *
      * Get Territory
      *
-     * @param  float $version version (required)
      * @param  int $territory_id the id of the territory to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerritory'] to see the possible values for this operation
      *
@@ -786,9 +745,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TerritoryResponse
      */
-    public function getTerritory($version, $territory_id, string $contentType = self::contentTypes['getTerritory'][0])
+    public function getTerritory($territory_id, string $contentType = self::contentTypes['getTerritory'][0])
     {
-        list($response) = $this->getTerritoryWithHttpInfo($version, $territory_id, $contentType);
+        list($response) = $this->getTerritoryWithHttpInfo($territory_id, $contentType);
         return $response;
     }
 
@@ -797,7 +756,6 @@ class TerritoryApi
      *
      * Get Territory
      *
-     * @param  float $version (required)
      * @param  int $territory_id the id of the territory to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerritory'] to see the possible values for this operation
      *
@@ -805,9 +763,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TerritoryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTerritoryWithHttpInfo($version, $territory_id, string $contentType = self::contentTypes['getTerritory'][0])
+    public function getTerritoryWithHttpInfo($territory_id, string $contentType = self::contentTypes['getTerritory'][0])
     {
-        $request = $this->getTerritoryRequest($version, $territory_id, $contentType);
+        $request = $this->getTerritoryRequest($territory_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -883,16 +841,15 @@ class TerritoryApi
      *
      * Get Territory
      *
-     * @param  float $version (required)
      * @param  int $territory_id the id of the territory to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerritory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTerritoryAsync($version, $territory_id, string $contentType = self::contentTypes['getTerritory'][0])
+    public function getTerritoryAsync($territory_id, string $contentType = self::contentTypes['getTerritory'][0])
     {
-        return $this->getTerritoryAsyncWithHttpInfo($version, $territory_id, $contentType)
+        return $this->getTerritoryAsyncWithHttpInfo($territory_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -905,17 +862,16 @@ class TerritoryApi
      *
      * Get Territory
      *
-     * @param  float $version (required)
      * @param  int $territory_id the id of the territory to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerritory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTerritoryAsyncWithHttpInfo($version, $territory_id, string $contentType = self::contentTypes['getTerritory'][0])
+    public function getTerritoryAsyncWithHttpInfo($territory_id, string $contentType = self::contentTypes['getTerritory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TerritoryResponse';
-        $request = $this->getTerritoryRequest($version, $territory_id, $contentType);
+        $request = $this->getTerritoryRequest($territory_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -956,22 +912,14 @@ class TerritoryApi
     /**
      * Create request for operation 'getTerritory'
      *
-     * @param  float $version (required)
      * @param  int $territory_id the id of the territory to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerritory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTerritoryRequest($version, $territory_id, string $contentType = self::contentTypes['getTerritory'][0])
+    public function getTerritoryRequest($territory_id, string $contentType = self::contentTypes['getTerritory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTerritory'
-            );
-        }
 
         // verify the required parameter 'territory_id' is set
         if ($territory_id === null || (is_array($territory_id) && count($territory_id) === 0)) {
@@ -981,7 +929,7 @@ class TerritoryApi
         }
 
 
-        $resourcePath = '/api/{version}/territory/get';
+        $resourcePath = '/territory/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -999,14 +947,6 @@ class TerritoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1067,7 +1007,6 @@ class TerritoryApi
      *
      * Search Territories
      *
-     * @param  float $version version (required)
      * @param  string $sort_field the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  string|null $keyword Return results that match this keyword. (optional)
@@ -1079,9 +1018,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TerritoryResponse[]
      */
-    public function searchTerritories($version, $sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
+    public function searchTerritories($sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
     {
-        list($response) = $this->searchTerritoriesWithHttpInfo($version, $sort_field, $descending, $keyword, $start, $limit, $contentType);
+        list($response) = $this->searchTerritoriesWithHttpInfo($sort_field, $descending, $keyword, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1090,7 +1029,6 @@ class TerritoryApi
      *
      * Search Territories
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  string|null $keyword Return results that match this keyword. (optional)
@@ -1102,9 +1040,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TerritoryResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchTerritoriesWithHttpInfo($version, $sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
+    public function searchTerritoriesWithHttpInfo($sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
     {
-        $request = $this->searchTerritoriesRequest($version, $sort_field, $descending, $keyword, $start, $limit, $contentType);
+        $request = $this->searchTerritoriesRequest($sort_field, $descending, $keyword, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1180,7 +1118,6 @@ class TerritoryApi
      *
      * Search Territories
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  string|null $keyword Return results that match this keyword. (optional)
@@ -1191,9 +1128,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTerritoriesAsync($version, $sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
+    public function searchTerritoriesAsync($sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
     {
-        return $this->searchTerritoriesAsyncWithHttpInfo($version, $sort_field, $descending, $keyword, $start, $limit, $contentType)
+        return $this->searchTerritoriesAsyncWithHttpInfo($sort_field, $descending, $keyword, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1206,7 +1143,6 @@ class TerritoryApi
      *
      * Search Territories
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  string|null $keyword Return results that match this keyword. (optional)
@@ -1217,10 +1153,10 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTerritoriesAsyncWithHttpInfo($version, $sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
+    public function searchTerritoriesAsyncWithHttpInfo($sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TerritoryResponse[]';
-        $request = $this->searchTerritoriesRequest($version, $sort_field, $descending, $keyword, $start, $limit, $contentType);
+        $request = $this->searchTerritoriesRequest($sort_field, $descending, $keyword, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1261,7 +1197,6 @@ class TerritoryApi
     /**
      * Create request for operation 'searchTerritories'
      *
-     * @param  float $version (required)
      * @param  string $sort_field the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
      * @param  string|null $keyword Return results that match this keyword. (optional)
@@ -1272,15 +1207,8 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchTerritoriesRequest($version, $sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
+    public function searchTerritoriesRequest($sort_field, $descending, $keyword = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchTerritories'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchTerritories'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -1300,7 +1228,7 @@ class TerritoryApi
 
 
 
-        $resourcePath = '/api/{version}/territory/search';
+        $resourcePath = '/territory/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1354,14 +1282,6 @@ class TerritoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1422,7 +1342,6 @@ class TerritoryApi
      *
      * Update Territory
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $territory_id the id of the territory to update (required)
      * @param  string|null $name The name of the territory (optional)
@@ -1433,9 +1352,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TerritoryResponse
      */
-    public function updateTerritory($version, $account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
+    public function updateTerritory($account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
     {
-        list($response) = $this->updateTerritoryWithHttpInfo($version, $account_id, $territory_id, $name, $active, $contentType);
+        list($response) = $this->updateTerritoryWithHttpInfo($account_id, $territory_id, $name, $active, $contentType);
         return $response;
     }
 
@@ -1444,7 +1363,6 @@ class TerritoryApi
      *
      * Update Territory
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $territory_id the id of the territory to update (required)
      * @param  string|null $name The name of the territory (optional)
@@ -1455,9 +1373,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TerritoryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTerritoryWithHttpInfo($version, $account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
+    public function updateTerritoryWithHttpInfo($account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
     {
-        $request = $this->updateTerritoryRequest($version, $account_id, $territory_id, $name, $active, $contentType);
+        $request = $this->updateTerritoryRequest($account_id, $territory_id, $name, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1533,7 +1451,6 @@ class TerritoryApi
      *
      * Update Territory
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $territory_id the id of the territory to update (required)
      * @param  string|null $name The name of the territory (optional)
@@ -1543,9 +1460,9 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTerritoryAsync($version, $account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
+    public function updateTerritoryAsync($account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
     {
-        return $this->updateTerritoryAsyncWithHttpInfo($version, $account_id, $territory_id, $name, $active, $contentType)
+        return $this->updateTerritoryAsyncWithHttpInfo($account_id, $territory_id, $name, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1558,7 +1475,6 @@ class TerritoryApi
      *
      * Update Territory
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $territory_id the id of the territory to update (required)
      * @param  string|null $name The name of the territory (optional)
@@ -1568,10 +1484,10 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTerritoryAsyncWithHttpInfo($version, $account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
+    public function updateTerritoryAsyncWithHttpInfo($account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TerritoryResponse';
-        $request = $this->updateTerritoryRequest($version, $account_id, $territory_id, $name, $active, $contentType);
+        $request = $this->updateTerritoryRequest($account_id, $territory_id, $name, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1612,7 +1528,6 @@ class TerritoryApi
     /**
      * Create request for operation 'updateTerritory'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $territory_id the id of the territory to update (required)
      * @param  string|null $name The name of the territory (optional)
@@ -1622,15 +1537,8 @@ class TerritoryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTerritoryRequest($version, $account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
+    public function updateTerritoryRequest($account_id, $territory_id, $name = null, $active = null, string $contentType = self::contentTypes['updateTerritory'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateTerritory'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1649,7 +1557,7 @@ class TerritoryApi
 
 
 
-        $resourcePath = '/api/{version}/territory/update';
+        $resourcePath = '/territory/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1694,14 +1602,6 @@ class TerritoryApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

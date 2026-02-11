@@ -131,7 +131,6 @@ class TwilioApi
      *
      * Buy Offer by SMS
      *
-     * @param  float $version version (required)
      * @param  string $app_key the application key (required)
      * @param  string $body the message of the text (required)
      * @param  string $from the sender of the sms (required)
@@ -142,9 +141,9 @@ class TwilioApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TwiMLResponse
      */
-    public function smsBuyOffer($version, $app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
+    public function smsBuyOffer($app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
     {
-        list($response) = $this->smsBuyOfferWithHttpInfo($version, $app_key, $body, $from, $currency_type, $contentType);
+        list($response) = $this->smsBuyOfferWithHttpInfo($app_key, $body, $from, $currency_type, $contentType);
         return $response;
     }
 
@@ -153,7 +152,6 @@ class TwilioApi
      *
      * Buy Offer by SMS
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $body the message of the text (required)
      * @param  string $from the sender of the sms (required)
@@ -164,9 +162,9 @@ class TwilioApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TwiMLResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function smsBuyOfferWithHttpInfo($version, $app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
+    public function smsBuyOfferWithHttpInfo($app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
     {
-        $request = $this->smsBuyOfferRequest($version, $app_key, $body, $from, $currency_type, $contentType);
+        $request = $this->smsBuyOfferRequest($app_key, $body, $from, $currency_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -242,7 +240,6 @@ class TwilioApi
      *
      * Buy Offer by SMS
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $body the message of the text (required)
      * @param  string $from the sender of the sms (required)
@@ -252,9 +249,9 @@ class TwilioApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsBuyOfferAsync($version, $app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
+    public function smsBuyOfferAsync($app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
     {
-        return $this->smsBuyOfferAsyncWithHttpInfo($version, $app_key, $body, $from, $currency_type, $contentType)
+        return $this->smsBuyOfferAsyncWithHttpInfo($app_key, $body, $from, $currency_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -267,7 +264,6 @@ class TwilioApi
      *
      * Buy Offer by SMS
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $body the message of the text (required)
      * @param  string $from the sender of the sms (required)
@@ -277,10 +273,10 @@ class TwilioApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsBuyOfferAsyncWithHttpInfo($version, $app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
+    public function smsBuyOfferAsyncWithHttpInfo($app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TwiMLResponse';
-        $request = $this->smsBuyOfferRequest($version, $app_key, $body, $from, $currency_type, $contentType);
+        $request = $this->smsBuyOfferRequest($app_key, $body, $from, $currency_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -321,7 +317,6 @@ class TwilioApi
     /**
      * Create request for operation 'smsBuyOffer'
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $body the message of the text (required)
      * @param  string $from the sender of the sms (required)
@@ -331,15 +326,8 @@ class TwilioApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function smsBuyOfferRequest($version, $app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
+    public function smsBuyOfferRequest($app_key, $body, $from, $currency_type, string $contentType = self::contentTypes['smsBuyOffer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling smsBuyOffer'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -370,7 +358,7 @@ class TwilioApi
         }
 
 
-        $resourcePath = '/api/{version}/sms/buyoffer/{appKey}';
+        $resourcePath = '/sms/buyoffer/{appKey}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -406,14 +394,6 @@ class TwilioApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($app_key !== null) {
             $resourcePath = str_replace(

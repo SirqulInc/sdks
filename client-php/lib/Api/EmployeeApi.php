@@ -152,7 +152,6 @@ class EmployeeApi
      *
      * Assign Employee
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  int $employee_account_id The account id of the user to be assigned as employee (required)
@@ -163,9 +162,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmployeeResponse
      */
-    public function assignEmployee($version, $account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
+    public function assignEmployee($account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
     {
-        list($response) = $this->assignEmployeeWithHttpInfo($version, $account_id, $manager_account_id, $employee_account_id, $role, $contentType);
+        list($response) = $this->assignEmployeeWithHttpInfo($account_id, $manager_account_id, $employee_account_id, $role, $contentType);
         return $response;
     }
 
@@ -174,7 +173,6 @@ class EmployeeApi
      *
      * Assign Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  int $employee_account_id The account id of the user to be assigned as employee (required)
@@ -185,9 +183,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignEmployeeWithHttpInfo($version, $account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
+    public function assignEmployeeWithHttpInfo($account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
     {
-        $request = $this->assignEmployeeRequest($version, $account_id, $manager_account_id, $employee_account_id, $role, $contentType);
+        $request = $this->assignEmployeeRequest($account_id, $manager_account_id, $employee_account_id, $role, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -263,7 +261,6 @@ class EmployeeApi
      *
      * Assign Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  int $employee_account_id The account id of the user to be assigned as employee (required)
@@ -273,9 +270,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignEmployeeAsync($version, $account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
+    public function assignEmployeeAsync($account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
     {
-        return $this->assignEmployeeAsyncWithHttpInfo($version, $account_id, $manager_account_id, $employee_account_id, $role, $contentType)
+        return $this->assignEmployeeAsyncWithHttpInfo($account_id, $manager_account_id, $employee_account_id, $role, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -288,7 +285,6 @@ class EmployeeApi
      *
      * Assign Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  int $employee_account_id The account id of the user to be assigned as employee (required)
@@ -298,10 +294,10 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignEmployeeAsyncWithHttpInfo($version, $account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
+    public function assignEmployeeAsyncWithHttpInfo($account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmployeeResponse';
-        $request = $this->assignEmployeeRequest($version, $account_id, $manager_account_id, $employee_account_id, $role, $contentType);
+        $request = $this->assignEmployeeRequest($account_id, $manager_account_id, $employee_account_id, $role, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -342,7 +338,6 @@ class EmployeeApi
     /**
      * Create request for operation 'assignEmployee'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  int $employee_account_id The account id of the user to be assigned as employee (required)
@@ -352,15 +347,8 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignEmployeeRequest($version, $account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
+    public function assignEmployeeRequest($account_id, $manager_account_id, $employee_account_id, $role = null, string $contentType = self::contentTypes['assignEmployee'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignEmployee'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -385,7 +373,7 @@ class EmployeeApi
 
 
 
-        $resourcePath = '/api/{version}/employee/assign';
+        $resourcePath = '/employee/assign';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -430,14 +418,6 @@ class EmployeeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -498,7 +478,6 @@ class EmployeeApi
      *
      * Assign Employee to Location
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $retailer_location_id The retailer location to apply the change to (required)
      * @param  int|null $employee_account_id The account id of the user to apply the change to (optional)
@@ -509,9 +488,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function assignToLocationEmployee($version, $account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
+    public function assignToLocationEmployee($account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
     {
-        list($response) = $this->assignToLocationEmployeeWithHttpInfo($version, $account_id, $retailer_location_id, $employee_account_id, $assign, $contentType);
+        list($response) = $this->assignToLocationEmployeeWithHttpInfo($account_id, $retailer_location_id, $employee_account_id, $assign, $contentType);
         return $response;
     }
 
@@ -520,7 +499,6 @@ class EmployeeApi
      *
      * Assign Employee to Location
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $retailer_location_id The retailer location to apply the change to (required)
      * @param  int|null $employee_account_id The account id of the user to apply the change to (optional)
@@ -531,9 +509,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignToLocationEmployeeWithHttpInfo($version, $account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
+    public function assignToLocationEmployeeWithHttpInfo($account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
     {
-        $request = $this->assignToLocationEmployeeRequest($version, $account_id, $retailer_location_id, $employee_account_id, $assign, $contentType);
+        $request = $this->assignToLocationEmployeeRequest($account_id, $retailer_location_id, $employee_account_id, $assign, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -609,7 +587,6 @@ class EmployeeApi
      *
      * Assign Employee to Location
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $retailer_location_id The retailer location to apply the change to (required)
      * @param  int|null $employee_account_id The account id of the user to apply the change to (optional)
@@ -619,9 +596,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignToLocationEmployeeAsync($version, $account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
+    public function assignToLocationEmployeeAsync($account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
     {
-        return $this->assignToLocationEmployeeAsyncWithHttpInfo($version, $account_id, $retailer_location_id, $employee_account_id, $assign, $contentType)
+        return $this->assignToLocationEmployeeAsyncWithHttpInfo($account_id, $retailer_location_id, $employee_account_id, $assign, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -634,7 +611,6 @@ class EmployeeApi
      *
      * Assign Employee to Location
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $retailer_location_id The retailer location to apply the change to (required)
      * @param  int|null $employee_account_id The account id of the user to apply the change to (optional)
@@ -644,10 +620,10 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignToLocationEmployeeAsyncWithHttpInfo($version, $account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
+    public function assignToLocationEmployeeAsyncWithHttpInfo($account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->assignToLocationEmployeeRequest($version, $account_id, $retailer_location_id, $employee_account_id, $assign, $contentType);
+        $request = $this->assignToLocationEmployeeRequest($account_id, $retailer_location_id, $employee_account_id, $assign, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -688,7 +664,6 @@ class EmployeeApi
     /**
      * Create request for operation 'assignToLocationEmployee'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $retailer_location_id The retailer location to apply the change to (required)
      * @param  int|null $employee_account_id The account id of the user to apply the change to (optional)
@@ -698,15 +673,8 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignToLocationEmployeeRequest($version, $account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
+    public function assignToLocationEmployeeRequest($account_id, $retailer_location_id, $employee_account_id = null, $assign = true, string $contentType = self::contentTypes['assignToLocationEmployee'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling assignToLocationEmployee'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -725,7 +693,7 @@ class EmployeeApi
 
 
 
-        $resourcePath = '/api/{version}/employee/assignToLocation';
+        $resourcePath = '/employee/assignToLocation';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -770,14 +738,6 @@ class EmployeeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -838,7 +798,6 @@ class EmployeeApi
      *
      * Create Employee
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  string $username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -875,9 +834,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmployeeResponse
      */
-    public function createEmployee($version, $account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
+    public function createEmployee($account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
     {
-        list($response) = $this->createEmployeeWithHttpInfo($version, $account_id, $manager_account_id, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $about_us, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
+        list($response) = $this->createEmployeeWithHttpInfo($account_id, $manager_account_id, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $about_us, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
         return $response;
     }
 
@@ -886,7 +845,6 @@ class EmployeeApi
      *
      * Create Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  string $username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -923,9 +881,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createEmployeeWithHttpInfo($version, $account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
+    public function createEmployeeWithHttpInfo($account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
     {
-        $request = $this->createEmployeeRequest($version, $account_id, $manager_account_id, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $about_us, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
+        $request = $this->createEmployeeRequest($account_id, $manager_account_id, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $about_us, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1001,7 +959,6 @@ class EmployeeApi
      *
      * Create Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  string $username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -1037,9 +994,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createEmployeeAsync($version, $account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
+    public function createEmployeeAsync($account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
     {
-        return $this->createEmployeeAsyncWithHttpInfo($version, $account_id, $manager_account_id, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $about_us, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType)
+        return $this->createEmployeeAsyncWithHttpInfo($account_id, $manager_account_id, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $about_us, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1052,7 +1009,6 @@ class EmployeeApi
      *
      * Create Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  string $username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -1088,10 +1044,10 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createEmployeeAsyncWithHttpInfo($version, $account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
+    public function createEmployeeAsyncWithHttpInfo($account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmployeeResponse';
-        $request = $this->createEmployeeRequest($version, $account_id, $manager_account_id, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $about_us, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
+        $request = $this->createEmployeeRequest($account_id, $manager_account_id, $username, $password, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $about_us, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1132,7 +1088,6 @@ class EmployeeApi
     /**
      * Create request for operation 'createEmployee'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $manager_account_id The account id of the manager to assign under (required)
      * @param  string $username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -1168,15 +1123,8 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createEmployeeRequest($version, $account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
+    public function createEmployeeRequest($account_id, $manager_account_id, $username, $password, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $about_us = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['createEmployee'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createEmployee'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1233,7 +1181,7 @@ class EmployeeApi
 
 
 
-        $resourcePath = '/api/{version}/employee/create';
+        $resourcePath = '/employee/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1512,14 +1460,6 @@ class EmployeeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1580,7 +1520,6 @@ class EmployeeApi
      *
      * Delete Employee
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployee'] to see the possible values for this operation
@@ -1589,9 +1528,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteEmployee($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
+    public function deleteEmployee($account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
     {
-        list($response) = $this->deleteEmployeeWithHttpInfo($version, $account_id, $employee_account_id, $contentType);
+        list($response) = $this->deleteEmployeeWithHttpInfo($account_id, $employee_account_id, $contentType);
         return $response;
     }
 
@@ -1600,7 +1539,6 @@ class EmployeeApi
      *
      * Delete Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployee'] to see the possible values for this operation
@@ -1609,9 +1547,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteEmployeeWithHttpInfo($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
+    public function deleteEmployeeWithHttpInfo($account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
     {
-        $request = $this->deleteEmployeeRequest($version, $account_id, $employee_account_id, $contentType);
+        $request = $this->deleteEmployeeRequest($account_id, $employee_account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1687,7 +1625,6 @@ class EmployeeApi
      *
      * Delete Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployee'] to see the possible values for this operation
@@ -1695,9 +1632,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmployeeAsync($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
+    public function deleteEmployeeAsync($account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
     {
-        return $this->deleteEmployeeAsyncWithHttpInfo($version, $account_id, $employee_account_id, $contentType)
+        return $this->deleteEmployeeAsyncWithHttpInfo($account_id, $employee_account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1710,7 +1647,6 @@ class EmployeeApi
      *
      * Delete Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployee'] to see the possible values for this operation
@@ -1718,10 +1654,10 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmployeeAsyncWithHttpInfo($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
+    public function deleteEmployeeAsyncWithHttpInfo($account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteEmployeeRequest($version, $account_id, $employee_account_id, $contentType);
+        $request = $this->deleteEmployeeRequest($account_id, $employee_account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1762,7 +1698,6 @@ class EmployeeApi
     /**
      * Create request for operation 'deleteEmployee'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployee'] to see the possible values for this operation
@@ -1770,15 +1705,8 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteEmployeeRequest($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
+    public function deleteEmployeeRequest($account_id, $employee_account_id, string $contentType = self::contentTypes['deleteEmployee'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteEmployee'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1795,7 +1723,7 @@ class EmployeeApi
         }
 
 
-        $resourcePath = '/api/{version}/employee/delete';
+        $resourcePath = '/employee/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1822,14 +1750,6 @@ class EmployeeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1890,7 +1810,6 @@ class EmployeeApi
      *
      * Get Employee
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of logged in user (required)
      * @param  int $employee_account_id the id of the employee account to get (required)
      * @param  string|null $settings_app_key Determines whether to return the application settings for the employee for a particular application (optional)
@@ -1900,9 +1819,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmployeeResponse
      */
-    public function getEmployee($version, $account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
+    public function getEmployee($account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
     {
-        list($response) = $this->getEmployeeWithHttpInfo($version, $account_id, $employee_account_id, $settings_app_key, $contentType);
+        list($response) = $this->getEmployeeWithHttpInfo($account_id, $employee_account_id, $settings_app_key, $contentType);
         return $response;
     }
 
@@ -1911,7 +1830,6 @@ class EmployeeApi
      *
      * Get Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of logged in user (required)
      * @param  int $employee_account_id the id of the employee account to get (required)
      * @param  string|null $settings_app_key Determines whether to return the application settings for the employee for a particular application (optional)
@@ -1921,9 +1839,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmployeeWithHttpInfo($version, $account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
+    public function getEmployeeWithHttpInfo($account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
     {
-        $request = $this->getEmployeeRequest($version, $account_id, $employee_account_id, $settings_app_key, $contentType);
+        $request = $this->getEmployeeRequest($account_id, $employee_account_id, $settings_app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1999,7 +1917,6 @@ class EmployeeApi
      *
      * Get Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of logged in user (required)
      * @param  int $employee_account_id the id of the employee account to get (required)
      * @param  string|null $settings_app_key Determines whether to return the application settings for the employee for a particular application (optional)
@@ -2008,9 +1925,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeAsync($version, $account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
+    public function getEmployeeAsync($account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
     {
-        return $this->getEmployeeAsyncWithHttpInfo($version, $account_id, $employee_account_id, $settings_app_key, $contentType)
+        return $this->getEmployeeAsyncWithHttpInfo($account_id, $employee_account_id, $settings_app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2023,7 +1940,6 @@ class EmployeeApi
      *
      * Get Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of logged in user (required)
      * @param  int $employee_account_id the id of the employee account to get (required)
      * @param  string|null $settings_app_key Determines whether to return the application settings for the employee for a particular application (optional)
@@ -2032,10 +1948,10 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeAsyncWithHttpInfo($version, $account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
+    public function getEmployeeAsyncWithHttpInfo($account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmployeeResponse';
-        $request = $this->getEmployeeRequest($version, $account_id, $employee_account_id, $settings_app_key, $contentType);
+        $request = $this->getEmployeeRequest($account_id, $employee_account_id, $settings_app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2076,7 +1992,6 @@ class EmployeeApi
     /**
      * Create request for operation 'getEmployee'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of logged in user (required)
      * @param  int $employee_account_id the id of the employee account to get (required)
      * @param  string|null $settings_app_key Determines whether to return the application settings for the employee for a particular application (optional)
@@ -2085,15 +2000,8 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmployeeRequest($version, $account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
+    public function getEmployeeRequest($account_id, $employee_account_id, $settings_app_key = null, string $contentType = self::contentTypes['getEmployee'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getEmployee'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2111,7 +2019,7 @@ class EmployeeApi
 
 
 
-        $resourcePath = '/api/{version}/employee/get';
+        $resourcePath = '/employee/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2147,14 +2055,6 @@ class EmployeeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2215,7 +2115,6 @@ class EmployeeApi
      *
      * Search Employees
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string|null $role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param  int|null $retailer_id Filters employees by retailer (optional)
@@ -2239,9 +2138,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmployeeResponse[]
      */
-    public function searchEmployees($version, $account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
+    public function searchEmployees($account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
     {
-        list($response) = $this->searchEmployeesWithHttpInfo($version, $account_id, $role, $retailer_id, $retailer_location_id, $q, $keyword, $sort_field, $descending, $_i, $start, $_l, $limit, $active_only, $managed_only, $settings_app_key, $category_ids, $query, $contentType);
+        list($response) = $this->searchEmployeesWithHttpInfo($account_id, $role, $retailer_id, $retailer_location_id, $q, $keyword, $sort_field, $descending, $_i, $start, $_l, $limit, $active_only, $managed_only, $settings_app_key, $category_ids, $query, $contentType);
         return $response;
     }
 
@@ -2250,7 +2149,6 @@ class EmployeeApi
      *
      * Search Employees
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string|null $role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param  int|null $retailer_id Filters employees by retailer (optional)
@@ -2274,9 +2172,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmployeeResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchEmployeesWithHttpInfo($version, $account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
+    public function searchEmployeesWithHttpInfo($account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
     {
-        $request = $this->searchEmployeesRequest($version, $account_id, $role, $retailer_id, $retailer_location_id, $q, $keyword, $sort_field, $descending, $_i, $start, $_l, $limit, $active_only, $managed_only, $settings_app_key, $category_ids, $query, $contentType);
+        $request = $this->searchEmployeesRequest($account_id, $role, $retailer_id, $retailer_location_id, $q, $keyword, $sort_field, $descending, $_i, $start, $_l, $limit, $active_only, $managed_only, $settings_app_key, $category_ids, $query, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2352,7 +2250,6 @@ class EmployeeApi
      *
      * Search Employees
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string|null $role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param  int|null $retailer_id Filters employees by retailer (optional)
@@ -2375,9 +2272,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchEmployeesAsync($version, $account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
+    public function searchEmployeesAsync($account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
     {
-        return $this->searchEmployeesAsyncWithHttpInfo($version, $account_id, $role, $retailer_id, $retailer_location_id, $q, $keyword, $sort_field, $descending, $_i, $start, $_l, $limit, $active_only, $managed_only, $settings_app_key, $category_ids, $query, $contentType)
+        return $this->searchEmployeesAsyncWithHttpInfo($account_id, $role, $retailer_id, $retailer_location_id, $q, $keyword, $sort_field, $descending, $_i, $start, $_l, $limit, $active_only, $managed_only, $settings_app_key, $category_ids, $query, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2390,7 +2287,6 @@ class EmployeeApi
      *
      * Search Employees
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string|null $role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param  int|null $retailer_id Filters employees by retailer (optional)
@@ -2413,10 +2309,10 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchEmployeesAsyncWithHttpInfo($version, $account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
+    public function searchEmployeesAsyncWithHttpInfo($account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmployeeResponse[]';
-        $request = $this->searchEmployeesRequest($version, $account_id, $role, $retailer_id, $retailer_location_id, $q, $keyword, $sort_field, $descending, $_i, $start, $_l, $limit, $active_only, $managed_only, $settings_app_key, $category_ids, $query, $contentType);
+        $request = $this->searchEmployeesRequest($account_id, $role, $retailer_id, $retailer_location_id, $q, $keyword, $sort_field, $descending, $_i, $start, $_l, $limit, $active_only, $managed_only, $settings_app_key, $category_ids, $query, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2457,7 +2353,6 @@ class EmployeeApi
     /**
      * Create request for operation 'searchEmployees'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  string|null $role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param  int|null $retailer_id Filters employees by retailer (optional)
@@ -2480,15 +2375,8 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchEmployeesRequest($version, $account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
+    public function searchEmployeesRequest($account_id, $role = null, $retailer_id = null, $retailer_location_id = null, $q = null, $keyword = null, $sort_field = null, $descending = false, $_i = null, $start = 0, $_l = null, $limit = 20, $active_only = true, $managed_only = null, $settings_app_key = null, $category_ids = null, $query = null, string $contentType = self::contentTypes['searchEmployees'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchEmployees'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2514,7 +2402,7 @@ class EmployeeApi
 
 
 
-        $resourcePath = '/api/{version}/employee/search';
+        $resourcePath = '/employee/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2676,14 +2564,6 @@ class EmployeeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2744,7 +2624,6 @@ class EmployeeApi
      *
      * Unassign Employee
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id The account id of the user to be unassigned (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unassignEmployee'] to see the possible values for this operation
@@ -2753,9 +2632,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmployeeResponse
      */
-    public function unassignEmployee($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
+    public function unassignEmployee($account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
     {
-        list($response) = $this->unassignEmployeeWithHttpInfo($version, $account_id, $employee_account_id, $contentType);
+        list($response) = $this->unassignEmployeeWithHttpInfo($account_id, $employee_account_id, $contentType);
         return $response;
     }
 
@@ -2764,7 +2643,6 @@ class EmployeeApi
      *
      * Unassign Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id The account id of the user to be unassigned (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unassignEmployee'] to see the possible values for this operation
@@ -2773,9 +2651,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unassignEmployeeWithHttpInfo($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
+    public function unassignEmployeeWithHttpInfo($account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
     {
-        $request = $this->unassignEmployeeRequest($version, $account_id, $employee_account_id, $contentType);
+        $request = $this->unassignEmployeeRequest($account_id, $employee_account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2851,7 +2729,6 @@ class EmployeeApi
      *
      * Unassign Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id The account id of the user to be unassigned (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unassignEmployee'] to see the possible values for this operation
@@ -2859,9 +2736,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unassignEmployeeAsync($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
+    public function unassignEmployeeAsync($account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
     {
-        return $this->unassignEmployeeAsyncWithHttpInfo($version, $account_id, $employee_account_id, $contentType)
+        return $this->unassignEmployeeAsyncWithHttpInfo($account_id, $employee_account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2874,7 +2751,6 @@ class EmployeeApi
      *
      * Unassign Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id The account id of the user to be unassigned (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unassignEmployee'] to see the possible values for this operation
@@ -2882,10 +2758,10 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unassignEmployeeAsyncWithHttpInfo($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
+    public function unassignEmployeeAsyncWithHttpInfo($account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmployeeResponse';
-        $request = $this->unassignEmployeeRequest($version, $account_id, $employee_account_id, $contentType);
+        $request = $this->unassignEmployeeRequest($account_id, $employee_account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2926,7 +2802,6 @@ class EmployeeApi
     /**
      * Create request for operation 'unassignEmployee'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id The account id of the user to be unassigned (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unassignEmployee'] to see the possible values for this operation
@@ -2934,15 +2809,8 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function unassignEmployeeRequest($version, $account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
+    public function unassignEmployeeRequest($account_id, $employee_account_id, string $contentType = self::contentTypes['unassignEmployee'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling unassignEmployee'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2959,7 +2827,7 @@ class EmployeeApi
         }
 
 
-        $resourcePath = '/api/{version}/employee/unassign';
+        $resourcePath = '/employee/unassign';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2986,14 +2854,6 @@ class EmployeeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3054,7 +2914,6 @@ class EmployeeApi
      *
      * Update Employee
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee account (required)
      * @param  int|null $manager_account_id The account id of the manager to assign under (optional)
@@ -3091,9 +2950,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmployeeResponse
      */
-    public function updateEmployee($version, $account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
+    public function updateEmployee($account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
     {
-        list($response) = $this->updateEmployeeWithHttpInfo($version, $account_id, $employee_account_id, $manager_account_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $active, $password, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
+        list($response) = $this->updateEmployeeWithHttpInfo($account_id, $employee_account_id, $manager_account_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $active, $password, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
         return $response;
     }
 
@@ -3102,7 +2961,6 @@ class EmployeeApi
      *
      * Update Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee account (required)
      * @param  int|null $manager_account_id The account id of the manager to assign under (optional)
@@ -3139,9 +2997,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEmployeeWithHttpInfo($version, $account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
+    public function updateEmployeeWithHttpInfo($account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
     {
-        $request = $this->updateEmployeeRequest($version, $account_id, $employee_account_id, $manager_account_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $active, $password, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
+        $request = $this->updateEmployeeRequest($account_id, $employee_account_id, $manager_account_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $active, $password, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3217,7 +3075,6 @@ class EmployeeApi
      *
      * Update Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee account (required)
      * @param  int|null $manager_account_id The account id of the manager to assign under (optional)
@@ -3253,9 +3110,9 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeAsync($version, $account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
+    public function updateEmployeeAsync($account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
     {
-        return $this->updateEmployeeAsyncWithHttpInfo($version, $account_id, $employee_account_id, $manager_account_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $active, $password, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType)
+        return $this->updateEmployeeAsyncWithHttpInfo($account_id, $employee_account_id, $manager_account_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $active, $password, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3268,7 +3125,6 @@ class EmployeeApi
      *
      * Update Employee
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee account (required)
      * @param  int|null $manager_account_id The account id of the manager to assign under (optional)
@@ -3304,10 +3160,10 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeAsyncWithHttpInfo($version, $account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
+    public function updateEmployeeAsyncWithHttpInfo($account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmployeeResponse';
-        $request = $this->updateEmployeeRequest($version, $account_id, $employee_account_id, $manager_account_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $active, $password, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
+        $request = $this->updateEmployeeRequest($account_id, $employee_account_id, $manager_account_id, $name, $prefix_name, $first_name, $middle_name, $last_name, $suffix_name, $title, $asset_id, $gender, $home_phone, $cell_phone, $cell_phone_carrier, $business_phone, $email_address, $street_address, $street_address2, $city, $state, $zipcode, $country, $role, $active, $password, $retailer_location_ids, $settings_app_key, $app_blob, $assigned_device_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3348,7 +3204,6 @@ class EmployeeApi
     /**
      * Create request for operation 'updateEmployee'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the logged in user (required)
      * @param  int $employee_account_id the id of the employee account (required)
      * @param  int|null $manager_account_id The account id of the manager to assign under (optional)
@@ -3384,15 +3239,8 @@ class EmployeeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateEmployeeRequest($version, $account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
+    public function updateEmployeeRequest($account_id, $employee_account_id, $manager_account_id = null, $name = null, $prefix_name = null, $first_name = null, $middle_name = null, $last_name = null, $suffix_name = null, $title = null, $asset_id = null, $gender = null, $home_phone = null, $cell_phone = null, $cell_phone_carrier = null, $business_phone = null, $email_address = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $zipcode = null, $country = null, $role = null, $active = null, $password = null, $retailer_location_ids = null, $settings_app_key = null, $app_blob = null, $assigned_device_id = null, string $contentType = self::contentTypes['updateEmployee'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateEmployee'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3437,7 +3285,7 @@ class EmployeeApi
 
 
 
-        $resourcePath = '/api/{version}/employee/update';
+        $resourcePath = '/employee/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3716,14 +3564,6 @@ class EmployeeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -137,7 +137,6 @@ class AppDataApi
      *
      * Get App Data
      *
-     * @param  float $version version (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
@@ -169,9 +168,9 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AppResponse
      */
-    public function getAppData($version, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
+    public function getAppData($start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
     {
-        list($response) = $this->getAppDataWithHttpInfo($version, $start, $limit, $device_id, $account_id, $game_type, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
+        list($response) = $this->getAppDataWithHttpInfo($start, $limit, $device_id, $account_id, $game_type, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
         return $response;
     }
 
@@ -180,7 +179,6 @@ class AppDataApi
      *
      * Get App Data
      *
-     * @param  float $version (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
@@ -212,9 +210,9 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AppResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAppDataWithHttpInfo($version, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
+    public function getAppDataWithHttpInfo($start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
     {
-        $request = $this->getAppDataRequest($version, $start, $limit, $device_id, $account_id, $game_type, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
+        $request = $this->getAppDataRequest($start, $limit, $device_id, $account_id, $game_type, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -290,7 +288,6 @@ class AppDataApi
      *
      * Get App Data
      *
-     * @param  float $version (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
@@ -321,9 +318,9 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppDataAsync($version, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
+    public function getAppDataAsync($start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
     {
-        return $this->getAppDataAsyncWithHttpInfo($version, $start, $limit, $device_id, $account_id, $game_type, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType)
+        return $this->getAppDataAsyncWithHttpInfo($start, $limit, $device_id, $account_id, $game_type, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -336,7 +333,6 @@ class AppDataApi
      *
      * Get App Data
      *
-     * @param  float $version (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
@@ -367,10 +363,10 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppDataAsyncWithHttpInfo($version, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
+    public function getAppDataAsyncWithHttpInfo($start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AppResponse';
-        $request = $this->getAppDataRequest($version, $start, $limit, $device_id, $account_id, $game_type, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
+        $request = $this->getAppDataRequest($start, $limit, $device_id, $account_id, $game_type, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -411,7 +407,6 @@ class AppDataApi
     /**
      * Create request for operation 'getAppData'
      *
-     * @param  float $version (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
      * @param  string|null $device_id the device id (deviceId or accountId required). (optional)
@@ -442,15 +437,8 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAppDataRequest($version, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
+    public function getAppDataRequest($start, $limit, $device_id = null, $account_id = null, $game_type = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['getAppData'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAppData'
-            );
-        }
 
         // verify the required parameter 'start' is set
         if ($start === null || (is_array($start) && count($start) === 0)) {
@@ -490,7 +478,7 @@ class AppDataApi
 
 
 
-        $resourcePath = '/api/{version}/app/get';
+        $resourcePath = '/app/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -724,14 +712,6 @@ class AppDataApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -792,7 +772,6 @@ class AppDataApi
      *
      * Create App Data
      *
-     * @param  float $version version (required)
      * @param  string $game_type the game to retrieve the data for, use your application key. (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
@@ -825,9 +804,9 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AppResponse
      */
-    public function postAppData($version, $game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
+    public function postAppData($game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
     {
-        list($response) = $this->postAppDataWithHttpInfo($version, $game_type, $start, $limit, $data, $device_id, $account_id, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
+        list($response) = $this->postAppDataWithHttpInfo($game_type, $start, $limit, $data, $device_id, $account_id, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
         return $response;
     }
 
@@ -836,7 +815,6 @@ class AppDataApi
      *
      * Create App Data
      *
-     * @param  float $version (required)
      * @param  string $game_type the game to retrieve the data for, use your application key. (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
@@ -869,9 +847,9 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AppResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postAppDataWithHttpInfo($version, $game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
+    public function postAppDataWithHttpInfo($game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
     {
-        $request = $this->postAppDataRequest($version, $game_type, $start, $limit, $data, $device_id, $account_id, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
+        $request = $this->postAppDataRequest($game_type, $start, $limit, $data, $device_id, $account_id, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -947,7 +925,6 @@ class AppDataApi
      *
      * Create App Data
      *
-     * @param  float $version (required)
      * @param  string $game_type the game to retrieve the data for, use your application key. (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
@@ -979,9 +956,9 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postAppDataAsync($version, $game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
+    public function postAppDataAsync($game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
     {
-        return $this->postAppDataAsyncWithHttpInfo($version, $game_type, $start, $limit, $data, $device_id, $account_id, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType)
+        return $this->postAppDataAsyncWithHttpInfo($game_type, $start, $limit, $data, $device_id, $account_id, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -994,7 +971,6 @@ class AppDataApi
      *
      * Create App Data
      *
-     * @param  float $version (required)
      * @param  string $game_type the game to retrieve the data for, use your application key. (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
@@ -1026,10 +1002,10 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postAppDataAsyncWithHttpInfo($version, $game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
+    public function postAppDataAsyncWithHttpInfo($game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AppResponse';
-        $request = $this->postAppDataRequest($version, $game_type, $start, $limit, $data, $device_id, $account_id, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
+        $request = $this->postAppDataRequest($game_type, $start, $limit, $data, $device_id, $account_id, $include_game_data, $q, $keyword, $sort_field, $descending, $_i, $_l, $game_object_count, $filter, $date_created, $owner_id, $mission_ids, $game_ids, $pack_ids, $game_level_ids, $app_version, $include_higher_version_packs, $include_higher_version_levels, $response_groups, $purchase_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1070,7 +1046,6 @@ class AppDataApi
     /**
      * Create request for operation 'postAppData'
      *
-     * @param  float $version (required)
      * @param  string $game_type the game to retrieve the data for, use your application key. (required)
      * @param  int $start start the search results at a record. (required)
      * @param  int $limit limit the search results to some number. (required)
@@ -1102,15 +1077,8 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postAppDataRequest($version, $game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
+    public function postAppDataRequest($game_type, $start, $limit, $data, $device_id = null, $account_id = null, $include_game_data = null, $q = null, $keyword = null, $sort_field = null, $descending = null, $_i = null, $_l = null, $game_object_count = null, $filter = null, $date_created = null, $owner_id = null, $mission_ids = null, $game_ids = null, $pack_ids = null, $game_level_ids = null, $app_version = null, $include_higher_version_packs = null, $include_higher_version_levels = null, $response_groups = null, $purchase_type = null, string $contentType = self::contentTypes['postAppData'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling postAppData'
-            );
-        }
 
         // verify the required parameter 'game_type' is set
         if ($game_type === null || (is_array($game_type) && count($game_type) === 0)) {
@@ -1163,7 +1131,7 @@ class AppDataApi
 
 
 
-        $resourcePath = '/api/{version}/app/post';
+        $resourcePath = '/app/post';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1406,14 +1374,6 @@ class AppDataApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1474,7 +1434,6 @@ class AppDataApi
      *
      * Regenerate App Data
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key process a specific application, if null process all apps with caches (optional)
      * @param  string|null $build_version create a specific version, if null use current version. Be careful if processing all (optional)
@@ -1485,9 +1444,9 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function regenAppData($version, $account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
+    public function regenAppData($account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
     {
-        list($response) = $this->regenAppDataWithHttpInfo($version, $account_id, $app_key, $build_version, $api_version, $contentType);
+        list($response) = $this->regenAppDataWithHttpInfo($account_id, $app_key, $build_version, $api_version, $contentType);
         return $response;
     }
 
@@ -1496,7 +1455,6 @@ class AppDataApi
      *
      * Regenerate App Data
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key process a specific application, if null process all apps with caches (optional)
      * @param  string|null $build_version create a specific version, if null use current version. Be careful if processing all (optional)
@@ -1507,9 +1465,9 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function regenAppDataWithHttpInfo($version, $account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
+    public function regenAppDataWithHttpInfo($account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
     {
-        $request = $this->regenAppDataRequest($version, $account_id, $app_key, $build_version, $api_version, $contentType);
+        $request = $this->regenAppDataRequest($account_id, $app_key, $build_version, $api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1585,7 +1543,6 @@ class AppDataApi
      *
      * Regenerate App Data
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key process a specific application, if null process all apps with caches (optional)
      * @param  string|null $build_version create a specific version, if null use current version. Be careful if processing all (optional)
@@ -1595,9 +1552,9 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function regenAppDataAsync($version, $account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
+    public function regenAppDataAsync($account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
     {
-        return $this->regenAppDataAsyncWithHttpInfo($version, $account_id, $app_key, $build_version, $api_version, $contentType)
+        return $this->regenAppDataAsyncWithHttpInfo($account_id, $app_key, $build_version, $api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1610,7 +1567,6 @@ class AppDataApi
      *
      * Regenerate App Data
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key process a specific application, if null process all apps with caches (optional)
      * @param  string|null $build_version create a specific version, if null use current version. Be careful if processing all (optional)
@@ -1620,10 +1576,10 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function regenAppDataAsyncWithHttpInfo($version, $account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
+    public function regenAppDataAsyncWithHttpInfo($account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->regenAppDataRequest($version, $account_id, $app_key, $build_version, $api_version, $contentType);
+        $request = $this->regenAppDataRequest($account_id, $app_key, $build_version, $api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1664,7 +1620,6 @@ class AppDataApi
     /**
      * Create request for operation 'regenAppData'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $app_key process a specific application, if null process all apps with caches (optional)
      * @param  string|null $build_version create a specific version, if null use current version. Be careful if processing all (optional)
@@ -1674,22 +1629,15 @@ class AppDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function regenAppDataRequest($version, $account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
+    public function regenAppDataRequest($account_id = null, $app_key = null, $build_version = null, $api_version = null, string $contentType = self::contentTypes['regenAppData'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling regenAppData'
-            );
-        }
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/app/regen';
+        $resourcePath = '/app/regen';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1734,14 +1682,6 @@ class AppDataApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

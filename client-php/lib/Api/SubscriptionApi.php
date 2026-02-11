@@ -149,7 +149,6 @@ class SubscriptionApi
      *
      * Create Subscription
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the create, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to, if null use default plan (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -159,9 +158,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SubscriptionResponse
      */
-    public function createSubscription($version, $account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
+    public function createSubscription($account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
     {
-        list($response) = $this->createSubscriptionWithHttpInfo($version, $account_id, $plan_id, $promo_code, $contentType);
+        list($response) = $this->createSubscriptionWithHttpInfo($account_id, $plan_id, $promo_code, $contentType);
         return $response;
     }
 
@@ -170,7 +169,6 @@ class SubscriptionApi
      *
      * Create Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the create, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to, if null use default plan (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -180,9 +178,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SubscriptionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSubscriptionWithHttpInfo($version, $account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
+    public function createSubscriptionWithHttpInfo($account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
     {
-        $request = $this->createSubscriptionRequest($version, $account_id, $plan_id, $promo_code, $contentType);
+        $request = $this->createSubscriptionRequest($account_id, $plan_id, $promo_code, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -258,7 +256,6 @@ class SubscriptionApi
      *
      * Create Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the create, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to, if null use default plan (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -267,9 +264,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSubscriptionAsync($version, $account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
+    public function createSubscriptionAsync($account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
     {
-        return $this->createSubscriptionAsyncWithHttpInfo($version, $account_id, $plan_id, $promo_code, $contentType)
+        return $this->createSubscriptionAsyncWithHttpInfo($account_id, $plan_id, $promo_code, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -282,7 +279,6 @@ class SubscriptionApi
      *
      * Create Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the create, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to, if null use default plan (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -291,10 +287,10 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSubscriptionAsyncWithHttpInfo($version, $account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
+    public function createSubscriptionAsyncWithHttpInfo($account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SubscriptionResponse';
-        $request = $this->createSubscriptionRequest($version, $account_id, $plan_id, $promo_code, $contentType);
+        $request = $this->createSubscriptionRequest($account_id, $plan_id, $promo_code, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -335,7 +331,6 @@ class SubscriptionApi
     /**
      * Create request for operation 'createSubscription'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the create, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to, if null use default plan (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -344,15 +339,8 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createSubscriptionRequest($version, $account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
+    public function createSubscriptionRequest($account_id, $plan_id = null, $promo_code = null, string $contentType = self::contentTypes['createSubscription'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createSubscription'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -364,7 +352,7 @@ class SubscriptionApi
 
 
 
-        $resourcePath = '/api/{version}/subscription/create';
+        $resourcePath = '/subscription/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -400,14 +388,6 @@ class SubscriptionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -468,7 +448,6 @@ class SubscriptionApi
      *
      * Delete Subscription
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the delete, must be the responsible manager (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubscription'] to see the possible values for this operation
      *
@@ -476,9 +455,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteSubscription($version, $account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
+    public function deleteSubscription($account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
     {
-        list($response) = $this->deleteSubscriptionWithHttpInfo($version, $account_id, $contentType);
+        list($response) = $this->deleteSubscriptionWithHttpInfo($account_id, $contentType);
         return $response;
     }
 
@@ -487,7 +466,6 @@ class SubscriptionApi
      *
      * Delete Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the delete, must be the responsible manager (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubscription'] to see the possible values for this operation
      *
@@ -495,9 +473,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSubscriptionWithHttpInfo($version, $account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
+    public function deleteSubscriptionWithHttpInfo($account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
     {
-        $request = $this->deleteSubscriptionRequest($version, $account_id, $contentType);
+        $request = $this->deleteSubscriptionRequest($account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -573,16 +551,15 @@ class SubscriptionApi
      *
      * Delete Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the delete, must be the responsible manager (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubscription'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSubscriptionAsync($version, $account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
+    public function deleteSubscriptionAsync($account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
     {
-        return $this->deleteSubscriptionAsyncWithHttpInfo($version, $account_id, $contentType)
+        return $this->deleteSubscriptionAsyncWithHttpInfo($account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -595,17 +572,16 @@ class SubscriptionApi
      *
      * Delete Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the delete, must be the responsible manager (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubscription'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSubscriptionAsyncWithHttpInfo($version, $account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
+    public function deleteSubscriptionAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteSubscriptionRequest($version, $account_id, $contentType);
+        $request = $this->deleteSubscriptionRequest($account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -646,22 +622,14 @@ class SubscriptionApi
     /**
      * Create request for operation 'deleteSubscription'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the delete, must be the responsible manager (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubscription'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteSubscriptionRequest($version, $account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
+    public function deleteSubscriptionRequest($account_id, string $contentType = self::contentTypes['deleteSubscription'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteSubscription'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -671,7 +639,7 @@ class SubscriptionApi
         }
 
 
-        $resourcePath = '/api/{version}/subscription/delete';
+        $resourcePath = '/subscription/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -689,14 +657,6 @@ class SubscriptionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -757,7 +717,6 @@ class SubscriptionApi
      *
      * Get Subscription
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscription'] to see the possible values for this operation
      *
@@ -765,9 +724,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SubscriptionResponse
      */
-    public function getSubscription($version, $account_id, string $contentType = self::contentTypes['getSubscription'][0])
+    public function getSubscription($account_id, string $contentType = self::contentTypes['getSubscription'][0])
     {
-        list($response) = $this->getSubscriptionWithHttpInfo($version, $account_id, $contentType);
+        list($response) = $this->getSubscriptionWithHttpInfo($account_id, $contentType);
         return $response;
     }
 
@@ -776,7 +735,6 @@ class SubscriptionApi
      *
      * Get Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscription'] to see the possible values for this operation
      *
@@ -784,9 +742,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SubscriptionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSubscriptionWithHttpInfo($version, $account_id, string $contentType = self::contentTypes['getSubscription'][0])
+    public function getSubscriptionWithHttpInfo($account_id, string $contentType = self::contentTypes['getSubscription'][0])
     {
-        $request = $this->getSubscriptionRequest($version, $account_id, $contentType);
+        $request = $this->getSubscriptionRequest($account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -862,16 +820,15 @@ class SubscriptionApi
      *
      * Get Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscription'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionAsync($version, $account_id, string $contentType = self::contentTypes['getSubscription'][0])
+    public function getSubscriptionAsync($account_id, string $contentType = self::contentTypes['getSubscription'][0])
     {
-        return $this->getSubscriptionAsyncWithHttpInfo($version, $account_id, $contentType)
+        return $this->getSubscriptionAsyncWithHttpInfo($account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -884,17 +841,16 @@ class SubscriptionApi
      *
      * Get Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscription'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionAsyncWithHttpInfo($version, $account_id, string $contentType = self::contentTypes['getSubscription'][0])
+    public function getSubscriptionAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['getSubscription'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SubscriptionResponse';
-        $request = $this->getSubscriptionRequest($version, $account_id, $contentType);
+        $request = $this->getSubscriptionRequest($account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -935,22 +891,14 @@ class SubscriptionApi
     /**
      * Create request for operation 'getSubscription'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscription'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSubscriptionRequest($version, $account_id, string $contentType = self::contentTypes['getSubscription'][0])
+    public function getSubscriptionRequest($account_id, string $contentType = self::contentTypes['getSubscription'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getSubscription'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -960,7 +908,7 @@ class SubscriptionApi
         }
 
 
-        $resourcePath = '/api/{version}/subscription/get';
+        $resourcePath = '/subscription/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -978,14 +926,6 @@ class SubscriptionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1046,7 +986,6 @@ class SubscriptionApi
      *
      * Get Subscription Plan
      *
-     * @param  float $version version (required)
      * @param  int $plan_id The ID of the plan to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlan'] to see the possible values for this operation
      *
@@ -1054,9 +993,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SubscriptionPlanResponse
      */
-    public function getSubscriptionPlan($version, $plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
+    public function getSubscriptionPlan($plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
     {
-        list($response) = $this->getSubscriptionPlanWithHttpInfo($version, $plan_id, $contentType);
+        list($response) = $this->getSubscriptionPlanWithHttpInfo($plan_id, $contentType);
         return $response;
     }
 
@@ -1065,7 +1004,6 @@ class SubscriptionApi
      *
      * Get Subscription Plan
      *
-     * @param  float $version (required)
      * @param  int $plan_id The ID of the plan to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlan'] to see the possible values for this operation
      *
@@ -1073,9 +1011,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SubscriptionPlanResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSubscriptionPlanWithHttpInfo($version, $plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
+    public function getSubscriptionPlanWithHttpInfo($plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
     {
-        $request = $this->getSubscriptionPlanRequest($version, $plan_id, $contentType);
+        $request = $this->getSubscriptionPlanRequest($plan_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1151,16 +1089,15 @@ class SubscriptionApi
      *
      * Get Subscription Plan
      *
-     * @param  float $version (required)
      * @param  int $plan_id The ID of the plan to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlan'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionPlanAsync($version, $plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
+    public function getSubscriptionPlanAsync($plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
     {
-        return $this->getSubscriptionPlanAsyncWithHttpInfo($version, $plan_id, $contentType)
+        return $this->getSubscriptionPlanAsyncWithHttpInfo($plan_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1173,17 +1110,16 @@ class SubscriptionApi
      *
      * Get Subscription Plan
      *
-     * @param  float $version (required)
      * @param  int $plan_id The ID of the plan to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlan'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionPlanAsyncWithHttpInfo($version, $plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
+    public function getSubscriptionPlanAsyncWithHttpInfo($plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SubscriptionPlanResponse';
-        $request = $this->getSubscriptionPlanRequest($version, $plan_id, $contentType);
+        $request = $this->getSubscriptionPlanRequest($plan_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1224,22 +1160,14 @@ class SubscriptionApi
     /**
      * Create request for operation 'getSubscriptionPlan'
      *
-     * @param  float $version (required)
      * @param  int $plan_id The ID of the plan to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlan'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSubscriptionPlanRequest($version, $plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
+    public function getSubscriptionPlanRequest($plan_id, string $contentType = self::contentTypes['getSubscriptionPlan'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getSubscriptionPlan'
-            );
-        }
 
         // verify the required parameter 'plan_id' is set
         if ($plan_id === null || (is_array($plan_id) && count($plan_id) === 0)) {
@@ -1249,7 +1177,7 @@ class SubscriptionApi
         }
 
 
-        $resourcePath = '/api/{version}/subscription/plan/get';
+        $resourcePath = '/subscription/plan/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1267,14 +1195,6 @@ class SubscriptionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1335,7 +1255,6 @@ class SubscriptionApi
      *
      * List Subscription Plans
      *
-     * @param  float $version version (required)
      * @param  bool|null $visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param  string|null $role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlans'] to see the possible values for this operation
@@ -1344,9 +1263,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SubscriptionPlanResponse[]
      */
-    public function getSubscriptionPlans($version, $visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
+    public function getSubscriptionPlans($visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
     {
-        list($response) = $this->getSubscriptionPlansWithHttpInfo($version, $visible, $role, $contentType);
+        list($response) = $this->getSubscriptionPlansWithHttpInfo($visible, $role, $contentType);
         return $response;
     }
 
@@ -1355,7 +1274,6 @@ class SubscriptionApi
      *
      * List Subscription Plans
      *
-     * @param  float $version (required)
      * @param  bool|null $visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param  string|null $role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlans'] to see the possible values for this operation
@@ -1364,9 +1282,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SubscriptionPlanResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSubscriptionPlansWithHttpInfo($version, $visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
+    public function getSubscriptionPlansWithHttpInfo($visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
     {
-        $request = $this->getSubscriptionPlansRequest($version, $visible, $role, $contentType);
+        $request = $this->getSubscriptionPlansRequest($visible, $role, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1442,7 +1360,6 @@ class SubscriptionApi
      *
      * List Subscription Plans
      *
-     * @param  float $version (required)
      * @param  bool|null $visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param  string|null $role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlans'] to see the possible values for this operation
@@ -1450,9 +1367,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionPlansAsync($version, $visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
+    public function getSubscriptionPlansAsync($visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
     {
-        return $this->getSubscriptionPlansAsyncWithHttpInfo($version, $visible, $role, $contentType)
+        return $this->getSubscriptionPlansAsyncWithHttpInfo($visible, $role, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1465,7 +1382,6 @@ class SubscriptionApi
      *
      * List Subscription Plans
      *
-     * @param  float $version (required)
      * @param  bool|null $visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param  string|null $role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlans'] to see the possible values for this operation
@@ -1473,10 +1389,10 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionPlansAsyncWithHttpInfo($version, $visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
+    public function getSubscriptionPlansAsyncWithHttpInfo($visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SubscriptionPlanResponse[]';
-        $request = $this->getSubscriptionPlansRequest($version, $visible, $role, $contentType);
+        $request = $this->getSubscriptionPlansRequest($visible, $role, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1517,7 +1433,6 @@ class SubscriptionApi
     /**
      * Create request for operation 'getSubscriptionPlans'
      *
-     * @param  float $version (required)
      * @param  bool|null $visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param  string|null $role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlans'] to see the possible values for this operation
@@ -1525,20 +1440,13 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSubscriptionPlansRequest($version, $visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
+    public function getSubscriptionPlansRequest($visible = null, $role = null, string $contentType = self::contentTypes['getSubscriptionPlans'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getSubscriptionPlans'
-            );
-        }
 
 
 
-
-        $resourcePath = '/api/{version}/subscription/plan/list';
+        $resourcePath = '/subscription/plan/list';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1565,14 +1473,6 @@ class SubscriptionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1633,7 +1533,6 @@ class SubscriptionApi
      *
      * Get Subscription Usage
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  int|null $application_id Get for just 1 application instead of the BillableEntity (optional)
      * @param  int|null $start The start time frame (optional)
@@ -1644,9 +1543,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ApplicationUsageResponse
      */
-    public function getSubscriptionUsage($version, $account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
+    public function getSubscriptionUsage($account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
     {
-        list($response) = $this->getSubscriptionUsageWithHttpInfo($version, $account_id, $application_id, $start, $end, $contentType);
+        list($response) = $this->getSubscriptionUsageWithHttpInfo($account_id, $application_id, $start, $end, $contentType);
         return $response;
     }
 
@@ -1655,7 +1554,6 @@ class SubscriptionApi
      *
      * Get Subscription Usage
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  int|null $application_id Get for just 1 application instead of the BillableEntity (optional)
      * @param  int|null $start The start time frame (optional)
@@ -1666,9 +1564,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ApplicationUsageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSubscriptionUsageWithHttpInfo($version, $account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
+    public function getSubscriptionUsageWithHttpInfo($account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
     {
-        $request = $this->getSubscriptionUsageRequest($version, $account_id, $application_id, $start, $end, $contentType);
+        $request = $this->getSubscriptionUsageRequest($account_id, $application_id, $start, $end, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1744,7 +1642,6 @@ class SubscriptionApi
      *
      * Get Subscription Usage
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  int|null $application_id Get for just 1 application instead of the BillableEntity (optional)
      * @param  int|null $start The start time frame (optional)
@@ -1754,9 +1651,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionUsageAsync($version, $account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
+    public function getSubscriptionUsageAsync($account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
     {
-        return $this->getSubscriptionUsageAsyncWithHttpInfo($version, $account_id, $application_id, $start, $end, $contentType)
+        return $this->getSubscriptionUsageAsyncWithHttpInfo($account_id, $application_id, $start, $end, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1769,7 +1666,6 @@ class SubscriptionApi
      *
      * Get Subscription Usage
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  int|null $application_id Get for just 1 application instead of the BillableEntity (optional)
      * @param  int|null $start The start time frame (optional)
@@ -1779,10 +1675,10 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionUsageAsyncWithHttpInfo($version, $account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
+    public function getSubscriptionUsageAsyncWithHttpInfo($account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ApplicationUsageResponse';
-        $request = $this->getSubscriptionUsageRequest($version, $account_id, $application_id, $start, $end, $contentType);
+        $request = $this->getSubscriptionUsageRequest($account_id, $application_id, $start, $end, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1823,7 +1719,6 @@ class SubscriptionApi
     /**
      * Create request for operation 'getSubscriptionUsage'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the lookup (required)
      * @param  int|null $application_id Get for just 1 application instead of the BillableEntity (optional)
      * @param  int|null $start The start time frame (optional)
@@ -1833,15 +1728,8 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSubscriptionUsageRequest($version, $account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
+    public function getSubscriptionUsageRequest($account_id, $application_id = null, $start = null, $end = null, string $contentType = self::contentTypes['getSubscriptionUsage'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getSubscriptionUsage'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1854,7 +1742,7 @@ class SubscriptionApi
 
 
 
-        $resourcePath = '/api/{version}/subscription/usage/get';
+        $resourcePath = '/subscription/usage/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1899,14 +1787,6 @@ class SubscriptionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1967,7 +1847,6 @@ class SubscriptionApi
      *
      * Update Subscription
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the update, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -1978,9 +1857,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SubscriptionResponse
      */
-    public function updateSubscription($version, $account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
+    public function updateSubscription($account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
     {
-        list($response) = $this->updateSubscriptionWithHttpInfo($version, $account_id, $plan_id, $promo_code, $active, $contentType);
+        list($response) = $this->updateSubscriptionWithHttpInfo($account_id, $plan_id, $promo_code, $active, $contentType);
         return $response;
     }
 
@@ -1989,7 +1868,6 @@ class SubscriptionApi
      *
      * Update Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the update, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -2000,9 +1878,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SubscriptionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSubscriptionWithHttpInfo($version, $account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
+    public function updateSubscriptionWithHttpInfo($account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
     {
-        $request = $this->updateSubscriptionRequest($version, $account_id, $plan_id, $promo_code, $active, $contentType);
+        $request = $this->updateSubscriptionRequest($account_id, $plan_id, $promo_code, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2078,7 +1956,6 @@ class SubscriptionApi
      *
      * Update Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the update, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -2088,9 +1965,9 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSubscriptionAsync($version, $account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
+    public function updateSubscriptionAsync($account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
     {
-        return $this->updateSubscriptionAsyncWithHttpInfo($version, $account_id, $plan_id, $promo_code, $active, $contentType)
+        return $this->updateSubscriptionAsyncWithHttpInfo($account_id, $plan_id, $promo_code, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2103,7 +1980,6 @@ class SubscriptionApi
      *
      * Update Subscription
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the update, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -2113,10 +1989,10 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSubscriptionAsyncWithHttpInfo($version, $account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
+    public function updateSubscriptionAsyncWithHttpInfo($account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SubscriptionResponse';
-        $request = $this->updateSubscriptionRequest($version, $account_id, $plan_id, $promo_code, $active, $contentType);
+        $request = $this->updateSubscriptionRequest($account_id, $plan_id, $promo_code, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2157,7 +2033,6 @@ class SubscriptionApi
     /**
      * Create request for operation 'updateSubscription'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the update, must be the responsible manager (required)
      * @param  int|null $plan_id The plan to subscribe to (optional)
      * @param  string|null $promo_code Set a promo code for a discount. (optional)
@@ -2167,15 +2042,8 @@ class SubscriptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSubscriptionRequest($version, $account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
+    public function updateSubscriptionRequest($account_id, $plan_id = null, $promo_code = null, $active = null, string $contentType = self::contentTypes['updateSubscription'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateSubscription'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2188,7 +2056,7 @@ class SubscriptionApi
 
 
 
-        $resourcePath = '/api/{version}/subscription/update';
+        $resourcePath = '/subscription/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2233,14 +2101,6 @@ class SubscriptionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

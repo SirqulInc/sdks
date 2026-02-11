@@ -146,7 +146,6 @@ class NoteApi
      *
      * Batch Note Operation
      *
-     * @param  float $version version (required)
      * @param  int $notable_id The id of the notable object the batch operation will affect (required)
      * @param  string $notable_type The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -158,9 +157,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function batchOperation($version, $notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
+    public function batchOperation($notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
     {
-        list($response) = $this->batchOperationWithHttpInfo($version, $notable_id, $notable_type, $device_id, $account_id, $batch_operation, $contentType);
+        list($response) = $this->batchOperationWithHttpInfo($notable_id, $notable_type, $device_id, $account_id, $batch_operation, $contentType);
         return $response;
     }
 
@@ -169,7 +168,6 @@ class NoteApi
      *
      * Batch Note Operation
      *
-     * @param  float $version (required)
      * @param  int $notable_id The id of the notable object the batch operation will affect (required)
      * @param  string $notable_type The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -181,9 +179,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function batchOperationWithHttpInfo($version, $notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
+    public function batchOperationWithHttpInfo($notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
     {
-        $request = $this->batchOperationRequest($version, $notable_id, $notable_type, $device_id, $account_id, $batch_operation, $contentType);
+        $request = $this->batchOperationRequest($notable_id, $notable_type, $device_id, $account_id, $batch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -259,7 +257,6 @@ class NoteApi
      *
      * Batch Note Operation
      *
-     * @param  float $version (required)
      * @param  int $notable_id The id of the notable object the batch operation will affect (required)
      * @param  string $notable_type The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -270,9 +267,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchOperationAsync($version, $notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
+    public function batchOperationAsync($notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
     {
-        return $this->batchOperationAsyncWithHttpInfo($version, $notable_id, $notable_type, $device_id, $account_id, $batch_operation, $contentType)
+        return $this->batchOperationAsyncWithHttpInfo($notable_id, $notable_type, $device_id, $account_id, $batch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -285,7 +282,6 @@ class NoteApi
      *
      * Batch Note Operation
      *
-     * @param  float $version (required)
      * @param  int $notable_id The id of the notable object the batch operation will affect (required)
      * @param  string $notable_type The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -296,10 +292,10 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchOperationAsyncWithHttpInfo($version, $notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
+    public function batchOperationAsyncWithHttpInfo($notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->batchOperationRequest($version, $notable_id, $notable_type, $device_id, $account_id, $batch_operation, $contentType);
+        $request = $this->batchOperationRequest($notable_id, $notable_type, $device_id, $account_id, $batch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -340,7 +336,6 @@ class NoteApi
     /**
      * Create request for operation 'batchOperation'
      *
-     * @param  float $version (required)
      * @param  int $notable_id The id of the notable object the batch operation will affect (required)
      * @param  string $notable_type The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -351,15 +346,8 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function batchOperationRequest($version, $notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
+    public function batchOperationRequest($notable_id, $notable_type, $device_id = null, $account_id = null, $batch_operation = null, string $contentType = self::contentTypes['batchOperation'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling batchOperation'
-            );
-        }
 
         // verify the required parameter 'notable_id' is set
         if ($notable_id === null || (is_array($notable_id) && count($notable_id) === 0)) {
@@ -379,7 +367,7 @@ class NoteApi
 
 
 
-        $resourcePath = '/api/{version}/note/batch';
+        $resourcePath = '/note/batch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -433,14 +421,6 @@ class NoteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -501,7 +481,6 @@ class NoteApi
      *
      * Create Note
      *
-     * @param  float $version version (required)
      * @param  string $comment The message the user wishes to leave a comment on (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -550,9 +529,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NoteResponse
      */
-    public function createNote($version, $comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
+    public function createNote($comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
     {
-        list($response) = $this->createNoteWithHttpInfo($version, $comment, $device_id, $account_id, $notable_type, $notable_id, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $receiver_account_ids, $return_full_response, $initialize_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
+        list($response) = $this->createNoteWithHttpInfo($comment, $device_id, $account_id, $notable_type, $notable_id, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $receiver_account_ids, $return_full_response, $initialize_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
         return $response;
     }
 
@@ -561,7 +540,6 @@ class NoteApi
      *
      * Create Note
      *
-     * @param  float $version (required)
      * @param  string $comment The message the user wishes to leave a comment on (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -610,9 +588,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NoteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createNoteWithHttpInfo($version, $comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
+    public function createNoteWithHttpInfo($comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
     {
-        $request = $this->createNoteRequest($version, $comment, $device_id, $account_id, $notable_type, $notable_id, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $receiver_account_ids, $return_full_response, $initialize_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
+        $request = $this->createNoteRequest($comment, $device_id, $account_id, $notable_type, $notable_id, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $receiver_account_ids, $return_full_response, $initialize_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -688,7 +666,6 @@ class NoteApi
      *
      * Create Note
      *
-     * @param  float $version (required)
      * @param  string $comment The message the user wishes to leave a comment on (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -736,9 +713,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createNoteAsync($version, $comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
+    public function createNoteAsync($comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
     {
-        return $this->createNoteAsyncWithHttpInfo($version, $comment, $device_id, $account_id, $notable_type, $notable_id, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $receiver_account_ids, $return_full_response, $initialize_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType)
+        return $this->createNoteAsyncWithHttpInfo($comment, $device_id, $account_id, $notable_type, $notable_id, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $receiver_account_ids, $return_full_response, $initialize_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -751,7 +728,6 @@ class NoteApi
      *
      * Create Note
      *
-     * @param  float $version (required)
      * @param  string $comment The message the user wishes to leave a comment on (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -799,10 +775,10 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createNoteAsyncWithHttpInfo($version, $comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
+    public function createNoteAsyncWithHttpInfo($comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NoteResponse';
-        $request = $this->createNoteRequest($version, $comment, $device_id, $account_id, $notable_type, $notable_id, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $receiver_account_ids, $return_full_response, $initialize_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
+        $request = $this->createNoteRequest($comment, $device_id, $account_id, $notable_type, $notable_id, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $receiver_account_ids, $return_full_response, $initialize_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -843,7 +819,6 @@ class NoteApi
     /**
      * Create request for operation 'createNote'
      *
-     * @param  float $version (required)
      * @param  string $comment The message the user wishes to leave a comment on (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -891,15 +866,8 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createNoteRequest($version, $comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
+    public function createNoteRequest($comment, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $receiver_account_ids = null, $return_full_response = null, $initialize_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['createNote'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createNote'
-            );
-        }
 
         // verify the required parameter 'comment' is set
         if ($comment === null || (is_array($comment) && count($comment) === 0)) {
@@ -950,7 +918,7 @@ class NoteApi
 
 
 
-        $resourcePath = '/api/{version}/note/create';
+        $resourcePath = '/note/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1337,14 +1305,6 @@ class NoteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1405,7 +1365,6 @@ class NoteApi
      *
      * Delete Note
      *
-     * @param  float $version version (required)
      * @param  int $note_id The ID of the note to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1418,9 +1377,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteNote($version, $note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
+    public function deleteNote($note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
     {
-        list($response) = $this->deleteNoteWithHttpInfo($version, $note_id, $device_id, $account_id, $latitude, $longitude, $app_key, $contentType);
+        list($response) = $this->deleteNoteWithHttpInfo($note_id, $device_id, $account_id, $latitude, $longitude, $app_key, $contentType);
         return $response;
     }
 
@@ -1429,7 +1388,6 @@ class NoteApi
      *
      * Delete Note
      *
-     * @param  float $version (required)
      * @param  int $note_id The ID of the note to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1442,9 +1400,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteNoteWithHttpInfo($version, $note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
+    public function deleteNoteWithHttpInfo($note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
     {
-        $request = $this->deleteNoteRequest($version, $note_id, $device_id, $account_id, $latitude, $longitude, $app_key, $contentType);
+        $request = $this->deleteNoteRequest($note_id, $device_id, $account_id, $latitude, $longitude, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1520,7 +1478,6 @@ class NoteApi
      *
      * Delete Note
      *
-     * @param  float $version (required)
      * @param  int $note_id The ID of the note to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1532,9 +1489,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteNoteAsync($version, $note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
+    public function deleteNoteAsync($note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
     {
-        return $this->deleteNoteAsyncWithHttpInfo($version, $note_id, $device_id, $account_id, $latitude, $longitude, $app_key, $contentType)
+        return $this->deleteNoteAsyncWithHttpInfo($note_id, $device_id, $account_id, $latitude, $longitude, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1547,7 +1504,6 @@ class NoteApi
      *
      * Delete Note
      *
-     * @param  float $version (required)
      * @param  int $note_id The ID of the note to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1559,10 +1515,10 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteNoteAsyncWithHttpInfo($version, $note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
+    public function deleteNoteAsyncWithHttpInfo($note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteNoteRequest($version, $note_id, $device_id, $account_id, $latitude, $longitude, $app_key, $contentType);
+        $request = $this->deleteNoteRequest($note_id, $device_id, $account_id, $latitude, $longitude, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1603,7 +1559,6 @@ class NoteApi
     /**
      * Create request for operation 'deleteNote'
      *
-     * @param  float $version (required)
      * @param  int $note_id The ID of the note to delete (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1615,15 +1570,8 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteNoteRequest($version, $note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
+    public function deleteNoteRequest($note_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $app_key = null, string $contentType = self::contentTypes['deleteNote'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteNote'
-            );
-        }
 
         // verify the required parameter 'note_id' is set
         if ($note_id === null || (is_array($note_id) && count($note_id) === 0)) {
@@ -1638,7 +1586,7 @@ class NoteApi
 
 
 
-        $resourcePath = '/api/{version}/note/delete';
+        $resourcePath = '/note/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1701,14 +1649,6 @@ class NoteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1769,7 +1709,6 @@ class NoteApi
      *
      * Get Note
      *
-     * @param  float $version version (required)
      * @param  int $note_id the id of the note to get (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1780,9 +1719,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function getNote($version, $note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
+    public function getNote($note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
     {
-        list($response) = $this->getNoteWithHttpInfo($version, $note_id, $device_id, $account_id, $return_full_response, $contentType);
+        list($response) = $this->getNoteWithHttpInfo($note_id, $device_id, $account_id, $return_full_response, $contentType);
         return $response;
     }
 
@@ -1791,7 +1730,6 @@ class NoteApi
      *
      * Get Note
      *
-     * @param  float $version (required)
      * @param  int $note_id the id of the note to get (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1802,9 +1740,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNoteWithHttpInfo($version, $note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
+    public function getNoteWithHttpInfo($note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
     {
-        $request = $this->getNoteRequest($version, $note_id, $device_id, $account_id, $return_full_response, $contentType);
+        $request = $this->getNoteRequest($note_id, $device_id, $account_id, $return_full_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1880,7 +1818,6 @@ class NoteApi
      *
      * Get Note
      *
-     * @param  float $version (required)
      * @param  int $note_id the id of the note to get (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1890,9 +1827,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNoteAsync($version, $note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
+    public function getNoteAsync($note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
     {
-        return $this->getNoteAsyncWithHttpInfo($version, $note_id, $device_id, $account_id, $return_full_response, $contentType)
+        return $this->getNoteAsyncWithHttpInfo($note_id, $device_id, $account_id, $return_full_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1905,7 +1842,6 @@ class NoteApi
      *
      * Get Note
      *
-     * @param  float $version (required)
      * @param  int $note_id the id of the note to get (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1915,10 +1851,10 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNoteAsyncWithHttpInfo($version, $note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
+    public function getNoteAsyncWithHttpInfo($note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->getNoteRequest($version, $note_id, $device_id, $account_id, $return_full_response, $contentType);
+        $request = $this->getNoteRequest($note_id, $device_id, $account_id, $return_full_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1959,7 +1895,6 @@ class NoteApi
     /**
      * Create request for operation 'getNote'
      *
-     * @param  float $version (required)
      * @param  int $note_id the id of the note to get (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1969,15 +1904,8 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNoteRequest($version, $note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
+    public function getNoteRequest($note_id, $device_id = null, $account_id = null, $return_full_response = null, string $contentType = self::contentTypes['getNote'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getNote'
-            );
-        }
 
         // verify the required parameter 'note_id' is set
         if ($note_id === null || (is_array($note_id) && count($note_id) === 0)) {
@@ -1990,7 +1918,7 @@ class NoteApi
 
 
 
-        $resourcePath = '/api/{version}/note/get';
+        $resourcePath = '/note/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2035,14 +1963,6 @@ class NoteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2103,7 +2023,6 @@ class NoteApi
      *
      * Search Notes
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $notable_type The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -2127,9 +2046,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NoteResponse[]
      */
-    public function searchNotes($version, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
+    public function searchNotes($device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
     {
-        list($response) = $this->searchNotesWithHttpInfo($version, $device_id, $account_id, $notable_type, $notable_id, $note_types, $app_key, $keyword, $flag_count_minimum, $flags_exceed_threshold, $include_inactive, $sort_field, $descending, $return_full_response, $updated_since, $updated_before, $start, $limit, $contentType);
+        list($response) = $this->searchNotesWithHttpInfo($device_id, $account_id, $notable_type, $notable_id, $note_types, $app_key, $keyword, $flag_count_minimum, $flags_exceed_threshold, $include_inactive, $sort_field, $descending, $return_full_response, $updated_since, $updated_before, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2138,7 +2057,6 @@ class NoteApi
      *
      * Search Notes
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $notable_type The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -2162,9 +2080,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NoteResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchNotesWithHttpInfo($version, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
+    public function searchNotesWithHttpInfo($device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
     {
-        $request = $this->searchNotesRequest($version, $device_id, $account_id, $notable_type, $notable_id, $note_types, $app_key, $keyword, $flag_count_minimum, $flags_exceed_threshold, $include_inactive, $sort_field, $descending, $return_full_response, $updated_since, $updated_before, $start, $limit, $contentType);
+        $request = $this->searchNotesRequest($device_id, $account_id, $notable_type, $notable_id, $note_types, $app_key, $keyword, $flag_count_minimum, $flags_exceed_threshold, $include_inactive, $sort_field, $descending, $return_full_response, $updated_since, $updated_before, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2240,7 +2158,6 @@ class NoteApi
      *
      * Search Notes
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $notable_type The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -2263,9 +2180,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchNotesAsync($version, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
+    public function searchNotesAsync($device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
     {
-        return $this->searchNotesAsyncWithHttpInfo($version, $device_id, $account_id, $notable_type, $notable_id, $note_types, $app_key, $keyword, $flag_count_minimum, $flags_exceed_threshold, $include_inactive, $sort_field, $descending, $return_full_response, $updated_since, $updated_before, $start, $limit, $contentType)
+        return $this->searchNotesAsyncWithHttpInfo($device_id, $account_id, $notable_type, $notable_id, $note_types, $app_key, $keyword, $flag_count_minimum, $flags_exceed_threshold, $include_inactive, $sort_field, $descending, $return_full_response, $updated_since, $updated_before, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2278,7 +2195,6 @@ class NoteApi
      *
      * Search Notes
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $notable_type The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -2301,10 +2217,10 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchNotesAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
+    public function searchNotesAsyncWithHttpInfo($device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NoteResponse[]';
-        $request = $this->searchNotesRequest($version, $device_id, $account_id, $notable_type, $notable_id, $note_types, $app_key, $keyword, $flag_count_minimum, $flags_exceed_threshold, $include_inactive, $sort_field, $descending, $return_full_response, $updated_since, $updated_before, $start, $limit, $contentType);
+        $request = $this->searchNotesRequest($device_id, $account_id, $notable_type, $notable_id, $note_types, $app_key, $keyword, $flag_count_minimum, $flags_exceed_threshold, $include_inactive, $sort_field, $descending, $return_full_response, $updated_since, $updated_before, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2345,7 +2261,6 @@ class NoteApi
     /**
      * Create request for operation 'searchNotes'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $notable_type The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -2368,15 +2283,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchNotesRequest($version, $device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
+    public function searchNotesRequest($device_id = null, $account_id = null, $notable_type = null, $notable_id = null, $note_types = null, $app_key = null, $keyword = null, $flag_count_minimum = null, $flags_exceed_threshold = null, $include_inactive = null, $sort_field = null, $descending = null, $return_full_response = null, $updated_since = null, $updated_before = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchNotes'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchNotes'
-            );
-        }
 
 
 
@@ -2395,8 +2304,7 @@ class NoteApi
 
 
 
-
-        $resourcePath = '/api/{version}/note/search';
+        $resourcePath = '/note/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2558,14 +2466,6 @@ class NoteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2626,7 +2526,6 @@ class NoteApi
      *
      * Update Note
      *
-     * @param  float $version version (required)
      * @param  int $note_id The id of the note, used when editing a comment (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -2674,9 +2573,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NoteResponse
      */
-    public function updateNote($version, $note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
+    public function updateNote($note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
     {
-        list($response) = $this->updateNoteWithHttpInfo($version, $note_id, $device_id, $account_id, $comment, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $return_full_response, $active, $update_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
+        list($response) = $this->updateNoteWithHttpInfo($note_id, $device_id, $account_id, $comment, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $return_full_response, $active, $update_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
         return $response;
     }
 
@@ -2685,7 +2584,6 @@ class NoteApi
      *
      * Update Note
      *
-     * @param  float $version (required)
      * @param  int $note_id The id of the note, used when editing a comment (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -2733,9 +2631,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NoteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateNoteWithHttpInfo($version, $note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
+    public function updateNoteWithHttpInfo($note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
     {
-        $request = $this->updateNoteRequest($version, $note_id, $device_id, $account_id, $comment, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $return_full_response, $active, $update_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
+        $request = $this->updateNoteRequest($note_id, $device_id, $account_id, $comment, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $return_full_response, $active, $update_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2811,7 +2709,6 @@ class NoteApi
      *
      * Update Note
      *
-     * @param  float $version (required)
      * @param  int $note_id The id of the note, used when editing a comment (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -2858,9 +2755,9 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateNoteAsync($version, $note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
+    public function updateNoteAsync($note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
     {
-        return $this->updateNoteAsyncWithHttpInfo($version, $note_id, $device_id, $account_id, $comment, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $return_full_response, $active, $update_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType)
+        return $this->updateNoteAsyncWithHttpInfo($note_id, $device_id, $account_id, $comment, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $return_full_response, $active, $update_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2873,7 +2770,6 @@ class NoteApi
      *
      * Update Note
      *
-     * @param  float $version (required)
      * @param  int $note_id The id of the note, used when editing a comment (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -2920,10 +2816,10 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateNoteAsyncWithHttpInfo($version, $note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
+    public function updateNoteAsyncWithHttpInfo($note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NoteResponse';
-        $request = $this->updateNoteRequest($version, $note_id, $device_id, $account_id, $comment, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $return_full_response, $active, $update_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
+        $request = $this->updateNoteRequest($note_id, $device_id, $account_id, $comment, $note_type, $asset_ids, $tags, $permissionable_type, $permissionable_id, $app_key, $location_description, $latitude, $longitude, $meta_data, $return_full_response, $active, $update_asset, $asset_return_nulls, $asset_album_id, $asset_collection_id, $asset_add_to_default_album, $asset_add_to_media_library, $asset_version_code, $asset_version_name, $asset_meta_data, $asset_caption, $asset_media, $asset_media_url, $asset_media_string, $asset_media_string_file_name, $asset_media_string_content_type, $asset_attached_media, $asset_attached_media_url, $asset_attached_media_string, $asset_attached_media_string_file_name, $asset_attached_media_string_content_type, $asset_location_description, $asset_app, $asset_search_tags, $asset_latitude, $asset_longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2964,7 +2860,6 @@ class NoteApi
     /**
      * Create request for operation 'updateNote'
      *
-     * @param  float $version (required)
      * @param  int $note_id The id of the note, used when editing a comment (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -3011,15 +2906,8 @@ class NoteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateNoteRequest($version, $note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
+    public function updateNoteRequest($note_id, $device_id = null, $account_id = null, $comment = null, $note_type = null, $asset_ids = null, $tags = null, $permissionable_type = null, $permissionable_id = null, $app_key = null, $location_description = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = null, $active = null, $update_asset = null, $asset_return_nulls = null, $asset_album_id = null, $asset_collection_id = null, $asset_add_to_default_album = null, $asset_add_to_media_library = null, $asset_version_code = null, $asset_version_name = null, $asset_meta_data = null, $asset_caption = null, $asset_media = null, $asset_media_url = null, $asset_media_string = null, $asset_media_string_file_name = null, $asset_media_string_content_type = null, $asset_attached_media = null, $asset_attached_media_url = null, $asset_attached_media_string = null, $asset_attached_media_string_file_name = null, $asset_attached_media_string_content_type = null, $asset_location_description = null, $asset_app = null, $asset_search_tags = null, $asset_latitude = null, $asset_longitude = null, string $contentType = self::contentTypes['updateNote'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateNote'
-            );
-        }
 
         // verify the required parameter 'note_id' is set
         if ($note_id === null || (is_array($note_id) && count($note_id) === 0)) {
@@ -3069,7 +2957,7 @@ class NoteApi
 
 
 
-        $resourcePath = '/api/{version}/note/update';
+        $resourcePath = '/note/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3447,14 +3335,6 @@ class NoteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -143,7 +143,6 @@ class AnalyticsApi
      *
      * Get User Activity
      *
-     * @param  float $version version (required)
      * @param  int $start The start of the pagination (required)
      * @param  int $limit The limit of the pagination (required)
      * @param  int $account_id the account id of the user (required)
@@ -153,9 +152,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\UserActivityResponse[]
      */
-    public function activities($version, $start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
+    public function activities($start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
     {
-        list($response) = $this->activitiesWithHttpInfo($version, $start, $limit, $account_id, $contentType);
+        list($response) = $this->activitiesWithHttpInfo($start, $limit, $account_id, $contentType);
         return $response;
     }
 
@@ -164,7 +163,6 @@ class AnalyticsApi
      *
      * Get User Activity
      *
-     * @param  float $version (required)
      * @param  int $start The start of the pagination (required)
      * @param  int $limit The limit of the pagination (required)
      * @param  int $account_id the account id of the user (required)
@@ -174,9 +172,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\UserActivityResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function activitiesWithHttpInfo($version, $start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
+    public function activitiesWithHttpInfo($start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
     {
-        $request = $this->activitiesRequest($version, $start, $limit, $account_id, $contentType);
+        $request = $this->activitiesRequest($start, $limit, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -252,7 +250,6 @@ class AnalyticsApi
      *
      * Get User Activity
      *
-     * @param  float $version (required)
      * @param  int $start The start of the pagination (required)
      * @param  int $limit The limit of the pagination (required)
      * @param  int $account_id the account id of the user (required)
@@ -261,9 +258,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function activitiesAsync($version, $start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
+    public function activitiesAsync($start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
     {
-        return $this->activitiesAsyncWithHttpInfo($version, $start, $limit, $account_id, $contentType)
+        return $this->activitiesAsyncWithHttpInfo($start, $limit, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -276,7 +273,6 @@ class AnalyticsApi
      *
      * Get User Activity
      *
-     * @param  float $version (required)
      * @param  int $start The start of the pagination (required)
      * @param  int $limit The limit of the pagination (required)
      * @param  int $account_id the account id of the user (required)
@@ -285,10 +281,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function activitiesAsyncWithHttpInfo($version, $start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
+    public function activitiesAsyncWithHttpInfo($start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UserActivityResponse[]';
-        $request = $this->activitiesRequest($version, $start, $limit, $account_id, $contentType);
+        $request = $this->activitiesRequest($start, $limit, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -329,7 +325,6 @@ class AnalyticsApi
     /**
      * Create request for operation 'activities'
      *
-     * @param  float $version (required)
      * @param  int $start The start of the pagination (required)
      * @param  int $limit The limit of the pagination (required)
      * @param  int $account_id the account id of the user (required)
@@ -338,15 +333,8 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function activitiesRequest($version, $start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
+    public function activitiesRequest($start, $limit, $account_id, string $contentType = self::contentTypes['activities'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling activities'
-            );
-        }
 
         // verify the required parameter 'start' is set
         if ($start === null || (is_array($start) && count($start) === 0)) {
@@ -370,7 +358,7 @@ class AnalyticsApi
         }
 
 
-        $resourcePath = '/api/{version}/analytics/useractivity';
+        $resourcePath = '/analytics/useractivity';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -406,14 +394,6 @@ class AnalyticsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -474,7 +454,6 @@ class AnalyticsApi
      *
      * Get Aggregated Filtered Usage
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -512,9 +491,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ChartData
      */
-    public function aggregatedFilteredUsage($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
+    public function aggregatedFilteredUsage($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
     {
-        list($response) = $this->aggregatedFilteredUsageWithHttpInfo($version, $device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $group_by_root, $group_by, $distinct_count, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
+        list($response) = $this->aggregatedFilteredUsageWithHttpInfo($device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $group_by_root, $group_by, $distinct_count, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -523,7 +502,6 @@ class AnalyticsApi
      *
      * Get Aggregated Filtered Usage
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -561,9 +539,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ChartData, HTTP status code, HTTP response headers (array of strings)
      */
-    public function aggregatedFilteredUsageWithHttpInfo($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
+    public function aggregatedFilteredUsageWithHttpInfo($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
     {
-        $request = $this->aggregatedFilteredUsageRequest($version, $device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $group_by_root, $group_by, $distinct_count, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
+        $request = $this->aggregatedFilteredUsageRequest($device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $group_by_root, $group_by, $distinct_count, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -639,7 +617,6 @@ class AnalyticsApi
      *
      * Get Aggregated Filtered Usage
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -676,9 +653,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregatedFilteredUsageAsync($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
+    public function aggregatedFilteredUsageAsync($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
     {
-        return $this->aggregatedFilteredUsageAsyncWithHttpInfo($version, $device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $group_by_root, $group_by, $distinct_count, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType)
+        return $this->aggregatedFilteredUsageAsyncWithHttpInfo($device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $group_by_root, $group_by, $distinct_count, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -691,7 +668,6 @@ class AnalyticsApi
      *
      * Get Aggregated Filtered Usage
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -728,10 +704,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregatedFilteredUsageAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
+    public function aggregatedFilteredUsageAsyncWithHttpInfo($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ChartData';
-        $request = $this->aggregatedFilteredUsageRequest($version, $device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $group_by_root, $group_by, $distinct_count, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
+        $request = $this->aggregatedFilteredUsageRequest($device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $group_by_root, $group_by, $distinct_count, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -772,7 +748,6 @@ class AnalyticsApi
     /**
      * Create request for operation 'aggregatedFilteredUsage'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -809,15 +784,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function aggregatedFilteredUsageRequest($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
+    public function aggregatedFilteredUsageRequest($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $group_by_root = null, $group_by = null, $distinct_count = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['aggregatedFilteredUsage'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling aggregatedFilteredUsage'
-            );
-        }
 
 
 
@@ -850,8 +819,7 @@ class AnalyticsApi
 
 
 
-
-        $resourcePath = '/api/{version}/analytics/aggregatedFilteredUsage';
+        $resourcePath = '/analytics/aggregatedFilteredUsage';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1139,14 +1107,6 @@ class AnalyticsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1207,7 +1167,6 @@ class AnalyticsApi
      *
      * Get Filtered Usage
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -1253,9 +1212,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ChartData
      */
-    public function filteredUsage($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
+    public function filteredUsage($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
     {
-        list($response) = $this->filteredUsageWithHttpInfo($version, $device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $custom_id, $custom_type, $custom_value, $custom_value2, $custom_long, $custom_long2, $custom_message, $custom_message2, $group_by, $distinct_count, $sum_column, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
+        list($response) = $this->filteredUsageWithHttpInfo($device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $custom_id, $custom_type, $custom_value, $custom_value2, $custom_long, $custom_long2, $custom_message, $custom_message2, $group_by, $distinct_count, $sum_column, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1264,7 +1223,6 @@ class AnalyticsApi
      *
      * Get Filtered Usage
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -1310,9 +1268,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ChartData, HTTP status code, HTTP response headers (array of strings)
      */
-    public function filteredUsageWithHttpInfo($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
+    public function filteredUsageWithHttpInfo($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
     {
-        $request = $this->filteredUsageRequest($version, $device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $custom_id, $custom_type, $custom_value, $custom_value2, $custom_long, $custom_long2, $custom_message, $custom_message2, $group_by, $distinct_count, $sum_column, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
+        $request = $this->filteredUsageRequest($device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $custom_id, $custom_type, $custom_value, $custom_value2, $custom_long, $custom_long2, $custom_message, $custom_message2, $group_by, $distinct_count, $sum_column, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1388,7 +1346,6 @@ class AnalyticsApi
      *
      * Get Filtered Usage
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -1433,9 +1390,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function filteredUsageAsync($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
+    public function filteredUsageAsync($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
     {
-        return $this->filteredUsageAsyncWithHttpInfo($version, $device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $custom_id, $custom_type, $custom_value, $custom_value2, $custom_long, $custom_long2, $custom_message, $custom_message2, $group_by, $distinct_count, $sum_column, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType)
+        return $this->filteredUsageAsyncWithHttpInfo($device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $custom_id, $custom_type, $custom_value, $custom_value2, $custom_long, $custom_long2, $custom_message, $custom_message2, $group_by, $distinct_count, $sum_column, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1448,7 +1405,6 @@ class AnalyticsApi
      *
      * Get Filtered Usage
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -1493,10 +1449,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function filteredUsageAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
+    public function filteredUsageAsyncWithHttpInfo($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ChartData';
-        $request = $this->filteredUsageRequest($version, $device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $custom_id, $custom_type, $custom_value, $custom_value2, $custom_long, $custom_long2, $custom_message, $custom_message2, $group_by, $distinct_count, $sum_column, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
+        $request = $this->filteredUsageRequest($device_id, $account_id, $application_id, $app_key, $start_date, $end_date, $device_type, $device, $device_os, $gender, $age_group, $country, $state, $city, $zip, $model, $tag, $user_account_id, $user_account_display, $user_account_username, $custom_id, $custom_type, $custom_value, $custom_value2, $custom_long, $custom_long2, $custom_message, $custom_message2, $group_by, $distinct_count, $sum_column, $sort_field, $descending, $hide_unknown, $response_format, $_l, $limit, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1537,7 +1493,6 @@ class AnalyticsApi
     /**
      * Create request for operation 'filteredUsage'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $application_id This parameter is deprecated. (optional)
@@ -1582,15 +1537,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function filteredUsageRequest($version, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
+    public function filteredUsageRequest($device_id = null, $account_id = null, $application_id = null, $app_key = null, $start_date = null, $end_date = null, $device_type = null, $device = null, $device_os = null, $gender = null, $age_group = null, $country = null, $state = null, $city = null, $zip = null, $model = null, $tag = null, $user_account_id = null, $user_account_display = null, $user_account_username = null, $custom_id = null, $custom_type = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, $custom_message = null, $custom_message2 = null, $group_by = null, $distinct_count = null, $sum_column = null, $sort_field = null, $descending = null, $hide_unknown = null, $response_format = null, $_l = null, $limit = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['filteredUsage'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling filteredUsage'
-            );
-        }
 
 
 
@@ -1631,8 +1580,7 @@ class AnalyticsApi
 
 
 
-
-        $resourcePath = '/api/{version}/analytics/filteredUsage';
+        $resourcePath = '/analytics/filteredUsage';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1992,14 +1940,6 @@ class AnalyticsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2060,7 +2000,6 @@ class AnalyticsApi
      *
      * Create Usage Record
      *
-     * @param  float $version version (required)
      * @param  string $tag The tag to apply: the name of the action or thing being logged. (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2098,9 +2037,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function usage($version, $tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
+    public function usage($tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
     {
-        list($response) = $this->usageWithHttpInfo($version, $tag, $device_id, $account_id, $application_id, $app_key, $app_version, $device, $device_type, $device_os, $model, $latitude, $longitude, $custom_id, $custom_type, $achievement_increment, $city, $state, $country, $zip, $location_description, $client_time, $error_message, $ip, $user_agent, $background_event, $custom_message, $custom_message2, $custom_value, $custom_value2, $custom_long, $custom_long2, $contentType);
+        list($response) = $this->usageWithHttpInfo($tag, $device_id, $account_id, $application_id, $app_key, $app_version, $device, $device_type, $device_os, $model, $latitude, $longitude, $custom_id, $custom_type, $achievement_increment, $city, $state, $country, $zip, $location_description, $client_time, $error_message, $ip, $user_agent, $background_event, $custom_message, $custom_message2, $custom_value, $custom_value2, $custom_long, $custom_long2, $contentType);
         return $response;
     }
 
@@ -2109,7 +2048,6 @@ class AnalyticsApi
      *
      * Create Usage Record
      *
-     * @param  float $version (required)
      * @param  string $tag The tag to apply: the name of the action or thing being logged. (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2147,9 +2085,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function usageWithHttpInfo($version, $tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
+    public function usageWithHttpInfo($tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
     {
-        $request = $this->usageRequest($version, $tag, $device_id, $account_id, $application_id, $app_key, $app_version, $device, $device_type, $device_os, $model, $latitude, $longitude, $custom_id, $custom_type, $achievement_increment, $city, $state, $country, $zip, $location_description, $client_time, $error_message, $ip, $user_agent, $background_event, $custom_message, $custom_message2, $custom_value, $custom_value2, $custom_long, $custom_long2, $contentType);
+        $request = $this->usageRequest($tag, $device_id, $account_id, $application_id, $app_key, $app_version, $device, $device_type, $device_os, $model, $latitude, $longitude, $custom_id, $custom_type, $achievement_increment, $city, $state, $country, $zip, $location_description, $client_time, $error_message, $ip, $user_agent, $background_event, $custom_message, $custom_message2, $custom_value, $custom_value2, $custom_long, $custom_long2, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2225,7 +2163,6 @@ class AnalyticsApi
      *
      * Create Usage Record
      *
-     * @param  float $version (required)
      * @param  string $tag The tag to apply: the name of the action or thing being logged. (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2262,9 +2199,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function usageAsync($version, $tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
+    public function usageAsync($tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
     {
-        return $this->usageAsyncWithHttpInfo($version, $tag, $device_id, $account_id, $application_id, $app_key, $app_version, $device, $device_type, $device_os, $model, $latitude, $longitude, $custom_id, $custom_type, $achievement_increment, $city, $state, $country, $zip, $location_description, $client_time, $error_message, $ip, $user_agent, $background_event, $custom_message, $custom_message2, $custom_value, $custom_value2, $custom_long, $custom_long2, $contentType)
+        return $this->usageAsyncWithHttpInfo($tag, $device_id, $account_id, $application_id, $app_key, $app_version, $device, $device_type, $device_os, $model, $latitude, $longitude, $custom_id, $custom_type, $achievement_increment, $city, $state, $country, $zip, $location_description, $client_time, $error_message, $ip, $user_agent, $background_event, $custom_message, $custom_message2, $custom_value, $custom_value2, $custom_long, $custom_long2, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2277,7 +2214,6 @@ class AnalyticsApi
      *
      * Create Usage Record
      *
-     * @param  float $version (required)
      * @param  string $tag The tag to apply: the name of the action or thing being logged. (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2314,10 +2250,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function usageAsyncWithHttpInfo($version, $tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
+    public function usageAsyncWithHttpInfo($tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->usageRequest($version, $tag, $device_id, $account_id, $application_id, $app_key, $app_version, $device, $device_type, $device_os, $model, $latitude, $longitude, $custom_id, $custom_type, $achievement_increment, $city, $state, $country, $zip, $location_description, $client_time, $error_message, $ip, $user_agent, $background_event, $custom_message, $custom_message2, $custom_value, $custom_value2, $custom_long, $custom_long2, $contentType);
+        $request = $this->usageRequest($tag, $device_id, $account_id, $application_id, $app_key, $app_version, $device, $device_type, $device_os, $model, $latitude, $longitude, $custom_id, $custom_type, $achievement_increment, $city, $state, $country, $zip, $location_description, $client_time, $error_message, $ip, $user_agent, $background_event, $custom_message, $custom_message2, $custom_value, $custom_value2, $custom_long, $custom_long2, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2358,7 +2294,6 @@ class AnalyticsApi
     /**
      * Create request for operation 'usage'
      *
-     * @param  float $version (required)
      * @param  string $tag The tag to apply: the name of the action or thing being logged. (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2395,15 +2330,8 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function usageRequest($version, $tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
+    public function usageRequest($tag, $device_id = null, $account_id = null, $application_id = null, $app_key = null, $app_version = null, $device = null, $device_type = null, $device_os = null, $model = null, $latitude = null, $longitude = null, $custom_id = null, $custom_type = null, $achievement_increment = null, $city = null, $state = null, $country = null, $zip = null, $location_description = null, $client_time = null, $error_message = null, $ip = null, $user_agent = null, $background_event = null, $custom_message = null, $custom_message2 = null, $custom_value = null, $custom_value2 = null, $custom_long = null, $custom_long2 = null, string $contentType = self::contentTypes['usage'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling usage'
-            );
-        }
 
         // verify the required parameter 'tag' is set
         if ($tag === null || (is_array($tag) && count($tag) === 0)) {
@@ -2443,7 +2371,7 @@ class AnalyticsApi
 
 
 
-        $resourcePath = '/api/{version}/analytics/usage';
+        $resourcePath = '/analytics/usage';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2731,14 +2659,6 @@ class AnalyticsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2799,7 +2719,6 @@ class AnalyticsApi
      *
      * Create Multiple Usage Records
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param  string $data The analytic data AnalyticListResponse (required)
@@ -2817,9 +2736,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function usageBatch($version, $app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
+    public function usageBatch($app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
     {
-        list($response) = $this->usageBatchWithHttpInfo($version, $app_key, $device, $data, $device_id, $account_id, $app_version, $device_type, $device_os, $model, $update_ranking, $return_summary_response, $contentType);
+        list($response) = $this->usageBatchWithHttpInfo($app_key, $device, $data, $device_id, $account_id, $app_version, $device_type, $device_os, $model, $update_ranking, $return_summary_response, $contentType);
         return $response;
     }
 
@@ -2828,7 +2747,6 @@ class AnalyticsApi
      *
      * Create Multiple Usage Records
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param  string $data The analytic data AnalyticListResponse (required)
@@ -2846,9 +2764,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function usageBatchWithHttpInfo($version, $app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
+    public function usageBatchWithHttpInfo($app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
     {
-        $request = $this->usageBatchRequest($version, $app_key, $device, $data, $device_id, $account_id, $app_version, $device_type, $device_os, $model, $update_ranking, $return_summary_response, $contentType);
+        $request = $this->usageBatchRequest($app_key, $device, $data, $device_id, $account_id, $app_version, $device_type, $device_os, $model, $update_ranking, $return_summary_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2924,7 +2842,6 @@ class AnalyticsApi
      *
      * Create Multiple Usage Records
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param  string $data The analytic data AnalyticListResponse (required)
@@ -2941,9 +2858,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function usageBatchAsync($version, $app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
+    public function usageBatchAsync($app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
     {
-        return $this->usageBatchAsyncWithHttpInfo($version, $app_key, $device, $data, $device_id, $account_id, $app_version, $device_type, $device_os, $model, $update_ranking, $return_summary_response, $contentType)
+        return $this->usageBatchAsyncWithHttpInfo($app_key, $device, $data, $device_id, $account_id, $app_version, $device_type, $device_os, $model, $update_ranking, $return_summary_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2956,7 +2873,6 @@ class AnalyticsApi
      *
      * Create Multiple Usage Records
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param  string $data The analytic data AnalyticListResponse (required)
@@ -2973,10 +2889,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function usageBatchAsyncWithHttpInfo($version, $app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
+    public function usageBatchAsyncWithHttpInfo($app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->usageBatchRequest($version, $app_key, $device, $data, $device_id, $account_id, $app_version, $device_type, $device_os, $model, $update_ranking, $return_summary_response, $contentType);
+        $request = $this->usageBatchRequest($app_key, $device, $data, $device_id, $account_id, $app_version, $device_type, $device_os, $model, $update_ranking, $return_summary_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3017,7 +2933,6 @@ class AnalyticsApi
     /**
      * Create request for operation 'usageBatch'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param  string $data The analytic data AnalyticListResponse (required)
@@ -3034,15 +2949,8 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function usageBatchRequest($version, $app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
+    public function usageBatchRequest($app_key, $device, $data, $device_id = null, $account_id = null, $app_version = null, $device_type = null, $device_os = null, $model = null, $update_ranking = null, $return_summary_response = null, string $contentType = self::contentTypes['usageBatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling usageBatch'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -3074,7 +2982,7 @@ class AnalyticsApi
 
 
 
-        $resourcePath = '/api/{version}/analytics/usage/batch';
+        $resourcePath = '/analytics/usage/batch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3182,14 +3090,6 @@ class AnalyticsApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

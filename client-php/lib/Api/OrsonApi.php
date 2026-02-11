@@ -200,7 +200,6 @@ class OrsonApi
      *
      * Add Movie
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $movie_name Movie Name (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -214,9 +213,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiAddMovieResponse
      */
-    public function addMovie($version, $account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
+    public function addMovie($account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
     {
-        list($response) = $this->addMovieWithHttpInfo($version, $account_id, $movie_name, $third_party_account_id, $tags, $file, $url, $callback, $contentType);
+        list($response) = $this->addMovieWithHttpInfo($account_id, $movie_name, $third_party_account_id, $tags, $file, $url, $callback, $contentType);
         return $response;
     }
 
@@ -225,7 +224,6 @@ class OrsonApi
      *
      * Add Movie
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $movie_name Movie Name (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -239,9 +237,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiAddMovieResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addMovieWithHttpInfo($version, $account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
+    public function addMovieWithHttpInfo($account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
     {
-        $request = $this->addMovieRequest($version, $account_id, $movie_name, $third_party_account_id, $tags, $file, $url, $callback, $contentType);
+        $request = $this->addMovieRequest($account_id, $movie_name, $third_party_account_id, $tags, $file, $url, $callback, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -317,7 +315,6 @@ class OrsonApi
      *
      * Add Movie
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $movie_name Movie Name (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -330,9 +327,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addMovieAsync($version, $account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
+    public function addMovieAsync($account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
     {
-        return $this->addMovieAsyncWithHttpInfo($version, $account_id, $movie_name, $third_party_account_id, $tags, $file, $url, $callback, $contentType)
+        return $this->addMovieAsyncWithHttpInfo($account_id, $movie_name, $third_party_account_id, $tags, $file, $url, $callback, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -345,7 +342,6 @@ class OrsonApi
      *
      * Add Movie
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $movie_name Movie Name (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -358,10 +354,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addMovieAsyncWithHttpInfo($version, $account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
+    public function addMovieAsyncWithHttpInfo($account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiAddMovieResponse';
-        $request = $this->addMovieRequest($version, $account_id, $movie_name, $third_party_account_id, $tags, $file, $url, $callback, $contentType);
+        $request = $this->addMovieRequest($account_id, $movie_name, $third_party_account_id, $tags, $file, $url, $callback, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -402,7 +398,6 @@ class OrsonApi
     /**
      * Create request for operation 'addMovie'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $movie_name Movie Name (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -415,15 +410,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addMovieRequest($version, $account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
+    public function addMovieRequest($account_id, $movie_name, $third_party_account_id = null, $tags = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['addMovie'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addMovie'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -445,7 +433,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/addMovie';
+        $resourcePath = '/orson/ai/addMovie';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -517,14 +505,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -585,7 +565,6 @@ class OrsonApi
      *
      * Search Docs
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $doc Doc (required)
      * @param  bool|null $return_topics Return Topics (optional)
@@ -597,9 +576,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiProtoResponse
      */
-    public function aiDocs($version, $account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
+    public function aiDocs($account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
     {
-        list($response) = $this->aiDocsWithHttpInfo($version, $account_id, $doc, $return_topics, $limit, $offset, $contentType);
+        list($response) = $this->aiDocsWithHttpInfo($account_id, $doc, $return_topics, $limit, $offset, $contentType);
         return $response;
     }
 
@@ -608,7 +587,6 @@ class OrsonApi
      *
      * Search Docs
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $doc Doc (required)
      * @param  bool|null $return_topics Return Topics (optional)
@@ -620,9 +598,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiProtoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function aiDocsWithHttpInfo($version, $account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
+    public function aiDocsWithHttpInfo($account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
     {
-        $request = $this->aiDocsRequest($version, $account_id, $doc, $return_topics, $limit, $offset, $contentType);
+        $request = $this->aiDocsRequest($account_id, $doc, $return_topics, $limit, $offset, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -698,7 +676,6 @@ class OrsonApi
      *
      * Search Docs
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $doc Doc (required)
      * @param  bool|null $return_topics Return Topics (optional)
@@ -709,9 +686,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aiDocsAsync($version, $account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
+    public function aiDocsAsync($account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
     {
-        return $this->aiDocsAsyncWithHttpInfo($version, $account_id, $doc, $return_topics, $limit, $offset, $contentType)
+        return $this->aiDocsAsyncWithHttpInfo($account_id, $doc, $return_topics, $limit, $offset, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -724,7 +701,6 @@ class OrsonApi
      *
      * Search Docs
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $doc Doc (required)
      * @param  bool|null $return_topics Return Topics (optional)
@@ -735,10 +711,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aiDocsAsyncWithHttpInfo($version, $account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
+    public function aiDocsAsyncWithHttpInfo($account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiProtoResponse';
-        $request = $this->aiDocsRequest($version, $account_id, $doc, $return_topics, $limit, $offset, $contentType);
+        $request = $this->aiDocsRequest($account_id, $doc, $return_topics, $limit, $offset, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -779,7 +755,6 @@ class OrsonApi
     /**
      * Create request for operation 'aiDocs'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $doc Doc (required)
      * @param  bool|null $return_topics Return Topics (optional)
@@ -790,15 +765,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function aiDocsRequest($version, $account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
+    public function aiDocsRequest($account_id, $doc, $return_topics = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiDocs'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling aiDocs'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -818,7 +786,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/docs';
+        $resourcePath = '/orson/ai/docs';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -872,14 +840,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -940,7 +900,6 @@ class OrsonApi
      *
      * Find images
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $parse_flag Parse Flag (optional)
@@ -952,9 +911,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiProtoResponse
      */
-    public function aiFindImages($version, $account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
+    public function aiFindImages($account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
     {
-        list($response) = $this->aiFindImagesWithHttpInfo($version, $account_id, $text, $parse_flag, $fetch_flag, $size, $contentType);
+        list($response) = $this->aiFindImagesWithHttpInfo($account_id, $text, $parse_flag, $fetch_flag, $size, $contentType);
         return $response;
     }
 
@@ -963,7 +922,6 @@ class OrsonApi
      *
      * Find images
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $parse_flag Parse Flag (optional)
@@ -975,9 +933,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiProtoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function aiFindImagesWithHttpInfo($version, $account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
+    public function aiFindImagesWithHttpInfo($account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
     {
-        $request = $this->aiFindImagesRequest($version, $account_id, $text, $parse_flag, $fetch_flag, $size, $contentType);
+        $request = $this->aiFindImagesRequest($account_id, $text, $parse_flag, $fetch_flag, $size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1053,7 +1011,6 @@ class OrsonApi
      *
      * Find images
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $parse_flag Parse Flag (optional)
@@ -1064,9 +1021,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aiFindImagesAsync($version, $account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
+    public function aiFindImagesAsync($account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
     {
-        return $this->aiFindImagesAsyncWithHttpInfo($version, $account_id, $text, $parse_flag, $fetch_flag, $size, $contentType)
+        return $this->aiFindImagesAsyncWithHttpInfo($account_id, $text, $parse_flag, $fetch_flag, $size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1079,7 +1036,6 @@ class OrsonApi
      *
      * Find images
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $parse_flag Parse Flag (optional)
@@ -1090,10 +1046,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aiFindImagesAsyncWithHttpInfo($version, $account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
+    public function aiFindImagesAsyncWithHttpInfo($account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiProtoResponse';
-        $request = $this->aiFindImagesRequest($version, $account_id, $text, $parse_flag, $fetch_flag, $size, $contentType);
+        $request = $this->aiFindImagesRequest($account_id, $text, $parse_flag, $fetch_flag, $size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1134,7 +1090,6 @@ class OrsonApi
     /**
      * Create request for operation 'aiFindImages'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $parse_flag Parse Flag (optional)
@@ -1145,15 +1100,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function aiFindImagesRequest($version, $account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
+    public function aiFindImagesRequest($account_id, $text, $parse_flag = null, $fetch_flag = null, $size = null, string $contentType = self::contentTypes['aiFindImages'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling aiFindImages'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1173,7 +1121,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/img';
+        $resourcePath = '/orson/ai/img';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1227,14 +1175,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1295,7 +1235,6 @@ class OrsonApi
      *
      * Search Tags
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $tags Tags (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1307,9 +1246,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiProtoResponse
      */
-    public function aiTags($version, $account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
+    public function aiTags($account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
     {
-        list($response) = $this->aiTagsWithHttpInfo($version, $account_id, $tags, $conditional, $limit, $offset, $contentType);
+        list($response) = $this->aiTagsWithHttpInfo($account_id, $tags, $conditional, $limit, $offset, $contentType);
         return $response;
     }
 
@@ -1318,7 +1257,6 @@ class OrsonApi
      *
      * Search Tags
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $tags Tags (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1330,9 +1268,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiProtoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function aiTagsWithHttpInfo($version, $account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
+    public function aiTagsWithHttpInfo($account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
     {
-        $request = $this->aiTagsRequest($version, $account_id, $tags, $conditional, $limit, $offset, $contentType);
+        $request = $this->aiTagsRequest($account_id, $tags, $conditional, $limit, $offset, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1408,7 +1346,6 @@ class OrsonApi
      *
      * Search Tags
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $tags Tags (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1419,9 +1356,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aiTagsAsync($version, $account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
+    public function aiTagsAsync($account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
     {
-        return $this->aiTagsAsyncWithHttpInfo($version, $account_id, $tags, $conditional, $limit, $offset, $contentType)
+        return $this->aiTagsAsyncWithHttpInfo($account_id, $tags, $conditional, $limit, $offset, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1434,7 +1371,6 @@ class OrsonApi
      *
      * Search Tags
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $tags Tags (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1445,10 +1381,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aiTagsAsyncWithHttpInfo($version, $account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
+    public function aiTagsAsyncWithHttpInfo($account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiProtoResponse';
-        $request = $this->aiTagsRequest($version, $account_id, $tags, $conditional, $limit, $offset, $contentType);
+        $request = $this->aiTagsRequest($account_id, $tags, $conditional, $limit, $offset, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1489,7 +1425,6 @@ class OrsonApi
     /**
      * Create request for operation 'aiTags'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $tags Tags (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1500,15 +1435,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function aiTagsRequest($version, $account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
+    public function aiTagsRequest($account_id, $tags, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiTags'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling aiTags'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1528,7 +1456,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/tags';
+        $resourcePath = '/orson/ai/tags';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1582,14 +1510,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1650,7 +1570,6 @@ class OrsonApi
      *
      * Search Text
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $terms Terms (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1662,9 +1581,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiProtoResponse
      */
-    public function aiText($version, $account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
+    public function aiText($account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
     {
-        list($response) = $this->aiTextWithHttpInfo($version, $account_id, $terms, $conditional, $limit, $offset, $contentType);
+        list($response) = $this->aiTextWithHttpInfo($account_id, $terms, $conditional, $limit, $offset, $contentType);
         return $response;
     }
 
@@ -1673,7 +1592,6 @@ class OrsonApi
      *
      * Search Text
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $terms Terms (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1685,9 +1603,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiProtoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function aiTextWithHttpInfo($version, $account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
+    public function aiTextWithHttpInfo($account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
     {
-        $request = $this->aiTextRequest($version, $account_id, $terms, $conditional, $limit, $offset, $contentType);
+        $request = $this->aiTextRequest($account_id, $terms, $conditional, $limit, $offset, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1763,7 +1681,6 @@ class OrsonApi
      *
      * Search Text
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $terms Terms (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1774,9 +1691,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aiTextAsync($version, $account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
+    public function aiTextAsync($account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
     {
-        return $this->aiTextAsyncWithHttpInfo($version, $account_id, $terms, $conditional, $limit, $offset, $contentType)
+        return $this->aiTextAsyncWithHttpInfo($account_id, $terms, $conditional, $limit, $offset, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1789,7 +1706,6 @@ class OrsonApi
      *
      * Search Text
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $terms Terms (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1800,10 +1716,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aiTextAsyncWithHttpInfo($version, $account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
+    public function aiTextAsyncWithHttpInfo($account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiProtoResponse';
-        $request = $this->aiTextRequest($version, $account_id, $terms, $conditional, $limit, $offset, $contentType);
+        $request = $this->aiTextRequest($account_id, $terms, $conditional, $limit, $offset, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1844,7 +1760,6 @@ class OrsonApi
     /**
      * Create request for operation 'aiText'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $terms Terms (required)
      * @param  string|null $conditional Conditional (optional)
@@ -1855,15 +1770,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function aiTextRequest($version, $account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
+    public function aiTextRequest($account_id, $terms, $conditional = null, $limit = null, $offset = null, string $contentType = self::contentTypes['aiText'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling aiText'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1883,7 +1791,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/text';
+        $resourcePath = '/orson/ai/text';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1937,14 +1845,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2005,7 +1905,6 @@ class OrsonApi
      *
      * Batch Analysis
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  int|null $limit The number of topics to return (optional)
@@ -2019,9 +1918,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiBatchResponse
      */
-    public function batch($version, $account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
+    public function batch($account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
     {
-        list($response) = $this->batchWithHttpInfo($version, $account_id, $third_party_account_id, $limit, $operations, $file, $url, $callback, $contentType);
+        list($response) = $this->batchWithHttpInfo($account_id, $third_party_account_id, $limit, $operations, $file, $url, $callback, $contentType);
         return $response;
     }
 
@@ -2030,7 +1929,6 @@ class OrsonApi
      *
      * Batch Analysis
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  int|null $limit The number of topics to return (optional)
@@ -2044,9 +1942,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiBatchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function batchWithHttpInfo($version, $account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
+    public function batchWithHttpInfo($account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
     {
-        $request = $this->batchRequest($version, $account_id, $third_party_account_id, $limit, $operations, $file, $url, $callback, $contentType);
+        $request = $this->batchRequest($account_id, $third_party_account_id, $limit, $operations, $file, $url, $callback, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2122,7 +2020,6 @@ class OrsonApi
      *
      * Batch Analysis
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  int|null $limit The number of topics to return (optional)
@@ -2135,9 +2032,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchAsync($version, $account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
+    public function batchAsync($account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
     {
-        return $this->batchAsyncWithHttpInfo($version, $account_id, $third_party_account_id, $limit, $operations, $file, $url, $callback, $contentType)
+        return $this->batchAsyncWithHttpInfo($account_id, $third_party_account_id, $limit, $operations, $file, $url, $callback, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2150,7 +2047,6 @@ class OrsonApi
      *
      * Batch Analysis
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  int|null $limit The number of topics to return (optional)
@@ -2163,10 +2059,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchAsyncWithHttpInfo($version, $account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
+    public function batchAsyncWithHttpInfo($account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiBatchResponse';
-        $request = $this->batchRequest($version, $account_id, $third_party_account_id, $limit, $operations, $file, $url, $callback, $contentType);
+        $request = $this->batchRequest($account_id, $third_party_account_id, $limit, $operations, $file, $url, $callback, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2207,7 +2103,6 @@ class OrsonApi
     /**
      * Create request for operation 'batch'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  int|null $limit The number of topics to return (optional)
@@ -2220,15 +2115,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function batchRequest($version, $account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
+    public function batchRequest($account_id, $third_party_account_id = null, $limit = null, $operations = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['batch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling batch'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2244,7 +2132,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/batch';
+        $resourcePath = '/orson/ai/batch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2316,14 +2204,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2384,7 +2264,6 @@ class OrsonApi
      *
      * Creates an instant episode
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstantEpisode'] to see the possible values for this operation
@@ -2393,9 +2272,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonEpisodeResponse
      */
-    public function createInstantEpisode($version, $account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
+    public function createInstantEpisode($account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
     {
-        list($response) = $this->createInstantEpisodeWithHttpInfo($version, $account_id, $data, $contentType);
+        list($response) = $this->createInstantEpisodeWithHttpInfo($account_id, $data, $contentType);
         return $response;
     }
 
@@ -2404,7 +2283,6 @@ class OrsonApi
      *
      * Creates an instant episode
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstantEpisode'] to see the possible values for this operation
@@ -2413,9 +2291,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonEpisodeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createInstantEpisodeWithHttpInfo($version, $account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
+    public function createInstantEpisodeWithHttpInfo($account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
     {
-        $request = $this->createInstantEpisodeRequest($version, $account_id, $data, $contentType);
+        $request = $this->createInstantEpisodeRequest($account_id, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2491,7 +2369,6 @@ class OrsonApi
      *
      * Creates an instant episode
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstantEpisode'] to see the possible values for this operation
@@ -2499,9 +2376,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInstantEpisodeAsync($version, $account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
+    public function createInstantEpisodeAsync($account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
     {
-        return $this->createInstantEpisodeAsyncWithHttpInfo($version, $account_id, $data, $contentType)
+        return $this->createInstantEpisodeAsyncWithHttpInfo($account_id, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2514,7 +2391,6 @@ class OrsonApi
      *
      * Creates an instant episode
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstantEpisode'] to see the possible values for this operation
@@ -2522,10 +2398,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInstantEpisodeAsyncWithHttpInfo($version, $account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
+    public function createInstantEpisodeAsyncWithHttpInfo($account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonEpisodeResponse';
-        $request = $this->createInstantEpisodeRequest($version, $account_id, $data, $contentType);
+        $request = $this->createInstantEpisodeRequest($account_id, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2566,7 +2442,6 @@ class OrsonApi
     /**
      * Create request for operation 'createInstantEpisode'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstantEpisode'] to see the possible values for this operation
@@ -2574,15 +2449,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createInstantEpisodeRequest($version, $account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
+    public function createInstantEpisodeRequest($account_id, $data, string $contentType = self::contentTypes['createInstantEpisode'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createInstantEpisode'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2599,7 +2467,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/stories/episodes/instant';
+        $resourcePath = '/orson/stories/episodes/instant';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2626,14 +2494,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2694,7 +2554,6 @@ class OrsonApi
      *
      * Create VoiceCanvas images
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -2710,9 +2569,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiVoiceCanvasResponse
      */
-    public function createVoiceCanvas($version, $account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
+    public function createVoiceCanvas($account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
     {
-        list($response) = $this->createVoiceCanvasWithHttpInfo($version, $account_id, $dimensions, $third_party_account_id, $text, $file, $url, $parse_flag, $fetch_flag, $callback, $contentType);
+        list($response) = $this->createVoiceCanvasWithHttpInfo($account_id, $dimensions, $third_party_account_id, $text, $file, $url, $parse_flag, $fetch_flag, $callback, $contentType);
         return $response;
     }
 
@@ -2721,7 +2580,6 @@ class OrsonApi
      *
      * Create VoiceCanvas images
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -2737,9 +2595,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiVoiceCanvasResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createVoiceCanvasWithHttpInfo($version, $account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
+    public function createVoiceCanvasWithHttpInfo($account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
     {
-        $request = $this->createVoiceCanvasRequest($version, $account_id, $dimensions, $third_party_account_id, $text, $file, $url, $parse_flag, $fetch_flag, $callback, $contentType);
+        $request = $this->createVoiceCanvasRequest($account_id, $dimensions, $third_party_account_id, $text, $file, $url, $parse_flag, $fetch_flag, $callback, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2815,7 +2673,6 @@ class OrsonApi
      *
      * Create VoiceCanvas images
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -2830,9 +2687,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createVoiceCanvasAsync($version, $account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
+    public function createVoiceCanvasAsync($account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
     {
-        return $this->createVoiceCanvasAsyncWithHttpInfo($version, $account_id, $dimensions, $third_party_account_id, $text, $file, $url, $parse_flag, $fetch_flag, $callback, $contentType)
+        return $this->createVoiceCanvasAsyncWithHttpInfo($account_id, $dimensions, $third_party_account_id, $text, $file, $url, $parse_flag, $fetch_flag, $callback, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2845,7 +2702,6 @@ class OrsonApi
      *
      * Create VoiceCanvas images
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -2860,10 +2716,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createVoiceCanvasAsyncWithHttpInfo($version, $account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
+    public function createVoiceCanvasAsyncWithHttpInfo($account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiVoiceCanvasResponse';
-        $request = $this->createVoiceCanvasRequest($version, $account_id, $dimensions, $third_party_account_id, $text, $file, $url, $parse_flag, $fetch_flag, $callback, $contentType);
+        $request = $this->createVoiceCanvasRequest($account_id, $dimensions, $third_party_account_id, $text, $file, $url, $parse_flag, $fetch_flag, $callback, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2904,7 +2760,6 @@ class OrsonApi
     /**
      * Create request for operation 'createVoiceCanvas'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -2919,15 +2774,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createVoiceCanvasRequest($version, $account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
+    public function createVoiceCanvasRequest($account_id, $dimensions, $third_party_account_id = null, $text = null, $file = null, $url = null, $parse_flag = null, $fetch_flag = null, $callback = null, string $contentType = self::contentTypes['createVoiceCanvas'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createVoiceCanvas'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2951,7 +2799,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/voiceCanvas';
+        $resourcePath = '/orson/ai/voiceCanvas';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3041,14 +2889,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3109,7 +2949,6 @@ class OrsonApi
      *
      * Detect emotions
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  \SplFileObject|null $file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -3121,9 +2960,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiEmotionsResponse
      */
-    public function emotion($version, $account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
+    public function emotion($account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
     {
-        list($response) = $this->emotionWithHttpInfo($version, $account_id, $third_party_account_id, $file, $url, $callback, $contentType);
+        list($response) = $this->emotionWithHttpInfo($account_id, $third_party_account_id, $file, $url, $callback, $contentType);
         return $response;
     }
 
@@ -3132,7 +2971,6 @@ class OrsonApi
      *
      * Detect emotions
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  \SplFileObject|null $file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -3144,9 +2982,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiEmotionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emotionWithHttpInfo($version, $account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
+    public function emotionWithHttpInfo($account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
     {
-        $request = $this->emotionRequest($version, $account_id, $third_party_account_id, $file, $url, $callback, $contentType);
+        $request = $this->emotionRequest($account_id, $third_party_account_id, $file, $url, $callback, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3222,7 +3060,6 @@ class OrsonApi
      *
      * Detect emotions
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  \SplFileObject|null $file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -3233,9 +3070,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emotionAsync($version, $account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
+    public function emotionAsync($account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
     {
-        return $this->emotionAsyncWithHttpInfo($version, $account_id, $third_party_account_id, $file, $url, $callback, $contentType)
+        return $this->emotionAsyncWithHttpInfo($account_id, $third_party_account_id, $file, $url, $callback, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3248,7 +3085,6 @@ class OrsonApi
      *
      * Detect emotions
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  \SplFileObject|null $file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -3259,10 +3095,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emotionAsyncWithHttpInfo($version, $account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
+    public function emotionAsyncWithHttpInfo($account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiEmotionsResponse';
-        $request = $this->emotionRequest($version, $account_id, $third_party_account_id, $file, $url, $callback, $contentType);
+        $request = $this->emotionRequest($account_id, $third_party_account_id, $file, $url, $callback, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3303,7 +3139,6 @@ class OrsonApi
     /**
      * Create request for operation 'emotion'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  \SplFileObject|null $file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -3314,15 +3149,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emotionRequest($version, $account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
+    public function emotionRequest($account_id, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['emotion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling emotion'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3336,7 +3164,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/emotion';
+        $resourcePath = '/orson/ai/emotion';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3390,14 +3218,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3458,7 +3278,6 @@ class OrsonApi
      *
      * Get Add Movie Result
      *
-     * @param  float $version version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAddMovieResult'] to see the possible values for this operation
@@ -3467,9 +3286,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiAddMovieResponse
      */
-    public function getAddMovieResult($version, $request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
+    public function getAddMovieResult($request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
     {
-        list($response) = $this->getAddMovieResultWithHttpInfo($version, $request_id, $account_id, $contentType);
+        list($response) = $this->getAddMovieResultWithHttpInfo($request_id, $account_id, $contentType);
         return $response;
     }
 
@@ -3478,7 +3297,6 @@ class OrsonApi
      *
      * Get Add Movie Result
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAddMovieResult'] to see the possible values for this operation
@@ -3487,9 +3305,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiAddMovieResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAddMovieResultWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
+    public function getAddMovieResultWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
     {
-        $request = $this->getAddMovieResultRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getAddMovieResultRequest($request_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3565,7 +3383,6 @@ class OrsonApi
      *
      * Get Add Movie Result
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAddMovieResult'] to see the possible values for this operation
@@ -3573,9 +3390,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAddMovieResultAsync($version, $request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
+    public function getAddMovieResultAsync($request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
     {
-        return $this->getAddMovieResultAsyncWithHttpInfo($version, $request_id, $account_id, $contentType)
+        return $this->getAddMovieResultAsyncWithHttpInfo($request_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3588,7 +3405,6 @@ class OrsonApi
      *
      * Get Add Movie Result
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAddMovieResult'] to see the possible values for this operation
@@ -3596,10 +3412,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAddMovieResultAsyncWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
+    public function getAddMovieResultAsyncWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiAddMovieResponse';
-        $request = $this->getAddMovieResultRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getAddMovieResultRequest($request_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3640,7 +3456,6 @@ class OrsonApi
     /**
      * Create request for operation 'getAddMovieResult'
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAddMovieResult'] to see the possible values for this operation
@@ -3648,15 +3463,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAddMovieResultRequest($version, $request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
+    public function getAddMovieResultRequest($request_id, $account_id, string $contentType = self::contentTypes['getAddMovieResult'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAddMovieResult'
-            );
-        }
 
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
@@ -3673,7 +3481,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/ai/addMovie/{requestId}';
+        $resourcePath = '/orson/ai/addMovie/{requestId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3691,14 +3499,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($request_id !== null) {
             $resourcePath = str_replace(
@@ -3767,7 +3567,6 @@ class OrsonApi
      *
      * Get Batch Analysis Results
      *
-     * @param  float $version version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
@@ -3776,9 +3575,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiBatchResponse
      */
-    public function getBatch($version, $request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
+    public function getBatch($request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
     {
-        list($response) = $this->getBatchWithHttpInfo($version, $request_id, $account_id, $contentType);
+        list($response) = $this->getBatchWithHttpInfo($request_id, $account_id, $contentType);
         return $response;
     }
 
@@ -3787,7 +3586,6 @@ class OrsonApi
      *
      * Get Batch Analysis Results
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
@@ -3796,9 +3594,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiBatchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBatchWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
+    public function getBatchWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
     {
-        $request = $this->getBatchRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getBatchRequest($request_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3874,7 +3672,6 @@ class OrsonApi
      *
      * Get Batch Analysis Results
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
@@ -3882,9 +3679,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBatchAsync($version, $request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
+    public function getBatchAsync($request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
     {
-        return $this->getBatchAsyncWithHttpInfo($version, $request_id, $account_id, $contentType)
+        return $this->getBatchAsyncWithHttpInfo($request_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3897,7 +3694,6 @@ class OrsonApi
      *
      * Get Batch Analysis Results
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
@@ -3905,10 +3701,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBatchAsyncWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
+    public function getBatchAsyncWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiBatchResponse';
-        $request = $this->getBatchRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getBatchRequest($request_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3949,7 +3745,6 @@ class OrsonApi
     /**
      * Create request for operation 'getBatch'
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
@@ -3957,15 +3752,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBatchRequest($version, $request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
+    public function getBatchRequest($request_id, $account_id, string $contentType = self::contentTypes['getBatch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getBatch'
-            );
-        }
 
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
@@ -3982,7 +3770,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/ai/batch/{requestId}';
+        $resourcePath = '/orson/ai/batch/{requestId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4000,14 +3788,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($request_id !== null) {
             $resourcePath = str_replace(
@@ -4076,7 +3856,6 @@ class OrsonApi
      *
      * Get Emotion Results
      *
-     * @param  float $version version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmotion'] to see the possible values for this operation
@@ -4085,9 +3864,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiEmotionsResponse
      */
-    public function getEmotion($version, $request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
+    public function getEmotion($request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
     {
-        list($response) = $this->getEmotionWithHttpInfo($version, $request_id, $account_id, $contentType);
+        list($response) = $this->getEmotionWithHttpInfo($request_id, $account_id, $contentType);
         return $response;
     }
 
@@ -4096,7 +3875,6 @@ class OrsonApi
      *
      * Get Emotion Results
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmotion'] to see the possible values for this operation
@@ -4105,9 +3883,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiEmotionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmotionWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
+    public function getEmotionWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
     {
-        $request = $this->getEmotionRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getEmotionRequest($request_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4183,7 +3961,6 @@ class OrsonApi
      *
      * Get Emotion Results
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmotion'] to see the possible values for this operation
@@ -4191,9 +3968,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmotionAsync($version, $request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
+    public function getEmotionAsync($request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
     {
-        return $this->getEmotionAsyncWithHttpInfo($version, $request_id, $account_id, $contentType)
+        return $this->getEmotionAsyncWithHttpInfo($request_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4206,7 +3983,6 @@ class OrsonApi
      *
      * Get Emotion Results
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmotion'] to see the possible values for this operation
@@ -4214,10 +3990,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmotionAsyncWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
+    public function getEmotionAsyncWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiEmotionsResponse';
-        $request = $this->getEmotionRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getEmotionRequest($request_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4258,7 +4034,6 @@ class OrsonApi
     /**
      * Create request for operation 'getEmotion'
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmotion'] to see the possible values for this operation
@@ -4266,15 +4041,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmotionRequest($version, $request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
+    public function getEmotionRequest($request_id, $account_id, string $contentType = self::contentTypes['getEmotion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getEmotion'
-            );
-        }
 
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
@@ -4291,7 +4059,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/ai/emotion/{requestId}';
+        $resourcePath = '/orson/ai/emotion/{requestId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4309,14 +4077,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($request_id !== null) {
             $resourcePath = str_replace(
@@ -4385,7 +4145,6 @@ class OrsonApi
      *
      * Check episode status
      *
-     * @param  float $version version (required)
      * @param  int $episode_id Episode ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEpisodeStatus'] to see the possible values for this operation
@@ -4394,9 +4153,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonEpisodeResponse
      */
-    public function getEpisodeStatus($version, $episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
+    public function getEpisodeStatus($episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
     {
-        list($response) = $this->getEpisodeStatusWithHttpInfo($version, $episode_id, $account_id, $contentType);
+        list($response) = $this->getEpisodeStatusWithHttpInfo($episode_id, $account_id, $contentType);
         return $response;
     }
 
@@ -4405,7 +4164,6 @@ class OrsonApi
      *
      * Check episode status
      *
-     * @param  float $version (required)
      * @param  int $episode_id Episode ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEpisodeStatus'] to see the possible values for this operation
@@ -4414,9 +4172,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonEpisodeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEpisodeStatusWithHttpInfo($version, $episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
+    public function getEpisodeStatusWithHttpInfo($episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
     {
-        $request = $this->getEpisodeStatusRequest($version, $episode_id, $account_id, $contentType);
+        $request = $this->getEpisodeStatusRequest($episode_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4492,7 +4250,6 @@ class OrsonApi
      *
      * Check episode status
      *
-     * @param  float $version (required)
      * @param  int $episode_id Episode ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEpisodeStatus'] to see the possible values for this operation
@@ -4500,9 +4257,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEpisodeStatusAsync($version, $episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
+    public function getEpisodeStatusAsync($episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
     {
-        return $this->getEpisodeStatusAsyncWithHttpInfo($version, $episode_id, $account_id, $contentType)
+        return $this->getEpisodeStatusAsyncWithHttpInfo($episode_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4515,7 +4272,6 @@ class OrsonApi
      *
      * Check episode status
      *
-     * @param  float $version (required)
      * @param  int $episode_id Episode ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEpisodeStatus'] to see the possible values for this operation
@@ -4523,10 +4279,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEpisodeStatusAsyncWithHttpInfo($version, $episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
+    public function getEpisodeStatusAsyncWithHttpInfo($episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonEpisodeResponse';
-        $request = $this->getEpisodeStatusRequest($version, $episode_id, $account_id, $contentType);
+        $request = $this->getEpisodeStatusRequest($episode_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4567,7 +4323,6 @@ class OrsonApi
     /**
      * Create request for operation 'getEpisodeStatus'
      *
-     * @param  float $version (required)
      * @param  int $episode_id Episode ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEpisodeStatus'] to see the possible values for this operation
@@ -4575,15 +4330,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEpisodeStatusRequest($version, $episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
+    public function getEpisodeStatusRequest($episode_id, $account_id, string $contentType = self::contentTypes['getEpisodeStatus'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getEpisodeStatus'
-            );
-        }
 
         // verify the required parameter 'episode_id' is set
         if ($episode_id === null || (is_array($episode_id) && count($episode_id) === 0)) {
@@ -4600,7 +4348,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/stories/episodes/{episodeId}/status';
+        $resourcePath = '/orson/stories/episodes/{episodeId}/status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4618,14 +4366,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($episode_id !== null) {
             $resourcePath = str_replace(
@@ -4694,7 +4434,6 @@ class OrsonApi
      *
      * Check episode status
      *
-     * @param  float $version version (required)
      * @param  string $render_id Render ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderStatus'] to see the possible values for this operation
@@ -4703,9 +4442,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonRenderResponse
      */
-    public function getRenderStatus($version, $render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
+    public function getRenderStatus($render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
     {
-        list($response) = $this->getRenderStatusWithHttpInfo($version, $render_id, $account_id, $contentType);
+        list($response) = $this->getRenderStatusWithHttpInfo($render_id, $account_id, $contentType);
         return $response;
     }
 
@@ -4714,7 +4453,6 @@ class OrsonApi
      *
      * Check episode status
      *
-     * @param  float $version (required)
      * @param  string $render_id Render ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderStatus'] to see the possible values for this operation
@@ -4723,9 +4461,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonRenderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRenderStatusWithHttpInfo($version, $render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
+    public function getRenderStatusWithHttpInfo($render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
     {
-        $request = $this->getRenderStatusRequest($version, $render_id, $account_id, $contentType);
+        $request = $this->getRenderStatusRequest($render_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4801,7 +4539,6 @@ class OrsonApi
      *
      * Check episode status
      *
-     * @param  float $version (required)
      * @param  string $render_id Render ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderStatus'] to see the possible values for this operation
@@ -4809,9 +4546,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRenderStatusAsync($version, $render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
+    public function getRenderStatusAsync($render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
     {
-        return $this->getRenderStatusAsyncWithHttpInfo($version, $render_id, $account_id, $contentType)
+        return $this->getRenderStatusAsyncWithHttpInfo($render_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4824,7 +4561,6 @@ class OrsonApi
      *
      * Check episode status
      *
-     * @param  float $version (required)
      * @param  string $render_id Render ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderStatus'] to see the possible values for this operation
@@ -4832,10 +4568,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRenderStatusAsyncWithHttpInfo($version, $render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
+    public function getRenderStatusAsyncWithHttpInfo($render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonRenderResponse';
-        $request = $this->getRenderStatusRequest($version, $render_id, $account_id, $contentType);
+        $request = $this->getRenderStatusRequest($render_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4876,7 +4612,6 @@ class OrsonApi
     /**
      * Create request for operation 'getRenderStatus'
      *
-     * @param  float $version (required)
      * @param  string $render_id Render ID (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderStatus'] to see the possible values for this operation
@@ -4884,15 +4619,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRenderStatusRequest($version, $render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
+    public function getRenderStatusRequest($render_id, $account_id, string $contentType = self::contentTypes['getRenderStatus'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRenderStatus'
-            );
-        }
 
         // verify the required parameter 'render_id' is set
         if ($render_id === null || (is_array($render_id) && count($render_id) === 0)) {
@@ -4909,7 +4637,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/stories/renders/{renderId}/status';
+        $resourcePath = '/orson/stories/renders/{renderId}/status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4927,14 +4655,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($render_id !== null) {
             $resourcePath = str_replace(
@@ -5003,7 +4723,6 @@ class OrsonApi
      *
      * Get Speach to Text Result
      *
-     * @param  float $version version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSTT'] to see the possible values for this operation
@@ -5012,9 +4731,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiSTTResponse
      */
-    public function getSTT($version, $request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
+    public function getSTT($request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
     {
-        list($response) = $this->getSTTWithHttpInfo($version, $request_id, $account_id, $contentType);
+        list($response) = $this->getSTTWithHttpInfo($request_id, $account_id, $contentType);
         return $response;
     }
 
@@ -5023,7 +4742,6 @@ class OrsonApi
      *
      * Get Speach to Text Result
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSTT'] to see the possible values for this operation
@@ -5032,9 +4750,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiSTTResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSTTWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
+    public function getSTTWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
     {
-        $request = $this->getSTTRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getSTTRequest($request_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5110,7 +4828,6 @@ class OrsonApi
      *
      * Get Speach to Text Result
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSTT'] to see the possible values for this operation
@@ -5118,9 +4835,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSTTAsync($version, $request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
+    public function getSTTAsync($request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
     {
-        return $this->getSTTAsyncWithHttpInfo($version, $request_id, $account_id, $contentType)
+        return $this->getSTTAsyncWithHttpInfo($request_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5133,7 +4850,6 @@ class OrsonApi
      *
      * Get Speach to Text Result
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSTT'] to see the possible values for this operation
@@ -5141,10 +4857,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSTTAsyncWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
+    public function getSTTAsyncWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiSTTResponse';
-        $request = $this->getSTTRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getSTTRequest($request_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5185,7 +4901,6 @@ class OrsonApi
     /**
      * Create request for operation 'getSTT'
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSTT'] to see the possible values for this operation
@@ -5193,15 +4908,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSTTRequest($version, $request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
+    public function getSTTRequest($request_id, $account_id, string $contentType = self::contentTypes['getSTT'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getSTT'
-            );
-        }
 
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
@@ -5218,7 +4926,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/ai/stt/{requestId}';
+        $resourcePath = '/orson/ai/stt/{requestId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5236,14 +4944,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($request_id !== null) {
             $resourcePath = str_replace(
@@ -5312,7 +5012,6 @@ class OrsonApi
      *
      * Get Text to Speach Result
      *
-     * @param  float $version version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTTS'] to see the possible values for this operation
@@ -5321,9 +5020,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiTTSResponse
      */
-    public function getTTS($version, $request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
+    public function getTTS($request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
     {
-        list($response) = $this->getTTSWithHttpInfo($version, $request_id, $account_id, $contentType);
+        list($response) = $this->getTTSWithHttpInfo($request_id, $account_id, $contentType);
         return $response;
     }
 
@@ -5332,7 +5031,6 @@ class OrsonApi
      *
      * Get Text to Speach Result
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTTS'] to see the possible values for this operation
@@ -5341,9 +5039,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiTTSResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTTSWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
+    public function getTTSWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
     {
-        $request = $this->getTTSRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getTTSRequest($request_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5419,7 +5117,6 @@ class OrsonApi
      *
      * Get Text to Speach Result
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTTS'] to see the possible values for this operation
@@ -5427,9 +5124,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTTSAsync($version, $request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
+    public function getTTSAsync($request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
     {
-        return $this->getTTSAsyncWithHttpInfo($version, $request_id, $account_id, $contentType)
+        return $this->getTTSAsyncWithHttpInfo($request_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5442,7 +5139,6 @@ class OrsonApi
      *
      * Get Text to Speach Result
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTTS'] to see the possible values for this operation
@@ -5450,10 +5146,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTTSAsyncWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
+    public function getTTSAsyncWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiTTSResponse';
-        $request = $this->getTTSRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getTTSRequest($request_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5494,7 +5190,6 @@ class OrsonApi
     /**
      * Create request for operation 'getTTS'
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTTS'] to see the possible values for this operation
@@ -5502,15 +5197,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTTSRequest($version, $request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
+    public function getTTSRequest($request_id, $account_id, string $contentType = self::contentTypes['getTTS'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTTS'
-            );
-        }
 
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
@@ -5527,7 +5215,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/ai/tts/{requestId}';
+        $resourcePath = '/orson/ai/tts/{requestId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5545,14 +5233,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($request_id !== null) {
             $resourcePath = str_replace(
@@ -5621,7 +5301,6 @@ class OrsonApi
      *
      * Get TechTune Results
      *
-     * @param  float $version version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTechTune'] to see the possible values for this operation
@@ -5630,9 +5309,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiTechTuneResponse
      */
-    public function getTechTune($version, $request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
+    public function getTechTune($request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
     {
-        list($response) = $this->getTechTuneWithHttpInfo($version, $request_id, $account_id, $contentType);
+        list($response) = $this->getTechTuneWithHttpInfo($request_id, $account_id, $contentType);
         return $response;
     }
 
@@ -5641,7 +5320,6 @@ class OrsonApi
      *
      * Get TechTune Results
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTechTune'] to see the possible values for this operation
@@ -5650,9 +5328,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiTechTuneResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTechTuneWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
+    public function getTechTuneWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
     {
-        $request = $this->getTechTuneRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getTechTuneRequest($request_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5728,7 +5406,6 @@ class OrsonApi
      *
      * Get TechTune Results
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTechTune'] to see the possible values for this operation
@@ -5736,9 +5413,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTechTuneAsync($version, $request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
+    public function getTechTuneAsync($request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
     {
-        return $this->getTechTuneAsyncWithHttpInfo($version, $request_id, $account_id, $contentType)
+        return $this->getTechTuneAsyncWithHttpInfo($request_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5751,7 +5428,6 @@ class OrsonApi
      *
      * Get TechTune Results
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTechTune'] to see the possible values for this operation
@@ -5759,10 +5435,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTechTuneAsyncWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
+    public function getTechTuneAsyncWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiTechTuneResponse';
-        $request = $this->getTechTuneRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getTechTuneRequest($request_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5803,7 +5479,6 @@ class OrsonApi
     /**
      * Create request for operation 'getTechTune'
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTechTune'] to see the possible values for this operation
@@ -5811,15 +5486,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTechTuneRequest($version, $request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
+    public function getTechTuneRequest($request_id, $account_id, string $contentType = self::contentTypes['getTechTune'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTechTune'
-            );
-        }
 
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
@@ -5836,7 +5504,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/ai/techTune/{requestId}';
+        $resourcePath = '/orson/ai/techTune/{requestId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5854,14 +5522,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($request_id !== null) {
             $resourcePath = str_replace(
@@ -5930,7 +5590,6 @@ class OrsonApi
      *
      * Get Topics
      *
-     * @param  float $version version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopics'] to see the possible values for this operation
@@ -5939,9 +5598,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiTopicsResponse
      */
-    public function getTopics($version, $request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
+    public function getTopics($request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
     {
-        list($response) = $this->getTopicsWithHttpInfo($version, $request_id, $account_id, $contentType);
+        list($response) = $this->getTopicsWithHttpInfo($request_id, $account_id, $contentType);
         return $response;
     }
 
@@ -5950,7 +5609,6 @@ class OrsonApi
      *
      * Get Topics
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopics'] to see the possible values for this operation
@@ -5959,9 +5617,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiTopicsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTopicsWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
+    public function getTopicsWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
     {
-        $request = $this->getTopicsRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getTopicsRequest($request_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6037,7 +5695,6 @@ class OrsonApi
      *
      * Get Topics
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopics'] to see the possible values for this operation
@@ -6045,9 +5702,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTopicsAsync($version, $request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
+    public function getTopicsAsync($request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
     {
-        return $this->getTopicsAsyncWithHttpInfo($version, $request_id, $account_id, $contentType)
+        return $this->getTopicsAsyncWithHttpInfo($request_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6060,7 +5717,6 @@ class OrsonApi
      *
      * Get Topics
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopics'] to see the possible values for this operation
@@ -6068,10 +5724,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTopicsAsyncWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
+    public function getTopicsAsyncWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiTopicsResponse';
-        $request = $this->getTopicsRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getTopicsRequest($request_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6112,7 +5768,6 @@ class OrsonApi
     /**
      * Create request for operation 'getTopics'
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopics'] to see the possible values for this operation
@@ -6120,15 +5775,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTopicsRequest($version, $request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
+    public function getTopicsRequest($request_id, $account_id, string $contentType = self::contentTypes['getTopics'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTopics'
-            );
-        }
 
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
@@ -6145,7 +5793,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/ai/topics/{requestId}';
+        $resourcePath = '/orson/ai/topics/{requestId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6163,14 +5811,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($request_id !== null) {
             $resourcePath = str_replace(
@@ -6239,7 +5879,6 @@ class OrsonApi
      *
      * Get VoiceCanvas images
      *
-     * @param  float $version version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoiceCanvas'] to see the possible values for this operation
@@ -6248,9 +5887,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiVoiceCanvasResponse
      */
-    public function getVoiceCanvas($version, $request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
+    public function getVoiceCanvas($request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
     {
-        list($response) = $this->getVoiceCanvasWithHttpInfo($version, $request_id, $account_id, $contentType);
+        list($response) = $this->getVoiceCanvasWithHttpInfo($request_id, $account_id, $contentType);
         return $response;
     }
 
@@ -6259,7 +5898,6 @@ class OrsonApi
      *
      * Get VoiceCanvas images
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoiceCanvas'] to see the possible values for this operation
@@ -6268,9 +5906,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiVoiceCanvasResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVoiceCanvasWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
+    public function getVoiceCanvasWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
     {
-        $request = $this->getVoiceCanvasRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getVoiceCanvasRequest($request_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6346,7 +5984,6 @@ class OrsonApi
      *
      * Get VoiceCanvas images
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoiceCanvas'] to see the possible values for this operation
@@ -6354,9 +5991,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoiceCanvasAsync($version, $request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
+    public function getVoiceCanvasAsync($request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
     {
-        return $this->getVoiceCanvasAsyncWithHttpInfo($version, $request_id, $account_id, $contentType)
+        return $this->getVoiceCanvasAsyncWithHttpInfo($request_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6369,7 +6006,6 @@ class OrsonApi
      *
      * Get VoiceCanvas images
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoiceCanvas'] to see the possible values for this operation
@@ -6377,10 +6013,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoiceCanvasAsyncWithHttpInfo($version, $request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
+    public function getVoiceCanvasAsyncWithHttpInfo($request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiVoiceCanvasResponse';
-        $request = $this->getVoiceCanvasRequest($version, $request_id, $account_id, $contentType);
+        $request = $this->getVoiceCanvasRequest($request_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6421,7 +6057,6 @@ class OrsonApi
     /**
      * Create request for operation 'getVoiceCanvas'
      *
-     * @param  float $version (required)
      * @param  string $request_id Orson Request Id (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoiceCanvas'] to see the possible values for this operation
@@ -6429,15 +6064,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVoiceCanvasRequest($version, $request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
+    public function getVoiceCanvasRequest($request_id, $account_id, string $contentType = self::contentTypes['getVoiceCanvas'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getVoiceCanvas'
-            );
-        }
 
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
@@ -6454,7 +6082,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/ai/voiceCanvas/{requestId}';
+        $resourcePath = '/orson/ai/voiceCanvas/{requestId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6472,14 +6100,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($request_id !== null) {
             $resourcePath = str_replace(
@@ -6548,7 +6168,6 @@ class OrsonApi
      *
      * Starts a StoryStitch video render
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startVideoRender'] to see the possible values for this operation
@@ -6557,9 +6176,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonRenderResponse
      */
-    public function startVideoRender($version, $account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
+    public function startVideoRender($account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
     {
-        list($response) = $this->startVideoRenderWithHttpInfo($version, $account_id, $data, $contentType);
+        list($response) = $this->startVideoRenderWithHttpInfo($account_id, $data, $contentType);
         return $response;
     }
 
@@ -6568,7 +6187,6 @@ class OrsonApi
      *
      * Starts a StoryStitch video render
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startVideoRender'] to see the possible values for this operation
@@ -6577,9 +6195,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonRenderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function startVideoRenderWithHttpInfo($version, $account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
+    public function startVideoRenderWithHttpInfo($account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
     {
-        $request = $this->startVideoRenderRequest($version, $account_id, $data, $contentType);
+        $request = $this->startVideoRenderRequest($account_id, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6655,7 +6273,6 @@ class OrsonApi
      *
      * Starts a StoryStitch video render
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startVideoRender'] to see the possible values for this operation
@@ -6663,9 +6280,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function startVideoRenderAsync($version, $account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
+    public function startVideoRenderAsync($account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
     {
-        return $this->startVideoRenderAsyncWithHttpInfo($version, $account_id, $data, $contentType)
+        return $this->startVideoRenderAsyncWithHttpInfo($account_id, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6678,7 +6295,6 @@ class OrsonApi
      *
      * Starts a StoryStitch video render
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startVideoRender'] to see the possible values for this operation
@@ -6686,10 +6302,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function startVideoRenderAsyncWithHttpInfo($version, $account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
+    public function startVideoRenderAsyncWithHttpInfo($account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonRenderResponse';
-        $request = $this->startVideoRenderRequest($version, $account_id, $data, $contentType);
+        $request = $this->startVideoRenderRequest($account_id, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6730,7 +6346,6 @@ class OrsonApi
     /**
      * Create request for operation 'startVideoRender'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $data Request Data String (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startVideoRender'] to see the possible values for this operation
@@ -6738,15 +6353,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function startVideoRenderRequest($version, $account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
+    public function startVideoRenderRequest($account_id, $data, string $contentType = self::contentTypes['startVideoRender'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling startVideoRender'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -6763,7 +6371,7 @@ class OrsonApi
         }
 
 
-        $resourcePath = '/api/{version}/orson/stories/renders';
+        $resourcePath = '/orson/stories/renders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6790,14 +6398,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -6858,7 +6458,6 @@ class OrsonApi
      *
      * Speach to Text
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $source_language Source Language (optional)
@@ -6872,9 +6471,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiSTTResponse
      */
-    public function stt($version, $account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
+    public function stt($account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
     {
-        list($response) = $this->sttWithHttpInfo($version, $account_id, $third_party_account_id, $source_language, $target_language, $file, $url, $callback, $contentType);
+        list($response) = $this->sttWithHttpInfo($account_id, $third_party_account_id, $source_language, $target_language, $file, $url, $callback, $contentType);
         return $response;
     }
 
@@ -6883,7 +6482,6 @@ class OrsonApi
      *
      * Speach to Text
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $source_language Source Language (optional)
@@ -6897,9 +6495,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiSTTResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sttWithHttpInfo($version, $account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
+    public function sttWithHttpInfo($account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
     {
-        $request = $this->sttRequest($version, $account_id, $third_party_account_id, $source_language, $target_language, $file, $url, $callback, $contentType);
+        $request = $this->sttRequest($account_id, $third_party_account_id, $source_language, $target_language, $file, $url, $callback, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6975,7 +6573,6 @@ class OrsonApi
      *
      * Speach to Text
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $source_language Source Language (optional)
@@ -6988,9 +6585,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sttAsync($version, $account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
+    public function sttAsync($account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
     {
-        return $this->sttAsyncWithHttpInfo($version, $account_id, $third_party_account_id, $source_language, $target_language, $file, $url, $callback, $contentType)
+        return $this->sttAsyncWithHttpInfo($account_id, $third_party_account_id, $source_language, $target_language, $file, $url, $callback, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7003,7 +6600,6 @@ class OrsonApi
      *
      * Speach to Text
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $source_language Source Language (optional)
@@ -7016,10 +6612,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sttAsyncWithHttpInfo($version, $account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
+    public function sttAsyncWithHttpInfo($account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiSTTResponse';
-        $request = $this->sttRequest($version, $account_id, $third_party_account_id, $source_language, $target_language, $file, $url, $callback, $contentType);
+        $request = $this->sttRequest($account_id, $third_party_account_id, $source_language, $target_language, $file, $url, $callback, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7060,7 +6656,6 @@ class OrsonApi
     /**
      * Create request for operation 'stt'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $source_language Source Language (optional)
@@ -7073,15 +6668,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sttRequest($version, $account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
+    public function sttRequest($account_id, $third_party_account_id = null, $source_language = null, $target_language = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['stt'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling stt'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -7097,7 +6685,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/stt';
+        $resourcePath = '/orson/ai/stt';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7169,14 +6757,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7237,7 +6817,6 @@ class OrsonApi
      *
      * Summarize Topics
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $doc The text to get topics for. (optional)
@@ -7252,9 +6831,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiTopicsResponse
      */
-    public function summarizeTopics($version, $account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
+    public function summarizeTopics($account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
     {
-        list($response) = $this->summarizeTopicsWithHttpInfo($version, $account_id, $third_party_account_id, $doc, $file, $url, $limit, $offset, $callback, $contentType);
+        list($response) = $this->summarizeTopicsWithHttpInfo($account_id, $third_party_account_id, $doc, $file, $url, $limit, $offset, $callback, $contentType);
         return $response;
     }
 
@@ -7263,7 +6842,6 @@ class OrsonApi
      *
      * Summarize Topics
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $doc The text to get topics for. (optional)
@@ -7278,9 +6856,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiTopicsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function summarizeTopicsWithHttpInfo($version, $account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
+    public function summarizeTopicsWithHttpInfo($account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
     {
-        $request = $this->summarizeTopicsRequest($version, $account_id, $third_party_account_id, $doc, $file, $url, $limit, $offset, $callback, $contentType);
+        $request = $this->summarizeTopicsRequest($account_id, $third_party_account_id, $doc, $file, $url, $limit, $offset, $callback, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7356,7 +6934,6 @@ class OrsonApi
      *
      * Summarize Topics
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $doc The text to get topics for. (optional)
@@ -7370,9 +6947,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function summarizeTopicsAsync($version, $account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
+    public function summarizeTopicsAsync($account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
     {
-        return $this->summarizeTopicsAsyncWithHttpInfo($version, $account_id, $third_party_account_id, $doc, $file, $url, $limit, $offset, $callback, $contentType)
+        return $this->summarizeTopicsAsyncWithHttpInfo($account_id, $third_party_account_id, $doc, $file, $url, $limit, $offset, $callback, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7385,7 +6962,6 @@ class OrsonApi
      *
      * Summarize Topics
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $doc The text to get topics for. (optional)
@@ -7399,10 +6975,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function summarizeTopicsAsyncWithHttpInfo($version, $account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
+    public function summarizeTopicsAsyncWithHttpInfo($account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiTopicsResponse';
-        $request = $this->summarizeTopicsRequest($version, $account_id, $third_party_account_id, $doc, $file, $url, $limit, $offset, $callback, $contentType);
+        $request = $this->summarizeTopicsRequest($account_id, $third_party_account_id, $doc, $file, $url, $limit, $offset, $callback, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7443,7 +7019,6 @@ class OrsonApi
     /**
      * Create request for operation 'summarizeTopics'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
      * @param  string|null $doc The text to get topics for. (optional)
@@ -7457,15 +7032,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function summarizeTopicsRequest($version, $account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
+    public function summarizeTopicsRequest($account_id, $third_party_account_id = null, $doc = null, $file = null, $url = null, $limit = null, $offset = null, $callback = null, string $contentType = self::contentTypes['summarizeTopics'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling summarizeTopics'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -7482,7 +7050,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/topics';
+        $resourcePath = '/orson/ai/topics';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7563,14 +7131,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -7631,7 +7191,6 @@ class OrsonApi
      *
      * Detect Technical Issues
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  int $num_faces_expected Number of expected faces (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -7644,9 +7203,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiTechTuneResponse
      */
-    public function techTune($version, $account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
+    public function techTune($account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
     {
-        list($response) = $this->techTuneWithHttpInfo($version, $account_id, $num_faces_expected, $third_party_account_id, $file, $url, $callback, $contentType);
+        list($response) = $this->techTuneWithHttpInfo($account_id, $num_faces_expected, $third_party_account_id, $file, $url, $callback, $contentType);
         return $response;
     }
 
@@ -7655,7 +7214,6 @@ class OrsonApi
      *
      * Detect Technical Issues
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  int $num_faces_expected Number of expected faces (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -7668,9 +7226,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiTechTuneResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function techTuneWithHttpInfo($version, $account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
+    public function techTuneWithHttpInfo($account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
     {
-        $request = $this->techTuneRequest($version, $account_id, $num_faces_expected, $third_party_account_id, $file, $url, $callback, $contentType);
+        $request = $this->techTuneRequest($account_id, $num_faces_expected, $third_party_account_id, $file, $url, $callback, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7746,7 +7304,6 @@ class OrsonApi
      *
      * Detect Technical Issues
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  int $num_faces_expected Number of expected faces (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -7758,9 +7315,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function techTuneAsync($version, $account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
+    public function techTuneAsync($account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
     {
-        return $this->techTuneAsyncWithHttpInfo($version, $account_id, $num_faces_expected, $third_party_account_id, $file, $url, $callback, $contentType)
+        return $this->techTuneAsyncWithHttpInfo($account_id, $num_faces_expected, $third_party_account_id, $file, $url, $callback, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7773,7 +7330,6 @@ class OrsonApi
      *
      * Detect Technical Issues
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  int $num_faces_expected Number of expected faces (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -7785,10 +7341,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function techTuneAsyncWithHttpInfo($version, $account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
+    public function techTuneAsyncWithHttpInfo($account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiTechTuneResponse';
-        $request = $this->techTuneRequest($version, $account_id, $num_faces_expected, $third_party_account_id, $file, $url, $callback, $contentType);
+        $request = $this->techTuneRequest($account_id, $num_faces_expected, $third_party_account_id, $file, $url, $callback, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7829,7 +7385,6 @@ class OrsonApi
     /**
      * Create request for operation 'techTune'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  int $num_faces_expected Number of expected faces (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -7841,15 +7396,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function techTuneRequest($version, $account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
+    public function techTuneRequest($account_id, $num_faces_expected, $third_party_account_id = null, $file = null, $url = null, $callback = null, string $contentType = self::contentTypes['techTune'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling techTune'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -7870,7 +7418,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/techTune';
+        $resourcePath = '/orson/ai/techTune';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7933,14 +7481,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8001,7 +7541,6 @@ class OrsonApi
      *
      * Text to Speach
      *
-     * @param  float $version version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -8014,9 +7553,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrsonAiTTSResponse
      */
-    public function tts($version, $account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
+    public function tts($account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
     {
-        list($response) = $this->ttsWithHttpInfo($version, $account_id, $text, $third_party_account_id, $language, $voice, $callback, $contentType);
+        list($response) = $this->ttsWithHttpInfo($account_id, $text, $third_party_account_id, $language, $voice, $callback, $contentType);
         return $response;
     }
 
@@ -8025,7 +7564,6 @@ class OrsonApi
      *
      * Text to Speach
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -8038,9 +7576,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrsonAiTTSResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ttsWithHttpInfo($version, $account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
+    public function ttsWithHttpInfo($account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
     {
-        $request = $this->ttsRequest($version, $account_id, $text, $third_party_account_id, $language, $voice, $callback, $contentType);
+        $request = $this->ttsRequest($account_id, $text, $third_party_account_id, $language, $voice, $callback, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8116,7 +7654,6 @@ class OrsonApi
      *
      * Text to Speach
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -8128,9 +7665,9 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ttsAsync($version, $account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
+    public function ttsAsync($account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
     {
-        return $this->ttsAsyncWithHttpInfo($version, $account_id, $text, $third_party_account_id, $language, $voice, $callback, $contentType)
+        return $this->ttsAsyncWithHttpInfo($account_id, $text, $third_party_account_id, $language, $voice, $callback, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8143,7 +7680,6 @@ class OrsonApi
      *
      * Text to Speach
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -8155,10 +7691,10 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ttsAsyncWithHttpInfo($version, $account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
+    public function ttsAsyncWithHttpInfo($account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrsonAiTTSResponse';
-        $request = $this->ttsRequest($version, $account_id, $text, $third_party_account_id, $language, $voice, $callback, $contentType);
+        $request = $this->ttsRequest($account_id, $text, $third_party_account_id, $language, $voice, $callback, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8199,7 +7735,6 @@ class OrsonApi
     /**
      * Create request for operation 'tts'
      *
-     * @param  float $version (required)
      * @param  int $account_id Sirqul Account Id (required)
      * @param  string $text Text (required)
      * @param  string|null $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -8211,15 +7746,8 @@ class OrsonApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ttsRequest($version, $account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
+    public function ttsRequest($account_id, $text, $third_party_account_id = null, $language = null, $voice = null, $callback = null, string $contentType = self::contentTypes['tts'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling tts'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -8240,7 +7768,7 @@ class OrsonApi
 
 
 
-        $resourcePath = '/api/{version}/orson/ai/tts';
+        $resourcePath = '/orson/ai/tts';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8303,14 +7831,6 @@ class OrsonApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

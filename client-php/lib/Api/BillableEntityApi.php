@@ -140,7 +140,6 @@ class BillableEntityApi
      *
      * Create Billable
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -159,9 +158,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BillableEntityResponse
      */
-    public function createBillableEntity($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
+    public function createBillableEntity($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
     {
-        list($response) = $this->createBillableEntityWithHttpInfo($version, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
+        list($response) = $this->createBillableEntityWithHttpInfo($device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
         return $response;
     }
 
@@ -170,7 +169,6 @@ class BillableEntityApi
      *
      * Create Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -189,9 +187,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BillableEntityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBillableEntityWithHttpInfo($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
+    public function createBillableEntityWithHttpInfo($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
     {
-        $request = $this->createBillableEntityRequest($version, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
+        $request = $this->createBillableEntityRequest($device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -267,7 +265,6 @@ class BillableEntityApi
      *
      * Create Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -285,9 +282,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBillableEntityAsync($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
+    public function createBillableEntityAsync($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
     {
-        return $this->createBillableEntityAsyncWithHttpInfo($version, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType)
+        return $this->createBillableEntityAsyncWithHttpInfo($device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -300,7 +297,6 @@ class BillableEntityApi
      *
      * Create Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -318,10 +314,10 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBillableEntityAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
+    public function createBillableEntityAsyncWithHttpInfo($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BillableEntityResponse';
-        $request = $this->createBillableEntityRequest($version, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
+        $request = $this->createBillableEntityRequest($device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -362,7 +358,6 @@ class BillableEntityApi
     /**
      * Create request for operation 'createBillableEntity'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -380,15 +375,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createBillableEntityRequest($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
+    public function createBillableEntityRequest($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['createBillableEntity'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createBillableEntity'
-            );
-        }
 
 
 
@@ -402,8 +391,7 @@ class BillableEntityApi
 
 
 
-
-        $resourcePath = '/api/{version}/billable/create';
+        $resourcePath = '/billable/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -520,14 +508,6 @@ class BillableEntityApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -588,7 +568,6 @@ class BillableEntityApi
      *
      * Delete Billable
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBillableEntity'] to see the possible values for this operation
@@ -597,9 +576,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteBillableEntity($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
+    public function deleteBillableEntity($device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
     {
-        list($response) = $this->deleteBillableEntityWithHttpInfo($version, $device_id, $account_id, $contentType);
+        list($response) = $this->deleteBillableEntityWithHttpInfo($device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -608,7 +587,6 @@ class BillableEntityApi
      *
      * Delete Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBillableEntity'] to see the possible values for this operation
@@ -617,9 +595,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBillableEntityWithHttpInfo($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
+    public function deleteBillableEntityWithHttpInfo($device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
     {
-        $request = $this->deleteBillableEntityRequest($version, $device_id, $account_id, $contentType);
+        $request = $this->deleteBillableEntityRequest($device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -695,7 +673,6 @@ class BillableEntityApi
      *
      * Delete Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBillableEntity'] to see the possible values for this operation
@@ -703,9 +680,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBillableEntityAsync($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
+    public function deleteBillableEntityAsync($device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
     {
-        return $this->deleteBillableEntityAsyncWithHttpInfo($version, $device_id, $account_id, $contentType)
+        return $this->deleteBillableEntityAsyncWithHttpInfo($device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -718,7 +695,6 @@ class BillableEntityApi
      *
      * Delete Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBillableEntity'] to see the possible values for this operation
@@ -726,10 +702,10 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBillableEntityAsyncWithHttpInfo($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
+    public function deleteBillableEntityAsyncWithHttpInfo($device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteBillableEntityRequest($version, $device_id, $account_id, $contentType);
+        $request = $this->deleteBillableEntityRequest($device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -770,7 +746,6 @@ class BillableEntityApi
     /**
      * Create request for operation 'deleteBillableEntity'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBillableEntity'] to see the possible values for this operation
@@ -778,20 +753,13 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteBillableEntityRequest($version, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
+    public function deleteBillableEntityRequest($device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBillableEntity'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteBillableEntity'
-            );
-        }
 
 
 
-
-        $resourcePath = '/api/{version}/billable/delete';
+        $resourcePath = '/billable/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -818,14 +786,6 @@ class BillableEntityApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -886,7 +846,6 @@ class BillableEntityApi
      *
      * Get Billable
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  bool|null $include_counts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -897,9 +856,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BillableEntityResponse
      */
-    public function getBillableEntity($version, $device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
+    public function getBillableEntity($device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
     {
-        list($response) = $this->getBillableEntityWithHttpInfo($version, $device_id, $account_id, $include_counts, $include_payments, $contentType);
+        list($response) = $this->getBillableEntityWithHttpInfo($device_id, $account_id, $include_counts, $include_payments, $contentType);
         return $response;
     }
 
@@ -908,7 +867,6 @@ class BillableEntityApi
      *
      * Get Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  bool|null $include_counts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -919,9 +877,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BillableEntityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBillableEntityWithHttpInfo($version, $device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
+    public function getBillableEntityWithHttpInfo($device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
     {
-        $request = $this->getBillableEntityRequest($version, $device_id, $account_id, $include_counts, $include_payments, $contentType);
+        $request = $this->getBillableEntityRequest($device_id, $account_id, $include_counts, $include_payments, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -997,7 +955,6 @@ class BillableEntityApi
      *
      * Get Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  bool|null $include_counts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -1007,9 +964,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillableEntityAsync($version, $device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
+    public function getBillableEntityAsync($device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
     {
-        return $this->getBillableEntityAsyncWithHttpInfo($version, $device_id, $account_id, $include_counts, $include_payments, $contentType)
+        return $this->getBillableEntityAsyncWithHttpInfo($device_id, $account_id, $include_counts, $include_payments, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1022,7 +979,6 @@ class BillableEntityApi
      *
      * Get Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  bool|null $include_counts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -1032,10 +988,10 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillableEntityAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
+    public function getBillableEntityAsyncWithHttpInfo($device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BillableEntityResponse';
-        $request = $this->getBillableEntityRequest($version, $device_id, $account_id, $include_counts, $include_payments, $contentType);
+        $request = $this->getBillableEntityRequest($device_id, $account_id, $include_counts, $include_payments, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1076,7 +1032,6 @@ class BillableEntityApi
     /**
      * Create request for operation 'getBillableEntity'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param  bool|null $include_counts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -1086,22 +1041,15 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBillableEntityRequest($version, $device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
+    public function getBillableEntityRequest($device_id = null, $account_id = null, $include_counts = false, $include_payments = true, string $contentType = self::contentTypes['getBillableEntity'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getBillableEntity'
-            );
-        }
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/billable/get';
+        $resourcePath = '/billable/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1146,14 +1094,6 @@ class BillableEntityApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1214,7 +1154,6 @@ class BillableEntityApi
      *
      * Update Billable
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -1233,9 +1172,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BillableEntityResponse
      */
-    public function updateBillableEntity($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
+    public function updateBillableEntity($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
     {
-        list($response) = $this->updateBillableEntityWithHttpInfo($version, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
+        list($response) = $this->updateBillableEntityWithHttpInfo($device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
         return $response;
     }
 
@@ -1244,7 +1183,6 @@ class BillableEntityApi
      *
      * Update Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -1263,9 +1201,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BillableEntityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateBillableEntityWithHttpInfo($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
+    public function updateBillableEntityWithHttpInfo($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
     {
-        $request = $this->updateBillableEntityRequest($version, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
+        $request = $this->updateBillableEntityRequest($device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1341,7 +1279,6 @@ class BillableEntityApi
      *
      * Update Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -1359,9 +1296,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBillableEntityAsync($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
+    public function updateBillableEntityAsync($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
     {
-        return $this->updateBillableEntityAsyncWithHttpInfo($version, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType)
+        return $this->updateBillableEntityAsyncWithHttpInfo($device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1374,7 +1311,6 @@ class BillableEntityApi
      *
      * Update Billable
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -1392,10 +1328,10 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBillableEntityAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
+    public function updateBillableEntityAsyncWithHttpInfo($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BillableEntityResponse';
-        $request = $this->updateBillableEntityRequest($version, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
+        $request = $this->updateBillableEntityRequest($device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $business_phone, $business_phone_ext, $authorize_net_api_key, $authorize_net_transaction_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1436,7 +1372,6 @@ class BillableEntityApi
     /**
      * Create request for operation 'updateBillableEntity'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param  int|null $account_id The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param  string|null $name The name of the entity responsible for billing (optional)
@@ -1454,15 +1389,9 @@ class BillableEntityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateBillableEntityRequest($version, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
+    public function updateBillableEntityRequest($device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $business_phone = null, $business_phone_ext = null, $authorize_net_api_key = null, $authorize_net_transaction_key = null, string $contentType = self::contentTypes['updateBillableEntity'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateBillableEntity'
-            );
-        }
 
 
 
@@ -1476,8 +1405,7 @@ class BillableEntityApi
 
 
 
-
-        $resourcePath = '/api/{version}/billable/update';
+        $resourcePath = '/billable/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1594,14 +1522,6 @@ class BillableEntityApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

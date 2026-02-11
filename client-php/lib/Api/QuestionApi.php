@@ -143,7 +143,6 @@ class QuestionApi
      *
      * Create Question
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question the text of the question (required)
      * @param  string $answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; (required)
@@ -161,9 +160,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QuestionResponse
      */
-    public function createQuestion($version, $account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
+    public function createQuestion($account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
     {
-        list($response) = $this->createQuestionWithHttpInfo($version, $account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags, $video_url, $asset_id, $ticket_type, $points, $contentType);
+        list($response) = $this->createQuestionWithHttpInfo($account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags, $video_url, $asset_id, $ticket_type, $points, $contentType);
         return $response;
     }
 
@@ -172,7 +171,6 @@ class QuestionApi
      *
      * Create Question
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question the text of the question (required)
      * @param  string $answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; (required)
@@ -190,9 +188,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QuestionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createQuestionWithHttpInfo($version, $account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
+    public function createQuestionWithHttpInfo($account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
     {
-        $request = $this->createQuestionRequest($version, $account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags, $video_url, $asset_id, $ticket_type, $points, $contentType);
+        $request = $this->createQuestionRequest($account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags, $video_url, $asset_id, $ticket_type, $points, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -268,7 +266,6 @@ class QuestionApi
      *
      * Create Question
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question the text of the question (required)
      * @param  string $answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; (required)
@@ -285,9 +282,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createQuestionAsync($version, $account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
+    public function createQuestionAsync($account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
     {
-        return $this->createQuestionAsyncWithHttpInfo($version, $account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags, $video_url, $asset_id, $ticket_type, $points, $contentType)
+        return $this->createQuestionAsyncWithHttpInfo($account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags, $video_url, $asset_id, $ticket_type, $points, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -300,7 +297,6 @@ class QuestionApi
      *
      * Create Question
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question the text of the question (required)
      * @param  string $answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; (required)
@@ -317,10 +313,10 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createQuestionAsyncWithHttpInfo($version, $account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
+    public function createQuestionAsyncWithHttpInfo($account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QuestionResponse';
-        $request = $this->createQuestionRequest($version, $account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags, $video_url, $asset_id, $ticket_type, $points, $contentType);
+        $request = $this->createQuestionRequest($account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags, $video_url, $asset_id, $ticket_type, $points, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -361,7 +357,6 @@ class QuestionApi
     /**
      * Create request for operation 'createQuestion'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  string $question the text of the question (required)
      * @param  string $answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; (required)
@@ -378,15 +373,8 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createQuestionRequest($version, $account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
+    public function createQuestionRequest($account_id, $question, $answers, $active, $allocate_tickets, $ticket_count, $tags = null, $video_url = null, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createQuestion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createQuestion'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -436,7 +424,7 @@ class QuestionApi
 
 
 
-        $resourcePath = '/api/{version}/game/question/create';
+        $resourcePath = '/game/question/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -544,14 +532,6 @@ class QuestionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -612,7 +592,6 @@ class QuestionApi
      *
      * Delete Question
      *
-     * @param  float $version version (required)
      * @param  int $question_id the id of the question to delete (required)
      * @param  int $account_id the id of the account that can execute this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteQuestion'] to see the possible values for this operation
@@ -621,9 +600,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteQuestion($version, $question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
+    public function deleteQuestion($question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
     {
-        list($response) = $this->deleteQuestionWithHttpInfo($version, $question_id, $account_id, $contentType);
+        list($response) = $this->deleteQuestionWithHttpInfo($question_id, $account_id, $contentType);
         return $response;
     }
 
@@ -632,7 +611,6 @@ class QuestionApi
      *
      * Delete Question
      *
-     * @param  float $version (required)
      * @param  int $question_id the id of the question to delete (required)
      * @param  int $account_id the id of the account that can execute this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteQuestion'] to see the possible values for this operation
@@ -641,9 +619,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteQuestionWithHttpInfo($version, $question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
+    public function deleteQuestionWithHttpInfo($question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
     {
-        $request = $this->deleteQuestionRequest($version, $question_id, $account_id, $contentType);
+        $request = $this->deleteQuestionRequest($question_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -719,7 +697,6 @@ class QuestionApi
      *
      * Delete Question
      *
-     * @param  float $version (required)
      * @param  int $question_id the id of the question to delete (required)
      * @param  int $account_id the id of the account that can execute this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteQuestion'] to see the possible values for this operation
@@ -727,9 +704,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteQuestionAsync($version, $question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
+    public function deleteQuestionAsync($question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
     {
-        return $this->deleteQuestionAsyncWithHttpInfo($version, $question_id, $account_id, $contentType)
+        return $this->deleteQuestionAsyncWithHttpInfo($question_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -742,7 +719,6 @@ class QuestionApi
      *
      * Delete Question
      *
-     * @param  float $version (required)
      * @param  int $question_id the id of the question to delete (required)
      * @param  int $account_id the id of the account that can execute this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteQuestion'] to see the possible values for this operation
@@ -750,10 +726,10 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteQuestionAsyncWithHttpInfo($version, $question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
+    public function deleteQuestionAsyncWithHttpInfo($question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteQuestionRequest($version, $question_id, $account_id, $contentType);
+        $request = $this->deleteQuestionRequest($question_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -794,7 +770,6 @@ class QuestionApi
     /**
      * Create request for operation 'deleteQuestion'
      *
-     * @param  float $version (required)
      * @param  int $question_id the id of the question to delete (required)
      * @param  int $account_id the id of the account that can execute this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteQuestion'] to see the possible values for this operation
@@ -802,15 +777,8 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteQuestionRequest($version, $question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
+    public function deleteQuestionRequest($question_id, $account_id, string $contentType = self::contentTypes['deleteQuestion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteQuestion'
-            );
-        }
 
         // verify the required parameter 'question_id' is set
         if ($question_id === null || (is_array($question_id) && count($question_id) === 0)) {
@@ -827,7 +795,7 @@ class QuestionApi
         }
 
 
-        $resourcePath = '/api/{version}/game/question/delete';
+        $resourcePath = '/game/question/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -854,14 +822,6 @@ class QuestionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -922,7 +882,6 @@ class QuestionApi
      *
      * Get Question
      *
-     * @param  float $version version (required)
      * @param  int $question_id the id of the question to get (required)
      * @param  int $account_id the id of the account that can make this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestion'] to see the possible values for this operation
@@ -931,9 +890,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QuestionResponse
      */
-    public function getQuestion($version, $question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
+    public function getQuestion($question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
     {
-        list($response) = $this->getQuestionWithHttpInfo($version, $question_id, $account_id, $contentType);
+        list($response) = $this->getQuestionWithHttpInfo($question_id, $account_id, $contentType);
         return $response;
     }
 
@@ -942,7 +901,6 @@ class QuestionApi
      *
      * Get Question
      *
-     * @param  float $version (required)
      * @param  int $question_id the id of the question to get (required)
      * @param  int $account_id the id of the account that can make this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestion'] to see the possible values for this operation
@@ -951,9 +909,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QuestionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getQuestionWithHttpInfo($version, $question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
+    public function getQuestionWithHttpInfo($question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
     {
-        $request = $this->getQuestionRequest($version, $question_id, $account_id, $contentType);
+        $request = $this->getQuestionRequest($question_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1029,7 +987,6 @@ class QuestionApi
      *
      * Get Question
      *
-     * @param  float $version (required)
      * @param  int $question_id the id of the question to get (required)
      * @param  int $account_id the id of the account that can make this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestion'] to see the possible values for this operation
@@ -1037,9 +994,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuestionAsync($version, $question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
+    public function getQuestionAsync($question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
     {
-        return $this->getQuestionAsyncWithHttpInfo($version, $question_id, $account_id, $contentType)
+        return $this->getQuestionAsyncWithHttpInfo($question_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1052,7 +1009,6 @@ class QuestionApi
      *
      * Get Question
      *
-     * @param  float $version (required)
      * @param  int $question_id the id of the question to get (required)
      * @param  int $account_id the id of the account that can make this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestion'] to see the possible values for this operation
@@ -1060,10 +1016,10 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuestionAsyncWithHttpInfo($version, $question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
+    public function getQuestionAsyncWithHttpInfo($question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QuestionResponse';
-        $request = $this->getQuestionRequest($version, $question_id, $account_id, $contentType);
+        $request = $this->getQuestionRequest($question_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1104,7 +1060,6 @@ class QuestionApi
     /**
      * Create request for operation 'getQuestion'
      *
-     * @param  float $version (required)
      * @param  int $question_id the id of the question to get (required)
      * @param  int $account_id the id of the account that can make this request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuestion'] to see the possible values for this operation
@@ -1112,15 +1067,8 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getQuestionRequest($version, $question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
+    public function getQuestionRequest($question_id, $account_id, string $contentType = self::contentTypes['getQuestion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getQuestion'
-            );
-        }
 
         // verify the required parameter 'question_id' is set
         if ($question_id === null || (is_array($question_id) && count($question_id) === 0)) {
@@ -1137,7 +1085,7 @@ class QuestionApi
         }
 
 
-        $resourcePath = '/api/{version}/game/question/get';
+        $resourcePath = '/game/question/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1164,14 +1112,6 @@ class QuestionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1232,7 +1172,6 @@ class QuestionApi
      *
      * Search Questions
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1246,9 +1185,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QuestionResponse[]
      */
-    public function searchQuestions($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
+    public function searchQuestions($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
     {
-        list($response) = $this->searchQuestionsWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
+        list($response) = $this->searchQuestionsWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
         return $response;
     }
 
@@ -1257,7 +1196,6 @@ class QuestionApi
      *
      * Search Questions
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1271,9 +1209,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QuestionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchQuestionsWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
+    public function searchQuestionsWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
     {
-        $request = $this->searchQuestionsRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
+        $request = $this->searchQuestionsRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1349,7 +1287,6 @@ class QuestionApi
      *
      * Search Questions
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1362,9 +1299,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchQuestionsAsync($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
+    public function searchQuestionsAsync($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
     {
-        return $this->searchQuestionsAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType)
+        return $this->searchQuestionsAsyncWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1377,7 +1314,6 @@ class QuestionApi
      *
      * Search Questions
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1390,10 +1326,10 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchQuestionsAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
+    public function searchQuestionsAsyncWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QuestionResponse[]';
-        $request = $this->searchQuestionsRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
+        $request = $this->searchQuestionsRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1434,7 +1370,6 @@ class QuestionApi
     /**
      * Create request for operation 'searchQuestions'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1447,15 +1382,8 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchQuestionsRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
+    public function searchQuestionsRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['searchQuestions'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchQuestions'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1501,7 +1429,7 @@ class QuestionApi
 
 
 
-        $resourcePath = '/api/{version}/game/question/search';
+        $resourcePath = '/game/question/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1573,14 +1501,6 @@ class QuestionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1641,7 +1561,6 @@ class QuestionApi
      *
      * Update Question
      *
-     * @param  float $version version (required)
      * @param  int $question_id The id of the question to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1660,9 +1579,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QuestionResponse
      */
-    public function updateQuestion($version, $question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
+    public function updateQuestion($question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
     {
-        list($response) = $this->updateQuestionWithHttpInfo($version, $question_id, $account_id, $ticket_count, $question, $answers, $tags, $video_url, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
+        list($response) = $this->updateQuestionWithHttpInfo($question_id, $account_id, $ticket_count, $question, $answers, $tags, $video_url, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
         return $response;
     }
 
@@ -1671,7 +1590,6 @@ class QuestionApi
      *
      * Update Question
      *
-     * @param  float $version (required)
      * @param  int $question_id The id of the question to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1690,9 +1608,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QuestionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateQuestionWithHttpInfo($version, $question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
+    public function updateQuestionWithHttpInfo($question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
     {
-        $request = $this->updateQuestionRequest($version, $question_id, $account_id, $ticket_count, $question, $answers, $tags, $video_url, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
+        $request = $this->updateQuestionRequest($question_id, $account_id, $ticket_count, $question, $answers, $tags, $video_url, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1768,7 +1686,6 @@ class QuestionApi
      *
      * Update Question
      *
-     * @param  float $version (required)
      * @param  int $question_id The id of the question to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1786,9 +1703,9 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateQuestionAsync($version, $question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
+    public function updateQuestionAsync($question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
     {
-        return $this->updateQuestionAsyncWithHttpInfo($version, $question_id, $account_id, $ticket_count, $question, $answers, $tags, $video_url, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType)
+        return $this->updateQuestionAsyncWithHttpInfo($question_id, $account_id, $ticket_count, $question, $answers, $tags, $video_url, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1801,7 +1718,6 @@ class QuestionApi
      *
      * Update Question
      *
-     * @param  float $version (required)
      * @param  int $question_id The id of the question to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1819,10 +1735,10 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateQuestionAsyncWithHttpInfo($version, $question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
+    public function updateQuestionAsyncWithHttpInfo($question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QuestionResponse';
-        $request = $this->updateQuestionRequest($version, $question_id, $account_id, $ticket_count, $question, $answers, $tags, $video_url, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
+        $request = $this->updateQuestionRequest($question_id, $account_id, $ticket_count, $question, $answers, $tags, $video_url, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1863,7 +1779,6 @@ class QuestionApi
     /**
      * Create request for operation 'updateQuestion'
      *
-     * @param  float $version (required)
      * @param  int $question_id The id of the question to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1881,15 +1796,8 @@ class QuestionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateQuestionRequest($version, $question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
+    public function updateQuestionRequest($question_id, $account_id, $ticket_count, $question = null, $answers = null, $tags = null, $video_url = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateQuestion'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateQuestion'
-            );
-        }
 
         // verify the required parameter 'question_id' is set
         if ($question_id === null || (is_array($question_id) && count($question_id) === 0)) {
@@ -1922,7 +1830,7 @@ class QuestionApi
 
 
 
-        $resourcePath = '/api/{version}/game/question/update';
+        $resourcePath = '/game/question/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2039,14 +1947,6 @@ class QuestionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

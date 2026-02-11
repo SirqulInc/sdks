@@ -143,7 +143,6 @@ class WordApi
      *
      * Create Word
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $word The text of the word. (required)
      * @param  string $definition The definition of the word. (required)
@@ -159,9 +158,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WordzWordResponse
      */
-    public function createWord($version, $account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
+    public function createWord($account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
     {
-        list($response) = $this->createWordWithHttpInfo($version, $account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id, $ticket_type, $points, $contentType);
+        list($response) = $this->createWordWithHttpInfo($account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id, $ticket_type, $points, $contentType);
         return $response;
     }
 
@@ -170,7 +169,6 @@ class WordApi
      *
      * Create Word
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $word The text of the word. (required)
      * @param  string $definition The definition of the word. (required)
@@ -186,9 +184,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WordzWordResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWordWithHttpInfo($version, $account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
+    public function createWordWithHttpInfo($account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
     {
-        $request = $this->createWordRequest($version, $account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id, $ticket_type, $points, $contentType);
+        $request = $this->createWordRequest($account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id, $ticket_type, $points, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -264,7 +262,6 @@ class WordApi
      *
      * Create Word
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $word The text of the word. (required)
      * @param  string $definition The definition of the word. (required)
@@ -279,9 +276,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWordAsync($version, $account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
+    public function createWordAsync($account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
     {
-        return $this->createWordAsyncWithHttpInfo($version, $account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id, $ticket_type, $points, $contentType)
+        return $this->createWordAsyncWithHttpInfo($account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id, $ticket_type, $points, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -294,7 +291,6 @@ class WordApi
      *
      * Create Word
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $word The text of the word. (required)
      * @param  string $definition The definition of the word. (required)
@@ -309,10 +305,10 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWordAsyncWithHttpInfo($version, $account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
+    public function createWordAsyncWithHttpInfo($account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WordzWordResponse';
-        $request = $this->createWordRequest($version, $account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id, $ticket_type, $points, $contentType);
+        $request = $this->createWordRequest($account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id, $ticket_type, $points, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -353,7 +349,6 @@ class WordApi
     /**
      * Create request for operation 'createWord'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $word The text of the word. (required)
      * @param  string $definition The definition of the word. (required)
@@ -368,15 +363,8 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createWordRequest($version, $account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
+    public function createWordRequest($account_id, $word, $definition, $active, $allocate_tickets, $ticket_count, $asset_id = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['createWord'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createWord'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -424,7 +412,7 @@ class WordApi
 
 
 
-        $resourcePath = '/api/{version}/game/word/create';
+        $resourcePath = '/game/word/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -514,14 +502,6 @@ class WordApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -582,7 +562,6 @@ class WordApi
      *
      * Delete Word
      *
-     * @param  float $version version (required)
      * @param  int $word_id The id of the word to delete. (required)
      * @param  int $account_id The account vor validating permission (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWord'] to see the possible values for this operation
@@ -591,9 +570,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteWord($version, $word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
+    public function deleteWord($word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
     {
-        list($response) = $this->deleteWordWithHttpInfo($version, $word_id, $account_id, $contentType);
+        list($response) = $this->deleteWordWithHttpInfo($word_id, $account_id, $contentType);
         return $response;
     }
 
@@ -602,7 +581,6 @@ class WordApi
      *
      * Delete Word
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to delete. (required)
      * @param  int $account_id The account vor validating permission (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWord'] to see the possible values for this operation
@@ -611,9 +589,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWordWithHttpInfo($version, $word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
+    public function deleteWordWithHttpInfo($word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
     {
-        $request = $this->deleteWordRequest($version, $word_id, $account_id, $contentType);
+        $request = $this->deleteWordRequest($word_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -689,7 +667,6 @@ class WordApi
      *
      * Delete Word
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to delete. (required)
      * @param  int $account_id The account vor validating permission (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWord'] to see the possible values for this operation
@@ -697,9 +674,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWordAsync($version, $word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
+    public function deleteWordAsync($word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
     {
-        return $this->deleteWordAsyncWithHttpInfo($version, $word_id, $account_id, $contentType)
+        return $this->deleteWordAsyncWithHttpInfo($word_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -712,7 +689,6 @@ class WordApi
      *
      * Delete Word
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to delete. (required)
      * @param  int $account_id The account vor validating permission (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWord'] to see the possible values for this operation
@@ -720,10 +696,10 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWordAsyncWithHttpInfo($version, $word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
+    public function deleteWordAsyncWithHttpInfo($word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteWordRequest($version, $word_id, $account_id, $contentType);
+        $request = $this->deleteWordRequest($word_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -764,7 +740,6 @@ class WordApi
     /**
      * Create request for operation 'deleteWord'
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to delete. (required)
      * @param  int $account_id The account vor validating permission (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWord'] to see the possible values for this operation
@@ -772,15 +747,8 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteWordRequest($version, $word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
+    public function deleteWordRequest($word_id, $account_id, string $contentType = self::contentTypes['deleteWord'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteWord'
-            );
-        }
 
         // verify the required parameter 'word_id' is set
         if ($word_id === null || (is_array($word_id) && count($word_id) === 0)) {
@@ -797,7 +765,7 @@ class WordApi
         }
 
 
-        $resourcePath = '/api/{version}/game/word/delete';
+        $resourcePath = '/game/word/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -824,14 +792,6 @@ class WordApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -892,7 +852,6 @@ class WordApi
      *
      * Get Word
      *
-     * @param  float $version version (required)
      * @param  int $word_id The id of the word to get. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWord'] to see the possible values for this operation
@@ -901,9 +860,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WordzWordResponse
      */
-    public function getWord($version, $word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
+    public function getWord($word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
     {
-        list($response) = $this->getWordWithHttpInfo($version, $word_id, $account_id, $contentType);
+        list($response) = $this->getWordWithHttpInfo($word_id, $account_id, $contentType);
         return $response;
     }
 
@@ -912,7 +871,6 @@ class WordApi
      *
      * Get Word
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to get. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWord'] to see the possible values for this operation
@@ -921,9 +879,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WordzWordResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWordWithHttpInfo($version, $word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
+    public function getWordWithHttpInfo($word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
     {
-        $request = $this->getWordRequest($version, $word_id, $account_id, $contentType);
+        $request = $this->getWordRequest($word_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -999,7 +957,6 @@ class WordApi
      *
      * Get Word
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to get. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWord'] to see the possible values for this operation
@@ -1007,9 +964,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWordAsync($version, $word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
+    public function getWordAsync($word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
     {
-        return $this->getWordAsyncWithHttpInfo($version, $word_id, $account_id, $contentType)
+        return $this->getWordAsyncWithHttpInfo($word_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1022,7 +979,6 @@ class WordApi
      *
      * Get Word
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to get. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWord'] to see the possible values for this operation
@@ -1030,10 +986,10 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWordAsyncWithHttpInfo($version, $word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
+    public function getWordAsyncWithHttpInfo($word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WordzWordResponse';
-        $request = $this->getWordRequest($version, $word_id, $account_id, $contentType);
+        $request = $this->getWordRequest($word_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1074,7 +1030,6 @@ class WordApi
     /**
      * Create request for operation 'getWord'
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to get. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWord'] to see the possible values for this operation
@@ -1082,15 +1037,8 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWordRequest($version, $word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
+    public function getWordRequest($word_id, $account_id, string $contentType = self::contentTypes['getWord'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getWord'
-            );
-        }
 
         // verify the required parameter 'word_id' is set
         if ($word_id === null || (is_array($word_id) && count($word_id) === 0)) {
@@ -1107,7 +1055,7 @@ class WordApi
         }
 
 
-        $resourcePath = '/api/{version}/game/word/get';
+        $resourcePath = '/game/word/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1134,14 +1082,6 @@ class WordApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1202,7 +1142,6 @@ class WordApi
      *
      * Search Words
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1216,9 +1155,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WordzWordResponse[]
      */
-    public function getWords($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
+    public function getWords($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
     {
-        list($response) = $this->getWordsWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
+        list($response) = $this->getWordsWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
         return $response;
     }
 
@@ -1227,7 +1166,6 @@ class WordApi
      *
      * Search Words
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1241,9 +1179,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WordzWordResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWordsWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
+    public function getWordsWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
     {
-        $request = $this->getWordsRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
+        $request = $this->getWordsRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1319,7 +1257,6 @@ class WordApi
      *
      * Search Words
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1332,9 +1269,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWordsAsync($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
+    public function getWordsAsync($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
     {
-        return $this->getWordsAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType)
+        return $this->getWordsAsyncWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1347,7 +1284,6 @@ class WordApi
      *
      * Search Words
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1360,10 +1296,10 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWordsAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
+    public function getWordsAsyncWithHttpInfo($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WordzWordResponse[]';
-        $request = $this->getWordsRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
+        $request = $this->getWordsRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1404,7 +1340,6 @@ class WordApi
     /**
      * Create request for operation 'getWords'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $sort_field The column to sort the search on (required)
      * @param  bool $descending The order to return the search results (required)
@@ -1417,15 +1352,8 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWordsRequest($version, $account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
+    public function getWordsRequest($account_id, $sort_field, $descending, $active_only, $start, $limit, $keyword = null, string $contentType = self::contentTypes['getWords'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getWords'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1471,7 +1399,7 @@ class WordApi
 
 
 
-        $resourcePath = '/api/{version}/game/word/search';
+        $resourcePath = '/game/word/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1543,14 +1471,6 @@ class WordApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1611,7 +1531,6 @@ class WordApi
      *
      * Update Word
      *
-     * @param  float $version version (required)
      * @param  int $word_id The id of the word to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1628,9 +1547,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WordzWordResponse
      */
-    public function updateWord($version, $word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
+    public function updateWord($word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
     {
-        list($response) = $this->updateWordWithHttpInfo($version, $word_id, $account_id, $ticket_count, $word_text, $definition, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
+        list($response) = $this->updateWordWithHttpInfo($word_id, $account_id, $ticket_count, $word_text, $definition, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
         return $response;
     }
 
@@ -1639,7 +1558,6 @@ class WordApi
      *
      * Update Word
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1656,9 +1574,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WordzWordResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateWordWithHttpInfo($version, $word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
+    public function updateWordWithHttpInfo($word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
     {
-        $request = $this->updateWordRequest($version, $word_id, $account_id, $ticket_count, $word_text, $definition, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
+        $request = $this->updateWordRequest($word_id, $account_id, $ticket_count, $word_text, $definition, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1734,7 +1652,6 @@ class WordApi
      *
      * Update Word
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1750,9 +1667,9 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWordAsync($version, $word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
+    public function updateWordAsync($word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
     {
-        return $this->updateWordAsyncWithHttpInfo($version, $word_id, $account_id, $ticket_count, $word_text, $definition, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType)
+        return $this->updateWordAsyncWithHttpInfo($word_id, $account_id, $ticket_count, $word_text, $definition, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1765,7 +1682,6 @@ class WordApi
      *
      * Update Word
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1781,10 +1697,10 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWordAsyncWithHttpInfo($version, $word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
+    public function updateWordAsyncWithHttpInfo($word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WordzWordResponse';
-        $request = $this->updateWordRequest($version, $word_id, $account_id, $ticket_count, $word_text, $definition, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
+        $request = $this->updateWordRequest($word_id, $account_id, $ticket_count, $word_text, $definition, $asset_id, $active, $allocate_tickets, $ticket_type, $points, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1825,7 +1741,6 @@ class WordApi
     /**
      * Create request for operation 'updateWord'
      *
-     * @param  float $version (required)
      * @param  int $word_id The id of the word to update. (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $ticket_count The number of tickets to reward (required)
@@ -1841,15 +1756,8 @@ class WordApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateWordRequest($version, $word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
+    public function updateWordRequest($word_id, $account_id, $ticket_count, $word_text = null, $definition = null, $asset_id = null, $active = null, $allocate_tickets = null, $ticket_type = null, $points = null, string $contentType = self::contentTypes['updateWord'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateWord'
-            );
-        }
 
         // verify the required parameter 'word_id' is set
         if ($word_id === null || (is_array($word_id) && count($word_id) === 0)) {
@@ -1880,7 +1788,7 @@ class WordApi
 
 
 
-        $resourcePath = '/api/{version}/game/word/update';
+        $resourcePath = '/game/word/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1979,14 +1887,6 @@ class WordApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

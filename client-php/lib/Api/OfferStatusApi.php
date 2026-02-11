@@ -143,7 +143,6 @@ class OfferStatusApi
      *
      * Create Offer Status
      *
-     * @param  float $version version (required)
      * @param  string $name The name of the status (required)
      * @param  int $code The status code, must be unique (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -160,9 +159,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionStatusResponse
      */
-    public function createOfferTransactionStatus($version, $name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
+    public function createOfferTransactionStatus($name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
     {
-        list($response) = $this->createOfferTransactionStatusWithHttpInfo($version, $name, $code, $device_id, $account_id, $latitude, $longitude, $description, $role, $active, $application_ids, $contentType);
+        list($response) = $this->createOfferTransactionStatusWithHttpInfo($name, $code, $device_id, $account_id, $latitude, $longitude, $description, $role, $active, $application_ids, $contentType);
         return $response;
     }
 
@@ -171,7 +170,6 @@ class OfferStatusApi
      *
      * Create Offer Status
      *
-     * @param  float $version (required)
      * @param  string $name The name of the status (required)
      * @param  int $code The status code, must be unique (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -188,9 +186,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOfferTransactionStatusWithHttpInfo($version, $name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
+    public function createOfferTransactionStatusWithHttpInfo($name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
     {
-        $request = $this->createOfferTransactionStatusRequest($version, $name, $code, $device_id, $account_id, $latitude, $longitude, $description, $role, $active, $application_ids, $contentType);
+        $request = $this->createOfferTransactionStatusRequest($name, $code, $device_id, $account_id, $latitude, $longitude, $description, $role, $active, $application_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -266,7 +264,6 @@ class OfferStatusApi
      *
      * Create Offer Status
      *
-     * @param  float $version (required)
      * @param  string $name The name of the status (required)
      * @param  int $code The status code, must be unique (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -282,9 +279,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOfferTransactionStatusAsync($version, $name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
+    public function createOfferTransactionStatusAsync($name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
     {
-        return $this->createOfferTransactionStatusAsyncWithHttpInfo($version, $name, $code, $device_id, $account_id, $latitude, $longitude, $description, $role, $active, $application_ids, $contentType)
+        return $this->createOfferTransactionStatusAsyncWithHttpInfo($name, $code, $device_id, $account_id, $latitude, $longitude, $description, $role, $active, $application_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -297,7 +294,6 @@ class OfferStatusApi
      *
      * Create Offer Status
      *
-     * @param  float $version (required)
      * @param  string $name The name of the status (required)
      * @param  int $code The status code, must be unique (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -313,10 +309,10 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOfferTransactionStatusAsyncWithHttpInfo($version, $name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
+    public function createOfferTransactionStatusAsyncWithHttpInfo($name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionStatusResponse';
-        $request = $this->createOfferTransactionStatusRequest($version, $name, $code, $device_id, $account_id, $latitude, $longitude, $description, $role, $active, $application_ids, $contentType);
+        $request = $this->createOfferTransactionStatusRequest($name, $code, $device_id, $account_id, $latitude, $longitude, $description, $role, $active, $application_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -357,7 +353,6 @@ class OfferStatusApi
     /**
      * Create request for operation 'createOfferTransactionStatus'
      *
-     * @param  float $version (required)
      * @param  string $name The name of the status (required)
      * @param  int $code The status code, must be unique (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -373,15 +368,8 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOfferTransactionStatusRequest($version, $name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
+    public function createOfferTransactionStatusRequest($name, $code, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $description = null, $role = 'ANY', $active = true, $application_ids = null, string $contentType = self::contentTypes['createOfferTransactionStatus'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createOfferTransactionStatus'
-            );
-        }
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -406,7 +394,7 @@ class OfferStatusApi
 
 
 
-        $resourcePath = '/api/{version}/offer/status/create';
+        $resourcePath = '/offer/status/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -505,14 +493,6 @@ class OfferStatusApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -573,7 +553,6 @@ class OfferStatusApi
      *
      * Delete Offer Status
      *
-     * @param  float $version version (required)
      * @param  int $status_id The id of the record to delete (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -585,9 +564,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteOfferTransactionStatus($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
+    public function deleteOfferTransactionStatus($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
     {
-        list($response) = $this->deleteOfferTransactionStatusWithHttpInfo($version, $status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->deleteOfferTransactionStatusWithHttpInfo($status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -596,7 +575,6 @@ class OfferStatusApi
      *
      * Delete Offer Status
      *
-     * @param  float $version (required)
      * @param  int $status_id The id of the record to delete (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -608,9 +586,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOfferTransactionStatusWithHttpInfo($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
+    public function deleteOfferTransactionStatusWithHttpInfo($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
     {
-        $request = $this->deleteOfferTransactionStatusRequest($version, $status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->deleteOfferTransactionStatusRequest($status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -686,7 +664,6 @@ class OfferStatusApi
      *
      * Delete Offer Status
      *
-     * @param  float $version (required)
      * @param  int $status_id The id of the record to delete (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -697,9 +674,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOfferTransactionStatusAsync($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
+    public function deleteOfferTransactionStatusAsync($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
     {
-        return $this->deleteOfferTransactionStatusAsyncWithHttpInfo($version, $status_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->deleteOfferTransactionStatusAsyncWithHttpInfo($status_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -712,7 +689,6 @@ class OfferStatusApi
      *
      * Delete Offer Status
      *
-     * @param  float $version (required)
      * @param  int $status_id The id of the record to delete (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -723,10 +699,10 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOfferTransactionStatusAsyncWithHttpInfo($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
+    public function deleteOfferTransactionStatusAsyncWithHttpInfo($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteOfferTransactionStatusRequest($version, $status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->deleteOfferTransactionStatusRequest($status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -767,7 +743,6 @@ class OfferStatusApi
     /**
      * Create request for operation 'deleteOfferTransactionStatus'
      *
-     * @param  float $version (required)
      * @param  int $status_id The id of the record to delete (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -778,15 +753,8 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteOfferTransactionStatusRequest($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
+    public function deleteOfferTransactionStatusRequest($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteOfferTransactionStatus'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteOfferTransactionStatus'
-            );
-        }
 
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
@@ -800,7 +768,7 @@ class OfferStatusApi
 
 
 
-        $resourcePath = '/api/{version}/offer/status/delete';
+        $resourcePath = '/offer/status/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -854,14 +822,6 @@ class OfferStatusApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -922,7 +882,6 @@ class OfferStatusApi
      *
      * Get Offer Status
      *
-     * @param  float $version version (required)
      * @param  int $status_id The id of the record to get (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -934,9 +893,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionStatusResponse
      */
-    public function getOfferTransactionStatus($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
+    public function getOfferTransactionStatus($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
     {
-        list($response) = $this->getOfferTransactionStatusWithHttpInfo($version, $status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->getOfferTransactionStatusWithHttpInfo($status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -945,7 +904,6 @@ class OfferStatusApi
      *
      * Get Offer Status
      *
-     * @param  float $version (required)
      * @param  int $status_id The id of the record to get (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -957,9 +915,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOfferTransactionStatusWithHttpInfo($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
+    public function getOfferTransactionStatusWithHttpInfo($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
     {
-        $request = $this->getOfferTransactionStatusRequest($version, $status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getOfferTransactionStatusRequest($status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1035,7 +993,6 @@ class OfferStatusApi
      *
      * Get Offer Status
      *
-     * @param  float $version (required)
      * @param  int $status_id The id of the record to get (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1046,9 +1003,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferTransactionStatusAsync($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
+    public function getOfferTransactionStatusAsync($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
     {
-        return $this->getOfferTransactionStatusAsyncWithHttpInfo($version, $status_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->getOfferTransactionStatusAsyncWithHttpInfo($status_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1061,7 +1018,6 @@ class OfferStatusApi
      *
      * Get Offer Status
      *
-     * @param  float $version (required)
      * @param  int $status_id The id of the record to get (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1072,10 +1028,10 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferTransactionStatusAsyncWithHttpInfo($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
+    public function getOfferTransactionStatusAsyncWithHttpInfo($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionStatusResponse';
-        $request = $this->getOfferTransactionStatusRequest($version, $status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getOfferTransactionStatusRequest($status_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1116,7 +1072,6 @@ class OfferStatusApi
     /**
      * Create request for operation 'getOfferTransactionStatus'
      *
-     * @param  float $version (required)
      * @param  int $status_id The id of the record to get (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1127,15 +1082,8 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOfferTransactionStatusRequest($version, $status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
+    public function getOfferTransactionStatusRequest($status_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getOfferTransactionStatus'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOfferTransactionStatus'
-            );
-        }
 
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
@@ -1149,7 +1097,7 @@ class OfferStatusApi
 
 
 
-        $resourcePath = '/api/{version}/offer/status/get';
+        $resourcePath = '/offer/status/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1203,14 +1151,6 @@ class OfferStatusApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1271,7 +1211,6 @@ class OfferStatusApi
      *
      * Search Offer Status
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1290,9 +1229,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionStatusResponse[]
      */
-    public function searchOfferTransactionStatuses($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
+    public function searchOfferTransactionStatuses($device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
     {
-        list($response) = $this->searchOfferTransactionStatusesWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $keyword, $role, $app_key, $sort_field, $descending, $start, $limit, $include_inactive, $contentType);
+        list($response) = $this->searchOfferTransactionStatusesWithHttpInfo($device_id, $account_id, $latitude, $longitude, $keyword, $role, $app_key, $sort_field, $descending, $start, $limit, $include_inactive, $contentType);
         return $response;
     }
 
@@ -1301,7 +1240,6 @@ class OfferStatusApi
      *
      * Search Offer Status
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1320,9 +1258,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionStatusResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchOfferTransactionStatusesWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
+    public function searchOfferTransactionStatusesWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
     {
-        $request = $this->searchOfferTransactionStatusesRequest($version, $device_id, $account_id, $latitude, $longitude, $keyword, $role, $app_key, $sort_field, $descending, $start, $limit, $include_inactive, $contentType);
+        $request = $this->searchOfferTransactionStatusesRequest($device_id, $account_id, $latitude, $longitude, $keyword, $role, $app_key, $sort_field, $descending, $start, $limit, $include_inactive, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1398,7 +1336,6 @@ class OfferStatusApi
      *
      * Search Offer Status
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1416,9 +1353,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOfferTransactionStatusesAsync($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
+    public function searchOfferTransactionStatusesAsync($device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
     {
-        return $this->searchOfferTransactionStatusesAsyncWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $keyword, $role, $app_key, $sort_field, $descending, $start, $limit, $include_inactive, $contentType)
+        return $this->searchOfferTransactionStatusesAsyncWithHttpInfo($device_id, $account_id, $latitude, $longitude, $keyword, $role, $app_key, $sort_field, $descending, $start, $limit, $include_inactive, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1431,7 +1368,6 @@ class OfferStatusApi
      *
      * Search Offer Status
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1449,10 +1385,10 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOfferTransactionStatusesAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
+    public function searchOfferTransactionStatusesAsyncWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionStatusResponse[]';
-        $request = $this->searchOfferTransactionStatusesRequest($version, $device_id, $account_id, $latitude, $longitude, $keyword, $role, $app_key, $sort_field, $descending, $start, $limit, $include_inactive, $contentType);
+        $request = $this->searchOfferTransactionStatusesRequest($device_id, $account_id, $latitude, $longitude, $keyword, $role, $app_key, $sort_field, $descending, $start, $limit, $include_inactive, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1493,7 +1429,6 @@ class OfferStatusApi
     /**
      * Create request for operation 'searchOfferTransactionStatuses'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1511,15 +1446,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchOfferTransactionStatusesRequest($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
+    public function searchOfferTransactionStatusesRequest($device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, $role = null, $app_key = null, $sort_field = 'CODE', $descending = true, $start = 0, $limit = 20, $include_inactive = false, string $contentType = self::contentTypes['searchOfferTransactionStatuses'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchOfferTransactionStatuses'
-            );
-        }
 
 
 
@@ -1533,8 +1462,7 @@ class OfferStatusApi
 
 
 
-
-        $resourcePath = '/api/{version}/offer/status/search';
+        $resourcePath = '/offer/status/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1651,14 +1579,6 @@ class OfferStatusApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1719,7 +1639,6 @@ class OfferStatusApi
      *
      * Update Offer Status
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1737,9 +1656,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionStatusResponse
      */
-    public function updateOfferTransactionStatus($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
+    public function updateOfferTransactionStatus($device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
     {
-        list($response) = $this->updateOfferTransactionStatusWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $status_id, $name, $description, $code, $role, $active, $application_ids, $contentType);
+        list($response) = $this->updateOfferTransactionStatusWithHttpInfo($device_id, $account_id, $latitude, $longitude, $status_id, $name, $description, $code, $role, $active, $application_ids, $contentType);
         return $response;
     }
 
@@ -1748,7 +1667,6 @@ class OfferStatusApi
      *
      * Update Offer Status
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1766,9 +1684,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOfferTransactionStatusWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
+    public function updateOfferTransactionStatusWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
     {
-        $request = $this->updateOfferTransactionStatusRequest($version, $device_id, $account_id, $latitude, $longitude, $status_id, $name, $description, $code, $role, $active, $application_ids, $contentType);
+        $request = $this->updateOfferTransactionStatusRequest($device_id, $account_id, $latitude, $longitude, $status_id, $name, $description, $code, $role, $active, $application_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1844,7 +1762,6 @@ class OfferStatusApi
      *
      * Update Offer Status
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1861,9 +1778,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOfferTransactionStatusAsync($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
+    public function updateOfferTransactionStatusAsync($device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
     {
-        return $this->updateOfferTransactionStatusAsyncWithHttpInfo($version, $device_id, $account_id, $latitude, $longitude, $status_id, $name, $description, $code, $role, $active, $application_ids, $contentType)
+        return $this->updateOfferTransactionStatusAsyncWithHttpInfo($device_id, $account_id, $latitude, $longitude, $status_id, $name, $description, $code, $role, $active, $application_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1876,7 +1793,6 @@ class OfferStatusApi
      *
      * Update Offer Status
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1893,10 +1809,10 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOfferTransactionStatusAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
+    public function updateOfferTransactionStatusAsyncWithHttpInfo($device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionStatusResponse';
-        $request = $this->updateOfferTransactionStatusRequest($version, $device_id, $account_id, $latitude, $longitude, $status_id, $name, $description, $code, $role, $active, $application_ids, $contentType);
+        $request = $this->updateOfferTransactionStatusRequest($device_id, $account_id, $latitude, $longitude, $status_id, $name, $description, $code, $role, $active, $application_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1937,7 +1853,6 @@ class OfferStatusApi
     /**
      * Create request for operation 'updateOfferTransactionStatus'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  float|null $latitude Used to update the user&#39;s current location (optional)
@@ -1954,15 +1869,9 @@ class OfferStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateOfferTransactionStatusRequest($version, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
+    public function updateOfferTransactionStatusRequest($device_id = null, $account_id = null, $latitude = null, $longitude = null, $status_id = null, $name = null, $description = null, $code = null, $role = null, $active = null, $application_ids = null, string $contentType = self::contentTypes['updateOfferTransactionStatus'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateOfferTransactionStatus'
-            );
-        }
 
 
 
@@ -1975,8 +1884,7 @@ class OfferStatusApi
 
 
 
-
-        $resourcePath = '/api/{version}/offer/status/update';
+        $resourcePath = '/offer/status/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2084,14 +1992,6 @@ class OfferStatusApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

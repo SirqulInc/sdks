@@ -140,7 +140,6 @@ class BidApi
      *
      * Create Bid
      *
-     * @param  float $version version (required)
      * @param  string $biddable_type A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param  int $biddable_id The id of the biddable object (required)
      * @param  float $amount_per_view The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -155,9 +154,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BidResponse
      */
-    public function createBid($version, $biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
+    public function createBid($biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
     {
-        list($response) = $this->createBidWithHttpInfo($version, $biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id, $account_id, $contentType);
+        list($response) = $this->createBidWithHttpInfo($biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -166,7 +165,6 @@ class BidApi
      *
      * Create Bid
      *
-     * @param  float $version (required)
      * @param  string $biddable_type A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param  int $biddable_id The id of the biddable object (required)
      * @param  float $amount_per_view The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -181,9 +179,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BidResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBidWithHttpInfo($version, $biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
+    public function createBidWithHttpInfo($biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
     {
-        $request = $this->createBidRequest($version, $biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id, $account_id, $contentType);
+        $request = $this->createBidRequest($biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -259,7 +257,6 @@ class BidApi
      *
      * Create Bid
      *
-     * @param  float $version (required)
      * @param  string $biddable_type A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param  int $biddable_id The id of the biddable object (required)
      * @param  float $amount_per_view The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -273,9 +270,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBidAsync($version, $biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
+    public function createBidAsync($biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
     {
-        return $this->createBidAsyncWithHttpInfo($version, $biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id, $account_id, $contentType)
+        return $this->createBidAsyncWithHttpInfo($biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -288,7 +285,6 @@ class BidApi
      *
      * Create Bid
      *
-     * @param  float $version (required)
      * @param  string $biddable_type A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param  int $biddable_id The id of the biddable object (required)
      * @param  float $amount_per_view The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -302,10 +298,10 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBidAsyncWithHttpInfo($version, $biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
+    public function createBidAsyncWithHttpInfo($biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BidResponse';
-        $request = $this->createBidRequest($version, $biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id, $account_id, $contentType);
+        $request = $this->createBidRequest($biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -346,7 +342,6 @@ class BidApi
     /**
      * Create request for operation 'createBid'
      *
-     * @param  float $version (required)
      * @param  string $biddable_type A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param  int $biddable_id The id of the biddable object (required)
      * @param  float $amount_per_view The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -360,15 +355,8 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createBidRequest($version, $biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
+    public function createBidRequest($biddable_type, $biddable_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $device_id = null, $account_id = null, string $contentType = self::contentTypes['createBid'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createBid'
-            );
-        }
 
         // verify the required parameter 'biddable_type' is set
         if ($biddable_type === null || (is_array($biddable_type) && count($biddable_type) === 0)) {
@@ -415,7 +403,7 @@ class BidApi
 
 
 
-        $resourcePath = '/api/{version}/bid/create';
+        $resourcePath = '/bid/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -496,14 +484,6 @@ class BidApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -564,7 +544,6 @@ class BidApi
      *
      * Delete Bid
      *
-     * @param  float $version version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -574,9 +553,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteBid($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
+    public function deleteBid($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
     {
-        list($response) = $this->deleteBidWithHttpInfo($version, $bid_id, $device_id, $account_id, $contentType);
+        list($response) = $this->deleteBidWithHttpInfo($bid_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -585,7 +564,6 @@ class BidApi
      *
      * Delete Bid
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -595,9 +573,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBidWithHttpInfo($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
+    public function deleteBidWithHttpInfo($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
     {
-        $request = $this->deleteBidRequest($version, $bid_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteBidRequest($bid_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -673,7 +651,6 @@ class BidApi
      *
      * Delete Bid
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -682,9 +659,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBidAsync($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
+    public function deleteBidAsync($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
     {
-        return $this->deleteBidAsyncWithHttpInfo($version, $bid_id, $device_id, $account_id, $contentType)
+        return $this->deleteBidAsyncWithHttpInfo($bid_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -697,7 +674,6 @@ class BidApi
      *
      * Delete Bid
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -706,10 +682,10 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBidAsyncWithHttpInfo($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
+    public function deleteBidAsyncWithHttpInfo($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteBidRequest($version, $bid_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteBidRequest($bid_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -750,7 +726,6 @@ class BidApi
     /**
      * Create request for operation 'deleteBid'
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -759,15 +734,8 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteBidRequest($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
+    public function deleteBidRequest($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteBid'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteBid'
-            );
-        }
 
         // verify the required parameter 'bid_id' is set
         if ($bid_id === null || (is_array($bid_id) && count($bid_id) === 0)) {
@@ -779,7 +747,7 @@ class BidApi
 
 
 
-        $resourcePath = '/api/{version}/bid/delete';
+        $resourcePath = '/bid/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -815,14 +783,6 @@ class BidApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -883,7 +843,6 @@ class BidApi
      *
      * Get Bid
      *
-     * @param  float $version version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -893,9 +852,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BidResponse
      */
-    public function getBid($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
+    public function getBid($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
     {
-        list($response) = $this->getBidWithHttpInfo($version, $bid_id, $device_id, $account_id, $contentType);
+        list($response) = $this->getBidWithHttpInfo($bid_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -904,7 +863,6 @@ class BidApi
      *
      * Get Bid
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -914,9 +872,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BidResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBidWithHttpInfo($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
+    public function getBidWithHttpInfo($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
     {
-        $request = $this->getBidRequest($version, $bid_id, $device_id, $account_id, $contentType);
+        $request = $this->getBidRequest($bid_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -992,7 +950,6 @@ class BidApi
      *
      * Get Bid
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1001,9 +958,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBidAsync($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
+    public function getBidAsync($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
     {
-        return $this->getBidAsyncWithHttpInfo($version, $bid_id, $device_id, $account_id, $contentType)
+        return $this->getBidAsyncWithHttpInfo($bid_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1016,7 +973,6 @@ class BidApi
      *
      * Get Bid
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1025,10 +981,10 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBidAsyncWithHttpInfo($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
+    public function getBidAsyncWithHttpInfo($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BidResponse';
-        $request = $this->getBidRequest($version, $bid_id, $device_id, $account_id, $contentType);
+        $request = $this->getBidRequest($bid_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1069,7 +1025,6 @@ class BidApi
     /**
      * Create request for operation 'getBid'
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1078,15 +1033,8 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBidRequest($version, $bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
+    public function getBidRequest($bid_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getBid'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getBid'
-            );
-        }
 
         // verify the required parameter 'bid_id' is set
         if ($bid_id === null || (is_array($bid_id) && count($bid_id) === 0)) {
@@ -1098,7 +1046,7 @@ class BidApi
 
 
 
-        $resourcePath = '/api/{version}/bid/get';
+        $resourcePath = '/bid/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1134,14 +1082,6 @@ class BidApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1202,7 +1142,6 @@ class BidApi
      *
      * Update Bid
      *
-     * @param  float $version version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1216,9 +1155,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BidResponse
      */
-    public function updateBid($version, $bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
+    public function updateBid($bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
     {
-        list($response) = $this->updateBidWithHttpInfo($version, $bid_id, $device_id, $account_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $contentType);
+        list($response) = $this->updateBidWithHttpInfo($bid_id, $device_id, $account_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $contentType);
         return $response;
     }
 
@@ -1227,7 +1166,6 @@ class BidApi
      *
      * Update Bid
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1241,9 +1179,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BidResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateBidWithHttpInfo($version, $bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
+    public function updateBidWithHttpInfo($bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
     {
-        $request = $this->updateBidRequest($version, $bid_id, $device_id, $account_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $contentType);
+        $request = $this->updateBidRequest($bid_id, $device_id, $account_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1319,7 +1257,6 @@ class BidApi
      *
      * Update Bid
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1332,9 +1269,9 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBidAsync($version, $bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
+    public function updateBidAsync($bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
     {
-        return $this->updateBidAsyncWithHttpInfo($version, $bid_id, $device_id, $account_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $contentType)
+        return $this->updateBidAsyncWithHttpInfo($bid_id, $device_id, $account_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1347,7 +1284,6 @@ class BidApi
      *
      * Update Bid
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1360,10 +1296,10 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBidAsyncWithHttpInfo($version, $bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
+    public function updateBidAsyncWithHttpInfo($bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BidResponse';
-        $request = $this->updateBidRequest($version, $bid_id, $device_id, $account_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $contentType);
+        $request = $this->updateBidRequest($bid_id, $device_id, $account_id, $amount_per_view, $amount_per_action, $budget_amount, $budget_schedule, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1404,7 +1340,6 @@ class BidApi
     /**
      * Create request for operation 'updateBid'
      *
-     * @param  float $version (required)
      * @param  int $bid_id The bid id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1417,15 +1352,8 @@ class BidApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateBidRequest($version, $bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
+    public function updateBidRequest($bid_id, $device_id = null, $account_id = null, $amount_per_view = null, $amount_per_action = null, $budget_amount = null, $budget_schedule = null, string $contentType = self::contentTypes['updateBid'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateBid'
-            );
-        }
 
         // verify the required parameter 'bid_id' is set
         if ($bid_id === null || (is_array($bid_id) && count($bid_id) === 0)) {
@@ -1441,7 +1369,7 @@ class BidApi
 
 
 
-        $resourcePath = '/api/{version}/bid/update';
+        $resourcePath = '/bid/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1513,14 +1441,6 @@ class BidApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

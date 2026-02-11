@@ -134,7 +134,6 @@ class TwitterApi
      *
      * Authorize Twitter
      *
-     * @param  float $version version (required)
      * @param  string $app_key the application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authorizeTwitter'] to see the possible values for this operation
      *
@@ -142,9 +141,9 @@ class TwitterApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function authorizeTwitter($version, $app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
+    public function authorizeTwitter($app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
     {
-        list($response) = $this->authorizeTwitterWithHttpInfo($version, $app_key, $contentType);
+        list($response) = $this->authorizeTwitterWithHttpInfo($app_key, $contentType);
         return $response;
     }
 
@@ -153,7 +152,6 @@ class TwitterApi
      *
      * Authorize Twitter
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authorizeTwitter'] to see the possible values for this operation
      *
@@ -161,9 +159,9 @@ class TwitterApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function authorizeTwitterWithHttpInfo($version, $app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
+    public function authorizeTwitterWithHttpInfo($app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
     {
-        $request = $this->authorizeTwitterRequest($version, $app_key, $contentType);
+        $request = $this->authorizeTwitterRequest($app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,16 +237,15 @@ class TwitterApi
      *
      * Authorize Twitter
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authorizeTwitter'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authorizeTwitterAsync($version, $app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
+    public function authorizeTwitterAsync($app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
     {
-        return $this->authorizeTwitterAsyncWithHttpInfo($version, $app_key, $contentType)
+        return $this->authorizeTwitterAsyncWithHttpInfo($app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,17 +258,16 @@ class TwitterApi
      *
      * Authorize Twitter
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authorizeTwitter'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authorizeTwitterAsyncWithHttpInfo($version, $app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
+    public function authorizeTwitterAsyncWithHttpInfo($app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->authorizeTwitterRequest($version, $app_key, $contentType);
+        $request = $this->authorizeTwitterRequest($app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,22 +308,14 @@ class TwitterApi
     /**
      * Create request for operation 'authorizeTwitter'
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authorizeTwitter'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function authorizeTwitterRequest($version, $app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
+    public function authorizeTwitterRequest($app_key, string $contentType = self::contentTypes['authorizeTwitter'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling authorizeTwitter'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -337,7 +325,7 @@ class TwitterApi
         }
 
 
-        $resourcePath = '/api/{version}/twitter/authorize';
+        $resourcePath = '/twitter/authorize';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -355,14 +343,6 @@ class TwitterApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -423,7 +403,6 @@ class TwitterApi
      *
      * Login Twitter
      *
-     * @param  float $version version (required)
      * @param  string $access_token The access token (required)
      * @param  string $access_token_secret The secret access token (required)
      * @param  string $app_key The application key (required)
@@ -437,9 +416,9 @@ class TwitterApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProfileResponse
      */
-    public function loginTwitter($version, $access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
+    public function loginTwitter($access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
     {
-        list($response) = $this->loginTwitterWithHttpInfo($version, $access_token, $access_token_secret, $app_key, $response_filters, $device_id, $latitude, $longitude, $contentType);
+        list($response) = $this->loginTwitterWithHttpInfo($access_token, $access_token_secret, $app_key, $response_filters, $device_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -448,7 +427,6 @@ class TwitterApi
      *
      * Login Twitter
      *
-     * @param  float $version (required)
      * @param  string $access_token The access token (required)
      * @param  string $access_token_secret The secret access token (required)
      * @param  string $app_key The application key (required)
@@ -462,9 +440,9 @@ class TwitterApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loginTwitterWithHttpInfo($version, $access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
+    public function loginTwitterWithHttpInfo($access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
     {
-        $request = $this->loginTwitterRequest($version, $access_token, $access_token_secret, $app_key, $response_filters, $device_id, $latitude, $longitude, $contentType);
+        $request = $this->loginTwitterRequest($access_token, $access_token_secret, $app_key, $response_filters, $device_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -540,7 +518,6 @@ class TwitterApi
      *
      * Login Twitter
      *
-     * @param  float $version (required)
      * @param  string $access_token The access token (required)
      * @param  string $access_token_secret The secret access token (required)
      * @param  string $app_key The application key (required)
@@ -553,9 +530,9 @@ class TwitterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginTwitterAsync($version, $access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
+    public function loginTwitterAsync($access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
     {
-        return $this->loginTwitterAsyncWithHttpInfo($version, $access_token, $access_token_secret, $app_key, $response_filters, $device_id, $latitude, $longitude, $contentType)
+        return $this->loginTwitterAsyncWithHttpInfo($access_token, $access_token_secret, $app_key, $response_filters, $device_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -568,7 +545,6 @@ class TwitterApi
      *
      * Login Twitter
      *
-     * @param  float $version (required)
      * @param  string $access_token The access token (required)
      * @param  string $access_token_secret The secret access token (required)
      * @param  string $app_key The application key (required)
@@ -581,10 +557,10 @@ class TwitterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginTwitterAsyncWithHttpInfo($version, $access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
+    public function loginTwitterAsyncWithHttpInfo($access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProfileResponse';
-        $request = $this->loginTwitterRequest($version, $access_token, $access_token_secret, $app_key, $response_filters, $device_id, $latitude, $longitude, $contentType);
+        $request = $this->loginTwitterRequest($access_token, $access_token_secret, $app_key, $response_filters, $device_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -625,7 +601,6 @@ class TwitterApi
     /**
      * Create request for operation 'loginTwitter'
      *
-     * @param  float $version (required)
      * @param  string $access_token The access token (required)
      * @param  string $access_token_secret The secret access token (required)
      * @param  string $app_key The application key (required)
@@ -638,15 +613,8 @@ class TwitterApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function loginTwitterRequest($version, $access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
+    public function loginTwitterRequest($access_token, $access_token_secret, $app_key, $response_filters, $device_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['loginTwitter'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling loginTwitter'
-            );
-        }
 
         // verify the required parameter 'access_token' is set
         if ($access_token === null || (is_array($access_token) && count($access_token) === 0)) {
@@ -680,7 +648,7 @@ class TwitterApi
 
 
 
-        $resourcePath = '/api/{version}/twitter/login';
+        $resourcePath = '/twitter/login';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -752,14 +720,6 @@ class TwitterApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

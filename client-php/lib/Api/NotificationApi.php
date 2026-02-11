@@ -167,7 +167,6 @@ class NotificationApi
      *
      * Create Notification Template
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param  string $title title of the notification template (required)
@@ -181,9 +180,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NotificationTemplateResponse
      */
-    public function createNotificationTemplate($version, $account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
+    public function createNotificationTemplate($account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
     {
-        list($response) = $this->createNotificationTemplateWithHttpInfo($version, $account_id, $conduit, $title, $body, $app_key, $event, $tags, $contentType);
+        list($response) = $this->createNotificationTemplateWithHttpInfo($account_id, $conduit, $title, $body, $app_key, $event, $tags, $contentType);
         return $response;
     }
 
@@ -192,7 +191,6 @@ class NotificationApi
      *
      * Create Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param  string $title title of the notification template (required)
@@ -206,9 +204,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NotificationTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createNotificationTemplateWithHttpInfo($version, $account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
+    public function createNotificationTemplateWithHttpInfo($account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
     {
-        $request = $this->createNotificationTemplateRequest($version, $account_id, $conduit, $title, $body, $app_key, $event, $tags, $contentType);
+        $request = $this->createNotificationTemplateRequest($account_id, $conduit, $title, $body, $app_key, $event, $tags, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -284,7 +282,6 @@ class NotificationApi
      *
      * Create Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param  string $title title of the notification template (required)
@@ -297,9 +294,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createNotificationTemplateAsync($version, $account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
+    public function createNotificationTemplateAsync($account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
     {
-        return $this->createNotificationTemplateAsyncWithHttpInfo($version, $account_id, $conduit, $title, $body, $app_key, $event, $tags, $contentType)
+        return $this->createNotificationTemplateAsyncWithHttpInfo($account_id, $conduit, $title, $body, $app_key, $event, $tags, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -312,7 +309,6 @@ class NotificationApi
      *
      * Create Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param  string $title title of the notification template (required)
@@ -325,10 +321,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createNotificationTemplateAsyncWithHttpInfo($version, $account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
+    public function createNotificationTemplateAsyncWithHttpInfo($account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationTemplateResponse';
-        $request = $this->createNotificationTemplateRequest($version, $account_id, $conduit, $title, $body, $app_key, $event, $tags, $contentType);
+        $request = $this->createNotificationTemplateRequest($account_id, $conduit, $title, $body, $app_key, $event, $tags, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -369,7 +365,6 @@ class NotificationApi
     /**
      * Create request for operation 'createNotificationTemplate'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param  string $title title of the notification template (required)
@@ -382,15 +377,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createNotificationTemplateRequest($version, $account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
+    public function createNotificationTemplateRequest($account_id, $conduit, $title, $body, $app_key = null, $event = null, $tags = null, string $contentType = self::contentTypes['createNotificationTemplate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createNotificationTemplate'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -424,7 +412,7 @@ class NotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/template/create';
+        $resourcePath = '/notification/template/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -496,14 +484,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -564,7 +544,6 @@ class NotificationApi
      *
      * Create or update blocked notification settings
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key (required)
      * @param  string $data batch data payload (application specific) (required)
      * @param  int|null $account_id the account id of the user (optional)
@@ -574,9 +553,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BlockedNotificationResponse
      */
-    public function createOrUpdateBlockedNotifications($version, $app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
+    public function createOrUpdateBlockedNotifications($app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
     {
-        list($response) = $this->createOrUpdateBlockedNotificationsWithHttpInfo($version, $app_key, $data, $account_id, $contentType);
+        list($response) = $this->createOrUpdateBlockedNotificationsWithHttpInfo($app_key, $data, $account_id, $contentType);
         return $response;
     }
 
@@ -585,7 +564,6 @@ class NotificationApi
      *
      * Create or update blocked notification settings
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string $data batch data payload (application specific) (required)
      * @param  int|null $account_id the account id of the user (optional)
@@ -595,9 +573,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BlockedNotificationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOrUpdateBlockedNotificationsWithHttpInfo($version, $app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
+    public function createOrUpdateBlockedNotificationsWithHttpInfo($app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
     {
-        $request = $this->createOrUpdateBlockedNotificationsRequest($version, $app_key, $data, $account_id, $contentType);
+        $request = $this->createOrUpdateBlockedNotificationsRequest($app_key, $data, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -673,7 +651,6 @@ class NotificationApi
      *
      * Create or update blocked notification settings
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string $data batch data payload (application specific) (required)
      * @param  int|null $account_id the account id of the user (optional)
@@ -682,9 +659,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrUpdateBlockedNotificationsAsync($version, $app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
+    public function createOrUpdateBlockedNotificationsAsync($app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
     {
-        return $this->createOrUpdateBlockedNotificationsAsyncWithHttpInfo($version, $app_key, $data, $account_id, $contentType)
+        return $this->createOrUpdateBlockedNotificationsAsyncWithHttpInfo($app_key, $data, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -697,7 +674,6 @@ class NotificationApi
      *
      * Create or update blocked notification settings
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string $data batch data payload (application specific) (required)
      * @param  int|null $account_id the account id of the user (optional)
@@ -706,10 +682,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrUpdateBlockedNotificationsAsyncWithHttpInfo($version, $app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
+    public function createOrUpdateBlockedNotificationsAsyncWithHttpInfo($app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlockedNotificationResponse';
-        $request = $this->createOrUpdateBlockedNotificationsRequest($version, $app_key, $data, $account_id, $contentType);
+        $request = $this->createOrUpdateBlockedNotificationsRequest($app_key, $data, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -750,7 +726,6 @@ class NotificationApi
     /**
      * Create request for operation 'createOrUpdateBlockedNotifications'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  string $data batch data payload (application specific) (required)
      * @param  int|null $account_id the account id of the user (optional)
@@ -759,15 +734,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOrUpdateBlockedNotificationsRequest($version, $app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
+    public function createOrUpdateBlockedNotificationsRequest($app_key, $data, $account_id = null, string $contentType = self::contentTypes['createOrUpdateBlockedNotifications'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createOrUpdateBlockedNotifications'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -785,7 +753,7 @@ class NotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/blocked/batch';
+        $resourcePath = '/notification/blocked/batch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -821,14 +789,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -889,7 +849,6 @@ class NotificationApi
      *
      * Delete Notification Template
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $notification_template_id the id of the notification template to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNotificationTemplate'] to see the possible values for this operation
@@ -898,9 +857,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NotificationTemplateResponse
      */
-    public function deleteNotificationTemplate($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
+    public function deleteNotificationTemplate($account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
     {
-        list($response) = $this->deleteNotificationTemplateWithHttpInfo($version, $account_id, $notification_template_id, $contentType);
+        list($response) = $this->deleteNotificationTemplateWithHttpInfo($account_id, $notification_template_id, $contentType);
         return $response;
     }
 
@@ -909,7 +868,6 @@ class NotificationApi
      *
      * Delete Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $notification_template_id the id of the notification template to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNotificationTemplate'] to see the possible values for this operation
@@ -918,9 +876,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NotificationTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteNotificationTemplateWithHttpInfo($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
+    public function deleteNotificationTemplateWithHttpInfo($account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
     {
-        $request = $this->deleteNotificationTemplateRequest($version, $account_id, $notification_template_id, $contentType);
+        $request = $this->deleteNotificationTemplateRequest($account_id, $notification_template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -996,7 +954,6 @@ class NotificationApi
      *
      * Delete Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $notification_template_id the id of the notification template to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNotificationTemplate'] to see the possible values for this operation
@@ -1004,9 +961,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteNotificationTemplateAsync($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
+    public function deleteNotificationTemplateAsync($account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
     {
-        return $this->deleteNotificationTemplateAsyncWithHttpInfo($version, $account_id, $notification_template_id, $contentType)
+        return $this->deleteNotificationTemplateAsyncWithHttpInfo($account_id, $notification_template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1019,7 +976,6 @@ class NotificationApi
      *
      * Delete Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $notification_template_id the id of the notification template to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNotificationTemplate'] to see the possible values for this operation
@@ -1027,10 +983,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteNotificationTemplateAsyncWithHttpInfo($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
+    public function deleteNotificationTemplateAsyncWithHttpInfo($account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationTemplateResponse';
-        $request = $this->deleteNotificationTemplateRequest($version, $account_id, $notification_template_id, $contentType);
+        $request = $this->deleteNotificationTemplateRequest($account_id, $notification_template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1071,7 +1027,6 @@ class NotificationApi
     /**
      * Create request for operation 'deleteNotificationTemplate'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $notification_template_id the id of the notification template to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNotificationTemplate'] to see the possible values for this operation
@@ -1079,15 +1034,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteNotificationTemplateRequest($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
+    public function deleteNotificationTemplateRequest($account_id, $notification_template_id, string $contentType = self::contentTypes['deleteNotificationTemplate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteNotificationTemplate'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1104,7 +1052,7 @@ class NotificationApi
         }
 
 
-        $resourcePath = '/api/{version}/notification/template/delete';
+        $resourcePath = '/notification/template/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1131,14 +1079,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1199,7 +1139,6 @@ class NotificationApi
      *
      * Get Notification Template
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $notification_template_id the id of the notification template to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationTemplate'] to see the possible values for this operation
@@ -1208,9 +1147,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NotificationTemplateResponse
      */
-    public function getNotificationTemplate($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
+    public function getNotificationTemplate($account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
     {
-        list($response) = $this->getNotificationTemplateWithHttpInfo($version, $account_id, $notification_template_id, $contentType);
+        list($response) = $this->getNotificationTemplateWithHttpInfo($account_id, $notification_template_id, $contentType);
         return $response;
     }
 
@@ -1219,7 +1158,6 @@ class NotificationApi
      *
      * Get Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $notification_template_id the id of the notification template to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationTemplate'] to see the possible values for this operation
@@ -1228,9 +1166,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NotificationTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNotificationTemplateWithHttpInfo($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
+    public function getNotificationTemplateWithHttpInfo($account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
     {
-        $request = $this->getNotificationTemplateRequest($version, $account_id, $notification_template_id, $contentType);
+        $request = $this->getNotificationTemplateRequest($account_id, $notification_template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1306,7 +1244,6 @@ class NotificationApi
      *
      * Get Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $notification_template_id the id of the notification template to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationTemplate'] to see the possible values for this operation
@@ -1314,9 +1251,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationTemplateAsync($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
+    public function getNotificationTemplateAsync($account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
     {
-        return $this->getNotificationTemplateAsyncWithHttpInfo($version, $account_id, $notification_template_id, $contentType)
+        return $this->getNotificationTemplateAsyncWithHttpInfo($account_id, $notification_template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1329,7 +1266,6 @@ class NotificationApi
      *
      * Get Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $notification_template_id the id of the notification template to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationTemplate'] to see the possible values for this operation
@@ -1337,10 +1273,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationTemplateAsyncWithHttpInfo($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
+    public function getNotificationTemplateAsyncWithHttpInfo($account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationTemplateResponse';
-        $request = $this->getNotificationTemplateRequest($version, $account_id, $notification_template_id, $contentType);
+        $request = $this->getNotificationTemplateRequest($account_id, $notification_template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1381,7 +1317,6 @@ class NotificationApi
     /**
      * Create request for operation 'getNotificationTemplate'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account (required)
      * @param  int $notification_template_id the id of the notification template to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationTemplate'] to see the possible values for this operation
@@ -1389,15 +1324,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNotificationTemplateRequest($version, $account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
+    public function getNotificationTemplateRequest($account_id, $notification_template_id, string $contentType = self::contentTypes['getNotificationTemplate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getNotificationTemplate'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1414,7 +1342,7 @@ class NotificationApi
         }
 
 
-        $resourcePath = '/api/{version}/notification/template/get';
+        $resourcePath = '/notification/template/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1441,14 +1369,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1509,7 +1429,6 @@ class NotificationApi
      *
      * Get Notifications
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id the account id used to view another person&#39;s notifications (optional)
@@ -1537,9 +1456,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NotificationMessageListResponse
      */
-    public function getNotifications($version, $device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
+    public function getNotifications($device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
     {
-        list($response) = $this->getNotificationsWithHttpInfo($version, $device_id, $account_id, $connection_account_id, $app_key, $event_type, $content_ids, $content_types, $parent_ids, $parent_types, $action_category, $conduits, $keyword, $return_read_messages, $mark_as_read, $from_date, $latitude, $longitude, $return_sent, $ignore_flagged, $start, $limit, $contentType);
+        list($response) = $this->getNotificationsWithHttpInfo($device_id, $account_id, $connection_account_id, $app_key, $event_type, $content_ids, $content_types, $parent_ids, $parent_types, $action_category, $conduits, $keyword, $return_read_messages, $mark_as_read, $from_date, $latitude, $longitude, $return_sent, $ignore_flagged, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1548,7 +1467,6 @@ class NotificationApi
      *
      * Get Notifications
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id the account id used to view another person&#39;s notifications (optional)
@@ -1576,9 +1494,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NotificationMessageListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNotificationsWithHttpInfo($version, $device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
+    public function getNotificationsWithHttpInfo($device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
     {
-        $request = $this->getNotificationsRequest($version, $device_id, $account_id, $connection_account_id, $app_key, $event_type, $content_ids, $content_types, $parent_ids, $parent_types, $action_category, $conduits, $keyword, $return_read_messages, $mark_as_read, $from_date, $latitude, $longitude, $return_sent, $ignore_flagged, $start, $limit, $contentType);
+        $request = $this->getNotificationsRequest($device_id, $account_id, $connection_account_id, $app_key, $event_type, $content_ids, $content_types, $parent_ids, $parent_types, $action_category, $conduits, $keyword, $return_read_messages, $mark_as_read, $from_date, $latitude, $longitude, $return_sent, $ignore_flagged, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1654,7 +1572,6 @@ class NotificationApi
      *
      * Get Notifications
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id the account id used to view another person&#39;s notifications (optional)
@@ -1681,9 +1598,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationsAsync($version, $device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
+    public function getNotificationsAsync($device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
     {
-        return $this->getNotificationsAsyncWithHttpInfo($version, $device_id, $account_id, $connection_account_id, $app_key, $event_type, $content_ids, $content_types, $parent_ids, $parent_types, $action_category, $conduits, $keyword, $return_read_messages, $mark_as_read, $from_date, $latitude, $longitude, $return_sent, $ignore_flagged, $start, $limit, $contentType)
+        return $this->getNotificationsAsyncWithHttpInfo($device_id, $account_id, $connection_account_id, $app_key, $event_type, $content_ids, $content_types, $parent_ids, $parent_types, $action_category, $conduits, $keyword, $return_read_messages, $mark_as_read, $from_date, $latitude, $longitude, $return_sent, $ignore_flagged, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1696,7 +1613,6 @@ class NotificationApi
      *
      * Get Notifications
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id the account id used to view another person&#39;s notifications (optional)
@@ -1723,10 +1639,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
+    public function getNotificationsAsyncWithHttpInfo($device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationMessageListResponse';
-        $request = $this->getNotificationsRequest($version, $device_id, $account_id, $connection_account_id, $app_key, $event_type, $content_ids, $content_types, $parent_ids, $parent_types, $action_category, $conduits, $keyword, $return_read_messages, $mark_as_read, $from_date, $latitude, $longitude, $return_sent, $ignore_flagged, $start, $limit, $contentType);
+        $request = $this->getNotificationsRequest($device_id, $account_id, $connection_account_id, $app_key, $event_type, $content_ids, $content_types, $parent_ids, $parent_types, $action_category, $conduits, $keyword, $return_read_messages, $mark_as_read, $from_date, $latitude, $longitude, $return_sent, $ignore_flagged, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1767,7 +1683,6 @@ class NotificationApi
     /**
      * Create request for operation 'getNotifications'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $connection_account_id the account id used to view another person&#39;s notifications (optional)
@@ -1794,15 +1709,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNotificationsRequest($version, $device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
+    public function getNotificationsRequest($device_id = null, $account_id = null, $connection_account_id = null, $app_key = null, $event_type = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $action_category = null, $conduits = null, $keyword = null, $return_read_messages = null, $mark_as_read = null, $from_date = null, $latitude = null, $longitude = null, $return_sent = null, $ignore_flagged = null, $start = null, $limit = null, string $contentType = self::contentTypes['getNotifications'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getNotifications'
-            );
-        }
 
 
 
@@ -1825,8 +1734,7 @@ class NotificationApi
 
 
 
-
-        $resourcePath = '/api/{version}/notification/search';
+        $resourcePath = '/notification/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2024,14 +1932,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2092,7 +1992,6 @@ class NotificationApi
      *
      * Register Notification Token
      *
-     * @param  float $version version (required)
      * @param  string $token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param  string $push_type The type of push notification. Possible values include: APNS, GCM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2109,9 +2008,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function registerNotificationToken($version, $token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
+    public function registerNotificationToken($token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
     {
-        list($response) = $this->registerNotificationTokenWithHttpInfo($version, $token, $push_type, $device_id, $account_id, $environment, $app_key, $game_type, $active, $latitude, $longitude, $contentType);
+        list($response) = $this->registerNotificationTokenWithHttpInfo($token, $push_type, $device_id, $account_id, $environment, $app_key, $game_type, $active, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -2120,7 +2019,6 @@ class NotificationApi
      *
      * Register Notification Token
      *
-     * @param  float $version (required)
      * @param  string $token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param  string $push_type The type of push notification. Possible values include: APNS, GCM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2137,9 +2035,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function registerNotificationTokenWithHttpInfo($version, $token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
+    public function registerNotificationTokenWithHttpInfo($token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
     {
-        $request = $this->registerNotificationTokenRequest($version, $token, $push_type, $device_id, $account_id, $environment, $app_key, $game_type, $active, $latitude, $longitude, $contentType);
+        $request = $this->registerNotificationTokenRequest($token, $push_type, $device_id, $account_id, $environment, $app_key, $game_type, $active, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2215,7 +2113,6 @@ class NotificationApi
      *
      * Register Notification Token
      *
-     * @param  float $version (required)
      * @param  string $token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param  string $push_type The type of push notification. Possible values include: APNS, GCM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2231,9 +2128,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerNotificationTokenAsync($version, $token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
+    public function registerNotificationTokenAsync($token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
     {
-        return $this->registerNotificationTokenAsyncWithHttpInfo($version, $token, $push_type, $device_id, $account_id, $environment, $app_key, $game_type, $active, $latitude, $longitude, $contentType)
+        return $this->registerNotificationTokenAsyncWithHttpInfo($token, $push_type, $device_id, $account_id, $environment, $app_key, $game_type, $active, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2246,7 +2143,6 @@ class NotificationApi
      *
      * Register Notification Token
      *
-     * @param  float $version (required)
      * @param  string $token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param  string $push_type The type of push notification. Possible values include: APNS, GCM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2262,10 +2158,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerNotificationTokenAsyncWithHttpInfo($version, $token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
+    public function registerNotificationTokenAsyncWithHttpInfo($token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->registerNotificationTokenRequest($version, $token, $push_type, $device_id, $account_id, $environment, $app_key, $game_type, $active, $latitude, $longitude, $contentType);
+        $request = $this->registerNotificationTokenRequest($token, $push_type, $device_id, $account_id, $environment, $app_key, $game_type, $active, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2306,7 +2202,6 @@ class NotificationApi
     /**
      * Create request for operation 'registerNotificationToken'
      *
-     * @param  float $version (required)
      * @param  string $token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param  string $push_type The type of push notification. Possible values include: APNS, GCM (required)
      * @param  string|null $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2322,15 +2217,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function registerNotificationTokenRequest($version, $token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
+    public function registerNotificationTokenRequest($token, $push_type, $device_id = null, $account_id = null, $environment = null, $app_key = null, $game_type = null, $active = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerNotificationToken'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling registerNotificationToken'
-            );
-        }
 
         // verify the required parameter 'token' is set
         if ($token === null || (is_array($token) && count($token) === 0)) {
@@ -2355,7 +2243,7 @@ class NotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/token';
+        $resourcePath = '/notification/token';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2454,14 +2342,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2522,7 +2402,6 @@ class NotificationApi
      *
      * Search on the user&#39;s blocked notification settings
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $search_tags search tags to filter results (optional)
@@ -2541,9 +2420,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BlockedNotificationResponse
      */
-    public function searchBlockedNotifications($version, $app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
+    public function searchBlockedNotifications($app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
     {
-        list($response) = $this->searchBlockedNotificationsWithHttpInfo($version, $app_key, $account_id, $search_tags, $events, $conduits, $custom_types, $content_types, $content_ids, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchBlockedNotificationsWithHttpInfo($app_key, $account_id, $search_tags, $events, $conduits, $custom_types, $content_types, $content_ids, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2552,7 +2431,6 @@ class NotificationApi
      *
      * Search on the user&#39;s blocked notification settings
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $search_tags search tags to filter results (optional)
@@ -2571,9 +2449,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BlockedNotificationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchBlockedNotificationsWithHttpInfo($version, $app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
+    public function searchBlockedNotificationsWithHttpInfo($app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
     {
-        $request = $this->searchBlockedNotificationsRequest($version, $app_key, $account_id, $search_tags, $events, $conduits, $custom_types, $content_types, $content_ids, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchBlockedNotificationsRequest($app_key, $account_id, $search_tags, $events, $conduits, $custom_types, $content_types, $content_ids, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2649,7 +2527,6 @@ class NotificationApi
      *
      * Search on the user&#39;s blocked notification settings
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $search_tags search tags to filter results (optional)
@@ -2667,9 +2544,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchBlockedNotificationsAsync($version, $app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
+    public function searchBlockedNotificationsAsync($app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
     {
-        return $this->searchBlockedNotificationsAsyncWithHttpInfo($version, $app_key, $account_id, $search_tags, $events, $conduits, $custom_types, $content_types, $content_ids, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->searchBlockedNotificationsAsyncWithHttpInfo($app_key, $account_id, $search_tags, $events, $conduits, $custom_types, $content_types, $content_ids, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2682,7 +2559,6 @@ class NotificationApi
      *
      * Search on the user&#39;s blocked notification settings
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $search_tags search tags to filter results (optional)
@@ -2700,10 +2576,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchBlockedNotificationsAsyncWithHttpInfo($version, $app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
+    public function searchBlockedNotificationsAsyncWithHttpInfo($app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlockedNotificationResponse';
-        $request = $this->searchBlockedNotificationsRequest($version, $app_key, $account_id, $search_tags, $events, $conduits, $custom_types, $content_types, $content_ids, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchBlockedNotificationsRequest($app_key, $account_id, $search_tags, $events, $conduits, $custom_types, $content_types, $content_ids, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2744,7 +2620,6 @@ class NotificationApi
     /**
      * Create request for operation 'searchBlockedNotifications'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key (required)
      * @param  int|null $account_id the account id of the user (optional)
      * @param  string|null $search_tags search tags to filter results (optional)
@@ -2762,15 +2637,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchBlockedNotificationsRequest($version, $app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
+    public function searchBlockedNotificationsRequest($app_key, $account_id = null, $search_tags = null, $events = null, $conduits = null, $custom_types = null, $content_types = null, $content_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchBlockedNotifications'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchBlockedNotifications'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -2791,7 +2659,7 @@ class NotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/blocked/search';
+        $resourcePath = '/notification/blocked/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2908,14 +2776,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2976,7 +2836,6 @@ class NotificationApi
      *
      * Search Notification Templates
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $sort_field Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
      * @param  bool $descending Specified whether the results are returned in descending or ascending order. (required)
@@ -2994,9 +2853,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NotificationTemplateResponse
      */
-    public function searchNotificationTemplate($version, $account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
+    public function searchNotificationTemplate($account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
     {
-        list($response) = $this->searchNotificationTemplateWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $app_key, $event, $conduit, $global_only, $reserved_only, $keyword, $contentType);
+        list($response) = $this->searchNotificationTemplateWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $app_key, $event, $conduit, $global_only, $reserved_only, $keyword, $contentType);
         return $response;
     }
 
@@ -3005,7 +2864,6 @@ class NotificationApi
      *
      * Search Notification Templates
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $sort_field Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
      * @param  bool $descending Specified whether the results are returned in descending or ascending order. (required)
@@ -3023,9 +2881,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NotificationTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchNotificationTemplateWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
+    public function searchNotificationTemplateWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
     {
-        $request = $this->searchNotificationTemplateRequest($version, $account_id, $sort_field, $descending, $start, $limit, $app_key, $event, $conduit, $global_only, $reserved_only, $keyword, $contentType);
+        $request = $this->searchNotificationTemplateRequest($account_id, $sort_field, $descending, $start, $limit, $app_key, $event, $conduit, $global_only, $reserved_only, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3101,7 +2959,6 @@ class NotificationApi
      *
      * Search Notification Templates
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $sort_field Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
      * @param  bool $descending Specified whether the results are returned in descending or ascending order. (required)
@@ -3118,9 +2975,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchNotificationTemplateAsync($version, $account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
+    public function searchNotificationTemplateAsync($account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
     {
-        return $this->searchNotificationTemplateAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $app_key, $event, $conduit, $global_only, $reserved_only, $keyword, $contentType)
+        return $this->searchNotificationTemplateAsyncWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $app_key, $event, $conduit, $global_only, $reserved_only, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3133,7 +2990,6 @@ class NotificationApi
      *
      * Search Notification Templates
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $sort_field Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
      * @param  bool $descending Specified whether the results are returned in descending or ascending order. (required)
@@ -3150,10 +3006,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchNotificationTemplateAsyncWithHttpInfo($version, $account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
+    public function searchNotificationTemplateAsyncWithHttpInfo($account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationTemplateResponse';
-        $request = $this->searchNotificationTemplateRequest($version, $account_id, $sort_field, $descending, $start, $limit, $app_key, $event, $conduit, $global_only, $reserved_only, $keyword, $contentType);
+        $request = $this->searchNotificationTemplateRequest($account_id, $sort_field, $descending, $start, $limit, $app_key, $event, $conduit, $global_only, $reserved_only, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3194,7 +3050,6 @@ class NotificationApi
     /**
      * Create request for operation 'searchNotificationTemplate'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  string $sort_field Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
      * @param  bool $descending Specified whether the results are returned in descending or ascending order. (required)
@@ -3211,15 +3066,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchNotificationTemplateRequest($version, $account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
+    public function searchNotificationTemplateRequest($account_id, $sort_field, $descending, $start, $limit, $app_key = null, $event = null, $conduit = null, $global_only = null, $reserved_only = null, $keyword = null, string $contentType = self::contentTypes['searchNotificationTemplate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchNotificationTemplate'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3263,7 +3111,7 @@ class NotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/template/search';
+        $resourcePath = '/notification/template/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3371,14 +3219,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3439,7 +3279,6 @@ class NotificationApi
      *
      * Search for Recipients
      *
-     * @param  float $version version (required)
      * @param  string $sort_field The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -3459,9 +3298,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NotificationRecipientResponse[]
      */
-    public function searchRecipients($version, $sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
+    public function searchRecipients($sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
     {
-        list($response) = $this->searchRecipientsWithHttpInfo($version, $sort_field, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $recipient_account_ids, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchRecipientsWithHttpInfo($sort_field, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $recipient_account_ids, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -3470,7 +3309,6 @@ class NotificationApi
      *
      * Search for Recipients
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -3490,9 +3328,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NotificationRecipientResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRecipientsWithHttpInfo($version, $sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
+    public function searchRecipientsWithHttpInfo($sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
     {
-        $request = $this->searchRecipientsRequest($version, $sort_field, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $recipient_account_ids, $descending, $start, $limit, $contentType);
+        $request = $this->searchRecipientsRequest($sort_field, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $recipient_account_ids, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3568,7 +3406,6 @@ class NotificationApi
      *
      * Search for Recipients
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -3587,9 +3424,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipientsAsync($version, $sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
+    public function searchRecipientsAsync($sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
     {
-        return $this->searchRecipientsAsyncWithHttpInfo($version, $sort_field, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $recipient_account_ids, $descending, $start, $limit, $contentType)
+        return $this->searchRecipientsAsyncWithHttpInfo($sort_field, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $recipient_account_ids, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3602,7 +3439,6 @@ class NotificationApi
      *
      * Search for Recipients
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -3621,10 +3457,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipientsAsyncWithHttpInfo($version, $sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
+    public function searchRecipientsAsyncWithHttpInfo($sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationRecipientResponse[]';
-        $request = $this->searchRecipientsRequest($version, $sort_field, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $recipient_account_ids, $descending, $start, $limit, $contentType);
+        $request = $this->searchRecipientsRequest($sort_field, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $recipient_account_ids, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3665,7 +3501,6 @@ class NotificationApi
     /**
      * Create request for operation 'searchRecipients'
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -3684,15 +3519,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRecipientsRequest($version, $sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
+    public function searchRecipientsRequest($sort_field, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $recipient_account_ids = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipients'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchRecipients'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -3714,7 +3542,7 @@ class NotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/recipient/search';
+        $resourcePath = '/notification/recipient/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3840,14 +3668,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3908,7 +3728,6 @@ class NotificationApi
      *
      * Search for Recipients (Counts/Grouped)
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -3927,9 +3746,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NotificationRecipientResponseListResponse
      */
-    public function searchRecipientsCount($version, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
+    public function searchRecipientsCount($device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
     {
-        list($response) = $this->searchRecipientsCountWithHttpInfo($version, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchRecipientsCountWithHttpInfo($device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -3938,7 +3757,6 @@ class NotificationApi
      *
      * Search for Recipients (Counts/Grouped)
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -3957,9 +3775,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NotificationRecipientResponseListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRecipientsCountWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
+    public function searchRecipientsCountWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
     {
-        $request = $this->searchRecipientsCountRequest($version, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchRecipientsCountRequest($device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4035,7 +3853,6 @@ class NotificationApi
      *
      * Search for Recipients (Counts/Grouped)
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -4053,9 +3870,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipientsCountAsync($version, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
+    public function searchRecipientsCountAsync($device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
     {
-        return $this->searchRecipientsCountAsyncWithHttpInfo($version, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->searchRecipientsCountAsyncWithHttpInfo($device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4068,7 +3885,6 @@ class NotificationApi
      *
      * Search for Recipients (Counts/Grouped)
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -4086,10 +3902,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipientsCountAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
+    public function searchRecipientsCountAsyncWithHttpInfo($device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationRecipientResponseListResponse';
-        $request = $this->searchRecipientsCountRequest($version, $device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchRecipientsCountRequest($device_id, $account_id, $app_key, $conduit, $keyword, $audience_id, $audience_ids, $connection_group_ids, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4130,7 +3946,6 @@ class NotificationApi
     /**
      * Create request for operation 'searchRecipientsCount'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $app_key filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -4148,15 +3963,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRecipientsCountRequest($version, $device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
+    public function searchRecipientsCountRequest($device_id = null, $account_id = null, $app_key = null, $conduit = null, $keyword = null, $audience_id = null, $audience_ids = null, $connection_group_ids = null, $sort_field = null, $descending = null, $start = null, $limit = null, string $contentType = self::contentTypes['searchRecipientsCount'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchRecipientsCount'
-            );
-        }
 
 
 
@@ -4170,8 +3979,7 @@ class NotificationApi
 
 
 
-
-        $resourcePath = '/api/{version}/notification/recipient/search/count';
+        $resourcePath = '/notification/recipient/search/count';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4288,14 +4096,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4356,7 +4156,6 @@ class NotificationApi
      *
      * Send Batch Notifications
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account id of the application owner/manager (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $custom_message Message string that will be displayed in on the notification (required)
@@ -4372,9 +4171,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function sendBatchNotifications($version, $account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
+    public function sendBatchNotifications($account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
     {
-        list($response) = $this->sendBatchNotificationsWithHttpInfo($version, $account_id, $app_key, $custom_message, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $contentType);
+        list($response) = $this->sendBatchNotificationsWithHttpInfo($account_id, $app_key, $custom_message, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $contentType);
         return $response;
     }
 
@@ -4383,7 +4182,6 @@ class NotificationApi
      *
      * Send Batch Notifications
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the application owner/manager (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $custom_message Message string that will be displayed in on the notification (required)
@@ -4399,9 +4197,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendBatchNotificationsWithHttpInfo($version, $account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
+    public function sendBatchNotificationsWithHttpInfo($account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
     {
-        $request = $this->sendBatchNotificationsRequest($version, $account_id, $app_key, $custom_message, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $contentType);
+        $request = $this->sendBatchNotificationsRequest($account_id, $app_key, $custom_message, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4477,7 +4275,6 @@ class NotificationApi
      *
      * Send Batch Notifications
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the application owner/manager (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $custom_message Message string that will be displayed in on the notification (required)
@@ -4492,9 +4289,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendBatchNotificationsAsync($version, $account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
+    public function sendBatchNotificationsAsync($account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
     {
-        return $this->sendBatchNotificationsAsyncWithHttpInfo($version, $account_id, $app_key, $custom_message, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $contentType)
+        return $this->sendBatchNotificationsAsyncWithHttpInfo($account_id, $app_key, $custom_message, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4507,7 +4304,6 @@ class NotificationApi
      *
      * Send Batch Notifications
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the application owner/manager (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $custom_message Message string that will be displayed in on the notification (required)
@@ -4522,10 +4318,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendBatchNotificationsAsyncWithHttpInfo($version, $account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
+    public function sendBatchNotificationsAsyncWithHttpInfo($account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->sendBatchNotificationsRequest($version, $account_id, $app_key, $custom_message, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $contentType);
+        $request = $this->sendBatchNotificationsRequest($account_id, $app_key, $custom_message, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4566,7 +4362,6 @@ class NotificationApi
     /**
      * Create request for operation 'sendBatchNotifications'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account id of the application owner/manager (required)
      * @param  string $app_key The application key for updating an existing application (required)
      * @param  string $custom_message Message string that will be displayed in on the notification (required)
@@ -4581,15 +4376,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendBatchNotificationsRequest($version, $account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
+    public function sendBatchNotificationsRequest($account_id, $app_key, $custom_message, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, string $contentType = self::contentTypes['sendBatchNotifications'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling sendBatchNotifications'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4619,7 +4407,7 @@ class NotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/batch';
+        $resourcePath = '/notification/batch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4709,14 +4497,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4777,7 +4557,6 @@ class NotificationApi
      *
      * Send Custom Notifications
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $receiver_account_ids comma separated list of account IDs that will receive the notification (optional)
@@ -4802,9 +4581,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function sendCustomNotifications($version, $device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
+    public function sendCustomNotifications($device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
     {
-        list($response) = $this->sendCustomNotificationsWithHttpInfo($version, $device_id, $account_id, $receiver_account_ids, $include_friend_group, $app_key, $game_type, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $action_category, $subject, $custom_message, $friend_only_apns, $latitude, $longitude, $contentType);
+        list($response) = $this->sendCustomNotificationsWithHttpInfo($device_id, $account_id, $receiver_account_ids, $include_friend_group, $app_key, $game_type, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $action_category, $subject, $custom_message, $friend_only_apns, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -4813,7 +4592,6 @@ class NotificationApi
      *
      * Send Custom Notifications
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $receiver_account_ids comma separated list of account IDs that will receive the notification (optional)
@@ -4838,9 +4616,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendCustomNotificationsWithHttpInfo($version, $device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
+    public function sendCustomNotificationsWithHttpInfo($device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
     {
-        $request = $this->sendCustomNotificationsRequest($version, $device_id, $account_id, $receiver_account_ids, $include_friend_group, $app_key, $game_type, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $action_category, $subject, $custom_message, $friend_only_apns, $latitude, $longitude, $contentType);
+        $request = $this->sendCustomNotificationsRequest($device_id, $account_id, $receiver_account_ids, $include_friend_group, $app_key, $game_type, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $action_category, $subject, $custom_message, $friend_only_apns, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4916,7 +4694,6 @@ class NotificationApi
      *
      * Send Custom Notifications
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $receiver_account_ids comma separated list of account IDs that will receive the notification (optional)
@@ -4940,9 +4717,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendCustomNotificationsAsync($version, $device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
+    public function sendCustomNotificationsAsync($device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
     {
-        return $this->sendCustomNotificationsAsyncWithHttpInfo($version, $device_id, $account_id, $receiver_account_ids, $include_friend_group, $app_key, $game_type, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $action_category, $subject, $custom_message, $friend_only_apns, $latitude, $longitude, $contentType)
+        return $this->sendCustomNotificationsAsyncWithHttpInfo($device_id, $account_id, $receiver_account_ids, $include_friend_group, $app_key, $game_type, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $action_category, $subject, $custom_message, $friend_only_apns, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4955,7 +4732,6 @@ class NotificationApi
      *
      * Send Custom Notifications
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $receiver_account_ids comma separated list of account IDs that will receive the notification (optional)
@@ -4979,10 +4755,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendCustomNotificationsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
+    public function sendCustomNotificationsAsyncWithHttpInfo($device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->sendCustomNotificationsRequest($version, $device_id, $account_id, $receiver_account_ids, $include_friend_group, $app_key, $game_type, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $action_category, $subject, $custom_message, $friend_only_apns, $latitude, $longitude, $contentType);
+        $request = $this->sendCustomNotificationsRequest($device_id, $account_id, $receiver_account_ids, $include_friend_group, $app_key, $game_type, $conduit, $content_id, $content_name, $content_type, $parent_id, $parent_type, $action_category, $subject, $custom_message, $friend_only_apns, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5023,7 +4799,6 @@ class NotificationApi
     /**
      * Create request for operation 'sendCustomNotifications'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $receiver_account_ids comma separated list of account IDs that will receive the notification (optional)
@@ -5047,15 +4822,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendCustomNotificationsRequest($version, $device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
+    public function sendCustomNotificationsRequest($device_id = null, $account_id = null, $receiver_account_ids = null, $include_friend_group = null, $app_key = null, $game_type = null, $conduit = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $action_category = null, $subject = null, $custom_message = null, $friend_only_apns = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['sendCustomNotifications'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling sendCustomNotifications'
-            );
-        }
 
 
 
@@ -5075,8 +4844,7 @@ class NotificationApi
 
 
 
-
-        $resourcePath = '/api/{version}/notification/custom';
+        $resourcePath = '/notification/custom';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5247,14 +5015,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -5315,7 +5075,6 @@ class NotificationApi
      *
      * Update Notification Template
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  int $notification_template_id The notification template ID to update. (required)
      * @param  string|null $title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -5327,9 +5086,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NotificationTemplateResponse
      */
-    public function updateNotificationTemplate($version, $account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
+    public function updateNotificationTemplate($account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
     {
-        list($response) = $this->updateNotificationTemplateWithHttpInfo($version, $account_id, $notification_template_id, $title, $body, $tags, $contentType);
+        list($response) = $this->updateNotificationTemplateWithHttpInfo($account_id, $notification_template_id, $title, $body, $tags, $contentType);
         return $response;
     }
 
@@ -5338,7 +5097,6 @@ class NotificationApi
      *
      * Update Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  int $notification_template_id The notification template ID to update. (required)
      * @param  string|null $title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -5350,9 +5108,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NotificationTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateNotificationTemplateWithHttpInfo($version, $account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
+    public function updateNotificationTemplateWithHttpInfo($account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
     {
-        $request = $this->updateNotificationTemplateRequest($version, $account_id, $notification_template_id, $title, $body, $tags, $contentType);
+        $request = $this->updateNotificationTemplateRequest($account_id, $notification_template_id, $title, $body, $tags, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5428,7 +5186,6 @@ class NotificationApi
      *
      * Update Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  int $notification_template_id The notification template ID to update. (required)
      * @param  string|null $title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -5439,9 +5196,9 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateNotificationTemplateAsync($version, $account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
+    public function updateNotificationTemplateAsync($account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
     {
-        return $this->updateNotificationTemplateAsyncWithHttpInfo($version, $account_id, $notification_template_id, $title, $body, $tags, $contentType)
+        return $this->updateNotificationTemplateAsyncWithHttpInfo($account_id, $notification_template_id, $title, $body, $tags, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5454,7 +5211,6 @@ class NotificationApi
      *
      * Update Notification Template
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  int $notification_template_id The notification template ID to update. (required)
      * @param  string|null $title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -5465,10 +5221,10 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateNotificationTemplateAsyncWithHttpInfo($version, $account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
+    public function updateNotificationTemplateAsyncWithHttpInfo($account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationTemplateResponse';
-        $request = $this->updateNotificationTemplateRequest($version, $account_id, $notification_template_id, $title, $body, $tags, $contentType);
+        $request = $this->updateNotificationTemplateRequest($account_id, $notification_template_id, $title, $body, $tags, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5509,7 +5265,6 @@ class NotificationApi
     /**
      * Create request for operation 'updateNotificationTemplate'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account ID of the user. (required)
      * @param  int $notification_template_id The notification template ID to update. (required)
      * @param  string|null $title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -5520,15 +5275,8 @@ class NotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateNotificationTemplateRequest($version, $account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
+    public function updateNotificationTemplateRequest($account_id, $notification_template_id, $title = null, $body = null, $tags = null, string $contentType = self::contentTypes['updateNotificationTemplate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateNotificationTemplate'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -5548,7 +5296,7 @@ class NotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/template/update';
+        $resourcePath = '/notification/template/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5602,14 +5350,6 @@ class NotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

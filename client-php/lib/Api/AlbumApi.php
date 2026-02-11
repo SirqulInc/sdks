@@ -155,7 +155,6 @@ class AlbumApi
      *
      * Create Album
      *
-     * @param  float $version version (required)
      * @param  string $title the title of the album (required)
      * @param  bool $cover_asset_nullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
      * @param  bool $include_cover_in_asset_list determines whether the cover image should be added to the album asset list (required)
@@ -208,9 +207,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchResponse
      */
-    public function addAlbumCollection($version, $title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
+    public function addAlbumCollection($title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
     {
-        list($response) = $this->addAlbumCollectionWithHttpInfo($version, $title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id, $account_id, $assets_to_add, $media, $media_url, $asset_id, $attached_media, $attached_media_url, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $latitude, $longitude, $location_description, $visibility, $game_type, $app_key, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $approval_status, $linked_object_type, $linked_object_id, $contentType);
+        list($response) = $this->addAlbumCollectionWithHttpInfo($title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id, $account_id, $assets_to_add, $media, $media_url, $asset_id, $attached_media, $attached_media_url, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $latitude, $longitude, $location_description, $visibility, $game_type, $app_key, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $approval_status, $linked_object_type, $linked_object_id, $contentType);
         return $response;
     }
 
@@ -219,7 +218,6 @@ class AlbumApi
      *
      * Create Album
      *
-     * @param  float $version (required)
      * @param  string $title the title of the album (required)
      * @param  bool $cover_asset_nullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
      * @param  bool $include_cover_in_asset_list determines whether the cover image should be added to the album asset list (required)
@@ -272,9 +270,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addAlbumCollectionWithHttpInfo($version, $title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
+    public function addAlbumCollectionWithHttpInfo($title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
     {
-        $request = $this->addAlbumCollectionRequest($version, $title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id, $account_id, $assets_to_add, $media, $media_url, $asset_id, $attached_media, $attached_media_url, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $latitude, $longitude, $location_description, $visibility, $game_type, $app_key, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $approval_status, $linked_object_type, $linked_object_id, $contentType);
+        $request = $this->addAlbumCollectionRequest($title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id, $account_id, $assets_to_add, $media, $media_url, $asset_id, $attached_media, $attached_media_url, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $latitude, $longitude, $location_description, $visibility, $game_type, $app_key, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $approval_status, $linked_object_type, $linked_object_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -350,7 +348,6 @@ class AlbumApi
      *
      * Create Album
      *
-     * @param  float $version (required)
      * @param  string $title the title of the album (required)
      * @param  bool $cover_asset_nullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
      * @param  bool $include_cover_in_asset_list determines whether the cover image should be added to the album asset list (required)
@@ -402,9 +399,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addAlbumCollectionAsync($version, $title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
+    public function addAlbumCollectionAsync($title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
     {
-        return $this->addAlbumCollectionAsyncWithHttpInfo($version, $title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id, $account_id, $assets_to_add, $media, $media_url, $asset_id, $attached_media, $attached_media_url, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $latitude, $longitude, $location_description, $visibility, $game_type, $app_key, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $approval_status, $linked_object_type, $linked_object_id, $contentType)
+        return $this->addAlbumCollectionAsyncWithHttpInfo($title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id, $account_id, $assets_to_add, $media, $media_url, $asset_id, $attached_media, $attached_media_url, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $latitude, $longitude, $location_description, $visibility, $game_type, $app_key, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $approval_status, $linked_object_type, $linked_object_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -417,7 +414,6 @@ class AlbumApi
      *
      * Create Album
      *
-     * @param  float $version (required)
      * @param  string $title the title of the album (required)
      * @param  bool $cover_asset_nullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
      * @param  bool $include_cover_in_asset_list determines whether the cover image should be added to the album asset list (required)
@@ -469,10 +465,10 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addAlbumCollectionAsyncWithHttpInfo($version, $title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
+    public function addAlbumCollectionAsyncWithHttpInfo($title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchResponse';
-        $request = $this->addAlbumCollectionRequest($version, $title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id, $account_id, $assets_to_add, $media, $media_url, $asset_id, $attached_media, $attached_media_url, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $latitude, $longitude, $location_description, $visibility, $game_type, $app_key, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $approval_status, $linked_object_type, $linked_object_id, $contentType);
+        $request = $this->addAlbumCollectionRequest($title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id, $account_id, $assets_to_add, $media, $media_url, $asset_id, $attached_media, $attached_media_url, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $latitude, $longitude, $location_description, $visibility, $game_type, $app_key, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $approval_status, $linked_object_type, $linked_object_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -513,7 +509,6 @@ class AlbumApi
     /**
      * Create request for operation 'addAlbumCollection'
      *
-     * @param  float $version (required)
      * @param  string $title the title of the album (required)
      * @param  bool $cover_asset_nullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
      * @param  bool $include_cover_in_asset_list determines whether the cover image should be added to the album asset list (required)
@@ -565,15 +560,8 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addAlbumCollectionRequest($version, $title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
+    public function addAlbumCollectionRequest($title, $cover_asset_nullable, $include_cover_in_asset_list, $public_read, $public_write, $public_delete, $public_add, $anonymous, $device_id = null, $account_id = null, $assets_to_add = null, $media = null, $media_url = null, $asset_id = null, $attached_media = null, $attached_media_url = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $game_type = null, $app_key = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $approval_status = null, $linked_object_type = null, $linked_object_id = null, string $contentType = self::contentTypes['addAlbumCollection'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addAlbumCollection'
-            );
-        }
 
         // verify the required parameter 'title' is set
         if ($title === null || (is_array($title) && count($title) === 0)) {
@@ -670,7 +658,7 @@ class AlbumApi
 
 
 
-        $resourcePath = '/api/{version}/album/create';
+        $resourcePath = '/album/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1093,14 +1081,6 @@ class AlbumApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1161,7 +1141,6 @@ class AlbumApi
      *
      * Add Album Users
      *
-     * @param  float $version version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $include_friend_group determines whether to include all friends as participants (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1178,9 +1157,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function addAlbumUsers($version, $album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
+    public function addAlbumUsers($album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
     {
-        list($response) = $this->addAlbumUsersWithHttpInfo($version, $album_id, $include_friend_group, $device_id, $account_id, $read, $write, $delete, $add, $connections, $connection_groups, $contentType);
+        list($response) = $this->addAlbumUsersWithHttpInfo($album_id, $include_friend_group, $device_id, $account_id, $read, $write, $delete, $add, $connections, $connection_groups, $contentType);
         return $response;
     }
 
@@ -1189,7 +1168,6 @@ class AlbumApi
      *
      * Add Album Users
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $include_friend_group determines whether to include all friends as participants (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1206,9 +1184,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addAlbumUsersWithHttpInfo($version, $album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
+    public function addAlbumUsersWithHttpInfo($album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
     {
-        $request = $this->addAlbumUsersRequest($version, $album_id, $include_friend_group, $device_id, $account_id, $read, $write, $delete, $add, $connections, $connection_groups, $contentType);
+        $request = $this->addAlbumUsersRequest($album_id, $include_friend_group, $device_id, $account_id, $read, $write, $delete, $add, $connections, $connection_groups, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1284,7 +1262,6 @@ class AlbumApi
      *
      * Add Album Users
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $include_friend_group determines whether to include all friends as participants (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1300,9 +1277,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addAlbumUsersAsync($version, $album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
+    public function addAlbumUsersAsync($album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
     {
-        return $this->addAlbumUsersAsyncWithHttpInfo($version, $album_id, $include_friend_group, $device_id, $account_id, $read, $write, $delete, $add, $connections, $connection_groups, $contentType)
+        return $this->addAlbumUsersAsyncWithHttpInfo($album_id, $include_friend_group, $device_id, $account_id, $read, $write, $delete, $add, $connections, $connection_groups, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1315,7 +1292,6 @@ class AlbumApi
      *
      * Add Album Users
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $include_friend_group determines whether to include all friends as participants (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1331,10 +1307,10 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addAlbumUsersAsyncWithHttpInfo($version, $album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
+    public function addAlbumUsersAsyncWithHttpInfo($album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->addAlbumUsersRequest($version, $album_id, $include_friend_group, $device_id, $account_id, $read, $write, $delete, $add, $connections, $connection_groups, $contentType);
+        $request = $this->addAlbumUsersRequest($album_id, $include_friend_group, $device_id, $account_id, $read, $write, $delete, $add, $connections, $connection_groups, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1375,7 +1351,6 @@ class AlbumApi
     /**
      * Create request for operation 'addAlbumUsers'
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $include_friend_group determines whether to include all friends as participants (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1391,15 +1366,8 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addAlbumUsersRequest($version, $album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
+    public function addAlbumUsersRequest($album_id, $include_friend_group, $device_id = null, $account_id = null, $read = null, $write = null, $delete = null, $add = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['addAlbumUsers'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addAlbumUsers'
-            );
-        }
 
         // verify the required parameter 'album_id' is set
         if ($album_id === null || (is_array($album_id) && count($album_id) === 0)) {
@@ -1424,7 +1392,7 @@ class AlbumApi
 
 
 
-        $resourcePath = '/api/{version}/album/user/add';
+        $resourcePath = '/album/user/add';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1523,14 +1491,6 @@ class AlbumApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1591,7 +1551,6 @@ class AlbumApi
      *
      * Approve Album
      *
-     * @param  float $version version (required)
      * @param  int $album_id The ID of the album (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -1603,9 +1562,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function approveAlbum($version, $album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
+    public function approveAlbum($album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
     {
-        list($response) = $this->approveAlbumWithHttpInfo($version, $album_id, $device_id, $account_id, $approval_status, $verified, $contentType);
+        list($response) = $this->approveAlbumWithHttpInfo($album_id, $device_id, $account_id, $approval_status, $verified, $contentType);
         return $response;
     }
 
@@ -1614,7 +1573,6 @@ class AlbumApi
      *
      * Approve Album
      *
-     * @param  float $version (required)
      * @param  int $album_id The ID of the album (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -1626,9 +1584,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function approveAlbumWithHttpInfo($version, $album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
+    public function approveAlbumWithHttpInfo($album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
     {
-        $request = $this->approveAlbumRequest($version, $album_id, $device_id, $account_id, $approval_status, $verified, $contentType);
+        $request = $this->approveAlbumRequest($album_id, $device_id, $account_id, $approval_status, $verified, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1704,7 +1662,6 @@ class AlbumApi
      *
      * Approve Album
      *
-     * @param  float $version (required)
      * @param  int $album_id The ID of the album (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -1715,9 +1672,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approveAlbumAsync($version, $album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
+    public function approveAlbumAsync($album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
     {
-        return $this->approveAlbumAsyncWithHttpInfo($version, $album_id, $device_id, $account_id, $approval_status, $verified, $contentType)
+        return $this->approveAlbumAsyncWithHttpInfo($album_id, $device_id, $account_id, $approval_status, $verified, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1730,7 +1687,6 @@ class AlbumApi
      *
      * Approve Album
      *
-     * @param  float $version (required)
      * @param  int $album_id The ID of the album (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -1741,10 +1697,10 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approveAlbumAsyncWithHttpInfo($version, $album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
+    public function approveAlbumAsyncWithHttpInfo($album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->approveAlbumRequest($version, $album_id, $device_id, $account_id, $approval_status, $verified, $contentType);
+        $request = $this->approveAlbumRequest($album_id, $device_id, $account_id, $approval_status, $verified, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1785,7 +1741,6 @@ class AlbumApi
     /**
      * Create request for operation 'approveAlbum'
      *
-     * @param  float $version (required)
      * @param  int $album_id The ID of the album (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -1796,15 +1751,8 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function approveAlbumRequest($version, $album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
+    public function approveAlbumRequest($album_id, $device_id = null, $account_id = null, $approval_status = null, $verified = null, string $contentType = self::contentTypes['approveAlbum'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling approveAlbum'
-            );
-        }
 
         // verify the required parameter 'album_id' is set
         if ($album_id === null || (is_array($album_id) && count($album_id) === 0)) {
@@ -1818,7 +1766,7 @@ class AlbumApi
 
 
 
-        $resourcePath = '/api/{version}/album/approve';
+        $resourcePath = '/album/approve';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1872,14 +1820,6 @@ class AlbumApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1940,7 +1880,6 @@ class AlbumApi
      *
      * Get Album
      *
-     * @param  float $version version (required)
      * @param  bool $return_nulls This parameter is deprecated. (required)
      * @param  int $album_id the album to look up (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1956,9 +1895,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AlbumFullResponse
      */
-    public function getAlbumCollection($version, $return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
+    public function getAlbumCollection($return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
     {
-        list($response) = $this->getAlbumCollectionWithHttpInfo($version, $return_nulls, $album_id, $device_id, $account_id, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $contentType);
+        list($response) = $this->getAlbumCollectionWithHttpInfo($return_nulls, $album_id, $device_id, $account_id, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $contentType);
         return $response;
     }
 
@@ -1967,7 +1906,6 @@ class AlbumApi
      *
      * Get Album
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls This parameter is deprecated. (required)
      * @param  int $album_id the album to look up (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1983,9 +1921,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AlbumFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAlbumCollectionWithHttpInfo($version, $return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
+    public function getAlbumCollectionWithHttpInfo($return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
     {
-        $request = $this->getAlbumCollectionRequest($version, $return_nulls, $album_id, $device_id, $account_id, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $contentType);
+        $request = $this->getAlbumCollectionRequest($return_nulls, $album_id, $device_id, $account_id, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2061,7 +1999,6 @@ class AlbumApi
      *
      * Get Album
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls This parameter is deprecated. (required)
      * @param  int $album_id the album to look up (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -2076,9 +2013,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAlbumCollectionAsync($version, $return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
+    public function getAlbumCollectionAsync($return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
     {
-        return $this->getAlbumCollectionAsyncWithHttpInfo($version, $return_nulls, $album_id, $device_id, $account_id, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $contentType)
+        return $this->getAlbumCollectionAsyncWithHttpInfo($return_nulls, $album_id, $device_id, $account_id, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2091,7 +2028,6 @@ class AlbumApi
      *
      * Get Album
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls This parameter is deprecated. (required)
      * @param  int $album_id the album to look up (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -2106,10 +2042,10 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAlbumCollectionAsyncWithHttpInfo($version, $return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
+    public function getAlbumCollectionAsyncWithHttpInfo($return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AlbumFullResponse';
-        $request = $this->getAlbumCollectionRequest($version, $return_nulls, $album_id, $device_id, $account_id, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $contentType);
+        $request = $this->getAlbumCollectionRequest($return_nulls, $album_id, $device_id, $account_id, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2150,7 +2086,6 @@ class AlbumApi
     /**
      * Create request for operation 'getAlbumCollection'
      *
-     * @param  float $version (required)
      * @param  bool $return_nulls This parameter is deprecated. (required)
      * @param  int $album_id the album to look up (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -2165,15 +2100,8 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAlbumCollectionRequest($version, $return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
+    public function getAlbumCollectionRequest($return_nulls, $album_id, $device_id = null, $account_id = null, $like_preview_size = null, $asset_preview_size = null, $note_preview_size = null, $connection_preview_size = null, $audience_preview_size = null, string $contentType = self::contentTypes['getAlbumCollection'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAlbumCollection'
-            );
-        }
 
         // verify the required parameter 'return_nulls' is set
         if ($return_nulls === null || (is_array($return_nulls) && count($return_nulls) === 0)) {
@@ -2197,7 +2125,7 @@ class AlbumApi
 
 
 
-        $resourcePath = '/api/{version}/album/get';
+        $resourcePath = '/album/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2287,14 +2215,6 @@ class AlbumApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2355,7 +2275,6 @@ class AlbumApi
      *
      * Leave Album
      *
-     * @param  float $version version (required)
      * @param  int $album_id the album ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2365,9 +2284,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function leaveAlbum($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
+    public function leaveAlbum($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
     {
-        list($response) = $this->leaveAlbumWithHttpInfo($version, $album_id, $device_id, $account_id, $contentType);
+        list($response) = $this->leaveAlbumWithHttpInfo($album_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -2376,7 +2295,6 @@ class AlbumApi
      *
      * Leave Album
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2386,9 +2304,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaveAlbumWithHttpInfo($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
+    public function leaveAlbumWithHttpInfo($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
     {
-        $request = $this->leaveAlbumRequest($version, $album_id, $device_id, $account_id, $contentType);
+        $request = $this->leaveAlbumRequest($album_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2464,7 +2382,6 @@ class AlbumApi
      *
      * Leave Album
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2473,9 +2390,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveAlbumAsync($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
+    public function leaveAlbumAsync($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
     {
-        return $this->leaveAlbumAsyncWithHttpInfo($version, $album_id, $device_id, $account_id, $contentType)
+        return $this->leaveAlbumAsyncWithHttpInfo($album_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2488,7 +2405,6 @@ class AlbumApi
      *
      * Leave Album
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2497,10 +2413,10 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveAlbumAsyncWithHttpInfo($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
+    public function leaveAlbumAsyncWithHttpInfo($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->leaveAlbumRequest($version, $album_id, $device_id, $account_id, $contentType);
+        $request = $this->leaveAlbumRequest($album_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2541,7 +2457,6 @@ class AlbumApi
     /**
      * Create request for operation 'leaveAlbum'
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2550,15 +2465,8 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaveAlbumRequest($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
+    public function leaveAlbumRequest($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['leaveAlbum'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling leaveAlbum'
-            );
-        }
 
         // verify the required parameter 'album_id' is set
         if ($album_id === null || (is_array($album_id) && count($album_id) === 0)) {
@@ -2570,7 +2478,7 @@ class AlbumApi
 
 
 
-        $resourcePath = '/api/{version}/album/user/leave';
+        $resourcePath = '/album/user/leave';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2606,14 +2514,6 @@ class AlbumApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2674,7 +2574,6 @@ class AlbumApi
      *
      * Delete Album
      *
-     * @param  float $version version (required)
      * @param  int $album_id the album ID to delete (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2684,9 +2583,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removeAlbum($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
+    public function removeAlbum($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
     {
-        list($response) = $this->removeAlbumWithHttpInfo($version, $album_id, $device_id, $account_id, $contentType);
+        list($response) = $this->removeAlbumWithHttpInfo($album_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -2695,7 +2594,6 @@ class AlbumApi
      *
      * Delete Album
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID to delete (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2705,9 +2603,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeAlbumWithHttpInfo($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
+    public function removeAlbumWithHttpInfo($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
     {
-        $request = $this->removeAlbumRequest($version, $album_id, $device_id, $account_id, $contentType);
+        $request = $this->removeAlbumRequest($album_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2783,7 +2681,6 @@ class AlbumApi
      *
      * Delete Album
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID to delete (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2792,9 +2689,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeAlbumAsync($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
+    public function removeAlbumAsync($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
     {
-        return $this->removeAlbumAsyncWithHttpInfo($version, $album_id, $device_id, $account_id, $contentType)
+        return $this->removeAlbumAsyncWithHttpInfo($album_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2807,7 +2704,6 @@ class AlbumApi
      *
      * Delete Album
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID to delete (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2816,10 +2712,10 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeAlbumAsyncWithHttpInfo($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
+    public function removeAlbumAsyncWithHttpInfo($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removeAlbumRequest($version, $album_id, $device_id, $account_id, $contentType);
+        $request = $this->removeAlbumRequest($album_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2860,7 +2756,6 @@ class AlbumApi
     /**
      * Create request for operation 'removeAlbum'
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID to delete (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2869,15 +2764,8 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeAlbumRequest($version, $album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
+    public function removeAlbumRequest($album_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['removeAlbum'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeAlbum'
-            );
-        }
 
         // verify the required parameter 'album_id' is set
         if ($album_id === null || (is_array($album_id) && count($album_id) === 0)) {
@@ -2889,7 +2777,7 @@ class AlbumApi
 
 
 
-        $resourcePath = '/api/{version}/album/delete';
+        $resourcePath = '/album/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2925,14 +2813,6 @@ class AlbumApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2993,7 +2873,6 @@ class AlbumApi
      *
      * Remove Album Users
      *
-     * @param  float $version version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $remove_friend_group remove friend group (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -3006,9 +2885,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removeAlbumUsers($version, $album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
+    public function removeAlbumUsers($album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
     {
-        list($response) = $this->removeAlbumUsersWithHttpInfo($version, $album_id, $remove_friend_group, $device_id, $account_id, $connections, $connection_groups, $contentType);
+        list($response) = $this->removeAlbumUsersWithHttpInfo($album_id, $remove_friend_group, $device_id, $account_id, $connections, $connection_groups, $contentType);
         return $response;
     }
 
@@ -3017,7 +2896,6 @@ class AlbumApi
      *
      * Remove Album Users
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $remove_friend_group remove friend group (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -3030,9 +2908,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeAlbumUsersWithHttpInfo($version, $album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
+    public function removeAlbumUsersWithHttpInfo($album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
     {
-        $request = $this->removeAlbumUsersRequest($version, $album_id, $remove_friend_group, $device_id, $account_id, $connections, $connection_groups, $contentType);
+        $request = $this->removeAlbumUsersRequest($album_id, $remove_friend_group, $device_id, $account_id, $connections, $connection_groups, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3108,7 +2986,6 @@ class AlbumApi
      *
      * Remove Album Users
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $remove_friend_group remove friend group (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -3120,9 +2997,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeAlbumUsersAsync($version, $album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
+    public function removeAlbumUsersAsync($album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
     {
-        return $this->removeAlbumUsersAsyncWithHttpInfo($version, $album_id, $remove_friend_group, $device_id, $account_id, $connections, $connection_groups, $contentType)
+        return $this->removeAlbumUsersAsyncWithHttpInfo($album_id, $remove_friend_group, $device_id, $account_id, $connections, $connection_groups, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3135,7 +3012,6 @@ class AlbumApi
      *
      * Remove Album Users
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $remove_friend_group remove friend group (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -3147,10 +3023,10 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeAlbumUsersAsyncWithHttpInfo($version, $album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
+    public function removeAlbumUsersAsyncWithHttpInfo($album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removeAlbumUsersRequest($version, $album_id, $remove_friend_group, $device_id, $account_id, $connections, $connection_groups, $contentType);
+        $request = $this->removeAlbumUsersRequest($album_id, $remove_friend_group, $device_id, $account_id, $connections, $connection_groups, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3191,7 +3067,6 @@ class AlbumApi
     /**
      * Create request for operation 'removeAlbumUsers'
      *
-     * @param  float $version (required)
      * @param  int $album_id the album ID (required)
      * @param  bool $remove_friend_group remove friend group (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -3203,15 +3078,8 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeAlbumUsersRequest($version, $album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
+    public function removeAlbumUsersRequest($album_id, $remove_friend_group, $device_id = null, $account_id = null, $connections = null, $connection_groups = null, string $contentType = self::contentTypes['removeAlbumUsers'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeAlbumUsers'
-            );
-        }
 
         // verify the required parameter 'album_id' is set
         if ($album_id === null || (is_array($album_id) && count($album_id) === 0)) {
@@ -3232,7 +3100,7 @@ class AlbumApi
 
 
 
-        $resourcePath = '/api/{version}/album/user/delete';
+        $resourcePath = '/album/user/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3295,14 +3163,6 @@ class AlbumApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3363,7 +3223,6 @@ class AlbumApi
      *
      * Search Albums
      *
-     * @param  float $version version (required)
      * @param  string $filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. (required)
      * @param  int $album_type_id id of custom albumType (required)
      * @param  string $sub_type filter albums with this album sub type (required)
@@ -3430,9 +3289,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AlbumFullResponse[]
      */
-    public function searchAlbums($version, $filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
+    public function searchAlbums($filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
     {
-        list($response) = $this->searchAlbumsWithHttpInfo($version, $filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id, $account_id, $connection_account_id, $owner_id, $album_ids, $exclude_album_ids, $media_id, $keyword, $album_type, $limit_per_album_type, $date_created, $updated_since, $updated_before, $created_since, $created_before, $started_since, $started_before, $ended_since, $ended_before, $latitude, $longitude, $app_key, $category_ids, $category_filter_ids, $audience_ids, $exclude_audience_ids, $include_completable, $include_rating, $search_mode, $stack_search, $stack_window_size, $min_stack_per_page, $stack_pagination_identifier, $stack_details, $flag_count_minimum, $remove_flagged_content, $verified_filter, $linked_object_type, $linked_object_id, $order_audience_id, $ignore_default_app_filter, $search_expression, $generate_albums, $contentType);
+        list($response) = $this->searchAlbumsWithHttpInfo($filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id, $account_id, $connection_account_id, $owner_id, $album_ids, $exclude_album_ids, $media_id, $keyword, $album_type, $limit_per_album_type, $date_created, $updated_since, $updated_before, $created_since, $created_before, $started_since, $started_before, $ended_since, $ended_before, $latitude, $longitude, $app_key, $category_ids, $category_filter_ids, $audience_ids, $exclude_audience_ids, $include_completable, $include_rating, $search_mode, $stack_search, $stack_window_size, $min_stack_per_page, $stack_pagination_identifier, $stack_details, $flag_count_minimum, $remove_flagged_content, $verified_filter, $linked_object_type, $linked_object_id, $order_audience_id, $ignore_default_app_filter, $search_expression, $generate_albums, $contentType);
         return $response;
     }
 
@@ -3441,7 +3300,6 @@ class AlbumApi
      *
      * Search Albums
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. (required)
      * @param  int $album_type_id id of custom albumType (required)
      * @param  string $sub_type filter albums with this album sub type (required)
@@ -3508,9 +3366,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AlbumFullResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAlbumsWithHttpInfo($version, $filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
+    public function searchAlbumsWithHttpInfo($filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
     {
-        $request = $this->searchAlbumsRequest($version, $filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id, $account_id, $connection_account_id, $owner_id, $album_ids, $exclude_album_ids, $media_id, $keyword, $album_type, $limit_per_album_type, $date_created, $updated_since, $updated_before, $created_since, $created_before, $started_since, $started_before, $ended_since, $ended_before, $latitude, $longitude, $app_key, $category_ids, $category_filter_ids, $audience_ids, $exclude_audience_ids, $include_completable, $include_rating, $search_mode, $stack_search, $stack_window_size, $min_stack_per_page, $stack_pagination_identifier, $stack_details, $flag_count_minimum, $remove_flagged_content, $verified_filter, $linked_object_type, $linked_object_id, $order_audience_id, $ignore_default_app_filter, $search_expression, $generate_albums, $contentType);
+        $request = $this->searchAlbumsRequest($filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id, $account_id, $connection_account_id, $owner_id, $album_ids, $exclude_album_ids, $media_id, $keyword, $album_type, $limit_per_album_type, $date_created, $updated_since, $updated_before, $created_since, $created_before, $started_since, $started_before, $ended_since, $ended_before, $latitude, $longitude, $app_key, $category_ids, $category_filter_ids, $audience_ids, $exclude_audience_ids, $include_completable, $include_rating, $search_mode, $stack_search, $stack_window_size, $min_stack_per_page, $stack_pagination_identifier, $stack_details, $flag_count_minimum, $remove_flagged_content, $verified_filter, $linked_object_type, $linked_object_id, $order_audience_id, $ignore_default_app_filter, $search_expression, $generate_albums, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3586,7 +3444,6 @@ class AlbumApi
      *
      * Search Albums
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. (required)
      * @param  int $album_type_id id of custom albumType (required)
      * @param  string $sub_type filter albums with this album sub type (required)
@@ -3652,9 +3509,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAlbumsAsync($version, $filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
+    public function searchAlbumsAsync($filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
     {
-        return $this->searchAlbumsAsyncWithHttpInfo($version, $filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id, $account_id, $connection_account_id, $owner_id, $album_ids, $exclude_album_ids, $media_id, $keyword, $album_type, $limit_per_album_type, $date_created, $updated_since, $updated_before, $created_since, $created_before, $started_since, $started_before, $ended_since, $ended_before, $latitude, $longitude, $app_key, $category_ids, $category_filter_ids, $audience_ids, $exclude_audience_ids, $include_completable, $include_rating, $search_mode, $stack_search, $stack_window_size, $min_stack_per_page, $stack_pagination_identifier, $stack_details, $flag_count_minimum, $remove_flagged_content, $verified_filter, $linked_object_type, $linked_object_id, $order_audience_id, $ignore_default_app_filter, $search_expression, $generate_albums, $contentType)
+        return $this->searchAlbumsAsyncWithHttpInfo($filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id, $account_id, $connection_account_id, $owner_id, $album_ids, $exclude_album_ids, $media_id, $keyword, $album_type, $limit_per_album_type, $date_created, $updated_since, $updated_before, $created_since, $created_before, $started_since, $started_before, $ended_since, $ended_before, $latitude, $longitude, $app_key, $category_ids, $category_filter_ids, $audience_ids, $exclude_audience_ids, $include_completable, $include_rating, $search_mode, $stack_search, $stack_window_size, $min_stack_per_page, $stack_pagination_identifier, $stack_details, $flag_count_minimum, $remove_flagged_content, $verified_filter, $linked_object_type, $linked_object_id, $order_audience_id, $ignore_default_app_filter, $search_expression, $generate_albums, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3667,7 +3524,6 @@ class AlbumApi
      *
      * Search Albums
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. (required)
      * @param  int $album_type_id id of custom albumType (required)
      * @param  string $sub_type filter albums with this album sub type (required)
@@ -3733,10 +3589,10 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAlbumsAsyncWithHttpInfo($version, $filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
+    public function searchAlbumsAsyncWithHttpInfo($filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AlbumFullResponse[]';
-        $request = $this->searchAlbumsRequest($version, $filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id, $account_id, $connection_account_id, $owner_id, $album_ids, $exclude_album_ids, $media_id, $keyword, $album_type, $limit_per_album_type, $date_created, $updated_since, $updated_before, $created_since, $created_before, $started_since, $started_before, $ended_since, $ended_before, $latitude, $longitude, $app_key, $category_ids, $category_filter_ids, $audience_ids, $exclude_audience_ids, $include_completable, $include_rating, $search_mode, $stack_search, $stack_window_size, $min_stack_per_page, $stack_pagination_identifier, $stack_details, $flag_count_minimum, $remove_flagged_content, $verified_filter, $linked_object_type, $linked_object_id, $order_audience_id, $ignore_default_app_filter, $search_expression, $generate_albums, $contentType);
+        $request = $this->searchAlbumsRequest($filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id, $account_id, $connection_account_id, $owner_id, $album_ids, $exclude_album_ids, $media_id, $keyword, $album_type, $limit_per_album_type, $date_created, $updated_since, $updated_before, $created_since, $created_before, $started_since, $started_before, $ended_since, $ended_before, $latitude, $longitude, $app_key, $category_ids, $category_filter_ids, $audience_ids, $exclude_audience_ids, $include_completable, $include_rating, $search_mode, $stack_search, $stack_window_size, $min_stack_per_page, $stack_pagination_identifier, $stack_details, $flag_count_minimum, $remove_flagged_content, $verified_filter, $linked_object_type, $linked_object_id, $order_audience_id, $ignore_default_app_filter, $search_expression, $generate_albums, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3777,7 +3633,6 @@ class AlbumApi
     /**
      * Create request for operation 'searchAlbums'
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. (required)
      * @param  int $album_type_id id of custom albumType (required)
      * @param  string $sub_type filter albums with this album sub type (required)
@@ -3843,15 +3698,8 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchAlbumsRequest($version, $filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
+    public function searchAlbumsRequest($filter, $album_type_id, $sub_type, $include_inactive, $sort_field, $descending, $start, $limit, $range, $include_liked, $include_favorited, $include_permissions, $like_preview_size, $asset_preview_size, $note_preview_size, $connection_preview_size, $audience_preview_size, $device_id = null, $account_id = null, $connection_account_id = null, $owner_id = null, $album_ids = null, $exclude_album_ids = null, $media_id = null, $keyword = null, $album_type = null, $limit_per_album_type = null, $date_created = null, $updated_since = null, $updated_before = null, $created_since = null, $created_before = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $latitude = null, $longitude = null, $app_key = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $exclude_audience_ids = null, $include_completable = null, $include_rating = null, $search_mode = null, $stack_search = null, $stack_window_size = null, $min_stack_per_page = null, $stack_pagination_identifier = null, $stack_details = null, $flag_count_minimum = null, $remove_flagged_content = true, $verified_filter = null, $linked_object_type = null, $linked_object_id = null, $order_audience_id = null, $ignore_default_app_filter = null, $search_expression = null, $generate_albums = null, string $contentType = self::contentTypes['searchAlbums'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchAlbums'
-            );
-        }
 
         // verify the required parameter 'filter' is set
         if ($filter === null || (is_array($filter) && count($filter) === 0)) {
@@ -4016,7 +3864,7 @@ class AlbumApi
 
 
 
-        $resourcePath = '/api/{version}/album/search';
+        $resourcePath = '/album/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4565,14 +4413,6 @@ class AlbumApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4633,7 +4473,6 @@ class AlbumApi
      *
      * Update Album
      *
-     * @param  float $version version (required)
      * @param  int $album_id the ID of the album to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -4685,9 +4524,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AlbumResponse
      */
-    public function updateAlbumCollection($version, $album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
+    public function updateAlbumCollection($album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
     {
-        list($response) = $this->updateAlbumCollectionWithHttpInfo($version, $album_id, $device_id, $account_id, $assets_to_add, $assets_to_remove, $asset_id, $media, $media_url, $active, $title, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $public_read, $public_write, $public_delete, $public_add, $latitude, $longitude, $location_description, $visibility, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $anonymous, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $linked_object_type, $linked_object_id, $index_now, $contentType);
+        list($response) = $this->updateAlbumCollectionWithHttpInfo($album_id, $device_id, $account_id, $assets_to_add, $assets_to_remove, $asset_id, $media, $media_url, $active, $title, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $public_read, $public_write, $public_delete, $public_add, $latitude, $longitude, $location_description, $visibility, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $anonymous, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $linked_object_type, $linked_object_id, $index_now, $contentType);
         return $response;
     }
 
@@ -4696,7 +4535,6 @@ class AlbumApi
      *
      * Update Album
      *
-     * @param  float $version (required)
      * @param  int $album_id the ID of the album to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -4748,9 +4586,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AlbumResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAlbumCollectionWithHttpInfo($version, $album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
+    public function updateAlbumCollectionWithHttpInfo($album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
     {
-        $request = $this->updateAlbumCollectionRequest($version, $album_id, $device_id, $account_id, $assets_to_add, $assets_to_remove, $asset_id, $media, $media_url, $active, $title, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $public_read, $public_write, $public_delete, $public_add, $latitude, $longitude, $location_description, $visibility, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $anonymous, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $linked_object_type, $linked_object_id, $index_now, $contentType);
+        $request = $this->updateAlbumCollectionRequest($album_id, $device_id, $account_id, $assets_to_add, $assets_to_remove, $asset_id, $media, $media_url, $active, $title, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $public_read, $public_write, $public_delete, $public_add, $latitude, $longitude, $location_description, $visibility, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $anonymous, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $linked_object_type, $linked_object_id, $index_now, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4826,7 +4664,6 @@ class AlbumApi
      *
      * Update Album
      *
-     * @param  float $version (required)
      * @param  int $album_id the ID of the album to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -4877,9 +4714,9 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAlbumCollectionAsync($version, $album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
+    public function updateAlbumCollectionAsync($album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
     {
-        return $this->updateAlbumCollectionAsyncWithHttpInfo($version, $album_id, $device_id, $account_id, $assets_to_add, $assets_to_remove, $asset_id, $media, $media_url, $active, $title, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $public_read, $public_write, $public_delete, $public_add, $latitude, $longitude, $location_description, $visibility, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $anonymous, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $linked_object_type, $linked_object_id, $index_now, $contentType)
+        return $this->updateAlbumCollectionAsyncWithHttpInfo($album_id, $device_id, $account_id, $assets_to_add, $assets_to_remove, $asset_id, $media, $media_url, $active, $title, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $public_read, $public_write, $public_delete, $public_add, $latitude, $longitude, $location_description, $visibility, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $anonymous, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $linked_object_type, $linked_object_id, $index_now, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4892,7 +4729,6 @@ class AlbumApi
      *
      * Update Album
      *
-     * @param  float $version (required)
      * @param  int $album_id the ID of the album to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -4943,10 +4779,10 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAlbumCollectionAsyncWithHttpInfo($version, $album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
+    public function updateAlbumCollectionAsyncWithHttpInfo($album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AlbumResponse';
-        $request = $this->updateAlbumCollectionRequest($version, $album_id, $device_id, $account_id, $assets_to_add, $assets_to_remove, $asset_id, $media, $media_url, $active, $title, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $public_read, $public_write, $public_delete, $public_add, $latitude, $longitude, $location_description, $visibility, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $anonymous, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $linked_object_type, $linked_object_id, $index_now, $contentType);
+        $request = $this->updateAlbumCollectionRequest($album_id, $device_id, $account_id, $assets_to_add, $assets_to_remove, $asset_id, $media, $media_url, $active, $title, $start_date, $end_date, $tags, $description, $album_type, $album_type_id, $sub_type, $public_read, $public_write, $public_delete, $public_add, $latitude, $longitude, $location_description, $visibility, $cell_phone, $street_address, $street_address2, $city, $state, $postal_code, $full_address, $anonymous, $meta_data, $category_ids, $category_filter_ids, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $include_all_app_users_as_members, $include_audiences_as_members, $audience_operator, $linked_object_type, $linked_object_id, $index_now, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4987,7 +4823,6 @@ class AlbumApi
     /**
      * Create request for operation 'updateAlbumCollection'
      *
-     * @param  float $version (required)
      * @param  int $album_id the ID of the album to update (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -5038,15 +4873,8 @@ class AlbumApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateAlbumCollectionRequest($version, $album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
+    public function updateAlbumCollectionRequest($album_id, $device_id = null, $account_id = null, $assets_to_add = null, $assets_to_remove = null, $asset_id = null, $media = null, $media_url = null, $active = null, $title = null, $start_date = null, $end_date = null, $tags = null, $description = null, $album_type = null, $album_type_id = null, $sub_type = null, $public_read = null, $public_write = null, $public_delete = null, $public_add = null, $latitude = null, $longitude = null, $location_description = null, $visibility = null, $cell_phone = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $full_address = null, $anonymous = null, $meta_data = null, $category_ids = null, $category_filter_ids = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $include_all_app_users_as_members = null, $include_audiences_as_members = null, $audience_operator = null, $linked_object_type = null, $linked_object_id = null, $index_now = null, string $contentType = self::contentTypes['updateAlbumCollection'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateAlbumCollection'
-            );
-        }
 
         // verify the required parameter 'album_id' is set
         if ($album_id === null || (is_array($album_id) && count($album_id) === 0)) {
@@ -5100,7 +4928,7 @@ class AlbumApi
 
 
 
-        $resourcePath = '/api/{version}/album/update';
+        $resourcePath = '/album/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5514,14 +5342,6 @@ class AlbumApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

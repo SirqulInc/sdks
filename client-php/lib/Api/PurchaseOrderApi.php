@@ -146,7 +146,6 @@ class PurchaseOrderApi
      *
      * Create Order
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -165,9 +164,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrderResponse
      */
-    public function createOrder($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrder($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
     {
-        list($response) = $this->createOrderWithHttpInfo($version, $app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
+        list($response) = $this->createOrderWithHttpInfo($app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
         return $response;
     }
 
@@ -176,7 +175,6 @@ class PurchaseOrderApi
      *
      * Create Order
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -195,9 +193,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOrderWithHttpInfo($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderWithHttpInfo($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
     {
-        $request = $this->createOrderRequest($version, $app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
+        $request = $this->createOrderRequest($app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -273,7 +271,6 @@ class PurchaseOrderApi
      *
      * Create Order
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -291,9 +288,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrderAsync($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderAsync($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
     {
-        return $this->createOrderAsyncWithHttpInfo($version, $app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType)
+        return $this->createOrderAsyncWithHttpInfo($app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -306,7 +303,6 @@ class PurchaseOrderApi
      *
      * Create Order
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -324,10 +320,10 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrderAsyncWithHttpInfo($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderAsyncWithHttpInfo($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrderResponse';
-        $request = $this->createOrderRequest($version, $app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
+        $request = $this->createOrderRequest($app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -368,7 +364,6 @@ class PurchaseOrderApi
     /**
      * Create request for operation 'createOrder'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -386,15 +381,8 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOrderRequest($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderRequest($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['createOrder'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createOrder'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -421,7 +409,7 @@ class PurchaseOrderApi
 
 
 
-        $resourcePath = '/api/{version}/order/create';
+        $resourcePath = '/order/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -538,14 +526,6 @@ class PurchaseOrderApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -606,7 +586,6 @@ class PurchaseOrderApi
      *
      * Delete Order
      *
-     * @param  float $version version (required)
      * @param  int $order_id Order Id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -616,9 +595,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteOrder($version, $order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
+    public function deleteOrder($order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
     {
-        list($response) = $this->deleteOrderWithHttpInfo($version, $order_id, $device_id, $account_id, $contentType);
+        list($response) = $this->deleteOrderWithHttpInfo($order_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -627,7 +606,6 @@ class PurchaseOrderApi
      *
      * Delete Order
      *
-     * @param  float $version (required)
      * @param  int $order_id Order Id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -637,9 +615,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOrderWithHttpInfo($version, $order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
+    public function deleteOrderWithHttpInfo($order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
     {
-        $request = $this->deleteOrderRequest($version, $order_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteOrderRequest($order_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -715,7 +693,6 @@ class PurchaseOrderApi
      *
      * Delete Order
      *
-     * @param  float $version (required)
      * @param  int $order_id Order Id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -724,9 +701,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOrderAsync($version, $order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
+    public function deleteOrderAsync($order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
     {
-        return $this->deleteOrderAsyncWithHttpInfo($version, $order_id, $device_id, $account_id, $contentType)
+        return $this->deleteOrderAsyncWithHttpInfo($order_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -739,7 +716,6 @@ class PurchaseOrderApi
      *
      * Delete Order
      *
-     * @param  float $version (required)
      * @param  int $order_id Order Id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -748,10 +724,10 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOrderAsyncWithHttpInfo($version, $order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
+    public function deleteOrderAsyncWithHttpInfo($order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteOrderRequest($version, $order_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteOrderRequest($order_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -792,7 +768,6 @@ class PurchaseOrderApi
     /**
      * Create request for operation 'deleteOrder'
      *
-     * @param  float $version (required)
      * @param  int $order_id Order Id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -801,15 +776,8 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteOrderRequest($version, $order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
+    public function deleteOrderRequest($order_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOrder'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteOrder'
-            );
-        }
 
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
@@ -821,7 +789,7 @@ class PurchaseOrderApi
 
 
 
-        $resourcePath = '/api/{version}/order/delete';
+        $resourcePath = '/order/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -857,14 +825,6 @@ class PurchaseOrderApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -925,7 +885,6 @@ class PurchaseOrderApi
      *
      * Get Order
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $order_id The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -936,9 +895,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrderResponse
      */
-    public function getOrder($version, $device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
+    public function getOrder($device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
     {
-        list($response) = $this->getOrderWithHttpInfo($version, $device_id, $account_id, $order_id, $external_order_id, $contentType);
+        list($response) = $this->getOrderWithHttpInfo($device_id, $account_id, $order_id, $external_order_id, $contentType);
         return $response;
     }
 
@@ -947,7 +906,6 @@ class PurchaseOrderApi
      *
      * Get Order
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $order_id The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -958,9 +916,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrderWithHttpInfo($version, $device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
+    public function getOrderWithHttpInfo($device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
     {
-        $request = $this->getOrderRequest($version, $device_id, $account_id, $order_id, $external_order_id, $contentType);
+        $request = $this->getOrderRequest($device_id, $account_id, $order_id, $external_order_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1036,7 +994,6 @@ class PurchaseOrderApi
      *
      * Get Order
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $order_id The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -1046,9 +1003,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderAsync($version, $device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
+    public function getOrderAsync($device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
     {
-        return $this->getOrderAsyncWithHttpInfo($version, $device_id, $account_id, $order_id, $external_order_id, $contentType)
+        return $this->getOrderAsyncWithHttpInfo($device_id, $account_id, $order_id, $external_order_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1061,7 +1018,6 @@ class PurchaseOrderApi
      *
      * Get Order
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $order_id The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -1071,10 +1027,10 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
+    public function getOrderAsyncWithHttpInfo($device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrderResponse';
-        $request = $this->getOrderRequest($version, $device_id, $account_id, $order_id, $external_order_id, $contentType);
+        $request = $this->getOrderRequest($device_id, $account_id, $order_id, $external_order_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1115,7 +1071,6 @@ class PurchaseOrderApi
     /**
      * Create request for operation 'getOrder'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $order_id The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -1125,22 +1080,15 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOrderRequest($version, $device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
+    public function getOrderRequest($device_id = null, $account_id = null, $order_id = null, $external_order_id = null, string $contentType = self::contentTypes['getOrder'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOrder'
-            );
-        }
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/order/get';
+        $resourcePath = '/order/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1185,14 +1133,6 @@ class PurchaseOrderApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1253,7 +1193,6 @@ class PurchaseOrderApi
      *
      * Preview Order
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart A JSON list of items to purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -1272,9 +1211,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrderResponse
      */
-    public function previewOrder($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
+    public function previewOrder($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
     {
-        list($response) = $this->previewOrderWithHttpInfo($version, $app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
+        list($response) = $this->previewOrderWithHttpInfo($app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
         return $response;
     }
 
@@ -1283,7 +1222,6 @@ class PurchaseOrderApi
      *
      * Preview Order
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart A JSON list of items to purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -1302,9 +1240,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function previewOrderWithHttpInfo($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
+    public function previewOrderWithHttpInfo($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
     {
-        $request = $this->previewOrderRequest($version, $app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
+        $request = $this->previewOrderRequest($app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1380,7 +1318,6 @@ class PurchaseOrderApi
      *
      * Preview Order
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart A JSON list of items to purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -1398,9 +1335,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewOrderAsync($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
+    public function previewOrderAsync($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
     {
-        return $this->previewOrderAsyncWithHttpInfo($version, $app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType)
+        return $this->previewOrderAsyncWithHttpInfo($app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1413,7 +1350,6 @@ class PurchaseOrderApi
      *
      * Preview Order
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart A JSON list of items to purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -1431,10 +1367,10 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewOrderAsyncWithHttpInfo($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
+    public function previewOrderAsyncWithHttpInfo($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrderResponse';
-        $request = $this->previewOrderRequest($version, $app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
+        $request = $this->previewOrderRequest($app_key, $cart, $device_id, $account_id, $description, $currency_type, $payment_method_id, $external_order_id, $external_payment_id, $remote_ref_type, $external_date, $promo_code, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1475,7 +1411,6 @@ class PurchaseOrderApi
     /**
      * Create request for operation 'previewOrder'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart A JSON list of items to purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -1493,15 +1428,8 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function previewOrderRequest($version, $app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
+    public function previewOrderRequest($app_key, $cart, $device_id = null, $account_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_order_id = null, $external_payment_id = null, $remote_ref_type = null, $external_date = null, $promo_code = null, string $contentType = self::contentTypes['previewOrder'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling previewOrder'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -1528,7 +1456,7 @@ class PurchaseOrderApi
 
 
 
-        $resourcePath = '/api/{version}/order/preview';
+        $resourcePath = '/order/preview';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1645,14 +1573,6 @@ class PurchaseOrderApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1713,7 +1633,6 @@ class PurchaseOrderApi
      *
      * Search Orders
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1751,9 +1670,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrderResponse[]
      */
-    public function searchOrders($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
+    public function searchOrders($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
     {
-        list($response) = $this->searchOrdersWithHttpInfo($version, $app_key, $device_id, $account_id, $start, $limit, $descending, $active_only, $ignore_customer_filter, $order_item_types, $order_item_ids, $order_custom_types, $order_custom_ids, $sort_field, $offer_types, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $offer_ids, $offer_location_ids, $retailer_ids, $retailer_location_ids, $statuses, $keyword, $redeemable_start_date, $redeemable_end_date, $started_since, $started_before, $ended_since, $ended_before, $contentType);
+        list($response) = $this->searchOrdersWithHttpInfo($app_key, $device_id, $account_id, $start, $limit, $descending, $active_only, $ignore_customer_filter, $order_item_types, $order_item_ids, $order_custom_types, $order_custom_ids, $sort_field, $offer_types, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $offer_ids, $offer_location_ids, $retailer_ids, $retailer_location_ids, $statuses, $keyword, $redeemable_start_date, $redeemable_end_date, $started_since, $started_before, $ended_since, $ended_before, $contentType);
         return $response;
     }
 
@@ -1762,7 +1681,6 @@ class PurchaseOrderApi
      *
      * Search Orders
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1800,9 +1718,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrderResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchOrdersWithHttpInfo($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
+    public function searchOrdersWithHttpInfo($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
     {
-        $request = $this->searchOrdersRequest($version, $app_key, $device_id, $account_id, $start, $limit, $descending, $active_only, $ignore_customer_filter, $order_item_types, $order_item_ids, $order_custom_types, $order_custom_ids, $sort_field, $offer_types, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $offer_ids, $offer_location_ids, $retailer_ids, $retailer_location_ids, $statuses, $keyword, $redeemable_start_date, $redeemable_end_date, $started_since, $started_before, $ended_since, $ended_before, $contentType);
+        $request = $this->searchOrdersRequest($app_key, $device_id, $account_id, $start, $limit, $descending, $active_only, $ignore_customer_filter, $order_item_types, $order_item_ids, $order_custom_types, $order_custom_ids, $sort_field, $offer_types, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $offer_ids, $offer_location_ids, $retailer_ids, $retailer_location_ids, $statuses, $keyword, $redeemable_start_date, $redeemable_end_date, $started_since, $started_before, $ended_since, $ended_before, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1878,7 +1796,6 @@ class PurchaseOrderApi
      *
      * Search Orders
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1915,9 +1832,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOrdersAsync($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
+    public function searchOrdersAsync($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
     {
-        return $this->searchOrdersAsyncWithHttpInfo($version, $app_key, $device_id, $account_id, $start, $limit, $descending, $active_only, $ignore_customer_filter, $order_item_types, $order_item_ids, $order_custom_types, $order_custom_ids, $sort_field, $offer_types, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $offer_ids, $offer_location_ids, $retailer_ids, $retailer_location_ids, $statuses, $keyword, $redeemable_start_date, $redeemable_end_date, $started_since, $started_before, $ended_since, $ended_before, $contentType)
+        return $this->searchOrdersAsyncWithHttpInfo($app_key, $device_id, $account_id, $start, $limit, $descending, $active_only, $ignore_customer_filter, $order_item_types, $order_item_ids, $order_custom_types, $order_custom_ids, $sort_field, $offer_types, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $offer_ids, $offer_location_ids, $retailer_ids, $retailer_location_ids, $statuses, $keyword, $redeemable_start_date, $redeemable_end_date, $started_since, $started_before, $ended_since, $ended_before, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1930,7 +1847,6 @@ class PurchaseOrderApi
      *
      * Search Orders
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1967,10 +1883,10 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOrdersAsyncWithHttpInfo($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
+    public function searchOrdersAsyncWithHttpInfo($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrderResponse[]';
-        $request = $this->searchOrdersRequest($version, $app_key, $device_id, $account_id, $start, $limit, $descending, $active_only, $ignore_customer_filter, $order_item_types, $order_item_ids, $order_custom_types, $order_custom_ids, $sort_field, $offer_types, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $offer_ids, $offer_location_ids, $retailer_ids, $retailer_location_ids, $statuses, $keyword, $redeemable_start_date, $redeemable_end_date, $started_since, $started_before, $ended_since, $ended_before, $contentType);
+        $request = $this->searchOrdersRequest($app_key, $device_id, $account_id, $start, $limit, $descending, $active_only, $ignore_customer_filter, $order_item_types, $order_item_ids, $order_custom_types, $order_custom_ids, $sort_field, $offer_types, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $transaction_audience_ids, $offer_ids, $offer_location_ids, $retailer_ids, $retailer_location_ids, $statuses, $keyword, $redeemable_start_date, $redeemable_end_date, $started_since, $started_before, $ended_since, $ended_before, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2011,7 +1927,6 @@ class PurchaseOrderApi
     /**
      * Create request for operation 'searchOrders'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2048,15 +1963,8 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchOrdersRequest($version, $app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
+    public function searchOrdersRequest($app_key, $device_id = null, $account_id = null, $start = 0, $limit = 20, $descending = true, $active_only = false, $ignore_customer_filter = false, $order_item_types = null, $order_item_ids = null, $order_custom_types = null, $order_custom_ids = null, $sort_field = 'ID', $offer_types = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $transaction_audience_ids = null, $offer_ids = null, $offer_location_ids = null, $retailer_ids = null, $retailer_location_ids = null, $statuses = null, $keyword = null, $redeemable_start_date = null, $redeemable_end_date = null, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, string $contentType = self::contentTypes['searchOrders'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchOrders'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -2096,7 +2004,7 @@ class PurchaseOrderApi
 
 
 
-        $resourcePath = '/api/{version}/order/search';
+        $resourcePath = '/order/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2384,14 +2292,6 @@ class PurchaseOrderApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2452,7 +2352,6 @@ class PurchaseOrderApi
      *
      * Update Order
      *
-     * @param  float $version version (required)
      * @param  int $order_id The order to add the purchase to, leave null for new order. (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
@@ -2470,9 +2369,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrderResponse
      */
-    public function updateOrder($version, $order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
+    public function updateOrder($order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
     {
-        list($response) = $this->updateOrderWithHttpInfo($version, $order_id, $app_key, $cart, $device_id, $account_id, $payment_transaction_id, $description, $currency_type, $payment_method_id, $external_payment_id, $external_date, $contentType);
+        list($response) = $this->updateOrderWithHttpInfo($order_id, $app_key, $cart, $device_id, $account_id, $payment_transaction_id, $description, $currency_type, $payment_method_id, $external_payment_id, $external_date, $contentType);
         return $response;
     }
 
@@ -2481,7 +2380,6 @@ class PurchaseOrderApi
      *
      * Update Order
      *
-     * @param  float $version (required)
      * @param  int $order_id The order to add the purchase to, leave null for new order. (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
@@ -2499,9 +2397,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOrderWithHttpInfo($version, $order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
+    public function updateOrderWithHttpInfo($order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
     {
-        $request = $this->updateOrderRequest($version, $order_id, $app_key, $cart, $device_id, $account_id, $payment_transaction_id, $description, $currency_type, $payment_method_id, $external_payment_id, $external_date, $contentType);
+        $request = $this->updateOrderRequest($order_id, $app_key, $cart, $device_id, $account_id, $payment_transaction_id, $description, $currency_type, $payment_method_id, $external_payment_id, $external_date, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2577,7 +2475,6 @@ class PurchaseOrderApi
      *
      * Update Order
      *
-     * @param  float $version (required)
      * @param  int $order_id The order to add the purchase to, leave null for new order. (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
@@ -2594,9 +2491,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrderAsync($version, $order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
+    public function updateOrderAsync($order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
     {
-        return $this->updateOrderAsyncWithHttpInfo($version, $order_id, $app_key, $cart, $device_id, $account_id, $payment_transaction_id, $description, $currency_type, $payment_method_id, $external_payment_id, $external_date, $contentType)
+        return $this->updateOrderAsyncWithHttpInfo($order_id, $app_key, $cart, $device_id, $account_id, $payment_transaction_id, $description, $currency_type, $payment_method_id, $external_payment_id, $external_date, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2609,7 +2506,6 @@ class PurchaseOrderApi
      *
      * Update Order
      *
-     * @param  float $version (required)
      * @param  int $order_id The order to add the purchase to, leave null for new order. (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
@@ -2626,10 +2522,10 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrderAsyncWithHttpInfo($version, $order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
+    public function updateOrderAsyncWithHttpInfo($order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrderResponse';
-        $request = $this->updateOrderRequest($version, $order_id, $app_key, $cart, $device_id, $account_id, $payment_transaction_id, $description, $currency_type, $payment_method_id, $external_payment_id, $external_date, $contentType);
+        $request = $this->updateOrderRequest($order_id, $app_key, $cart, $device_id, $account_id, $payment_transaction_id, $description, $currency_type, $payment_method_id, $external_payment_id, $external_date, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2670,7 +2566,6 @@ class PurchaseOrderApi
     /**
      * Create request for operation 'updateOrder'
      *
-     * @param  float $version (required)
      * @param  int $order_id The order to add the purchase to, leave null for new order. (required)
      * @param  string $app_key The application requesting the purchase (required)
      * @param  string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; (required)
@@ -2687,15 +2582,8 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateOrderRequest($version, $order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
+    public function updateOrderRequest($order_id, $app_key, $cart, $device_id = null, $account_id = null, $payment_transaction_id = null, $description = null, $currency_type = 'CASH', $payment_method_id = null, $external_payment_id = null, $external_date = null, string $contentType = self::contentTypes['updateOrder'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateOrder'
-            );
-        }
 
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
@@ -2727,7 +2615,7 @@ class PurchaseOrderApi
 
 
 
-        $resourcePath = '/api/{version}/order/update';
+        $resourcePath = '/order/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2835,14 +2723,6 @@ class PurchaseOrderApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

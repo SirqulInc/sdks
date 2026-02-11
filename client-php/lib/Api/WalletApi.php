@@ -146,7 +146,6 @@ class WalletApi
      *
      * Create Wallet Offers
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -164,9 +163,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionResponse[]
      */
-    public function createOfferTransaction($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
+    public function createOfferTransaction($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
     {
-        list($response) = $this->createOfferTransactionWithHttpInfo($version, $device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $status, $contentType);
+        list($response) = $this->createOfferTransactionWithHttpInfo($device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $status, $contentType);
         return $response;
     }
 
@@ -175,7 +174,6 @@ class WalletApi
      *
      * Create Wallet Offers
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -193,9 +191,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOfferTransactionWithHttpInfo($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
+    public function createOfferTransactionWithHttpInfo($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
     {
-        $request = $this->createOfferTransactionRequest($version, $device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $status, $contentType);
+        $request = $this->createOfferTransactionRequest($device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $status, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -271,7 +269,6 @@ class WalletApi
      *
      * Create Wallet Offers
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -288,9 +285,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOfferTransactionAsync($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
+    public function createOfferTransactionAsync($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
     {
-        return $this->createOfferTransactionAsyncWithHttpInfo($version, $device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $status, $contentType)
+        return $this->createOfferTransactionAsyncWithHttpInfo($device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $status, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -303,7 +300,6 @@ class WalletApi
      *
      * Create Wallet Offers
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -320,10 +316,10 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOfferTransactionAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
+    public function createOfferTransactionAsyncWithHttpInfo($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionResponse[]';
-        $request = $this->createOfferTransactionRequest($version, $device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $status, $contentType);
+        $request = $this->createOfferTransactionRequest($device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $status, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -364,7 +360,6 @@ class WalletApi
     /**
      * Create request for operation 'createOfferTransaction'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -381,15 +376,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOfferTransactionRequest($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
+    public function createOfferTransactionRequest($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, $status = null, string $contentType = self::contentTypes['createOfferTransaction'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createOfferTransaction'
-            );
-        }
 
 
 
@@ -402,8 +391,7 @@ class WalletApi
 
 
 
-
-        $resourcePath = '/api/{version}/wallet/create';
+        $resourcePath = '/wallet/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -511,14 +499,6 @@ class WalletApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -579,7 +559,6 @@ class WalletApi
      *
      * Delete Wallet Offer
      *
-     * @param  float $version version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -589,9 +568,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteOfferTransaction($version, $transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
+    public function deleteOfferTransaction($transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
     {
-        list($response) = $this->deleteOfferTransactionWithHttpInfo($version, $transaction_id, $device_id, $account_id, $contentType);
+        list($response) = $this->deleteOfferTransactionWithHttpInfo($transaction_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -600,7 +579,6 @@ class WalletApi
      *
      * Delete Wallet Offer
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -610,9 +588,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOfferTransactionWithHttpInfo($version, $transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
+    public function deleteOfferTransactionWithHttpInfo($transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
     {
-        $request = $this->deleteOfferTransactionRequest($version, $transaction_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteOfferTransactionRequest($transaction_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -688,7 +666,6 @@ class WalletApi
      *
      * Delete Wallet Offer
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -697,9 +674,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOfferTransactionAsync($version, $transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
+    public function deleteOfferTransactionAsync($transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
     {
-        return $this->deleteOfferTransactionAsyncWithHttpInfo($version, $transaction_id, $device_id, $account_id, $contentType)
+        return $this->deleteOfferTransactionAsyncWithHttpInfo($transaction_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -712,7 +689,6 @@ class WalletApi
      *
      * Delete Wallet Offer
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -721,10 +697,10 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOfferTransactionAsyncWithHttpInfo($version, $transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
+    public function deleteOfferTransactionAsyncWithHttpInfo($transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteOfferTransactionRequest($version, $transaction_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteOfferTransactionRequest($transaction_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -765,7 +741,6 @@ class WalletApi
     /**
      * Create request for operation 'deleteOfferTransaction'
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -774,15 +749,8 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteOfferTransactionRequest($version, $transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
+    public function deleteOfferTransactionRequest($transaction_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteOfferTransaction'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteOfferTransaction'
-            );
-        }
 
         // verify the required parameter 'transaction_id' is set
         if ($transaction_id === null || (is_array($transaction_id) && count($transaction_id) === 0)) {
@@ -794,7 +762,7 @@ class WalletApi
 
 
 
-        $resourcePath = '/api/{version}/wallet/delete';
+        $resourcePath = '/wallet/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -830,14 +798,6 @@ class WalletApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -898,7 +858,6 @@ class WalletApi
      *
      * Get Wallet Offer
      *
-     * @param  float $version version (required)
      * @param  int $transaction_id The offer transaction id to get details of (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -912,9 +871,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionResponse
      */
-    public function getOfferTransaction($version, $transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
+    public function getOfferTransaction($transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
     {
-        list($response) = $this->getOfferTransactionWithHttpInfo($version, $transaction_id, $device_id, $account_id, $include_mission, $latitude, $longitude, $return_full_response, $contentType);
+        list($response) = $this->getOfferTransactionWithHttpInfo($transaction_id, $device_id, $account_id, $include_mission, $latitude, $longitude, $return_full_response, $contentType);
         return $response;
     }
 
@@ -923,7 +882,6 @@ class WalletApi
      *
      * Get Wallet Offer
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to get details of (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -937,9 +895,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOfferTransactionWithHttpInfo($version, $transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
+    public function getOfferTransactionWithHttpInfo($transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
     {
-        $request = $this->getOfferTransactionRequest($version, $transaction_id, $device_id, $account_id, $include_mission, $latitude, $longitude, $return_full_response, $contentType);
+        $request = $this->getOfferTransactionRequest($transaction_id, $device_id, $account_id, $include_mission, $latitude, $longitude, $return_full_response, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1015,7 +973,6 @@ class WalletApi
      *
      * Get Wallet Offer
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to get details of (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1028,9 +985,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferTransactionAsync($version, $transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
+    public function getOfferTransactionAsync($transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
     {
-        return $this->getOfferTransactionAsyncWithHttpInfo($version, $transaction_id, $device_id, $account_id, $include_mission, $latitude, $longitude, $return_full_response, $contentType)
+        return $this->getOfferTransactionAsyncWithHttpInfo($transaction_id, $device_id, $account_id, $include_mission, $latitude, $longitude, $return_full_response, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1043,7 +1000,6 @@ class WalletApi
      *
      * Get Wallet Offer
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to get details of (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1056,10 +1012,10 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferTransactionAsyncWithHttpInfo($version, $transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
+    public function getOfferTransactionAsyncWithHttpInfo($transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionResponse';
-        $request = $this->getOfferTransactionRequest($version, $transaction_id, $device_id, $account_id, $include_mission, $latitude, $longitude, $return_full_response, $contentType);
+        $request = $this->getOfferTransactionRequest($transaction_id, $device_id, $account_id, $include_mission, $latitude, $longitude, $return_full_response, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1100,7 +1056,6 @@ class WalletApi
     /**
      * Create request for operation 'getOfferTransaction'
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to get details of (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1113,15 +1068,8 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOfferTransactionRequest($version, $transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
+    public function getOfferTransactionRequest($transaction_id, $device_id = null, $account_id = null, $include_mission = false, $latitude = null, $longitude = null, $return_full_response = true, string $contentType = self::contentTypes['getOfferTransaction'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getOfferTransaction'
-            );
-        }
 
         // verify the required parameter 'transaction_id' is set
         if ($transaction_id === null || (is_array($transaction_id) && count($transaction_id) === 0)) {
@@ -1137,7 +1085,7 @@ class WalletApi
 
 
 
-        $resourcePath = '/api/{version}/wallet/get';
+        $resourcePath = '/wallet/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1209,14 +1157,6 @@ class WalletApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1277,7 +1217,6 @@ class WalletApi
      *
      * Preview Wallet Offers
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -1294,9 +1233,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionResponse[]
      */
-    public function previewOfferTransaction($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
+    public function previewOfferTransaction($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
     {
-        list($response) = $this->previewOfferTransactionWithHttpInfo($version, $device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $contentType);
+        list($response) = $this->previewOfferTransactionWithHttpInfo($device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $contentType);
         return $response;
     }
 
@@ -1305,7 +1244,6 @@ class WalletApi
      *
      * Preview Wallet Offers
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -1322,9 +1260,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function previewOfferTransactionWithHttpInfo($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
+    public function previewOfferTransactionWithHttpInfo($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
     {
-        $request = $this->previewOfferTransactionRequest($version, $device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $contentType);
+        $request = $this->previewOfferTransactionRequest($device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1400,7 +1338,6 @@ class WalletApi
      *
      * Preview Wallet Offers
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -1416,9 +1353,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewOfferTransactionAsync($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
+    public function previewOfferTransactionAsync($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
     {
-        return $this->previewOfferTransactionAsyncWithHttpInfo($version, $device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $contentType)
+        return $this->previewOfferTransactionAsyncWithHttpInfo($device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1431,7 +1368,6 @@ class WalletApi
      *
      * Preview Wallet Offers
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -1447,10 +1383,10 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewOfferTransactionAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
+    public function previewOfferTransactionAsyncWithHttpInfo($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionResponse[]';
-        $request = $this->previewOfferTransactionRequest($version, $device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $contentType);
+        $request = $this->previewOfferTransactionRequest($device_id, $account_id, $offer_id, $offer_location_id, $offer_cart, $promo_code, $currency_type, $use_points, $meta_data, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1491,7 +1427,6 @@ class WalletApi
     /**
      * Create request for operation 'previewOfferTransaction'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -1507,15 +1442,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function previewOfferTransactionRequest($version, $device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
+    public function previewOfferTransactionRequest($device_id = null, $account_id = null, $offer_id = null, $offer_location_id = null, $offer_cart = null, $promo_code = null, $currency_type = 'CASH', $use_points = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['previewOfferTransaction'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling previewOfferTransaction'
-            );
-        }
 
 
 
@@ -1527,8 +1456,7 @@ class WalletApi
 
 
 
-
-        $resourcePath = '/api/{version}/wallet/preview';
+        $resourcePath = '/wallet/preview';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1627,14 +1555,6 @@ class WalletApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1695,7 +1615,6 @@ class WalletApi
      *
      * Search Wallet Offers
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $keyword The keyword to search for (optional)
@@ -1743,9 +1662,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionResponse[]
      */
-    public function searchOfferTransactions($version, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
+    public function searchOfferTransactions($device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
     {
-        list($response) = $this->searchOfferTransactionsWithHttpInfo($version, $device_id, $account_id, $keyword, $retailer_id, $retailer_ids, $retailer_location_id, $retailer_location_ids, $exclude_retailer_location_ids, $offer_id, $offer_ids, $offer_location_id, $offer_location_ids, $offer_type, $offer_types, $special_offer_type, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $sort_field, $descending, $start, $limit, $latitude, $longitude, $redeemable_start_date, $redeemable_end_date, $filter_by_parent_offer, $started_since, $started_before, $ended_since, $ended_before, $redeemed, $statuses, $reservations_only, $active_only, $return_full_response, $recurring_started_since, $recurring_started_before, $recurring_expiration_since, $recurring_expiration_before, $contentType);
+        list($response) = $this->searchOfferTransactionsWithHttpInfo($device_id, $account_id, $keyword, $retailer_id, $retailer_ids, $retailer_location_id, $retailer_location_ids, $exclude_retailer_location_ids, $offer_id, $offer_ids, $offer_location_id, $offer_location_ids, $offer_type, $offer_types, $special_offer_type, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $sort_field, $descending, $start, $limit, $latitude, $longitude, $redeemable_start_date, $redeemable_end_date, $filter_by_parent_offer, $started_since, $started_before, $ended_since, $ended_before, $redeemed, $statuses, $reservations_only, $active_only, $return_full_response, $recurring_started_since, $recurring_started_before, $recurring_expiration_since, $recurring_expiration_before, $contentType);
         return $response;
     }
 
@@ -1754,7 +1673,6 @@ class WalletApi
      *
      * Search Wallet Offers
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $keyword The keyword to search for (optional)
@@ -1802,9 +1720,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchOfferTransactionsWithHttpInfo($version, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
+    public function searchOfferTransactionsWithHttpInfo($device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
     {
-        $request = $this->searchOfferTransactionsRequest($version, $device_id, $account_id, $keyword, $retailer_id, $retailer_ids, $retailer_location_id, $retailer_location_ids, $exclude_retailer_location_ids, $offer_id, $offer_ids, $offer_location_id, $offer_location_ids, $offer_type, $offer_types, $special_offer_type, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $sort_field, $descending, $start, $limit, $latitude, $longitude, $redeemable_start_date, $redeemable_end_date, $filter_by_parent_offer, $started_since, $started_before, $ended_since, $ended_before, $redeemed, $statuses, $reservations_only, $active_only, $return_full_response, $recurring_started_since, $recurring_started_before, $recurring_expiration_since, $recurring_expiration_before, $contentType);
+        $request = $this->searchOfferTransactionsRequest($device_id, $account_id, $keyword, $retailer_id, $retailer_ids, $retailer_location_id, $retailer_location_ids, $exclude_retailer_location_ids, $offer_id, $offer_ids, $offer_location_id, $offer_location_ids, $offer_type, $offer_types, $special_offer_type, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $sort_field, $descending, $start, $limit, $latitude, $longitude, $redeemable_start_date, $redeemable_end_date, $filter_by_parent_offer, $started_since, $started_before, $ended_since, $ended_before, $redeemed, $statuses, $reservations_only, $active_only, $return_full_response, $recurring_started_since, $recurring_started_before, $recurring_expiration_since, $recurring_expiration_before, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1880,7 +1798,6 @@ class WalletApi
      *
      * Search Wallet Offers
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $keyword The keyword to search for (optional)
@@ -1927,9 +1844,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOfferTransactionsAsync($version, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
+    public function searchOfferTransactionsAsync($device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
     {
-        return $this->searchOfferTransactionsAsyncWithHttpInfo($version, $device_id, $account_id, $keyword, $retailer_id, $retailer_ids, $retailer_location_id, $retailer_location_ids, $exclude_retailer_location_ids, $offer_id, $offer_ids, $offer_location_id, $offer_location_ids, $offer_type, $offer_types, $special_offer_type, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $sort_field, $descending, $start, $limit, $latitude, $longitude, $redeemable_start_date, $redeemable_end_date, $filter_by_parent_offer, $started_since, $started_before, $ended_since, $ended_before, $redeemed, $statuses, $reservations_only, $active_only, $return_full_response, $recurring_started_since, $recurring_started_before, $recurring_expiration_since, $recurring_expiration_before, $contentType)
+        return $this->searchOfferTransactionsAsyncWithHttpInfo($device_id, $account_id, $keyword, $retailer_id, $retailer_ids, $retailer_location_id, $retailer_location_ids, $exclude_retailer_location_ids, $offer_id, $offer_ids, $offer_location_id, $offer_location_ids, $offer_type, $offer_types, $special_offer_type, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $sort_field, $descending, $start, $limit, $latitude, $longitude, $redeemable_start_date, $redeemable_end_date, $filter_by_parent_offer, $started_since, $started_before, $ended_since, $ended_before, $redeemed, $statuses, $reservations_only, $active_only, $return_full_response, $recurring_started_since, $recurring_started_before, $recurring_expiration_since, $recurring_expiration_before, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1942,7 +1859,6 @@ class WalletApi
      *
      * Search Wallet Offers
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $keyword The keyword to search for (optional)
@@ -1989,10 +1905,10 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchOfferTransactionsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
+    public function searchOfferTransactionsAsyncWithHttpInfo($device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionResponse[]';
-        $request = $this->searchOfferTransactionsRequest($version, $device_id, $account_id, $keyword, $retailer_id, $retailer_ids, $retailer_location_id, $retailer_location_ids, $exclude_retailer_location_ids, $offer_id, $offer_ids, $offer_location_id, $offer_location_ids, $offer_type, $offer_types, $special_offer_type, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $sort_field, $descending, $start, $limit, $latitude, $longitude, $redeemable_start_date, $redeemable_end_date, $filter_by_parent_offer, $started_since, $started_before, $ended_since, $ended_before, $redeemed, $statuses, $reservations_only, $active_only, $return_full_response, $recurring_started_since, $recurring_started_before, $recurring_expiration_since, $recurring_expiration_before, $contentType);
+        $request = $this->searchOfferTransactionsRequest($device_id, $account_id, $keyword, $retailer_id, $retailer_ids, $retailer_location_id, $retailer_location_ids, $exclude_retailer_location_ids, $offer_id, $offer_ids, $offer_location_id, $offer_location_ids, $offer_type, $offer_types, $special_offer_type, $special_offer_types, $category_ids, $filter_ids, $offer_audience_ids, $sort_field, $descending, $start, $limit, $latitude, $longitude, $redeemable_start_date, $redeemable_end_date, $filter_by_parent_offer, $started_since, $started_before, $ended_since, $ended_before, $redeemed, $statuses, $reservations_only, $active_only, $return_full_response, $recurring_started_since, $recurring_started_before, $recurring_expiration_since, $recurring_expiration_before, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2033,7 +1949,6 @@ class WalletApi
     /**
      * Create request for operation 'searchOfferTransactions'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $keyword The keyword to search for (optional)
@@ -2080,15 +1995,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchOfferTransactionsRequest($version, $device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
+    public function searchOfferTransactionsRequest($device_id = null, $account_id = null, $keyword = null, $retailer_id = null, $retailer_ids = null, $retailer_location_id = null, $retailer_location_ids = null, $exclude_retailer_location_ids = null, $offer_id = null, $offer_ids = null, $offer_location_id = null, $offer_location_ids = null, $offer_type = null, $offer_types = null, $special_offer_type = null, $special_offer_types = null, $category_ids = null, $filter_ids = null, $offer_audience_ids = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $latitude = null, $longitude = null, $redeemable_start_date = null, $redeemable_end_date = null, $filter_by_parent_offer = false, $started_since = null, $started_before = null, $ended_since = null, $ended_before = null, $redeemed = false, $statuses = null, $reservations_only = false, $active_only = false, $return_full_response = false, $recurring_started_since = null, $recurring_started_before = null, $recurring_expiration_since = null, $recurring_expiration_before = null, string $contentType = self::contentTypes['searchOfferTransactions'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchOfferTransactions'
-            );
-        }
 
 
 
@@ -2131,8 +2040,7 @@ class WalletApi
 
 
 
-
-        $resourcePath = '/api/{version}/wallet/search';
+        $resourcePath = '/wallet/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2510,14 +2418,6 @@ class WalletApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2578,7 +2478,6 @@ class WalletApi
      *
      * Update Wallet Offer
      *
-     * @param  float $version version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  int $status The status value to change to (0 or 1) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2598,9 +2497,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferTransactionResponse
      */
-    public function updateOfferTransaction($version, $transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
+    public function updateOfferTransaction($transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
     {
-        list($response) = $this->updateOfferTransactionWithHttpInfo($version, $transaction_id, $status, $device_id, $account_id, $offer_location_id, $currency_type, $use_points, $app_key, $latitude, $longitude, $meta_data, $return_full_response, $exception_membership_offer_ids, $contentType);
+        list($response) = $this->updateOfferTransactionWithHttpInfo($transaction_id, $status, $device_id, $account_id, $offer_location_id, $currency_type, $use_points, $app_key, $latitude, $longitude, $meta_data, $return_full_response, $exception_membership_offer_ids, $contentType);
         return $response;
     }
 
@@ -2609,7 +2508,6 @@ class WalletApi
      *
      * Update Wallet Offer
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  int $status The status value to change to (0 or 1) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2629,9 +2527,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferTransactionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOfferTransactionWithHttpInfo($version, $transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
+    public function updateOfferTransactionWithHttpInfo($transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
     {
-        $request = $this->updateOfferTransactionRequest($version, $transaction_id, $status, $device_id, $account_id, $offer_location_id, $currency_type, $use_points, $app_key, $latitude, $longitude, $meta_data, $return_full_response, $exception_membership_offer_ids, $contentType);
+        $request = $this->updateOfferTransactionRequest($transaction_id, $status, $device_id, $account_id, $offer_location_id, $currency_type, $use_points, $app_key, $latitude, $longitude, $meta_data, $return_full_response, $exception_membership_offer_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2707,7 +2605,6 @@ class WalletApi
      *
      * Update Wallet Offer
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  int $status The status value to change to (0 or 1) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2726,9 +2623,9 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOfferTransactionAsync($version, $transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
+    public function updateOfferTransactionAsync($transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
     {
-        return $this->updateOfferTransactionAsyncWithHttpInfo($version, $transaction_id, $status, $device_id, $account_id, $offer_location_id, $currency_type, $use_points, $app_key, $latitude, $longitude, $meta_data, $return_full_response, $exception_membership_offer_ids, $contentType)
+        return $this->updateOfferTransactionAsyncWithHttpInfo($transaction_id, $status, $device_id, $account_id, $offer_location_id, $currency_type, $use_points, $app_key, $latitude, $longitude, $meta_data, $return_full_response, $exception_membership_offer_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2741,7 +2638,6 @@ class WalletApi
      *
      * Update Wallet Offer
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  int $status The status value to change to (0 or 1) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2760,10 +2656,10 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOfferTransactionAsyncWithHttpInfo($version, $transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
+    public function updateOfferTransactionAsyncWithHttpInfo($transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferTransactionResponse';
-        $request = $this->updateOfferTransactionRequest($version, $transaction_id, $status, $device_id, $account_id, $offer_location_id, $currency_type, $use_points, $app_key, $latitude, $longitude, $meta_data, $return_full_response, $exception_membership_offer_ids, $contentType);
+        $request = $this->updateOfferTransactionRequest($transaction_id, $status, $device_id, $account_id, $offer_location_id, $currency_type, $use_points, $app_key, $latitude, $longitude, $meta_data, $return_full_response, $exception_membership_offer_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2804,7 +2700,6 @@ class WalletApi
     /**
      * Create request for operation 'updateOfferTransaction'
      *
-     * @param  float $version (required)
      * @param  int $transaction_id The offer transaction id to remove (required)
      * @param  int $status The status value to change to (0 or 1) (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -2823,15 +2718,8 @@ class WalletApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateOfferTransactionRequest($version, $transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
+    public function updateOfferTransactionRequest($transaction_id, $status, $device_id = null, $account_id = null, $offer_location_id = null, $currency_type = 'CASH', $use_points = null, $app_key = null, $latitude = null, $longitude = null, $meta_data = null, $return_full_response = false, $exception_membership_offer_ids = null, string $contentType = self::contentTypes['updateOfferTransaction'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateOfferTransaction'
-            );
-        }
 
         // verify the required parameter 'transaction_id' is set
         if ($transaction_id === null || (is_array($transaction_id) && count($transaction_id) === 0)) {
@@ -2859,7 +2747,7 @@ class WalletApi
 
 
 
-        $resourcePath = '/api/{version}/wallet/update';
+        $resourcePath = '/wallet/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2985,14 +2873,6 @@ class WalletApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -143,7 +143,6 @@ class TriggerApi
      *
      * Create Trigger
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user (required)
      * @param  string $name The name of the trigger (required)
      * @param  string|null $app_key The application to target (optional)
@@ -163,9 +162,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TriggerResponse
      */
-    public function createTrigger($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
+    public function createTrigger($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
     {
-        list($response) = $this->createTriggerWithHttpInfo($version, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
+        list($response) = $this->createTriggerWithHttpInfo($account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
         return $response;
     }
 
@@ -174,7 +173,6 @@ class TriggerApi
      *
      * Create Trigger
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user (required)
      * @param  string $name The name of the trigger (required)
      * @param  string|null $app_key The application to target (optional)
@@ -194,9 +192,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TriggerResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTriggerWithHttpInfo($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
+    public function createTriggerWithHttpInfo($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
     {
-        $request = $this->createTriggerRequest($version, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
+        $request = $this->createTriggerRequest($account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -272,7 +270,6 @@ class TriggerApi
      *
      * Create Trigger
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user (required)
      * @param  string $name The name of the trigger (required)
      * @param  string|null $app_key The application to target (optional)
@@ -291,9 +288,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTriggerAsync($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
+    public function createTriggerAsync($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
     {
-        return $this->createTriggerAsyncWithHttpInfo($version, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType)
+        return $this->createTriggerAsyncWithHttpInfo($account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -306,7 +303,6 @@ class TriggerApi
      *
      * Create Trigger
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user (required)
      * @param  string $name The name of the trigger (required)
      * @param  string|null $app_key The application to target (optional)
@@ -325,10 +321,10 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTriggerAsyncWithHttpInfo($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
+    public function createTriggerAsyncWithHttpInfo($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TriggerResponse';
-        $request = $this->createTriggerRequest($version, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
+        $request = $this->createTriggerRequest($account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -369,7 +365,6 @@ class TriggerApi
     /**
      * Create request for operation 'createTrigger'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user (required)
      * @param  string $name The name of the trigger (required)
      * @param  string|null $app_key The application to target (optional)
@@ -388,15 +383,8 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTriggerRequest($version, $account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
+    public function createTriggerRequest($account_id, $name, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = true, string $contentType = self::contentTypes['createTrigger'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createTrigger'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -424,7 +412,7 @@ class TriggerApi
 
 
 
-        $resourcePath = '/api/{version}/trigger/create';
+        $resourcePath = '/trigger/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -550,14 +538,6 @@ class TriggerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -618,7 +598,6 @@ class TriggerApi
      *
      * Delete Trigger
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the trigger to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrigger'] to see the possible values for this operation
@@ -627,9 +606,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteTrigger($version, $account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
+    public function deleteTrigger($account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
     {
-        list($response) = $this->deleteTriggerWithHttpInfo($version, $account_id, $trigger_id, $contentType);
+        list($response) = $this->deleteTriggerWithHttpInfo($account_id, $trigger_id, $contentType);
         return $response;
     }
 
@@ -638,7 +617,6 @@ class TriggerApi
      *
      * Delete Trigger
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the trigger to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrigger'] to see the possible values for this operation
@@ -647,9 +625,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTriggerWithHttpInfo($version, $account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
+    public function deleteTriggerWithHttpInfo($account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
     {
-        $request = $this->deleteTriggerRequest($version, $account_id, $trigger_id, $contentType);
+        $request = $this->deleteTriggerRequest($account_id, $trigger_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -725,7 +703,6 @@ class TriggerApi
      *
      * Delete Trigger
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the trigger to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrigger'] to see the possible values for this operation
@@ -733,9 +710,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTriggerAsync($version, $account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
+    public function deleteTriggerAsync($account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
     {
-        return $this->deleteTriggerAsyncWithHttpInfo($version, $account_id, $trigger_id, $contentType)
+        return $this->deleteTriggerAsyncWithHttpInfo($account_id, $trigger_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -748,7 +725,6 @@ class TriggerApi
      *
      * Delete Trigger
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the trigger to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrigger'] to see the possible values for this operation
@@ -756,10 +732,10 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTriggerAsyncWithHttpInfo($version, $account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
+    public function deleteTriggerAsyncWithHttpInfo($account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteTriggerRequest($version, $account_id, $trigger_id, $contentType);
+        $request = $this->deleteTriggerRequest($account_id, $trigger_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -800,7 +776,6 @@ class TriggerApi
     /**
      * Create request for operation 'deleteTrigger'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the trigger to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrigger'] to see the possible values for this operation
@@ -808,15 +783,8 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteTriggerRequest($version, $account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
+    public function deleteTriggerRequest($account_id, $trigger_id, string $contentType = self::contentTypes['deleteTrigger'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteTrigger'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -833,7 +801,7 @@ class TriggerApi
         }
 
 
-        $resourcePath = '/api/{version}/trigger/delete';
+        $resourcePath = '/trigger/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -860,14 +828,6 @@ class TriggerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -928,7 +888,6 @@ class TriggerApi
      *
      * Get Trigger
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the Trigger to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrigger'] to see the possible values for this operation
@@ -937,9 +896,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TriggerResponse
      */
-    public function getTrigger($version, $account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
+    public function getTrigger($account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
     {
-        list($response) = $this->getTriggerWithHttpInfo($version, $account_id, $trigger_id, $contentType);
+        list($response) = $this->getTriggerWithHttpInfo($account_id, $trigger_id, $contentType);
         return $response;
     }
 
@@ -948,7 +907,6 @@ class TriggerApi
      *
      * Get Trigger
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the Trigger to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrigger'] to see the possible values for this operation
@@ -957,9 +915,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TriggerResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTriggerWithHttpInfo($version, $account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
+    public function getTriggerWithHttpInfo($account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
     {
-        $request = $this->getTriggerRequest($version, $account_id, $trigger_id, $contentType);
+        $request = $this->getTriggerRequest($account_id, $trigger_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1035,7 +993,6 @@ class TriggerApi
      *
      * Get Trigger
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the Trigger to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrigger'] to see the possible values for this operation
@@ -1043,9 +1000,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTriggerAsync($version, $account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
+    public function getTriggerAsync($account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
     {
-        return $this->getTriggerAsyncWithHttpInfo($version, $account_id, $trigger_id, $contentType)
+        return $this->getTriggerAsyncWithHttpInfo($account_id, $trigger_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1058,7 +1015,6 @@ class TriggerApi
      *
      * Get Trigger
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the Trigger to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrigger'] to see the possible values for this operation
@@ -1066,10 +1022,10 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTriggerAsyncWithHttpInfo($version, $account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
+    public function getTriggerAsyncWithHttpInfo($account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TriggerResponse';
-        $request = $this->getTriggerRequest($version, $account_id, $trigger_id, $contentType);
+        $request = $this->getTriggerRequest($account_id, $trigger_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1110,7 +1066,6 @@ class TriggerApi
     /**
      * Create request for operation 'getTrigger'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $trigger_id The id of the Trigger to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrigger'] to see the possible values for this operation
@@ -1118,15 +1073,8 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTriggerRequest($version, $account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
+    public function getTriggerRequest($account_id, $trigger_id, string $contentType = self::contentTypes['getTrigger'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTrigger'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1143,7 +1091,7 @@ class TriggerApi
         }
 
 
-        $resourcePath = '/api/{version}/trigger/get';
+        $resourcePath = '/trigger/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1170,14 +1118,6 @@ class TriggerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1238,7 +1178,6 @@ class TriggerApi
      *
      * Search Triggers
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers (optional, default to 'MINE')
@@ -1257,9 +1196,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TriggerResponse[]
      */
-    public function searchTriggers($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
+    public function searchTriggers($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
     {
-        list($response) = $this->searchTriggersWithHttpInfo($version, $account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        list($response) = $this->searchTriggersWithHttpInfo($account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
         return $response;
     }
 
@@ -1268,7 +1207,6 @@ class TriggerApi
      *
      * Search Triggers
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers (optional, default to 'MINE')
@@ -1287,9 +1225,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TriggerResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchTriggersWithHttpInfo($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
+    public function searchTriggersWithHttpInfo($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
     {
-        $request = $this->searchTriggersRequest($version, $account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchTriggersRequest($account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1365,7 +1303,6 @@ class TriggerApi
      *
      * Search Triggers
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers (optional, default to 'MINE')
@@ -1383,9 +1320,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTriggersAsync($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
+    public function searchTriggersAsync($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
     {
-        return $this->searchTriggersAsyncWithHttpInfo($version, $account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType)
+        return $this->searchTriggersAsyncWithHttpInfo($account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1398,7 +1335,6 @@ class TriggerApi
      *
      * Search Triggers
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers (optional, default to 'MINE')
@@ -1416,10 +1352,10 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchTriggersAsyncWithHttpInfo($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
+    public function searchTriggersAsyncWithHttpInfo($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TriggerResponse[]';
-        $request = $this->searchTriggersRequest($version, $account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
+        $request = $this->searchTriggersRequest($account_id, $grouping_id, $filter, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1460,7 +1396,6 @@ class TriggerApi
     /**
      * Create request for operation 'searchTriggers'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  string|null $filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers (optional, default to 'MINE')
@@ -1478,15 +1413,8 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchTriggersRequest($version, $account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
+    public function searchTriggersRequest($account_id, $grouping_id = null, $filter = 'MINE', $statuses = 'NEW,ERROR,COMPLETE,PROCESSING', $template_types = null, $app_key = null, $keyword = null, $sort_field = 'CREATED', $descending = true, $start = 0, $limit = 20, $active_only = true, string $contentType = self::contentTypes['searchTriggers'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchTriggers'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1507,7 +1435,7 @@ class TriggerApi
 
 
 
-        $resourcePath = '/api/{version}/trigger/search';
+        $resourcePath = '/trigger/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1624,14 +1552,6 @@ class TriggerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1692,7 +1612,6 @@ class TriggerApi
      *
      * Update Trigger
      *
-     * @param  float $version version (required)
      * @param  int $trigger_id The trigger to update (required)
      * @param  int $account_id The logged in user (required)
      * @param  string|null $name The name of the trigger (optional)
@@ -1713,9 +1632,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TriggerResponse
      */
-    public function updateTrigger($version, $trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
+    public function updateTrigger($trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
     {
-        list($response) = $this->updateTriggerWithHttpInfo($version, $trigger_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
+        list($response) = $this->updateTriggerWithHttpInfo($trigger_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
         return $response;
     }
 
@@ -1724,7 +1643,6 @@ class TriggerApi
      *
      * Update Trigger
      *
-     * @param  float $version (required)
      * @param  int $trigger_id The trigger to update (required)
      * @param  int $account_id The logged in user (required)
      * @param  string|null $name The name of the trigger (optional)
@@ -1745,9 +1663,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TriggerResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTriggerWithHttpInfo($version, $trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
+    public function updateTriggerWithHttpInfo($trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
     {
-        $request = $this->updateTriggerRequest($version, $trigger_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
+        $request = $this->updateTriggerRequest($trigger_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1823,7 +1741,6 @@ class TriggerApi
      *
      * Update Trigger
      *
-     * @param  float $version (required)
      * @param  int $trigger_id The trigger to update (required)
      * @param  int $account_id The logged in user (required)
      * @param  string|null $name The name of the trigger (optional)
@@ -1843,9 +1760,9 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTriggerAsync($version, $trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
+    public function updateTriggerAsync($trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
     {
-        return $this->updateTriggerAsyncWithHttpInfo($version, $trigger_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType)
+        return $this->updateTriggerAsyncWithHttpInfo($trigger_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1858,7 +1775,6 @@ class TriggerApi
      *
      * Update Trigger
      *
-     * @param  float $version (required)
      * @param  int $trigger_id The trigger to update (required)
      * @param  int $account_id The logged in user (required)
      * @param  string|null $name The name of the trigger (optional)
@@ -1878,10 +1794,10 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTriggerAsyncWithHttpInfo($version, $trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
+    public function updateTriggerAsyncWithHttpInfo($trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TriggerResponse';
-        $request = $this->updateTriggerRequest($version, $trigger_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
+        $request = $this->updateTriggerRequest($trigger_id, $account_id, $name, $app_key, $grouping_id, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $conditional_input, $visibility, $active, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1922,7 +1838,6 @@ class TriggerApi
     /**
      * Create request for operation 'updateTrigger'
      *
-     * @param  float $version (required)
      * @param  int $trigger_id The trigger to update (required)
      * @param  int $account_id The logged in user (required)
      * @param  string|null $name The name of the trigger (optional)
@@ -1942,15 +1857,8 @@ class TriggerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTriggerRequest($version, $trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
+    public function updateTriggerRequest($trigger_id, $account_id, $name = null, $app_key = null, $grouping_id = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $conditional_input = null, $visibility = null, $active = null, string $contentType = self::contentTypes['updateTrigger'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateTrigger'
-            );
-        }
 
         // verify the required parameter 'trigger_id' is set
         if ($trigger_id === null || (is_array($trigger_id) && count($trigger_id) === 0)) {
@@ -1979,7 +1887,7 @@ class TriggerApi
 
 
 
-        $resourcePath = '/api/{version}/trigger/update';
+        $resourcePath = '/trigger/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2114,14 +2022,6 @@ class TriggerApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

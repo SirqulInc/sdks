@@ -152,7 +152,6 @@ class AMQPApi
      *
      * Create Consumer
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  string $name The name of the queue to connect to (required)
      * @param  string $hostname The hostname of the server the queue is hosted on (required)
@@ -173,9 +172,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QueueResponse
      */
-    public function consumerCreate($version, $app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
+    public function consumerCreate($app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
     {
-        list($response) = $this->consumerCreateWithHttpInfo($version, $app_key, $name, $hostname, $username, $password, $data_mapping, $device_id, $account_id, $port, $virtual_host, $exchanger, $exchanger_type, $workers, $use_ssl, $contentType);
+        list($response) = $this->consumerCreateWithHttpInfo($app_key, $name, $hostname, $username, $password, $data_mapping, $device_id, $account_id, $port, $virtual_host, $exchanger, $exchanger_type, $workers, $use_ssl, $contentType);
         return $response;
     }
 
@@ -184,7 +183,6 @@ class AMQPApi
      *
      * Create Consumer
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  string $name The name of the queue to connect to (required)
      * @param  string $hostname The hostname of the server the queue is hosted on (required)
@@ -205,9 +203,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QueueResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function consumerCreateWithHttpInfo($version, $app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
+    public function consumerCreateWithHttpInfo($app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
     {
-        $request = $this->consumerCreateRequest($version, $app_key, $name, $hostname, $username, $password, $data_mapping, $device_id, $account_id, $port, $virtual_host, $exchanger, $exchanger_type, $workers, $use_ssl, $contentType);
+        $request = $this->consumerCreateRequest($app_key, $name, $hostname, $username, $password, $data_mapping, $device_id, $account_id, $port, $virtual_host, $exchanger, $exchanger_type, $workers, $use_ssl, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -283,7 +281,6 @@ class AMQPApi
      *
      * Create Consumer
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  string $name The name of the queue to connect to (required)
      * @param  string $hostname The hostname of the server the queue is hosted on (required)
@@ -303,9 +300,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consumerCreateAsync($version, $app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
+    public function consumerCreateAsync($app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
     {
-        return $this->consumerCreateAsyncWithHttpInfo($version, $app_key, $name, $hostname, $username, $password, $data_mapping, $device_id, $account_id, $port, $virtual_host, $exchanger, $exchanger_type, $workers, $use_ssl, $contentType)
+        return $this->consumerCreateAsyncWithHttpInfo($app_key, $name, $hostname, $username, $password, $data_mapping, $device_id, $account_id, $port, $virtual_host, $exchanger, $exchanger_type, $workers, $use_ssl, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -318,7 +315,6 @@ class AMQPApi
      *
      * Create Consumer
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  string $name The name of the queue to connect to (required)
      * @param  string $hostname The hostname of the server the queue is hosted on (required)
@@ -338,10 +334,10 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consumerCreateAsyncWithHttpInfo($version, $app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
+    public function consumerCreateAsyncWithHttpInfo($app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QueueResponse';
-        $request = $this->consumerCreateRequest($version, $app_key, $name, $hostname, $username, $password, $data_mapping, $device_id, $account_id, $port, $virtual_host, $exchanger, $exchanger_type, $workers, $use_ssl, $contentType);
+        $request = $this->consumerCreateRequest($app_key, $name, $hostname, $username, $password, $data_mapping, $device_id, $account_id, $port, $virtual_host, $exchanger, $exchanger_type, $workers, $use_ssl, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -382,7 +378,6 @@ class AMQPApi
     /**
      * Create request for operation 'consumerCreate'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  string $name The name of the queue to connect to (required)
      * @param  string $hostname The hostname of the server the queue is hosted on (required)
@@ -402,15 +397,8 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function consumerCreateRequest($version, $app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
+    public function consumerCreateRequest($app_key, $name, $hostname, $username, $password, $data_mapping, $device_id = null, $account_id = null, $port = 5672, $virtual_host = null, $exchanger = null, $exchanger_type = null, $workers = 1, $use_ssl = null, string $contentType = self::contentTypes['consumerCreate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling consumerCreate'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -463,7 +451,7 @@ class AMQPApi
 
 
 
-        $resourcePath = '/api/{version}/queue/consumer/create';
+        $resourcePath = '/queue/consumer/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -598,14 +586,6 @@ class AMQPApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -666,7 +646,6 @@ class AMQPApi
      *
      * Update Consumer
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  int $queue_id The queue to update (required)
      * @param  string $data_mapping The data mapping information in the format of AMQPRequest (required)
@@ -679,9 +658,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QueueResponse
      */
-    public function consumerUpdate($version, $app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
+    public function consumerUpdate($app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
     {
-        list($response) = $this->consumerUpdateWithHttpInfo($version, $app_key, $queue_id, $data_mapping, $device_id, $account_id, $use_ssl, $contentType);
+        list($response) = $this->consumerUpdateWithHttpInfo($app_key, $queue_id, $data_mapping, $device_id, $account_id, $use_ssl, $contentType);
         return $response;
     }
 
@@ -690,7 +669,6 @@ class AMQPApi
      *
      * Update Consumer
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  int $queue_id The queue to update (required)
      * @param  string $data_mapping The data mapping information in the format of AMQPRequest (required)
@@ -703,9 +681,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QueueResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function consumerUpdateWithHttpInfo($version, $app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
+    public function consumerUpdateWithHttpInfo($app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
     {
-        $request = $this->consumerUpdateRequest($version, $app_key, $queue_id, $data_mapping, $device_id, $account_id, $use_ssl, $contentType);
+        $request = $this->consumerUpdateRequest($app_key, $queue_id, $data_mapping, $device_id, $account_id, $use_ssl, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -781,7 +759,6 @@ class AMQPApi
      *
      * Update Consumer
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  int $queue_id The queue to update (required)
      * @param  string $data_mapping The data mapping information in the format of AMQPRequest (required)
@@ -793,9 +770,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consumerUpdateAsync($version, $app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
+    public function consumerUpdateAsync($app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
     {
-        return $this->consumerUpdateAsyncWithHttpInfo($version, $app_key, $queue_id, $data_mapping, $device_id, $account_id, $use_ssl, $contentType)
+        return $this->consumerUpdateAsyncWithHttpInfo($app_key, $queue_id, $data_mapping, $device_id, $account_id, $use_ssl, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -808,7 +785,6 @@ class AMQPApi
      *
      * Update Consumer
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  int $queue_id The queue to update (required)
      * @param  string $data_mapping The data mapping information in the format of AMQPRequest (required)
@@ -820,10 +796,10 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consumerUpdateAsyncWithHttpInfo($version, $app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
+    public function consumerUpdateAsyncWithHttpInfo($app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QueueResponse';
-        $request = $this->consumerUpdateRequest($version, $app_key, $queue_id, $data_mapping, $device_id, $account_id, $use_ssl, $contentType);
+        $request = $this->consumerUpdateRequest($app_key, $queue_id, $data_mapping, $device_id, $account_id, $use_ssl, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -864,7 +840,6 @@ class AMQPApi
     /**
      * Create request for operation 'consumerUpdate'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param  int $queue_id The queue to update (required)
      * @param  string $data_mapping The data mapping information in the format of AMQPRequest (required)
@@ -876,15 +851,8 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function consumerUpdateRequest($version, $app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
+    public function consumerUpdateRequest($app_key, $queue_id, $data_mapping, $device_id = null, $account_id = null, $use_ssl = null, string $contentType = self::contentTypes['consumerUpdate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling consumerUpdate'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -911,7 +879,7 @@ class AMQPApi
 
 
 
-        $resourcePath = '/api/{version}/queue/consumer/update';
+        $resourcePath = '/queue/consumer/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -974,14 +942,6 @@ class AMQPApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1042,7 +1002,6 @@ class AMQPApi
      *
      * Create Queue
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $name The name of the queue to create (required)
      * @param  string|null $device_id The client deviceID (optional)
@@ -1061,9 +1020,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QueueResponse
      */
-    public function queueCreate($version, $app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
+    public function queueCreate($app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
     {
-        list($response) = $this->queueCreateWithHttpInfo($version, $app_key, $name, $device_id, $account_id, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
+        list($response) = $this->queueCreateWithHttpInfo($app_key, $name, $device_id, $account_id, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
         return $response;
     }
 
@@ -1072,7 +1031,6 @@ class AMQPApi
      *
      * Create Queue
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $name The name of the queue to create (required)
      * @param  string|null $device_id The client deviceID (optional)
@@ -1091,9 +1049,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QueueResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queueCreateWithHttpInfo($version, $app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
+    public function queueCreateWithHttpInfo($app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
     {
-        $request = $this->queueCreateRequest($version, $app_key, $name, $device_id, $account_id, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
+        $request = $this->queueCreateRequest($app_key, $name, $device_id, $account_id, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1169,7 +1127,6 @@ class AMQPApi
      *
      * Create Queue
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $name The name of the queue to create (required)
      * @param  string|null $device_id The client deviceID (optional)
@@ -1187,9 +1144,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueCreateAsync($version, $app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
+    public function queueCreateAsync($app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
     {
-        return $this->queueCreateAsyncWithHttpInfo($version, $app_key, $name, $device_id, $account_id, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType)
+        return $this->queueCreateAsyncWithHttpInfo($app_key, $name, $device_id, $account_id, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1202,7 +1159,6 @@ class AMQPApi
      *
      * Create Queue
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $name The name of the queue to create (required)
      * @param  string|null $device_id The client deviceID (optional)
@@ -1220,10 +1176,10 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueCreateAsyncWithHttpInfo($version, $app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
+    public function queueCreateAsyncWithHttpInfo($app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QueueResponse';
-        $request = $this->queueCreateRequest($version, $app_key, $name, $device_id, $account_id, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
+        $request = $this->queueCreateRequest($app_key, $name, $device_id, $account_id, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1264,7 +1220,6 @@ class AMQPApi
     /**
      * Create request for operation 'queueCreate'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key unique to each application. (required)
      * @param  string $name The name of the queue to create (required)
      * @param  string|null $device_id The client deviceID (optional)
@@ -1282,15 +1237,8 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queueCreateRequest($version, $app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
+    public function queueCreateRequest($app_key, $name, $device_id = null, $account_id = null, $workers = 1, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueCreate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling queueCreate'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -1317,7 +1265,7 @@ class AMQPApi
 
 
 
-        $resourcePath = '/api/{version}/queue/create';
+        $resourcePath = '/queue/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1434,14 +1382,6 @@ class AMQPApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1502,7 +1442,6 @@ class AMQPApi
      *
      * Delete Queue
      *
-     * @param  float $version version (required)
      * @param  int $queue_id The id of the queue to find (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -1512,9 +1451,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function queueDelete($version, $queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
+    public function queueDelete($queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
     {
-        list($response) = $this->queueDeleteWithHttpInfo($version, $queue_id, $device_id, $account_id, $contentType);
+        list($response) = $this->queueDeleteWithHttpInfo($queue_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -1523,7 +1462,6 @@ class AMQPApi
      *
      * Delete Queue
      *
-     * @param  float $version (required)
      * @param  int $queue_id The id of the queue to find (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -1533,9 +1471,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queueDeleteWithHttpInfo($version, $queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
+    public function queueDeleteWithHttpInfo($queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
     {
-        $request = $this->queueDeleteRequest($version, $queue_id, $device_id, $account_id, $contentType);
+        $request = $this->queueDeleteRequest($queue_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1611,7 +1549,6 @@ class AMQPApi
      *
      * Delete Queue
      *
-     * @param  float $version (required)
      * @param  int $queue_id The id of the queue to find (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -1620,9 +1557,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueDeleteAsync($version, $queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
+    public function queueDeleteAsync($queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
     {
-        return $this->queueDeleteAsyncWithHttpInfo($version, $queue_id, $device_id, $account_id, $contentType)
+        return $this->queueDeleteAsyncWithHttpInfo($queue_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1635,7 +1572,6 @@ class AMQPApi
      *
      * Delete Queue
      *
-     * @param  float $version (required)
      * @param  int $queue_id The id of the queue to find (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -1644,10 +1580,10 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueDeleteAsyncWithHttpInfo($version, $queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
+    public function queueDeleteAsyncWithHttpInfo($queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->queueDeleteRequest($version, $queue_id, $device_id, $account_id, $contentType);
+        $request = $this->queueDeleteRequest($queue_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1688,7 +1624,6 @@ class AMQPApi
     /**
      * Create request for operation 'queueDelete'
      *
-     * @param  float $version (required)
      * @param  int $queue_id The id of the queue to find (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -1697,15 +1632,8 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queueDeleteRequest($version, $queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
+    public function queueDeleteRequest($queue_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['queueDelete'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling queueDelete'
-            );
-        }
 
         // verify the required parameter 'queue_id' is set
         if ($queue_id === null || (is_array($queue_id) && count($queue_id) === 0)) {
@@ -1717,7 +1645,7 @@ class AMQPApi
 
 
 
-        $resourcePath = '/api/{version}/queue/delete';
+        $resourcePath = '/queue/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1753,14 +1681,6 @@ class AMQPApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1821,7 +1741,6 @@ class AMQPApi
      *
      * Get Queue
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
      * @param  int|null $queue_id The id of the queue to find (optional)
@@ -1835,9 +1754,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QueueResponse
      */
-    public function queueGet($version, $device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
+    public function queueGet($device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
     {
-        list($response) = $this->queueGetWithHttpInfo($version, $device_id, $account_id, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
+        list($response) = $this->queueGetWithHttpInfo($device_id, $account_id, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
         return $response;
     }
 
@@ -1846,7 +1765,6 @@ class AMQPApi
      *
      * Get Queue
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
      * @param  int|null $queue_id The id of the queue to find (optional)
@@ -1860,9 +1778,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QueueResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queueGetWithHttpInfo($version, $device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
+    public function queueGetWithHttpInfo($device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
     {
-        $request = $this->queueGetRequest($version, $device_id, $account_id, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
+        $request = $this->queueGetRequest($device_id, $account_id, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1938,7 +1856,6 @@ class AMQPApi
      *
      * Get Queue
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
      * @param  int|null $queue_id The id of the queue to find (optional)
@@ -1951,9 +1868,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueGetAsync($version, $device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
+    public function queueGetAsync($device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
     {
-        return $this->queueGetAsyncWithHttpInfo($version, $device_id, $account_id, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType)
+        return $this->queueGetAsyncWithHttpInfo($device_id, $account_id, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1966,7 +1883,6 @@ class AMQPApi
      *
      * Get Queue
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
      * @param  int|null $queue_id The id of the queue to find (optional)
@@ -1979,10 +1895,10 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueGetAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
+    public function queueGetAsyncWithHttpInfo($device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QueueResponse';
-        $request = $this->queueGetRequest($version, $device_id, $account_id, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
+        $request = $this->queueGetRequest($device_id, $account_id, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2023,7 +1939,6 @@ class AMQPApi
     /**
      * Create request for operation 'queueGet'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
      * @param  int|null $queue_id The id of the queue to find (optional)
@@ -2036,15 +1951,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queueGetRequest($version, $device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
+    public function queueGetRequest($device_id = null, $account_id = null, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queueGet'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling queueGet'
-            );
-        }
 
 
 
@@ -2053,8 +1962,7 @@ class AMQPApi
 
 
 
-
-        $resourcePath = '/api/{version}/queue/get';
+        $resourcePath = '/queue/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2126,14 +2034,6 @@ class AMQPApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2194,7 +2094,6 @@ class AMQPApi
      *
      * Publish Queue
      *
-     * @param  float $version version (required)
      * @param  string $message The payload to send to the queue (required)
      * @param  int|null $queue_id The id of the queue to publish to (optional)
      * @param  string|null $app_key The application key the queue was assigned to (optional)
@@ -2207,9 +2106,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function queuePublish($version, $message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
+    public function queuePublish($message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
     {
-        list($response) = $this->queuePublishWithHttpInfo($version, $message, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
+        list($response) = $this->queuePublishWithHttpInfo($message, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
         return $response;
     }
 
@@ -2218,7 +2117,6 @@ class AMQPApi
      *
      * Publish Queue
      *
-     * @param  float $version (required)
      * @param  string $message The payload to send to the queue (required)
      * @param  int|null $queue_id The id of the queue to publish to (optional)
      * @param  string|null $app_key The application key the queue was assigned to (optional)
@@ -2231,9 +2129,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queuePublishWithHttpInfo($version, $message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
+    public function queuePublishWithHttpInfo($message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
     {
-        $request = $this->queuePublishRequest($version, $message, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
+        $request = $this->queuePublishRequest($message, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2309,7 +2207,6 @@ class AMQPApi
      *
      * Publish Queue
      *
-     * @param  float $version (required)
      * @param  string $message The payload to send to the queue (required)
      * @param  int|null $queue_id The id of the queue to publish to (optional)
      * @param  string|null $app_key The application key the queue was assigned to (optional)
@@ -2321,9 +2218,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queuePublishAsync($version, $message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
+    public function queuePublishAsync($message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
     {
-        return $this->queuePublishAsyncWithHttpInfo($version, $message, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType)
+        return $this->queuePublishAsyncWithHttpInfo($message, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2336,7 +2233,6 @@ class AMQPApi
      *
      * Publish Queue
      *
-     * @param  float $version (required)
      * @param  string $message The payload to send to the queue (required)
      * @param  int|null $queue_id The id of the queue to publish to (optional)
      * @param  string|null $app_key The application key the queue was assigned to (optional)
@@ -2348,10 +2244,10 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queuePublishAsyncWithHttpInfo($version, $message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
+    public function queuePublishAsyncWithHttpInfo($message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->queuePublishRequest($version, $message, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
+        $request = $this->queuePublishRequest($message, $queue_id, $app_key, $name, $hostname, $virtual_host, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2392,7 +2288,6 @@ class AMQPApi
     /**
      * Create request for operation 'queuePublish'
      *
-     * @param  float $version (required)
      * @param  string $message The payload to send to the queue (required)
      * @param  int|null $queue_id The id of the queue to publish to (optional)
      * @param  string|null $app_key The application key the queue was assigned to (optional)
@@ -2404,15 +2299,8 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queuePublishRequest($version, $message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
+    public function queuePublishRequest($message, $queue_id = null, $app_key = null, $name = null, $hostname = null, $virtual_host = null, string $contentType = self::contentTypes['queuePublish'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling queuePublish'
-            );
-        }
 
         // verify the required parameter 'message' is set
         if ($message === null || (is_array($message) && count($message) === 0)) {
@@ -2427,7 +2315,7 @@ class AMQPApi
 
 
 
-        $resourcePath = '/api/{version}/queue/publish';
+        $resourcePath = '/queue/publish';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2490,14 +2378,6 @@ class AMQPApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2558,7 +2438,6 @@ class AMQPApi
      *
      * Search Queue
      *
-     * @param  float $version version (required)
      * @param  int|null $queue_id The id of the queue to find (optional)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2571,9 +2450,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QueueResponse
      */
-    public function queueSearch($version, $queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
+    public function queueSearch($queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
     {
-        list($response) = $this->queueSearchWithHttpInfo($version, $queue_id, $device_id, $account_id, $name, $start, $limit, $contentType);
+        list($response) = $this->queueSearchWithHttpInfo($queue_id, $device_id, $account_id, $name, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2582,7 +2461,6 @@ class AMQPApi
      *
      * Search Queue
      *
-     * @param  float $version (required)
      * @param  int|null $queue_id The id of the queue to find (optional)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2595,9 +2473,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QueueResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queueSearchWithHttpInfo($version, $queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
+    public function queueSearchWithHttpInfo($queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
     {
-        $request = $this->queueSearchRequest($version, $queue_id, $device_id, $account_id, $name, $start, $limit, $contentType);
+        $request = $this->queueSearchRequest($queue_id, $device_id, $account_id, $name, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2673,7 +2551,6 @@ class AMQPApi
      *
      * Search Queue
      *
-     * @param  float $version (required)
      * @param  int|null $queue_id The id of the queue to find (optional)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2685,9 +2562,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueSearchAsync($version, $queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
+    public function queueSearchAsync($queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
     {
-        return $this->queueSearchAsyncWithHttpInfo($version, $queue_id, $device_id, $account_id, $name, $start, $limit, $contentType)
+        return $this->queueSearchAsyncWithHttpInfo($queue_id, $device_id, $account_id, $name, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2700,7 +2577,6 @@ class AMQPApi
      *
      * Search Queue
      *
-     * @param  float $version (required)
      * @param  int|null $queue_id The id of the queue to find (optional)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2712,10 +2588,10 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueSearchAsyncWithHttpInfo($version, $queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
+    public function queueSearchAsyncWithHttpInfo($queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QueueResponse';
-        $request = $this->queueSearchRequest($version, $queue_id, $device_id, $account_id, $name, $start, $limit, $contentType);
+        $request = $this->queueSearchRequest($queue_id, $device_id, $account_id, $name, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2756,7 +2632,6 @@ class AMQPApi
     /**
      * Create request for operation 'queueSearch'
      *
-     * @param  float $version (required)
      * @param  int|null $queue_id The id of the queue to find (optional)
      * @param  string|null $device_id The client device ID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2768,15 +2643,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queueSearchRequest($version, $queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
+    public function queueSearchRequest($queue_id = null, $device_id = null, $account_id = null, $name = null, $start = 0, $limit = 10, string $contentType = self::contentTypes['queueSearch'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling queueSearch'
-            );
-        }
 
 
 
@@ -2784,8 +2653,7 @@ class AMQPApi
 
 
 
-
-        $resourcePath = '/api/{version}/queue/search';
+        $resourcePath = '/queue/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2848,14 +2716,6 @@ class AMQPApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2916,7 +2776,6 @@ class AMQPApi
      *
      * Update Queue
      *
-     * @param  float $version version (required)
      * @param  int $queue_id The id of the queue to update (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2935,9 +2794,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\QueueResponse
      */
-    public function queueUpdate($version, $queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
+    public function queueUpdate($queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
     {
-        list($response) = $this->queueUpdateWithHttpInfo($version, $queue_id, $device_id, $account_id, $app_key, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
+        list($response) = $this->queueUpdateWithHttpInfo($queue_id, $device_id, $account_id, $app_key, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
         return $response;
     }
 
@@ -2946,7 +2805,6 @@ class AMQPApi
      *
      * Update Queue
      *
-     * @param  float $version (required)
      * @param  int $queue_id The id of the queue to update (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -2965,9 +2823,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\QueueResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queueUpdateWithHttpInfo($version, $queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
+    public function queueUpdateWithHttpInfo($queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
     {
-        $request = $this->queueUpdateRequest($version, $queue_id, $device_id, $account_id, $app_key, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
+        $request = $this->queueUpdateRequest($queue_id, $device_id, $account_id, $app_key, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3043,7 +2901,6 @@ class AMQPApi
      *
      * Update Queue
      *
-     * @param  float $version (required)
      * @param  int $queue_id The id of the queue to update (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -3061,9 +2918,9 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueUpdateAsync($version, $queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
+    public function queueUpdateAsync($queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
     {
-        return $this->queueUpdateAsyncWithHttpInfo($version, $queue_id, $device_id, $account_id, $app_key, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType)
+        return $this->queueUpdateAsyncWithHttpInfo($queue_id, $device_id, $account_id, $app_key, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3076,7 +2933,6 @@ class AMQPApi
      *
      * Update Queue
      *
-     * @param  float $version (required)
      * @param  int $queue_id The id of the queue to update (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -3094,10 +2950,10 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queueUpdateAsyncWithHttpInfo($version, $queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
+    public function queueUpdateAsyncWithHttpInfo($queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QueueResponse';
-        $request = $this->queueUpdateRequest($version, $queue_id, $device_id, $account_id, $app_key, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
+        $request = $this->queueUpdateRequest($queue_id, $device_id, $account_id, $app_key, $workers, $analytic_tags, $hostname, $port, $username, $password, $virtual_host, $use_ssl, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3138,7 +2994,6 @@ class AMQPApi
     /**
      * Create request for operation 'queueUpdate'
      *
-     * @param  float $version (required)
      * @param  int $queue_id The id of the queue to update (required)
      * @param  string|null $device_id The client deviceID (optional)
      * @param  int|null $account_id The logged in user ID (optional)
@@ -3156,15 +3011,8 @@ class AMQPApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queueUpdateRequest($version, $queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
+    public function queueUpdateRequest($queue_id, $device_id = null, $account_id = null, $app_key = null, $workers = null, $analytic_tags = null, $hostname = null, $port = null, $username = null, $password = null, $virtual_host = null, $use_ssl = null, string $contentType = self::contentTypes['queueUpdate'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling queueUpdate'
-            );
-        }
 
         // verify the required parameter 'queue_id' is set
         if ($queue_id === null || (is_array($queue_id) && count($queue_id) === 0)) {
@@ -3185,7 +3033,7 @@ class AMQPApi
 
 
 
-        $resourcePath = '/api/{version}/queue/update';
+        $resourcePath = '/queue/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3302,14 +3150,6 @@ class AMQPApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

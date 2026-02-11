@@ -143,7 +143,6 @@ class FavoriteApi
      *
      * Create Favorite
      *
-     * @param  float $version version (required)
      * @param  int $favoritable_id The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
@@ -156,9 +155,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WrappedResponse
      */
-    public function addFavorite($version, $favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
+    public function addFavorite($favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
     {
-        list($response) = $this->addFavoriteWithHttpInfo($version, $favoritable_id, $favoritable_type, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->addFavoriteWithHttpInfo($favoritable_id, $favoritable_type, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -167,7 +166,6 @@ class FavoriteApi
      *
      * Create Favorite
      *
-     * @param  float $version (required)
      * @param  int $favoritable_id The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
@@ -180,9 +178,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WrappedResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addFavoriteWithHttpInfo($version, $favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
+    public function addFavoriteWithHttpInfo($favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
     {
-        $request = $this->addFavoriteRequest($version, $favoritable_id, $favoritable_type, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->addFavoriteRequest($favoritable_id, $favoritable_type, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -258,7 +256,6 @@ class FavoriteApi
      *
      * Create Favorite
      *
-     * @param  float $version (required)
      * @param  int $favoritable_id The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
@@ -270,9 +267,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFavoriteAsync($version, $favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
+    public function addFavoriteAsync($favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
     {
-        return $this->addFavoriteAsyncWithHttpInfo($version, $favoritable_id, $favoritable_type, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->addFavoriteAsyncWithHttpInfo($favoritable_id, $favoritable_type, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -285,7 +282,6 @@ class FavoriteApi
      *
      * Create Favorite
      *
-     * @param  float $version (required)
      * @param  int $favoritable_id The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
@@ -297,10 +293,10 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFavoriteAsyncWithHttpInfo($version, $favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
+    public function addFavoriteAsyncWithHttpInfo($favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WrappedResponse';
-        $request = $this->addFavoriteRequest($version, $favoritable_id, $favoritable_type, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->addFavoriteRequest($favoritable_id, $favoritable_type, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -341,7 +337,6 @@ class FavoriteApi
     /**
      * Create request for operation 'addFavorite'
      *
-     * @param  float $version (required)
      * @param  int $favoritable_id The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
@@ -353,15 +348,8 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addFavoriteRequest($version, $favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
+    public function addFavoriteRequest($favoritable_id, $favoritable_type, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addFavorite'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addFavorite'
-            );
-        }
 
         // verify the required parameter 'favoritable_id' is set
         if ($favoritable_id === null || (is_array($favoritable_id) && count($favoritable_id) === 0)) {
@@ -382,7 +370,7 @@ class FavoriteApi
 
 
 
-        $resourcePath = '/api/{version}/favorite/create';
+        $resourcePath = '/favorite/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -445,14 +433,6 @@ class FavoriteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -513,7 +493,6 @@ class FavoriteApi
      *
      * Delete Favorite
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $favorite_id The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -525,9 +504,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteFavorite($version, $device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
+    public function deleteFavorite($device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
     {
-        list($response) = $this->deleteFavoriteWithHttpInfo($version, $device_id, $account_id, $favorite_id, $favoritable_id, $favoritable_type, $contentType);
+        list($response) = $this->deleteFavoriteWithHttpInfo($device_id, $account_id, $favorite_id, $favoritable_id, $favoritable_type, $contentType);
         return $response;
     }
 
@@ -536,7 +515,6 @@ class FavoriteApi
      *
      * Delete Favorite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $favorite_id The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -548,9 +526,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFavoriteWithHttpInfo($version, $device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
+    public function deleteFavoriteWithHttpInfo($device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
     {
-        $request = $this->deleteFavoriteRequest($version, $device_id, $account_id, $favorite_id, $favoritable_id, $favoritable_type, $contentType);
+        $request = $this->deleteFavoriteRequest($device_id, $account_id, $favorite_id, $favoritable_id, $favoritable_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -626,7 +604,6 @@ class FavoriteApi
      *
      * Delete Favorite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $favorite_id The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -637,9 +614,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFavoriteAsync($version, $device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
+    public function deleteFavoriteAsync($device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
     {
-        return $this->deleteFavoriteAsyncWithHttpInfo($version, $device_id, $account_id, $favorite_id, $favoritable_id, $favoritable_type, $contentType)
+        return $this->deleteFavoriteAsyncWithHttpInfo($device_id, $account_id, $favorite_id, $favoritable_id, $favoritable_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -652,7 +629,6 @@ class FavoriteApi
      *
      * Delete Favorite
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $favorite_id The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -663,10 +639,10 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFavoriteAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
+    public function deleteFavoriteAsyncWithHttpInfo($device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteFavoriteRequest($version, $device_id, $account_id, $favorite_id, $favoritable_id, $favoritable_type, $contentType);
+        $request = $this->deleteFavoriteRequest($device_id, $account_id, $favorite_id, $favoritable_id, $favoritable_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -707,7 +683,6 @@ class FavoriteApi
     /**
      * Create request for operation 'deleteFavorite'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
      * @param  int|null $favorite_id The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -718,23 +693,16 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFavoriteRequest($version, $device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
+    public function deleteFavoriteRequest($device_id = null, $account_id = null, $favorite_id = null, $favoritable_id = null, $favoritable_type = null, string $contentType = self::contentTypes['deleteFavorite'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteFavorite'
-            );
-        }
 
 
 
 
 
 
-
-        $resourcePath = '/api/{version}/favorite/delete';
+        $resourcePath = '/favorite/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -788,14 +756,6 @@ class FavoriteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -856,7 +816,6 @@ class FavoriteApi
      *
      * Get Favorite
      *
-     * @param  float $version version (required)
      * @param  int $favorite_id The ID of the favorite reference record (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -868,9 +827,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WrappedResponse
      */
-    public function getFavorite($version, $favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
+    public function getFavorite($favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
     {
-        list($response) = $this->getFavoriteWithHttpInfo($version, $favorite_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->getFavoriteWithHttpInfo($favorite_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -879,7 +838,6 @@ class FavoriteApi
      *
      * Get Favorite
      *
-     * @param  float $version (required)
      * @param  int $favorite_id The ID of the favorite reference record (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -891,9 +849,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WrappedResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFavoriteWithHttpInfo($version, $favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
+    public function getFavoriteWithHttpInfo($favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
     {
-        $request = $this->getFavoriteRequest($version, $favorite_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getFavoriteRequest($favorite_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -969,7 +927,6 @@ class FavoriteApi
      *
      * Get Favorite
      *
-     * @param  float $version (required)
      * @param  int $favorite_id The ID of the favorite reference record (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -980,9 +937,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFavoriteAsync($version, $favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
+    public function getFavoriteAsync($favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
     {
-        return $this->getFavoriteAsyncWithHttpInfo($version, $favorite_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->getFavoriteAsyncWithHttpInfo($favorite_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -995,7 +952,6 @@ class FavoriteApi
      *
      * Get Favorite
      *
-     * @param  float $version (required)
      * @param  int $favorite_id The ID of the favorite reference record (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -1006,10 +962,10 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFavoriteAsyncWithHttpInfo($version, $favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
+    public function getFavoriteAsyncWithHttpInfo($favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WrappedResponse';
-        $request = $this->getFavoriteRequest($version, $favorite_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getFavoriteRequest($favorite_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1050,7 +1006,6 @@ class FavoriteApi
     /**
      * Create request for operation 'getFavorite'
      *
-     * @param  float $version (required)
      * @param  int $favorite_id The ID of the favorite reference record (required)
      * @param  string|null $device_id The unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -1061,15 +1016,8 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFavoriteRequest($version, $favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
+    public function getFavoriteRequest($favorite_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getFavorite'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getFavorite'
-            );
-        }
 
         // verify the required parameter 'favorite_id' is set
         if ($favorite_id === null || (is_array($favorite_id) && count($favorite_id) === 0)) {
@@ -1083,7 +1031,7 @@ class FavoriteApi
 
 
 
-        $resourcePath = '/api/{version}/favorite/get';
+        $resourcePath = '/favorite/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1137,14 +1085,6 @@ class FavoriteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1205,7 +1145,6 @@ class FavoriteApi
      *
      * Search Favorites
      *
-     * @param  float $version version (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
@@ -1226,9 +1165,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchResponse
      */
-    public function searchFavorites($version, $favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
+    public function searchFavorites($favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
     {
-        list($response) = $this->searchFavoritesWithHttpInfo($version, $favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id, $account_id, $connection_account_id, $secondary_type, $keyword, $latitude, $longitude, $contentType);
+        list($response) = $this->searchFavoritesWithHttpInfo($favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id, $account_id, $connection_account_id, $secondary_type, $keyword, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1237,7 +1176,6 @@ class FavoriteApi
      *
      * Search Favorites
      *
-     * @param  float $version (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
@@ -1258,9 +1196,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchFavoritesWithHttpInfo($version, $favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
+    public function searchFavoritesWithHttpInfo($favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
     {
-        $request = $this->searchFavoritesRequest($version, $favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id, $account_id, $connection_account_id, $secondary_type, $keyword, $latitude, $longitude, $contentType);
+        $request = $this->searchFavoritesRequest($favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id, $account_id, $connection_account_id, $secondary_type, $keyword, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1336,7 +1274,6 @@ class FavoriteApi
      *
      * Search Favorites
      *
-     * @param  float $version (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
@@ -1356,9 +1293,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchFavoritesAsync($version, $favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
+    public function searchFavoritesAsync($favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
     {
-        return $this->searchFavoritesAsyncWithHttpInfo($version, $favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id, $account_id, $connection_account_id, $secondary_type, $keyword, $latitude, $longitude, $contentType)
+        return $this->searchFavoritesAsyncWithHttpInfo($favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id, $account_id, $connection_account_id, $secondary_type, $keyword, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1371,7 +1308,6 @@ class FavoriteApi
      *
      * Search Favorites
      *
-     * @param  float $version (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
@@ -1391,10 +1327,10 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchFavoritesAsyncWithHttpInfo($version, $favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
+    public function searchFavoritesAsyncWithHttpInfo($favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchResponse';
-        $request = $this->searchFavoritesRequest($version, $favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id, $account_id, $connection_account_id, $secondary_type, $keyword, $latitude, $longitude, $contentType);
+        $request = $this->searchFavoritesRequest($favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id, $account_id, $connection_account_id, $secondary_type, $keyword, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1435,7 +1371,6 @@ class FavoriteApi
     /**
      * Create request for operation 'searchFavorites'
      *
-     * @param  float $version (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  string $sort_field Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param  bool $descending Determines whether the results are in descending order (required)
@@ -1455,15 +1390,8 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchFavoritesRequest($version, $favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
+    public function searchFavoritesRequest($favoritable_type, $sort_field, $descending, $start, $limit, $active_only, $return_full_response, $device_id = null, $account_id = null, $connection_account_id = null, $secondary_type = null, $keyword = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['searchFavorites'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchFavorites'
-            );
-        }
 
         // verify the required parameter 'favoritable_type' is set
         if ($favoritable_type === null || (is_array($favoritable_type) && count($favoritable_type) === 0)) {
@@ -1522,7 +1450,7 @@ class FavoriteApi
 
 
 
-        $resourcePath = '/api/{version}/favorite/search';
+        $resourcePath = '/favorite/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1657,14 +1585,6 @@ class FavoriteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1725,7 +1645,6 @@ class FavoriteApi
      *
      * Who has Favorited
      *
-     * @param  float $version version (required)
      * @param  int $favoritable_id The ID of the favoritableType to search on (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  int $start The start index for pagination (required)
@@ -1741,9 +1660,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AccountResponse[]
      */
-    public function whoHasFavorited($version, $favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
+    public function whoHasFavorited($favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
     {
-        list($response) = $this->whoHasFavoritedWithHttpInfo($version, $favoritable_id, $favoritable_type, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
+        list($response) = $this->whoHasFavoritedWithHttpInfo($favoritable_id, $favoritable_type, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
         return $response;
     }
 
@@ -1752,7 +1671,6 @@ class FavoriteApi
      *
      * Who has Favorited
      *
-     * @param  float $version (required)
      * @param  int $favoritable_id The ID of the favoritableType to search on (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  int $start The start index for pagination (required)
@@ -1768,9 +1686,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AccountResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function whoHasFavoritedWithHttpInfo($version, $favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
+    public function whoHasFavoritedWithHttpInfo($favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
     {
-        $request = $this->whoHasFavoritedRequest($version, $favoritable_id, $favoritable_type, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
+        $request = $this->whoHasFavoritedRequest($favoritable_id, $favoritable_type, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1846,7 +1764,6 @@ class FavoriteApi
      *
      * Who has Favorited
      *
-     * @param  float $version (required)
      * @param  int $favoritable_id The ID of the favoritableType to search on (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  int $start The start index for pagination (required)
@@ -1861,9 +1778,9 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function whoHasFavoritedAsync($version, $favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
+    public function whoHasFavoritedAsync($favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
     {
-        return $this->whoHasFavoritedAsyncWithHttpInfo($version, $favoritable_id, $favoritable_type, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType)
+        return $this->whoHasFavoritedAsyncWithHttpInfo($favoritable_id, $favoritable_type, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1876,7 +1793,6 @@ class FavoriteApi
      *
      * Who has Favorited
      *
-     * @param  float $version (required)
      * @param  int $favoritable_id The ID of the favoritableType to search on (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  int $start The start index for pagination (required)
@@ -1891,10 +1807,10 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function whoHasFavoritedAsyncWithHttpInfo($version, $favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
+    public function whoHasFavoritedAsyncWithHttpInfo($favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountResponse[]';
-        $request = $this->whoHasFavoritedRequest($version, $favoritable_id, $favoritable_type, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
+        $request = $this->whoHasFavoritedRequest($favoritable_id, $favoritable_type, $start, $limit, $device_id, $account_id, $latitude, $longitude, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1935,7 +1851,6 @@ class FavoriteApi
     /**
      * Create request for operation 'whoHasFavorited'
      *
-     * @param  float $version (required)
      * @param  int $favoritable_id The ID of the favoritableType to search on (required)
      * @param  string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param  int $start The start index for pagination (required)
@@ -1950,15 +1865,8 @@ class FavoriteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function whoHasFavoritedRequest($version, $favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
+    public function whoHasFavoritedRequest($favoritable_id, $favoritable_type, $start, $limit, $device_id = null, $account_id = null, $latitude = null, $longitude = null, $keyword = null, string $contentType = self::contentTypes['whoHasFavorited'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling whoHasFavorited'
-            );
-        }
 
         // verify the required parameter 'favoritable_id' is set
         if ($favoritable_id === null || (is_array($favoritable_id) && count($favoritable_id) === 0)) {
@@ -1994,7 +1902,7 @@ class FavoriteApi
 
 
 
-        $resourcePath = '/api/{version}/favorite/whois';
+        $resourcePath = '/favorite/whois';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2084,14 +1992,6 @@ class FavoriteApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

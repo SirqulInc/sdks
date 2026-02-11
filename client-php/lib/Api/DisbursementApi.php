@@ -143,7 +143,6 @@ class DisbursementApi
      *
      * Check Disbursements
      *
-     * @param  float $version version (required)
      * @param  int $disbursement_id the ID of the disbursement being checked on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkDisbursements'] to see the possible values for this operation
      *
@@ -151,9 +150,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DisbursementResponse
      */
-    public function checkDisbursements($version, $disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
+    public function checkDisbursements($disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
     {
-        list($response) = $this->checkDisbursementsWithHttpInfo($version, $disbursement_id, $contentType);
+        list($response) = $this->checkDisbursementsWithHttpInfo($disbursement_id, $contentType);
         return $response;
     }
 
@@ -162,7 +161,6 @@ class DisbursementApi
      *
      * Check Disbursements
      *
-     * @param  float $version (required)
      * @param  int $disbursement_id the ID of the disbursement being checked on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkDisbursements'] to see the possible values for this operation
      *
@@ -170,9 +168,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DisbursementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkDisbursementsWithHttpInfo($version, $disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
+    public function checkDisbursementsWithHttpInfo($disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
     {
-        $request = $this->checkDisbursementsRequest($version, $disbursement_id, $contentType);
+        $request = $this->checkDisbursementsRequest($disbursement_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -248,16 +246,15 @@ class DisbursementApi
      *
      * Check Disbursements
      *
-     * @param  float $version (required)
      * @param  int $disbursement_id the ID of the disbursement being checked on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkDisbursements'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkDisbursementsAsync($version, $disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
+    public function checkDisbursementsAsync($disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
     {
-        return $this->checkDisbursementsAsyncWithHttpInfo($version, $disbursement_id, $contentType)
+        return $this->checkDisbursementsAsyncWithHttpInfo($disbursement_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,17 +267,16 @@ class DisbursementApi
      *
      * Check Disbursements
      *
-     * @param  float $version (required)
      * @param  int $disbursement_id the ID of the disbursement being checked on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkDisbursements'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkDisbursementsAsyncWithHttpInfo($version, $disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
+    public function checkDisbursementsAsyncWithHttpInfo($disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DisbursementResponse';
-        $request = $this->checkDisbursementsRequest($version, $disbursement_id, $contentType);
+        $request = $this->checkDisbursementsRequest($disbursement_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -321,22 +317,14 @@ class DisbursementApi
     /**
      * Create request for operation 'checkDisbursements'
      *
-     * @param  float $version (required)
      * @param  int $disbursement_id the ID of the disbursement being checked on (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkDisbursements'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function checkDisbursementsRequest($version, $disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
+    public function checkDisbursementsRequest($disbursement_id, string $contentType = self::contentTypes['checkDisbursements'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling checkDisbursements'
-            );
-        }
 
         // verify the required parameter 'disbursement_id' is set
         if ($disbursement_id === null || (is_array($disbursement_id) && count($disbursement_id) === 0)) {
@@ -346,7 +334,7 @@ class DisbursementApi
         }
 
 
-        $resourcePath = '/api/{version}/disbursement/check';
+        $resourcePath = '/disbursement/check';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -364,14 +352,6 @@ class DisbursementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -432,7 +412,6 @@ class DisbursementApi
      *
      * Create Disbursement
      *
-     * @param  float $version version (required)
      * @param  int $account_id the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param  int $receiver_account_id the ID of the account receiving the disbursement (required)
      * @param  int $original_sender_account_id the ID of the original sender account (required)
@@ -449,9 +428,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DisbursementResponse
      */
-    public function createDisbursement($version, $account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
+    public function createDisbursement($account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
     {
-        list($response) = $this->createDisbursementWithHttpInfo($version, $account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $introspection_params, $contentType);
+        list($response) = $this->createDisbursementWithHttpInfo($account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $introspection_params, $contentType);
         return $response;
     }
 
@@ -460,7 +439,6 @@ class DisbursementApi
      *
      * Create Disbursement
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param  int $receiver_account_id the ID of the account receiving the disbursement (required)
      * @param  int $original_sender_account_id the ID of the original sender account (required)
@@ -477,9 +455,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DisbursementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDisbursementWithHttpInfo($version, $account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
+    public function createDisbursementWithHttpInfo($account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
     {
-        $request = $this->createDisbursementRequest($version, $account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $introspection_params, $contentType);
+        $request = $this->createDisbursementRequest($account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $introspection_params, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -555,7 +533,6 @@ class DisbursementApi
      *
      * Create Disbursement
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param  int $receiver_account_id the ID of the account receiving the disbursement (required)
      * @param  int $original_sender_account_id the ID of the original sender account (required)
@@ -571,9 +548,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDisbursementAsync($version, $account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
+    public function createDisbursementAsync($account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
     {
-        return $this->createDisbursementAsyncWithHttpInfo($version, $account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $introspection_params, $contentType)
+        return $this->createDisbursementAsyncWithHttpInfo($account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $introspection_params, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -586,7 +563,6 @@ class DisbursementApi
      *
      * Create Disbursement
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param  int $receiver_account_id the ID of the account receiving the disbursement (required)
      * @param  int $original_sender_account_id the ID of the original sender account (required)
@@ -602,10 +578,10 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDisbursementAsyncWithHttpInfo($version, $account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
+    public function createDisbursementAsyncWithHttpInfo($account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DisbursementResponse';
-        $request = $this->createDisbursementRequest($version, $account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $introspection_params, $contentType);
+        $request = $this->createDisbursementRequest($account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $introspection_params, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -646,7 +622,6 @@ class DisbursementApi
     /**
      * Create request for operation 'createDisbursement'
      *
-     * @param  float $version (required)
      * @param  int $account_id the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param  int $receiver_account_id the ID of the account receiving the disbursement (required)
      * @param  int $original_sender_account_id the ID of the original sender account (required)
@@ -662,15 +637,8 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createDisbursementRequest($version, $account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
+    public function createDisbursementRequest($account_id, $receiver_account_id, $original_sender_account_id, $amount, $provider, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $introspection_params = null, string $contentType = self::contentTypes['createDisbursement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createDisbursement'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -713,7 +681,7 @@ class DisbursementApi
 
 
 
-        $resourcePath = '/api/{version}/disbursement/create';
+        $resourcePath = '/disbursement/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -812,14 +780,6 @@ class DisbursementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -880,7 +840,6 @@ class DisbursementApi
      *
      * Get Disbursement
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $disbursement_id the id of the disbursement (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisbursement'] to see the possible values for this operation
@@ -889,9 +848,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DisbursementResponse
      */
-    public function getDisbursement($version, $account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
+    public function getDisbursement($account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
     {
-        list($response) = $this->getDisbursementWithHttpInfo($version, $account_id, $disbursement_id, $contentType);
+        list($response) = $this->getDisbursementWithHttpInfo($account_id, $disbursement_id, $contentType);
         return $response;
     }
 
@@ -900,7 +859,6 @@ class DisbursementApi
      *
      * Get Disbursement
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $disbursement_id the id of the disbursement (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisbursement'] to see the possible values for this operation
@@ -909,9 +867,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DisbursementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDisbursementWithHttpInfo($version, $account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
+    public function getDisbursementWithHttpInfo($account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
     {
-        $request = $this->getDisbursementRequest($version, $account_id, $disbursement_id, $contentType);
+        $request = $this->getDisbursementRequest($account_id, $disbursement_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -987,7 +945,6 @@ class DisbursementApi
      *
      * Get Disbursement
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $disbursement_id the id of the disbursement (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisbursement'] to see the possible values for this operation
@@ -995,9 +952,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDisbursementAsync($version, $account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
+    public function getDisbursementAsync($account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
     {
-        return $this->getDisbursementAsyncWithHttpInfo($version, $account_id, $disbursement_id, $contentType)
+        return $this->getDisbursementAsyncWithHttpInfo($account_id, $disbursement_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1010,7 +967,6 @@ class DisbursementApi
      *
      * Get Disbursement
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $disbursement_id the id of the disbursement (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisbursement'] to see the possible values for this operation
@@ -1018,10 +974,10 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDisbursementAsyncWithHttpInfo($version, $account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
+    public function getDisbursementAsyncWithHttpInfo($account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DisbursementResponse';
-        $request = $this->getDisbursementRequest($version, $account_id, $disbursement_id, $contentType);
+        $request = $this->getDisbursementRequest($account_id, $disbursement_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1062,7 +1018,6 @@ class DisbursementApi
     /**
      * Create request for operation 'getDisbursement'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $disbursement_id the id of the disbursement (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDisbursement'] to see the possible values for this operation
@@ -1070,15 +1025,8 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDisbursementRequest($version, $account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
+    public function getDisbursementRequest($account_id, $disbursement_id, string $contentType = self::contentTypes['getDisbursement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getDisbursement'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1095,7 +1043,7 @@ class DisbursementApi
         }
 
 
-        $resourcePath = '/api/{version}/disbursement/get';
+        $resourcePath = '/disbursement/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1122,14 +1070,6 @@ class DisbursementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1190,7 +1130,6 @@ class DisbursementApi
      *
      * Search Disbursements
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int|null $receiver_account_id filter results by the id of the account receiving the disbursement (optional)
      * @param  string|null $statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -1207,9 +1146,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DisbursementResponse[]
      */
-    public function searchDisbursements($version, $account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
+    public function searchDisbursements($account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
     {
-        list($response) = $this->searchDisbursementsWithHttpInfo($version, $account_id, $receiver_account_id, $statuses, $providers, $before_date, $after_date, $start, $limit, $active_only, $external_id, $contentType);
+        list($response) = $this->searchDisbursementsWithHttpInfo($account_id, $receiver_account_id, $statuses, $providers, $before_date, $after_date, $start, $limit, $active_only, $external_id, $contentType);
         return $response;
     }
 
@@ -1218,7 +1157,6 @@ class DisbursementApi
      *
      * Search Disbursements
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int|null $receiver_account_id filter results by the id of the account receiving the disbursement (optional)
      * @param  string|null $statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -1235,9 +1173,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DisbursementResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchDisbursementsWithHttpInfo($version, $account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
+    public function searchDisbursementsWithHttpInfo($account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
     {
-        $request = $this->searchDisbursementsRequest($version, $account_id, $receiver_account_id, $statuses, $providers, $before_date, $after_date, $start, $limit, $active_only, $external_id, $contentType);
+        $request = $this->searchDisbursementsRequest($account_id, $receiver_account_id, $statuses, $providers, $before_date, $after_date, $start, $limit, $active_only, $external_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1313,7 +1251,6 @@ class DisbursementApi
      *
      * Search Disbursements
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int|null $receiver_account_id filter results by the id of the account receiving the disbursement (optional)
      * @param  string|null $statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -1329,9 +1266,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchDisbursementsAsync($version, $account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
+    public function searchDisbursementsAsync($account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
     {
-        return $this->searchDisbursementsAsyncWithHttpInfo($version, $account_id, $receiver_account_id, $statuses, $providers, $before_date, $after_date, $start, $limit, $active_only, $external_id, $contentType)
+        return $this->searchDisbursementsAsyncWithHttpInfo($account_id, $receiver_account_id, $statuses, $providers, $before_date, $after_date, $start, $limit, $active_only, $external_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1344,7 +1281,6 @@ class DisbursementApi
      *
      * Search Disbursements
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int|null $receiver_account_id filter results by the id of the account receiving the disbursement (optional)
      * @param  string|null $statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -1360,10 +1296,10 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchDisbursementsAsyncWithHttpInfo($version, $account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
+    public function searchDisbursementsAsyncWithHttpInfo($account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DisbursementResponse[]';
-        $request = $this->searchDisbursementsRequest($version, $account_id, $receiver_account_id, $statuses, $providers, $before_date, $after_date, $start, $limit, $active_only, $external_id, $contentType);
+        $request = $this->searchDisbursementsRequest($account_id, $receiver_account_id, $statuses, $providers, $before_date, $after_date, $start, $limit, $active_only, $external_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1404,7 +1340,6 @@ class DisbursementApi
     /**
      * Create request for operation 'searchDisbursements'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int|null $receiver_account_id filter results by the id of the account receiving the disbursement (optional)
      * @param  string|null $statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -1420,15 +1355,8 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchDisbursementsRequest($version, $account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
+    public function searchDisbursementsRequest($account_id, $receiver_account_id = null, $statuses = null, $providers = null, $before_date = null, $after_date = null, $start = 0, $limit = 20, $active_only = false, $external_id = null, string $contentType = self::contentTypes['searchDisbursements'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchDisbursements'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1447,7 +1375,7 @@ class DisbursementApi
 
 
 
-        $resourcePath = '/api/{version}/disbursement/search';
+        $resourcePath = '/disbursement/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1546,14 +1474,6 @@ class DisbursementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1614,7 +1534,6 @@ class DisbursementApi
      *
      * Update Disbursement
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $disbursement_id the id of the disbursement being updated (required)
      * @param  float|null $amount the disbursement dollar amount being updated (optional)
@@ -1631,9 +1550,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DisbursementResponse
      */
-    public function updateDisbursement($version, $account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
+    public function updateDisbursement($account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
     {
-        list($response) = $this->updateDisbursementWithHttpInfo($version, $account_id, $disbursement_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $retry, $introspection_params, $contentType);
+        list($response) = $this->updateDisbursementWithHttpInfo($account_id, $disbursement_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $retry, $introspection_params, $contentType);
         return $response;
     }
 
@@ -1642,7 +1561,6 @@ class DisbursementApi
      *
      * Update Disbursement
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $disbursement_id the id of the disbursement being updated (required)
      * @param  float|null $amount the disbursement dollar amount being updated (optional)
@@ -1659,9 +1577,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DisbursementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDisbursementWithHttpInfo($version, $account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
+    public function updateDisbursementWithHttpInfo($account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
     {
-        $request = $this->updateDisbursementRequest($version, $account_id, $disbursement_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $retry, $introspection_params, $contentType);
+        $request = $this->updateDisbursementRequest($account_id, $disbursement_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $retry, $introspection_params, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1737,7 +1655,6 @@ class DisbursementApi
      *
      * Update Disbursement
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $disbursement_id the id of the disbursement being updated (required)
      * @param  float|null $amount the disbursement dollar amount being updated (optional)
@@ -1753,9 +1670,9 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDisbursementAsync($version, $account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
+    public function updateDisbursementAsync($account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
     {
-        return $this->updateDisbursementAsyncWithHttpInfo($version, $account_id, $disbursement_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $retry, $introspection_params, $contentType)
+        return $this->updateDisbursementAsyncWithHttpInfo($account_id, $disbursement_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $retry, $introspection_params, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1768,7 +1685,6 @@ class DisbursementApi
      *
      * Update Disbursement
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $disbursement_id the id of the disbursement being updated (required)
      * @param  float|null $amount the disbursement dollar amount being updated (optional)
@@ -1784,10 +1700,10 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDisbursementAsyncWithHttpInfo($version, $account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
+    public function updateDisbursementAsyncWithHttpInfo($account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DisbursementResponse';
-        $request = $this->updateDisbursementRequest($version, $account_id, $disbursement_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $retry, $introspection_params, $contentType);
+        $request = $this->updateDisbursementRequest($account_id, $disbursement_id, $amount, $provider, $scheduled_date, $title, $comment, $external_id, $retry, $introspection_params, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1828,7 +1744,6 @@ class DisbursementApi
     /**
      * Create request for operation 'updateDisbursement'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $disbursement_id the id of the disbursement being updated (required)
      * @param  float|null $amount the disbursement dollar amount being updated (optional)
@@ -1844,15 +1759,8 @@ class DisbursementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateDisbursementRequest($version, $account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
+    public function updateDisbursementRequest($account_id, $disbursement_id, $amount = null, $provider = null, $scheduled_date = null, $title = null, $comment = null, $external_id = null, $retry = null, $introspection_params = null, string $contentType = self::contentTypes['updateDisbursement'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateDisbursement'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1877,7 +1785,7 @@ class DisbursementApi
 
 
 
-        $resourcePath = '/api/{version}/disbursement/update';
+        $resourcePath = '/disbursement/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1976,14 +1884,6 @@ class DisbursementApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

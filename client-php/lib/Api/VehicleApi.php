@@ -143,7 +143,6 @@ class VehicleApi
      *
      * Create Vehicle
      *
-     * @param  float $version version (required)
      * @param  string $vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVehicle'] to see the possible values for this operation
@@ -152,9 +151,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Vehicle
      */
-    public function createVehicle($version, $vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
+    public function createVehicle($vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
     {
-        list($response) = $this->createVehicleWithHttpInfo($version, $vehicle, $body, $contentType);
+        list($response) = $this->createVehicleWithHttpInfo($vehicle, $body, $contentType);
         return $response;
     }
 
@@ -163,7 +162,6 @@ class VehicleApi
      *
      * Create Vehicle
      *
-     * @param  float $version (required)
      * @param  string $vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVehicle'] to see the possible values for this operation
@@ -172,9 +170,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Vehicle, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createVehicleWithHttpInfo($version, $vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
+    public function createVehicleWithHttpInfo($vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
     {
-        $request = $this->createVehicleRequest($version, $vehicle, $body, $contentType);
+        $request = $this->createVehicleRequest($vehicle, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -250,7 +248,6 @@ class VehicleApi
      *
      * Create Vehicle
      *
-     * @param  float $version (required)
      * @param  string $vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVehicle'] to see the possible values for this operation
@@ -258,9 +255,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createVehicleAsync($version, $vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
+    public function createVehicleAsync($vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
     {
-        return $this->createVehicleAsyncWithHttpInfo($version, $vehicle, $body, $contentType)
+        return $this->createVehicleAsyncWithHttpInfo($vehicle, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -273,7 +270,6 @@ class VehicleApi
      *
      * Create Vehicle
      *
-     * @param  float $version (required)
      * @param  string $vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVehicle'] to see the possible values for this operation
@@ -281,10 +277,10 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createVehicleAsyncWithHttpInfo($version, $vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
+    public function createVehicleAsyncWithHttpInfo($vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Vehicle';
-        $request = $this->createVehicleRequest($version, $vehicle, $body, $contentType);
+        $request = $this->createVehicleRequest($vehicle, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -325,7 +321,6 @@ class VehicleApi
     /**
      * Create request for operation 'createVehicle'
      *
-     * @param  float $version (required)
      * @param  string $vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVehicle'] to see the possible values for this operation
@@ -333,15 +328,8 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createVehicleRequest($version, $vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
+    public function createVehicleRequest($vehicle, $body = null, string $contentType = self::contentTypes['createVehicle'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createVehicle'
-            );
-        }
 
         // verify the required parameter 'vehicle' is set
         if ($vehicle === null || (is_array($vehicle) && count($vehicle) === 0)) {
@@ -352,7 +340,7 @@ class VehicleApi
 
 
 
-        $resourcePath = '/api/{version}/vehicle';
+        $resourcePath = '/vehicle';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -370,14 +358,6 @@ class VehicleApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -445,7 +425,6 @@ class VehicleApi
      *
      * Delete Vehicle
      *
-     * @param  float $version version (required)
      * @param  int $id The id of the vehicle to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVehicle'] to see the possible values for this operation
      *
@@ -453,9 +432,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteVehicle($version, $id, string $contentType = self::contentTypes['deleteVehicle'][0])
+    public function deleteVehicle($id, string $contentType = self::contentTypes['deleteVehicle'][0])
     {
-        $this->deleteVehicleWithHttpInfo($version, $id, $contentType);
+        $this->deleteVehicleWithHttpInfo($id, $contentType);
     }
 
     /**
@@ -463,7 +442,6 @@ class VehicleApi
      *
      * Delete Vehicle
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVehicle'] to see the possible values for this operation
      *
@@ -471,9 +449,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteVehicleWithHttpInfo($version, $id, string $contentType = self::contentTypes['deleteVehicle'][0])
+    public function deleteVehicleWithHttpInfo($id, string $contentType = self::contentTypes['deleteVehicle'][0])
     {
-        $request = $this->deleteVehicleRequest($version, $id, $contentType);
+        $request = $this->deleteVehicleRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -513,16 +491,15 @@ class VehicleApi
      *
      * Delete Vehicle
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVehicle'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteVehicleAsync($version, $id, string $contentType = self::contentTypes['deleteVehicle'][0])
+    public function deleteVehicleAsync($id, string $contentType = self::contentTypes['deleteVehicle'][0])
     {
-        return $this->deleteVehicleAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->deleteVehicleAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -535,17 +512,16 @@ class VehicleApi
      *
      * Delete Vehicle
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVehicle'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteVehicleAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['deleteVehicle'][0])
+    public function deleteVehicleAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteVehicle'][0])
     {
         $returnType = '';
-        $request = $this->deleteVehicleRequest($version, $id, $contentType);
+        $request = $this->deleteVehicleRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -573,22 +549,14 @@ class VehicleApi
     /**
      * Create request for operation 'deleteVehicle'
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVehicle'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteVehicleRequest($version, $id, string $contentType = self::contentTypes['deleteVehicle'][0])
+    public function deleteVehicleRequest($id, string $contentType = self::contentTypes['deleteVehicle'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteVehicle'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -598,7 +566,7 @@ class VehicleApi
         }
 
 
-        $resourcePath = '/api/{version}/vehicle/{id}';
+        $resourcePath = '/vehicle/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -607,14 +575,6 @@ class VehicleApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -683,7 +643,6 @@ class VehicleApi
      *
      * Get Vehicle
      *
-     * @param  float $version version (required)
      * @param  int $id The id of the vehicle requested (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVehicle'] to see the possible values for this operation
      *
@@ -691,9 +650,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Vehicle
      */
-    public function getVehicle($version, $id, string $contentType = self::contentTypes['getVehicle'][0])
+    public function getVehicle($id, string $contentType = self::contentTypes['getVehicle'][0])
     {
-        list($response) = $this->getVehicleWithHttpInfo($version, $id, $contentType);
+        list($response) = $this->getVehicleWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -702,7 +661,6 @@ class VehicleApi
      *
      * Get Vehicle
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle requested (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVehicle'] to see the possible values for this operation
      *
@@ -710,9 +668,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Vehicle, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVehicleWithHttpInfo($version, $id, string $contentType = self::contentTypes['getVehicle'][0])
+    public function getVehicleWithHttpInfo($id, string $contentType = self::contentTypes['getVehicle'][0])
     {
-        $request = $this->getVehicleRequest($version, $id, $contentType);
+        $request = $this->getVehicleRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -788,16 +746,15 @@ class VehicleApi
      *
      * Get Vehicle
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle requested (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVehicle'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVehicleAsync($version, $id, string $contentType = self::contentTypes['getVehicle'][0])
+    public function getVehicleAsync($id, string $contentType = self::contentTypes['getVehicle'][0])
     {
-        return $this->getVehicleAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->getVehicleAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -810,17 +767,16 @@ class VehicleApi
      *
      * Get Vehicle
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle requested (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVehicle'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVehicleAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['getVehicle'][0])
+    public function getVehicleAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getVehicle'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Vehicle';
-        $request = $this->getVehicleRequest($version, $id, $contentType);
+        $request = $this->getVehicleRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -861,22 +817,14 @@ class VehicleApi
     /**
      * Create request for operation 'getVehicle'
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle requested (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVehicle'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVehicleRequest($version, $id, string $contentType = self::contentTypes['getVehicle'][0])
+    public function getVehicleRequest($id, string $contentType = self::contentTypes['getVehicle'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getVehicle'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -886,7 +834,7 @@ class VehicleApi
         }
 
 
-        $resourcePath = '/api/{version}/vehicle/{id}';
+        $resourcePath = '/vehicle/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -895,14 +843,6 @@ class VehicleApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -971,7 +911,6 @@ class VehicleApi
      *
      * Search Vehicle
      *
-     * @param  float $version version (required)
      * @param  int $hub_id Filter by service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -985,9 +924,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Vehicle[]
      */
-    public function searchVehicle($version, $hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
+    public function searchVehicle($hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
     {
-        list($response) = $this->searchVehicleWithHttpInfo($version, $hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
+        list($response) = $this->searchVehicleWithHttpInfo($hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
         return $response;
     }
 
@@ -996,7 +935,6 @@ class VehicleApi
      *
      * Search Vehicle
      *
-     * @param  float $version (required)
      * @param  int $hub_id Filter by service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1010,9 +948,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Vehicle[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchVehicleWithHttpInfo($version, $hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
+    public function searchVehicleWithHttpInfo($hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
     {
-        $request = $this->searchVehicleRequest($version, $hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
+        $request = $this->searchVehicleRequest($hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1088,7 +1026,6 @@ class VehicleApi
      *
      * Search Vehicle
      *
-     * @param  float $version (required)
      * @param  int $hub_id Filter by service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1101,9 +1038,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchVehicleAsync($version, $hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
+    public function searchVehicleAsync($hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
     {
-        return $this->searchVehicleAsyncWithHttpInfo($version, $hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType)
+        return $this->searchVehicleAsyncWithHttpInfo($hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1116,7 +1053,6 @@ class VehicleApi
      *
      * Search Vehicle
      *
-     * @param  float $version (required)
      * @param  int $hub_id Filter by service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1129,10 +1065,10 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchVehicleAsyncWithHttpInfo($version, $hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
+    public function searchVehicleAsyncWithHttpInfo($hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Vehicle[]';
-        $request = $this->searchVehicleRequest($version, $hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
+        $request = $this->searchVehicleRequest($hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1173,7 +1109,6 @@ class VehicleApi
     /**
      * Create request for operation 'searchVehicle'
      *
-     * @param  float $version (required)
      * @param  int $hub_id Filter by service hub (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1186,15 +1121,8 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchVehicleRequest($version, $hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
+    public function searchVehicleRequest($hub_id, $sort_field, $descending, $start, $limit, $active_only, $keyword = null, string $contentType = self::contentTypes['searchVehicle'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchVehicle'
-            );
-        }
 
         // verify the required parameter 'hub_id' is set
         if ($hub_id === null || (is_array($hub_id) && count($hub_id) === 0)) {
@@ -1240,7 +1168,7 @@ class VehicleApi
 
 
 
-        $resourcePath = '/api/{version}/vehicle';
+        $resourcePath = '/vehicle';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1312,14 +1240,6 @@ class VehicleApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1380,7 +1300,6 @@ class VehicleApi
      *
      * Update Vehicle
      *
-     * @param  float $version version (required)
      * @param  int $id The id of the vehicle to update (required)
      * @param  string $vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body body (optional)
@@ -1390,9 +1309,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Vehicle
      */
-    public function updateVehicle($version, $id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
+    public function updateVehicle($id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
     {
-        list($response) = $this->updateVehicleWithHttpInfo($version, $id, $vehicle, $body, $contentType);
+        list($response) = $this->updateVehicleWithHttpInfo($id, $vehicle, $body, $contentType);
         return $response;
     }
 
@@ -1401,7 +1320,6 @@ class VehicleApi
      *
      * Update Vehicle
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle to update (required)
      * @param  string $vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body (optional)
@@ -1411,9 +1329,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Vehicle, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateVehicleWithHttpInfo($version, $id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
+    public function updateVehicleWithHttpInfo($id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
     {
-        $request = $this->updateVehicleRequest($version, $id, $vehicle, $body, $contentType);
+        $request = $this->updateVehicleRequest($id, $vehicle, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1489,7 +1407,6 @@ class VehicleApi
      *
      * Update Vehicle
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle to update (required)
      * @param  string $vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body (optional)
@@ -1498,9 +1415,9 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateVehicleAsync($version, $id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
+    public function updateVehicleAsync($id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
     {
-        return $this->updateVehicleAsyncWithHttpInfo($version, $id, $vehicle, $body, $contentType)
+        return $this->updateVehicleAsyncWithHttpInfo($id, $vehicle, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1513,7 +1430,6 @@ class VehicleApi
      *
      * Update Vehicle
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle to update (required)
      * @param  string $vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body (optional)
@@ -1522,10 +1438,10 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateVehicleAsyncWithHttpInfo($version, $id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
+    public function updateVehicleAsyncWithHttpInfo($id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Vehicle';
-        $request = $this->updateVehicleRequest($version, $id, $vehicle, $body, $contentType);
+        $request = $this->updateVehicleRequest($id, $vehicle, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1566,7 +1482,6 @@ class VehicleApi
     /**
      * Create request for operation 'updateVehicle'
      *
-     * @param  float $version (required)
      * @param  int $id The id of the vehicle to update (required)
      * @param  string $vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; (required)
      * @param  \OpenAPI\Client\Model\Vehicle|null $body (optional)
@@ -1575,15 +1490,8 @@ class VehicleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateVehicleRequest($version, $id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
+    public function updateVehicleRequest($id, $vehicle, $body = null, string $contentType = self::contentTypes['updateVehicle'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateVehicle'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1601,7 +1509,7 @@ class VehicleApi
 
 
 
-        $resourcePath = '/api/{version}/vehicle/{id}';
+        $resourcePath = '/vehicle/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1619,14 +1527,6 @@ class VehicleApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(

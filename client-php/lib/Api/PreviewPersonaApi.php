@@ -143,7 +143,6 @@ class PreviewPersonaApi
      *
      * Create Persona
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  string $title the title of the persona (required)
      * @param  string|null $preview_accounts the accounts that are able to preview from this persona (optional)
@@ -159,9 +158,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PreviewPersonaResponse
      */
-    public function createPersona($version, $account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
+    public function createPersona($account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
     {
-        list($response) = $this->createPersonaWithHttpInfo($version, $account_id, $title, $preview_accounts, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
+        list($response) = $this->createPersonaWithHttpInfo($account_id, $title, $preview_accounts, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -170,7 +169,6 @@ class PreviewPersonaApi
      *
      * Create Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  string $title the title of the persona (required)
      * @param  string|null $preview_accounts the accounts that are able to preview from this persona (optional)
@@ -186,9 +184,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PreviewPersonaResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPersonaWithHttpInfo($version, $account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
+    public function createPersonaWithHttpInfo($account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
     {
-        $request = $this->createPersonaRequest($version, $account_id, $title, $preview_accounts, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
+        $request = $this->createPersonaRequest($account_id, $title, $preview_accounts, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -264,7 +262,6 @@ class PreviewPersonaApi
      *
      * Create Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  string $title the title of the persona (required)
      * @param  string|null $preview_accounts the accounts that are able to preview from this persona (optional)
@@ -279,9 +276,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPersonaAsync($version, $account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
+    public function createPersonaAsync($account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
     {
-        return $this->createPersonaAsyncWithHttpInfo($version, $account_id, $title, $preview_accounts, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType)
+        return $this->createPersonaAsyncWithHttpInfo($account_id, $title, $preview_accounts, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -294,7 +291,6 @@ class PreviewPersonaApi
      *
      * Create Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  string $title the title of the persona (required)
      * @param  string|null $preview_accounts the accounts that are able to preview from this persona (optional)
@@ -309,10 +305,10 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPersonaAsyncWithHttpInfo($version, $account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
+    public function createPersonaAsyncWithHttpInfo($account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PreviewPersonaResponse';
-        $request = $this->createPersonaRequest($version, $account_id, $title, $preview_accounts, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
+        $request = $this->createPersonaRequest($account_id, $title, $preview_accounts, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -353,7 +349,6 @@ class PreviewPersonaApi
     /**
      * Create request for operation 'createPersona'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  string $title the title of the persona (required)
      * @param  string|null $preview_accounts the accounts that are able to preview from this persona (optional)
@@ -368,15 +363,8 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createPersonaRequest($version, $account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
+    public function createPersonaRequest($account_id, $title, $preview_accounts = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createPersona'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createPersona'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -400,7 +388,7 @@ class PreviewPersonaApi
 
 
 
-        $resourcePath = '/api/{version}/persona/create';
+        $resourcePath = '/persona/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -490,14 +478,6 @@ class PreviewPersonaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -558,7 +538,6 @@ class PreviewPersonaApi
      *
      * Delete Persona
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $persona_id the id of the persona to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePersona'] to see the possible values for this operation
@@ -567,9 +546,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deletePersona($version, $account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
+    public function deletePersona($account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
     {
-        list($response) = $this->deletePersonaWithHttpInfo($version, $account_id, $persona_id, $contentType);
+        list($response) = $this->deletePersonaWithHttpInfo($account_id, $persona_id, $contentType);
         return $response;
     }
 
@@ -578,7 +557,6 @@ class PreviewPersonaApi
      *
      * Delete Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $persona_id the id of the persona to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePersona'] to see the possible values for this operation
@@ -587,9 +565,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePersonaWithHttpInfo($version, $account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
+    public function deletePersonaWithHttpInfo($account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
     {
-        $request = $this->deletePersonaRequest($version, $account_id, $persona_id, $contentType);
+        $request = $this->deletePersonaRequest($account_id, $persona_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -665,7 +643,6 @@ class PreviewPersonaApi
      *
      * Delete Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $persona_id the id of the persona to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePersona'] to see the possible values for this operation
@@ -673,9 +650,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePersonaAsync($version, $account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
+    public function deletePersonaAsync($account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
     {
-        return $this->deletePersonaAsyncWithHttpInfo($version, $account_id, $persona_id, $contentType)
+        return $this->deletePersonaAsyncWithHttpInfo($account_id, $persona_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -688,7 +665,6 @@ class PreviewPersonaApi
      *
      * Delete Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $persona_id the id of the persona to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePersona'] to see the possible values for this operation
@@ -696,10 +672,10 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePersonaAsyncWithHttpInfo($version, $account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
+    public function deletePersonaAsyncWithHttpInfo($account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deletePersonaRequest($version, $account_id, $persona_id, $contentType);
+        $request = $this->deletePersonaRequest($account_id, $persona_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -740,7 +716,6 @@ class PreviewPersonaApi
     /**
      * Create request for operation 'deletePersona'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account id of the user (required)
      * @param  int $persona_id the id of the persona to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePersona'] to see the possible values for this operation
@@ -748,15 +723,8 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletePersonaRequest($version, $account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
+    public function deletePersonaRequest($account_id, $persona_id, string $contentType = self::contentTypes['deletePersona'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deletePersona'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -773,7 +741,7 @@ class PreviewPersonaApi
         }
 
 
-        $resourcePath = '/api/{version}/persona/delete';
+        $resourcePath = '/persona/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -800,14 +768,6 @@ class PreviewPersonaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -868,7 +828,6 @@ class PreviewPersonaApi
      *
      * Get Persona
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPersonaList'] to see the possible values for this operation
@@ -877,9 +836,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PreviewPersonaResponse
      */
-    public function getPersonaList($version, $account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
+    public function getPersonaList($account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
     {
-        list($response) = $this->getPersonaListWithHttpInfo($version, $account_id, $persona_id, $contentType);
+        list($response) = $this->getPersonaListWithHttpInfo($account_id, $persona_id, $contentType);
         return $response;
     }
 
@@ -888,7 +847,6 @@ class PreviewPersonaApi
      *
      * Get Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPersonaList'] to see the possible values for this operation
@@ -897,9 +855,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PreviewPersonaResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPersonaListWithHttpInfo($version, $account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
+    public function getPersonaListWithHttpInfo($account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
     {
-        $request = $this->getPersonaListRequest($version, $account_id, $persona_id, $contentType);
+        $request = $this->getPersonaListRequest($account_id, $persona_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -975,7 +933,6 @@ class PreviewPersonaApi
      *
      * Get Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPersonaList'] to see the possible values for this operation
@@ -983,9 +940,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPersonaListAsync($version, $account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
+    public function getPersonaListAsync($account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
     {
-        return $this->getPersonaListAsyncWithHttpInfo($version, $account_id, $persona_id, $contentType)
+        return $this->getPersonaListAsyncWithHttpInfo($account_id, $persona_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -998,7 +955,6 @@ class PreviewPersonaApi
      *
      * Get Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPersonaList'] to see the possible values for this operation
@@ -1006,10 +962,10 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPersonaListAsyncWithHttpInfo($version, $account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
+    public function getPersonaListAsyncWithHttpInfo($account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PreviewPersonaResponse';
-        $request = $this->getPersonaListRequest($version, $account_id, $persona_id, $contentType);
+        $request = $this->getPersonaListRequest($account_id, $persona_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1050,7 +1006,6 @@ class PreviewPersonaApi
     /**
      * Create request for operation 'getPersonaList'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPersonaList'] to see the possible values for this operation
@@ -1058,15 +1013,8 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPersonaListRequest($version, $account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
+    public function getPersonaListRequest($account_id, $persona_id, string $contentType = self::contentTypes['getPersonaList'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPersonaList'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1083,7 +1031,7 @@ class PreviewPersonaApi
         }
 
 
-        $resourcePath = '/api/{version}/persona/get';
+        $resourcePath = '/persona/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1110,14 +1058,6 @@ class PreviewPersonaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1178,7 +1118,6 @@ class PreviewPersonaApi
      *
      * Search Personas
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $start the start index for pagination (required)
      * @param  int $limit the limit for pagination (There is a hard limit of 100) (required)
@@ -1188,9 +1127,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PreviewPersonaResponse
      */
-    public function searchPersona($version, $account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
+    public function searchPersona($account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
     {
-        list($response) = $this->searchPersonaWithHttpInfo($version, $account_id, $start, $limit, $contentType);
+        list($response) = $this->searchPersonaWithHttpInfo($account_id, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1199,7 +1138,6 @@ class PreviewPersonaApi
      *
      * Search Personas
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $start the start index for pagination (required)
      * @param  int $limit the limit for pagination (There is a hard limit of 100) (required)
@@ -1209,9 +1147,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PreviewPersonaResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchPersonaWithHttpInfo($version, $account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
+    public function searchPersonaWithHttpInfo($account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
     {
-        $request = $this->searchPersonaRequest($version, $account_id, $start, $limit, $contentType);
+        $request = $this->searchPersonaRequest($account_id, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1287,7 +1225,6 @@ class PreviewPersonaApi
      *
      * Search Personas
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $start the start index for pagination (required)
      * @param  int $limit the limit for pagination (There is a hard limit of 100) (required)
@@ -1296,9 +1233,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPersonaAsync($version, $account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
+    public function searchPersonaAsync($account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
     {
-        return $this->searchPersonaAsyncWithHttpInfo($version, $account_id, $start, $limit, $contentType)
+        return $this->searchPersonaAsyncWithHttpInfo($account_id, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1311,7 +1248,6 @@ class PreviewPersonaApi
      *
      * Search Personas
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $start the start index for pagination (required)
      * @param  int $limit the limit for pagination (There is a hard limit of 100) (required)
@@ -1320,10 +1256,10 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPersonaAsyncWithHttpInfo($version, $account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
+    public function searchPersonaAsyncWithHttpInfo($account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PreviewPersonaResponse';
-        $request = $this->searchPersonaRequest($version, $account_id, $start, $limit, $contentType);
+        $request = $this->searchPersonaRequest($account_id, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1364,7 +1300,6 @@ class PreviewPersonaApi
     /**
      * Create request for operation 'searchPersona'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $start the start index for pagination (required)
      * @param  int $limit the limit for pagination (There is a hard limit of 100) (required)
@@ -1373,15 +1308,8 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchPersonaRequest($version, $account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
+    public function searchPersonaRequest($account_id, $start, $limit, string $contentType = self::contentTypes['searchPersona'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchPersona'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1405,7 +1333,7 @@ class PreviewPersonaApi
         }
 
 
-        $resourcePath = '/api/{version}/persona/search';
+        $resourcePath = '/persona/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1441,14 +1369,6 @@ class PreviewPersonaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1509,7 +1429,6 @@ class PreviewPersonaApi
      *
      * Update Persona
      *
-     * @param  float $version version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona to update (required)
      * @param  string|null $title the title of the persona (optional)
@@ -1527,9 +1446,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PreviewPersonaResponse
      */
-    public function updatePersona($version, $account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
+    public function updatePersona($account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
     {
-        list($response) = $this->updatePersonaWithHttpInfo($version, $account_id, $persona_id, $title, $preview_accounts, $active, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
+        list($response) = $this->updatePersonaWithHttpInfo($account_id, $persona_id, $title, $preview_accounts, $active, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1538,7 +1457,6 @@ class PreviewPersonaApi
      *
      * Update Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona to update (required)
      * @param  string|null $title the title of the persona (optional)
@@ -1556,9 +1474,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PreviewPersonaResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePersonaWithHttpInfo($version, $account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
+    public function updatePersonaWithHttpInfo($account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
     {
-        $request = $this->updatePersonaRequest($version, $account_id, $persona_id, $title, $preview_accounts, $active, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
+        $request = $this->updatePersonaRequest($account_id, $persona_id, $title, $preview_accounts, $active, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,7 +1552,6 @@ class PreviewPersonaApi
      *
      * Update Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona to update (required)
      * @param  string|null $title the title of the persona (optional)
@@ -1651,9 +1568,9 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePersonaAsync($version, $account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
+    public function updatePersonaAsync($account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
     {
-        return $this->updatePersonaAsyncWithHttpInfo($version, $account_id, $persona_id, $title, $preview_accounts, $active, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType)
+        return $this->updatePersonaAsyncWithHttpInfo($account_id, $persona_id, $title, $preview_accounts, $active, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1666,7 +1583,6 @@ class PreviewPersonaApi
      *
      * Update Persona
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona to update (required)
      * @param  string|null $title the title of the persona (optional)
@@ -1683,10 +1599,10 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePersonaAsyncWithHttpInfo($version, $account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
+    public function updatePersonaAsyncWithHttpInfo($account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PreviewPersonaResponse';
-        $request = $this->updatePersonaRequest($version, $account_id, $persona_id, $title, $preview_accounts, $active, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
+        $request = $this->updatePersonaRequest($account_id, $persona_id, $title, $preview_accounts, $active, $date, $age, $gender, $game_experience_level, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1727,7 +1643,6 @@ class PreviewPersonaApi
     /**
      * Create request for operation 'updatePersona'
      *
-     * @param  float $version (required)
      * @param  int $account_id the account ID of the user (required)
      * @param  int $persona_id the persona ID of the persona to update (required)
      * @param  string|null $title the title of the persona (optional)
@@ -1744,15 +1659,8 @@ class PreviewPersonaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePersonaRequest($version, $account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
+    public function updatePersonaRequest($account_id, $persona_id, $title = null, $preview_accounts = null, $active = null, $date = null, $age = null, $gender = null, $game_experience_level = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['updatePersona'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updatePersona'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1778,7 +1686,7 @@ class PreviewPersonaApi
 
 
 
-        $resourcePath = '/api/{version}/persona/update';
+        $resourcePath = '/persona/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1886,14 +1794,6 @@ class PreviewPersonaApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

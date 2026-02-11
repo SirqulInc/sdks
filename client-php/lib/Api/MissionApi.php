@@ -155,7 +155,6 @@ class MissionApi
      *
      * Create Mission
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the mission (required)
      * @param  string|null $description The description of the mission (optional)
@@ -188,9 +187,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse
      */
-    public function createMission($version, $account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
+    public function createMission($account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
     {
-        list($response) = $this->createMissionWithHttpInfo($version, $account_id, $title, $description, $sub_type, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $mission_task, $format_type, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $meta_data, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
+        list($response) = $this->createMissionWithHttpInfo($account_id, $title, $description, $sub_type, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $mission_task, $format_type, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $meta_data, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
         return $response;
     }
 
@@ -199,7 +198,6 @@ class MissionApi
      *
      * Create Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the mission (required)
      * @param  string|null $description The description of the mission (optional)
@@ -232,9 +230,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createMissionWithHttpInfo($version, $account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
+    public function createMissionWithHttpInfo($account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
     {
-        $request = $this->createMissionRequest($version, $account_id, $title, $description, $sub_type, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $mission_task, $format_type, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $meta_data, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
+        $request = $this->createMissionRequest($account_id, $title, $description, $sub_type, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $mission_task, $format_type, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $meta_data, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -310,7 +308,6 @@ class MissionApi
      *
      * Create Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the mission (required)
      * @param  string|null $description The description of the mission (optional)
@@ -342,9 +339,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMissionAsync($version, $account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
+    public function createMissionAsync($account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
     {
-        return $this->createMissionAsyncWithHttpInfo($version, $account_id, $title, $description, $sub_type, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $mission_task, $format_type, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $meta_data, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType)
+        return $this->createMissionAsyncWithHttpInfo($account_id, $title, $description, $sub_type, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $mission_task, $format_type, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $meta_data, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -357,7 +354,6 @@ class MissionApi
      *
      * Create Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the mission (required)
      * @param  string|null $description The description of the mission (optional)
@@ -389,10 +385,10 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMissionAsyncWithHttpInfo($version, $account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
+    public function createMissionAsyncWithHttpInfo($account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse';
-        $request = $this->createMissionRequest($version, $account_id, $title, $description, $sub_type, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $mission_task, $format_type, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $meta_data, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
+        $request = $this->createMissionRequest($account_id, $title, $description, $sub_type, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $mission_task, $format_type, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $meta_data, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -433,7 +429,6 @@ class MissionApi
     /**
      * Create request for operation 'createMission'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $title The title of the mission (required)
      * @param  string|null $description The description of the mission (optional)
@@ -465,15 +460,8 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createMissionRequest($version, $account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
+    public function createMissionRequest($account_id, $title, $description = null, $sub_type = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $mission_task = null, $format_type = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $meta_data = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['createMission'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createMission'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -514,7 +502,7 @@ class MissionApi
 
 
 
-        $resourcePath = '/api/{version}/mission/create';
+        $resourcePath = '/mission/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -757,14 +745,6 @@ class MissionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -825,7 +805,6 @@ class MissionApi
      *
      * Delete Mission
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMission'] to see the possible values for this operation
@@ -834,9 +813,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteMission($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
+    public function deleteMission($account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
     {
-        list($response) = $this->deleteMissionWithHttpInfo($version, $account_id, $mission_id, $contentType);
+        list($response) = $this->deleteMissionWithHttpInfo($account_id, $mission_id, $contentType);
         return $response;
     }
 
@@ -845,7 +824,6 @@ class MissionApi
      *
      * Delete Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMission'] to see the possible values for this operation
@@ -854,9 +832,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMissionWithHttpInfo($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
+    public function deleteMissionWithHttpInfo($account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
     {
-        $request = $this->deleteMissionRequest($version, $account_id, $mission_id, $contentType);
+        $request = $this->deleteMissionRequest($account_id, $mission_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -932,7 +910,6 @@ class MissionApi
      *
      * Delete Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMission'] to see the possible values for this operation
@@ -940,9 +917,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMissionAsync($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
+    public function deleteMissionAsync($account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
     {
-        return $this->deleteMissionAsyncWithHttpInfo($version, $account_id, $mission_id, $contentType)
+        return $this->deleteMissionAsyncWithHttpInfo($account_id, $mission_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -955,7 +932,6 @@ class MissionApi
      *
      * Delete Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMission'] to see the possible values for this operation
@@ -963,10 +939,10 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMissionAsyncWithHttpInfo($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
+    public function deleteMissionAsyncWithHttpInfo($account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteMissionRequest($version, $account_id, $mission_id, $contentType);
+        $request = $this->deleteMissionRequest($account_id, $mission_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1007,7 +983,6 @@ class MissionApi
     /**
      * Create request for operation 'deleteMission'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $mission_id the id of the mission to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMission'] to see the possible values for this operation
@@ -1015,15 +990,8 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteMissionRequest($version, $account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
+    public function deleteMissionRequest($account_id, $mission_id, string $contentType = self::contentTypes['deleteMission'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteMission'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1040,7 +1008,7 @@ class MissionApi
         }
 
 
-        $resourcePath = '/api/{version}/mission/delete';
+        $resourcePath = '/mission/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1067,14 +1035,6 @@ class MissionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1135,7 +1095,6 @@ class MissionApi
      *
      * Find Missions
      *
-     * @param  float $version version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  string|null $suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param  string|null $type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -1161,9 +1120,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse
      */
-    public function findMissions($version, $app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
+    public function findMissions($app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
     {
-        list($response) = $this->findMissionsWithHttpInfo($version, $app_key, $suffix, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_game_data, $include_audiences, $allocates_tickets, $randomize, $targeted_ads_only, $mission_ids, $audience_operator, $contentType);
+        list($response) = $this->findMissionsWithHttpInfo($app_key, $suffix, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_game_data, $include_audiences, $allocates_tickets, $randomize, $targeted_ads_only, $mission_ids, $audience_operator, $contentType);
         return $response;
     }
 
@@ -1172,7 +1131,6 @@ class MissionApi
      *
      * Find Missions
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  string|null $suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param  string|null $type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -1198,9 +1156,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function findMissionsWithHttpInfo($version, $app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
+    public function findMissionsWithHttpInfo($app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
     {
-        $request = $this->findMissionsRequest($version, $app_key, $suffix, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_game_data, $include_audiences, $allocates_tickets, $randomize, $targeted_ads_only, $mission_ids, $audience_operator, $contentType);
+        $request = $this->findMissionsRequest($app_key, $suffix, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_game_data, $include_audiences, $allocates_tickets, $randomize, $targeted_ads_only, $mission_ids, $audience_operator, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1276,7 +1234,6 @@ class MissionApi
      *
      * Find Missions
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  string|null $suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param  string|null $type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -1301,9 +1258,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function findMissionsAsync($version, $app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
+    public function findMissionsAsync($app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
     {
-        return $this->findMissionsAsyncWithHttpInfo($version, $app_key, $suffix, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_game_data, $include_audiences, $allocates_tickets, $randomize, $targeted_ads_only, $mission_ids, $audience_operator, $contentType)
+        return $this->findMissionsAsyncWithHttpInfo($app_key, $suffix, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_game_data, $include_audiences, $allocates_tickets, $randomize, $targeted_ads_only, $mission_ids, $audience_operator, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1316,7 +1273,6 @@ class MissionApi
      *
      * Find Missions
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  string|null $suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param  string|null $type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -1341,10 +1297,10 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function findMissionsAsyncWithHttpInfo($version, $app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
+    public function findMissionsAsyncWithHttpInfo($app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse';
-        $request = $this->findMissionsRequest($version, $app_key, $suffix, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_game_data, $include_audiences, $allocates_tickets, $randomize, $targeted_ads_only, $mission_ids, $audience_operator, $contentType);
+        $request = $this->findMissionsRequest($app_key, $suffix, $type, $account_id, $app_version, $latitude, $longitude, $device, $device_identifier, $device_version, $start, $limit, $include_game_data, $include_audiences, $allocates_tickets, $randomize, $targeted_ads_only, $mission_ids, $audience_operator, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1385,7 +1341,6 @@ class MissionApi
     /**
      * Create request for operation 'findMissions'
      *
-     * @param  float $version (required)
      * @param  string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param  string|null $suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param  string|null $type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -1410,15 +1365,8 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function findMissionsRequest($version, $app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
+    public function findMissionsRequest($app_key, $suffix = null, $type = null, $account_id = null, $app_version = null, $latitude = null, $longitude = null, $device = null, $device_identifier = null, $device_version = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $allocates_tickets = null, $randomize = null, $targeted_ads_only = null, $mission_ids = null, $audience_operator = null, string $contentType = self::contentTypes['findMissions'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling findMissions'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -1446,7 +1394,7 @@ class MissionApi
 
 
 
-        $resourcePath = '/api/{version}/mission/find';
+        $resourcePath = '/mission/find';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1626,14 +1574,6 @@ class MissionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1694,7 +1634,6 @@ class MissionApi
      *
      * Get Mission
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to return. (required)
      * @param  bool|null $return_creative Return creatives associated with the mission when true (optional)
@@ -1704,9 +1643,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse
      */
-    public function getMission($version, $account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
+    public function getMission($account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
     {
-        list($response) = $this->getMissionWithHttpInfo($version, $account_id, $mission_id, $return_creative, $contentType);
+        list($response) = $this->getMissionWithHttpInfo($account_id, $mission_id, $return_creative, $contentType);
         return $response;
     }
 
@@ -1715,7 +1654,6 @@ class MissionApi
      *
      * Get Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to return. (required)
      * @param  bool|null $return_creative Return creatives associated with the mission when true (optional)
@@ -1725,9 +1663,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMissionWithHttpInfo($version, $account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
+    public function getMissionWithHttpInfo($account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
     {
-        $request = $this->getMissionRequest($version, $account_id, $mission_id, $return_creative, $contentType);
+        $request = $this->getMissionRequest($account_id, $mission_id, $return_creative, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1803,7 +1741,6 @@ class MissionApi
      *
      * Get Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to return. (required)
      * @param  bool|null $return_creative Return creatives associated with the mission when true (optional)
@@ -1812,9 +1749,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMissionAsync($version, $account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
+    public function getMissionAsync($account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
     {
-        return $this->getMissionAsyncWithHttpInfo($version, $account_id, $mission_id, $return_creative, $contentType)
+        return $this->getMissionAsyncWithHttpInfo($account_id, $mission_id, $return_creative, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1827,7 +1764,6 @@ class MissionApi
      *
      * Get Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to return. (required)
      * @param  bool|null $return_creative Return creatives associated with the mission when true (optional)
@@ -1836,10 +1772,10 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMissionAsyncWithHttpInfo($version, $account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
+    public function getMissionAsyncWithHttpInfo($account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse';
-        $request = $this->getMissionRequest($version, $account_id, $mission_id, $return_creative, $contentType);
+        $request = $this->getMissionRequest($account_id, $mission_id, $return_creative, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1880,7 +1816,6 @@ class MissionApi
     /**
      * Create request for operation 'getMission'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to return. (required)
      * @param  bool|null $return_creative Return creatives associated with the mission when true (optional)
@@ -1889,15 +1824,8 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMissionRequest($version, $account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
+    public function getMissionRequest($account_id, $mission_id, $return_creative = null, string $contentType = self::contentTypes['getMission'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getMission'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1915,7 +1843,7 @@ class MissionApi
 
 
 
-        $resourcePath = '/api/{version}/mission/get';
+        $resourcePath = '/mission/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1951,14 +1879,6 @@ class MissionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2019,7 +1939,6 @@ class MissionApi
      *
      * Import Mission
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  float $latitude The current location of the requesting device (required)
      * @param  float $longitude The current location of the requesting device (required)
@@ -2034,9 +1953,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function importMission($version, $account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
+    public function importMission($account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
     {
-        list($response) = $this->importMissionWithHttpInfo($version, $account_id, $latitude, $longitude, $app_key, $keyword, $start, $limit, $ad_size, $contentType);
+        list($response) = $this->importMissionWithHttpInfo($account_id, $latitude, $longitude, $app_key, $keyword, $start, $limit, $ad_size, $contentType);
         return $response;
     }
 
@@ -2045,7 +1964,6 @@ class MissionApi
      *
      * Import Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  float $latitude The current location of the requesting device (required)
      * @param  float $longitude The current location of the requesting device (required)
@@ -2060,9 +1978,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importMissionWithHttpInfo($version, $account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
+    public function importMissionWithHttpInfo($account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
     {
-        $request = $this->importMissionRequest($version, $account_id, $latitude, $longitude, $app_key, $keyword, $start, $limit, $ad_size, $contentType);
+        $request = $this->importMissionRequest($account_id, $latitude, $longitude, $app_key, $keyword, $start, $limit, $ad_size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2138,7 +2056,6 @@ class MissionApi
      *
      * Import Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  float $latitude The current location of the requesting device (required)
      * @param  float $longitude The current location of the requesting device (required)
@@ -2152,9 +2069,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importMissionAsync($version, $account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
+    public function importMissionAsync($account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
     {
-        return $this->importMissionAsyncWithHttpInfo($version, $account_id, $latitude, $longitude, $app_key, $keyword, $start, $limit, $ad_size, $contentType)
+        return $this->importMissionAsyncWithHttpInfo($account_id, $latitude, $longitude, $app_key, $keyword, $start, $limit, $ad_size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2167,7 +2084,6 @@ class MissionApi
      *
      * Import Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  float $latitude The current location of the requesting device (required)
      * @param  float $longitude The current location of the requesting device (required)
@@ -2181,10 +2097,10 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importMissionAsyncWithHttpInfo($version, $account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
+    public function importMissionAsyncWithHttpInfo($account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->importMissionRequest($version, $account_id, $latitude, $longitude, $app_key, $keyword, $start, $limit, $ad_size, $contentType);
+        $request = $this->importMissionRequest($account_id, $latitude, $longitude, $app_key, $keyword, $start, $limit, $ad_size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2225,7 +2141,6 @@ class MissionApi
     /**
      * Create request for operation 'importMission'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  float $latitude The current location of the requesting device (required)
      * @param  float $longitude The current location of the requesting device (required)
@@ -2239,15 +2154,8 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function importMissionRequest($version, $account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
+    public function importMissionRequest($account_id, $latitude, $longitude, $app_key, $keyword = null, $start = null, $limit = null, $ad_size = null, string $contentType = self::contentTypes['importMission'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling importMission'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2282,7 +2190,7 @@ class MissionApi
 
 
 
-        $resourcePath = '/api/{version}/mission/import';
+        $resourcePath = '/mission/import';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2363,14 +2271,6 @@ class MissionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2431,7 +2331,6 @@ class MissionApi
      *
      * Search Mission Formats
      *
-     * @param  float $version version (required)
      * @param  int $start The starting index in the result set to return. Default is 0. (required)
      * @param  int $limit The total number of records to return. Default is 20. (required)
      * @param  bool $active_only Determines whether to return only active results. Default is false. (required)
@@ -2441,9 +2340,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionFormatResponse[]
      */
-    public function searchMissionFormats($version, $start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
+    public function searchMissionFormats($start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
     {
-        list($response) = $this->searchMissionFormatsWithHttpInfo($version, $start, $limit, $active_only, $contentType);
+        list($response) = $this->searchMissionFormatsWithHttpInfo($start, $limit, $active_only, $contentType);
         return $response;
     }
 
@@ -2452,7 +2351,6 @@ class MissionApi
      *
      * Search Mission Formats
      *
-     * @param  float $version (required)
      * @param  int $start The starting index in the result set to return. Default is 0. (required)
      * @param  int $limit The total number of records to return. Default is 20. (required)
      * @param  bool $active_only Determines whether to return only active results. Default is false. (required)
@@ -2462,9 +2360,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionFormatResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchMissionFormatsWithHttpInfo($version, $start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
+    public function searchMissionFormatsWithHttpInfo($start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
     {
-        $request = $this->searchMissionFormatsRequest($version, $start, $limit, $active_only, $contentType);
+        $request = $this->searchMissionFormatsRequest($start, $limit, $active_only, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2540,7 +2438,6 @@ class MissionApi
      *
      * Search Mission Formats
      *
-     * @param  float $version (required)
      * @param  int $start The starting index in the result set to return. Default is 0. (required)
      * @param  int $limit The total number of records to return. Default is 20. (required)
      * @param  bool $active_only Determines whether to return only active results. Default is false. (required)
@@ -2549,9 +2446,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMissionFormatsAsync($version, $start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
+    public function searchMissionFormatsAsync($start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
     {
-        return $this->searchMissionFormatsAsyncWithHttpInfo($version, $start, $limit, $active_only, $contentType)
+        return $this->searchMissionFormatsAsyncWithHttpInfo($start, $limit, $active_only, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2564,7 +2461,6 @@ class MissionApi
      *
      * Search Mission Formats
      *
-     * @param  float $version (required)
      * @param  int $start The starting index in the result set to return. Default is 0. (required)
      * @param  int $limit The total number of records to return. Default is 20. (required)
      * @param  bool $active_only Determines whether to return only active results. Default is false. (required)
@@ -2573,10 +2469,10 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMissionFormatsAsyncWithHttpInfo($version, $start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
+    public function searchMissionFormatsAsyncWithHttpInfo($start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionFormatResponse[]';
-        $request = $this->searchMissionFormatsRequest($version, $start, $limit, $active_only, $contentType);
+        $request = $this->searchMissionFormatsRequest($start, $limit, $active_only, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2617,7 +2513,6 @@ class MissionApi
     /**
      * Create request for operation 'searchMissionFormats'
      *
-     * @param  float $version (required)
      * @param  int $start The starting index in the result set to return. Default is 0. (required)
      * @param  int $limit The total number of records to return. Default is 20. (required)
      * @param  bool $active_only Determines whether to return only active results. Default is false. (required)
@@ -2626,15 +2521,8 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchMissionFormatsRequest($version, $start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
+    public function searchMissionFormatsRequest($start, $limit, $active_only, string $contentType = self::contentTypes['searchMissionFormats'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchMissionFormats'
-            );
-        }
 
         // verify the required parameter 'start' is set
         if ($start === null || (is_array($start) && count($start) === 0)) {
@@ -2658,7 +2546,7 @@ class MissionApi
         }
 
 
-        $resourcePath = '/api/{version}/mission/format/search';
+        $resourcePath = '/mission/format/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2694,14 +2582,6 @@ class MissionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2762,7 +2642,6 @@ class MissionApi
      *
      * Search Missions
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  string|null $sub_type Custom string client apps can use for searching/filtering missions (optional)
@@ -2780,9 +2659,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse[]
      */
-    public function searchMissions($version, $account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
+    public function searchMissions($account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
     {
-        list($response) = $this->searchMissionsWithHttpInfo($version, $account_id, $keyword, $sub_type, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
+        list($response) = $this->searchMissionsWithHttpInfo($account_id, $keyword, $sub_type, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
         return $response;
     }
 
@@ -2791,7 +2670,6 @@ class MissionApi
      *
      * Search Missions
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  string|null $sub_type Custom string client apps can use for searching/filtering missions (optional)
@@ -2809,9 +2687,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchMissionsWithHttpInfo($version, $account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
+    public function searchMissionsWithHttpInfo($account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
     {
-        $request = $this->searchMissionsRequest($version, $account_id, $keyword, $sub_type, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
+        $request = $this->searchMissionsRequest($account_id, $keyword, $sub_type, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2887,7 +2765,6 @@ class MissionApi
      *
      * Search Missions
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  string|null $sub_type Custom string client apps can use for searching/filtering missions (optional)
@@ -2904,9 +2781,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMissionsAsync($version, $account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
+    public function searchMissionsAsync($account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
     {
-        return $this->searchMissionsAsyncWithHttpInfo($version, $account_id, $keyword, $sub_type, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType)
+        return $this->searchMissionsAsyncWithHttpInfo($account_id, $keyword, $sub_type, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2919,7 +2796,6 @@ class MissionApi
      *
      * Search Missions
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  string|null $sub_type Custom string client apps can use for searching/filtering missions (optional)
@@ -2936,10 +2812,10 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMissionsAsyncWithHttpInfo($version, $account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
+    public function searchMissionsAsyncWithHttpInfo($account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse[]';
-        $request = $this->searchMissionsRequest($version, $account_id, $keyword, $sub_type, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
+        $request = $this->searchMissionsRequest($account_id, $keyword, $sub_type, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2980,7 +2856,6 @@ class MissionApi
     /**
      * Create request for operation 'searchMissions'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  string|null $sub_type Custom string client apps can use for searching/filtering missions (optional)
@@ -2997,15 +2872,8 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchMissionsRequest($version, $account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
+    public function searchMissionsRequest($account_id, $keyword = null, $sub_type = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissions'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchMissions'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3025,7 +2893,7 @@ class MissionApi
 
 
 
-        $resourcePath = '/api/{version}/mission/search';
+        $resourcePath = '/mission/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3133,14 +3001,6 @@ class MissionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3201,7 +3061,6 @@ class MissionApi
      *
      * Search Missions by Billable Entity
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional)
@@ -3218,9 +3077,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse[]
      */
-    public function searchMissionsByBillableEntity($version, $account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
+    public function searchMissionsByBillableEntity($account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
     {
-        list($response) = $this->searchMissionsByBillableEntityWithHttpInfo($version, $account_id, $keyword, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
+        list($response) = $this->searchMissionsByBillableEntityWithHttpInfo($account_id, $keyword, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
         return $response;
     }
 
@@ -3229,7 +3088,6 @@ class MissionApi
      *
      * Search Missions by Billable Entity
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional)
@@ -3246,9 +3104,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchMissionsByBillableEntityWithHttpInfo($version, $account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
+    public function searchMissionsByBillableEntityWithHttpInfo($account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
     {
-        $request = $this->searchMissionsByBillableEntityRequest($version, $account_id, $keyword, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
+        $request = $this->searchMissionsByBillableEntityRequest($account_id, $keyword, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3324,7 +3182,6 @@ class MissionApi
      *
      * Search Missions by Billable Entity
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional)
@@ -3340,9 +3197,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMissionsByBillableEntityAsync($version, $account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
+    public function searchMissionsByBillableEntityAsync($account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
     {
-        return $this->searchMissionsByBillableEntityAsyncWithHttpInfo($version, $account_id, $keyword, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType)
+        return $this->searchMissionsByBillableEntityAsyncWithHttpInfo($account_id, $keyword, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3355,7 +3212,6 @@ class MissionApi
      *
      * Search Missions by Billable Entity
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional)
@@ -3371,10 +3227,10 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMissionsByBillableEntityAsyncWithHttpInfo($version, $account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
+    public function searchMissionsByBillableEntityAsyncWithHttpInfo($account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse[]';
-        $request = $this->searchMissionsByBillableEntityRequest($version, $account_id, $keyword, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
+        $request = $this->searchMissionsByBillableEntityRequest($account_id, $keyword, $start, $limit, $include_game_data, $include_audiences, $include_inactive, $suffix, $sort_field, $descending, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3415,7 +3271,6 @@ class MissionApi
     /**
      * Create request for operation 'searchMissionsByBillableEntity'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $keyword Filter by keyword (optional)
      * @param  int|null $start The index into the record set to start with. Default is 0. (optional)
@@ -3431,15 +3286,8 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchMissionsByBillableEntityRequest($version, $account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
+    public function searchMissionsByBillableEntityRequest($account_id, $keyword = null, $start = null, $limit = null, $include_game_data = null, $include_audiences = null, $include_inactive = null, $suffix = null, $sort_field = null, $descending = null, string $contentType = self::contentTypes['searchMissionsByBillableEntity'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchMissionsByBillableEntity'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3458,7 +3306,7 @@ class MissionApi
 
 
 
-        $resourcePath = '/api/{version}/mission/searchByBillableEntity';
+        $resourcePath = '/mission/searchByBillableEntity';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3557,14 +3405,6 @@ class MissionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3625,7 +3465,6 @@ class MissionApi
      *
      * Update Mission
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to update. (required)
      * @param  string|null $title The title of the mission (optional)
@@ -3657,9 +3496,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MissionResponse
      */
-    public function updateMission($version, $account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
+    public function updateMission($account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
     {
-        list($response) = $this->updateMissionWithHttpInfo($version, $account_id, $mission_id, $title, $description, $sub_type, $meta_data, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
+        list($response) = $this->updateMissionWithHttpInfo($account_id, $mission_id, $title, $description, $sub_type, $meta_data, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
         return $response;
     }
 
@@ -3668,7 +3507,6 @@ class MissionApi
      *
      * Update Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to update. (required)
      * @param  string|null $title The title of the mission (optional)
@@ -3700,9 +3538,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MissionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMissionWithHttpInfo($version, $account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
+    public function updateMissionWithHttpInfo($account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
     {
-        $request = $this->updateMissionRequest($version, $account_id, $mission_id, $title, $description, $sub_type, $meta_data, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
+        $request = $this->updateMissionRequest($account_id, $mission_id, $title, $description, $sub_type, $meta_data, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3778,7 +3616,6 @@ class MissionApi
      *
      * Update Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to update. (required)
      * @param  string|null $title The title of the mission (optional)
@@ -3809,9 +3646,9 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMissionAsync($version, $account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
+    public function updateMissionAsync($account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
     {
-        return $this->updateMissionAsyncWithHttpInfo($version, $account_id, $mission_id, $title, $description, $sub_type, $meta_data, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType)
+        return $this->updateMissionAsyncWithHttpInfo($account_id, $mission_id, $title, $description, $sub_type, $meta_data, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3824,7 +3661,6 @@ class MissionApi
      *
      * Update Mission
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to update. (required)
      * @param  string|null $title The title of the mission (optional)
@@ -3855,10 +3691,10 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMissionAsyncWithHttpInfo($version, $account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
+    public function updateMissionAsyncWithHttpInfo($account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MissionResponse';
-        $request = $this->updateMissionRequest($version, $account_id, $mission_id, $title, $description, $sub_type, $meta_data, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
+        $request = $this->updateMissionRequest($account_id, $mission_id, $title, $description, $sub_type, $meta_data, $start_date, $end_date, $active, $game_level_ids, $creative_ids, $audience_ids, $offer_id, $balance, $advanced_reporting, $allocate_tickets, $ticket_count, $ticket_type, $points, $application_ids, $devices, $device_ids, $device_versions, $locations, $radius, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3899,7 +3735,6 @@ class MissionApi
     /**
      * Create request for operation 'updateMission'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $mission_id The id of the mission to update. (required)
      * @param  string|null $title The title of the mission (optional)
@@ -3930,15 +3765,8 @@ class MissionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMissionRequest($version, $account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
+    public function updateMissionRequest($account_id, $mission_id, $title = null, $description = null, $sub_type = null, $meta_data = null, $start_date = null, $end_date = null, $active = null, $game_level_ids = null, $creative_ids = null, $audience_ids = null, $offer_id = null, $balance = null, $advanced_reporting = null, $allocate_tickets = null, $ticket_count = null, $ticket_type = null, $points = null, $application_ids = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, string $contentType = self::contentTypes['updateMission'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateMission'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3978,7 +3806,7 @@ class MissionApi
 
 
 
-        $resourcePath = '/api/{version}/mission/update';
+        $resourcePath = '/mission/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4212,14 +4040,6 @@ class MissionApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

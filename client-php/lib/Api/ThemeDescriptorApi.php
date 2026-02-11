@@ -140,7 +140,6 @@ class ThemeDescriptorApi
      *
      * Create/Update Theme
      *
-     * @param  float $version version (required)
      * @param  bool $public_read determines whether the theme&#39;s participants have read permissions (required)
      * @param  bool $public_write determines whether the theme&#39;s participants have write permissions (required)
      * @param  bool $public_delete determines whether the theme&#39;s participants have delete permissions (required)
@@ -174,9 +173,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ThemeDescriptorResponse
      */
-    public function addOrUpdateThemeDescriptor($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
+    public function addOrUpdateThemeDescriptor($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
     {
-        list($response) = $this->addOrUpdateThemeDescriptorWithHttpInfo($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id, $account_id, $game_type, $theme_descriptor_id, $title, $description, $connection_ids_to_add, $connection_group_ids_to_add, $app_version, $color_value_json, $string_replacer_json, $custom_json_objects, $icon_image, $scene_atlas_image, $bg_image, $bg_sound, $music_selection, $location_description, $latitude, $longitude, $contentType);
+        list($response) = $this->addOrUpdateThemeDescriptorWithHttpInfo($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id, $account_id, $game_type, $theme_descriptor_id, $title, $description, $connection_ids_to_add, $connection_group_ids_to_add, $app_version, $color_value_json, $string_replacer_json, $custom_json_objects, $icon_image, $scene_atlas_image, $bg_image, $bg_sound, $music_selection, $location_description, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -185,7 +184,6 @@ class ThemeDescriptorApi
      *
      * Create/Update Theme
      *
-     * @param  float $version (required)
      * @param  bool $public_read determines whether the theme&#39;s participants have read permissions (required)
      * @param  bool $public_write determines whether the theme&#39;s participants have write permissions (required)
      * @param  bool $public_delete determines whether the theme&#39;s participants have delete permissions (required)
@@ -219,9 +217,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ThemeDescriptorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addOrUpdateThemeDescriptorWithHttpInfo($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
+    public function addOrUpdateThemeDescriptorWithHttpInfo($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
     {
-        $request = $this->addOrUpdateThemeDescriptorRequest($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id, $account_id, $game_type, $theme_descriptor_id, $title, $description, $connection_ids_to_add, $connection_group_ids_to_add, $app_version, $color_value_json, $string_replacer_json, $custom_json_objects, $icon_image, $scene_atlas_image, $bg_image, $bg_sound, $music_selection, $location_description, $latitude, $longitude, $contentType);
+        $request = $this->addOrUpdateThemeDescriptorRequest($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id, $account_id, $game_type, $theme_descriptor_id, $title, $description, $connection_ids_to_add, $connection_group_ids_to_add, $app_version, $color_value_json, $string_replacer_json, $custom_json_objects, $icon_image, $scene_atlas_image, $bg_image, $bg_sound, $music_selection, $location_description, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -297,7 +295,6 @@ class ThemeDescriptorApi
      *
      * Create/Update Theme
      *
-     * @param  float $version (required)
      * @param  bool $public_read determines whether the theme&#39;s participants have read permissions (required)
      * @param  bool $public_write determines whether the theme&#39;s participants have write permissions (required)
      * @param  bool $public_delete determines whether the theme&#39;s participants have delete permissions (required)
@@ -330,9 +327,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addOrUpdateThemeDescriptorAsync($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
+    public function addOrUpdateThemeDescriptorAsync($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
     {
-        return $this->addOrUpdateThemeDescriptorAsyncWithHttpInfo($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id, $account_id, $game_type, $theme_descriptor_id, $title, $description, $connection_ids_to_add, $connection_group_ids_to_add, $app_version, $color_value_json, $string_replacer_json, $custom_json_objects, $icon_image, $scene_atlas_image, $bg_image, $bg_sound, $music_selection, $location_description, $latitude, $longitude, $contentType)
+        return $this->addOrUpdateThemeDescriptorAsyncWithHttpInfo($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id, $account_id, $game_type, $theme_descriptor_id, $title, $description, $connection_ids_to_add, $connection_group_ids_to_add, $app_version, $color_value_json, $string_replacer_json, $custom_json_objects, $icon_image, $scene_atlas_image, $bg_image, $bg_sound, $music_selection, $location_description, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -345,7 +342,6 @@ class ThemeDescriptorApi
      *
      * Create/Update Theme
      *
-     * @param  float $version (required)
      * @param  bool $public_read determines whether the theme&#39;s participants have read permissions (required)
      * @param  bool $public_write determines whether the theme&#39;s participants have write permissions (required)
      * @param  bool $public_delete determines whether the theme&#39;s participants have delete permissions (required)
@@ -378,10 +374,10 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addOrUpdateThemeDescriptorAsyncWithHttpInfo($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
+    public function addOrUpdateThemeDescriptorAsyncWithHttpInfo($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ThemeDescriptorResponse';
-        $request = $this->addOrUpdateThemeDescriptorRequest($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id, $account_id, $game_type, $theme_descriptor_id, $title, $description, $connection_ids_to_add, $connection_group_ids_to_add, $app_version, $color_value_json, $string_replacer_json, $custom_json_objects, $icon_image, $scene_atlas_image, $bg_image, $bg_sound, $music_selection, $location_description, $latitude, $longitude, $contentType);
+        $request = $this->addOrUpdateThemeDescriptorRequest($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id, $account_id, $game_type, $theme_descriptor_id, $title, $description, $connection_ids_to_add, $connection_group_ids_to_add, $app_version, $color_value_json, $string_replacer_json, $custom_json_objects, $icon_image, $scene_atlas_image, $bg_image, $bg_sound, $music_selection, $location_description, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -422,7 +418,6 @@ class ThemeDescriptorApi
     /**
      * Create request for operation 'addOrUpdateThemeDescriptor'
      *
-     * @param  float $version (required)
      * @param  bool $public_read determines whether the theme&#39;s participants have read permissions (required)
      * @param  bool $public_write determines whether the theme&#39;s participants have write permissions (required)
      * @param  bool $public_delete determines whether the theme&#39;s participants have delete permissions (required)
@@ -455,15 +450,8 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addOrUpdateThemeDescriptorRequest($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
+    public function addOrUpdateThemeDescriptorRequest($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $complete_with_default_values, $device_id = null, $account_id = null, $game_type = null, $theme_descriptor_id = null, $title = null, $description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $app_version = null, $color_value_json = null, $string_replacer_json = null, $custom_json_objects = null, $icon_image = null, $scene_atlas_image = null, $bg_image = null, $bg_sound = null, $music_selection = null, $location_description = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateThemeDescriptor'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addOrUpdateThemeDescriptor'
-            );
-        }
 
         // verify the required parameter 'public_read' is set
         if ($public_read === null || (is_array($public_read) && count($public_read) === 0)) {
@@ -535,7 +523,7 @@ class ThemeDescriptorApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/theme';
+        $resourcePath = '/consumer/theme';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -787,14 +775,6 @@ class ThemeDescriptorApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -855,7 +835,6 @@ class ThemeDescriptorApi
      *
      * Get Theme
      *
-     * @param  float $version version (required)
      * @param  int $theme_descriptor_id the theme id (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -868,9 +847,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PurchaseItemListResponse
      */
-    public function getThemeDescriptor($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
+    public function getThemeDescriptor($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
     {
-        list($response) = $this->getThemeDescriptorWithHttpInfo($version, $theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
+        list($response) = $this->getThemeDescriptorWithHttpInfo($theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -879,7 +858,6 @@ class ThemeDescriptorApi
      *
      * Get Theme
      *
-     * @param  float $version (required)
      * @param  int $theme_descriptor_id the theme id (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -892,9 +870,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PurchaseItemListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getThemeDescriptorWithHttpInfo($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
+    public function getThemeDescriptorWithHttpInfo($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
     {
-        $request = $this->getThemeDescriptorRequest($version, $theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
+        $request = $this->getThemeDescriptorRequest($theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -970,7 +948,6 @@ class ThemeDescriptorApi
      *
      * Get Theme
      *
-     * @param  float $version (required)
      * @param  int $theme_descriptor_id the theme id (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -982,9 +959,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getThemeDescriptorAsync($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
+    public function getThemeDescriptorAsync($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
     {
-        return $this->getThemeDescriptorAsyncWithHttpInfo($version, $theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType)
+        return $this->getThemeDescriptorAsyncWithHttpInfo($theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -997,7 +974,6 @@ class ThemeDescriptorApi
      *
      * Get Theme
      *
-     * @param  float $version (required)
      * @param  int $theme_descriptor_id the theme id (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1009,10 +985,10 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getThemeDescriptorAsyncWithHttpInfo($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
+    public function getThemeDescriptorAsyncWithHttpInfo($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PurchaseItemListResponse';
-        $request = $this->getThemeDescriptorRequest($version, $theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
+        $request = $this->getThemeDescriptorRequest($theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1053,7 +1029,6 @@ class ThemeDescriptorApi
     /**
      * Create request for operation 'getThemeDescriptor'
      *
-     * @param  float $version (required)
      * @param  int $theme_descriptor_id the theme id (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1065,15 +1040,8 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getThemeDescriptorRequest($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
+    public function getThemeDescriptorRequest($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptor'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getThemeDescriptor'
-            );
-        }
 
         // verify the required parameter 'theme_descriptor_id' is set
         if ($theme_descriptor_id === null || (is_array($theme_descriptor_id) && count($theme_descriptor_id) === 0)) {
@@ -1088,7 +1056,7 @@ class ThemeDescriptorApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/theme/get';
+        $resourcePath = '/consumer/theme/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1151,14 +1119,6 @@ class ThemeDescriptorApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1219,7 +1179,6 @@ class ThemeDescriptorApi
      *
      * Search Themes
      *
-     * @param  float $version version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See ThemeDescriptorApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -1244,9 +1203,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PurchaseItemListResponse
      */
-    public function getThemeDescriptors($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
+    public function getThemeDescriptors($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
     {
-        list($response) = $this->getThemeDescriptorsWithHttpInfo($version, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $app_version, $latitude, $longitude, $contentType);
+        list($response) = $this->getThemeDescriptorsWithHttpInfo($filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $app_version, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1255,7 +1214,6 @@ class ThemeDescriptorApi
      *
      * Search Themes
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See ThemeDescriptorApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -1280,9 +1238,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PurchaseItemListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getThemeDescriptorsWithHttpInfo($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
+    public function getThemeDescriptorsWithHttpInfo($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
     {
-        $request = $this->getThemeDescriptorsRequest($version, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $app_version, $latitude, $longitude, $contentType);
+        $request = $this->getThemeDescriptorsRequest($filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $app_version, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1358,7 +1316,6 @@ class ThemeDescriptorApi
      *
      * Search Themes
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See ThemeDescriptorApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -1382,9 +1339,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getThemeDescriptorsAsync($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
+    public function getThemeDescriptorsAsync($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
     {
-        return $this->getThemeDescriptorsAsyncWithHttpInfo($version, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $app_version, $latitude, $longitude, $contentType)
+        return $this->getThemeDescriptorsAsyncWithHttpInfo($filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $app_version, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1397,7 +1354,6 @@ class ThemeDescriptorApi
      *
      * Search Themes
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See ThemeDescriptorApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -1421,10 +1377,10 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getThemeDescriptorsAsyncWithHttpInfo($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
+    public function getThemeDescriptorsAsyncWithHttpInfo($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PurchaseItemListResponse';
-        $request = $this->getThemeDescriptorsRequest($version, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $app_version, $latitude, $longitude, $contentType);
+        $request = $this->getThemeDescriptorsRequest($filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $app_version, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1465,7 +1421,6 @@ class ThemeDescriptorApi
     /**
      * Create request for operation 'getThemeDescriptors'
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See ThemeDescriptorApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -1489,15 +1444,8 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getThemeDescriptorsRequest($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
+    public function getThemeDescriptorsRequest($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $app_version = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getThemeDescriptors'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getThemeDescriptors'
-            );
-        }
 
         // verify the required parameter 'filter' is set
         if ($filter === null || (is_array($filter) && count($filter) === 0)) {
@@ -1548,7 +1496,7 @@ class ThemeDescriptorApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/theme/search';
+        $resourcePath = '/consumer/theme/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1719,14 +1667,6 @@ class ThemeDescriptorApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1787,7 +1727,6 @@ class ThemeDescriptorApi
      *
      * Delete Theme
      *
-     * @param  float $version version (required)
      * @param  int $theme_descriptor_id the theme id to remove (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1800,9 +1739,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function removeThemeDescriptor($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
+    public function removeThemeDescriptor($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
     {
-        list($response) = $this->removeThemeDescriptorWithHttpInfo($version, $theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
+        list($response) = $this->removeThemeDescriptorWithHttpInfo($theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1811,7 +1750,6 @@ class ThemeDescriptorApi
      *
      * Delete Theme
      *
-     * @param  float $version (required)
      * @param  int $theme_descriptor_id the theme id to remove (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1824,9 +1762,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeThemeDescriptorWithHttpInfo($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
+    public function removeThemeDescriptorWithHttpInfo($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
     {
-        $request = $this->removeThemeDescriptorRequest($version, $theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
+        $request = $this->removeThemeDescriptorRequest($theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1902,7 +1840,6 @@ class ThemeDescriptorApi
      *
      * Delete Theme
      *
-     * @param  float $version (required)
      * @param  int $theme_descriptor_id the theme id to remove (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1914,9 +1851,9 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeThemeDescriptorAsync($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
+    public function removeThemeDescriptorAsync($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
     {
-        return $this->removeThemeDescriptorAsyncWithHttpInfo($version, $theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType)
+        return $this->removeThemeDescriptorAsyncWithHttpInfo($theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1929,7 +1866,6 @@ class ThemeDescriptorApi
      *
      * Delete Theme
      *
-     * @param  float $version (required)
      * @param  int $theme_descriptor_id the theme id to remove (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1941,10 +1877,10 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeThemeDescriptorAsyncWithHttpInfo($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
+    public function removeThemeDescriptorAsyncWithHttpInfo($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->removeThemeDescriptorRequest($version, $theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
+        $request = $this->removeThemeDescriptorRequest($theme_descriptor_id, $device_id, $account_id, $game_type, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1985,7 +1921,6 @@ class ThemeDescriptorApi
     /**
      * Create request for operation 'removeThemeDescriptor'
      *
-     * @param  float $version (required)
      * @param  int $theme_descriptor_id the theme id to remove (required)
      * @param  string|null $device_id a unique id given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1997,15 +1932,8 @@ class ThemeDescriptorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeThemeDescriptorRequest($version, $theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
+    public function removeThemeDescriptorRequest($theme_descriptor_id, $device_id = null, $account_id = null, $game_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeThemeDescriptor'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeThemeDescriptor'
-            );
-        }
 
         // verify the required parameter 'theme_descriptor_id' is set
         if ($theme_descriptor_id === null || (is_array($theme_descriptor_id) && count($theme_descriptor_id) === 0)) {
@@ -2020,7 +1948,7 @@ class ThemeDescriptorApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/theme/remove';
+        $resourcePath = '/consumer/theme/remove';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2083,14 +2011,6 @@ class ThemeDescriptorApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

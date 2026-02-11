@@ -146,7 +146,6 @@ class BillingInfoApi
      *
      * Update Payment Method
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id Payment Method Id (optional)
      * @param  string|null $account_name the name of the account (optional)
@@ -176,9 +175,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaymentTypesResponse
      */
-    public function addPaymentMethod($version, $account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
+    public function addPaymentMethod($account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
     {
-        list($response) = $this->addPaymentMethodWithHttpInfo($version, $account_id, $payment_method_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $default_payment_method, $payment_method_nickname, $tax_id, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $contentType);
+        list($response) = $this->addPaymentMethodWithHttpInfo($account_id, $payment_method_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $default_payment_method, $payment_method_nickname, $tax_id, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $contentType);
         return $response;
     }
 
@@ -187,7 +186,6 @@ class BillingInfoApi
      *
      * Update Payment Method
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id Payment Method Id (optional)
      * @param  string|null $account_name the name of the account (optional)
@@ -217,9 +215,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaymentTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addPaymentMethodWithHttpInfo($version, $account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
+    public function addPaymentMethodWithHttpInfo($account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
     {
-        $request = $this->addPaymentMethodRequest($version, $account_id, $payment_method_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $default_payment_method, $payment_method_nickname, $tax_id, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $contentType);
+        $request = $this->addPaymentMethodRequest($account_id, $payment_method_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $default_payment_method, $payment_method_nickname, $tax_id, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -295,7 +293,6 @@ class BillingInfoApi
      *
      * Update Payment Method
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id Payment Method Id (optional)
      * @param  string|null $account_name the name of the account (optional)
@@ -324,9 +321,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addPaymentMethodAsync($version, $account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
+    public function addPaymentMethodAsync($account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
     {
-        return $this->addPaymentMethodAsyncWithHttpInfo($version, $account_id, $payment_method_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $default_payment_method, $payment_method_nickname, $tax_id, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $contentType)
+        return $this->addPaymentMethodAsyncWithHttpInfo($account_id, $payment_method_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $default_payment_method, $payment_method_nickname, $tax_id, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -339,7 +336,6 @@ class BillingInfoApi
      *
      * Update Payment Method
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id Payment Method Id (optional)
      * @param  string|null $account_name the name of the account (optional)
@@ -368,10 +364,10 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addPaymentMethodAsyncWithHttpInfo($version, $account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
+    public function addPaymentMethodAsyncWithHttpInfo($account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentTypesResponse';
-        $request = $this->addPaymentMethodRequest($version, $account_id, $payment_method_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $default_payment_method, $payment_method_nickname, $tax_id, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $contentType);
+        $request = $this->addPaymentMethodRequest($account_id, $payment_method_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $default_payment_method, $payment_method_nickname, $tax_id, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -412,7 +408,6 @@ class BillingInfoApi
     /**
      * Create request for operation 'addPaymentMethod'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id Payment Method Id (optional)
      * @param  string|null $account_name the name of the account (optional)
@@ -441,15 +436,8 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addPaymentMethodRequest($version, $account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
+    public function addPaymentMethodRequest($account_id, $payment_method_id = null, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $default_payment_method = null, $payment_method_nickname = null, $tax_id = null, $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, string $contentType = self::contentTypes['addPaymentMethod'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addPaymentMethod'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -481,7 +469,7 @@ class BillingInfoApi
 
 
 
-        $resourcePath = '/api/{version}/billing/update';
+        $resourcePath = '/billing/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -697,14 +685,6 @@ class BillingInfoApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -765,7 +745,6 @@ class BillingInfoApi
      *
      * Create Payment Method
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string|null $account_name Account Name of the credit card user (optional)
      * @param  string|null $first_name The first name on the credit card (optional)
@@ -797,9 +776,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaymentTypesResponse
      */
-    public function createPaymentMethod($version, $account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
+    public function createPaymentMethod($account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
     {
-        list($response) = $this->createPaymentMethodWithHttpInfo($version, $account_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $payment_method_nickname, $tax_id, $default_payment_method, $auth_token, $provider, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $app_key, $contentType);
+        list($response) = $this->createPaymentMethodWithHttpInfo($account_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $payment_method_nickname, $tax_id, $default_payment_method, $auth_token, $provider, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $app_key, $contentType);
         return $response;
     }
 
@@ -808,7 +787,6 @@ class BillingInfoApi
      *
      * Create Payment Method
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string|null $account_name Account Name of the credit card user (optional)
      * @param  string|null $first_name The first name on the credit card (optional)
@@ -840,9 +818,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaymentTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPaymentMethodWithHttpInfo($version, $account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
+    public function createPaymentMethodWithHttpInfo($account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
     {
-        $request = $this->createPaymentMethodRequest($version, $account_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $payment_method_nickname, $tax_id, $default_payment_method, $auth_token, $provider, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $app_key, $contentType);
+        $request = $this->createPaymentMethodRequest($account_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $payment_method_nickname, $tax_id, $default_payment_method, $auth_token, $provider, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $app_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -918,7 +896,6 @@ class BillingInfoApi
      *
      * Create Payment Method
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string|null $account_name Account Name of the credit card user (optional)
      * @param  string|null $first_name The first name on the credit card (optional)
@@ -949,9 +926,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentMethodAsync($version, $account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
+    public function createPaymentMethodAsync($account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
     {
-        return $this->createPaymentMethodAsyncWithHttpInfo($version, $account_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $payment_method_nickname, $tax_id, $default_payment_method, $auth_token, $provider, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $app_key, $contentType)
+        return $this->createPaymentMethodAsyncWithHttpInfo($account_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $payment_method_nickname, $tax_id, $default_payment_method, $auth_token, $provider, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $app_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -964,7 +941,6 @@ class BillingInfoApi
      *
      * Create Payment Method
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string|null $account_name Account Name of the credit card user (optional)
      * @param  string|null $first_name The first name on the credit card (optional)
@@ -995,10 +971,10 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentMethodAsyncWithHttpInfo($version, $account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
+    public function createPaymentMethodAsyncWithHttpInfo($account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentTypesResponse';
-        $request = $this->createPaymentMethodRequest($version, $account_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $payment_method_nickname, $tax_id, $default_payment_method, $auth_token, $provider, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $app_key, $contentType);
+        $request = $this->createPaymentMethodRequest($account_id, $account_name, $first_name, $last_name, $address, $city, $state, $postal_code, $country, $phone, $credit_card_number, $expiration_date, $ccv, $account_number, $bank_name, $routing_number, $payment_method_nickname, $tax_id, $default_payment_method, $auth_token, $provider, $provider_customer_profile_id, $provider_payment_profile_id, $meta_data, $app_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1039,7 +1015,6 @@ class BillingInfoApi
     /**
      * Create request for operation 'createPaymentMethod'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string|null $account_name Account Name of the credit card user (optional)
      * @param  string|null $first_name The first name on the credit card (optional)
@@ -1070,15 +1045,8 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createPaymentMethodRequest($version, $account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
+    public function createPaymentMethodRequest($account_id, $account_name = null, $first_name = null, $last_name = null, $address = null, $city = null, $state = null, $postal_code = null, $country = null, $phone = null, $credit_card_number = null, $expiration_date = null, $ccv = null, $account_number = null, $bank_name = null, $routing_number = null, $payment_method_nickname = null, $tax_id = null, $default_payment_method = true, $auth_token = null, $provider = 'AUTHORIZE_NET', $provider_customer_profile_id = null, $provider_payment_profile_id = null, $meta_data = null, $app_key = null, string $contentType = self::contentTypes['createPaymentMethod'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createPaymentMethod'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1112,7 +1080,7 @@ class BillingInfoApi
 
 
 
-        $resourcePath = '/api/{version}/billing/create';
+        $resourcePath = '/billing/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1346,14 +1314,6 @@ class BillingInfoApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1414,7 +1374,6 @@ class BillingInfoApi
      *
      * Create Smart Contract
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string $token_name The token name (required)
      * @param  string $token_symbol The token symbol (required)
@@ -1425,9 +1384,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaymentTypesResponse
      */
-    public function createSmartContract($version, $account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
+    public function createSmartContract($account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
     {
-        list($response) = $this->createSmartContractWithHttpInfo($version, $account_id, $token_name, $token_symbol, $payment_method_id, $contentType);
+        list($response) = $this->createSmartContractWithHttpInfo($account_id, $token_name, $token_symbol, $payment_method_id, $contentType);
         return $response;
     }
 
@@ -1436,7 +1395,6 @@ class BillingInfoApi
      *
      * Create Smart Contract
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string $token_name The token name (required)
      * @param  string $token_symbol The token symbol (required)
@@ -1447,9 +1405,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaymentTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSmartContractWithHttpInfo($version, $account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
+    public function createSmartContractWithHttpInfo($account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
     {
-        $request = $this->createSmartContractRequest($version, $account_id, $token_name, $token_symbol, $payment_method_id, $contentType);
+        $request = $this->createSmartContractRequest($account_id, $token_name, $token_symbol, $payment_method_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1525,7 +1483,6 @@ class BillingInfoApi
      *
      * Create Smart Contract
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string $token_name The token name (required)
      * @param  string $token_symbol The token symbol (required)
@@ -1535,9 +1492,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSmartContractAsync($version, $account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
+    public function createSmartContractAsync($account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
     {
-        return $this->createSmartContractAsyncWithHttpInfo($version, $account_id, $token_name, $token_symbol, $payment_method_id, $contentType)
+        return $this->createSmartContractAsyncWithHttpInfo($account_id, $token_name, $token_symbol, $payment_method_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1550,7 +1507,6 @@ class BillingInfoApi
      *
      * Create Smart Contract
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string $token_name The token name (required)
      * @param  string $token_symbol The token symbol (required)
@@ -1560,10 +1516,10 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSmartContractAsyncWithHttpInfo($version, $account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
+    public function createSmartContractAsyncWithHttpInfo($account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentTypesResponse';
-        $request = $this->createSmartContractRequest($version, $account_id, $token_name, $token_symbol, $payment_method_id, $contentType);
+        $request = $this->createSmartContractRequest($account_id, $token_name, $token_symbol, $payment_method_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1604,7 +1560,6 @@ class BillingInfoApi
     /**
      * Create request for operation 'createSmartContract'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  string $token_name The token name (required)
      * @param  string $token_symbol The token symbol (required)
@@ -1614,15 +1569,8 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createSmartContractRequest($version, $account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
+    public function createSmartContractRequest($account_id, $token_name, $token_symbol, $payment_method_id = null, string $contentType = self::contentTypes['createSmartContract'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createSmartContract'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1647,7 +1595,7 @@ class BillingInfoApi
 
 
 
-        $resourcePath = '/api/{version}/billing/crypto/transfer';
+        $resourcePath = '/billing/crypto/transfer';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1692,14 +1640,6 @@ class BillingInfoApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1760,7 +1700,6 @@ class BillingInfoApi
      *
      * Get Crypto Balances
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $owner_account_id The account to retreive balances for (optional)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -1770,9 +1709,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaymentTypesResponse
      */
-    public function getCryptoBalance($version, $account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
+    public function getCryptoBalance($account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
     {
-        list($response) = $this->getCryptoBalanceWithHttpInfo($version, $account_id, $owner_account_id, $payment_method_id, $contentType);
+        list($response) = $this->getCryptoBalanceWithHttpInfo($account_id, $owner_account_id, $payment_method_id, $contentType);
         return $response;
     }
 
@@ -1781,7 +1720,6 @@ class BillingInfoApi
      *
      * Get Crypto Balances
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $owner_account_id The account to retreive balances for (optional)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -1791,9 +1729,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaymentTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCryptoBalanceWithHttpInfo($version, $account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
+    public function getCryptoBalanceWithHttpInfo($account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
     {
-        $request = $this->getCryptoBalanceRequest($version, $account_id, $owner_account_id, $payment_method_id, $contentType);
+        $request = $this->getCryptoBalanceRequest($account_id, $owner_account_id, $payment_method_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1869,7 +1807,6 @@ class BillingInfoApi
      *
      * Get Crypto Balances
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $owner_account_id The account to retreive balances for (optional)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -1878,9 +1815,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCryptoBalanceAsync($version, $account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
+    public function getCryptoBalanceAsync($account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
     {
-        return $this->getCryptoBalanceAsyncWithHttpInfo($version, $account_id, $owner_account_id, $payment_method_id, $contentType)
+        return $this->getCryptoBalanceAsyncWithHttpInfo($account_id, $owner_account_id, $payment_method_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1893,7 +1830,6 @@ class BillingInfoApi
      *
      * Get Crypto Balances
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $owner_account_id The account to retreive balances for (optional)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -1902,10 +1838,10 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCryptoBalanceAsyncWithHttpInfo($version, $account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
+    public function getCryptoBalanceAsyncWithHttpInfo($account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentTypesResponse';
-        $request = $this->getCryptoBalanceRequest($version, $account_id, $owner_account_id, $payment_method_id, $contentType);
+        $request = $this->getCryptoBalanceRequest($account_id, $owner_account_id, $payment_method_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1946,7 +1882,6 @@ class BillingInfoApi
     /**
      * Create request for operation 'getCryptoBalance'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $owner_account_id The account to retreive balances for (optional)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -1955,15 +1890,8 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCryptoBalanceRequest($version, $account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
+    public function getCryptoBalanceRequest($account_id, $owner_account_id = null, $payment_method_id = null, string $contentType = self::contentTypes['getCryptoBalance'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getCryptoBalance'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1975,7 +1903,7 @@ class BillingInfoApi
 
 
 
-        $resourcePath = '/api/{version}/billing/crypto/get';
+        $resourcePath = '/billing/crypto/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2011,14 +1939,6 @@ class BillingInfoApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2079,7 +1999,6 @@ class BillingInfoApi
      *
      * Get Payment Method
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param  bool|null $get_current_balance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -2089,9 +2008,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaymentTypesResponse
      */
-    public function getPaymentMethod($version, $account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
+    public function getPaymentMethod($account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
     {
-        list($response) = $this->getPaymentMethodWithHttpInfo($version, $account_id, $payment_method_id, $get_current_balance, $contentType);
+        list($response) = $this->getPaymentMethodWithHttpInfo($account_id, $payment_method_id, $get_current_balance, $contentType);
         return $response;
     }
 
@@ -2100,7 +2019,6 @@ class BillingInfoApi
      *
      * Get Payment Method
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param  bool|null $get_current_balance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -2110,9 +2028,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaymentTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentMethodWithHttpInfo($version, $account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
+    public function getPaymentMethodWithHttpInfo($account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
     {
-        $request = $this->getPaymentMethodRequest($version, $account_id, $payment_method_id, $get_current_balance, $contentType);
+        $request = $this->getPaymentMethodRequest($account_id, $payment_method_id, $get_current_balance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2188,7 +2106,6 @@ class BillingInfoApi
      *
      * Get Payment Method
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param  bool|null $get_current_balance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -2197,9 +2114,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentMethodAsync($version, $account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
+    public function getPaymentMethodAsync($account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
     {
-        return $this->getPaymentMethodAsyncWithHttpInfo($version, $account_id, $payment_method_id, $get_current_balance, $contentType)
+        return $this->getPaymentMethodAsyncWithHttpInfo($account_id, $payment_method_id, $get_current_balance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2212,7 +2129,6 @@ class BillingInfoApi
      *
      * Get Payment Method
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param  bool|null $get_current_balance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -2221,10 +2137,10 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentMethodAsyncWithHttpInfo($version, $account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
+    public function getPaymentMethodAsyncWithHttpInfo($account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentTypesResponse';
-        $request = $this->getPaymentMethodRequest($version, $account_id, $payment_method_id, $get_current_balance, $contentType);
+        $request = $this->getPaymentMethodRequest($account_id, $payment_method_id, $get_current_balance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2265,7 +2181,6 @@ class BillingInfoApi
     /**
      * Create request for operation 'getPaymentMethod'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account used to perform the the request (required)
      * @param  int|null $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param  bool|null $get_current_balance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -2274,15 +2189,8 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPaymentMethodRequest($version, $account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
+    public function getPaymentMethodRequest($account_id, $payment_method_id = null, $get_current_balance = null, string $contentType = self::contentTypes['getPaymentMethod'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getPaymentMethod'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2294,7 +2202,7 @@ class BillingInfoApi
 
 
 
-        $resourcePath = '/api/{version}/billing/get';
+        $resourcePath = '/billing/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2330,14 +2238,6 @@ class BillingInfoApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2398,7 +2298,6 @@ class BillingInfoApi
      *
      * Search Payment Methods
      *
-     * @param  float $version version (required)
      * @param  int $account_id Account Id to search on (required)
      * @param  string|null $provider Provider to search on (optional, default to 'AUTHORIZE_NET')
      * @param  string|null $type the type to search on (optional)
@@ -2413,9 +2312,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaymentTypesResponse
      */
-    public function searchPaymentMethod($version, $account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
+    public function searchPaymentMethod($account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
     {
-        list($response) = $this->searchPaymentMethodWithHttpInfo($version, $account_id, $provider, $type, $keyword, $sort_field, $descending, $start, $limit, $contentType);
+        list($response) = $this->searchPaymentMethodWithHttpInfo($account_id, $provider, $type, $keyword, $sort_field, $descending, $start, $limit, $contentType);
         return $response;
     }
 
@@ -2424,7 +2323,6 @@ class BillingInfoApi
      *
      * Search Payment Methods
      *
-     * @param  float $version (required)
      * @param  int $account_id Account Id to search on (required)
      * @param  string|null $provider Provider to search on (optional, default to 'AUTHORIZE_NET')
      * @param  string|null $type the type to search on (optional)
@@ -2439,9 +2337,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaymentTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchPaymentMethodWithHttpInfo($version, $account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
+    public function searchPaymentMethodWithHttpInfo($account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
     {
-        $request = $this->searchPaymentMethodRequest($version, $account_id, $provider, $type, $keyword, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchPaymentMethodRequest($account_id, $provider, $type, $keyword, $sort_field, $descending, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2517,7 +2415,6 @@ class BillingInfoApi
      *
      * Search Payment Methods
      *
-     * @param  float $version (required)
      * @param  int $account_id Account Id to search on (required)
      * @param  string|null $provider Provider to search on (optional, default to 'AUTHORIZE_NET')
      * @param  string|null $type the type to search on (optional)
@@ -2531,9 +2428,9 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPaymentMethodAsync($version, $account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
+    public function searchPaymentMethodAsync($account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
     {
-        return $this->searchPaymentMethodAsyncWithHttpInfo($version, $account_id, $provider, $type, $keyword, $sort_field, $descending, $start, $limit, $contentType)
+        return $this->searchPaymentMethodAsyncWithHttpInfo($account_id, $provider, $type, $keyword, $sort_field, $descending, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2546,7 +2443,6 @@ class BillingInfoApi
      *
      * Search Payment Methods
      *
-     * @param  float $version (required)
      * @param  int $account_id Account Id to search on (required)
      * @param  string|null $provider Provider to search on (optional, default to 'AUTHORIZE_NET')
      * @param  string|null $type the type to search on (optional)
@@ -2560,10 +2456,10 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchPaymentMethodAsyncWithHttpInfo($version, $account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
+    public function searchPaymentMethodAsyncWithHttpInfo($account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentTypesResponse';
-        $request = $this->searchPaymentMethodRequest($version, $account_id, $provider, $type, $keyword, $sort_field, $descending, $start, $limit, $contentType);
+        $request = $this->searchPaymentMethodRequest($account_id, $provider, $type, $keyword, $sort_field, $descending, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2604,7 +2500,6 @@ class BillingInfoApi
     /**
      * Create request for operation 'searchPaymentMethod'
      *
-     * @param  float $version (required)
      * @param  int $account_id Account Id to search on (required)
      * @param  string|null $provider Provider to search on (optional, default to 'AUTHORIZE_NET')
      * @param  string|null $type the type to search on (optional)
@@ -2618,15 +2513,8 @@ class BillingInfoApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchPaymentMethodRequest($version, $account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
+    public function searchPaymentMethodRequest($account_id, $provider = 'AUTHORIZE_NET', $type = null, $keyword = null, $sort_field = 'UPDATED', $descending = true, $start = 0, $limit = 5, string $contentType = self::contentTypes['searchPaymentMethod'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchPaymentMethod'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2643,7 +2531,7 @@ class BillingInfoApi
 
 
 
-        $resourcePath = '/api/{version}/billing/search';
+        $resourcePath = '/billing/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2724,14 +2612,6 @@ class BillingInfoApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

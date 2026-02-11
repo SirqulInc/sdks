@@ -149,7 +149,6 @@ class ShipmentApi
      *
      * Cancel Shipment
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the shipment to cancel (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelShipment'] to see the possible values for this operation
      *
@@ -157,9 +156,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function cancelShipment($version, $id, string $contentType = self::contentTypes['cancelShipment'][0])
+    public function cancelShipment($id, string $contentType = self::contentTypes['cancelShipment'][0])
     {
-        $this->cancelShipmentWithHttpInfo($version, $id, $contentType);
+        $this->cancelShipmentWithHttpInfo($id, $contentType);
     }
 
     /**
@@ -167,7 +166,6 @@ class ShipmentApi
      *
      * Cancel Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to cancel (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelShipment'] to see the possible values for this operation
      *
@@ -175,9 +173,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelShipmentWithHttpInfo($version, $id, string $contentType = self::contentTypes['cancelShipment'][0])
+    public function cancelShipmentWithHttpInfo($id, string $contentType = self::contentTypes['cancelShipment'][0])
     {
-        $request = $this->cancelShipmentRequest($version, $id, $contentType);
+        $request = $this->cancelShipmentRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -217,16 +215,15 @@ class ShipmentApi
      *
      * Cancel Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to cancel (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelShipmentAsync($version, $id, string $contentType = self::contentTypes['cancelShipment'][0])
+    public function cancelShipmentAsync($id, string $contentType = self::contentTypes['cancelShipment'][0])
     {
-        return $this->cancelShipmentAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->cancelShipmentAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -239,17 +236,16 @@ class ShipmentApi
      *
      * Cancel Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to cancel (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelShipmentAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['cancelShipment'][0])
+    public function cancelShipmentAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cancelShipment'][0])
     {
         $returnType = '';
-        $request = $this->cancelShipmentRequest($version, $id, $contentType);
+        $request = $this->cancelShipmentRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -277,22 +273,14 @@ class ShipmentApi
     /**
      * Create request for operation 'cancelShipment'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to cancel (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cancelShipmentRequest($version, $id, string $contentType = self::contentTypes['cancelShipment'][0])
+    public function cancelShipmentRequest($id, string $contentType = self::contentTypes['cancelShipment'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling cancelShipment'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -302,7 +290,7 @@ class ShipmentApi
         }
 
 
-        $resourcePath = '/api/{version}/shipment/{id}/cancel';
+        $resourcePath = '/shipment/{id}/cancel';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -311,14 +299,6 @@ class ShipmentApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -387,7 +367,6 @@ class ShipmentApi
      *
      * Create Shipment
      *
-     * @param  float $version version (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipment'] to see the possible values for this operation
      *
@@ -395,9 +374,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Shipment
      */
-    public function createShipment($version, $body = null, string $contentType = self::contentTypes['createShipment'][0])
+    public function createShipment($body = null, string $contentType = self::contentTypes['createShipment'][0])
     {
-        list($response) = $this->createShipmentWithHttpInfo($version, $body, $contentType);
+        list($response) = $this->createShipmentWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -406,7 +385,6 @@ class ShipmentApi
      *
      * Create Shipment
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipment'] to see the possible values for this operation
      *
@@ -414,9 +392,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Shipment, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createShipmentWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createShipment'][0])
+    public function createShipmentWithHttpInfo($body = null, string $contentType = self::contentTypes['createShipment'][0])
     {
-        $request = $this->createShipmentRequest($version, $body, $contentType);
+        $request = $this->createShipmentRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -492,16 +470,15 @@ class ShipmentApi
      *
      * Create Shipment
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createShipmentAsync($version, $body = null, string $contentType = self::contentTypes['createShipment'][0])
+    public function createShipmentAsync($body = null, string $contentType = self::contentTypes['createShipment'][0])
     {
-        return $this->createShipmentAsyncWithHttpInfo($version, $body, $contentType)
+        return $this->createShipmentAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -514,17 +491,16 @@ class ShipmentApi
      *
      * Create Shipment
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createShipmentAsyncWithHttpInfo($version, $body = null, string $contentType = self::contentTypes['createShipment'][0])
+    public function createShipmentAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['createShipment'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Shipment';
-        $request = $this->createShipmentRequest($version, $body, $contentType);
+        $request = $this->createShipmentRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -565,26 +541,18 @@ class ShipmentApi
     /**
      * Create request for operation 'createShipment'
      *
-     * @param  float $version (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createShipmentRequest($version, $body = null, string $contentType = self::contentTypes['createShipment'][0])
+    public function createShipmentRequest($body = null, string $contentType = self::contentTypes['createShipment'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createShipment'
-            );
-        }
 
 
-
-        $resourcePath = '/api/{version}/shipment';
+        $resourcePath = '/shipment';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -593,14 +561,6 @@ class ShipmentApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -668,7 +628,6 @@ class ShipmentApi
      *
      * Delete Shipment
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the shipment to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipment'] to see the possible values for this operation
      *
@@ -676,9 +635,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteShipment($version, $id, string $contentType = self::contentTypes['deleteShipment'][0])
+    public function deleteShipment($id, string $contentType = self::contentTypes['deleteShipment'][0])
     {
-        $this->deleteShipmentWithHttpInfo($version, $id, $contentType);
+        $this->deleteShipmentWithHttpInfo($id, $contentType);
     }
 
     /**
@@ -686,7 +645,6 @@ class ShipmentApi
      *
      * Delete Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipment'] to see the possible values for this operation
      *
@@ -694,9 +652,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteShipmentWithHttpInfo($version, $id, string $contentType = self::contentTypes['deleteShipment'][0])
+    public function deleteShipmentWithHttpInfo($id, string $contentType = self::contentTypes['deleteShipment'][0])
     {
-        $request = $this->deleteShipmentRequest($version, $id, $contentType);
+        $request = $this->deleteShipmentRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -736,16 +694,15 @@ class ShipmentApi
      *
      * Delete Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteShipmentAsync($version, $id, string $contentType = self::contentTypes['deleteShipment'][0])
+    public function deleteShipmentAsync($id, string $contentType = self::contentTypes['deleteShipment'][0])
     {
-        return $this->deleteShipmentAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->deleteShipmentAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -758,17 +715,16 @@ class ShipmentApi
      *
      * Delete Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteShipmentAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['deleteShipment'][0])
+    public function deleteShipmentAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteShipment'][0])
     {
         $returnType = '';
-        $request = $this->deleteShipmentRequest($version, $id, $contentType);
+        $request = $this->deleteShipmentRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -796,22 +752,14 @@ class ShipmentApi
     /**
      * Create request for operation 'deleteShipment'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to delete (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteShipmentRequest($version, $id, string $contentType = self::contentTypes['deleteShipment'][0])
+    public function deleteShipmentRequest($id, string $contentType = self::contentTypes['deleteShipment'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteShipment'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -821,7 +769,7 @@ class ShipmentApi
         }
 
 
-        $resourcePath = '/api/{version}/shipment/{id}';
+        $resourcePath = '/shipment/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -830,14 +778,6 @@ class ShipmentApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -906,7 +846,6 @@ class ShipmentApi
      *
      * Get Shipment
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the shipment to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -914,9 +853,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Shipment
      */
-    public function getShipment($version, $id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipment($id, string $contentType = self::contentTypes['getShipment'][0])
     {
-        list($response) = $this->getShipmentWithHttpInfo($version, $id, $contentType);
+        list($response) = $this->getShipmentWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -925,7 +864,6 @@ class ShipmentApi
      *
      * Get Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -933,9 +871,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Shipment, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShipmentWithHttpInfo($version, $id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipmentWithHttpInfo($id, string $contentType = self::contentTypes['getShipment'][0])
     {
-        $request = $this->getShipmentRequest($version, $id, $contentType);
+        $request = $this->getShipmentRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1011,16 +949,15 @@ class ShipmentApi
      *
      * Get Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentAsync($version, $id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipmentAsync($id, string $contentType = self::contentTypes['getShipment'][0])
     {
-        return $this->getShipmentAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->getShipmentAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1033,17 +970,16 @@ class ShipmentApi
      *
      * Get Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipmentAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getShipment'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Shipment';
-        $request = $this->getShipmentRequest($version, $id, $contentType);
+        $request = $this->getShipmentRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1084,22 +1020,14 @@ class ShipmentApi
     /**
      * Create request for operation 'getShipment'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShipmentRequest($version, $id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipmentRequest($id, string $contentType = self::contentTypes['getShipment'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getShipment'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1109,7 +1037,7 @@ class ShipmentApi
         }
 
 
-        $resourcePath = '/api/{version}/shipment/{id}';
+        $resourcePath = '/shipment/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1118,14 +1046,6 @@ class ShipmentApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1194,7 +1114,6 @@ class ShipmentApi
      *
      * Search Shipments
      *
-     * @param  float $version version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1209,9 +1128,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Shipment[]
      */
-    public function searchShipments($version, $sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
+    public function searchShipments($sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
     {
-        list($response) = $this->searchShipmentsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $owner_id, $rider_id, $route_id, $contentType);
+        list($response) = $this->searchShipmentsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $owner_id, $rider_id, $route_id, $contentType);
         return $response;
     }
 
@@ -1220,7 +1139,6 @@ class ShipmentApi
      *
      * Search Shipments
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1235,9 +1153,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Shipment[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchShipmentsWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
+    public function searchShipmentsWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
     {
-        $request = $this->searchShipmentsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $owner_id, $rider_id, $route_id, $contentType);
+        $request = $this->searchShipmentsRequest($sort_field, $descending, $start, $limit, $active_only, $owner_id, $rider_id, $route_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1313,7 +1231,6 @@ class ShipmentApi
      *
      * Search Shipments
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1327,9 +1244,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchShipmentsAsync($version, $sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
+    public function searchShipmentsAsync($sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
     {
-        return $this->searchShipmentsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $owner_id, $rider_id, $route_id, $contentType)
+        return $this->searchShipmentsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $owner_id, $rider_id, $route_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1342,7 +1259,6 @@ class ShipmentApi
      *
      * Search Shipments
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1356,10 +1272,10 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchShipmentsAsyncWithHttpInfo($version, $sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
+    public function searchShipmentsAsyncWithHttpInfo($sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Shipment[]';
-        $request = $this->searchShipmentsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $owner_id, $rider_id, $route_id, $contentType);
+        $request = $this->searchShipmentsRequest($sort_field, $descending, $start, $limit, $active_only, $owner_id, $rider_id, $route_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1400,7 +1316,6 @@ class ShipmentApi
     /**
      * Create request for operation 'searchShipments'
      *
-     * @param  float $version (required)
      * @param  string $sort_field The field to sort by (required)
      * @param  bool $descending Determines whether the sorted list is in descending or ascending order (required)
      * @param  int $start The start index for pagination (required)
@@ -1414,15 +1329,8 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchShipmentsRequest($version, $sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
+    public function searchShipmentsRequest($sort_field, $descending, $start, $limit, $active_only, $owner_id = null, $rider_id = null, $route_id = null, string $contentType = self::contentTypes['searchShipments'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchShipments'
-            );
-        }
 
         // verify the required parameter 'sort_field' is set
         if ($sort_field === null || (is_array($sort_field) && count($sort_field) === 0)) {
@@ -1463,7 +1371,7 @@ class ShipmentApi
 
 
 
-        $resourcePath = '/api/{version}/shipment';
+        $resourcePath = '/shipment';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1544,14 +1452,6 @@ class ShipmentApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1612,7 +1512,6 @@ class ShipmentApi
      *
      * Update Shipment
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the shipment to update (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipment'] to see the possible values for this operation
@@ -1621,9 +1520,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Shipment
      */
-    public function updateShipment($version, $id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
+    public function updateShipment($id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
     {
-        list($response) = $this->updateShipmentWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->updateShipmentWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -1632,7 +1531,6 @@ class ShipmentApi
      *
      * Update Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to update (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipment'] to see the possible values for this operation
@@ -1641,9 +1539,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Shipment, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateShipmentWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
+    public function updateShipmentWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
     {
-        $request = $this->updateShipmentRequest($version, $id, $body, $contentType);
+        $request = $this->updateShipmentRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1719,7 +1617,6 @@ class ShipmentApi
      *
      * Update Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to update (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipment'] to see the possible values for this operation
@@ -1727,9 +1624,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShipmentAsync($version, $id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
+    public function updateShipmentAsync($id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
     {
-        return $this->updateShipmentAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->updateShipmentAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1742,7 +1639,6 @@ class ShipmentApi
      *
      * Update Shipment
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to update (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipment'] to see the possible values for this operation
@@ -1750,10 +1646,10 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShipmentAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
+    public function updateShipmentAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Shipment';
-        $request = $this->updateShipmentRequest($version, $id, $body, $contentType);
+        $request = $this->updateShipmentRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1794,7 +1690,6 @@ class ShipmentApi
     /**
      * Create request for operation 'updateShipment'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to update (required)
      * @param  \OpenAPI\Client\Model\Shipment|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipment'] to see the possible values for this operation
@@ -1802,15 +1697,8 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateShipmentRequest($version, $id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
+    public function updateShipmentRequest($id, $body = null, string $contentType = self::contentTypes['updateShipment'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateShipment'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1821,7 +1709,7 @@ class ShipmentApi
 
 
 
-        $resourcePath = '/api/{version}/shipment/{id}';
+        $resourcePath = '/shipment/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1830,14 +1718,6 @@ class ShipmentApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1913,7 +1793,6 @@ class ShipmentApi
      *
      * Uupdate Shipment Status
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the shipment to update status (required)
      * @param  array<string,bool>|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipmentStatus'] to see the possible values for this operation
@@ -1922,9 +1801,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateShipmentStatus($version, $id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
+    public function updateShipmentStatus($id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
     {
-        $this->updateShipmentStatusWithHttpInfo($version, $id, $body, $contentType);
+        $this->updateShipmentStatusWithHttpInfo($id, $body, $contentType);
     }
 
     /**
@@ -1932,7 +1811,6 @@ class ShipmentApi
      *
      * Uupdate Shipment Status
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to update status (required)
      * @param  array<string,bool>|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipmentStatus'] to see the possible values for this operation
@@ -1941,9 +1819,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateShipmentStatusWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
+    public function updateShipmentStatusWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
     {
-        $request = $this->updateShipmentStatusRequest($version, $id, $body, $contentType);
+        $request = $this->updateShipmentStatusRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1983,7 +1861,6 @@ class ShipmentApi
      *
      * Uupdate Shipment Status
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to update status (required)
      * @param  array<string,bool>|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipmentStatus'] to see the possible values for this operation
@@ -1991,9 +1868,9 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShipmentStatusAsync($version, $id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
+    public function updateShipmentStatusAsync($id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
     {
-        return $this->updateShipmentStatusAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->updateShipmentStatusAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2006,7 +1883,6 @@ class ShipmentApi
      *
      * Uupdate Shipment Status
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to update status (required)
      * @param  array<string,bool>|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipmentStatus'] to see the possible values for this operation
@@ -2014,10 +1890,10 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShipmentStatusAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
+    public function updateShipmentStatusAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
     {
         $returnType = '';
-        $request = $this->updateShipmentStatusRequest($version, $id, $body, $contentType);
+        $request = $this->updateShipmentStatusRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2045,7 +1921,6 @@ class ShipmentApi
     /**
      * Create request for operation 'updateShipmentStatus'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the shipment to update status (required)
      * @param  array<string,bool>|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateShipmentStatus'] to see the possible values for this operation
@@ -2053,15 +1928,8 @@ class ShipmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateShipmentStatusRequest($version, $id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
+    public function updateShipmentStatusRequest($id, $body = null, string $contentType = self::contentTypes['updateShipmentStatus'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateShipmentStatus'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2072,7 +1940,7 @@ class ShipmentApi
 
 
 
-        $resourcePath = '/api/{version}/shipment/{id}/status';
+        $resourcePath = '/shipment/{id}/status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2081,14 +1949,6 @@ class ShipmentApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(

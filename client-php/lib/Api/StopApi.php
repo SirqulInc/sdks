@@ -134,7 +134,6 @@ class StopApi
      *
      * Get Stop
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the stop to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStop'] to see the possible values for this operation
      *
@@ -142,9 +141,9 @@ class StopApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Stop
      */
-    public function getStop($version, $id, string $contentType = self::contentTypes['getStop'][0])
+    public function getStop($id, string $contentType = self::contentTypes['getStop'][0])
     {
-        list($response) = $this->getStopWithHttpInfo($version, $id, $contentType);
+        list($response) = $this->getStopWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -153,7 +152,6 @@ class StopApi
      *
      * Get Stop
      *
-     * @param  float $version (required)
      * @param  int $id the id of the stop to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStop'] to see the possible values for this operation
      *
@@ -161,9 +159,9 @@ class StopApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Stop, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStopWithHttpInfo($version, $id, string $contentType = self::contentTypes['getStop'][0])
+    public function getStopWithHttpInfo($id, string $contentType = self::contentTypes['getStop'][0])
     {
-        $request = $this->getStopRequest($version, $id, $contentType);
+        $request = $this->getStopRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,16 +237,15 @@ class StopApi
      *
      * Get Stop
      *
-     * @param  float $version (required)
      * @param  int $id the id of the stop to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStop'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStopAsync($version, $id, string $contentType = self::contentTypes['getStop'][0])
+    public function getStopAsync($id, string $contentType = self::contentTypes['getStop'][0])
     {
-        return $this->getStopAsyncWithHttpInfo($version, $id, $contentType)
+        return $this->getStopAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,17 +258,16 @@ class StopApi
      *
      * Get Stop
      *
-     * @param  float $version (required)
      * @param  int $id the id of the stop to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStop'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStopAsyncWithHttpInfo($version, $id, string $contentType = self::contentTypes['getStop'][0])
+    public function getStopAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getStop'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Stop';
-        $request = $this->getStopRequest($version, $id, $contentType);
+        $request = $this->getStopRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,22 +308,14 @@ class StopApi
     /**
      * Create request for operation 'getStop'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the stop to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStop'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStopRequest($version, $id, string $contentType = self::contentTypes['getStop'][0])
+    public function getStopRequest($id, string $contentType = self::contentTypes['getStop'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getStop'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -337,7 +325,7 @@ class StopApi
         }
 
 
-        $resourcePath = '/api/{version}/stop/{id}';
+        $resourcePath = '/stop/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -346,14 +334,6 @@ class StopApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -422,7 +402,6 @@ class StopApi
      *
      * Update Stop
      *
-     * @param  float $version version (required)
      * @param  int $id the id of the stop to update (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStop'] to see the possible values for this operation
@@ -431,9 +410,9 @@ class StopApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Stop
      */
-    public function updateStop($version, $id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
+    public function updateStop($id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
     {
-        list($response) = $this->updateStopWithHttpInfo($version, $id, $body, $contentType);
+        list($response) = $this->updateStopWithHttpInfo($id, $body, $contentType);
         return $response;
     }
 
@@ -442,7 +421,6 @@ class StopApi
      *
      * Update Stop
      *
-     * @param  float $version (required)
      * @param  int $id the id of the stop to update (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStop'] to see the possible values for this operation
@@ -451,9 +429,9 @@ class StopApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Stop, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateStopWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
+    public function updateStopWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
     {
-        $request = $this->updateStopRequest($version, $id, $body, $contentType);
+        $request = $this->updateStopRequest($id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -529,7 +507,6 @@ class StopApi
      *
      * Update Stop
      *
-     * @param  float $version (required)
      * @param  int $id the id of the stop to update (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStop'] to see the possible values for this operation
@@ -537,9 +514,9 @@ class StopApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateStopAsync($version, $id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
+    public function updateStopAsync($id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
     {
-        return $this->updateStopAsyncWithHttpInfo($version, $id, $body, $contentType)
+        return $this->updateStopAsyncWithHttpInfo($id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -552,7 +529,6 @@ class StopApi
      *
      * Update Stop
      *
-     * @param  float $version (required)
      * @param  int $id the id of the stop to update (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStop'] to see the possible values for this operation
@@ -560,10 +536,10 @@ class StopApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateStopAsyncWithHttpInfo($version, $id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
+    public function updateStopAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Stop';
-        $request = $this->updateStopRequest($version, $id, $body, $contentType);
+        $request = $this->updateStopRequest($id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -604,7 +580,6 @@ class StopApi
     /**
      * Create request for operation 'updateStop'
      *
-     * @param  float $version (required)
      * @param  int $id the id of the stop to update (required)
      * @param  \OpenAPI\Client\Model\Stop|null $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStop'] to see the possible values for this operation
@@ -612,15 +587,8 @@ class StopApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateStopRequest($version, $id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
+    public function updateStopRequest($id, $body = null, string $contentType = self::contentTypes['updateStop'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateStop'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -631,7 +599,7 @@ class StopApi
 
 
 
-        $resourcePath = '/api/{version}/stop/{id}';
+        $resourcePath = '/stop/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -640,14 +608,6 @@ class StopApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(

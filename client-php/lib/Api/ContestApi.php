@@ -146,7 +146,6 @@ class ContestApi
      *
      * Create or Update Contest
      *
-     * @param  float $version version (required)
      * @param  bool $public_read determines whether the contest&#39;s participants has read permissions (required)
      * @param  bool $public_write determines whether the contest&#39;s participants has write permissions (required)
      * @param  bool $public_delete determines whether the contest&#39;s participants has delete permissions (required)
@@ -178,9 +177,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AlbumContestResponse
      */
-    public function addOrUpdateAlbumContest($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
+    public function addOrUpdateAlbumContest($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
     {
-        list($response) = $this->addOrUpdateAlbumContestWithHttpInfo($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id, $account_id, $game_type, $app_key, $contest_type, $album_contest_id, $title, $description, $album_id1, $remove_album1, $album_id2, $remove_album2, $start_date, $end_date, $location_description, $connection_ids_to_add, $connection_group_ids_to_add, $latitude, $longitude, $contentType);
+        list($response) = $this->addOrUpdateAlbumContestWithHttpInfo($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id, $account_id, $game_type, $app_key, $contest_type, $album_contest_id, $title, $description, $album_id1, $remove_album1, $album_id2, $remove_album2, $start_date, $end_date, $location_description, $connection_ids_to_add, $connection_group_ids_to_add, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -189,7 +188,6 @@ class ContestApi
      *
      * Create or Update Contest
      *
-     * @param  float $version (required)
      * @param  bool $public_read determines whether the contest&#39;s participants has read permissions (required)
      * @param  bool $public_write determines whether the contest&#39;s participants has write permissions (required)
      * @param  bool $public_delete determines whether the contest&#39;s participants has delete permissions (required)
@@ -221,9 +219,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AlbumContestResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addOrUpdateAlbumContestWithHttpInfo($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
+    public function addOrUpdateAlbumContestWithHttpInfo($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
     {
-        $request = $this->addOrUpdateAlbumContestRequest($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id, $account_id, $game_type, $app_key, $contest_type, $album_contest_id, $title, $description, $album_id1, $remove_album1, $album_id2, $remove_album2, $start_date, $end_date, $location_description, $connection_ids_to_add, $connection_group_ids_to_add, $latitude, $longitude, $contentType);
+        $request = $this->addOrUpdateAlbumContestRequest($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id, $account_id, $game_type, $app_key, $contest_type, $album_contest_id, $title, $description, $album_id1, $remove_album1, $album_id2, $remove_album2, $start_date, $end_date, $location_description, $connection_ids_to_add, $connection_group_ids_to_add, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -299,7 +297,6 @@ class ContestApi
      *
      * Create or Update Contest
      *
-     * @param  float $version (required)
      * @param  bool $public_read determines whether the contest&#39;s participants has read permissions (required)
      * @param  bool $public_write determines whether the contest&#39;s participants has write permissions (required)
      * @param  bool $public_delete determines whether the contest&#39;s participants has delete permissions (required)
@@ -330,9 +327,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addOrUpdateAlbumContestAsync($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
+    public function addOrUpdateAlbumContestAsync($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
     {
-        return $this->addOrUpdateAlbumContestAsyncWithHttpInfo($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id, $account_id, $game_type, $app_key, $contest_type, $album_contest_id, $title, $description, $album_id1, $remove_album1, $album_id2, $remove_album2, $start_date, $end_date, $location_description, $connection_ids_to_add, $connection_group_ids_to_add, $latitude, $longitude, $contentType)
+        return $this->addOrUpdateAlbumContestAsyncWithHttpInfo($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id, $account_id, $game_type, $app_key, $contest_type, $album_contest_id, $title, $description, $album_id1, $remove_album1, $album_id2, $remove_album2, $start_date, $end_date, $location_description, $connection_ids_to_add, $connection_group_ids_to_add, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -345,7 +342,6 @@ class ContestApi
      *
      * Create or Update Contest
      *
-     * @param  float $version (required)
      * @param  bool $public_read determines whether the contest&#39;s participants has read permissions (required)
      * @param  bool $public_write determines whether the contest&#39;s participants has write permissions (required)
      * @param  bool $public_delete determines whether the contest&#39;s participants has delete permissions (required)
@@ -376,10 +372,10 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addOrUpdateAlbumContestAsyncWithHttpInfo($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
+    public function addOrUpdateAlbumContestAsyncWithHttpInfo($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AlbumContestResponse';
-        $request = $this->addOrUpdateAlbumContestRequest($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id, $account_id, $game_type, $app_key, $contest_type, $album_contest_id, $title, $description, $album_id1, $remove_album1, $album_id2, $remove_album2, $start_date, $end_date, $location_description, $connection_ids_to_add, $connection_group_ids_to_add, $latitude, $longitude, $contentType);
+        $request = $this->addOrUpdateAlbumContestRequest($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id, $account_id, $game_type, $app_key, $contest_type, $album_contest_id, $title, $description, $album_id1, $remove_album1, $album_id2, $remove_album2, $start_date, $end_date, $location_description, $connection_ids_to_add, $connection_group_ids_to_add, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -420,7 +416,6 @@ class ContestApi
     /**
      * Create request for operation 'addOrUpdateAlbumContest'
      *
-     * @param  float $version (required)
      * @param  bool $public_read determines whether the contest&#39;s participants has read permissions (required)
      * @param  bool $public_write determines whether the contest&#39;s participants has write permissions (required)
      * @param  bool $public_delete determines whether the contest&#39;s participants has delete permissions (required)
@@ -451,15 +446,8 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addOrUpdateAlbumContestRequest($version, $public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
+    public function addOrUpdateAlbumContestRequest($public_read, $public_write, $public_delete, $public_add, $visibility, $include_friend_group, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $contest_type = null, $album_contest_id = null, $title = null, $description = null, $album_id1 = null, $remove_album1 = null, $album_id2 = null, $remove_album2 = null, $start_date = null, $end_date = null, $location_description = null, $connection_ids_to_add = null, $connection_group_ids_to_add = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['addOrUpdateAlbumContest'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling addOrUpdateAlbumContest'
-            );
-        }
 
         // verify the required parameter 'public_read' is set
         if ($public_read === null || (is_array($public_read) && count($public_read) === 0)) {
@@ -523,7 +511,7 @@ class ContestApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/album/contest';
+        $resourcePath = '/consumer/album/contest';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -757,14 +745,6 @@ class ContestApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -825,7 +805,6 @@ class ContestApi
      *
      * Approve Contest
      *
-     * @param  float $version version (required)
      * @param  int $album_contest_id The ID of the album contest (required)
      * @param  string $approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -836,9 +815,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function approveAlbumContest($version, $album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
+    public function approveAlbumContest($album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
     {
-        list($response) = $this->approveAlbumContestWithHttpInfo($version, $album_contest_id, $approval_status, $device_id, $account_id, $contentType);
+        list($response) = $this->approveAlbumContestWithHttpInfo($album_contest_id, $approval_status, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -847,7 +826,6 @@ class ContestApi
      *
      * Approve Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id The ID of the album contest (required)
      * @param  string $approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -858,9 +836,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function approveAlbumContestWithHttpInfo($version, $album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
+    public function approveAlbumContestWithHttpInfo($album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
     {
-        $request = $this->approveAlbumContestRequest($version, $album_contest_id, $approval_status, $device_id, $account_id, $contentType);
+        $request = $this->approveAlbumContestRequest($album_contest_id, $approval_status, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -936,7 +914,6 @@ class ContestApi
      *
      * Approve Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id The ID of the album contest (required)
      * @param  string $approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -946,9 +923,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approveAlbumContestAsync($version, $album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
+    public function approveAlbumContestAsync($album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
     {
-        return $this->approveAlbumContestAsyncWithHttpInfo($version, $album_contest_id, $approval_status, $device_id, $account_id, $contentType)
+        return $this->approveAlbumContestAsyncWithHttpInfo($album_contest_id, $approval_status, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -961,7 +938,6 @@ class ContestApi
      *
      * Approve Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id The ID of the album contest (required)
      * @param  string $approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -971,10 +947,10 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approveAlbumContestAsyncWithHttpInfo($version, $album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
+    public function approveAlbumContestAsyncWithHttpInfo($album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->approveAlbumContestRequest($version, $album_contest_id, $approval_status, $device_id, $account_id, $contentType);
+        $request = $this->approveAlbumContestRequest($album_contest_id, $approval_status, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1015,7 +991,6 @@ class ContestApi
     /**
      * Create request for operation 'approveAlbumContest'
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id The ID of the album contest (required)
      * @param  string $approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param  string|null $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -1025,15 +1000,8 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function approveAlbumContestRequest($version, $album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
+    public function approveAlbumContestRequest($album_contest_id, $approval_status, $device_id = null, $account_id = null, string $contentType = self::contentTypes['approveAlbumContest'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling approveAlbumContest'
-            );
-        }
 
         // verify the required parameter 'album_contest_id' is set
         if ($album_contest_id === null || (is_array($album_contest_id) && count($album_contest_id) === 0)) {
@@ -1052,7 +1020,7 @@ class ContestApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/album/contest/approve';
+        $resourcePath = '/consumer/album/contest/approve';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1097,14 +1065,6 @@ class ContestApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1165,7 +1125,6 @@ class ContestApi
      *
      * Delete Contest
      *
-     * @param  float $version version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1177,9 +1136,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteContest($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
+    public function deleteContest($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
     {
-        list($response) = $this->deleteContestWithHttpInfo($version, $album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->deleteContestWithHttpInfo($album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1188,7 +1147,6 @@ class ContestApi
      *
      * Delete Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1200,9 +1158,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteContestWithHttpInfo($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
+    public function deleteContestWithHttpInfo($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
     {
-        $request = $this->deleteContestRequest($version, $album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->deleteContestRequest($album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1278,7 +1236,6 @@ class ContestApi
      *
      * Delete Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1289,9 +1246,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContestAsync($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
+    public function deleteContestAsync($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
     {
-        return $this->deleteContestAsyncWithHttpInfo($version, $album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->deleteContestAsyncWithHttpInfo($album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1304,7 +1261,6 @@ class ContestApi
      *
      * Delete Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1315,10 +1271,10 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContestAsyncWithHttpInfo($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
+    public function deleteContestAsyncWithHttpInfo($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteContestRequest($version, $album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->deleteContestRequest($album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1359,7 +1315,6 @@ class ContestApi
     /**
      * Create request for operation 'deleteContest'
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1370,15 +1325,8 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteContestRequest($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
+    public function deleteContestRequest($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['deleteContest'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteContest'
-            );
-        }
 
         // verify the required parameter 'album_contest_id' is set
         if ($album_contest_id === null || (is_array($album_contest_id) && count($album_contest_id) === 0)) {
@@ -1392,7 +1340,7 @@ class ContestApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/album/contest/remove';
+        $resourcePath = '/consumer/album/contest/remove';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1446,14 +1394,6 @@ class ContestApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1514,7 +1454,6 @@ class ContestApi
      *
      * Get Contest
      *
-     * @param  float $version version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1526,9 +1465,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AlbumContestResponse
      */
-    public function getAlbumContest($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
+    public function getAlbumContest($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
     {
-        list($response) = $this->getAlbumContestWithHttpInfo($version, $album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->getAlbumContestWithHttpInfo($album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1537,7 +1476,6 @@ class ContestApi
      *
      * Get Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1549,9 +1487,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AlbumContestResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAlbumContestWithHttpInfo($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
+    public function getAlbumContestWithHttpInfo($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
     {
-        $request = $this->getAlbumContestRequest($version, $album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getAlbumContestRequest($album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1627,7 +1565,6 @@ class ContestApi
      *
      * Get Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1638,9 +1575,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAlbumContestAsync($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
+    public function getAlbumContestAsync($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
     {
-        return $this->getAlbumContestAsyncWithHttpInfo($version, $album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->getAlbumContestAsyncWithHttpInfo($album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1653,7 +1590,6 @@ class ContestApi
      *
      * Get Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1664,10 +1600,10 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAlbumContestAsyncWithHttpInfo($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
+    public function getAlbumContestAsyncWithHttpInfo($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AlbumContestResponse';
-        $request = $this->getAlbumContestRequest($version, $album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->getAlbumContestRequest($album_contest_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1708,7 +1644,6 @@ class ContestApi
     /**
      * Create request for operation 'getAlbumContest'
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
      * @param  int|null $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1719,15 +1654,8 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAlbumContestRequest($version, $album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
+    public function getAlbumContestRequest($album_contest_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContest'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAlbumContest'
-            );
-        }
 
         // verify the required parameter 'album_contest_id' is set
         if ($album_contest_id === null || (is_array($album_contest_id) && count($album_contest_id) === 0)) {
@@ -1741,7 +1669,7 @@ class ContestApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/album/contest/get';
+        $resourcePath = '/consumer/album/contest/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1795,14 +1723,6 @@ class ContestApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1863,7 +1783,6 @@ class ContestApi
      *
      * Search Contests
      *
-     * @param  float $version version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See AlbumContestApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -1889,9 +1808,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AlbumContestListResponse
      */
-    public function getAlbumContests($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
+    public function getAlbumContests($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
     {
-        list($response) = $this->getAlbumContestsWithHttpInfo($version, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $app_key, $app_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $latitude, $longitude, $contentType);
+        list($response) = $this->getAlbumContestsWithHttpInfo($filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $app_key, $app_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -1900,7 +1819,6 @@ class ContestApi
      *
      * Search Contests
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See AlbumContestApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -1926,9 +1844,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AlbumContestListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAlbumContestsWithHttpInfo($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
+    public function getAlbumContestsWithHttpInfo($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
     {
-        $request = $this->getAlbumContestsRequest($version, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $app_key, $app_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $latitude, $longitude, $contentType);
+        $request = $this->getAlbumContestsRequest($filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $app_key, $app_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2004,7 +1922,6 @@ class ContestApi
      *
      * Search Contests
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See AlbumContestApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -2029,9 +1946,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAlbumContestsAsync($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
+    public function getAlbumContestsAsync($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
     {
-        return $this->getAlbumContestsAsyncWithHttpInfo($version, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $app_key, $app_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $latitude, $longitude, $contentType)
+        return $this->getAlbumContestsAsyncWithHttpInfo($filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $app_key, $app_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2044,7 +1961,6 @@ class ContestApi
      *
      * Search Contests
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See AlbumContestApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -2069,10 +1985,10 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAlbumContestsAsyncWithHttpInfo($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
+    public function getAlbumContestsAsyncWithHttpInfo($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AlbumContestListResponse';
-        $request = $this->getAlbumContestsRequest($version, $filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $app_key, $app_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $latitude, $longitude, $contentType);
+        $request = $this->getAlbumContestsRequest($filter, $sort_field, $descending, $start, $limit, $device_id, $account_id, $game_type, $app_key, $app_type, $contest_type, $owner_id, $q, $keyword, $_i, $_l, $date_created, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,7 +2029,6 @@ class ContestApi
     /**
      * Create request for operation 'getAlbumContests'
      *
-     * @param  float $version (required)
      * @param  string $filter a comma separated list of Ownership (required)
      * @param  string $sort_field the field to sort by. See AlbumContestApiMap (required)
      * @param  bool $descending determines whether the sorted list is in descending or ascending order (required)
@@ -2138,15 +2053,8 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAlbumContestsRequest($version, $filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
+    public function getAlbumContestsRequest($filter, $sort_field, $descending, $start, $limit, $device_id = null, $account_id = null, $game_type = null, $app_key = null, $app_type = null, $contest_type = null, $owner_id = null, $q = null, $keyword = null, $_i = null, $_l = null, $date_created = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['getAlbumContests'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAlbumContests'
-            );
-        }
 
         // verify the required parameter 'filter' is set
         if ($filter === null || (is_array($filter) && count($filter) === 0)) {
@@ -2198,7 +2106,7 @@ class ContestApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/album/contest/search';
+        $resourcePath = '/consumer/album/contest/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2378,14 +2286,6 @@ class ContestApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2446,7 +2346,6 @@ class ContestApi
      *
      * Vote on Contest
      *
-     * @param  float $version version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  int $album_id the ID of the album to vote on (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -2460,9 +2359,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AlbumContestResponse
      */
-    public function voteOnAlbumContest($version, $album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
+    public function voteOnAlbumContest($album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
     {
-        list($response) = $this->voteOnAlbumContestWithHttpInfo($version, $album_contest_id, $album_id, $device_id, $account_id, $contest_type, $latitude, $longitude, $contentType);
+        list($response) = $this->voteOnAlbumContestWithHttpInfo($album_contest_id, $album_id, $device_id, $account_id, $contest_type, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -2471,7 +2370,6 @@ class ContestApi
      *
      * Vote on Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  int $album_id the ID of the album to vote on (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -2485,9 +2383,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AlbumContestResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function voteOnAlbumContestWithHttpInfo($version, $album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
+    public function voteOnAlbumContestWithHttpInfo($album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
     {
-        $request = $this->voteOnAlbumContestRequest($version, $album_contest_id, $album_id, $device_id, $account_id, $contest_type, $latitude, $longitude, $contentType);
+        $request = $this->voteOnAlbumContestRequest($album_contest_id, $album_id, $device_id, $account_id, $contest_type, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2563,7 +2461,6 @@ class ContestApi
      *
      * Vote on Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  int $album_id the ID of the album to vote on (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -2576,9 +2473,9 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voteOnAlbumContestAsync($version, $album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
+    public function voteOnAlbumContestAsync($album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
     {
-        return $this->voteOnAlbumContestAsyncWithHttpInfo($version, $album_contest_id, $album_id, $device_id, $account_id, $contest_type, $latitude, $longitude, $contentType)
+        return $this->voteOnAlbumContestAsyncWithHttpInfo($album_contest_id, $album_id, $device_id, $account_id, $contest_type, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2591,7 +2488,6 @@ class ContestApi
      *
      * Vote on Contest
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  int $album_id the ID of the album to vote on (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -2604,10 +2500,10 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voteOnAlbumContestAsyncWithHttpInfo($version, $album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
+    public function voteOnAlbumContestAsyncWithHttpInfo($album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AlbumContestResponse';
-        $request = $this->voteOnAlbumContestRequest($version, $album_contest_id, $album_id, $device_id, $account_id, $contest_type, $latitude, $longitude, $contentType);
+        $request = $this->voteOnAlbumContestRequest($album_contest_id, $album_id, $device_id, $account_id, $contest_type, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2648,7 +2544,6 @@ class ContestApi
     /**
      * Create request for operation 'voteOnAlbumContest'
      *
-     * @param  float $version (required)
      * @param  int $album_contest_id the album contest ID (required)
      * @param  int $album_id the ID of the album to vote on (required)
      * @param  string|null $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -2661,15 +2556,8 @@ class ContestApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function voteOnAlbumContestRequest($version, $album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
+    public function voteOnAlbumContestRequest($album_contest_id, $album_id, $device_id = null, $account_id = null, $contest_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['voteOnAlbumContest'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling voteOnAlbumContest'
-            );
-        }
 
         // verify the required parameter 'album_contest_id' is set
         if ($album_contest_id === null || (is_array($album_contest_id) && count($album_contest_id) === 0)) {
@@ -2691,7 +2579,7 @@ class ContestApi
 
 
 
-        $resourcePath = '/api/{version}/consumer/album/contest/vote';
+        $resourcePath = '/consumer/album/contest/vote';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2763,14 +2651,6 @@ class ContestApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

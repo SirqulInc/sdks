@@ -167,7 +167,6 @@ class AudienceApi
      *
      * Create Audience
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the audience (required)
      * @param  string|null $description The description of the audience (optional)
@@ -203,9 +202,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AudienceResponse
      */
-    public function createAudience($version, $account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
+    public function createAudience($account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
     {
-        list($response) = $this->createAudienceWithHttpInfo($version, $account_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $start_time_offset, $end_time_offset, $send_suggestion, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
+        list($response) = $this->createAudienceWithHttpInfo($account_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $start_time_offset, $end_time_offset, $send_suggestion, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
         return $response;
     }
 
@@ -214,7 +213,6 @@ class AudienceApi
      *
      * Create Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the audience (required)
      * @param  string|null $description The description of the audience (optional)
@@ -250,9 +248,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AudienceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAudienceWithHttpInfo($version, $account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
+    public function createAudienceWithHttpInfo($account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
     {
-        $request = $this->createAudienceRequest($version, $account_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $start_time_offset, $end_time_offset, $send_suggestion, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
+        $request = $this->createAudienceRequest($account_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $start_time_offset, $end_time_offset, $send_suggestion, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -328,7 +326,6 @@ class AudienceApi
      *
      * Create Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the audience (required)
      * @param  string|null $description The description of the audience (optional)
@@ -363,9 +360,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAudienceAsync($version, $account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
+    public function createAudienceAsync($account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
     {
-        return $this->createAudienceAsyncWithHttpInfo($version, $account_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $start_time_offset, $end_time_offset, $send_suggestion, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType)
+        return $this->createAudienceAsyncWithHttpInfo($account_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $start_time_offset, $end_time_offset, $send_suggestion, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -378,7 +375,6 @@ class AudienceApi
      *
      * Create Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the audience (required)
      * @param  string|null $description The description of the audience (optional)
@@ -413,10 +409,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAudienceAsyncWithHttpInfo($version, $account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
+    public function createAudienceAsyncWithHttpInfo($account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AudienceResponse';
-        $request = $this->createAudienceRequest($version, $account_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $start_time_offset, $end_time_offset, $send_suggestion, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
+        $request = $this->createAudienceRequest($account_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $start_time_offset, $end_time_offset, $send_suggestion, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -457,7 +453,6 @@ class AudienceApi
     /**
      * Create request for operation 'createAudience'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the audience (required)
      * @param  string|null $description The description of the audience (optional)
@@ -492,15 +487,8 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createAudienceRequest($version, $account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
+    public function createAudienceRequest($account_id, $name, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $start_time_offset = null, $end_time_offset = null, $send_suggestion = true, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['createAudience'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createAudience'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -544,7 +532,7 @@ class AudienceApi
 
 
 
-        $resourcePath = '/api/{version}/audience/create';
+        $resourcePath = '/audience/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -814,14 +802,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -882,7 +862,6 @@ class AudienceApi
      *
      * Delete Audience
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudience'] to see the possible values for this operation
@@ -891,9 +870,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteAudience($version, $account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
+    public function deleteAudience($account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
     {
-        list($response) = $this->deleteAudienceWithHttpInfo($version, $account_id, $audience_id, $contentType);
+        list($response) = $this->deleteAudienceWithHttpInfo($account_id, $audience_id, $contentType);
         return $response;
     }
 
@@ -902,7 +881,6 @@ class AudienceApi
      *
      * Delete Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudience'] to see the possible values for this operation
@@ -911,9 +889,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAudienceWithHttpInfo($version, $account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
+    public function deleteAudienceWithHttpInfo($account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
     {
-        $request = $this->deleteAudienceRequest($version, $account_id, $audience_id, $contentType);
+        $request = $this->deleteAudienceRequest($account_id, $audience_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -989,7 +967,6 @@ class AudienceApi
      *
      * Delete Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudience'] to see the possible values for this operation
@@ -997,9 +974,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAudienceAsync($version, $account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
+    public function deleteAudienceAsync($account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
     {
-        return $this->deleteAudienceAsyncWithHttpInfo($version, $account_id, $audience_id, $contentType)
+        return $this->deleteAudienceAsyncWithHttpInfo($account_id, $audience_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1012,7 +989,6 @@ class AudienceApi
      *
      * Delete Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudience'] to see the possible values for this operation
@@ -1020,10 +996,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAudienceAsyncWithHttpInfo($version, $account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
+    public function deleteAudienceAsyncWithHttpInfo($account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteAudienceRequest($version, $account_id, $audience_id, $contentType);
+        $request = $this->deleteAudienceRequest($account_id, $audience_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1064,7 +1040,6 @@ class AudienceApi
     /**
      * Create request for operation 'deleteAudience'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteAudience'] to see the possible values for this operation
@@ -1072,15 +1047,8 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteAudienceRequest($version, $account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
+    public function deleteAudienceRequest($account_id, $audience_id, string $contentType = self::contentTypes['deleteAudience'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteAudience'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1097,7 +1065,7 @@ class AudienceApi
         }
 
 
-        $resourcePath = '/api/{version}/audience/delete';
+        $resourcePath = '/audience/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1124,14 +1092,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1192,16 +1152,15 @@ class AudienceApi
      *
      * Get Age Groups
      *
-     * @param  float $version version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAgeGroups'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AgeGroupResponse[]
      */
-    public function getAgeGroups($version, string $contentType = self::contentTypes['getAgeGroups'][0])
+    public function getAgeGroups(string $contentType = self::contentTypes['getAgeGroups'][0])
     {
-        list($response) = $this->getAgeGroupsWithHttpInfo($version, $contentType);
+        list($response) = $this->getAgeGroupsWithHttpInfo($contentType);
         return $response;
     }
 
@@ -1210,16 +1169,15 @@ class AudienceApi
      *
      * Get Age Groups
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAgeGroups'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AgeGroupResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAgeGroupsWithHttpInfo($version, string $contentType = self::contentTypes['getAgeGroups'][0])
+    public function getAgeGroupsWithHttpInfo(string $contentType = self::contentTypes['getAgeGroups'][0])
     {
-        $request = $this->getAgeGroupsRequest($version, $contentType);
+        $request = $this->getAgeGroupsRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1295,15 +1253,14 @@ class AudienceApi
      *
      * Get Age Groups
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAgeGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAgeGroupsAsync($version, string $contentType = self::contentTypes['getAgeGroups'][0])
+    public function getAgeGroupsAsync(string $contentType = self::contentTypes['getAgeGroups'][0])
     {
-        return $this->getAgeGroupsAsyncWithHttpInfo($version, $contentType)
+        return $this->getAgeGroupsAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1316,16 +1273,15 @@ class AudienceApi
      *
      * Get Age Groups
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAgeGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAgeGroupsAsyncWithHttpInfo($version, string $contentType = self::contentTypes['getAgeGroups'][0])
+    public function getAgeGroupsAsyncWithHttpInfo(string $contentType = self::contentTypes['getAgeGroups'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AgeGroupResponse[]';
-        $request = $this->getAgeGroupsRequest($version, $contentType);
+        $request = $this->getAgeGroupsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1366,24 +1322,16 @@ class AudienceApi
     /**
      * Create request for operation 'getAgeGroups'
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAgeGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAgeGroupsRequest($version, string $contentType = self::contentTypes['getAgeGroups'][0])
+    public function getAgeGroupsRequest(string $contentType = self::contentTypes['getAgeGroups'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAgeGroups'
-            );
-        }
 
-
-        $resourcePath = '/api/{version}/audience/ageGroups';
+        $resourcePath = '/audience/ageGroups';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1392,14 +1340,6 @@ class AudienceApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1460,7 +1400,6 @@ class AudienceApi
      *
      * Get Audience
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to return. (required)
      * @param  string|null $app_key The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -1473,9 +1412,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AudienceResponse
      */
-    public function getAudience($version, $account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
+    public function getAudience($account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
     {
-        list($response) = $this->getAudienceWithHttpInfo($version, $account_id, $audience_id, $app_key, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
+        list($response) = $this->getAudienceWithHttpInfo($account_id, $audience_id, $app_key, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
         return $response;
     }
 
@@ -1484,7 +1423,6 @@ class AudienceApi
      *
      * Get Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to return. (required)
      * @param  string|null $app_key The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -1497,9 +1435,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AudienceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAudienceWithHttpInfo($version, $account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
+    public function getAudienceWithHttpInfo($account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
     {
-        $request = $this->getAudienceRequest($version, $account_id, $audience_id, $app_key, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
+        $request = $this->getAudienceRequest($account_id, $audience_id, $app_key, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1575,7 +1513,6 @@ class AudienceApi
      *
      * Get Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to return. (required)
      * @param  string|null $app_key The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -1587,9 +1524,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAudienceAsync($version, $account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
+    public function getAudienceAsync($account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
     {
-        return $this->getAudienceAsyncWithHttpInfo($version, $account_id, $audience_id, $app_key, $return_account_count, $return_album_count, $album_types_for_count, $contentType)
+        return $this->getAudienceAsyncWithHttpInfo($account_id, $audience_id, $app_key, $return_account_count, $return_album_count, $album_types_for_count, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1602,7 +1539,6 @@ class AudienceApi
      *
      * Get Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to return. (required)
      * @param  string|null $app_key The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -1614,10 +1550,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAudienceAsyncWithHttpInfo($version, $account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
+    public function getAudienceAsyncWithHttpInfo($account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AudienceResponse';
-        $request = $this->getAudienceRequest($version, $account_id, $audience_id, $app_key, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
+        $request = $this->getAudienceRequest($account_id, $audience_id, $app_key, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1658,7 +1594,6 @@ class AudienceApi
     /**
      * Create request for operation 'getAudience'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to return. (required)
      * @param  string|null $app_key The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -1670,15 +1605,8 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAudienceRequest($version, $account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
+    public function getAudienceRequest($account_id, $audience_id, $app_key = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudience'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAudience'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1699,7 +1627,7 @@ class AudienceApi
 
 
 
-        $resourcePath = '/api/{version}/audience/get';
+        $resourcePath = '/audience/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1762,14 +1690,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1830,7 +1750,6 @@ class AudienceApi
      *
      * Search Audiences
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The logged in user. (optional)
      * @param  string|null $album_ids Comma separated list of album IDs to filter results with (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -1856,9 +1775,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchResponse[]
      */
-    public function getAudienceList($version, $account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
+    public function getAudienceList($account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
     {
-        list($response) = $this->getAudienceListWithHttpInfo($version, $account_id, $album_ids, $keyword, $keyword_fields, $sort_field, $descending, $start, $limit, $send_suggestion, $active_only, $group_by_grouping_id, $app_key, $return_global, $exact_keyword, $audience_type, $audience_types, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
+        list($response) = $this->getAudienceListWithHttpInfo($account_id, $album_ids, $keyword, $keyword_fields, $sort_field, $descending, $start, $limit, $send_suggestion, $active_only, $group_by_grouping_id, $app_key, $return_global, $exact_keyword, $audience_type, $audience_types, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
         return $response;
     }
 
@@ -1867,7 +1786,6 @@ class AudienceApi
      *
      * Search Audiences
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The logged in user. (optional)
      * @param  string|null $album_ids Comma separated list of album IDs to filter results with (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -1893,9 +1811,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAudienceListWithHttpInfo($version, $account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
+    public function getAudienceListWithHttpInfo($account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
     {
-        $request = $this->getAudienceListRequest($version, $account_id, $album_ids, $keyword, $keyword_fields, $sort_field, $descending, $start, $limit, $send_suggestion, $active_only, $group_by_grouping_id, $app_key, $return_global, $exact_keyword, $audience_type, $audience_types, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
+        $request = $this->getAudienceListRequest($account_id, $album_ids, $keyword, $keyword_fields, $sort_field, $descending, $start, $limit, $send_suggestion, $active_only, $group_by_grouping_id, $app_key, $return_global, $exact_keyword, $audience_type, $audience_types, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1971,7 +1889,6 @@ class AudienceApi
      *
      * Search Audiences
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The logged in user. (optional)
      * @param  string|null $album_ids Comma separated list of album IDs to filter results with (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -1996,9 +1913,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAudienceListAsync($version, $account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
+    public function getAudienceListAsync($account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
     {
-        return $this->getAudienceListAsyncWithHttpInfo($version, $account_id, $album_ids, $keyword, $keyword_fields, $sort_field, $descending, $start, $limit, $send_suggestion, $active_only, $group_by_grouping_id, $app_key, $return_global, $exact_keyword, $audience_type, $audience_types, $return_account_count, $return_album_count, $album_types_for_count, $contentType)
+        return $this->getAudienceListAsyncWithHttpInfo($account_id, $album_ids, $keyword, $keyword_fields, $sort_field, $descending, $start, $limit, $send_suggestion, $active_only, $group_by_grouping_id, $app_key, $return_global, $exact_keyword, $audience_type, $audience_types, $return_account_count, $return_album_count, $album_types_for_count, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2011,7 +1928,6 @@ class AudienceApi
      *
      * Search Audiences
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The logged in user. (optional)
      * @param  string|null $album_ids Comma separated list of album IDs to filter results with (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -2036,10 +1952,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAudienceListAsyncWithHttpInfo($version, $account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
+    public function getAudienceListAsyncWithHttpInfo($account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchResponse[]';
-        $request = $this->getAudienceListRequest($version, $account_id, $album_ids, $keyword, $keyword_fields, $sort_field, $descending, $start, $limit, $send_suggestion, $active_only, $group_by_grouping_id, $app_key, $return_global, $exact_keyword, $audience_type, $audience_types, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
+        $request = $this->getAudienceListRequest($account_id, $album_ids, $keyword, $keyword_fields, $sort_field, $descending, $start, $limit, $send_suggestion, $active_only, $group_by_grouping_id, $app_key, $return_global, $exact_keyword, $audience_type, $audience_types, $return_account_count, $return_album_count, $album_types_for_count, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2080,7 +1996,6 @@ class AudienceApi
     /**
      * Create request for operation 'getAudienceList'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The logged in user. (optional)
      * @param  string|null $album_ids Comma separated list of album IDs to filter results with (optional)
      * @param  string|null $keyword The keyword used to search (optional)
@@ -2105,15 +2020,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAudienceListRequest($version, $account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
+    public function getAudienceListRequest($account_id = null, $album_ids = null, $keyword = null, $keyword_fields = 'SEARCH_TAGS,NAME,DESCRIPTION', $sort_field = 'NAME', $descending = false, $start = 0, $limit = 20, $send_suggestion = null, $active_only = null, $group_by_grouping_id = null, $app_key = null, $return_global = null, $exact_keyword = null, $audience_type = null, $audience_types = null, $return_account_count = false, $return_album_count = false, $album_types_for_count = null, string $contentType = self::contentTypes['getAudienceList'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getAudienceList'
-            );
-        }
 
 
 
@@ -2134,8 +2043,7 @@ class AudienceApi
 
 
 
-
-        $resourcePath = '/api/{version}/audience/search';
+        $resourcePath = '/audience/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2315,14 +2223,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2383,7 +2283,6 @@ class AudienceApi
      *
      * Get Devices
      *
-     * @param  float $version version (required)
      * @param  bool $include_inactive If true return inactive record as well. default is false. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDevices'] to see the possible values for this operation
      *
@@ -2391,9 +2290,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AudienceDeviceResponse[]
      */
-    public function getDevices($version, $include_inactive, string $contentType = self::contentTypes['getDevices'][0])
+    public function getDevices($include_inactive, string $contentType = self::contentTypes['getDevices'][0])
     {
-        list($response) = $this->getDevicesWithHttpInfo($version, $include_inactive, $contentType);
+        list($response) = $this->getDevicesWithHttpInfo($include_inactive, $contentType);
         return $response;
     }
 
@@ -2402,7 +2301,6 @@ class AudienceApi
      *
      * Get Devices
      *
-     * @param  float $version (required)
      * @param  bool $include_inactive If true return inactive record as well. default is false. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDevices'] to see the possible values for this operation
      *
@@ -2410,9 +2308,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AudienceDeviceResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDevicesWithHttpInfo($version, $include_inactive, string $contentType = self::contentTypes['getDevices'][0])
+    public function getDevicesWithHttpInfo($include_inactive, string $contentType = self::contentTypes['getDevices'][0])
     {
-        $request = $this->getDevicesRequest($version, $include_inactive, $contentType);
+        $request = $this->getDevicesRequest($include_inactive, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2488,16 +2386,15 @@ class AudienceApi
      *
      * Get Devices
      *
-     * @param  float $version (required)
      * @param  bool $include_inactive If true return inactive record as well. default is false. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDevices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDevicesAsync($version, $include_inactive, string $contentType = self::contentTypes['getDevices'][0])
+    public function getDevicesAsync($include_inactive, string $contentType = self::contentTypes['getDevices'][0])
     {
-        return $this->getDevicesAsyncWithHttpInfo($version, $include_inactive, $contentType)
+        return $this->getDevicesAsyncWithHttpInfo($include_inactive, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2510,17 +2407,16 @@ class AudienceApi
      *
      * Get Devices
      *
-     * @param  float $version (required)
      * @param  bool $include_inactive If true return inactive record as well. default is false. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDevices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDevicesAsyncWithHttpInfo($version, $include_inactive, string $contentType = self::contentTypes['getDevices'][0])
+    public function getDevicesAsyncWithHttpInfo($include_inactive, string $contentType = self::contentTypes['getDevices'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AudienceDeviceResponse[]';
-        $request = $this->getDevicesRequest($version, $include_inactive, $contentType);
+        $request = $this->getDevicesRequest($include_inactive, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2561,22 +2457,14 @@ class AudienceApi
     /**
      * Create request for operation 'getDevices'
      *
-     * @param  float $version (required)
      * @param  bool $include_inactive If true return inactive record as well. default is false. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDevices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDevicesRequest($version, $include_inactive, string $contentType = self::contentTypes['getDevices'][0])
+    public function getDevicesRequest($include_inactive, string $contentType = self::contentTypes['getDevices'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getDevices'
-            );
-        }
 
         // verify the required parameter 'include_inactive' is set
         if ($include_inactive === null || (is_array($include_inactive) && count($include_inactive) === 0)) {
@@ -2586,7 +2474,7 @@ class AudienceApi
         }
 
 
-        $resourcePath = '/api/{version}/audience/devices';
+        $resourcePath = '/audience/devices';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2604,14 +2492,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2672,16 +2552,15 @@ class AudienceApi
      *
      * Get Experiences
      *
-     * @param  float $version version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExperiences'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function getExperiences($version, string $contentType = self::contentTypes['getExperiences'][0])
+    public function getExperiences(string $contentType = self::contentTypes['getExperiences'][0])
     {
-        list($response) = $this->getExperiencesWithHttpInfo($version, $contentType);
+        list($response) = $this->getExperiencesWithHttpInfo($contentType);
         return $response;
     }
 
@@ -2690,16 +2569,15 @@ class AudienceApi
      *
      * Get Experiences
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExperiences'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExperiencesWithHttpInfo($version, string $contentType = self::contentTypes['getExperiences'][0])
+    public function getExperiencesWithHttpInfo(string $contentType = self::contentTypes['getExperiences'][0])
     {
-        $request = $this->getExperiencesRequest($version, $contentType);
+        $request = $this->getExperiencesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2775,15 +2653,14 @@ class AudienceApi
      *
      * Get Experiences
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExperiences'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExperiencesAsync($version, string $contentType = self::contentTypes['getExperiences'][0])
+    public function getExperiencesAsync(string $contentType = self::contentTypes['getExperiences'][0])
     {
-        return $this->getExperiencesAsyncWithHttpInfo($version, $contentType)
+        return $this->getExperiencesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2796,16 +2673,15 @@ class AudienceApi
      *
      * Get Experiences
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExperiences'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExperiencesAsyncWithHttpInfo($version, string $contentType = self::contentTypes['getExperiences'][0])
+    public function getExperiencesAsyncWithHttpInfo(string $contentType = self::contentTypes['getExperiences'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->getExperiencesRequest($version, $contentType);
+        $request = $this->getExperiencesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2846,24 +2722,16 @@ class AudienceApi
     /**
      * Create request for operation 'getExperiences'
      *
-     * @param  float $version (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExperiences'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExperiencesRequest($version, string $contentType = self::contentTypes['getExperiences'][0])
+    public function getExperiencesRequest(string $contentType = self::contentTypes['getExperiences'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getExperiences'
-            );
-        }
 
-
-        $resourcePath = '/api/{version}/audience/experiences';
+        $resourcePath = '/audience/experiences';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2872,14 +2740,6 @@ class AudienceApi
 
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2940,7 +2800,6 @@ class AudienceApi
      *
      * Get GroupedAudiences
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $audience_grouping_id The audience grouping id to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupedAudiences'] to see the possible values for this operation
@@ -2949,9 +2808,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AudienceResponse
      */
-    public function getGroupedAudiences($version, $account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
+    public function getGroupedAudiences($account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
     {
-        list($response) = $this->getGroupedAudiencesWithHttpInfo($version, $account_id, $audience_grouping_id, $contentType);
+        list($response) = $this->getGroupedAudiencesWithHttpInfo($account_id, $audience_grouping_id, $contentType);
         return $response;
     }
 
@@ -2960,7 +2819,6 @@ class AudienceApi
      *
      * Get GroupedAudiences
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $audience_grouping_id The audience grouping id to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupedAudiences'] to see the possible values for this operation
@@ -2969,9 +2827,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AudienceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGroupedAudiencesWithHttpInfo($version, $account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
+    public function getGroupedAudiencesWithHttpInfo($account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
     {
-        $request = $this->getGroupedAudiencesRequest($version, $account_id, $audience_grouping_id, $contentType);
+        $request = $this->getGroupedAudiencesRequest($account_id, $audience_grouping_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3047,7 +2905,6 @@ class AudienceApi
      *
      * Get GroupedAudiences
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $audience_grouping_id The audience grouping id to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupedAudiences'] to see the possible values for this operation
@@ -3055,9 +2912,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGroupedAudiencesAsync($version, $account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
+    public function getGroupedAudiencesAsync($account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
     {
-        return $this->getGroupedAudiencesAsyncWithHttpInfo($version, $account_id, $audience_grouping_id, $contentType)
+        return $this->getGroupedAudiencesAsyncWithHttpInfo($account_id, $audience_grouping_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3070,7 +2927,6 @@ class AudienceApi
      *
      * Get GroupedAudiences
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $audience_grouping_id The audience grouping id to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupedAudiences'] to see the possible values for this operation
@@ -3078,10 +2934,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGroupedAudiencesAsyncWithHttpInfo($version, $account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
+    public function getGroupedAudiencesAsyncWithHttpInfo($account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AudienceResponse';
-        $request = $this->getGroupedAudiencesRequest($version, $account_id, $audience_grouping_id, $contentType);
+        $request = $this->getGroupedAudiencesRequest($account_id, $audience_grouping_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3122,7 +2978,6 @@ class AudienceApi
     /**
      * Create request for operation 'getGroupedAudiences'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $audience_grouping_id The audience grouping id to return. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupedAudiences'] to see the possible values for this operation
@@ -3130,15 +2985,8 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGroupedAudiencesRequest($version, $account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
+    public function getGroupedAudiencesRequest($account_id, $audience_grouping_id, string $contentType = self::contentTypes['getGroupedAudiences'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getGroupedAudiences'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3155,7 +3003,7 @@ class AudienceApi
         }
 
 
-        $resourcePath = '/api/{version}/audience/grouped/get';
+        $resourcePath = '/audience/grouped/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3182,14 +3030,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3250,7 +3090,6 @@ class AudienceApi
      *
      * List Suggestions by Audience
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $limit the limit of the index (required)
      * @param  string $suggestion_type the type of suggestion (required)
@@ -3260,9 +3099,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferListResponse
      */
-    public function listByAccount($version, $account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
+    public function listByAccount($account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
     {
-        list($response) = $this->listByAccountWithHttpInfo($version, $account_id, $limit, $suggestion_type, $contentType);
+        list($response) = $this->listByAccountWithHttpInfo($account_id, $limit, $suggestion_type, $contentType);
         return $response;
     }
 
@@ -3271,7 +3110,6 @@ class AudienceApi
      *
      * List Suggestions by Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $limit the limit of the index (required)
      * @param  string $suggestion_type the type of suggestion (required)
@@ -3281,9 +3119,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listByAccountWithHttpInfo($version, $account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
+    public function listByAccountWithHttpInfo($account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
     {
-        $request = $this->listByAccountRequest($version, $account_id, $limit, $suggestion_type, $contentType);
+        $request = $this->listByAccountRequest($account_id, $limit, $suggestion_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3359,7 +3197,6 @@ class AudienceApi
      *
      * List Suggestions by Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $limit the limit of the index (required)
      * @param  string $suggestion_type the type of suggestion (required)
@@ -3368,9 +3205,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listByAccountAsync($version, $account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
+    public function listByAccountAsync($account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
     {
-        return $this->listByAccountAsyncWithHttpInfo($version, $account_id, $limit, $suggestion_type, $contentType)
+        return $this->listByAccountAsyncWithHttpInfo($account_id, $limit, $suggestion_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3383,7 +3220,6 @@ class AudienceApi
      *
      * List Suggestions by Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $limit the limit of the index (required)
      * @param  string $suggestion_type the type of suggestion (required)
@@ -3392,10 +3228,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listByAccountAsyncWithHttpInfo($version, $account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
+    public function listByAccountAsyncWithHttpInfo($account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferListResponse';
-        $request = $this->listByAccountRequest($version, $account_id, $limit, $suggestion_type, $contentType);
+        $request = $this->listByAccountRequest($account_id, $limit, $suggestion_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3436,7 +3272,6 @@ class AudienceApi
     /**
      * Create request for operation 'listByAccount'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $limit the limit of the index (required)
      * @param  string $suggestion_type the type of suggestion (required)
@@ -3445,15 +3280,8 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listByAccountRequest($version, $account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
+    public function listByAccountRequest($account_id, $limit, $suggestion_type, string $contentType = self::contentTypes['listByAccount'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listByAccount'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3477,7 +3305,7 @@ class AudienceApi
         }
 
 
-        $resourcePath = '/api/{version}/audience/suggestion/list';
+        $resourcePath = '/audience/suggestion/list';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3513,14 +3341,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3581,7 +3401,6 @@ class AudienceApi
      *
      * List Offers by Audience
      *
-     * @param  float $version version (required)
      * @param  int $limit this is the limit of the index (required)
      * @param  string|null $gender this is the gender to list offers by (optional)
      * @param  int|null $age this is the age to list offers by (optional)
@@ -3594,9 +3413,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferListResponse
      */
-    public function listByAudience($version, $limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
+    public function listByAudience($limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
     {
-        list($response) = $this->listByAudienceWithHttpInfo($version, $limit, $gender, $age, $category_ids, $latitude, $longitude, $contentType);
+        list($response) = $this->listByAudienceWithHttpInfo($limit, $gender, $age, $category_ids, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -3605,7 +3424,6 @@ class AudienceApi
      *
      * List Offers by Audience
      *
-     * @param  float $version (required)
      * @param  int $limit this is the limit of the index (required)
      * @param  string|null $gender this is the gender to list offers by (optional)
      * @param  int|null $age this is the age to list offers by (optional)
@@ -3618,9 +3436,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listByAudienceWithHttpInfo($version, $limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
+    public function listByAudienceWithHttpInfo($limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
     {
-        $request = $this->listByAudienceRequest($version, $limit, $gender, $age, $category_ids, $latitude, $longitude, $contentType);
+        $request = $this->listByAudienceRequest($limit, $gender, $age, $category_ids, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3696,7 +3514,6 @@ class AudienceApi
      *
      * List Offers by Audience
      *
-     * @param  float $version (required)
      * @param  int $limit this is the limit of the index (required)
      * @param  string|null $gender this is the gender to list offers by (optional)
      * @param  int|null $age this is the age to list offers by (optional)
@@ -3708,9 +3525,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listByAudienceAsync($version, $limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
+    public function listByAudienceAsync($limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
     {
-        return $this->listByAudienceAsyncWithHttpInfo($version, $limit, $gender, $age, $category_ids, $latitude, $longitude, $contentType)
+        return $this->listByAudienceAsyncWithHttpInfo($limit, $gender, $age, $category_ids, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3723,7 +3540,6 @@ class AudienceApi
      *
      * List Offers by Audience
      *
-     * @param  float $version (required)
      * @param  int $limit this is the limit of the index (required)
      * @param  string|null $gender this is the gender to list offers by (optional)
      * @param  int|null $age this is the age to list offers by (optional)
@@ -3735,10 +3551,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listByAudienceAsyncWithHttpInfo($version, $limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
+    public function listByAudienceAsyncWithHttpInfo($limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferListResponse';
-        $request = $this->listByAudienceRequest($version, $limit, $gender, $age, $category_ids, $latitude, $longitude, $contentType);
+        $request = $this->listByAudienceRequest($limit, $gender, $age, $category_ids, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3779,7 +3595,6 @@ class AudienceApi
     /**
      * Create request for operation 'listByAudience'
      *
-     * @param  float $version (required)
      * @param  int $limit this is the limit of the index (required)
      * @param  string|null $gender this is the gender to list offers by (optional)
      * @param  int|null $age this is the age to list offers by (optional)
@@ -3791,15 +3606,8 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listByAudienceRequest($version, $limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
+    public function listByAudienceRequest($limit, $gender = null, $age = null, $category_ids = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['listByAudience'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listByAudience'
-            );
-        }
 
         // verify the required parameter 'limit' is set
         if ($limit === null || (is_array($limit) && count($limit) === 0)) {
@@ -3814,7 +3622,7 @@ class AudienceApi
 
 
 
-        $resourcePath = '/api/{version}/audience/suggestion/offersByAudience';
+        $resourcePath = '/audience/suggestion/offersByAudience';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3877,14 +3685,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3945,7 +3745,6 @@ class AudienceApi
      *
      * List Sent Suggestions
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $timeframe The timeframe in seconds of the latest suggestions (required)
      * @param  string $suggestion_type The type of trigger suggestions to return (required)
@@ -3955,9 +3754,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OfferListResponse
      */
-    public function listLastestByAccount($version, $account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
+    public function listLastestByAccount($account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
     {
-        list($response) = $this->listLastestByAccountWithHttpInfo($version, $account_id, $timeframe, $suggestion_type, $contentType);
+        list($response) = $this->listLastestByAccountWithHttpInfo($account_id, $timeframe, $suggestion_type, $contentType);
         return $response;
     }
 
@@ -3966,7 +3765,6 @@ class AudienceApi
      *
      * List Sent Suggestions
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $timeframe The timeframe in seconds of the latest suggestions (required)
      * @param  string $suggestion_type The type of trigger suggestions to return (required)
@@ -3976,9 +3774,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OfferListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listLastestByAccountWithHttpInfo($version, $account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
+    public function listLastestByAccountWithHttpInfo($account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
     {
-        $request = $this->listLastestByAccountRequest($version, $account_id, $timeframe, $suggestion_type, $contentType);
+        $request = $this->listLastestByAccountRequest($account_id, $timeframe, $suggestion_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4054,7 +3852,6 @@ class AudienceApi
      *
      * List Sent Suggestions
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $timeframe The timeframe in seconds of the latest suggestions (required)
      * @param  string $suggestion_type The type of trigger suggestions to return (required)
@@ -4063,9 +3860,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listLastestByAccountAsync($version, $account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
+    public function listLastestByAccountAsync($account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
     {
-        return $this->listLastestByAccountAsyncWithHttpInfo($version, $account_id, $timeframe, $suggestion_type, $contentType)
+        return $this->listLastestByAccountAsyncWithHttpInfo($account_id, $timeframe, $suggestion_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4078,7 +3875,6 @@ class AudienceApi
      *
      * List Sent Suggestions
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $timeframe The timeframe in seconds of the latest suggestions (required)
      * @param  string $suggestion_type The type of trigger suggestions to return (required)
@@ -4087,10 +3883,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listLastestByAccountAsyncWithHttpInfo($version, $account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
+    public function listLastestByAccountAsyncWithHttpInfo($account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OfferListResponse';
-        $request = $this->listLastestByAccountRequest($version, $account_id, $timeframe, $suggestion_type, $contentType);
+        $request = $this->listLastestByAccountRequest($account_id, $timeframe, $suggestion_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4131,7 +3927,6 @@ class AudienceApi
     /**
      * Create request for operation 'listLastestByAccount'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  int $timeframe The timeframe in seconds of the latest suggestions (required)
      * @param  string $suggestion_type The type of trigger suggestions to return (required)
@@ -4140,15 +3935,8 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listLastestByAccountRequest($version, $account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
+    public function listLastestByAccountRequest($account_id, $timeframe, $suggestion_type, string $contentType = self::contentTypes['listLastestByAccount'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling listLastestByAccount'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4172,7 +3960,7 @@ class AudienceApi
         }
 
 
-        $resourcePath = '/api/{version}/audience/suggestion/latest';
+        $resourcePath = '/audience/suggestion/latest';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4208,14 +3996,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4276,7 +4056,6 @@ class AudienceApi
      *
      * Send Suggestions
      *
-     * @param  float $version version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  float $latitude the latitude (required)
      * @param  float $longitude the longitude (required)
@@ -4286,9 +4065,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function sendByAccount($version, $account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
+    public function sendByAccount($account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
     {
-        list($response) = $this->sendByAccountWithHttpInfo($version, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->sendByAccountWithHttpInfo($account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -4297,7 +4076,6 @@ class AudienceApi
      *
      * Send Suggestions
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  float $latitude the latitude (required)
      * @param  float $longitude the longitude (required)
@@ -4307,9 +4085,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendByAccountWithHttpInfo($version, $account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
+    public function sendByAccountWithHttpInfo($account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
     {
-        $request = $this->sendByAccountRequest($version, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->sendByAccountRequest($account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4385,7 +4163,6 @@ class AudienceApi
      *
      * Send Suggestions
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  float $latitude the latitude (required)
      * @param  float $longitude the longitude (required)
@@ -4394,9 +4171,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendByAccountAsync($version, $account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
+    public function sendByAccountAsync($account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
     {
-        return $this->sendByAccountAsyncWithHttpInfo($version, $account_id, $latitude, $longitude, $contentType)
+        return $this->sendByAccountAsyncWithHttpInfo($account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4409,7 +4186,6 @@ class AudienceApi
      *
      * Send Suggestions
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  float $latitude the latitude (required)
      * @param  float $longitude the longitude (required)
@@ -4418,10 +4194,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendByAccountAsyncWithHttpInfo($version, $account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
+    public function sendByAccountAsyncWithHttpInfo($account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->sendByAccountRequest($version, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->sendByAccountRequest($account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4462,7 +4238,6 @@ class AudienceApi
     /**
      * Create request for operation 'sendByAccount'
      *
-     * @param  float $version (required)
      * @param  int $account_id The account to match offers for. (required)
      * @param  float $latitude the latitude (required)
      * @param  float $longitude the longitude (required)
@@ -4471,15 +4246,8 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendByAccountRequest($version, $account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
+    public function sendByAccountRequest($account_id, $latitude, $longitude, string $contentType = self::contentTypes['sendByAccount'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling sendByAccount'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4503,7 +4271,7 @@ class AudienceApi
         }
 
 
-        $resourcePath = '/api/{version}/audience/suggestion/send';
+        $resourcePath = '/audience/suggestion/send';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4539,14 +4307,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4607,7 +4367,6 @@ class AudienceApi
      *
      * Update Audience
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to update. (required)
      * @param  string|null $name The name of the audience (optional)
@@ -4645,9 +4404,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AudienceResponse
      */
-    public function updateAudience($version, $account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
+    public function updateAudience($account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
     {
-        list($response) = $this->updateAudienceWithHttpInfo($version, $account_id, $audience_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $active, $send_suggestion, $start_time_offset, $end_time_offset, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
+        list($response) = $this->updateAudienceWithHttpInfo($account_id, $audience_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $active, $send_suggestion, $start_time_offset, $end_time_offset, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
         return $response;
     }
 
@@ -4656,7 +4415,6 @@ class AudienceApi
      *
      * Update Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to update. (required)
      * @param  string|null $name The name of the audience (optional)
@@ -4694,9 +4452,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AudienceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAudienceWithHttpInfo($version, $account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
+    public function updateAudienceWithHttpInfo($account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
     {
-        $request = $this->updateAudienceRequest($version, $account_id, $audience_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $active, $send_suggestion, $start_time_offset, $end_time_offset, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
+        $request = $this->updateAudienceRequest($account_id, $audience_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $active, $send_suggestion, $start_time_offset, $end_time_offset, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4772,7 +4530,6 @@ class AudienceApi
      *
      * Update Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to update. (required)
      * @param  string|null $name The name of the audience (optional)
@@ -4809,9 +4566,9 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAudienceAsync($version, $account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
+    public function updateAudienceAsync($account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
     {
-        return $this->updateAudienceAsyncWithHttpInfo($version, $account_id, $audience_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $active, $send_suggestion, $start_time_offset, $end_time_offset, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType)
+        return $this->updateAudienceAsyncWithHttpInfo($account_id, $audience_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $active, $send_suggestion, $start_time_offset, $end_time_offset, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4824,7 +4581,6 @@ class AudienceApi
      *
      * Update Audience
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to update. (required)
      * @param  string|null $name The name of the audience (optional)
@@ -4861,10 +4617,10 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAudienceAsyncWithHttpInfo($version, $account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
+    public function updateAudienceAsyncWithHttpInfo($account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AudienceResponse';
-        $request = $this->updateAudienceRequest($version, $account_id, $audience_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $active, $send_suggestion, $start_time_offset, $end_time_offset, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
+        $request = $this->updateAudienceRequest($account_id, $audience_id, $name, $description, $search_tags, $gender, $age_groups, $category_ids, $application_ids, $game_experience_level, $devices, $device_ids, $device_versions, $locations, $radius, $active, $send_suggestion, $start_time_offset, $end_time_offset, $associate_description, $associate_type, $associate_id, $grouping_id, $meta_data, $visibility, $audience_type, $use_order, $cohort_regions_data, $app_key, $trilateration_types, $unique_name, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4905,7 +4661,6 @@ class AudienceApi
     /**
      * Create request for operation 'updateAudience'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  int $audience_id The id of the audience to update. (required)
      * @param  string|null $name The name of the audience (optional)
@@ -4942,15 +4697,8 @@ class AudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateAudienceRequest($version, $account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
+    public function updateAudienceRequest($account_id, $audience_id, $name = null, $description = null, $search_tags = null, $gender = null, $age_groups = null, $category_ids = null, $application_ids = null, $game_experience_level = null, $devices = null, $device_ids = null, $device_versions = null, $locations = null, $radius = null, $active = null, $send_suggestion = null, $start_time_offset = null, $end_time_offset = null, $associate_description = null, $associate_type = null, $associate_id = null, $grouping_id = null, $meta_data = null, $visibility = null, $audience_type = null, $use_order = null, $cohort_regions_data = null, $app_key = null, $trilateration_types = null, $unique_name = null, string $contentType = self::contentTypes['updateAudience'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateAudience'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -4996,7 +4744,7 @@ class AudienceApi
 
 
 
-        $resourcePath = '/api/{version}/audience/update';
+        $resourcePath = '/audience/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5284,14 +5032,6 @@ class AudienceApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

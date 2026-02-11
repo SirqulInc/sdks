@@ -146,7 +146,6 @@ class ScheduledNotificationApi
      *
      * Create Scheduled Notification
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the scheduled notification (required)
      * @param  string $type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -187,9 +186,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ScheduledNotificationFullResponse
      */
-    public function createScheduledNotification($version, $account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
+    public function createScheduledNotification($account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
     {
-        list($response) = $this->createScheduledNotificationWithHttpInfo($version, $account_id, $name, $type, $message, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
+        list($response) = $this->createScheduledNotificationWithHttpInfo($account_id, $name, $type, $message, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
         return $response;
     }
 
@@ -198,7 +197,6 @@ class ScheduledNotificationApi
      *
      * Create Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the scheduled notification (required)
      * @param  string $type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -239,9 +237,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ScheduledNotificationFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createScheduledNotificationWithHttpInfo($version, $account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
+    public function createScheduledNotificationWithHttpInfo($account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
     {
-        $request = $this->createScheduledNotificationRequest($version, $account_id, $name, $type, $message, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
+        $request = $this->createScheduledNotificationRequest($account_id, $name, $type, $message, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -317,7 +315,6 @@ class ScheduledNotificationApi
      *
      * Create Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the scheduled notification (required)
      * @param  string $type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -357,9 +354,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createScheduledNotificationAsync($version, $account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
+    public function createScheduledNotificationAsync($account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
     {
-        return $this->createScheduledNotificationAsyncWithHttpInfo($version, $account_id, $name, $type, $message, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType)
+        return $this->createScheduledNotificationAsyncWithHttpInfo($account_id, $name, $type, $message, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -372,7 +369,6 @@ class ScheduledNotificationApi
      *
      * Create Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the scheduled notification (required)
      * @param  string $type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -412,10 +408,10 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createScheduledNotificationAsyncWithHttpInfo($version, $account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
+    public function createScheduledNotificationAsyncWithHttpInfo($account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ScheduledNotificationFullResponse';
-        $request = $this->createScheduledNotificationRequest($version, $account_id, $name, $type, $message, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
+        $request = $this->createScheduledNotificationRequest($account_id, $name, $type, $message, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $payload, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -456,7 +452,6 @@ class ScheduledNotificationApi
     /**
      * Create request for operation 'createScheduledNotification'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $name The name of the scheduled notification (required)
      * @param  string $type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -496,15 +491,8 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createScheduledNotificationRequest($version, $account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
+    public function createScheduledNotificationRequest($account_id, $name, $type, $message, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $payload = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['createScheduledNotification'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createScheduledNotification'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -565,7 +553,7 @@ class ScheduledNotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/schedule/create';
+        $resourcePath = '/notification/schedule/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -880,14 +868,6 @@ class ScheduledNotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -948,7 +928,6 @@ class ScheduledNotificationApi
      *
      * Delete Scheduled Notification
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to delete (required)
      * @param  bool|null $delete_by_grouping_id If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -958,9 +937,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ScheduledNotificationFullResponse
      */
-    public function deleteScheduledNotification($version, $account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
+    public function deleteScheduledNotification($account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
     {
-        list($response) = $this->deleteScheduledNotificationWithHttpInfo($version, $account_id, $scheduled_notification_id, $delete_by_grouping_id, $contentType);
+        list($response) = $this->deleteScheduledNotificationWithHttpInfo($account_id, $scheduled_notification_id, $delete_by_grouping_id, $contentType);
         return $response;
     }
 
@@ -969,7 +948,6 @@ class ScheduledNotificationApi
      *
      * Delete Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to delete (required)
      * @param  bool|null $delete_by_grouping_id If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -979,9 +957,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ScheduledNotificationFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteScheduledNotificationWithHttpInfo($version, $account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
+    public function deleteScheduledNotificationWithHttpInfo($account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
     {
-        $request = $this->deleteScheduledNotificationRequest($version, $account_id, $scheduled_notification_id, $delete_by_grouping_id, $contentType);
+        $request = $this->deleteScheduledNotificationRequest($account_id, $scheduled_notification_id, $delete_by_grouping_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1057,7 +1035,6 @@ class ScheduledNotificationApi
      *
      * Delete Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to delete (required)
      * @param  bool|null $delete_by_grouping_id If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -1066,9 +1043,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteScheduledNotificationAsync($version, $account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
+    public function deleteScheduledNotificationAsync($account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
     {
-        return $this->deleteScheduledNotificationAsyncWithHttpInfo($version, $account_id, $scheduled_notification_id, $delete_by_grouping_id, $contentType)
+        return $this->deleteScheduledNotificationAsyncWithHttpInfo($account_id, $scheduled_notification_id, $delete_by_grouping_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1081,7 +1058,6 @@ class ScheduledNotificationApi
      *
      * Delete Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to delete (required)
      * @param  bool|null $delete_by_grouping_id If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -1090,10 +1066,10 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteScheduledNotificationAsyncWithHttpInfo($version, $account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
+    public function deleteScheduledNotificationAsyncWithHttpInfo($account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ScheduledNotificationFullResponse';
-        $request = $this->deleteScheduledNotificationRequest($version, $account_id, $scheduled_notification_id, $delete_by_grouping_id, $contentType);
+        $request = $this->deleteScheduledNotificationRequest($account_id, $scheduled_notification_id, $delete_by_grouping_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1134,7 +1110,6 @@ class ScheduledNotificationApi
     /**
      * Create request for operation 'deleteScheduledNotification'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the logged in user (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to delete (required)
      * @param  bool|null $delete_by_grouping_id If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -1143,15 +1118,8 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteScheduledNotificationRequest($version, $account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
+    public function deleteScheduledNotificationRequest($account_id, $scheduled_notification_id, $delete_by_grouping_id = null, string $contentType = self::contentTypes['deleteScheduledNotification'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteScheduledNotification'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1169,7 +1137,7 @@ class ScheduledNotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/schedule/delete';
+        $resourcePath = '/notification/schedule/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1205,14 +1173,6 @@ class ScheduledNotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1273,7 +1233,6 @@ class ScheduledNotificationApi
      *
      * Get Scheduled Notification
      *
-     * @param  float $version version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getScheduledNotification'] to see the possible values for this operation
@@ -1282,9 +1241,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ScheduledNotificationFullResponse
      */
-    public function getScheduledNotification($version, $account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
+    public function getScheduledNotification($account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
     {
-        list($response) = $this->getScheduledNotificationWithHttpInfo($version, $account_id, $scheduled_notification_id, $contentType);
+        list($response) = $this->getScheduledNotificationWithHttpInfo($account_id, $scheduled_notification_id, $contentType);
         return $response;
     }
 
@@ -1293,7 +1252,6 @@ class ScheduledNotificationApi
      *
      * Get Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getScheduledNotification'] to see the possible values for this operation
@@ -1302,9 +1260,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ScheduledNotificationFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getScheduledNotificationWithHttpInfo($version, $account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
+    public function getScheduledNotificationWithHttpInfo($account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
     {
-        $request = $this->getScheduledNotificationRequest($version, $account_id, $scheduled_notification_id, $contentType);
+        $request = $this->getScheduledNotificationRequest($account_id, $scheduled_notification_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1380,7 +1338,6 @@ class ScheduledNotificationApi
      *
      * Get Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getScheduledNotification'] to see the possible values for this operation
@@ -1388,9 +1345,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getScheduledNotificationAsync($version, $account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
+    public function getScheduledNotificationAsync($account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
     {
-        return $this->getScheduledNotificationAsyncWithHttpInfo($version, $account_id, $scheduled_notification_id, $contentType)
+        return $this->getScheduledNotificationAsyncWithHttpInfo($account_id, $scheduled_notification_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1403,7 +1360,6 @@ class ScheduledNotificationApi
      *
      * Get Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getScheduledNotification'] to see the possible values for this operation
@@ -1411,10 +1367,10 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getScheduledNotificationAsyncWithHttpInfo($version, $account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
+    public function getScheduledNotificationAsyncWithHttpInfo($account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ScheduledNotificationFullResponse';
-        $request = $this->getScheduledNotificationRequest($version, $account_id, $scheduled_notification_id, $contentType);
+        $request = $this->getScheduledNotificationRequest($account_id, $scheduled_notification_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1455,7 +1411,6 @@ class ScheduledNotificationApi
     /**
      * Create request for operation 'getScheduledNotification'
      *
-     * @param  float $version (required)
      * @param  int $account_id the id of the account logged in (required)
      * @param  int $scheduled_notification_id the id of the scheduled notification to get (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getScheduledNotification'] to see the possible values for this operation
@@ -1463,15 +1418,8 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getScheduledNotificationRequest($version, $account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
+    public function getScheduledNotificationRequest($account_id, $scheduled_notification_id, string $contentType = self::contentTypes['getScheduledNotification'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getScheduledNotification'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1488,7 +1436,7 @@ class ScheduledNotificationApi
         }
 
 
-        $resourcePath = '/api/{version}/notification/schedule/get';
+        $resourcePath = '/notification/schedule/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1515,14 +1463,6 @@ class ScheduledNotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1583,7 +1523,6 @@ class ScheduledNotificationApi
      *
      * Generate Schedule Notifications
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  string $report_name The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -1598,9 +1537,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function scheduleNotificationListings($version, $account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
+    public function scheduleNotificationListings($account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
     {
-        list($response) = $this->scheduleNotificationListingsWithHttpInfo($version, $account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params, $type, $contentType);
+        list($response) = $this->scheduleNotificationListingsWithHttpInfo($account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params, $type, $contentType);
         return $response;
     }
 
@@ -1609,7 +1548,6 @@ class ScheduledNotificationApi
      *
      * Generate Schedule Notifications
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  string $report_name The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -1624,9 +1562,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function scheduleNotificationListingsWithHttpInfo($version, $account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
+    public function scheduleNotificationListingsWithHttpInfo($account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
     {
-        $request = $this->scheduleNotificationListingsRequest($version, $account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params, $type, $contentType);
+        $request = $this->scheduleNotificationListingsRequest($account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params, $type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1702,7 +1640,6 @@ class ScheduledNotificationApi
      *
      * Generate Schedule Notifications
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  string $report_name The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -1716,9 +1653,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scheduleNotificationListingsAsync($version, $account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
+    public function scheduleNotificationListingsAsync($account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
     {
-        return $this->scheduleNotificationListingsAsyncWithHttpInfo($version, $account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params, $type, $contentType)
+        return $this->scheduleNotificationListingsAsyncWithHttpInfo($account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params, $type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1731,7 +1668,6 @@ class ScheduledNotificationApi
      *
      * Generate Schedule Notifications
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  string $report_name The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -1745,10 +1681,10 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scheduleNotificationListingsAsyncWithHttpInfo($version, $account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
+    public function scheduleNotificationListingsAsyncWithHttpInfo($account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->scheduleNotificationListingsRequest($version, $account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params, $type, $contentType);
+        $request = $this->scheduleNotificationListingsRequest($account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params, $type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1789,7 +1725,6 @@ class ScheduledNotificationApi
     /**
      * Create request for operation 'scheduleNotificationListings'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The application to target (required)
      * @param  string $report_name The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -1803,15 +1738,8 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function scheduleNotificationListingsRequest($version, $account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
+    public function scheduleNotificationListingsRequest($account_id, $app_key, $report_name, $message, $offset, $recipient_report_id, $report_params = null, $type = null, string $contentType = self::contentTypes['scheduleNotificationListings'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling scheduleNotificationListings'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1858,7 +1786,7 @@ class ScheduledNotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/schedule/generate';
+        $resourcePath = '/notification/schedule/generate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1939,14 +1867,6 @@ class ScheduledNotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2007,7 +1927,6 @@ class ScheduledNotificationApi
      *
      * Search Scheduled Notifications
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  int|null $audience_id Filter results by audience (optional)
@@ -2034,9 +1953,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ScheduledNotificationFullResponse
      */
-    public function searchScheduledNotifications($version, $account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
+    public function searchScheduledNotifications($account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
     {
-        list($response) = $this->searchScheduledNotificationsWithHttpInfo($version, $account_id, $grouping_id, $audience_id, $filter, $types, $content_ids, $content_types, $parent_ids, $parent_types, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $group_by_grouping_id, $return_audience_account_count, $contentType);
+        list($response) = $this->searchScheduledNotificationsWithHttpInfo($account_id, $grouping_id, $audience_id, $filter, $types, $content_ids, $content_types, $parent_ids, $parent_types, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $group_by_grouping_id, $return_audience_account_count, $contentType);
         return $response;
     }
 
@@ -2045,7 +1964,6 @@ class ScheduledNotificationApi
      *
      * Search Scheduled Notifications
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  int|null $audience_id Filter results by audience (optional)
@@ -2072,9 +1990,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ScheduledNotificationFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchScheduledNotificationsWithHttpInfo($version, $account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
+    public function searchScheduledNotificationsWithHttpInfo($account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
     {
-        $request = $this->searchScheduledNotificationsRequest($version, $account_id, $grouping_id, $audience_id, $filter, $types, $content_ids, $content_types, $parent_ids, $parent_types, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $group_by_grouping_id, $return_audience_account_count, $contentType);
+        $request = $this->searchScheduledNotificationsRequest($account_id, $grouping_id, $audience_id, $filter, $types, $content_ids, $content_types, $parent_ids, $parent_types, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $group_by_grouping_id, $return_audience_account_count, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2150,7 +2068,6 @@ class ScheduledNotificationApi
      *
      * Search Scheduled Notifications
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  int|null $audience_id Filter results by audience (optional)
@@ -2176,9 +2093,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchScheduledNotificationsAsync($version, $account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
+    public function searchScheduledNotificationsAsync($account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
     {
-        return $this->searchScheduledNotificationsAsyncWithHttpInfo($version, $account_id, $grouping_id, $audience_id, $filter, $types, $content_ids, $content_types, $parent_ids, $parent_types, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $group_by_grouping_id, $return_audience_account_count, $contentType)
+        return $this->searchScheduledNotificationsAsyncWithHttpInfo($account_id, $grouping_id, $audience_id, $filter, $types, $content_ids, $content_types, $parent_ids, $parent_types, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $group_by_grouping_id, $return_audience_account_count, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2191,7 +2108,6 @@ class ScheduledNotificationApi
      *
      * Search Scheduled Notifications
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  int|null $audience_id Filter results by audience (optional)
@@ -2217,10 +2133,10 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchScheduledNotificationsAsyncWithHttpInfo($version, $account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
+    public function searchScheduledNotificationsAsyncWithHttpInfo($account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ScheduledNotificationFullResponse';
-        $request = $this->searchScheduledNotificationsRequest($version, $account_id, $grouping_id, $audience_id, $filter, $types, $content_ids, $content_types, $parent_ids, $parent_types, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $group_by_grouping_id, $return_audience_account_count, $contentType);
+        $request = $this->searchScheduledNotificationsRequest($account_id, $grouping_id, $audience_id, $filter, $types, $content_ids, $content_types, $parent_ids, $parent_types, $statuses, $template_types, $app_key, $keyword, $sort_field, $descending, $start, $limit, $active_only, $group_by_grouping_id, $return_audience_account_count, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2261,7 +2177,6 @@ class ScheduledNotificationApi
     /**
      * Create request for operation 'searchScheduledNotifications'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $grouping_id Filter results by a grouping identifier defined by the client (optional)
      * @param  int|null $audience_id Filter results by audience (optional)
@@ -2287,15 +2202,8 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchScheduledNotificationsRequest($version, $account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
+    public function searchScheduledNotificationsRequest($account_id, $grouping_id = null, $audience_id = null, $filter = null, $types = null, $content_ids = null, $content_types = null, $parent_ids = null, $parent_types = null, $statuses = null, $template_types = null, $app_key = null, $keyword = null, $sort_field = null, $descending = null, $start = null, $limit = null, $active_only = null, $group_by_grouping_id = null, $return_audience_account_count = null, string $contentType = self::contentTypes['searchScheduledNotifications'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchScheduledNotifications'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2324,7 +2232,7 @@ class ScheduledNotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/schedule/search';
+        $resourcePath = '/notification/schedule/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2513,14 +2421,6 @@ class ScheduledNotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2581,7 +2481,6 @@ class ScheduledNotificationApi
      *
      * Update Scheduled Notification
      *
-     * @param  float $version version (required)
      * @param  int $scheduled_notification_id The id of scheduled notification to update (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the scheduled notification (optional)
@@ -2626,9 +2525,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ScheduledNotificationFullResponse
      */
-    public function updateScheduledNotification($version, $scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
+    public function updateScheduledNotification($scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
     {
-        list($response) = $this->updateScheduledNotificationWithHttpInfo($version, $scheduled_notification_id, $account_id, $name, $type, $message, $payload, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $error_message, $status, $update_by_grouping_id, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
+        list($response) = $this->updateScheduledNotificationWithHttpInfo($scheduled_notification_id, $account_id, $name, $type, $message, $payload, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $error_message, $status, $update_by_grouping_id, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
         return $response;
     }
 
@@ -2637,7 +2536,6 @@ class ScheduledNotificationApi
      *
      * Update Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $scheduled_notification_id The id of scheduled notification to update (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the scheduled notification (optional)
@@ -2682,9 +2580,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ScheduledNotificationFullResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateScheduledNotificationWithHttpInfo($version, $scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
+    public function updateScheduledNotificationWithHttpInfo($scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
     {
-        $request = $this->updateScheduledNotificationRequest($version, $scheduled_notification_id, $account_id, $name, $type, $message, $payload, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $error_message, $status, $update_by_grouping_id, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
+        $request = $this->updateScheduledNotificationRequest($scheduled_notification_id, $account_id, $name, $type, $message, $payload, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $error_message, $status, $update_by_grouping_id, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2760,7 +2658,6 @@ class ScheduledNotificationApi
      *
      * Update Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $scheduled_notification_id The id of scheduled notification to update (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the scheduled notification (optional)
@@ -2804,9 +2701,9 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateScheduledNotificationAsync($version, $scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
+    public function updateScheduledNotificationAsync($scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
     {
-        return $this->updateScheduledNotificationAsyncWithHttpInfo($version, $scheduled_notification_id, $account_id, $name, $type, $message, $payload, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $error_message, $status, $update_by_grouping_id, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType)
+        return $this->updateScheduledNotificationAsyncWithHttpInfo($scheduled_notification_id, $account_id, $name, $type, $message, $payload, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $error_message, $status, $update_by_grouping_id, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2819,7 +2716,6 @@ class ScheduledNotificationApi
      *
      * Update Scheduled Notification
      *
-     * @param  float $version (required)
      * @param  int $scheduled_notification_id The id of scheduled notification to update (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the scheduled notification (optional)
@@ -2863,10 +2759,10 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateScheduledNotificationAsyncWithHttpInfo($version, $scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
+    public function updateScheduledNotificationAsyncWithHttpInfo($scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ScheduledNotificationFullResponse';
-        $request = $this->updateScheduledNotificationRequest($version, $scheduled_notification_id, $account_id, $name, $type, $message, $payload, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $error_message, $status, $update_by_grouping_id, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
+        $request = $this->updateScheduledNotificationRequest($scheduled_notification_id, $account_id, $name, $type, $message, $payload, $content_id, $content_name, $content_type, $parent_id, $parent_type, $app_key, $grouping_id, $connection_group_ids, $connection_account_ids, $audience_id, $audience_ids, $album_ids, $report_id, $report_params, $endpoint_url, $scheduled_date, $start_date, $end_date, $cron_expression, $cron_type, $meta_data, $conditional_input, $template_type, $visibility, $active, $error_message, $status, $update_by_grouping_id, $send_now, $event_type, $deep_link_uri, $send_to_all, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2907,7 +2803,6 @@ class ScheduledNotificationApi
     /**
      * Create request for operation 'updateScheduledNotification'
      *
-     * @param  float $version (required)
      * @param  int $scheduled_notification_id The id of scheduled notification to update (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string|null $name The name of the scheduled notification (optional)
@@ -2951,15 +2846,8 @@ class ScheduledNotificationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateScheduledNotificationRequest($version, $scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
+    public function updateScheduledNotificationRequest($scheduled_notification_id, $account_id, $name = null, $type = null, $message = null, $payload = null, $content_id = null, $content_name = null, $content_type = null, $parent_id = null, $parent_type = null, $app_key = null, $grouping_id = null, $connection_group_ids = null, $connection_account_ids = null, $audience_id = null, $audience_ids = null, $album_ids = null, $report_id = null, $report_params = null, $endpoint_url = null, $scheduled_date = null, $start_date = null, $end_date = null, $cron_expression = null, $cron_type = null, $meta_data = null, $conditional_input = null, $template_type = null, $visibility = null, $active = null, $error_message = null, $status = null, $update_by_grouping_id = null, $send_now = null, $event_type = 'CUSTOM', $deep_link_uri = null, $send_to_all = null, string $contentType = self::contentTypes['updateScheduledNotification'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateScheduledNotification'
-            );
-        }
 
         // verify the required parameter 'scheduled_notification_id' is set
         if ($scheduled_notification_id === null || (is_array($scheduled_notification_id) && count($scheduled_notification_id) === 0)) {
@@ -3012,7 +2900,7 @@ class ScheduledNotificationApi
 
 
 
-        $resourcePath = '/api/{version}/notification/schedule/update';
+        $resourcePath = '/notification/schedule/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3363,14 +3251,6 @@ class ScheduledNotificationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

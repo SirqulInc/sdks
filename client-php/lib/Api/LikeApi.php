@@ -137,7 +137,6 @@ class LikeApi
      *
      * Create Like
      *
-     * @param  float $version version (required)
      * @param  string $likable_type The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -156,9 +155,9 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LikableResponse
      */
-    public function registerLike($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
+    public function registerLike($likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
     {
-        list($response) = $this->registerLikeWithHttpInfo($version, $likable_type, $likable_id, $device_id, $account_id, $permissionable_type, $permissionable_id, $like, $app, $game_type, $app_key, $latitude, $longitude, $contentType);
+        list($response) = $this->registerLikeWithHttpInfo($likable_type, $likable_id, $device_id, $account_id, $permissionable_type, $permissionable_id, $like, $app, $game_type, $app_key, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -167,7 +166,6 @@ class LikeApi
      *
      * Create Like
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -186,9 +184,9 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LikableResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function registerLikeWithHttpInfo($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
+    public function registerLikeWithHttpInfo($likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
     {
-        $request = $this->registerLikeRequest($version, $likable_type, $likable_id, $device_id, $account_id, $permissionable_type, $permissionable_id, $like, $app, $game_type, $app_key, $latitude, $longitude, $contentType);
+        $request = $this->registerLikeRequest($likable_type, $likable_id, $device_id, $account_id, $permissionable_type, $permissionable_id, $like, $app, $game_type, $app_key, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -264,7 +262,6 @@ class LikeApi
      *
      * Create Like
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -282,9 +279,9 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerLikeAsync($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
+    public function registerLikeAsync($likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
     {
-        return $this->registerLikeAsyncWithHttpInfo($version, $likable_type, $likable_id, $device_id, $account_id, $permissionable_type, $permissionable_id, $like, $app, $game_type, $app_key, $latitude, $longitude, $contentType)
+        return $this->registerLikeAsyncWithHttpInfo($likable_type, $likable_id, $device_id, $account_id, $permissionable_type, $permissionable_id, $like, $app, $game_type, $app_key, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -297,7 +294,6 @@ class LikeApi
      *
      * Create Like
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -315,10 +311,10 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerLikeAsyncWithHttpInfo($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
+    public function registerLikeAsyncWithHttpInfo($likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LikableResponse';
-        $request = $this->registerLikeRequest($version, $likable_type, $likable_id, $device_id, $account_id, $permissionable_type, $permissionable_id, $like, $app, $game_type, $app_key, $latitude, $longitude, $contentType);
+        $request = $this->registerLikeRequest($likable_type, $likable_id, $device_id, $account_id, $permissionable_type, $permissionable_id, $like, $app, $game_type, $app_key, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -359,7 +355,6 @@ class LikeApi
     /**
      * Create request for operation 'registerLike'
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -377,15 +372,8 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function registerLikeRequest($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
+    public function registerLikeRequest($likable_type, $likable_id, $device_id = null, $account_id = null, $permissionable_type = null, $permissionable_id = null, $like = null, $app = null, $game_type = null, $app_key = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['registerLike'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling registerLike'
-            );
-        }
 
         // verify the required parameter 'likable_type' is set
         if ($likable_type === null || (is_array($likable_type) && count($likable_type) === 0)) {
@@ -412,7 +400,7 @@ class LikeApi
 
 
 
-        $resourcePath = '/api/{version}/like';
+        $resourcePath = '/like';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -529,14 +517,6 @@ class LikeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -597,7 +577,6 @@ class LikeApi
      *
      * Delete Like
      *
-     * @param  float $version version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -610,9 +589,9 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LikableResponse
      */
-    public function removeLike($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
+    public function removeLike($likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
     {
-        list($response) = $this->removeLikeWithHttpInfo($version, $likable_type, $likable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        list($response) = $this->removeLikeWithHttpInfo($likable_type, $likable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -621,7 +600,6 @@ class LikeApi
      *
      * Delete Like
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -634,9 +612,9 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LikableResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeLikeWithHttpInfo($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
+    public function removeLikeWithHttpInfo($likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
     {
-        $request = $this->removeLikeRequest($version, $likable_type, $likable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->removeLikeRequest($likable_type, $likable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -712,7 +690,6 @@ class LikeApi
      *
      * Delete Like
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -724,9 +701,9 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeLikeAsync($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
+    public function removeLikeAsync($likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
     {
-        return $this->removeLikeAsyncWithHttpInfo($version, $likable_type, $likable_id, $device_id, $account_id, $latitude, $longitude, $contentType)
+        return $this->removeLikeAsyncWithHttpInfo($likable_type, $likable_id, $device_id, $account_id, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -739,7 +716,6 @@ class LikeApi
      *
      * Delete Like
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -751,10 +727,10 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeLikeAsyncWithHttpInfo($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
+    public function removeLikeAsyncWithHttpInfo($likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LikableResponse';
-        $request = $this->removeLikeRequest($version, $likable_type, $likable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
+        $request = $this->removeLikeRequest($likable_type, $likable_id, $device_id, $account_id, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -795,7 +771,6 @@ class LikeApi
     /**
      * Create request for operation 'removeLike'
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -807,15 +782,8 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeLikeRequest($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
+    public function removeLikeRequest($likable_type, $likable_id, $device_id = null, $account_id = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['removeLike'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling removeLike'
-            );
-        }
 
         // verify the required parameter 'likable_type' is set
         if ($likable_type === null || (is_array($likable_type) && count($likable_type) === 0)) {
@@ -836,7 +804,7 @@ class LikeApi
 
 
 
-        $resourcePath = '/api/{version}/like/delete';
+        $resourcePath = '/like/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -899,14 +867,6 @@ class LikeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -967,7 +927,6 @@ class LikeApi
      *
      * Search Likes
      *
-     * @param  float $version version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -985,9 +944,9 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchResponse
      */
-    public function searchLikes($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
+    public function searchLikes($likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
     {
-        list($response) = $this->searchLikesWithHttpInfo($version, $likable_type, $likable_id, $device_id, $account_id, $connection_account_ids, $sort_field, $descending, $updated_since, $updated_before, $start, $limit, $contentType);
+        list($response) = $this->searchLikesWithHttpInfo($likable_type, $likable_id, $device_id, $account_id, $connection_account_ids, $sort_field, $descending, $updated_since, $updated_before, $start, $limit, $contentType);
         return $response;
     }
 
@@ -996,7 +955,6 @@ class LikeApi
      *
      * Search Likes
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -1014,9 +972,9 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchLikesWithHttpInfo($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
+    public function searchLikesWithHttpInfo($likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
     {
-        $request = $this->searchLikesRequest($version, $likable_type, $likable_id, $device_id, $account_id, $connection_account_ids, $sort_field, $descending, $updated_since, $updated_before, $start, $limit, $contentType);
+        $request = $this->searchLikesRequest($likable_type, $likable_id, $device_id, $account_id, $connection_account_ids, $sort_field, $descending, $updated_since, $updated_before, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1092,7 +1050,6 @@ class LikeApi
      *
      * Search Likes
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -1109,9 +1066,9 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchLikesAsync($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
+    public function searchLikesAsync($likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
     {
-        return $this->searchLikesAsyncWithHttpInfo($version, $likable_type, $likable_id, $device_id, $account_id, $connection_account_ids, $sort_field, $descending, $updated_since, $updated_before, $start, $limit, $contentType)
+        return $this->searchLikesAsyncWithHttpInfo($likable_type, $likable_id, $device_id, $account_id, $connection_account_ids, $sort_field, $descending, $updated_since, $updated_before, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1124,7 +1081,6 @@ class LikeApi
      *
      * Search Likes
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -1141,10 +1097,10 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchLikesAsyncWithHttpInfo($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
+    public function searchLikesAsyncWithHttpInfo($likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchResponse';
-        $request = $this->searchLikesRequest($version, $likable_type, $likable_id, $device_id, $account_id, $connection_account_ids, $sort_field, $descending, $updated_since, $updated_before, $start, $limit, $contentType);
+        $request = $this->searchLikesRequest($likable_type, $likable_id, $device_id, $account_id, $connection_account_ids, $sort_field, $descending, $updated_since, $updated_before, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1185,7 +1141,6 @@ class LikeApi
     /**
      * Create request for operation 'searchLikes'
      *
-     * @param  float $version (required)
      * @param  string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param  int $likable_id The id of the likable object (required)
      * @param  string|null $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -1202,15 +1157,8 @@ class LikeApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchLikesRequest($version, $likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
+    public function searchLikesRequest($likable_type, $likable_id, $device_id = null, $account_id = null, $connection_account_ids = null, $sort_field = 'ID', $descending = true, $updated_since = null, $updated_before = null, $start = 0, $limit = 20, string $contentType = self::contentTypes['searchLikes'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchLikes'
-            );
-        }
 
         // verify the required parameter 'likable_type' is set
         if ($likable_type === null || (is_array($likable_type) && count($likable_type) === 0)) {
@@ -1236,7 +1184,7 @@ class LikeApi
 
 
 
-        $resourcePath = '/api/{version}/like/search';
+        $resourcePath = '/like/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1344,14 +1292,6 @@ class LikeApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

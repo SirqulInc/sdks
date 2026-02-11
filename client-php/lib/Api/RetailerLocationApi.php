@@ -155,7 +155,6 @@ class RetailerLocationApi
      *
      * Create Retailer Location (Consumer)
      *
-     * @param  float $version version (required)
      * @param  string $app_key the application key (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -191,9 +190,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerLocationResponse
      */
-    public function createRetailerLocationConsumer($version, $app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
+    public function createRetailerLocationConsumer($app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
     {
-        list($response) = $this->createRetailerLocationConsumerWithHttpInfo($version, $app_key, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $details_header, $details_body, $hours, $tags, $logo_asset_id, $picture1_asset_id, $picture2_asset_id, $category_ids, $filter_ids, $meta_data, $public_location, $active, $location_type, $latitude, $longitude, $contentType);
+        list($response) = $this->createRetailerLocationConsumerWithHttpInfo($app_key, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $details_header, $details_body, $hours, $tags, $logo_asset_id, $picture1_asset_id, $picture2_asset_id, $category_ids, $filter_ids, $meta_data, $public_location, $active, $location_type, $latitude, $longitude, $contentType);
         return $response;
     }
 
@@ -202,7 +201,6 @@ class RetailerLocationApi
      *
      * Create Retailer Location (Consumer)
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -238,9 +236,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerLocationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRetailerLocationConsumerWithHttpInfo($version, $app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
+    public function createRetailerLocationConsumerWithHttpInfo($app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
     {
-        $request = $this->createRetailerLocationConsumerRequest($version, $app_key, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $details_header, $details_body, $hours, $tags, $logo_asset_id, $picture1_asset_id, $picture2_asset_id, $category_ids, $filter_ids, $meta_data, $public_location, $active, $location_type, $latitude, $longitude, $contentType);
+        $request = $this->createRetailerLocationConsumerRequest($app_key, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $details_header, $details_body, $hours, $tags, $logo_asset_id, $picture1_asset_id, $picture2_asset_id, $category_ids, $filter_ids, $meta_data, $public_location, $active, $location_type, $latitude, $longitude, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -316,7 +314,6 @@ class RetailerLocationApi
      *
      * Create Retailer Location (Consumer)
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -351,9 +348,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRetailerLocationConsumerAsync($version, $app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
+    public function createRetailerLocationConsumerAsync($app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
     {
-        return $this->createRetailerLocationConsumerAsyncWithHttpInfo($version, $app_key, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $details_header, $details_body, $hours, $tags, $logo_asset_id, $picture1_asset_id, $picture2_asset_id, $category_ids, $filter_ids, $meta_data, $public_location, $active, $location_type, $latitude, $longitude, $contentType)
+        return $this->createRetailerLocationConsumerAsyncWithHttpInfo($app_key, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $details_header, $details_body, $hours, $tags, $logo_asset_id, $picture1_asset_id, $picture2_asset_id, $category_ids, $filter_ids, $meta_data, $public_location, $active, $location_type, $latitude, $longitude, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -366,7 +363,6 @@ class RetailerLocationApi
      *
      * Create Retailer Location (Consumer)
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -401,10 +397,10 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRetailerLocationConsumerAsyncWithHttpInfo($version, $app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
+    public function createRetailerLocationConsumerAsyncWithHttpInfo($app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerLocationResponse';
-        $request = $this->createRetailerLocationConsumerRequest($version, $app_key, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $details_header, $details_body, $hours, $tags, $logo_asset_id, $picture1_asset_id, $picture2_asset_id, $category_ids, $filter_ids, $meta_data, $public_location, $active, $location_type, $latitude, $longitude, $contentType);
+        $request = $this->createRetailerLocationConsumerRequest($app_key, $name, $device_id, $account_id, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $details_header, $details_body, $hours, $tags, $logo_asset_id, $picture1_asset_id, $picture2_asset_id, $category_ids, $filter_ids, $meta_data, $public_location, $active, $location_type, $latitude, $longitude, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -445,7 +441,6 @@ class RetailerLocationApi
     /**
      * Create request for operation 'createRetailerLocationConsumer'
      *
-     * @param  float $version (required)
      * @param  string $app_key the application key (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
@@ -480,15 +475,8 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRetailerLocationConsumerRequest($version, $app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
+    public function createRetailerLocationConsumerRequest($app_key, $name, $device_id = null, $account_id = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $details_header = null, $details_body = null, $hours = null, $tags = null, $logo_asset_id = null, $picture1_asset_id = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $meta_data = null, $public_location = null, $active = null, $location_type = null, $latitude = null, $longitude = null, string $contentType = self::contentTypes['createRetailerLocationConsumer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRetailerLocationConsumer'
-            );
-        }
 
         // verify the required parameter 'app_key' is set
         if ($app_key === null || (is_array($app_key) && count($app_key) === 0)) {
@@ -532,7 +520,7 @@ class RetailerLocationApi
 
 
 
-        $resourcePath = '/api/{version}/location/create';
+        $resourcePath = '/location/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -802,14 +790,6 @@ class RetailerLocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -870,7 +850,6 @@ class RetailerLocationApi
      *
      * Create Retailer Location
      *
-     * @param  float $version version (required)
      * @param  int $retailer_id The ID of the retailer (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string $street_address The street address of the retailer location (required)
@@ -916,9 +895,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerLocationResponse
      */
-    public function createRetailerLocations($version, $retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
+    public function createRetailerLocations($retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
     {
-        list($response) = $this->createRetailerLocationsWithHttpInfo($version, $retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id, $account_id, $street_address2, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $response_includes, $contentType);
+        list($response) = $this->createRetailerLocationsWithHttpInfo($retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id, $account_id, $street_address2, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $response_includes, $contentType);
         return $response;
     }
 
@@ -927,7 +906,6 @@ class RetailerLocationApi
      *
      * Create Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $retailer_id The ID of the retailer (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string $street_address The street address of the retailer location (required)
@@ -973,9 +951,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerLocationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRetailerLocationsWithHttpInfo($version, $retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
+    public function createRetailerLocationsWithHttpInfo($retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
     {
-        $request = $this->createRetailerLocationsRequest($version, $retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id, $account_id, $street_address2, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $response_includes, $contentType);
+        $request = $this->createRetailerLocationsRequest($retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id, $account_id, $street_address2, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $response_includes, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1051,7 +1029,6 @@ class RetailerLocationApi
      *
      * Create Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $retailer_id The ID of the retailer (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string $street_address The street address of the retailer location (required)
@@ -1096,9 +1073,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRetailerLocationsAsync($version, $retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
+    public function createRetailerLocationsAsync($retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
     {
-        return $this->createRetailerLocationsAsyncWithHttpInfo($version, $retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id, $account_id, $street_address2, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $response_includes, $contentType)
+        return $this->createRetailerLocationsAsyncWithHttpInfo($retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id, $account_id, $street_address2, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $response_includes, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1111,7 +1088,6 @@ class RetailerLocationApi
      *
      * Create Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $retailer_id The ID of the retailer (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string $street_address The street address of the retailer location (required)
@@ -1156,10 +1132,10 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRetailerLocationsAsyncWithHttpInfo($version, $retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
+    public function createRetailerLocationsAsyncWithHttpInfo($retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerLocationResponse';
-        $request = $this->createRetailerLocationsRequest($version, $retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id, $account_id, $street_address2, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $response_includes, $contentType);
+        $request = $this->createRetailerLocationsRequest($retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id, $account_id, $street_address2, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $response_includes, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1200,7 +1176,6 @@ class RetailerLocationApi
     /**
      * Create request for operation 'createRetailerLocations'
      *
-     * @param  float $version (required)
      * @param  int $retailer_id The ID of the retailer (required)
      * @param  string $name The name of the retailer location (required)
      * @param  string $street_address The street address of the retailer location (required)
@@ -1245,15 +1220,8 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRetailerLocationsRequest($version, $retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
+    public function createRetailerLocationsRequest($retailer_id, $name, $street_address, $city, $state, $postal_code, $device_id = null, $account_id = null, $street_address2 = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $response_includes = null, string $contentType = self::contentTypes['createRetailerLocations'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createRetailerLocations'
-            );
-        }
 
         // verify the required parameter 'retailer_id' is set
         if ($retailer_id === null || (is_array($retailer_id) && count($retailer_id) === 0)) {
@@ -1331,7 +1299,7 @@ class RetailerLocationApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/location/create';
+        $resourcePath = '/retailer/location/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1691,14 +1659,6 @@ class RetailerLocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1759,7 +1719,6 @@ class RetailerLocationApi
      *
      * Delete Retailer Location
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  int|null $retailer_location_id the id of the retailer location to delete (optional)
@@ -1769,9 +1728,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SirqulResponse
      */
-    public function deleteRetailerLocation($version, $device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
+    public function deleteRetailerLocation($device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
     {
-        list($response) = $this->deleteRetailerLocationWithHttpInfo($version, $device_id, $account_id, $retailer_location_id, $contentType);
+        list($response) = $this->deleteRetailerLocationWithHttpInfo($device_id, $account_id, $retailer_location_id, $contentType);
         return $response;
     }
 
@@ -1780,7 +1739,6 @@ class RetailerLocationApi
      *
      * Delete Retailer Location
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  int|null $retailer_location_id the id of the retailer location to delete (optional)
@@ -1790,9 +1748,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SirqulResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRetailerLocationWithHttpInfo($version, $device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
+    public function deleteRetailerLocationWithHttpInfo($device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
     {
-        $request = $this->deleteRetailerLocationRequest($version, $device_id, $account_id, $retailer_location_id, $contentType);
+        $request = $this->deleteRetailerLocationRequest($device_id, $account_id, $retailer_location_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1868,7 +1826,6 @@ class RetailerLocationApi
      *
      * Delete Retailer Location
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  int|null $retailer_location_id the id of the retailer location to delete (optional)
@@ -1877,9 +1834,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRetailerLocationAsync($version, $device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
+    public function deleteRetailerLocationAsync($device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
     {
-        return $this->deleteRetailerLocationAsyncWithHttpInfo($version, $device_id, $account_id, $retailer_location_id, $contentType)
+        return $this->deleteRetailerLocationAsyncWithHttpInfo($device_id, $account_id, $retailer_location_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1892,7 +1849,6 @@ class RetailerLocationApi
      *
      * Delete Retailer Location
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  int|null $retailer_location_id the id of the retailer location to delete (optional)
@@ -1901,10 +1857,10 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRetailerLocationAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
+    public function deleteRetailerLocationAsyncWithHttpInfo($device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SirqulResponse';
-        $request = $this->deleteRetailerLocationRequest($version, $device_id, $account_id, $retailer_location_id, $contentType);
+        $request = $this->deleteRetailerLocationRequest($device_id, $account_id, $retailer_location_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1945,7 +1901,6 @@ class RetailerLocationApi
     /**
      * Create request for operation 'deleteRetailerLocation'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id the device id (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
      * @param  int|null $retailer_location_id the id of the retailer location to delete (optional)
@@ -1954,21 +1909,14 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteRetailerLocationRequest($version, $device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
+    public function deleteRetailerLocationRequest($device_id = null, $account_id = null, $retailer_location_id = null, string $contentType = self::contentTypes['deleteRetailerLocation'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteRetailerLocation'
-            );
-        }
 
 
 
 
-
-        $resourcePath = '/api/{version}/retailer/location/delete';
+        $resourcePath = '/retailer/location/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2004,14 +1952,6 @@ class RetailerLocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2072,7 +2012,6 @@ class RetailerLocationApi
      *
      * Get Retailer Location
      *
-     * @param  float $version version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2083,9 +2022,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerLocationResponse
      */
-    public function getRetailerLocation($version, $retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
+    public function getRetailerLocation($retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
     {
-        list($response) = $this->getRetailerLocationWithHttpInfo($version, $retailer_location_id, $device_id, $account_id, $retailer_location_token, $contentType);
+        list($response) = $this->getRetailerLocationWithHttpInfo($retailer_location_id, $device_id, $account_id, $retailer_location_token, $contentType);
         return $response;
     }
 
@@ -2094,7 +2033,6 @@ class RetailerLocationApi
      *
      * Get Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2105,9 +2043,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerLocationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRetailerLocationWithHttpInfo($version, $retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
+    public function getRetailerLocationWithHttpInfo($retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
     {
-        $request = $this->getRetailerLocationRequest($version, $retailer_location_id, $device_id, $account_id, $retailer_location_token, $contentType);
+        $request = $this->getRetailerLocationRequest($retailer_location_id, $device_id, $account_id, $retailer_location_token, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2183,7 +2121,6 @@ class RetailerLocationApi
      *
      * Get Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2193,9 +2130,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetailerLocationAsync($version, $retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
+    public function getRetailerLocationAsync($retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
     {
-        return $this->getRetailerLocationAsyncWithHttpInfo($version, $retailer_location_id, $device_id, $account_id, $retailer_location_token, $contentType)
+        return $this->getRetailerLocationAsyncWithHttpInfo($retailer_location_id, $device_id, $account_id, $retailer_location_token, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2208,7 +2145,6 @@ class RetailerLocationApi
      *
      * Get Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2218,10 +2154,10 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetailerLocationAsyncWithHttpInfo($version, $retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
+    public function getRetailerLocationAsyncWithHttpInfo($retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerLocationResponse';
-        $request = $this->getRetailerLocationRequest($version, $retailer_location_id, $device_id, $account_id, $retailer_location_token, $contentType);
+        $request = $this->getRetailerLocationRequest($retailer_location_id, $device_id, $account_id, $retailer_location_token, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2262,7 +2198,6 @@ class RetailerLocationApi
     /**
      * Create request for operation 'getRetailerLocation'
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2272,15 +2207,8 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRetailerLocationRequest($version, $retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
+    public function getRetailerLocationRequest($retailer_location_id, $device_id = null, $account_id = null, $retailer_location_token = null, string $contentType = self::contentTypes['getRetailerLocation'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRetailerLocation'
-            );
-        }
 
         // verify the required parameter 'retailer_location_id' is set
         if ($retailer_location_id === null || (is_array($retailer_location_id) && count($retailer_location_id) === 0)) {
@@ -2293,7 +2221,7 @@ class RetailerLocationApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/location/get';
+        $resourcePath = '/retailer/location/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2338,14 +2266,6 @@ class RetailerLocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2406,7 +2326,6 @@ class RetailerLocationApi
      *
      * Get Retailer Location (Consumer)
      *
-     * @param  float $version version (required)
      * @param  int $retailer_location_id The retailer location id (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
@@ -2416,9 +2335,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerLocationResponse
      */
-    public function getRetailerLocationConsumer($version, $retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
+    public function getRetailerLocationConsumer($retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
     {
-        list($response) = $this->getRetailerLocationConsumerWithHttpInfo($version, $retailer_location_id, $device_id, $account_id, $contentType);
+        list($response) = $this->getRetailerLocationConsumerWithHttpInfo($retailer_location_id, $device_id, $account_id, $contentType);
         return $response;
     }
 
@@ -2427,7 +2346,6 @@ class RetailerLocationApi
      *
      * Get Retailer Location (Consumer)
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The retailer location id (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
@@ -2437,9 +2355,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerLocationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRetailerLocationConsumerWithHttpInfo($version, $retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
+    public function getRetailerLocationConsumerWithHttpInfo($retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
     {
-        $request = $this->getRetailerLocationConsumerRequest($version, $retailer_location_id, $device_id, $account_id, $contentType);
+        $request = $this->getRetailerLocationConsumerRequest($retailer_location_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2515,7 +2433,6 @@ class RetailerLocationApi
      *
      * Get Retailer Location (Consumer)
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The retailer location id (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
@@ -2524,9 +2441,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetailerLocationConsumerAsync($version, $retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
+    public function getRetailerLocationConsumerAsync($retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
     {
-        return $this->getRetailerLocationConsumerAsyncWithHttpInfo($version, $retailer_location_id, $device_id, $account_id, $contentType)
+        return $this->getRetailerLocationConsumerAsyncWithHttpInfo($retailer_location_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2539,7 +2456,6 @@ class RetailerLocationApi
      *
      * Get Retailer Location (Consumer)
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The retailer location id (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
@@ -2548,10 +2464,10 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRetailerLocationConsumerAsyncWithHttpInfo($version, $retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
+    public function getRetailerLocationConsumerAsyncWithHttpInfo($retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerLocationResponse';
-        $request = $this->getRetailerLocationConsumerRequest($version, $retailer_location_id, $device_id, $account_id, $contentType);
+        $request = $this->getRetailerLocationConsumerRequest($retailer_location_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2592,7 +2508,6 @@ class RetailerLocationApi
     /**
      * Create request for operation 'getRetailerLocationConsumer'
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The retailer location id (required)
      * @param  string|null $device_id The device id for returning account information (i.e. favorites) (optional)
      * @param  int|null $account_id The account id for returning account information (i.e. favorites) (optional)
@@ -2601,15 +2516,8 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRetailerLocationConsumerRequest($version, $retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
+    public function getRetailerLocationConsumerRequest($retailer_location_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['getRetailerLocationConsumer'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getRetailerLocationConsumer'
-            );
-        }
 
         // verify the required parameter 'retailer_location_id' is set
         if ($retailer_location_id === null || (is_array($retailer_location_id) && count($retailer_location_id) === 0)) {
@@ -2621,7 +2529,7 @@ class RetailerLocationApi
 
 
 
-        $resourcePath = '/api/{version}/location/get';
+        $resourcePath = '/location/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2657,14 +2565,6 @@ class RetailerLocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2725,7 +2625,6 @@ class RetailerLocationApi
      *
      * Distance Search Retailer Locations (Indexed)
      *
-     * @param  float $version version (required)
      * @param  float $latitude The latitude to center the search on (required)
      * @param  float $longitude The longitude to center the search on (required)
      * @param  float $search_range The search range in the distanceUnit specified; default is MILES. (required)
@@ -2766,9 +2665,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerLocationResponse[]
      */
-    public function indexedRetailerLocationDistanceSearch($version, $latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
+    public function indexedRetailerLocationDistanceSearch($latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
     {
-        list($response) = $this->indexedRetailerLocationDistanceSearchWithHttpInfo($version, $latitude, $longitude, $search_range, $start, $limit, $account_id, $address, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $distance_unit, $return_favorited, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
+        list($response) = $this->indexedRetailerLocationDistanceSearchWithHttpInfo($latitude, $longitude, $search_range, $start, $limit, $account_id, $address, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $distance_unit, $return_favorited, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
         return $response;
     }
 
@@ -2777,7 +2676,6 @@ class RetailerLocationApi
      *
      * Distance Search Retailer Locations (Indexed)
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude to center the search on (required)
      * @param  float $longitude The longitude to center the search on (required)
      * @param  float $search_range The search range in the distanceUnit specified; default is MILES. (required)
@@ -2818,9 +2716,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerLocationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function indexedRetailerLocationDistanceSearchWithHttpInfo($version, $latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
+    public function indexedRetailerLocationDistanceSearchWithHttpInfo($latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
     {
-        $request = $this->indexedRetailerLocationDistanceSearchRequest($version, $latitude, $longitude, $search_range, $start, $limit, $account_id, $address, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $distance_unit, $return_favorited, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
+        $request = $this->indexedRetailerLocationDistanceSearchRequest($latitude, $longitude, $search_range, $start, $limit, $account_id, $address, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $distance_unit, $return_favorited, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2896,7 +2794,6 @@ class RetailerLocationApi
      *
      * Distance Search Retailer Locations (Indexed)
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude to center the search on (required)
      * @param  float $longitude The longitude to center the search on (required)
      * @param  float $search_range The search range in the distanceUnit specified; default is MILES. (required)
@@ -2936,9 +2833,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function indexedRetailerLocationDistanceSearchAsync($version, $latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
+    public function indexedRetailerLocationDistanceSearchAsync($latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
     {
-        return $this->indexedRetailerLocationDistanceSearchAsyncWithHttpInfo($version, $latitude, $longitude, $search_range, $start, $limit, $account_id, $address, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $distance_unit, $return_favorited, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType)
+        return $this->indexedRetailerLocationDistanceSearchAsyncWithHttpInfo($latitude, $longitude, $search_range, $start, $limit, $account_id, $address, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $distance_unit, $return_favorited, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2951,7 +2848,6 @@ class RetailerLocationApi
      *
      * Distance Search Retailer Locations (Indexed)
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude to center the search on (required)
      * @param  float $longitude The longitude to center the search on (required)
      * @param  float $search_range The search range in the distanceUnit specified; default is MILES. (required)
@@ -2991,10 +2887,10 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function indexedRetailerLocationDistanceSearchAsyncWithHttpInfo($version, $latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
+    public function indexedRetailerLocationDistanceSearchAsyncWithHttpInfo($latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerLocationResponse[]';
-        $request = $this->indexedRetailerLocationDistanceSearchRequest($version, $latitude, $longitude, $search_range, $start, $limit, $account_id, $address, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $distance_unit, $return_favorited, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
+        $request = $this->indexedRetailerLocationDistanceSearchRequest($latitude, $longitude, $search_range, $start, $limit, $account_id, $address, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $distance_unit, $return_favorited, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3035,7 +2931,6 @@ class RetailerLocationApi
     /**
      * Create request for operation 'indexedRetailerLocationDistanceSearch'
      *
-     * @param  float $version (required)
      * @param  float $latitude The latitude to center the search on (required)
      * @param  float $longitude The longitude to center the search on (required)
      * @param  float $search_range The search range in the distanceUnit specified; default is MILES. (required)
@@ -3075,15 +2970,8 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function indexedRetailerLocationDistanceSearchRequest($version, $latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
+    public function indexedRetailerLocationDistanceSearchRequest($latitude, $longitude, $search_range, $start, $limit, $account_id = null, $address = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $distance_unit = null, $return_favorited = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationDistanceSearch'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling indexedRetailerLocationDistanceSearch'
-            );
-        }
 
         // verify the required parameter 'latitude' is set
         if ($latitude === null || (is_array($latitude) && count($latitude) === 0)) {
@@ -3150,7 +3038,7 @@ class RetailerLocationApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/location/idistancesearch';
+        $resourcePath = '/retailer/location/idistancesearch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3465,14 +3353,6 @@ class RetailerLocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3533,7 +3413,6 @@ class RetailerLocationApi
      *
      * Keyword Search Retailer Locations (Indexed)
      *
-     * @param  float $version version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  int|null $start The start index for pagination (optional)
      * @param  int|null $limit The limit for pagination (optional)
@@ -3568,9 +3447,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerLocationResponse[]
      */
-    public function indexedRetailerLocationSearch($version, $account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
+    public function indexedRetailerLocationSearch($account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
     {
-        list($response) = $this->indexedRetailerLocationSearchWithHttpInfo($version, $account_id, $start, $limit, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
+        list($response) = $this->indexedRetailerLocationSearchWithHttpInfo($account_id, $start, $limit, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
         return $response;
     }
 
@@ -3579,7 +3458,6 @@ class RetailerLocationApi
      *
      * Keyword Search Retailer Locations (Indexed)
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  int|null $start The start index for pagination (optional)
      * @param  int|null $limit The limit for pagination (optional)
@@ -3614,9 +3492,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerLocationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function indexedRetailerLocationSearchWithHttpInfo($version, $account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
+    public function indexedRetailerLocationSearchWithHttpInfo($account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
     {
-        $request = $this->indexedRetailerLocationSearchRequest($version, $account_id, $start, $limit, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
+        $request = $this->indexedRetailerLocationSearchRequest($account_id, $start, $limit, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3692,7 +3570,6 @@ class RetailerLocationApi
      *
      * Keyword Search Retailer Locations (Indexed)
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  int|null $start The start index for pagination (optional)
      * @param  int|null $limit The limit for pagination (optional)
@@ -3726,9 +3603,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function indexedRetailerLocationSearchAsync($version, $account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
+    public function indexedRetailerLocationSearchAsync($account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
     {
-        return $this->indexedRetailerLocationSearchAsyncWithHttpInfo($version, $account_id, $start, $limit, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType)
+        return $this->indexedRetailerLocationSearchAsyncWithHttpInfo($account_id, $start, $limit, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3741,7 +3618,6 @@ class RetailerLocationApi
      *
      * Keyword Search Retailer Locations (Indexed)
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  int|null $start The start index for pagination (optional)
      * @param  int|null $limit The limit for pagination (optional)
@@ -3775,10 +3651,10 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function indexedRetailerLocationSearchAsyncWithHttpInfo($version, $account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
+    public function indexedRetailerLocationSearchAsyncWithHttpInfo($account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerLocationResponse[]';
-        $request = $this->indexedRetailerLocationSearchRequest($version, $account_id, $start, $limit, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
+        $request = $this->indexedRetailerLocationSearchRequest($account_id, $start, $limit, $has_offers, $categories, $filters, $audiences, $retailer_ids, $retailer_location_ids, $tags, $location_type, $sort_field, $descending, $q, $keyword, $keyword_operator, $search_expression, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $return_external_category_data, $include_favorite, $include_liked, $include_rating, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3819,7 +3695,6 @@ class RetailerLocationApi
     /**
      * Create request for operation 'indexedRetailerLocationSearch'
      *
-     * @param  float $version (required)
      * @param  int|null $account_id The account id of the user (optional)
      * @param  int|null $start The start index for pagination (optional)
      * @param  int|null $limit The limit for pagination (optional)
@@ -3853,15 +3728,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function indexedRetailerLocationSearchRequest($version, $account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
+    public function indexedRetailerLocationSearchRequest($account_id = null, $start = null, $limit = null, $has_offers = null, $categories = null, $filters = null, $audiences = null, $retailer_ids = null, $retailer_location_ids = null, $tags = null, $location_type = null, $sort_field = null, $descending = null, $q = null, $keyword = null, $keyword_operator = null, $search_expression = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $return_external_category_data = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['indexedRetailerLocationSearch'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling indexedRetailerLocationSearch'
-            );
-        }
 
 
 
@@ -3891,8 +3760,7 @@ class RetailerLocationApi
 
 
 
-
-        $resourcePath = '/api/{version}/retailer/location/isearch';
+        $resourcePath = '/retailer/location/isearch';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4153,14 +4021,6 @@ class RetailerLocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4221,7 +4081,6 @@ class RetailerLocationApi
      *
      * Search Retailer Locations (Owned)
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q This parameter is deprecated. (optional)
@@ -4253,9 +4112,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerLocationResponse[]
      */
-    public function searchRetailerLocations($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
+    public function searchRetailerLocations($device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
     {
-        list($response) = $this->searchRetailerLocationsWithHttpInfo($version, $device_id, $account_id, $q, $keyword, $retailer_ids, $retailer_location_ids, $location_type, $sort_field, $descending, $_i, $start, $_l, $limit, $show_public_locations, $active_only, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $include_favorite, $include_liked, $include_rating, $contentType);
+        list($response) = $this->searchRetailerLocationsWithHttpInfo($device_id, $account_id, $q, $keyword, $retailer_ids, $retailer_location_ids, $location_type, $sort_field, $descending, $_i, $start, $_l, $limit, $show_public_locations, $active_only, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $include_favorite, $include_liked, $include_rating, $contentType);
         return $response;
     }
 
@@ -4264,7 +4123,6 @@ class RetailerLocationApi
      *
      * Search Retailer Locations (Owned)
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q This parameter is deprecated. (optional)
@@ -4296,9 +4154,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerLocationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRetailerLocationsWithHttpInfo($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
+    public function searchRetailerLocationsWithHttpInfo($device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
     {
-        $request = $this->searchRetailerLocationsRequest($version, $device_id, $account_id, $q, $keyword, $retailer_ids, $retailer_location_ids, $location_type, $sort_field, $descending, $_i, $start, $_l, $limit, $show_public_locations, $active_only, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $include_favorite, $include_liked, $include_rating, $contentType);
+        $request = $this->searchRetailerLocationsRequest($device_id, $account_id, $q, $keyword, $retailer_ids, $retailer_location_ids, $location_type, $sort_field, $descending, $_i, $start, $_l, $limit, $show_public_locations, $active_only, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $include_favorite, $include_liked, $include_rating, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4374,7 +4232,6 @@ class RetailerLocationApi
      *
      * Search Retailer Locations (Owned)
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q This parameter is deprecated. (optional)
@@ -4405,9 +4262,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRetailerLocationsAsync($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
+    public function searchRetailerLocationsAsync($device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
     {
-        return $this->searchRetailerLocationsAsyncWithHttpInfo($version, $device_id, $account_id, $q, $keyword, $retailer_ids, $retailer_location_ids, $location_type, $sort_field, $descending, $_i, $start, $_l, $limit, $show_public_locations, $active_only, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $include_favorite, $include_liked, $include_rating, $contentType)
+        return $this->searchRetailerLocationsAsyncWithHttpInfo($device_id, $account_id, $q, $keyword, $retailer_ids, $retailer_location_ids, $location_type, $sort_field, $descending, $_i, $start, $_l, $limit, $show_public_locations, $active_only, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $include_favorite, $include_liked, $include_rating, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4420,7 +4277,6 @@ class RetailerLocationApi
      *
      * Search Retailer Locations (Owned)
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q This parameter is deprecated. (optional)
@@ -4451,10 +4307,10 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRetailerLocationsAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
+    public function searchRetailerLocationsAsyncWithHttpInfo($device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerLocationResponse[]';
-        $request = $this->searchRetailerLocationsRequest($version, $device_id, $account_id, $q, $keyword, $retailer_ids, $retailer_location_ids, $location_type, $sort_field, $descending, $_i, $start, $_l, $limit, $show_public_locations, $active_only, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $include_favorite, $include_liked, $include_rating, $contentType);
+        $request = $this->searchRetailerLocationsRequest($device_id, $account_id, $q, $keyword, $retailer_ids, $retailer_location_ids, $location_type, $sort_field, $descending, $_i, $start, $_l, $limit, $show_public_locations, $active_only, $return_retailer, $return_assets, $return_offers, $return_categories, $return_filters, $return_audiences, $return_qr_code, $include_favorite, $include_liked, $include_rating, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4495,7 +4351,6 @@ class RetailerLocationApi
     /**
      * Create request for operation 'searchRetailerLocations'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  string|null $q This parameter is deprecated. (optional)
@@ -4526,15 +4381,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRetailerLocationsRequest($version, $device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
+    public function searchRetailerLocationsRequest($device_id = null, $account_id = null, $q = null, $keyword = null, $retailer_ids = null, $retailer_location_ids = null, $location_type = null, $sort_field = null, $descending = null, $_i = null, $start = null, $_l = null, $limit = null, $show_public_locations = null, $active_only = null, $return_retailer = null, $return_assets = null, $return_offers = null, $return_categories = null, $return_filters = null, $return_audiences = null, $return_qr_code = null, $include_favorite = null, $include_liked = null, $include_rating = null, string $contentType = self::contentTypes['searchRetailerLocations'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchRetailerLocations'
-            );
-        }
 
 
 
@@ -4561,8 +4410,7 @@ class RetailerLocationApi
 
 
 
-
-        $resourcePath = '/api/{version}/retailer/location/search';
+        $resourcePath = '/retailer/location/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4796,14 +4644,6 @@ class RetailerLocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4864,7 +4704,6 @@ class RetailerLocationApi
      *
      * Update Retailer Location
      *
-     * @param  float $version version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4912,9 +4751,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RetailerLocationResponse
      */
-    public function updateRetailerLocations($version, $retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
+    public function updateRetailerLocations($retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
     {
-        list($response) = $this->updateRetailerLocationsWithHttpInfo($version, $retailer_location_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $meta_data, $payment_provider, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $tags, $contentType);
+        list($response) = $this->updateRetailerLocationsWithHttpInfo($retailer_location_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $meta_data, $payment_provider, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $tags, $contentType);
         return $response;
     }
 
@@ -4923,7 +4762,6 @@ class RetailerLocationApi
      *
      * Update Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -4971,9 +4809,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RetailerLocationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRetailerLocationsWithHttpInfo($version, $retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
+    public function updateRetailerLocationsWithHttpInfo($retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
     {
-        $request = $this->updateRetailerLocationsRequest($version, $retailer_location_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $meta_data, $payment_provider, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $tags, $contentType);
+        $request = $this->updateRetailerLocationsRequest($retailer_location_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $meta_data, $payment_provider, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $tags, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5049,7 +4887,6 @@ class RetailerLocationApi
      *
      * Update Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -5096,9 +4933,9 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRetailerLocationsAsync($version, $retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
+    public function updateRetailerLocationsAsync($retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
     {
-        return $this->updateRetailerLocationsAsyncWithHttpInfo($version, $retailer_location_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $meta_data, $payment_provider, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $tags, $contentType)
+        return $this->updateRetailerLocationsAsyncWithHttpInfo($retailer_location_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $meta_data, $payment_provider, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $tags, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5111,7 +4948,6 @@ class RetailerLocationApi
      *
      * Update Retailer Location
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -5158,10 +4994,10 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRetailerLocationsAsyncWithHttpInfo($version, $retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
+    public function updateRetailerLocationsAsyncWithHttpInfo($retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RetailerLocationResponse';
-        $request = $this->updateRetailerLocationsRequest($version, $retailer_location_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $meta_data, $payment_provider, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $tags, $contentType);
+        $request = $this->updateRetailerLocationsRequest($retailer_location_id, $device_id, $account_id, $name, $street_address, $street_address2, $city, $state, $postal_code, $country, $business_phone, $business_phone_ext, $website, $email, $internal_id, $details_header, $details_body, $hours, $logo, $logo_asset_id, $picture1, $picture1_asset_id, $picture2, $picture2_asset_id, $category_ids, $filter_ids, $latitude, $longitude, $building, $google_place_id, $yelp_id, $meta_data, $payment_provider, $active, $public_location, $location_type, $audience_ids, $audience_ids_to_add, $audience_ids_to_remove, $response_format, $tags, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5202,7 +5038,6 @@ class RetailerLocationApi
     /**
      * Create request for operation 'updateRetailerLocations'
      *
-     * @param  float $version (required)
      * @param  int $retailer_location_id The ID of the retailer location (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -5249,15 +5084,8 @@ class RetailerLocationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateRetailerLocationsRequest($version, $retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
+    public function updateRetailerLocationsRequest($retailer_location_id, $device_id = null, $account_id = null, $name = null, $street_address = null, $street_address2 = null, $city = null, $state = null, $postal_code = null, $country = null, $business_phone = null, $business_phone_ext = null, $website = null, $email = null, $internal_id = null, $details_header = null, $details_body = null, $hours = null, $logo = null, $logo_asset_id = null, $picture1 = null, $picture1_asset_id = null, $picture2 = null, $picture2_asset_id = null, $category_ids = null, $filter_ids = null, $latitude = null, $longitude = null, $building = null, $google_place_id = null, $yelp_id = null, $meta_data = null, $payment_provider = null, $active = null, $public_location = null, $location_type = null, $audience_ids = null, $audience_ids_to_add = null, $audience_ids_to_remove = null, $response_format = null, $tags = null, string $contentType = self::contentTypes['updateRetailerLocations'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling updateRetailerLocations'
-            );
-        }
 
         // verify the required parameter 'retailer_location_id' is set
         if ($retailer_location_id === null || (is_array($retailer_location_id) && count($retailer_location_id) === 0)) {
@@ -5307,7 +5135,7 @@ class RetailerLocationApi
 
 
 
-        $resourcePath = '/api/{version}/retailer/location/update';
+        $resourcePath = '/retailer/location/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5685,14 +5513,6 @@ class RetailerLocationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

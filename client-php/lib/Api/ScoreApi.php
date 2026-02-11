@@ -137,7 +137,6 @@ class ScoreApi
      *
      * Create Score
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to save the score for. (required)
      * @param  int $points The score (required)
@@ -154,9 +153,9 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ScoreResponse
      */
-    public function createScore($version, $account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
+    public function createScore($account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
     {
-        list($response) = $this->createScoreWithHttpInfo($version, $account_id, $app_key, $points, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $time_taken, $highest, $contentType);
+        list($response) = $this->createScoreWithHttpInfo($account_id, $app_key, $points, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $time_taken, $highest, $contentType);
         return $response;
     }
 
@@ -165,7 +164,6 @@ class ScoreApi
      *
      * Create Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to save the score for. (required)
      * @param  int $points The score (required)
@@ -182,9 +180,9 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ScoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createScoreWithHttpInfo($version, $account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
+    public function createScoreWithHttpInfo($account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
     {
-        $request = $this->createScoreRequest($version, $account_id, $app_key, $points, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $time_taken, $highest, $contentType);
+        $request = $this->createScoreRequest($account_id, $app_key, $points, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $time_taken, $highest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -260,7 +258,6 @@ class ScoreApi
      *
      * Create Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to save the score for. (required)
      * @param  int $points The score (required)
@@ -276,9 +273,9 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createScoreAsync($version, $account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
+    public function createScoreAsync($account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
     {
-        return $this->createScoreAsyncWithHttpInfo($version, $account_id, $app_key, $points, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $time_taken, $highest, $contentType)
+        return $this->createScoreAsyncWithHttpInfo($account_id, $app_key, $points, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $time_taken, $highest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -291,7 +288,6 @@ class ScoreApi
      *
      * Create Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to save the score for. (required)
      * @param  int $points The score (required)
@@ -307,10 +303,10 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createScoreAsyncWithHttpInfo($version, $account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
+    public function createScoreAsyncWithHttpInfo($account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ScoreResponse';
-        $request = $this->createScoreRequest($version, $account_id, $app_key, $points, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $time_taken, $highest, $contentType);
+        $request = $this->createScoreRequest($account_id, $app_key, $points, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $time_taken, $highest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -351,7 +347,6 @@ class ScoreApi
     /**
      * Create request for operation 'createScore'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to save the score for. (required)
      * @param  int $points The score (required)
@@ -367,15 +362,8 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createScoreRequest($version, $account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
+    public function createScoreRequest($account_id, $app_key, $points, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $time_taken = null, $highest = null, string $contentType = self::contentTypes['createScore'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createScore'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -406,7 +394,7 @@ class ScoreApi
 
 
 
-        $resourcePath = '/api/{version}/score/create';
+        $resourcePath = '/score/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -505,14 +493,6 @@ class ScoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -573,7 +553,6 @@ class ScoreApi
      *
      * Get Score
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -589,9 +568,9 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ScoreResponse
      */
-    public function getScore($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
+    public function getScore($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
     {
-        list($response) = $this->getScoreWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_object_type, $score_status, $contentType);
+        list($response) = $this->getScoreWithHttpInfo($account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_object_type, $score_status, $contentType);
         return $response;
     }
 
@@ -600,7 +579,6 @@ class ScoreApi
      *
      * Get Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -616,9 +594,9 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ScoreResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getScoreWithHttpInfo($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
+    public function getScoreWithHttpInfo($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
     {
-        $request = $this->getScoreRequest($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_object_type, $score_status, $contentType);
+        $request = $this->getScoreRequest($account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_object_type, $score_status, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -694,7 +672,6 @@ class ScoreApi
      *
      * Get Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -709,9 +686,9 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getScoreAsync($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
+    public function getScoreAsync($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
     {
-        return $this->getScoreAsyncWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_object_type, $score_status, $contentType)
+        return $this->getScoreAsyncWithHttpInfo($account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_object_type, $score_status, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -724,7 +701,6 @@ class ScoreApi
      *
      * Get Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -739,10 +715,10 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getScoreAsyncWithHttpInfo($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
+    public function getScoreAsyncWithHttpInfo($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ScoreResponse';
-        $request = $this->getScoreRequest($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_object_type, $score_status, $contentType);
+        $request = $this->getScoreRequest($account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $score_object_type, $score_status, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -783,7 +759,6 @@ class ScoreApi
     /**
      * Create request for operation 'getScore'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -798,15 +773,8 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getScoreRequest($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
+    public function getScoreRequest($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, $score_object_type = null, $score_status = null, string $contentType = self::contentTypes['getScore'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getScore'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -830,7 +798,7 @@ class ScoreApi
 
 
 
-        $resourcePath = '/api/{version}/score/get';
+        $resourcePath = '/score/get';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -920,14 +888,6 @@ class ScoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -988,7 +948,6 @@ class ScoreApi
      *
      * Search Score
      *
-     * @param  float $version version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -1002,9 +961,9 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ScoreResponse[]
      */
-    public function searchScores($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
+    public function searchScores($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
     {
-        list($response) = $this->searchScoresWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
+        list($response) = $this->searchScoresWithHttpInfo($account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
         return $response;
     }
 
@@ -1013,7 +972,6 @@ class ScoreApi
      *
      * Search Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -1027,9 +985,9 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ScoreResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchScoresWithHttpInfo($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
+    public function searchScoresWithHttpInfo($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
     {
-        $request = $this->searchScoresRequest($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
+        $request = $this->searchScoresRequest($account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1105,7 +1063,6 @@ class ScoreApi
      *
      * Search Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -1118,9 +1075,9 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchScoresAsync($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
+    public function searchScoresAsync($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
     {
-        return $this->searchScoresAsyncWithHttpInfo($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType)
+        return $this->searchScoresAsyncWithHttpInfo($account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1133,7 +1090,6 @@ class ScoreApi
      *
      * Search Score
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -1146,10 +1102,10 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchScoresAsyncWithHttpInfo($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
+    public function searchScoresAsyncWithHttpInfo($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ScoreResponse[]';
-        $request = $this->searchScoresRequest($version, $account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
+        $request = $this->searchScoresRequest($account_id, $app_key, $mission_id, $game_id, $pack_id, $game_level_id, $game_object_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1190,7 +1146,6 @@ class ScoreApi
     /**
      * Create request for operation 'searchScores'
      *
-     * @param  float $version (required)
      * @param  int $account_id The logged in user. (required)
      * @param  string $app_key The game application key to get the level for. (required)
      * @param  int|null $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -1203,15 +1158,8 @@ class ScoreApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchScoresRequest($version, $account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
+    public function searchScoresRequest($account_id, $app_key, $mission_id = null, $game_id = null, $pack_id = null, $game_level_id = null, $game_object_id = null, string $contentType = self::contentTypes['searchScores'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchScores'
-            );
-        }
 
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1233,7 +1181,7 @@ class ScoreApi
 
 
 
-        $resourcePath = '/api/{version}/score/search';
+        $resourcePath = '/score/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1305,14 +1253,6 @@ class ScoreApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

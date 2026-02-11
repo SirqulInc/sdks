@@ -146,7 +146,6 @@ class ReservationApi
      *
      * Create Reservation
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $start_date The start date (optional)
@@ -161,9 +160,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createReservation($version, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservation($device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
     {
-        $this->createReservationWithHttpInfo($version, $device_id, $account_id, $start_date, $end_date, $offer_id, $offer_location_id, $app_key, $meta_data, $contentType);
+        $this->createReservationWithHttpInfo($device_id, $account_id, $start_date, $end_date, $offer_id, $offer_location_id, $app_key, $meta_data, $contentType);
     }
 
     /**
@@ -171,7 +170,6 @@ class ReservationApi
      *
      * Create Reservation
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $start_date The start date (optional)
@@ -186,9 +184,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReservationWithHttpInfo($version, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservationWithHttpInfo($device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
     {
-        $request = $this->createReservationRequest($version, $device_id, $account_id, $start_date, $end_date, $offer_id, $offer_location_id, $app_key, $meta_data, $contentType);
+        $request = $this->createReservationRequest($device_id, $account_id, $start_date, $end_date, $offer_id, $offer_location_id, $app_key, $meta_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -228,7 +226,6 @@ class ReservationApi
      *
      * Create Reservation
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $start_date The start date (optional)
@@ -242,9 +239,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReservationAsync($version, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservationAsync($device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
     {
-        return $this->createReservationAsyncWithHttpInfo($version, $device_id, $account_id, $start_date, $end_date, $offer_id, $offer_location_id, $app_key, $meta_data, $contentType)
+        return $this->createReservationAsyncWithHttpInfo($device_id, $account_id, $start_date, $end_date, $offer_id, $offer_location_id, $app_key, $meta_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -257,7 +254,6 @@ class ReservationApi
      *
      * Create Reservation
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $start_date The start date (optional)
@@ -271,10 +267,10 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReservationAsyncWithHttpInfo($version, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservationAsyncWithHttpInfo($device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
     {
         $returnType = '';
-        $request = $this->createReservationRequest($version, $device_id, $account_id, $start_date, $end_date, $offer_id, $offer_location_id, $app_key, $meta_data, $contentType);
+        $request = $this->createReservationRequest($device_id, $account_id, $start_date, $end_date, $offer_id, $offer_location_id, $app_key, $meta_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -302,7 +298,6 @@ class ReservationApi
     /**
      * Create request for operation 'createReservation'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
      * @param  int|null $start_date The start date (optional)
@@ -316,15 +311,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createReservationRequest($version, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservationRequest($device_id = null, $account_id = null, $start_date = null, $end_date = null, $offer_id = null, $offer_location_id = null, $app_key = null, $meta_data = null, string $contentType = self::contentTypes['createReservation'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling createReservation'
-            );
-        }
 
 
 
@@ -334,8 +323,7 @@ class ReservationApi
 
 
 
-
-        $resourcePath = '/api/{version}/reservation/create';
+        $resourcePath = '/reservation/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -416,14 +404,6 @@ class ReservationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -484,7 +464,6 @@ class ReservationApi
      *
      * Delete Reservation
      *
-     * @param  float $version version (required)
      * @param  int $reservation_id The reservation id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -494,9 +473,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteReservation($version, $reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
+    public function deleteReservation($reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
     {
-        $this->deleteReservationWithHttpInfo($version, $reservation_id, $device_id, $account_id, $contentType);
+        $this->deleteReservationWithHttpInfo($reservation_id, $device_id, $account_id, $contentType);
     }
 
     /**
@@ -504,7 +483,6 @@ class ReservationApi
      *
      * Delete Reservation
      *
-     * @param  float $version (required)
      * @param  int $reservation_id The reservation id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -514,9 +492,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteReservationWithHttpInfo($version, $reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
+    public function deleteReservationWithHttpInfo($reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
     {
-        $request = $this->deleteReservationRequest($version, $reservation_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteReservationRequest($reservation_id, $device_id, $account_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -556,7 +534,6 @@ class ReservationApi
      *
      * Delete Reservation
      *
-     * @param  float $version (required)
      * @param  int $reservation_id The reservation id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -565,9 +542,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteReservationAsync($version, $reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
+    public function deleteReservationAsync($reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
     {
-        return $this->deleteReservationAsyncWithHttpInfo($version, $reservation_id, $device_id, $account_id, $contentType)
+        return $this->deleteReservationAsyncWithHttpInfo($reservation_id, $device_id, $account_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -580,7 +557,6 @@ class ReservationApi
      *
      * Delete Reservation
      *
-     * @param  float $version (required)
      * @param  int $reservation_id The reservation id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -589,10 +565,10 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteReservationAsyncWithHttpInfo($version, $reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
+    public function deleteReservationAsyncWithHttpInfo($reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
     {
         $returnType = '';
-        $request = $this->deleteReservationRequest($version, $reservation_id, $device_id, $account_id, $contentType);
+        $request = $this->deleteReservationRequest($reservation_id, $device_id, $account_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -620,7 +596,6 @@ class ReservationApi
     /**
      * Create request for operation 'deleteReservation'
      *
-     * @param  float $version (required)
      * @param  int $reservation_id The reservation id (required)
      * @param  string|null $device_id The device id (deviceId or accountId required) (optional)
      * @param  int|null $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -629,15 +604,8 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteReservationRequest($version, $reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
+    public function deleteReservationRequest($reservation_id, $device_id = null, $account_id = null, string $contentType = self::contentTypes['deleteReservation'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling deleteReservation'
-            );
-        }
 
         // verify the required parameter 'reservation_id' is set
         if ($reservation_id === null || (is_array($reservation_id) && count($reservation_id) === 0)) {
@@ -649,7 +617,7 @@ class ReservationApi
 
 
 
-        $resourcePath = '/api/{version}/reservation/delete';
+        $resourcePath = '/reservation/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -685,14 +653,6 @@ class ReservationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -753,7 +713,6 @@ class ReservationApi
      *
      * Update Availability
      *
-     * @param  float $version version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the type of reservation (required)
      * @param  string|null $device_id the device id of the reservation (optional)
@@ -766,9 +725,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AvailabilityResponse[]
      */
-    public function reservableAvailability($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
+    public function reservableAvailability($reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
     {
-        list($response) = $this->reservableAvailabilityWithHttpInfo($version, $reservable_id, $reservable_type, $device_id, $account_id, $availability, $availability_summary, $contentType);
+        list($response) = $this->reservableAvailabilityWithHttpInfo($reservable_id, $reservable_type, $device_id, $account_id, $availability, $availability_summary, $contentType);
         return $response;
     }
 
@@ -777,7 +736,6 @@ class ReservationApi
      *
      * Update Availability
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the type of reservation (required)
      * @param  string|null $device_id the device id of the reservation (optional)
@@ -790,9 +748,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AvailabilityResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function reservableAvailabilityWithHttpInfo($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
+    public function reservableAvailabilityWithHttpInfo($reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
     {
-        $request = $this->reservableAvailabilityRequest($version, $reservable_id, $reservable_type, $device_id, $account_id, $availability, $availability_summary, $contentType);
+        $request = $this->reservableAvailabilityRequest($reservable_id, $reservable_type, $device_id, $account_id, $availability, $availability_summary, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -868,7 +826,6 @@ class ReservationApi
      *
      * Update Availability
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the type of reservation (required)
      * @param  string|null $device_id the device id of the reservation (optional)
@@ -880,9 +837,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reservableAvailabilityAsync($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
+    public function reservableAvailabilityAsync($reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
     {
-        return $this->reservableAvailabilityAsyncWithHttpInfo($version, $reservable_id, $reservable_type, $device_id, $account_id, $availability, $availability_summary, $contentType)
+        return $this->reservableAvailabilityAsyncWithHttpInfo($reservable_id, $reservable_type, $device_id, $account_id, $availability, $availability_summary, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -895,7 +852,6 @@ class ReservationApi
      *
      * Update Availability
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the type of reservation (required)
      * @param  string|null $device_id the device id of the reservation (optional)
@@ -907,10 +863,10 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reservableAvailabilityAsyncWithHttpInfo($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
+    public function reservableAvailabilityAsyncWithHttpInfo($reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AvailabilityResponse[]';
-        $request = $this->reservableAvailabilityRequest($version, $reservable_id, $reservable_type, $device_id, $account_id, $availability, $availability_summary, $contentType);
+        $request = $this->reservableAvailabilityRequest($reservable_id, $reservable_type, $device_id, $account_id, $availability, $availability_summary, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -951,7 +907,6 @@ class ReservationApi
     /**
      * Create request for operation 'reservableAvailability'
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the type of reservation (required)
      * @param  string|null $device_id the device id of the reservation (optional)
@@ -963,15 +918,8 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reservableAvailabilityRequest($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
+    public function reservableAvailabilityRequest($reservable_id, $reservable_type, $device_id = null, $account_id = null, $availability = null, $availability_summary = null, string $contentType = self::contentTypes['reservableAvailability'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling reservableAvailability'
-            );
-        }
 
         // verify the required parameter 'reservable_id' is set
         if ($reservable_id === null || (is_array($reservable_id) && count($reservable_id) === 0)) {
@@ -992,7 +940,7 @@ class ReservationApi
 
 
 
-        $resourcePath = '/api/{version}/reservable/availability/update';
+        $resourcePath = '/reservable/availability/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1055,14 +1003,6 @@ class ReservationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1123,7 +1063,6 @@ class ReservationApi
      *
      * Search Availability
      *
-     * @param  float $version version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservable type (required)
      * @param  string|null $device_id the device ID that the reservation is on (optional)
@@ -1138,9 +1077,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AvailabilityResponse[]
      */
-    public function searchAvailability($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
+    public function searchAvailability($reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
     {
-        list($response) = $this->searchAvailabilityWithHttpInfo($version, $reservable_id, $reservable_type, $device_id, $account_id, $start_date, $end_date, $start, $limit, $contentType);
+        list($response) = $this->searchAvailabilityWithHttpInfo($reservable_id, $reservable_type, $device_id, $account_id, $start_date, $end_date, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1149,7 +1088,6 @@ class ReservationApi
      *
      * Search Availability
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservable type (required)
      * @param  string|null $device_id the device ID that the reservation is on (optional)
@@ -1164,9 +1102,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AvailabilityResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAvailabilityWithHttpInfo($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
+    public function searchAvailabilityWithHttpInfo($reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
     {
-        $request = $this->searchAvailabilityRequest($version, $reservable_id, $reservable_type, $device_id, $account_id, $start_date, $end_date, $start, $limit, $contentType);
+        $request = $this->searchAvailabilityRequest($reservable_id, $reservable_type, $device_id, $account_id, $start_date, $end_date, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1242,7 +1180,6 @@ class ReservationApi
      *
      * Search Availability
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservable type (required)
      * @param  string|null $device_id the device ID that the reservation is on (optional)
@@ -1256,9 +1193,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAvailabilityAsync($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
+    public function searchAvailabilityAsync($reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
     {
-        return $this->searchAvailabilityAsyncWithHttpInfo($version, $reservable_id, $reservable_type, $device_id, $account_id, $start_date, $end_date, $start, $limit, $contentType)
+        return $this->searchAvailabilityAsyncWithHttpInfo($reservable_id, $reservable_type, $device_id, $account_id, $start_date, $end_date, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1271,7 +1208,6 @@ class ReservationApi
      *
      * Search Availability
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservable type (required)
      * @param  string|null $device_id the device ID that the reservation is on (optional)
@@ -1285,10 +1221,10 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAvailabilityAsyncWithHttpInfo($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
+    public function searchAvailabilityAsyncWithHttpInfo($reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AvailabilityResponse[]';
-        $request = $this->searchAvailabilityRequest($version, $reservable_id, $reservable_type, $device_id, $account_id, $start_date, $end_date, $start, $limit, $contentType);
+        $request = $this->searchAvailabilityRequest($reservable_id, $reservable_type, $device_id, $account_id, $start_date, $end_date, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1329,7 +1265,6 @@ class ReservationApi
     /**
      * Create request for operation 'searchAvailability'
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservable type (required)
      * @param  string|null $device_id the device ID that the reservation is on (optional)
@@ -1343,15 +1278,8 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchAvailabilityRequest($version, $reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
+    public function searchAvailabilityRequest($reservable_id, $reservable_type, $device_id = null, $account_id = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchAvailability'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchAvailability'
-            );
-        }
 
         // verify the required parameter 'reservable_id' is set
         if ($reservable_id === null || (is_array($reservable_id) && count($reservable_id) === 0)) {
@@ -1374,7 +1302,7 @@ class ReservationApi
 
 
 
-        $resourcePath = '/api/{version}/reservable/availability/search';
+        $resourcePath = '/reservable/availability/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1455,14 +1383,6 @@ class ReservationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1523,7 +1443,6 @@ class ReservationApi
      *
      * Search Reservations
      *
-     * @param  float $version version (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  string|null $app_key Appilcation Key (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
@@ -1541,9 +1460,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ReservationResponse[]
      */
-    public function searchReservations($version, $device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
+    public function searchReservations($device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
     {
-        list($response) = $this->searchReservationsWithHttpInfo($version, $device_id, $app_key, $account_id, $filter_account_id, $reservable_id, $reservable_type, $keyword, $start_date, $end_date, $start, $limit, $contentType);
+        list($response) = $this->searchReservationsWithHttpInfo($device_id, $app_key, $account_id, $filter_account_id, $reservable_id, $reservable_type, $keyword, $start_date, $end_date, $start, $limit, $contentType);
         return $response;
     }
 
@@ -1552,7 +1471,6 @@ class ReservationApi
      *
      * Search Reservations
      *
-     * @param  float $version (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  string|null $app_key Appilcation Key (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
@@ -1570,9 +1488,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ReservationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchReservationsWithHttpInfo($version, $device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
+    public function searchReservationsWithHttpInfo($device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
     {
-        $request = $this->searchReservationsRequest($version, $device_id, $app_key, $account_id, $filter_account_id, $reservable_id, $reservable_type, $keyword, $start_date, $end_date, $start, $limit, $contentType);
+        $request = $this->searchReservationsRequest($device_id, $app_key, $account_id, $filter_account_id, $reservable_id, $reservable_type, $keyword, $start_date, $end_date, $start, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1648,7 +1566,6 @@ class ReservationApi
      *
      * Search Reservations
      *
-     * @param  float $version (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  string|null $app_key Appilcation Key (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
@@ -1665,9 +1582,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchReservationsAsync($version, $device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
+    public function searchReservationsAsync($device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
     {
-        return $this->searchReservationsAsyncWithHttpInfo($version, $device_id, $app_key, $account_id, $filter_account_id, $reservable_id, $reservable_type, $keyword, $start_date, $end_date, $start, $limit, $contentType)
+        return $this->searchReservationsAsyncWithHttpInfo($device_id, $app_key, $account_id, $filter_account_id, $reservable_id, $reservable_type, $keyword, $start_date, $end_date, $start, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1680,7 +1597,6 @@ class ReservationApi
      *
      * Search Reservations
      *
-     * @param  float $version (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  string|null $app_key Appilcation Key (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
@@ -1697,10 +1613,10 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchReservationsAsyncWithHttpInfo($version, $device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
+    public function searchReservationsAsyncWithHttpInfo($device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ReservationResponse[]';
-        $request = $this->searchReservationsRequest($version, $device_id, $app_key, $account_id, $filter_account_id, $reservable_id, $reservable_type, $keyword, $start_date, $end_date, $start, $limit, $contentType);
+        $request = $this->searchReservationsRequest($device_id, $app_key, $account_id, $filter_account_id, $reservable_id, $reservable_type, $keyword, $start_date, $end_date, $start, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1741,7 +1657,6 @@ class ReservationApi
     /**
      * Create request for operation 'searchReservations'
      *
-     * @param  float $version (required)
      * @param  string|null $device_id Device Id (optional)
      * @param  string|null $app_key Appilcation Key (optional)
      * @param  int|null $account_id the id of the logged in user (optional)
@@ -1758,15 +1673,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchReservationsRequest($version, $device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
+    public function searchReservationsRequest($device_id = null, $app_key = null, $account_id = null, $filter_account_id = null, $reservable_id = null, $reservable_type = null, $keyword = null, $start_date = null, $end_date = null, $start = 0, $limit = 100, string $contentType = self::contentTypes['searchReservations'][0])
     {
 
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchReservations'
-            );
-        }
 
 
 
@@ -1779,8 +1688,7 @@ class ReservationApi
 
 
 
-
-        $resourcePath = '/api/{version}/reservation/search';
+        $resourcePath = '/reservation/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1888,14 +1796,6 @@ class ReservationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1956,7 +1856,6 @@ class ReservationApi
      *
      * Search Schedule
      *
-     * @param  float $version version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservation type (required)
      * @param  int $start_date the start date of the reservation (required)
@@ -1970,9 +1869,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\TimeSlotResponse[]
      */
-    public function searchSchedule($version, $reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
+    public function searchSchedule($reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
     {
-        list($response) = $this->searchScheduleWithHttpInfo($version, $reservable_id, $reservable_type, $start_date, $end_date, $device_id, $account_id, $time_bucket_mins, $contentType);
+        list($response) = $this->searchScheduleWithHttpInfo($reservable_id, $reservable_type, $start_date, $end_date, $device_id, $account_id, $time_bucket_mins, $contentType);
         return $response;
     }
 
@@ -1981,7 +1880,6 @@ class ReservationApi
      *
      * Search Schedule
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservation type (required)
      * @param  int $start_date the start date of the reservation (required)
@@ -1995,9 +1893,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\TimeSlotResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchScheduleWithHttpInfo($version, $reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
+    public function searchScheduleWithHttpInfo($reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
     {
-        $request = $this->searchScheduleRequest($version, $reservable_id, $reservable_type, $start_date, $end_date, $device_id, $account_id, $time_bucket_mins, $contentType);
+        $request = $this->searchScheduleRequest($reservable_id, $reservable_type, $start_date, $end_date, $device_id, $account_id, $time_bucket_mins, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2073,7 +1971,6 @@ class ReservationApi
      *
      * Search Schedule
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservation type (required)
      * @param  int $start_date the start date of the reservation (required)
@@ -2086,9 +1983,9 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchScheduleAsync($version, $reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
+    public function searchScheduleAsync($reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
     {
-        return $this->searchScheduleAsyncWithHttpInfo($version, $reservable_id, $reservable_type, $start_date, $end_date, $device_id, $account_id, $time_bucket_mins, $contentType)
+        return $this->searchScheduleAsyncWithHttpInfo($reservable_id, $reservable_type, $start_date, $end_date, $device_id, $account_id, $time_bucket_mins, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2101,7 +1998,6 @@ class ReservationApi
      *
      * Search Schedule
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservation type (required)
      * @param  int $start_date the start date of the reservation (required)
@@ -2114,10 +2010,10 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchScheduleAsyncWithHttpInfo($version, $reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
+    public function searchScheduleAsyncWithHttpInfo($reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TimeSlotResponse[]';
-        $request = $this->searchScheduleRequest($version, $reservable_id, $reservable_type, $start_date, $end_date, $device_id, $account_id, $time_bucket_mins, $contentType);
+        $request = $this->searchScheduleRequest($reservable_id, $reservable_type, $start_date, $end_date, $device_id, $account_id, $time_bucket_mins, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2158,7 +2054,6 @@ class ReservationApi
     /**
      * Create request for operation 'searchSchedule'
      *
-     * @param  float $version (required)
      * @param  int $reservable_id the id of the reservation (required)
      * @param  string $reservable_type the reservation type (required)
      * @param  int $start_date the start date of the reservation (required)
@@ -2171,15 +2066,8 @@ class ReservationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchScheduleRequest($version, $reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
+    public function searchScheduleRequest($reservable_id, $reservable_type, $start_date, $end_date, $device_id = null, $account_id = null, $time_bucket_mins = 30, string $contentType = self::contentTypes['searchSchedule'][0])
     {
-
-        // verify the required parameter 'version' is set
-        if ($version === null || (is_array($version) && count($version) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling searchSchedule'
-            );
-        }
 
         // verify the required parameter 'reservable_id' is set
         if ($reservable_id === null || (is_array($reservable_id) && count($reservable_id) === 0)) {
@@ -2213,7 +2101,7 @@ class ReservationApi
 
 
 
-        $resourcePath = '/api/{version}/reservable/schedule/search';
+        $resourcePath = '/reservable/schedule/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2285,14 +2173,6 @@ class ReservationApi
         ) ?? []);
 
 
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
