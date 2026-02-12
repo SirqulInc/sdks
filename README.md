@@ -1,6 +1,65 @@
 # sdks
 Sirqul SDKs for Agentic AI
 
+# Supported Client Code
+
+The following Client Code is supported:
+
+Android
+
+Apex
+
+C
+
+Clojure
+
+CPP RestSDK
+
+CSharp
+
+Dart
+
+GdScript
+
+Go
+
+Groovy
+
+Java
+
+Javascript
+
+Kotlin
+
+Objective C
+
+Perl
+
+Php
+
+Python
+
+R
+
+Ruby
+
+Rust
+
+Scala Akka
+
+Scala Z
+
+Swift Combine
+
+Swift 6
+
+Typescript Angular
+
+Typescript Axios
+
+Typescript Node
+
+
 # Accounts Service
 
 The Accounts service enables your users to establish an identity in your application, in addition to allowing your users to interact & engage with other users in a community. The identify of your user is critical in understanding who they are, why they’re using your application, and how you can further personalize and enhance their experience. Think of any service that you have used either currently or in the past (e.g. shopping app, personal banking web portal, home security system, etc.). Each of these services more likely than not will require you to establish an account or identify in order to continue using their service.
